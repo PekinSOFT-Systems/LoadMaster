@@ -6,7 +6,8 @@
 
 package com.pekinsoft.loadmaster.controller;
 
-import com.pekinsoft.loadmaster.Money;
+import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
 import java.io.BufferedReader;
@@ -65,7 +66,7 @@ public class CustomerCtl {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public CustomerCtl () throws DataStoreException {
         customer = new CustomerModel();
-        TABLE = new File(Money.DB_URL + "customers.tbl");
+        TABLE = new File(Starter.DB_URL + "customers.tbl");
         
         // Check to see if the table file exists:
         if ( !TABLE.exists() ) {
@@ -80,7 +81,7 @@ public class CustomerCtl {
                 entry.setParameters(null);
                 entry.setSourceMethodName("Customer");
                 entry.setThrown(ex);
-                Money.logger.error(entry);
+                Starter.logger.error(entry);
                 
                 throw new DataStoreException(ex.getMessage(), ex);
             }
@@ -239,21 +240,25 @@ public class CustomerCtl {
     public void addNew(CustomerModel cust) {
         records.add(cust);
         row = getRecordCount() - 1;
-        
-        try {
-            storeData();
-            connect();
-        } catch (DataStoreException ex) {
-            entry.setMessage(ex.getMessage());
-            entry.setSourceMethodName("Customers()");
-            entry.setParameters(new Object[]{cust});
-            entry.setThrown(ex);
-            Money.logger.error(entry);
-        }
     }
     
     public void storeData() throws DataStoreException {
         BufferedWriter out;
+        
+        if ( TABLE.exists() ) {
+            TABLE.delete();
+            try {
+                TABLE.createNewFile();
+            } catch ( IOException ex ) {
+                entry.setMessage("Something went wrong deleting and recreating the data table.");
+                entry.setThrown(ex);
+                entry.setSourceMethodName("storeData");
+                entry.setParameters(null);
+                Starter.logger.error(entry);
+                
+                throw new DataStoreException(ex.getMessage(), ex);
+            }
+        }
         
         try {
             out = new BufferedWriter(new FileWriter(TABLE));
@@ -267,9 +272,9 @@ public class CustomerCtl {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Throwing DataStoreException to calling method...");
             entry.setThrown(ex);
-            entry.setSourceMethodName("connect");
+            entry.setSourceMethodName("storeData");
             entry.setParameters(null);
-            Money.logger.error(entry);
+            Starter.logger.error(entry);
             
             throw new DataStoreException(ex.getMessage(), ex);
         }
@@ -303,7 +308,7 @@ public class CustomerCtl {
             entry.setThrown(ex);
             entry.setSourceMethodName("connect");
             entry.setParameters(null);
-            Money.logger.error(entry);
+            Starter.logger.error(entry);
             
             throw new DataStoreException(ex.getMessage(), ex);
         }
