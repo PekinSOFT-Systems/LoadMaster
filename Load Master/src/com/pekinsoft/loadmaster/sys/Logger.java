@@ -119,14 +119,14 @@ public class Logger {
         }
         
         LOG_PATH = System.getProperty("user.home") 
-            + FILE_SEPARATOR + ".money" 
+            + FILE_SEPARATOR + ".loadmaster" 
             + FILE_SEPARATOR + "var" 
             + FILE_SEPARATOR + "log" 
             + FILE_SEPARATOR + "application.log";    
         TEMP_LOG_PATH = System.getProperty("user.home") 
-            + FILE_SEPARATOR + "ps-money.log";    
+            + FILE_SEPARATOR + "ps-lm.log";    
         ERR_PATH = System.getProperty("user.home") 
-            + FILE_SEPARATOR + ".money"
+            + FILE_SEPARATOR + ".loadmaster"
             + FILE_SEPARATOR + "var" 
             + FILE_SEPARATOR + "err" 
             + FILE_SEPARATOR;
@@ -148,7 +148,7 @@ public class Logger {
      */
     private Logger() {
         this ( System.getProperty("user.home") 
-            + System.getProperty("file.separator") + ".money" 
+            + System.getProperty("file.separator") + ".loadmaster" 
             + System.getProperty("file.separator") + "var" 
             + System.getProperty("file.separator") + "logs" 
             + System.getProperty("file.separator") + "application.log");

@@ -9,6 +9,8 @@ import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.enums.SysExits;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import java.awt.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JSeparator;
@@ -18,14 +20,27 @@ import javax.swing.JSeparator;
  * @author Sean Carrick
  */
 public class LoadMaster extends javax.swing.JFrame {
-
+    private final LogRecord record = new LogRecord(Level.ALL, 
+            "Logging started for com.pekinsoft.loadmaster.view.LoadMaster");
+    
     /**
      * Creates new form LoadMaster
      */
     public LoadMaster() {
+        record.setSourceClassName(LoadMaster.class.getName());
+        record.setSourceMethodName("LoadMaster");
+        record.setMessage("Initializing the LoadMaster window...");
+        Starter.logger.enter(record);
         initComponents();
         
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        
+        versionLabel.setText("Version " + Starter.props.getVersion());
+        
+        fileProgress.setVisible(false);
+        
+        record.setMessage("LoadMaster window initialization completed.");
+        Starter.logger.exit(record, null);
     }
 
     /**
@@ -49,9 +64,9 @@ public class LoadMaster extends javax.swing.JFrame {
         overView = new javax.swing.JTextArea();
         mainStatusBar = new org.jdesktop.swingx.JXStatusBar();
         tipsLabel = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        loadProgressLabel = new javax.swing.JLabel();
         loadProgress = new javax.swing.JProgressBar();
+        versionLabel = new javax.swing.JLabel();
+        fileProgress = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Load Master");
@@ -119,11 +134,13 @@ public class LoadMaster extends javax.swing.JFrame {
 
         tipsLabel.setText("Watch here for helpful tips...");
         mainStatusBar.add(tipsLabel);
-        mainStatusBar.add(jSeparator1);
 
-        loadProgressLabel.setText("Load Progress:");
-        mainStatusBar.add(loadProgressLabel);
+        loadProgress.setToolTipText("Load progress");
         mainStatusBar.add(loadProgress);
+
+        versionLabel.setText("Version 0.0.0");
+        mainStatusBar.add(versionLabel);
+        mainStatusBar.add(fileProgress);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -327,10 +344,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTaskPane accountingTasks;
+    public static javax.swing.JProgressBar fileProgress;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JProgressBar loadProgress;
-    private javax.swing.JLabel loadProgressLabel;
     private org.jdesktop.swingx.JXTaskPane loadTasks;
     private javax.swing.JSplitPane lrSplit;
     private javax.swing.JDesktopPane mainDesktop;
@@ -341,5 +357,6 @@ public class LoadMaster extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTaskPaneContainer tasksContainer;
     private javax.swing.JSplitPane tbSplit;
     private javax.swing.JLabel tipsLabel;
+    private javax.swing.JLabel versionLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -66,6 +66,8 @@ public class Starter {
         LoadMaster app = new LoadMaster();
         app.pack();
         app.setVisible(true);
+        
+        record.setMessage("Leaving Starter.main()...");
     }
 
     public static void exit(SysExits status) {

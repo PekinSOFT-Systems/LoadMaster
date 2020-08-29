@@ -254,14 +254,20 @@
             <Property name="text" type="java.lang.String" value="Watch here for helpful tips..."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSeparator" name="jSeparator1">
-        </Component>
-        <Component class="javax.swing.JLabel" name="loadProgressLabel">
+        <Component class="javax.swing.JProgressBar" name="loadProgress">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Load Progress:"/>
+            <Property name="toolTipText" type="java.lang.String" value="Load progress"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JProgressBar" name="loadProgress">
+        <Component class="javax.swing.JLabel" name="versionLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Version 0.0.0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JProgressBar" name="fileProgress">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
