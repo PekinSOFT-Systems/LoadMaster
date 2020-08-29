@@ -18,7 +18,7 @@ package com.pekinsoft.loadmaster.sys;
 
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
-import com.pekinsoft.loadmaster.Money;
+import com.pekinsoft.loadmaster.Starter;
 
 /**
  * This class is used for simply calculating the application version, as this 
@@ -36,11 +36,11 @@ public class VersionCalculator {
     public static final long BUILD;
     
     // Private fields for the softare and Project information.
-    private static final String NAME = "Loads of Money";
-    private static final String PROJECT_NAME = "Money";
+    private static final String NAME = "Load Master";
+    private static final String PROJECT_NAME = "LoadMaster";
     private static final String VENDOR = "PekinSOFT Systems";
     private static final String WEBSITE = "https://www.northwind.com";
-    private static final String PROJECT_WEB = "https://www.github.com/PekinSOFT-System/Money";
+    private static final String PROJECT_WEB = "https://www.github.com/SeanCarrick/LoadMaster";
     private static final String VENDOR_PHONE = "(309) 989-0672";
     private static final String PROJECT_LEAD = "Sean Carrick";
     private static final String PROJECT_EMAIL = "sean@pekinsoft.com";
@@ -59,34 +59,34 @@ public class VersionCalculator {
         int maj = Integer.parseInt(props.getProperty("app.major", "0"));
         
         if ( Boolean.parseBoolean(props.getProperty("debugging", "true")) ) {
-            if ( bui <= 1903 ) {
+            if ( bui >= 1903 ) {
                 String sysTime = String.valueOf(System.currentTimeMillis());
                 bui = Long.valueOf(sysTime.substring((sysTime.length() / 3) * 2, 
                         sysTime.length()));
             } else {
                 System.out.println("Current System Time in milliseconds: " +
                         System.currentTimeMillis());
-                bui += (System.currentTimeMillis() / 9000000);
+                bui += (System.currentTimeMillis() / 900000000);
             }
-            Money.props.setProperty("app.build", String.valueOf(bui));
+            Starter.props.setProperty("app.build", String.valueOf(bui));
             
-            if ( bui >= 99000 ) {
-                bui = 0;
+            if ( bui >= 9900 ) {
+                bui = 1903;
                 rev++; 
             }
-            Money.props.setProperty("app.revision", String.valueOf(rev));
+            Starter.props.setProperty("app.revision", String.valueOf(rev));
             
             if ( rev >= 49 ) {
                 rev = 0;
                 min++; 
             }
-            Money.props.setProperty("app.minor", String.valueOf(min));
+            Starter.props.setProperty("app.minor", String.valueOf(min));
             
             if ( min >= 9 ) {
                 min = 0;
                 maj++; 
             }
-            Money.props.setProperty("app.major", String.valueOf(maj));
+            Starter.props.setProperty("app.major", String.valueOf(maj));
         }
         
         MAJOR = maj;

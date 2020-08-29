@@ -8,6 +8,7 @@ package com.pekinsoft.loadmaster.view;
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.enums.SysExits;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -59,6 +60,7 @@ public class LoadMaster extends javax.swing.JFrame {
         systemTasks = new org.jdesktop.swingx.JXTaskPane();
         loadTasks = new org.jdesktop.swingx.JXTaskPane();
         accountingTasks = new org.jdesktop.swingx.JXTaskPane();
+        jXTaskPane1 = new org.jdesktop.swingx.JXTaskPane();
         overviewPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         overView = new javax.swing.JTextArea();
@@ -70,6 +72,11 @@ public class LoadMaster extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Load Master");
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -83,7 +90,7 @@ public class LoadMaster extends javax.swing.JFrame {
         mainDesktop.setLayout(mainDesktopLayout);
         mainDesktopLayout.setHorizontalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 1143, Short.MAX_VALUE)
         );
         mainDesktopLayout.setVerticalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,6 +109,11 @@ public class LoadMaster extends javax.swing.JFrame {
 
         systemTasks.setTitle("Load Master System");
         createSystemTasks();
+        systemTasks.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                systemTasksComponentResized(evt);
+            }
+        });
         tasksContainer.add(systemTasks);
 
         loadTasks.setTitle("Loads");
@@ -110,6 +122,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         accountingTasks.setTitle("Accounting");
         tasksContainer.add(accountingTasks);
+
+        jXTaskPane1.setTitle("Miscellaneous");
+        tasksContainer.add(jXTaskPane1);
 
         tbSplit.setTopComponent(tasksContainer);
 
@@ -133,6 +148,9 @@ public class LoadMaster extends javax.swing.JFrame {
         lrSplit.setLeftComponent(tbSplit);
 
         tipsLabel.setText("Watch here for helpful tips...");
+        tipsLabel.setMaximumSize(new java.awt.Dimension(1000, 16));
+        tipsLabel.setMinimumSize(new java.awt.Dimension(1000, 16));
+        tipsLabel.setPreferredSize(new java.awt.Dimension(1000, 16));
         mainStatusBar.add(tipsLabel);
 
         loadProgress.setToolTipText("Load progress");
@@ -160,6 +178,24 @@ public class LoadMaster extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void setTipWidth() {
+        int tipWidth = getWidth() - ( loadProgress.getWidth() 
+                + fileProgress.getWidth() + versionLabel.getWidth() + 45 );
+        tipsLabel.setSize(tipWidth - 30, 16);
+        
+        Point load = loadProgress.getLocation();
+        Point version = versionLabel.getLocation();
+        Point file = fileProgress.getLocation();
+        
+        load.x = tipsLabel.getWidth() + 15;
+        version.x = load.x + loadProgress.getWidth() + 10;
+        file.x = version.x + versionLabel.getWidth() + 10;
+        
+        loadProgress.setLocation(load);
+        versionLabel.setLocation(version);
+        fileProgress.setLocation(file);
+    }
+    
     private void createLoadTasks() {
         loadTasks.add(new AbstractAction() {
         {
@@ -231,6 +267,30 @@ public class LoadMaster extends javax.swing.JFrame {
             doShowLoadsQueue();
         }
         });
+
+        loadTasks.add(new JSeparator());
+
+        loadTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Close Load");
+            putValue(Action.SHORT_DESCRIPTION, "Closes out the current load.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/mark.png")));
+            
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            if ( loadProgress.getValue() == loadProgress.getMaximum() ) {
+                // Close out the load. Remember, if the company has their own
+                //+ operating authority, we need to generate an invoice for the
+                //+ load we are closing.
+                doCloseLoad();
+            } else 
+                MessageBox.showWarning("Load is not yet complete.\n\nPlease "
+                        + "complete all stops before closing the load.", 
+                        "Load Incomplete");
+        }
+        });
     }
     
     private void createSystemTasks() {
@@ -244,6 +304,42 @@ public class LoadMaster extends javax.swing.JFrame {
 
         public void actionPerformed(ActionEvent e) {
             doShowSettings();
+        }
+        });
+
+        systemTasks.add(new JSeparator());
+
+        systemTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Add Customer...");
+            putValue(Action.SHORT_DESCRIPTION, "Displays the New Customer dialog.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/people.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            Customers dlg = new Customers();
+            mainDesktop.add(dlg);
+            dlg.pack();
+            dlg.setVisible(true);
+        }
+        });
+
+        systemTasks.add(new JSeparator());
+
+        systemTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Add Broker/Agent...");
+            putValue(Action.SHORT_DESCRIPTION, "Displays the New Broker/Agent dialog.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/users.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            Customers dlg = new Customers();
+            mainDesktop.add(dlg);
+            dlg.pack();
+            dlg.setVisible(true);
         }
         });
 
@@ -267,12 +363,24 @@ public class LoadMaster extends javax.swing.JFrame {
         
     }
     
+    private void createMiscTasks() {
+        
+    }
+    
     private void doClose() {
         String msg = "Exit Load Master?";
         int response = MessageBox.askQuestion(msg, "Confirm Close", false);
         
         if ( response == MessageBox.YES_OPTION ) {
             Starter.exit(SysExits.EX_OK);
+        }
+    }
+    
+    private void doCloseLoad() {
+        
+        
+        if ( Starter.props.getPropertyAsBoolean("authority", "false") ) {
+            doGenerateInvoice("");
         }
     }
     
@@ -302,10 +410,23 @@ public class LoadMaster extends javax.swing.JFrame {
         
     }
     
+    private void doGenerateInvoice(String orderNumber) {
+        
+    }
+    
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // Make sure that the user truly wants to exit the application.
         doClose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // set the width of the tips label.
+        setTipWidth();
+    }//GEN-LAST:event_formComponentResized
+
+    private void systemTasksComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_systemTasksComponentResized
+        systemTasks.setCollapsed(false);
+    }//GEN-LAST:event_systemTasksComponentResized
 
     /**
      * @param args the command line arguments
@@ -346,7 +467,8 @@ public class LoadMaster extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTaskPane accountingTasks;
     public static javax.swing.JProgressBar fileProgress;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JProgressBar loadProgress;
+    private org.jdesktop.swingx.JXTaskPane jXTaskPane1;
+    public static javax.swing.JProgressBar loadProgress;
     private org.jdesktop.swingx.JXTaskPane loadTasks;
     private javax.swing.JSplitPane lrSplit;
     private javax.swing.JDesktopPane mainDesktop;
@@ -356,7 +478,7 @@ public class LoadMaster extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTaskPane systemTasks;
     private org.jdesktop.swingx.JXTaskPaneContainer tasksContainer;
     private javax.swing.JSplitPane tbSplit;
-    private javax.swing.JLabel tipsLabel;
+    public static javax.swing.JLabel tipsLabel;
     private javax.swing.JLabel versionLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,19 +5,40 @@
  */
 package com.pekinsoft.loadmaster.view;
 
+import com.pekinsoft.loadmaster.utils.MessageBox;
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Sean Carrick
  */
 public class Booker extends javax.swing.JInternalFrame {
-
+    private boolean isDirty;
     /**
      * Creates new form Booker
      */
     public Booker() {
         initComponents();
+        
+        isDirty = false;
     }
 
+    private void doBook() {
+        
+    }
+    
+    private void doCancel() {
+        if ( isDirty ) {
+            int choice = MessageBox.askQuestion("Load has been changed.\n\n"
+                    + "Are you sure you wish to discard changes?", 
+                    "Confirm Cancel", false);
+            
+            if ( choice == MessageBox.YES_OPTION )
+                dispose();
+        } else
+            dispose();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,15 +105,37 @@ public class Booker extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Order #");
 
+        orderNumberField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         jLabel2.setText("Trip #");
+
+        tripNumberField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel3.setText("Begin Odometer:");
 
         begOdoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.#"))));
+        begOdoField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel4.setText("End Odometer:");
 
         endOdoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        endOdoField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -111,15 +154,43 @@ public class Booker extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Dispatched:");
 
+        dispatchDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("First Pickup Information"));
 
         jLabel5.setText("Early:");
 
+        earlyPickupDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         earlyPickupTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        earlyPickupTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel6.setText("Late:");
 
+        latePickupDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         latePickupTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        latePickupTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -152,11 +223,11 @@ public class Booker extends javax.swing.JInternalFrame {
                     .addComponent(earlyPickupDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(earlyPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(latePickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(latePickupDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabel6))
+                    .addComponent(latePickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -164,11 +235,33 @@ public class Booker extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Early:");
 
+        earlyDeliveryDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         earlyDeliveryTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        earlyDeliveryTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel8.setText("Late:");
 
+        lateDeliveryDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         lateDeliveryTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        lateDeliveryTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -241,19 +334,46 @@ public class Booker extends javax.swing.JInternalFrame {
         jLabel9.setText("Rate:");
 
         grossPay.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        grossPay.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel11.setText("Per Mile:");
 
         perMileRate.setEditable(false);
         perMileRate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        perMileRate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel12.setText("Miles:");
 
         loadMiles.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        loadMiles.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel13.setText("Weight:");
 
+        freightWeight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         jLabel14.setText("Commodity:");
+
+        commodity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkHazMat.setText("HazMat");
 
@@ -472,6 +592,14 @@ public class Booker extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
+        // Check to see if the enter or escape key was pressed.
+        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+            doBook();
+        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE ) 
+            doCancel();
+    }//GEN-LAST:event_checkEnterEscape
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
