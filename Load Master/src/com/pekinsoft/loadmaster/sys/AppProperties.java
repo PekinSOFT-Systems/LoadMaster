@@ -27,18 +27,18 @@ public class AppProperties {
     private static final String DATA_DIR;
     
     // Private fields for the softare and Project information.
-    private static final String NAME = "Loads of Money";
-    private static final String PROJECT_NAME = "Money";
+    private static final String NAME = "Load Master";
+    private static final String PROJECT_NAME = "Load Master";
     private static final String VENDOR = "PekinSOFT Systems";
     private static final String WEBSITE = "https://www.pekinsoft.com";
-    private static final String PROJECT_WEB = "https://www.github.com/PekinSOFT-System/Money";
+    private static final String PROJECT_WEB = "https://www.github.com/SeanCarrick/LoadMaster";
     private static final String VENDOR_PHONE = "(309) 989-0672";
     private static final String PROJECT_LEAD = "Sean Carrick";
     private static final String PROJECT_EMAIL = "sean@pekinsoft.com";
     
     private static final Properties props;
     private static final Logger log = Logger.getInstance();
-    private static final LogRecord record = new LogRecord(Level.FINE, 
+    private static final LogRecord record = new LogRecord(Level.ALL, 
             "Instantiating Logging");
     private static final AppProperties appProps = new AppProperties();
     
@@ -47,7 +47,7 @@ public class AppProperties {
         props = new Properties();
         
         APP_DIR = System.getProperty("user.home") + File.separator 
-                + ".money" + File.separator;
+                + ".loadmaster" + File.separator;
         ERR_DIR = APP_DIR + "var" + File.separator + "err" + File.separator;
         LOG_DIR = APP_DIR + "var" + File.separator + "logs" + File.separator;
         DATA_DIR = APP_DIR + "data" + File.separator;
@@ -67,7 +67,7 @@ public class AppProperties {
             }
         
         try ( FileReader in = new FileReader(new File(APP_DIR 
-                + ".money.conf")); ) {
+                + ".loadmaster.conf")); ) {
             props.load(in);
         } catch ( IOException ex ) {
             // If we come to this error handler, odds are teh application has
@@ -481,7 +481,7 @@ public class AppProperties {
     public void flush() {
         try ( FileWriter out = new FileWriter(new File(APP_DIR)
                 + System.getProperty("file.separator") 
-                + /*NAME.toLowerCase().replace(' ', '_') +*/ ".money.conf"); ) {
+                + /*NAME.toLowerCase().replace(' ', '_') +*/ ".loadmaster.conf"); ) {
             props.store(out, PROJECT_NAME + " by " + VENDOR);
         } catch ( IOException ex ) {
             // If we come to this error handler, unlike in the static initializer,

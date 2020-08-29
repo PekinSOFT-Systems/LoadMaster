@@ -24,6 +24,8 @@ public class LoadMaster extends javax.swing.JFrame {
      */
     public LoadMaster() {
         initComponents();
+        
+        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -75,11 +77,16 @@ public class LoadMaster extends javax.swing.JFrame {
 
         lrSplit.setRightComponent(mainDesktop);
 
-        tbSplit.setDividerLocation(300);
+        tbSplit.setDividerLocation(525);
         tbSplit.setDividerSize(5);
         tbSplit.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
+        org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout2.setGap(14);
+        tasksContainer.setLayout(verticalLayout2);
+
         systemTasks.setTitle("Load Master System");
+        createSystemTasks();
         tasksContainer.add(systemTasks);
 
         loadTasks.setTitle("Loads");
@@ -103,7 +110,7 @@ public class LoadMaster extends javax.swing.JFrame {
         );
         overviewPanelLayout.setVerticalGroup(
             overviewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
         tbSplit.setRightComponent(overviewPanel);
@@ -210,11 +217,46 @@ public class LoadMaster extends javax.swing.JFrame {
     }
     
     private void createSystemTasks() {
-        
+        systemTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Load Master Settings...");
+            putValue(Action.SHORT_DESCRIPTION, "Displays the settings dialog.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/configuration.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            doShowSettings();
+        }
+        });
+
+        systemTasks.add(new JSeparator());
+
+        systemTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Exit Load Master...");
+            putValue(Action.SHORT_DESCRIPTION, "Exits Load Master cleanly.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/Turnoff.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            doClose();
+        }
+        });
     }
     
     private void createAccountingTasks() {
         
+    }
+    
+    private void doClose() {
+        String msg = "Exit Load Master?";
+        int response = MessageBox.askQuestion(msg, "Confirm Close", false);
+        
+        if ( response == MessageBox.YES_OPTION ) {
+            Starter.exit(SysExits.EX_OK);
+        }
     }
     
     private void doNewLoad() {
@@ -222,6 +264,12 @@ public class LoadMaster extends javax.swing.JFrame {
         
         dlg.pack();
         mainDesktop.add(dlg);
+        dlg.setVisible(true);
+    }
+    
+    private void doShowSettings() {
+        SettingsDialog dlg = new SettingsDialog(this, true);
+        dlg.pack();
         dlg.setVisible(true);
     }
     
@@ -239,12 +287,7 @@ public class LoadMaster extends javax.swing.JFrame {
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // Make sure that the user truly wants to exit the application.
-        String msg = "Exit Load Master?";
-        int response = MessageBox.askQuestion(msg, "Confirm Close", false);
-        
-        if ( response == MessageBox.YES_OPTION ) {
-            Starter.exit(SysExits.EX_OK);
-        }
+        doClose();
     }//GEN-LAST:event_formWindowClosing
 
     /**
