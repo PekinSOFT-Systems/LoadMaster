@@ -1,7 +1,7 @@
 # Load Master
 ********************************************************************************
-                                                     L O A D   M A S T E R                              
-                                                   P r o j e c t   N o t e s                            
+                                                 L O A D   M A S T E R                              
+                                               P r o j e c t   N o t e s                            
 ********************************************************************************
 
 The Load Master Project is the culmination of a bunch of different attempts and
