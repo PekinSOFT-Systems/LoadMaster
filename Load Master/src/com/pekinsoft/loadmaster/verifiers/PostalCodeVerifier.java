@@ -72,32 +72,35 @@ public class PostalCodeVerifier extends InputVerifier {
         
         // Create our return variable and default it to invalid.
         boolean isValid = false;
-        
-        // Create our regex strings.
-        String regEx = "^(\\d{5}(-\\d{4})?|[A-CEGHJ-NPRSTVXY]\\d[A-CEGHJ-NPRSTV-Z]";
-        regEx += " ?\\d[A-CEGHJ-NPRSTV-Z]\\d)$";
-        
-        // Next, we need a Pattern object to place this regex in.
-        Pattern pattern = Pattern.compile(regEx);
-        
-        // We will also need a matcher object to see if the string is valid.
-        Matcher matcher = pattern.matcher(zipCode);
-        
-        // Check the validity of the supplied Zip/Postal Code.
-        isValid = matcher.matches();
-        
-        if ( isValid ) {
-            ((JTextField) input).setBackground(back);
-            ((JTextField) input).setForeground(fore);
-            Customers.helpPanel.setBackground(ctl);
-            Customers.helpLabel.setText("");
-        } else {
-            ((JTextField) input).setBackground(errBack);
-            ((JTextField) input).setForeground(errFore);
-            Customers.helpPanel.setBackground(Color.RED);
-            Customers.helpLabel.setText("Zip Code is required and must be a "
-                    + "valid US Zip Code or Canadian Postal Code.");
-        }
+
+        if ( zipCode != null && !zipCode.isEmpty() && !zipCode.isBlank() ) {
+            // Create our regex strings.
+            String regEx = "^(\\d{5}(-\\d{4})?|[A-CEGHJ-NPRSTVXY]\\d[A-CEGHJ-NPRSTV-Z]";
+            regEx += " ?\\d[A-CEGHJ-NPRSTV-Z]\\d)$";
+
+            // Next, we need a Pattern object to place this regex in.
+            Pattern pattern = Pattern.compile(regEx);
+
+            // We will also need a matcher object to see if the string is valid.
+            Matcher matcher = pattern.matcher(zipCode);
+
+            // Check the validity of the supplied Zip/Postal Code.
+            isValid = matcher.matches();
+
+            if ( isValid ) {
+                ((JTextField) input).setBackground(back);
+                ((JTextField) input).setForeground(fore);
+                Customers.helpPanel.setBackground(ctl);
+                Customers.helpLabel.setText("");
+            } else {
+                ((JTextField) input).setBackground(errBack);
+                ((JTextField) input).setForeground(errFore);
+                Customers.helpPanel.setBackground(Color.RED);
+                Customers.helpLabel.setText("Zip Code is required and must be a "
+                        + "valid US Zip Code or Canadian Postal Code.");
+            }
+        } else 
+            isValid = true;
         
         // Return our findings.
         return isValid;

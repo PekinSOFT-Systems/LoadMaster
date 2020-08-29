@@ -46,20 +46,23 @@ public class StateAbbrVerifier extends InputVerifier {
             abbr = ((JTextField) input).getText();
         }
         
-        if ( !Utils.createStateAbbreviations().contains(abbr) ) {
-            ((JTextField) input).setBackground(errBack);
-            ((JTextField) input).setForeground(errFore);
-            Customers.helpPanel.setBackground(errBack);
-            Customers.helpLabel.setText("State is required and must be a"
-                    + "valid US State or Canadian Province.");
-        } else {
-            ((JTextField) input).setBackground(back);
-            ((JTextField) input).setForeground(fore);
-            Customers.helpPanel.setBackground(ctl);
-            Customers.helpLabel.setText("");
-        }
-        
-        return Utils.createStateAbbreviations().contains(abbr);
+        if ( abbr != null && !abbr.isBlank() && !abbr.isEmpty() ) {
+            if ( !Utils.createStateAbbreviations().contains(abbr) ) {
+                ((JTextField) input).setBackground(errBack);
+                ((JTextField) input).setForeground(errFore);
+                Customers.helpPanel.setBackground(errBack);
+                Customers.helpLabel.setText("State is required and must be a"
+                        + "valid US State or Canadian Province.");
+            } else {
+                ((JTextField) input).setBackground(back);
+                ((JTextField) input).setForeground(fore);
+                Customers.helpPanel.setBackground(ctl);
+                Customers.helpLabel.setText("");
+            }
+
+            return Utils.createStateAbbreviations().contains(abbr);
+        } else
+            return true;
     }
     
 }
