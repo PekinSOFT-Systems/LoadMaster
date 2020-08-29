@@ -7,6 +7,8 @@ package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -19,6 +21,12 @@ public class Booker extends javax.swing.JInternalFrame {
      */
     public Booker() {
         initComponents();
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date now = new Date();
+        dispatchDate.setDate(now);
+        
+        getRootPane().setDefaultButton(bookLoad);
         
         isDirty = false;
     }
@@ -98,6 +106,15 @@ public class Booker extends javax.swing.JInternalFrame {
         addStop = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
+        brokerField = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        phoneField = new javax.swing.JFormattedTextField();
+        jLabel18 = new javax.swing.JLabel();
+        faxField = new javax.swing.JFormattedTextField();
+        lookupButton = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Book Load");
@@ -376,26 +393,71 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkHazMat.setText("HazMat");
+        chkHazMat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkTarped.setText("Tarped");
+        chkTarped.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkTWIC.setText("TWIC");
+        chkTWIC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkTop100.setText("Top100");
+        chkTop100.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkLTL.setText("LTL");
+        chkLTL.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkSigAndTally.setText("Sig & Tally");
+        chkSigAndTally.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         chkRamps.setText("Ramps");
+        chkRamps.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         cancelLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/Cancel.png"))); // NOI18N
         cancelLoad.setMnemonic('C');
         cancelLoad.setText("Cancel Load");
+        cancelLoad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         bookLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         bookLoad.setMnemonic('B');
         bookLoad.setText("Book Load");
+        bookLoad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -423,6 +485,11 @@ public class Booker extends javax.swing.JInternalFrame {
         addStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         addStop.setMnemonic('A');
         addStop.setText("Add Stop...");
+        addStop.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -446,6 +513,11 @@ public class Booker extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -477,6 +549,51 @@ public class Booker extends javax.swing.JInternalFrame {
                 .addComponent(addStop))
         );
 
+        jLabel15.setText("Broker/Agent:");
+
+        brokerField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
+        jLabel16.setText("Email:");
+
+        emailField.setEditable(false);
+        emailField.setFocusable(false);
+        emailField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
+        jLabel17.setText("Phone:");
+
+        phoneField.setEditable(false);
+        phoneField.setFocusable(false);
+        phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
+        jLabel18.setText("Fax:");
+
+        faxField.setEditable(false);
+        faxField.setFocusable(false);
+        faxField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
+        lookupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/Find.png"))); // NOI18N
+        lookupButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -491,24 +608,28 @@ public class Booker extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(datesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(orderNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tripNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(begOdoField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(endOdoField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(chkHazMat)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkTarped)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkTWIC)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkTop100)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkLTL)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkSigAndTally)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkRamps)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(grossPay, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -526,24 +647,41 @@ public class Booker extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(commodity))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(orderNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tripNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(begOdoField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(endOdoField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 17, Short.MAX_VALUE)))
+                                .addComponent(commodity))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(brokerField, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lookupButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(chkHazMat)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(chkTarped)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(chkTWIC)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(chkTop100)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(chkLTL)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(chkSigAndTally)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(chkRamps))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel18)
+                                                    .addComponent(jLabel17))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(phoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                                    .addComponent(faxField))))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -584,9 +722,22 @@ public class Booker extends javax.swing.JInternalFrame {
                     .addComponent(chkLTL)
                     .addComponent(chkSigAndTally)
                     .addComponent(chkRamps))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(brokerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lookupButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -606,6 +757,7 @@ public class Booker extends javax.swing.JInternalFrame {
     private javax.swing.JButton addStop;
     private javax.swing.JFormattedTextField begOdoField;
     private javax.swing.JButton bookLoad;
+    private javax.swing.JTextField brokerField;
     private javax.swing.JButton cancelLoad;
     private javax.swing.JCheckBox chkHazMat;
     private javax.swing.JCheckBox chkLTL;
@@ -621,7 +773,9 @@ public class Booker extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField earlyDeliveryTime;
     private org.jdesktop.swingx.JXDatePicker earlyPickupDate;
     private javax.swing.JFormattedTextField earlyPickupTime;
+    private javax.swing.JTextField emailField;
     private javax.swing.JFormattedTextField endOdoField;
+    private javax.swing.JFormattedTextField faxField;
     private javax.swing.JFormattedTextField freightWeight;
     private javax.swing.JFormattedTextField grossPay;
     private javax.swing.JLabel jLabel1;
@@ -630,6 +784,10 @@ public class Booker extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -650,8 +808,10 @@ public class Booker extends javax.swing.JInternalFrame {
     private org.jdesktop.swingx.JXDatePicker latePickupDate;
     private javax.swing.JFormattedTextField latePickupTime;
     private javax.swing.JFormattedTextField loadMiles;
+    private javax.swing.JButton lookupButton;
     private javax.swing.JTextField orderNumberField;
     private javax.swing.JFormattedTextField perMileRate;
+    private javax.swing.JFormattedTextField phoneField;
     private javax.swing.JTextField tripNumberField;
     // End of variables declaration//GEN-END:variables
 }

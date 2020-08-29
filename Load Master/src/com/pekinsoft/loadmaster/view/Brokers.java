@@ -33,17 +33,156 @@
  */
 package com.pekinsoft.loadmaster.view;
 
+import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.BrokerCtl;
+import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.model.BrokerModel;
+import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier;
+import com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier;
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+
 /**
  *
  * @author Sean Carrick
  */
 public class Brokers extends javax.swing.JInternalFrame {
-
+    private final Color errFore = Color.YELLOW;
+    private final Color errBack = Color.RED;
+    private final Color fore = SystemColor.textText;
+    private final Color back = SystemColor.text;
+    private final Color ctl = SystemColor.control;
+    private final Color tip = SystemColor.info;
+    private final Color tipText = SystemColor.infoText;
+        
+    private BrokerCtl records;
+    private BrokerModel broker;
+    private final LogRecord lr;
+    
     /**
      * Creates new form Brokers
      */
     public Brokers() {
+        lr = new LogRecord(Level.ALL, "Logging initialized for Customers.");
+        lr.setSourceClassName(Brokers.class.getName());
+        lr.setSourceMethodName("Brokers");
+        Starter.logger.enter(lr);
+        
+        lr.setMessage("Attempting to access the brokers database...");
+        Starter.logger.debug(lr);
+        try {
+            records = new BrokerCtl();
+            lr.setMessage("Brokers database accessed successfully!");
+        } catch ( DataStoreException ex ) {
+            lr.setMessage("Something went wrong accessing the brokers database.");
+            lr.setThrown(ex);
+            Starter.logger.error(lr);
+            
+            MessageBox.showError(ex, "Database Access");
+            
+            records = null;
+        }
+        
         initComponents();
+        
+        // Set up the input verifiers for the state and zip fields.
+        stateField.setInputVerifier(new StateAbbrVerifier());
+        zipField.setInputVerifier(new PostalCodeVerifier());
+        
+        setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
+        }
+    
+    private void doSave() {
+        lr.setSourceMethodName("doSave");
+        lr.setMessage("Saving the new broker record.");
+        Starter.logger.enter(lr);
+        
+        companyField.requestFocus();
+
+        broker = new BrokerModel();
+        idField.setText(String.valueOf(broker.getId()));
+
+        // Perform data save here.
+        broker.setCity(cityField.getText());
+        broker.setEmail(emailField.getText());
+        broker.setCompany(companyField.getText());
+        broker.setContact(nameField.getText());
+        broker.setId(Long.valueOf(idField.getText()));
+        broker.setPhone(phoneField.getText());
+        broker.setFax(faxField.getText());
+        broker.setState(stateField.getText());
+        broker.setStreet(streetField.getText());
+        broker.setSuite(suiteField.getText());
+        broker.setZip(zipField.getText());
+
+        records.addNew(broker);
+
+        lr.setMessage("Attempting to save the data to file.");
+        Starter.logger.debug(lr);
+        try {
+            records.storeData();
+            lr.setMessage("Save to file was successful!");
+            Starter.logger.info(lr);
+            
+            setTitle("Customer Entry (" + records.getRecordCount() + " Records)");
+        } catch (DataStoreException ex) {
+            lr.setMessage("Something went wrong accessing the brokers database.");
+            lr.setThrown(ex);
+            Starter.logger.error(lr);
+
+            MessageBox.showError(ex, "Database Access");
+
+            records = null;
+        }
+
+        lr.setMessage("Checking to see if user would like to enter another broker...");
+        Starter.logger.info(lr);
+
+        int choice = MessageBox.askQuestion("Would you like to add another "
+                + "broker?", "Add Another", false);
+
+        if (choice == MessageBox.NO_OPTION) {
+            lr.setMessage("No more brokers being added. Exiting the function "
+                    + "and closing the window.");
+            Starter.logger.exit(lr, null);
+
+            lr.setMessage("Exiting doSave to close the window.");
+            Starter.logger.exit(lr, null);
+            doCancel();
+        } else {
+            lr.setMessage("User wants to add another broker. Clearing the form.");
+            Starter.logger.exit(lr, null);
+            doClear();
+        }
+    }
+    
+    private void doCancel() {
+        lr.setSourceMethodName("doCancel");
+        lr.setMessage("Entering the form closing function.");
+        Starter.logger.enter(lr);
+        
+        lr.setMessage("Closing the window.");
+        Starter.logger.exit(lr, null);
+        dispose();
+    }
+    
+    private void doClear() {
+        broker = new BrokerModel();
+        idField.setText(String.valueOf(broker.getId()));
+        companyField.setText("");
+        streetField.setText("");
+        suiteField.setText("");
+        cityField.setText("");
+        stateField.setText("");
+        zipField.setText("");
+        nameField.setText("");
+        phoneField.setText("");
+        faxField.setText("");
+        emailField.setText("");
     }
 
     /**
@@ -80,18 +219,41 @@ public class Brokers extends javax.swing.JInternalFrame {
         zipField = new javax.swing.JTextField();
         helpPanel = new javax.swing.JPanel();
         helpLabel = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        companyField = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("Broker/Agent Entry");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/users.png"))); // NOI18N
 
         cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/cancel16.png"))); // NOI18N
         cancelButton.setMnemonic('C');
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+        cancelButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         saveButton.setMnemonic('S');
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        saveButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
@@ -116,7 +278,21 @@ public class Brokers extends javax.swing.JInternalFrame {
 
         jLabel1.setText("ID:");
 
+        idField.setName("idField"); // NOI18N
+
         jLabel2.setText("Name:");
+
+        nameField.setName("nameField"); // NOI18N
+        nameField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        nameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel3.setText("Phone:");
 
@@ -125,8 +301,31 @@ public class Brokers extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        phoneField.setName("phoneField"); // NOI18N
+        phoneField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel4.setText("Email:");
+
+        emailField.setName("emailField"); // NOI18N
+        emailField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        emailField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel5.setText("Fax:");
 
@@ -135,16 +334,87 @@ public class Brokers extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        faxField.setName("faxField"); // NOI18N
+        faxField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        faxField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel6.setText("Street:");
 
+        streetField.setName("streetField"); // NOI18N
+        streetField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        streetField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         jLabel7.setText("Suite:");
+
+        suiteField.setName("suiteField"); // NOI18N
+        suiteField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        suiteField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         jLabel8.setText("City:");
 
+        cityField.setName("cityField"); // NOI18N
+        cityField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        cityField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         jLabel9.setText("State:");
 
+        stateField.setName("stateField"); // NOI18N
+        stateField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        stateField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         jLabel10.setText("Zip Code:");
+
+        zipField.setName("zipField"); // NOI18N
+        zipField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        zipField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout helpPanelLayout = new javax.swing.GroupLayout(helpPanel);
         helpPanel.setLayout(helpPanelLayout);
@@ -159,9 +429,23 @@ public class Brokers extends javax.swing.JInternalFrame {
             helpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(helpPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(helpLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(helpLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jLabel11.setText("Company:");
+
+        companyField.setName("companyField"); // NOI18N
+        companyField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                doSelection(evt);
+            }
+        });
+        companyField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,46 +459,52 @@ public class Brokers extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(cityField, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(zipField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(streetField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                                                .addComponent(nameField, javax.swing.GroupLayout.Alignment.LEADING))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel3)
-                                                .addComponent(jLabel5))))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(phoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                        .addComponent(faxField)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(suiteField)))))))))
+                            .addComponent(companyField)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(streetField)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel7))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel10)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(suiteField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(zipField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                                    .addComponent(nameField, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(phoneField)
+                                    .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,6 +527,10 @@ public class Brokers extends javax.swing.JInternalFrame {
                     .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(companyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
@@ -249,23 +543,114 @@ public class Brokers extends javax.swing.JInternalFrame {
                     .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(zipField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 106, Short.MAX_VALUE)
-                        .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(helpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(controlPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(helpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
+        // Check to see if the enter or escape key was pressed.
+        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+            doSave();
+        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE ) 
+            doCancel();
+    }//GEN-LAST:event_checkEnterEscape
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        doSave();
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        doCancel();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
+        String name = "";
+        
+        if ( evt.getSource() instanceof javax.swing.JTextField ) {
+            name = ((javax.swing.JTextField)evt.getSource()).getName();
+            ((javax.swing.JTextField)evt.getSource()).selectAll();
+        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
+            name = ((javax.swing.JTextArea)evt.getSource()).getName();
+            ((javax.swing.JTextArea)evt.getSource()).select(
+                    ((javax.swing.JTextArea)evt.getSource()).getText().length(), 
+                    ((javax.swing.JTextArea)evt.getSource()).getText().length());
+        }
+        
+        String msg = "";
+        
+        switch ( name ) {
+            case "cityField":
+                msg = "<html>City in which the broker is located. "
+                        + "This field is <em>optional</em>.";
+                break;
+            case "companyField":
+                msg = "<html>Company name for this broker. This field is "
+                        + "<em>optional</em>.";
+                break;
+            case "streetField":
+                msg = "<html>Street address for this broker. This field is "
+                        + "<em>optional</em>.";
+                break;
+            case "suiteField":
+                msg = "<html>Suite number for this broker, if any"
+                        + ". This field is <em>optional</em>.";
+                break;
+            case "stateField":
+                msg = "<html>Postal abbreviation for the state or "
+                        + "province in which this broker is located. This field "
+                        + "is <em>optional</em>. However, if this field <strong>is"
+                        + "</strong> used, the State <strong>must</strong> be a "
+                        + "valid US State or Canadian Province abbreviation.";
+                break;
+            case "zipField":
+                msg = "<html>Postal (Zip) Code for this broker. This field is "
+                        + "<em>optional</em> However, if this field <strong>is"
+                        + "</strong> used, the Zip Code <strong>must</strong> "
+                        + "be a valid US or Canadian Postal Code.";
+                break;
+            case "nameField":
+                msg = "<html>Name of contact at this broker. This field is "
+                        + "<em>optional</em>.";
+                break;
+            case "phoneField":
+                msg = "<html>Phone number for this broker. This field is "
+                        + "<em>optional</em>.";
+                break;
+            case "faxField":
+                msg = "<html>Fax number for this broker. This "
+                        + "field is <em>optional</em>.";
+                break;
+            case "emailField":
+                msg = "<html>Email address for this broker. This field is "
+                        + "<em>optional</em>.";
+            default:
+                msg = "";
+                break;
+        }
+        
+        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
+            helpPanel.setBackground(tip);
+            helpLabel.setForeground(tipText);
+            helpLabel.setText(msg);
+        } else {
+            helpPanel.setBackground(ctl);
+            helpLabel.setForeground(fore);
+            helpLabel.setText("");
+        }
+    }//GEN-LAST:event_doSelection
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField cityField;
+    private javax.swing.JTextField companyField;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JTextField emailField;
     private javax.swing.JFormattedTextField faxField;
@@ -274,6 +659,7 @@ public class Brokers extends javax.swing.JInternalFrame {
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

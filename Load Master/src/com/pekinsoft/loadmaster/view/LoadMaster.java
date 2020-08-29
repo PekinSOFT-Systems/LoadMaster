@@ -8,7 +8,9 @@ package com.pekinsoft.loadmaster.view;
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.enums.SysExits;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -39,6 +41,10 @@ public class LoadMaster extends javax.swing.JFrame {
         versionLabel.setText("Version " + Starter.props.getVersion());
         
         fileProgress.setVisible(false);
+        
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(
+                "/com/pekinsoft/loadmaster/res/Northwind16.png"));
+        setIconImage(icon);
         
         record.setMessage("LoadMaster window initialization completed.");
         Starter.logger.exit(record, null);
@@ -336,7 +342,7 @@ public class LoadMaster extends javax.swing.JFrame {
         }
 
         public void actionPerformed(ActionEvent e) {
-            Customers dlg = new Customers();
+            Brokers dlg = new Brokers();
             mainDesktop.add(dlg);
             dlg.pack();
             dlg.setVisible(true);
