@@ -514,10 +514,10 @@ public class AppProperties {
         record.setMessage("Entering the `exit` procedure.");
         log.enter(record);
         
-        props.setProperty("app.major", String.valueOf(VersionCalculator.MAJOR));
-        props.setProperty("app.minor", String.valueOf(VersionCalculator.MINOR));
-        props.setProperty("app.revision", String.valueOf(VersionCalculator.REVISION));
-        props.setProperty("app.build", String.valueOf(VersionCalculator.BUILD));
+//        props.setProperty("app.major", String.valueOf(VersionCalculator.MAJOR));
+//        props.setProperty("app.minor", String.valueOf(VersionCalculator.MINOR));
+//        props.setProperty("app.revision", String.valueOf(VersionCalculator.REVISION));
+//        props.setProperty("app.build", String.valueOf(VersionCalculator.BUILD));
         
         // Any time that a property is changed anywhere in the application, it
         //+ should be immediately stored back to the properties list. Therefore,
@@ -584,13 +584,13 @@ public class AppProperties {
     }
     
     public String getVersion() {
-        return "v. " + VersionCalculator.MAJOR + "." + VersionCalculator.MINOR 
-                + "." + VersionCalculator.REVISION + " build " 
-                + VersionCalculator.BUILD;
+        return getProperty("app.major") + "." + getProperty("app.minor") 
+                + "." + getProperty("app.revision") + " build " 
+                + getProperty("app.build");
     }
     
     public String getBuild() {
-        return String.valueOf(VersionCalculator.BUILD);
+        return props.getProperty("app.build");
     }
     
     public String getComments() {
