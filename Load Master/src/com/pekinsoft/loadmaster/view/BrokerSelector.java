@@ -23,6 +23,9 @@
  *  Modified   :   Aug 30, 2020
  *  
  *  Purpose:
+ *      Provides a method of visually selecting the broker/agent who booked the
+ *      load, so that their contact information will be available on the load
+ *      window and from the other load task windows.
  *  
  *  Revision History:
  *  

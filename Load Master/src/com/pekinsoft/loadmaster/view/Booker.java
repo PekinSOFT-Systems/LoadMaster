@@ -5,10 +5,12 @@
  */
 package com.pekinsoft.loadmaster.view;
 
+import com.pekinsoft.loadmaster.model.CustomerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +18,8 @@ import java.util.Date;
  */
 public class Booker extends javax.swing.JInternalFrame {
     private boolean isDirty;
+    private int stopNumber;
+    
     /**
      * Creates new form Booker
      */
@@ -29,6 +33,7 @@ public class Booker extends javax.swing.JInternalFrame {
         getRootPane().setDefaultButton(bookLoad);
         
         isDirty = false;
+        stopNumber = 0;
     }
 
     private void doBook() {
@@ -105,7 +110,7 @@ public class Booker extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         addStop = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        stopsTable = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         brokerField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -485,16 +490,20 @@ public class Booker extends javax.swing.JInternalFrame {
         addStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         addStop.setMnemonic('A');
         addStop.setText("Add Stop...");
+        addStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStopActionPerformed(evt);
+            }
+        });
         addStop.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        stopsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "#", "Company", "Address", "Early Date", "Early Time", "Late Date", "Late Time"
@@ -515,16 +524,16 @@ public class Booker extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+        stopsTable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(15);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(35);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
+        jScrollPane1.setViewportView(stopsTable);
+        if (stopsTable.getColumnModel().getColumnCount() > 0) {
+            stopsTable.getColumnModel().getColumn(0).setMinWidth(15);
+            stopsTable.getColumnModel().getColumn(0).setPreferredWidth(35);
+            stopsTable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -771,6 +780,31 @@ public class Booker extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_lookupButtonActionPerformed
 
+    private void addStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStopActionPerformed
+        CustomerSelector dlg = new CustomerSelector(null, true);
+        dlg.pack();
+        dlg.show();
+        
+        if ( dlg != null ) {
+             
+            SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
+            String eDate = fmt.format(dlg.getEarlyDate());
+            String lDate = fmt.format(dlg.getLateDate());
+            DefaultTableModel model = (DefaultTableModel)stopsTable.getModel();
+            CustomerModel c = dlg.getSelectedCustomer();
+            Object[] row = {stopNumber++,       // Stop Number
+                            c.getCompany(),     // Company name
+                            c.getAddress(),     // Complete address
+                            eDate,              // Early date
+                            dlg.getEarlyTime(), // Early time
+                            lDate,              // Late date
+                            dlg.getLateTime()}; // Late time
+            model.addRow(row);
+            
+            stopsTable.setModel(model);
+        }
+    }//GEN-LAST:event_addStopActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStop;
@@ -821,7 +855,6 @@ public class Booker extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private org.jdesktop.swingx.JXDatePicker lateDeliveryDate;
     private javax.swing.JFormattedTextField lateDeliveryTime;
     private org.jdesktop.swingx.JXDatePicker latePickupDate;
@@ -831,6 +864,7 @@ public class Booker extends javax.swing.JInternalFrame {
     private javax.swing.JTextField orderNumberField;
     private javax.swing.JFormattedTextField perMileRate;
     private javax.swing.JFormattedTextField phoneField;
+    private javax.swing.JTable stopsTable;
     private javax.swing.JTextField tripNumberField;
     // End of variables declaration//GEN-END:variables
 }
