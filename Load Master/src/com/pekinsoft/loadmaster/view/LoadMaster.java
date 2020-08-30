@@ -36,7 +36,8 @@ public class LoadMaster extends javax.swing.JFrame {
         Starter.logger.enter(record);
         initComponents();
         
-        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        setExtendedState(Starter.props.getPropertyAsInt("windows.main.state", 
+                String.valueOf(javax.swing.JFrame.MAXIMIZED_BOTH)));
         
         versionLabel.setText("Version " + Starter.props.getVersion());
         
@@ -378,6 +379,8 @@ public class LoadMaster extends javax.swing.JFrame {
         int response = MessageBox.askQuestion(msg, "Confirm Close", false);
         
         if ( response == MessageBox.YES_OPTION ) {
+            Starter.props.setPropertyAsInt("windows.main.state", 
+                    getExtendedState());
             Starter.exit(SysExits.EX_OK);
         }
     }

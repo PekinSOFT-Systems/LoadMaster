@@ -9,7 +9,6 @@ package com.pekinsoft.loadmaster.controller;
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.BrokerModel;
-import com.pekinsoft.loadmaster.model.BrokerModel;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -127,6 +126,11 @@ public class BrokerCtl {
      */
     public int getCurrentRecordNumber() {
         return row + 1;
+    }
+    
+    
+    public boolean hasNext() {
+        return row < records.size();
     }
     
     /**
