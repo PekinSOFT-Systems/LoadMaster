@@ -30,10 +30,10 @@ import com.pekinsoft.loadmaster.Starter;
  */
 public class VersionCalculator {
     // Private fields for versioning of the software.
-    public static final int MAJOR;
-    public static final int MINOR;
-    public static final int REVISION;
-    public static final long BUILD;
+//    public static final int MAJOR;
+//    public static final int MINOR;
+//    public static final int REVISION;
+//    public static final long BUILD;
     
     // Private fields for the softare and Project information.
     private static final String NAME = "Load Master";
@@ -59,45 +59,45 @@ public class VersionCalculator {
         int maj = Integer.parseInt(props.getProperty("app.major", "0"));
         
         if ( Boolean.parseBoolean(props.getProperty("debugging", "true")) ) {
-            if ( bui >= 1903 ) {
-                String sysTime = String.valueOf(System.currentTimeMillis());
-                bui = Long.valueOf(sysTime.substring((sysTime.length() / 3) * 2, 
-                        sysTime.length()));
-            } else {
-                System.out.println("Current System Time in milliseconds: " +
-                        System.currentTimeMillis());
-                bui += (System.currentTimeMillis() / 900000000);
-            }
-            Starter.props.setProperty("app.build", String.valueOf(bui));
+            // We want our build to run between the values of 0 and 49,
+            //+ inclusive. Once we reach the 50th incrementation of the build,
+            //+ we want to increase our revision by one. However, we want our
+            //+ build number to continually increment. In order to accomplish
+            //+ this feat, we will use a modulus calculation to know when to 
+            //+ increment the revision.
+            if ( bui % 50 == 0 ) 
+                rev++;
+            else 
+                bui++;
             
-            if ( bui >= 9900 ) {
-                bui = 1903;
-                rev++; 
-            }
-            Starter.props.setProperty("app.revision", String.valueOf(rev));
-            
-            if ( rev >= 49 ) {
-                rev = 0;
+            // We want our revision to run from 0 to 150, inclusive. Therefore,
+            //+ once the revision is greater than 150, we want to increment our
+            //+ minor by one and reset our revision to zero.
+            if ( rev > 150 ) {
                 min++; 
+                rev = 0;
             }
-            Starter.props.setProperty("app.minor", String.valueOf(min));
             
-            if ( min >= 9 ) {
-                min = 0;
+            // We want our minor to run from 0 to 10, inclusive. Therefore, as
+            //+ once our minor is greater than 10, we want to increment our 
+            //+ major by one and reset the minor to zero.
+            if ( min > 10 ) {
                 maj++; 
+                rev = 0;
             }
-            Starter.props.setProperty("app.major", String.valueOf(maj));
         }
         
-        MAJOR = maj;
-        MINOR = min;
-        REVISION = rev;
-        BUILD = bui;
+        // Store the calculated version numbers to the application's properties 
+        //+ file.
+        Starter.props.setProperty("app.build", String.valueOf(bui));
+        Starter.props.setProperty("app.revision", String.valueOf(rev));
+        Starter.props.setProperty("app.minor", String.valueOf(min));
+        Starter.props.setProperty("app.major", String.valueOf(maj));
 
         props.flush();
         
         record.setMessage("Application version calculated at: " 
-                + MAJOR + "." + MINOR + "." + REVISION + " build " + BUILD);
+                + maj + "." + min + "." + rev + " build " + bui);
         log.debug(record);
         record.setMessage("Initializing complete!");
         log.exit(record, null);
@@ -105,21 +105,21 @@ public class VersionCalculator {
     
     public VersionCalculator() {}
     
-    public int getMajor() {
-        return MAJOR;
-    }
-    
-    public int getMinor() {
-        return MINOR;
-    }
-    
-    public int getRevision() {
-        return REVISION;
-    }
-    
-    public long getBuild() {
-        return BUILD;
-    }
+//    public int getMajor() {
+//        return MAJOR;
+//    }
+//    
+//    public int getMinor() {
+//        return MINOR;
+//    }
+//    
+//    public int getRevision() {
+//        return REVISION;
+//    }
+//    
+//    public long getBuild() {
+//        return BUILD;
+//    }
     
     public String getName() {
         return NAME;
