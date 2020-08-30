@@ -232,6 +232,19 @@ public class CustomerModel {
     public void setZip(String zip) {
         this.zip = zip;
     }
+    
+    public String getAddress() {
+        String address = getStreet() + ", ";
+        
+        if ( suite != null && !suite.isBlank() && !suite.isEmpty() )
+            address += getSuite() + ", ";
+        
+        address += getCity() + ", ";
+        address += getState() + " ";
+        address += getZip();
+        
+        return address;
+    }
 
     public String getContact() {
         return contact;

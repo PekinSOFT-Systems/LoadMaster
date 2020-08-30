@@ -7,7 +7,6 @@
 package com.pekinsoft.loadmaster.controller;
 
 import com.pekinsoft.loadmaster.Starter;
-import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
 import java.io.BufferedReader;
@@ -127,6 +126,11 @@ public class CustomerCtl {
      */
     public int getCurrentRecordNumber() {
         return row + 1;
+    }
+    
+    
+    public boolean hasNext() {
+        return row < records.size();
     }
     
     /**

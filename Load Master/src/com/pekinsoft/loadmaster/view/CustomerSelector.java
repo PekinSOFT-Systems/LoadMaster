@@ -23,6 +23,10 @@
  *  Modified   :   Aug 30, 2020
  *  
  *  Purpose:
+ *      To provide a method of visually selecting the customers associated with
+ *      the load (i.e., stops). This dialog allows the o/o to select their
+ *      pickup and delivery customers to be shown in the booking window and 
+ *      windows associated with the load tasks.
  *  
  *  Revision History:
  *  
@@ -33,18 +37,117 @@
  */
 package com.pekinsoft.loadmaster.view;
 
+import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.CustomerCtl;
+import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.model.CustomerModel;
+import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.utils.ScreenUtils;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+
 /**
  *
  * @author Sean Carrick
  */
 public class CustomerSelector extends javax.swing.JDialog {
 
+    private CustomerModel customer;
+    private CustomerCtl records;
+    private LogRecord lr = new LogRecord(Level.ALL, 
+            "Logging started in CustomerSelector.");
+    
     /**
      * Creates new form CustomerSelector
      */
     public CustomerSelector(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        lr.setSourceClassName(CustomerSelector.class.getName());
+        Starter.logger.info(lr);
+        
+        lr.setMessage("Creating an instance of the CustomerSelector dialog.");
+        lr.setSourceMethodName("CustomerSelector");
+        lr.setParameters(new Object[] {parent, modal});
+        Starter.logger.enter(lr);
+        
         initComponents();
+        
+        lr.setMessage("Attempting to access the brokers database...");
+        Starter.logger.debug(lr);
+        try {
+            records = new CustomerCtl();
+            lr.setMessage("Customers database accessed successfully!");
+            Starter.logger.info(lr);
+        } catch ( DataStoreException ex ) {
+            lr.setMessage("Something went wrong accessing the customers database.");
+            lr.setThrown(ex);
+            Starter.logger.error(lr);
+            
+            MessageBox.showError(ex, "Database Access");
+            
+            records = null;
+        }
+        
+        loadList();
+        
+        setLocation(ScreenUtils.centerDialog(this));
+        
+        lr.setMessage("CustomerSelector creation complete.");
+        Starter.logger.exit(lr, null);
+    }
+    
+    private void loadList() {
+        customerList.removeAllItems();
+        customerList.addItem("Select customer...");
+        
+        try {
+            records.first();
+        } catch ( DataStoreException ex ) {
+            lr.setMessage("Something went wrong moving to the next record.");
+            lr.setThrown(ex);
+            Starter.logger.error(lr);
+
+            MessageBox.showError(ex, "Database Access");
+        }
+        
+        for ( int x = 0; x < records.getRecordCount(); x++ ) {
+            CustomerModel c = records.get();
+            
+            customerList.addItem(c.getCompany() + ": " + c.getCity() + ", " 
+                    + c.getState() + " [" + c.getId() + "]");
+            
+            try {
+                if (records.hasNext() ) 
+                    records.next();
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+
+//                MessageBox.showError(ex, "Database Access");
+            }
+        }
+    }
+    
+    public CustomerModel getSelectedCustomer() {
+        return customer;
+    }
+    
+    public Date getEarlyDate() {
+        return earlyDate.getDate();
+    }
+    
+    public String getEarlyTime() {
+        return earlyTime.getText();
+    }
+    
+    public Date getLateDate() {
+        return lateDate.getDate();
+    }
+    
+    public String getLateTime() {
+        return lateTime.getText();
     }
 
     /**
@@ -59,6 +162,12 @@ public class CustomerSelector extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         customerList = new javax.swing.JComboBox<>();
         selectButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        earlyDate = new org.jdesktop.swingx.JXDatePicker();
+        earlyTime = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        lateDate = new org.jdesktop.swingx.JXDatePicker();
+        lateTime = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -69,6 +178,35 @@ public class CustomerSelector extends javax.swing.JDialog {
         selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         selectButton.setMnemonic('S');
         selectButton.setText("Select Customer");
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Early:");
+
+        earlyDate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                earlyDateFocusLost(evt);
+            }
+        });
+        earlyDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                earlyDateActionPerformed(evt);
+            }
+        });
+
+        earlyTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        earlyTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                earlyTimeKeyTyped(evt);
+            }
+        });
+
+        jLabel3.setText("Late:");
+
+        lateTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,13 +215,28 @@ public class CustomerSelector extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(customerList, 0, 326, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(selectButton)))
+                        .addComponent(selectButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(customerList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(earlyDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(earlyTime, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lateTime)))
+                                .addGap(0, 105, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -93,13 +246,74 @@ public class CustomerSelector extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(customerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(earlyDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(earlyTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(selectButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+        // In order to get the selected broker, we need to loop through the
+        //+ records to find which record has the selected ID number.
+        if ( !customerList.getSelectedItem().toString().equalsIgnoreCase(
+                "select customer...") ) {
+            String selectedBroker = customerList.getSelectedItem().toString();
+            long brokerID = Long.valueOf(selectedBroker.substring(
+                    selectedBroker.indexOf("[") + 1,    // Start after (
+                    selectedBroker.indexOf("]")));  // End before )
+        
+            try {
+                records.first();
+
+                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                    CustomerModel c = records.get();
+
+                    if ( brokerID == c.getId() ) {
+                        customer = c;
+                        break;
+                    } else {
+                        if ( records.hasNext() ) 
+                            records.next();
+                    }
+                }
+        
+                setVisible(false); 
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+
+    //            MessageBox.showError(ex, "Database Access");
+
+                dispose();
+            }
+        }       
+    }//GEN-LAST:event_selectButtonActionPerformed
+
+    private void earlyDateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_earlyDateFocusLost
+        
+    }//GEN-LAST:event_earlyDateFocusLost
+
+    private void earlyTimeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyTimeKeyTyped
+        lateTime.setText(earlyTime.getText());
+    }//GEN-LAST:event_earlyTimeKeyTyped
+
+    private void earlyDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earlyDateActionPerformed
+        lateDate.setDate(earlyDate.getDate());
+        lateDate.getEditor().setText(earlyDate.getEditor().getText());
+    }//GEN-LAST:event_earlyDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,7 +359,13 @@ public class CustomerSelector extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> customerList;
+    private org.jdesktop.swingx.JXDatePicker earlyDate;
+    private javax.swing.JFormattedTextField earlyTime;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private org.jdesktop.swingx.JXDatePicker lateDate;
+    private javax.swing.JFormattedTextField lateTime;
     private javax.swing.JButton selectButton;
     // End of variables declaration//GEN-END:variables
 }

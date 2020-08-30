@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -26,14 +26,35 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="customerList" pref="326" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="selectButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="customerList" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="earlyDate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="earlyTime" min="-2" pref="61" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lateDate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lateTime" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="105" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -48,9 +69,21 @@
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="customerList" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="earlyDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="earlyTime" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="selectButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lateDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lateTime" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="selectButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,6 +112,44 @@
         </Property>
         <Property name="mnemonic" type="int" value="83"/>
         <Property name="text" type="java.lang.String" value="Select Customer"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Early:"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="earlyDate">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="earlyDateFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="earlyDateActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="earlyTime">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="HH:mm" subtype="-1" type="2"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="earlyTimeKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Late:"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="lateDate">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="lateTime">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="HH:mm" subtype="-1" type="2"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>
