@@ -588,6 +588,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         lookupButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/Find.png"))); // NOI18N
+        lookupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupButtonActionPerformed(evt);
+            }
+        });
         lookupButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -751,6 +756,20 @@ public class Booker extends javax.swing.JInternalFrame {
         else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE ) 
             doCancel();
     }//GEN-LAST:event_checkEnterEscape
+
+    private void lookupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupButtonActionPerformed
+        // Show the broker selection dialog.
+        BrokerSelector dlg = new BrokerSelector(null, true);
+        dlg.pack();
+        dlg.show();
+        
+        if ( dlg != null ) {
+            brokerField.setText(dlg.getSelectedBroker().getContact());
+            phoneField.setText(dlg.getSelectedBroker().getPhone());
+            emailField.setText(dlg.getSelectedBroker().getEmail());
+            faxField.setText(dlg.getSelectedBroker().getFax());
+        }
+    }//GEN-LAST:event_lookupButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
