@@ -9,6 +9,7 @@ package com.pekinsoft.loadmaster;
 import com.pekinsoft.loadmaster.enums.SysExits;
 import com.pekinsoft.loadmaster.err.InvalidLoggingLevelException;
 import com.pekinsoft.loadmaster.sys.AppProperties;
+import com.pekinsoft.loadmaster.sys.ArgumentParser;
 import com.pekinsoft.loadmaster.sys.Logger;
 import com.pekinsoft.loadmaster.sys.VersionCalculator;
 import com.pekinsoft.loadmaster.view.LoadMaster;
@@ -22,9 +23,10 @@ import java.util.logging.LogRecord;
 public class Starter {
     // Public static constants:
     public static final Logger logger;
-    public static final VersionCalculator version;
     public static final AppProperties props;
     public static final String DB_URL;
+    public static VersionCalculator version;
+    public static ArgumentParser params;
     
     static {
         logger = Logger.getInstance();
@@ -39,10 +41,7 @@ public class Starter {
         DB_URL = props.getProperty("app.data.folder",
                 System.getProperty("user.home") + System.getProperty("file.separator") +
                         ".loadmaster" + System.getProperty("file.separator") +
-                        "data" + System.getProperty("file.separator"));
-        
-        version = new VersionCalculator();
-        
+                        "data" + System.getProperty("file.separator"));        
     }
 
     /**
@@ -57,8 +56,10 @@ public class Starter {
         record.setSourceMethodName("main");
         record.setParameters(args);
         logger.enter(record);
-        
-        // TODO: handle application preferences.
+
+        // Parse the arguments.
+        params = new ArgumentParser(args);        
+        version = new VersionCalculator();
         
         setUI();
 

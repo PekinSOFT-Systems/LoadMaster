@@ -58,7 +58,8 @@ public class VersionCalculator {
         int min = Integer.parseInt(props.getProperty("app.minor", "1"));
         int maj = Integer.parseInt(props.getProperty("app.major", "0"));
         
-        if ( Boolean.parseBoolean(props.getProperty("debugging", "true")) ) {
+        if ( Starter.params.isSwitchPresent("--debugging")
+                || Starter.params.isSwitchPresent("-d") ) {
             // We want our build to run between the values of 0 and 49,
             //+ inclusive. Once we reach the 50th incrementation of the build,
             //+ we want to increase our revision by one. However, we want our
