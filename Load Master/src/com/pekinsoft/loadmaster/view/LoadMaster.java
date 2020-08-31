@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JFrame;
 import javax.swing.JSeparator;
 
 /**
@@ -37,10 +38,7 @@ public class LoadMaster extends javax.swing.JFrame {
         initComponents();
         
         setTitle("Load Master - Current Trip: " 
-                + Starter.props.getProperty("load.current", "No Active Load"));
-        
-        setExtendedState(Starter.props.getPropertyAsInt("windows.main.state", 
-                String.valueOf(javax.swing.JFrame.MAXIMIZED_BOTH)));
+                + Starter.props.getProperty("load.current", "No Active Load"));        
         
         versionLabel.setText("Version " + Starter.props.getVersion());
         
@@ -97,6 +95,9 @@ public class LoadMaster extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
 
         lrSplit.setDividerLocation(250);
@@ -106,11 +107,11 @@ public class LoadMaster extends javax.swing.JFrame {
         mainDesktop.setLayout(mainDesktopLayout);
         mainDesktopLayout.setHorizontalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1143, Short.MAX_VALUE)
+            .addGap(0, 1160, Short.MAX_VALUE)
         );
         mainDesktopLayout.setVerticalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 566, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
 
         lrSplit.setRightComponent(mainDesktop);
@@ -156,7 +157,7 @@ public class LoadMaster extends javax.swing.JFrame {
         );
         overviewPanelLayout.setVerticalGroup(
             overviewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
         );
 
         tbSplit.setRightComponent(overviewPanel);
@@ -397,6 +398,16 @@ public class LoadMaster extends javax.swing.JFrame {
         if ( response == MessageBox.YES_OPTION ) {
             Starter.props.setPropertyAsInt("windows.main.state", 
                     getExtendedState());
+
+        Starter.props.setPropertyAsInt("windows.main.tb", tbSplit.getDividerLocation());
+        Starter.props.setPropertyAsInt("windows.main.lr", lrSplit.getDividerLocation());
+        
+        if ( getExtendedState() != JFrame.MAXIMIZED_BOTH ) {
+            Starter.props.setPropertyAsInt("windows.main.top", getLocation().y);
+            Starter.props.setPropertyAsInt("windows.main.left", getLocation().x);
+            Starter.props.setPropertyAsInt("windows.main.height", getSize().height);
+            Starter.props.setPropertyAsInt("windows.main.width", getSize().width);
+        }
             Starter.exit(SysExits.EX_OK);
         }
     }
@@ -443,7 +454,7 @@ public class LoadMaster extends javax.swing.JFrame {
 
             Starter.props.setPropertyAsInt("load.stops", 0);
             Starter.props.setPropertyAsInt("load.stop", 0);
-            Starter.props.setProperty("load.current", "");
+            Starter.props.setProperty("load.current", "No Active Load");
 
             loadProgress.setMaximum(Starter.props.getPropertyAsInt("load.stops", 
                     "0"));
@@ -473,6 +484,13 @@ public class LoadMaster extends javax.swing.JFrame {
     private void systemTasksComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_systemTasksComponentResized
         systemTasks.setCollapsed(false);
     }//GEN-LAST:event_systemTasksComponentResized
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        tbSplit.setDividerLocation(Starter.props.getPropertyAsInt(
+                "windows.main.tb", "525"));
+        lrSplit.setDividerLocation(Starter.props.getPropertyAsInt(
+                "windows.main.lr", "250"));
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

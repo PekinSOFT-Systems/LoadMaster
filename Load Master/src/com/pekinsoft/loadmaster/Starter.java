@@ -20,6 +20,7 @@ import com.pekinsoft.loadmaster.sys.VersionCalculator;
 import com.pekinsoft.loadmaster.view.LoadMaster;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+import javax.swing.JFrame;
 
 /**
  *
@@ -71,6 +72,17 @@ public class Starter {
         // Let's show the only window in the application.
         LoadMaster app = new LoadMaster();
         app.pack();
+        app.setExtendedState(props.getPropertyAsInt("windows.main.state", "0"));
+        
+        if ( app.getExtendedState() != JFrame.MAXIMIZED_BOTH ) {
+            int top = props.getPropertyAsInt("windows.main.top", "0");
+            int left = props.getPropertyAsInt("windows.main.left", "0");
+            int height = props.getPropertyAsInt("windows.main.height", "640");
+            int width = props.getPropertyAsInt("windows.main.width", "1422");
+            
+            app.setLocation(left, top);
+            app.setSize(width, height);
+        }
         app.setVisible(true);
         
         record.setMessage("Leaving Starter.main()...");
