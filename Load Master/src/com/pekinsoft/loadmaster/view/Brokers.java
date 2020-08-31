@@ -165,6 +165,8 @@ public class Brokers extends javax.swing.JInternalFrame {
         lr.setMessage("Entering the form closing function.");
         Starter.logger.enter(lr);
         
+        LoadMaster.fileProgress.setValue(0);
+        
         lr.setMessage("Closing the window.");
         Starter.logger.exit(lr, null);
         dispose();
@@ -278,6 +280,8 @@ public class Brokers extends javax.swing.JInternalFrame {
 
         jLabel1.setText("ID:");
 
+        idField.setEditable(false);
+        idField.setFocusable(false);
         idField.setName("idField"); // NOI18N
 
         jLabel2.setText("Name:");

@@ -43,6 +43,7 @@ import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.utils.ScreenUtils;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -93,6 +94,8 @@ public class CustomerSelector extends javax.swing.JDialog {
         
         setLocation(ScreenUtils.centerDialog(this));
         
+        getRootPane().setDefaultButton(selectButton);
+        
         lr.setMessage("CustomerSelector creation complete.");
         Starter.logger.exit(lr, null);
     }
@@ -128,6 +131,48 @@ public class CustomerSelector extends javax.swing.JDialog {
 //                MessageBox.showError(ex, "Database Access");
             }
         }
+    }
+    
+    private void doSave() {
+        // In order to get the selected broker, we need to loop through the
+        //+ records to find which record has the selected ID number.
+        if ( !customerList.getSelectedItem().toString().equalsIgnoreCase(
+                "select customer...") ) {
+            String selectedBroker = customerList.getSelectedItem().toString();
+            long brokerID = Long.valueOf(selectedBroker.substring(
+                    selectedBroker.indexOf("[") + 1,    // Start after (
+                    selectedBroker.indexOf("]")));  // End before )
+        
+            try {
+                records.first();
+
+                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                    CustomerModel c = records.get();
+
+                    if ( brokerID == c.getId() ) {
+                        customer = c;
+                        break;
+                    } else {
+                        if ( records.hasNext() ) 
+                            records.next();
+                    }
+                }
+        
+                setVisible(false); 
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+
+    //            MessageBox.showError(ex, "Database Access");
+
+                dispose();
+            }
+        }       
+    }
+    
+    private void doClose() {
+        this.dispose();
     }
     
     public CustomerModel getSelectedCustomer() {
@@ -174,6 +219,11 @@ public class CustomerSelector extends javax.swing.JDialog {
         jLabel1.setText("Customer:");
 
         customerList.setEditable(true);
+        customerList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         selectButton.setMnemonic('S');
@@ -181,6 +231,11 @@ public class CustomerSelector extends javax.swing.JDialog {
         selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectButtonActionPerformed(evt);
+            }
+        });
+        selectButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
             }
         });
 
@@ -196,17 +251,36 @@ public class CustomerSelector extends javax.swing.JDialog {
                 earlyDateActionPerformed(evt);
             }
         });
+        earlyDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         earlyTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
         earlyTime.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                earlyTimeKeyTyped(evt);
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                earlyTimeKeyReleased(evt);
             }
         });
 
         jLabel3.setText("Late:");
 
+        lateDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
+
         lateTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        lateTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,55 +339,28 @@ public class CustomerSelector extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        // In order to get the selected broker, we need to loop through the
-        //+ records to find which record has the selected ID number.
-        if ( !customerList.getSelectedItem().toString().equalsIgnoreCase(
-                "select customer...") ) {
-            String selectedBroker = customerList.getSelectedItem().toString();
-            long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("[") + 1,    // Start after (
-                    selectedBroker.indexOf("]")));  // End before )
-        
-            try {
-                records.first();
-
-                for ( int x = 0; x < records.getRecordCount(); x++ ) {
-                    CustomerModel c = records.get();
-
-                    if ( brokerID == c.getId() ) {
-                        customer = c;
-                        break;
-                    } else {
-                        if ( records.hasNext() ) 
-                            records.next();
-                    }
-                }
-        
-                setVisible(false); 
-            } catch ( DataStoreException ex ) {
-                lr.setMessage("Something went wrong moving to the next record.");
-                lr.setThrown(ex);
-                Starter.logger.error(lr);
-
-    //            MessageBox.showError(ex, "Database Access");
-
-                dispose();
-            }
-        }       
+        doSave();
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void earlyDateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_earlyDateFocusLost
         
     }//GEN-LAST:event_earlyDateFocusLost
 
-    private void earlyTimeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyTimeKeyTyped
-        lateTime.setText(earlyTime.getText());
-    }//GEN-LAST:event_earlyTimeKeyTyped
-
     private void earlyDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earlyDateActionPerformed
         lateDate.setDate(earlyDate.getDate());
         lateDate.getEditor().setText(earlyDate.getEditor().getText());
     }//GEN-LAST:event_earlyDateActionPerformed
+
+    private void earlyTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyTimeKeyReleased
+        lateTime.setText(earlyTime.getText());
+    }//GEN-LAST:event_earlyTimeKeyReleased
+
+    private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
+        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+            doSave();
+        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
+            doClose();
+    }//GEN-LAST:event_checkEnterEscape
 
     /**
      * @param args the command line arguments
