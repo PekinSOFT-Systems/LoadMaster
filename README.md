@@ -35,9 +35,9 @@ In this general overview, there are other details, such as arrival/departure not
 During the course of a load, the owner/operator may:
 
     i. Fuel up the truck.
-   ii. Replace tires on the truck and/or trailer.
-  iii. Have a breakdown and repair.
-   iv. Have PM service performed.
+    ii. Replace tires on the truck and/or trailer.
+    iii. Have a breakdown and repair.
+    iv. Have PM service performed.
 
 With all of this in mind, it would be nice to be able to have some of the accounting automated to place the above processes directly into the accounting system at the time they are performed. Therefore, Load Master will not be in the least a standard accounting or load tracking system. Instead, Load Master will have very few functions that are based on how owner/operators run the course of their business. The way Load Master will handle all of this is:
 
