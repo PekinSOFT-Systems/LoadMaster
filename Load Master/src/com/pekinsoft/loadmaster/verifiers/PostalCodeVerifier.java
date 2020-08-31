@@ -73,7 +73,8 @@ public class PostalCodeVerifier extends InputVerifier {
         // Create our return variable and default it to invalid.
         boolean isValid = false;
 
-        if ( zipCode != null && !zipCode.isEmpty() && !zipCode.isBlank() ) {
+        if ( zipCode != null && !zipCode.isEmpty() && !zipCode.isBlank() 
+                && !zipCode.equalsIgnoreCase("unavailable") ) {
             // Create our regex strings.
             String regEx = "^(\\d{5}(-\\d{4})?|[A-CEGHJ-NPRSTVXY]\\d[A-CEGHJ-NPRSTV-Z]";
             regEx += " ?\\d[A-CEGHJ-NPRSTV-Z]\\d)$";
