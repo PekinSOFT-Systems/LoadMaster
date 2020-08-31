@@ -68,8 +68,8 @@ public class VersionCalculator {
             //+ increment the revision.
             if ( bui % 50 == 0 ) 
                 rev++;
-            else 
-                bui++;
+            
+            bui++;
             
             // We want our revision to run from 0 to 150, inclusive. Therefore,
             //+ once the revision is greater than 150, we want to increment our

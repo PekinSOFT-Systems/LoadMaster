@@ -41,10 +41,14 @@ import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier;
 import com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.SystemColor;
 import java.awt.event.KeyEvent;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.LogRecord;
 import java.util.logging.Level;
+import javax.swing.JTextField;
 
 /**
  *
@@ -94,6 +98,18 @@ public class Customers extends javax.swing.JInternalFrame {
         zipField.setInputVerifier(new PostalCodeVerifier());
         
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
+        
+        // Set the accessible description for the required fields to "required"
+        //+ for data validation purposes.
+        companyField.getAccessibleContext().setAccessibleDescription("required");
+        streetField.getAccessibleContext().setAccessibleDescription("required");
+        cityField.getAccessibleContext().setAccessibleDescription("required");
+        stateField.getAccessibleContext().setAccessibleDescription("required");
+        zipField.getAccessibleContext().setAccessibleDescription("required");
+        
+        
+        lr.setMessage("Customers dialog construction complete.");
+        Starter.logger.exit(lr, null);
     }
     
     private void doSave() {
@@ -246,6 +262,7 @@ public class Customers extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Customer ID:");
 
+        idField.setEditable(false);
         idField.setFocusable(false);
         idField.setName("idField"); // NOI18N
         idField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -261,6 +278,9 @@ public class Customers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         companyField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -274,6 +294,9 @@ public class Customers extends javax.swing.JInternalFrame {
         streetField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         streetField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -289,6 +312,9 @@ public class Customers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         suiteField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -302,6 +328,9 @@ public class Customers extends javax.swing.JInternalFrame {
         cityField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         cityField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -317,6 +346,9 @@ public class Customers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         stateField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -331,6 +363,9 @@ public class Customers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         zipField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -344,6 +379,9 @@ public class Customers extends javax.swing.JInternalFrame {
         contactField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         contactField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -364,6 +402,9 @@ public class Customers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -371,7 +412,7 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Notes"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Notes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 12))); // NOI18N
 
         notesField.setColumns(20);
         notesField.setLineWrap(true);
@@ -381,6 +422,9 @@ public class Customers extends javax.swing.JInternalFrame {
         notesField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         notesField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -428,6 +472,7 @@ public class Customers extends javax.swing.JInternalFrame {
         saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         saveButton.setMnemonic('S');
         saveButton.setText("Save");
+        saveButton.setEnabled(false);
         saveButton.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
@@ -638,6 +683,48 @@ public class Customers extends javax.swing.JInternalFrame {
             helpLabel.setText("");
         }
     }//GEN-LAST:event_doSelection
+
+    private void validateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_validateData
+        if ( evt.getSource() instanceof JTextField ) {
+            if ( ((JTextField)evt.getSource()).getAccessibleContext()
+                        .getAccessibleDescription() != null ) {
+                
+                switch ( ((JTextField)evt.getSource()).getName() ) {
+                    case "companyField":
+                    case "streetField":
+                    case "cityField":
+                    case "stateField":
+                    case "zipField":
+                        
+                        if ( ((JTextField)evt.getSource()).getText().isBlank()
+                                || ((JTextField)evt.getSource()).getText()
+                                        .isEmpty() ) {
+                            ((JTextField)evt.getSource()).setForeground(errFore);
+                            ((JTextField)evt.getSource()).setBackground(errBack);
+                        } else {
+                            ((JTextField)evt.getSource()).setForeground(fore);
+                            ((JTextField)evt.getSource()).setBackground(back);
+                        }
+                        
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                ((JTextField)evt.getSource()).setForeground(fore);
+                ((JTextField)evt.getSource()).setBackground(back);
+            }
+            
+            if ( companyField.getText().isBlank() || companyField.getText().isEmpty() 
+                    && streetField.getText().isBlank() || streetField.getText().isEmpty()
+                    && cityField.getText().isBlank() || cityField.getText().isEmpty()
+                    && stateField.getText().isBlank() || stateField.getText().isEmpty()
+                    && zipField.getText().isBlank() || zipField.getText().isEmpty() )
+                saveButton.setEnabled(false);
+            else
+                saveButton.setEnabled(true);
+        }
+    }//GEN-LAST:event_validateData
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
