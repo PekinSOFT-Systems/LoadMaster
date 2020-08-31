@@ -8,6 +8,7 @@ package com.pekinsoft.loadmaster.controller;
 
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.err.InvalidTimeException;
 import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.LoadMaster;
@@ -105,12 +106,27 @@ public class StopCtl {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
+    /**
+     * Retrieves the current stop as a `StopModel` object.
+     * 
+     * @return Current stop.
+     */
     public StopModel get() {
         return records.get(row);
     }
     
+    /**
+     * Retrieves the specified stop as a `StopModel` object.
+     * 
+     * @param idx   The index of the stop to retrieve. If the index is invalid
+     *              (i.e., below zero (0) or greater than `getRecordCount()`),
+     *              `null` is returned.
+     * @return      The specified stop at the index provided or `null`.
+     */
     public StopModel get(int idx) {
+        if ( idx < 0 || idx >= getRecordCount() ) 
+            return null;
+        
         return records.get(idx);
     }
     
@@ -132,7 +148,12 @@ public class StopCtl {
         return row + 1;
     }
     
-    
+    /**
+     * Provides a means of determining if this table has another record beyond
+     * the current record.
+     * 
+     * @return `true` if there is at least one more record, `false` otherwise.
+     */
     public boolean hasNext() {
         return row < records.size();
     }
@@ -248,17 +269,31 @@ public class StopCtl {
     public void addNew(StopModel cust) {
         records.add(cust);
         row = getRecordCount() - 1;
+        
+        Starter.props.setPropertyAsInt("table.stops.records", getRecordCount());
     }
     
+    /**
+     * Writes the data out to the table data file.
+     * 
+     * @throws DataStoreException In the event there is an error writing the
+     *                            data.
+     */
     public void storeData() throws DataStoreException {
         BufferedWriter out;
+        
+        LoadMaster.loadProgress.setMaximum(
+                Starter.props.getPropertyAsInt("table.stops.records", "0"));
+        LoadMaster.loadProgress.setValue(
+                Starter.props.getPropertyAsInt("table.stops.records", "0"));
         
         if ( TABLE.exists() ) {
             TABLE.delete();
             try {
                 TABLE.createNewFile();
             } catch ( IOException ex ) {
-                entry.setMessage("Something went wrong deleting and recreating the data table.");
+                entry.setMessage("Something went wrong deleting and recreating "
+                        + "the data table.");
                 entry.setThrown(ex);
                 entry.setSourceMethodName("storeData");
                 entry.setParameters(null);
@@ -273,6 +308,9 @@ public class StopCtl {
             
             for ( int x = 0; x < records.size(); x++ ) {
                 out.write(buildRecordLine(records.get(x)) + "\n");
+                
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() - 1);
             }
             
             out.close();
@@ -350,10 +388,21 @@ public class StopCtl {
             entry.setParameters(null);
             Starter.logger.error(entry);
             
-            MessageBox.showError(ex, "Parsing Error");
+            MessageBox.showError(ex, "Data Retrieval Error");
         }
         
-        stop.setEarlyTime(record[4]);
+        try {
+            stop.setEarlyTime(record[4]);
+        } catch ( InvalidTimeException | ParseException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Parsing error while parsing the late date.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("createAndAddRecord");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+            
+            MessageBox.showError(ex, "Data Retrieval Error");            
+        }
         
         try {
             stop.setLateDate(sdf.parse(record[5]));
@@ -365,10 +414,75 @@ public class StopCtl {
             entry.setParameters(null);
             Starter.logger.error(entry);
             
-            MessageBox.showError(ex, "Parsing Error");
+            MessageBox.showError(ex, "Data Retrieval Error");
         }
         
-        stop.setLateTime(record[6]);
+        try {
+            stop.setLateTime(record[6]);
+        } catch ( InvalidTimeException | ParseException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Parsing error while parsing the late date.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("createAndAddRecord");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+            
+            MessageBox.showError(ex, "Data Retrieval Error");            
+        }
+        
+        try {
+            stop.setArrDate(sdf.parse(record[7]));
+        } catch ( ParseException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Parsing error while parsing the late date.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("createAndAddRecord");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+            
+            MessageBox.showError(ex, "Data Retrieval Error");
+        }
+        
+        try {
+            stop.setArrTime(record[8]);
+        } catch ( InvalidTimeException | ParseException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Parsing error while parsing the late date.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("createAndAddRecord");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+            
+            MessageBox.showError(ex, "Data Retrieval Error");            
+        }
+        
+        try {
+            stop.setDepDate(sdf.parse(record[9]));
+        } catch ( ParseException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Parsing error while parsing the late date.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("createAndAddRecord");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+            
+            MessageBox.showError(ex, "Data Retrieval Error");
+        }
+        
+        try {
+            stop.setDepTime(record[10]);
+        } catch ( InvalidTimeException | ParseException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Parsing error while parsing the late date.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("createAndAddRecord");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+            
+            MessageBox.showError(ex, "Data Retrieval Error");            
+        }
+        
+        stop.setSignedBy(record[11]);
         
         records.add(stop);
     }

@@ -105,11 +105,24 @@ public class LoadCtl {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
+    /**
+     * Retrieves the current load as a `LoadModel` object.
+     * 
+     * @return The current load.
+     */
     public LoadModel get() {
         return records.get(row);
     }
     
+    /**
+     * Retrieves the load at the specified index. If the specified index is
+     * invalid, returns `null`.
+     * 
+     * @param idx   The specified index from which to retrieve the load.
+     * @return      The load at the specified index. If the specified index is 
+     *              invalid (i.e., less than zero or greater than
+     *              `getRecordCount()`), null is returned.
+     */
     public LoadModel get(int idx) {
         return records.get(idx);
     }
@@ -248,10 +261,23 @@ public class LoadCtl {
     public void addNew(LoadModel cust) {
         records.add(cust);
         row = getRecordCount() - 1;
+        
+        Starter.props.setPropertyAsInt("table.loads.records", getRecordCount());
     }
     
+    /**
+     * Writes the data out to the table data file.
+     * 
+     * @throws DataStoreException In the event there is an error writing the
+     *                            data.
+     */
     public void storeData() throws DataStoreException {
         BufferedWriter out;
+        
+        LoadMaster.loadProgress.setMaximum(
+                Starter.props.getPropertyAsInt("table.stops.records", "0"));
+        LoadMaster.loadProgress.setValue(
+                Starter.props.getPropertyAsInt("table.stops.records", "0"));
         
         if ( TABLE.exists() ) {
             TABLE.delete();
@@ -273,6 +299,9 @@ public class LoadCtl {
             
             for ( int x = 0; x < records.size(); x++ ) {
                 out.write(buildRecordLine(records.get(x)) + "\n");
+                
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() - 1);
             }
             
             out.close();
