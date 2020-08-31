@@ -164,6 +164,8 @@ public class Customers extends javax.swing.JInternalFrame {
         lr.setMessage("Entering the form closing function.");
         Starter.logger.enter(lr);
         
+        LoadMaster.fileProgress.setValue(0);
+        
         lr.setMessage("Closing the window.");
         Starter.logger.exit(lr, null);
         dispose();

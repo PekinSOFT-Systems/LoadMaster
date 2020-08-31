@@ -10,6 +10,7 @@ import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.LoadModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.view.LoadMaster;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -292,6 +293,10 @@ public class LoadCtl {
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     private void connect() throws DataStoreException {
         BufferedReader in;
+        LoadMaster.fileProgress.setMinimum(0);
+        LoadMaster.fileProgress.setMaximum(
+                Starter.props.getPropertyAsInt("table.loads.records", "0"));
+//        LoadMaster.fileProgress.setVisible(true);
         
         try {
             in = new BufferedReader(new FileReader(TABLE));
@@ -304,6 +309,9 @@ public class LoadCtl {
                 createAndAddRecord(record);
                 
                 line = in.readLine();
+
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() + 1);
             }
             
             row = 0;    // Set our current row to the first record.
@@ -318,6 +326,8 @@ public class LoadCtl {
             Starter.logger.error(entry);
             
             throw new DataStoreException(ex.getMessage(), ex);
+        } finally {
+//            LoadMaster.fileProgress.setValue(0);
         }
     }
     

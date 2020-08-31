@@ -6,7 +6,12 @@
 
 package com.pekinsoft.loadmaster;
 
+import com.pekinsoft.loadmaster.controller.BrokerCtl;
+import com.pekinsoft.loadmaster.controller.CustomerCtl;
+import com.pekinsoft.loadmaster.controller.LoadCtl;
+import com.pekinsoft.loadmaster.controller.StopCtl;
 import com.pekinsoft.loadmaster.enums.SysExits;
+import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.err.InvalidLoggingLevelException;
 import com.pekinsoft.loadmaster.sys.AppProperties;
 import com.pekinsoft.loadmaster.sys.ArgumentParser;
@@ -72,7 +77,35 @@ public class Starter {
     }
 
     public static void exit(SysExits status) {
-        // TODO: Perform all cleanup here:
+        // Perform all cleanup here:\\
+        ///////////////\\\\\\\\\\\\\\\
+        // Store the number of records in each table to the settings file.
+        try {
+            BrokerCtl b = new BrokerCtl();
+            props.setProperty("table.brokers.records", 
+                    String.valueOf(b.getRecordCount()));
+            b = null;
+            
+            CustomerCtl c = new CustomerCtl();
+            props.setProperty("table.customers.records", 
+                    String.valueOf(c.getRecordCount()));
+            c = null;
+            
+            LoadCtl l = new LoadCtl();
+            props.setProperty("table.loads.records", 
+                    String.valueOf(l.getRecordCount()));
+            l = null;
+            
+            StopCtl s = new StopCtl();
+            props.setProperty("table.stops.records", 
+                    String.valueOf(s.getRecordCount()));
+            s = null;
+        } catch ( DataStoreException ex ) {
+            
+        }
+        
+        // Last thing prior to exiting is to save the application settings and
+        //+ to close out the application log.
         logger.close(); // Complete logging.
         props.flush();  // Complete settings.
         

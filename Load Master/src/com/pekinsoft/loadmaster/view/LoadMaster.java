@@ -36,12 +36,15 @@ public class LoadMaster extends javax.swing.JFrame {
         Starter.logger.enter(record);
         initComponents();
         
+        setTitle("Load Master - Current Trip: " 
+                + Starter.props.getProperty("load.current", "No Active Load"));
+        
         setExtendedState(Starter.props.getPropertyAsInt("windows.main.state", 
                 String.valueOf(javax.swing.JFrame.MAXIMIZED_BOTH)));
         
         versionLabel.setText("Version " + Starter.props.getVersion());
         
-        fileProgress.setVisible(false);
+//        fileProgress.setVisible(false);
         
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(
                 "/com/pekinsoft/loadmaster/res/Northwind16.png"));
@@ -49,6 +52,12 @@ public class LoadMaster extends javax.swing.JFrame {
         
         record.setMessage("LoadMaster window initialization completed.");
         Starter.logger.exit(record, null);
+        
+        // Set up the load information.
+        loadProgress.setMinimum(0);
+        loadProgress.setMaximum(Starter.props.getPropertyAsInt("load.stops", "4"));
+        loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "1"));
+        
     }
 
     /**
@@ -221,13 +230,20 @@ public class LoadMaster extends javax.swing.JFrame {
 
         loadTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Arrive at Stop...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays stop arrival dialog");
-            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
-                    .getResource("/com/pekinsoft/loadmaster/res/Arrive.png")));
+            if ( Starter.props.getProperty("load.status", 
+                    "arrive").equals("depart") ){
+                putValue(Action.NAME, "Depart from Stop...");
+                putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/Depart.png")));
+            } else {
+                putValue(Action.NAME, "Arrive at Stop...");
+                putValue(Action.SHORT_DESCRIPTION, "Displays stop arrival dialog");
+                putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                        .getResource("/com/pekinsoft/loadmaster/res/Arrive.png")));
+            }
         }
 
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) {                
             if ( getValue(Action.NAME).toString().equalsIgnoreCase("Arrive at Stop...") ) {
                 putValue(Action.NAME, "Depart from Stop...");
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
@@ -408,11 +424,32 @@ public class LoadMaster extends javax.swing.JFrame {
     }
     
     private void doShowArrival() {
-        
+        Starter.props.setPropertyAsInt("load.stop", 
+                Starter.props.getPropertyAsInt("load.stop", "0") + 1);
+        Starter.props.setProperty("load.status", "depart");
+        loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
     }
     
     private void doShowDeparture() {
+        Starter.props.setPropertyAsInt("load.stop", 
+                Starter.props.getPropertyAsInt("load.stop", "0") + 1);
+        loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
+        Starter.props.setProperty("load.status", "arrive");
         
+        if ( loadProgress.getValue() == loadProgress.getMaximum() ) {
+            String msg = "Trip " + Starter.props.getProperty("load.current", 
+                    "No Load") + " complete!";
+            MessageBox.showInfo(msg, "Load Complete");
+
+            Starter.props.setPropertyAsInt("load.stops", 0);
+            Starter.props.setPropertyAsInt("load.stop", 0);
+            Starter.props.setProperty("load.current", "");
+
+            loadProgress.setMaximum(Starter.props.getPropertyAsInt("load.stops", 
+                    "0"));
+            loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", 
+                    "0"));
+        }
     }
     
     private void doShowLoadsQueue() {

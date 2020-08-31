@@ -46,9 +46,14 @@ public class Booker extends javax.swing.JInternalFrame {
                     + "Are you sure you wish to discard changes?", 
                     "Confirm Cancel", false);
             
-            if ( choice == MessageBox.YES_OPTION )
+            if ( choice == MessageBox.YES_OPTION ) {
+        
+                LoadMaster.fileProgress.setValue(0);
                 dispose();
+            }
         } else
+        
+            LoadMaster.fileProgress.setValue(0);
             dispose();
     }
     
@@ -131,6 +136,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel2.setText("Trip #");
@@ -138,6 +146,9 @@ public class Booker extends javax.swing.JInternalFrame {
         tripNumberField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -148,6 +159,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel4.setText("End Odometer:");
@@ -156,6 +170,9 @@ public class Booker extends javax.swing.JInternalFrame {
         endOdoField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -176,6 +193,11 @@ public class Booker extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Dispatched:");
 
+        dispatchDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                flagDirtyProperty(evt);
+            }
+        });
         dispatchDate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -186,6 +208,11 @@ public class Booker extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Early:");
 
+        earlyPickupDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                flagDirtyProperty(evt);
+            }
+        });
         earlyPickupDate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -197,10 +224,18 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel6.setText("Late:");
 
+        latePickupDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                flagDirtyProperty(evt);
+            }
+        });
         latePickupDate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -211,6 +246,9 @@ public class Booker extends javax.swing.JInternalFrame {
         latePickupTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -257,6 +295,11 @@ public class Booker extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Early:");
 
+        earlyDeliveryDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                flagDirtyProperty(evt);
+            }
+        });
         earlyDeliveryDate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -268,10 +311,18 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel8.setText("Late:");
 
+        lateDeliveryDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                flagDirtyProperty(evt);
+            }
+        });
         lateDeliveryDate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -282,6 +333,9 @@ public class Booker extends javax.swing.JInternalFrame {
         lateDeliveryTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -360,6 +414,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel11.setText("Per Mile:");
@@ -370,6 +427,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel12.setText("Miles:");
@@ -379,6 +439,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel13.setText("Weight:");
@@ -386,6 +449,9 @@ public class Booker extends javax.swing.JInternalFrame {
         freightWeight.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -395,9 +461,17 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         chkHazMat.setText("HazMat");
+        chkHazMat.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkHazMat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -405,6 +479,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkTarped.setText("Tarped");
+        chkTarped.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkTarped.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -412,6 +491,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkTWIC.setText("TWIC");
+        chkTWIC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkTWIC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -419,6 +503,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkTop100.setText("Top100");
+        chkTop100.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkTop100.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -426,6 +515,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkLTL.setText("LTL");
+        chkLTL.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkLTL.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -433,6 +527,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkSigAndTally.setText("Sig & Tally");
+        chkSigAndTally.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkSigAndTally.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -440,6 +539,11 @@ public class Booker extends javax.swing.JInternalFrame {
         });
 
         chkRamps.setText("Ramps");
+        chkRamps.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                flagDirtyCheck(evt);
+            }
+        });
         chkRamps.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -449,6 +553,11 @@ public class Booker extends javax.swing.JInternalFrame {
         cancelLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/Cancel.png"))); // NOI18N
         cancelLoad.setMnemonic('C');
         cancelLoad.setText("Cancel Load");
+        cancelLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelLoadActionPerformed(evt);
+            }
+        });
         cancelLoad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -564,6 +673,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel16.setText("Email:");
@@ -573,6 +685,9 @@ public class Booker extends javax.swing.JInternalFrame {
         emailField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -584,6 +699,9 @@ public class Booker extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
+            }
         });
 
         jLabel18.setText("Fax:");
@@ -593,6 +711,9 @@ public class Booker extends javax.swing.JInternalFrame {
         faxField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                flagDirty(evt);
             }
         });
 
@@ -792,7 +913,7 @@ public class Booker extends javax.swing.JInternalFrame {
             String lDate = fmt.format(dlg.getLateDate());
             DefaultTableModel model = (DefaultTableModel)stopsTable.getModel();
             CustomerModel c = dlg.getSelectedCustomer();
-            Object[] row = {stopNumber++,       // Stop Number
+            Object[] row = {++stopNumber,       // Stop Number
                             c.getCompany(),     // Company name
                             c.getAddress(),     // Complete address
                             eDate,              // Early date
@@ -804,6 +925,22 @@ public class Booker extends javax.swing.JInternalFrame {
             stopsTable.setModel(model);
         }
     }//GEN-LAST:event_addStopActionPerformed
+
+    private void cancelLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelLoadActionPerformed
+        doCancel();
+    }//GEN-LAST:event_cancelLoadActionPerformed
+
+    private void flagDirty(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_flagDirty
+        isDirty = true;
+    }//GEN-LAST:event_flagDirty
+
+    private void flagDirtyProperty(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_flagDirtyProperty
+        isDirty = true;
+    }//GEN-LAST:event_flagDirtyProperty
+
+    private void flagDirtyCheck(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_flagDirtyCheck
+        isDirty = true;
+    }//GEN-LAST:event_flagDirtyCheck
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
