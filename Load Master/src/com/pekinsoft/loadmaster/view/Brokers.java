@@ -45,6 +45,7 @@ import java.awt.SystemColor;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+import javax.swing.JTextField;
 
 /**
  *
@@ -186,6 +187,30 @@ public class Brokers extends javax.swing.JInternalFrame {
         faxField.setText("");
         emailField.setText("");
     }
+    
+    private boolean isOneNamePresent() {
+        return ( nameField.getText() != null && !nameField.getText().isBlank() 
+                && !nameField.getText().isEmpty() ) ||
+                ( companyField.getText() != null && !companyField.getText().isBlank()
+                && !companyField.getText().isEmpty() );
+    }
+    
+    private boolean isOneContactMethodPresent() {
+        return ( phoneField.getValue() != null && !phoneField.getValue().equals("") ) 
+                || ( faxField.getValue() != null && !faxField.getText().equals("") ) ||
+                (( streetField.getText() != null && !streetField.getText().isBlank()
+                    && !streetField.getText().isEmpty() ) &&
+                ( cityField.getText() != null && !cityField.getText().isBlank() 
+                    && !cityField.getText().isEmpty() ) &&
+                ( stateField.getText() != null && !stateField.getText().isBlank()
+                    && !stateField.getText().isEmpty() ) &&
+                ( zipField.getText() != null && !zipField.getText().isBlank()
+                    && !zipField.getText().isEmpty() 
+                    && !zipField.getText().equalsIgnoreCase("unavailable") ))
+                || ( emailField.getText() != null 
+                    && !emailField.getText().isBlank()
+                    && !emailField.getText().isEmpty() );
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -246,6 +271,7 @@ public class Brokers extends javax.swing.JInternalFrame {
         saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         saveButton.setMnemonic('S');
         saveButton.setText("Save");
+        saveButton.setEnabled(false);
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -291,6 +317,9 @@ public class Brokers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         nameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -310,6 +339,9 @@ public class Brokers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -323,6 +355,9 @@ public class Brokers extends javax.swing.JInternalFrame {
         emailField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         emailField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -343,6 +378,9 @@ public class Brokers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         faxField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -356,6 +394,9 @@ public class Brokers extends javax.swing.JInternalFrame {
         streetField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         streetField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -385,6 +426,9 @@ public class Brokers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         cityField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -399,6 +443,9 @@ public class Brokers extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
+            }
         });
         stateField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -412,6 +459,9 @@ public class Brokers extends javax.swing.JInternalFrame {
         zipField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         zipField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -443,6 +493,9 @@ public class Brokers extends javax.swing.JInternalFrame {
         companyField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 doSelection(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                validateData(evt);
             }
         });
         companyField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -649,6 +702,14 @@ public class Brokers extends javax.swing.JInternalFrame {
             helpLabel.setText("");
         }
     }//GEN-LAST:event_doSelection
+
+    private void validateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_validateData
+        // Deselect the text in the field.
+        if ( evt.getSource() instanceof JTextField )
+            ((JTextField)evt.getSource()).select(0, 0);
+        
+        saveButton.setEnabled(isOneContactMethodPresent() && isOneNamePresent());
+    }//GEN-LAST:event_validateData
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
