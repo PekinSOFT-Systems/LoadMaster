@@ -36,6 +36,9 @@
 
 package com.pekinsoft.loadmaster.model;
 
+import com.pekinsoft.loadmaster.err.InvalidTimeException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -55,9 +58,14 @@ public class StopModel {
     private int stopNumber;
     private long customer;
     private Date earlyDate;
-    private String earlyTime;
+    private Date earlyTime;
     private Date lateDate;
-    private String lateTime;
+    private Date lateTime;
+    private Date arrDate;
+    private Date arrTime;
+    private Date depDate;
+    private Date depTime;
+    private String signedBy;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
@@ -111,15 +119,26 @@ public class StopModel {
         this.earlyDate = earlyDate;
     }
 
-    public String getEarlyTime() {
+    public Date getEarlyTime() {
         return earlyTime;
     }
 
-    public void setEarlyTime(String earlyTime) {
-        if ( earlyTime.isBlank() || earlyTime.isEmpty() )
-            earlyTime = "08:00";
+    public void setEarlyTime(String earlyTime) throws InvalidTimeException,
+            ParseException {
+        if ( earlyTime.isBlank() || earlyTime.isEmpty() ) 
+            throw new InvalidTimeException("Time must be provided.");
         
-        this.earlyTime = earlyTime;
+        int hour = Integer.valueOf(earlyTime.substring(0, earlyTime.indexOf(":")));
+        if ( hour < 0 || hour > 23 )
+            throw new InvalidTimeException(earlyTime + " is not between 0 and 23.");
+        
+        int min = Integer.valueOf(earlyTime.substring(earlyTime.indexOf(":") + 1));
+        if ( min < 0 || min > 59 )
+            throw new InvalidTimeException(earlyTime + " has more than 59 minutes"
+                    + " or less than 0 minutes contained within it.");
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        this.earlyTime = sdf.parse(earlyTime);
     }
 
     public Date getLateDate() {
@@ -130,15 +149,94 @@ public class StopModel {
         this.lateDate = lateDate;
     }
 
-    public String getLateTime() {
+    public Date getLateTime() {
         return lateTime;
     }
 
-    public void setLateTime(String lateTime) {
-        if ( lateTime.isBlank() || lateTime.isEmpty() )
-            lateTime = "16:00";
+    public void setLateTime(String lateTime) throws InvalidTimeException,
+            ParseException {
+        if ( lateTime.isBlank() || lateTime.isEmpty() ) 
+            throw new InvalidTimeException("Time must be provided.");
         
-        this.lateTime = lateTime;
+        int hour = Integer.valueOf(lateTime.substring(0, lateTime.indexOf(":")));
+        if ( hour < 0 || hour > 23 )
+            throw new InvalidTimeException(lateTime + " is not between 0 and 23.");
+        
+        int min = Integer.valueOf(lateTime.substring(lateTime.indexOf(":") + 1));
+        if ( min < 0 || min > 59 )
+            throw new InvalidTimeException(lateTime + " has more than 59 minutes"
+                    + " or less than 0 minutes contained within it.");
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        this.lateTime = sdf.parse(lateTime);
+    }
+    
+    public Date getArrDate() {
+        return arrDate;
+    }
+    
+    public void setArrDate(Date arrDate) {
+        this.arrDate = arrDate;
+    }
+    
+    public Date getArrTime() {
+        return arrTime;
+    }
+    
+    public void setArrTime(String arrTime) throws InvalidTimeException, 
+            ParseException {
+        if ( arrTime.isBlank() || arrTime.isEmpty() ) 
+            throw new InvalidTimeException("Time must be provided.");
+        
+        int hour = Integer.valueOf(arrTime.substring(0, arrTime.indexOf(":")));
+        if ( hour < 0 || hour > 23 )
+            throw new InvalidTimeException(arrTime + " is not between 0 and 23.");
+        
+        int min = Integer.valueOf(arrTime.substring(arrTime.indexOf(":") + 1));
+        if ( min < 0 || min > 59 )
+            throw new InvalidTimeException(arrTime + " has more than 59 minutes"
+                    + " or less than 0 minutes contained within it.");
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        this.arrTime = sdf.parse(arrTime);
+    }
+    
+    public Date getDepDate() {
+        return this.depDate;
+    }
+    
+    public void setDepDate(Date depDate) {
+        this.depDate = depDate;
+    }
+    
+    public Date getDepTime() {
+        return depTime;
+    }
+    
+    public void setDepTime(String depTime) throws InvalidTimeException,
+            ParseException {
+        if ( depTime.isBlank() || depTime.isEmpty() ) 
+            throw new InvalidTimeException("Time must be provided.");
+        
+        int hour = Integer.valueOf(depTime.substring(0, depTime.indexOf(":")));
+        if ( hour < 0 || hour > 23 )
+            throw new InvalidTimeException(depTime + " is not between 0 and 23.");
+        
+        int min = Integer.valueOf(depTime.substring(depTime.indexOf(":") + 1));
+        if ( min < 0 || min > 59 )
+            throw new InvalidTimeException(depTime + " has more than 59 minutes"
+                    + " or less than 0 minutes contained within it.");
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        this.depTime = sdf.parse(depTime);
+    }
+
+    public String getSignedBy() {
+        return signedBy;
+    }
+    
+    public void setSignedBy(String signedBy) {
+        this.signedBy = signedBy;
     }
 
     public String getTripNumber() {

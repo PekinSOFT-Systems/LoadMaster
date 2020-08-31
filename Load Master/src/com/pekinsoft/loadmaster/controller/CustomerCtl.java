@@ -102,12 +102,28 @@ public class CustomerCtl {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
+    /**
+     * Retrieves the current customer as a `CustomerModel` object.
+     * 
+     * @return The current customer.
+     */
     public CustomerModel get() {
         return records.get(row);
     }
     
+    /**
+     * Retrieves the customer at the specified index. If the provided index is
+     * invalid, returns `null`.
+     * 
+     * @param idx   The index of the customer to retrieve.
+     * @return      The customer at the specified index. If the specified index
+     *              is invalid (i.e., less than zero or greater than
+     *              `getRecordCount()`), then `null` is returned.
+     */
     public CustomerModel get(int idx) {
+        if ( idx < 0 || idx >= getRecordCount() )
+            return null;
+        
         return records.get(idx);
     }
     
@@ -245,10 +261,24 @@ public class CustomerCtl {
     public void addNew(CustomerModel cust) {
         records.add(cust);
         row = getRecordCount() - 1;
+        
+        Starter.props.setPropertyAsInt("table.customers.records",
+                getRecordCount());
     }
     
+    /**
+     * Writes the data out to the table data file.
+     * 
+     * @throws DataStoreException In the event there is an error writing the
+     *                            data.
+     */
     public void storeData() throws DataStoreException {
         BufferedWriter out;
+        
+        LoadMaster.loadProgress.setMaximum(
+                Starter.props.getPropertyAsInt("table.customers.records", "0"));
+        LoadMaster.loadProgress.setValue(
+                Starter.props.getPropertyAsInt("table.customers.records", "0"));
         
         if ( TABLE.exists() ) {
             TABLE.delete();
@@ -270,6 +300,9 @@ public class CustomerCtl {
             
             for ( int x = 0; x < records.size(); x++ ) {
                 out.write(buildRecordLine(records.get(x)) + "\n");
+                
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() - 1);
             }
             
             out.close();

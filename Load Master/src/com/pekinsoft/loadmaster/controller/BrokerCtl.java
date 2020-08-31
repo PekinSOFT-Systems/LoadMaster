@@ -102,12 +102,28 @@ public class BrokerCtl {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
+    /**
+     * Retrieves the current broker as a `BrokerModel` object.
+     * 
+     * @return The current broker record.
+     */
     public BrokerModel get() {
         return records.get(row);
     }
     
+    /**
+     * Retrieves the broker at the specified index as a `BrokerModel` object. If
+     * the index provided is not valid, returns `null`.
+     * 
+     * @param idx   The index of the broker to retrieve.
+     * @return      The specified broker. If the specified index is invalid
+     *              (i.e., less than zero or greater than `getRecordCount()`,
+     *              `null` is returned.
+     */
     public BrokerModel get(int idx) {
+        if ( idx < 0 || idx >= getRecordCount() )
+            return null;
+        
         return records.get(idx);
     }
     
@@ -129,7 +145,13 @@ public class BrokerCtl {
         return row + 1;
     }
     
-    
+    /**
+     * Provides a means of determining whether the data table contains at least
+     * one more record after the current record.
+     * 
+     * @return  `true` if there is at least one more record in the table, 
+     *          `false` otherwise.
+     */
     public boolean hasNext() {
         return row < records.size();
     }
@@ -245,10 +267,24 @@ public class BrokerCtl {
     public void addNew(BrokerModel cust) {
         records.add(cust);
         row = getRecordCount() - 1;
+        
+        Starter.props.setPropertyAsInt("table.brokers.records",
+                getRecordCount());
     }
     
+    /**
+     * Writes the data out to the table data file.
+     * 
+     * @throws DataStoreException In the event there is an error writing the
+     *                            data.
+     */
     public void storeData() throws DataStoreException {
         BufferedWriter out;
+        
+        LoadMaster.loadProgress.setMaximum(
+                Starter.props.getPropertyAsInt("table.stops.records", "0"));
+        LoadMaster.loadProgress.setValue(
+                Starter.props.getPropertyAsInt("table.stops.records", "0"));
         
         if ( TABLE.exists() ) {
             TABLE.delete();
@@ -270,6 +306,9 @@ public class BrokerCtl {
             
             for ( int x = 0; x < records.size(); x++ ) {
                 out.write(buildRecordLine(records.get(x)) + "\n");
+                
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() - 1);
             }
             
             out.close();
