@@ -44,6 +44,8 @@ import com.pekinsoft.loadmaster.model.CustomerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.utils.ScreenUtils;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -171,6 +173,112 @@ public class CustomerSelector extends javax.swing.JDialog {
         }       
     }
     
+    private boolean isDataValid() {
+        lr.setSourceMethodName("isDateValid");
+        lr.setMessage("Validating the input data.");
+        Starter.logger.enter(lr);
+        
+        // Before testing any of the dates, we need to make sure that the user
+        //+ has selected a customer from the list.
+        if ( customerList.getSelectedItem().toString().equals("Select "
+                + "customer...") ) {
+            // No customer has been chosen, so no sense in moving forward with
+            //+ the data validation.
+            lr.setMessage("Validation completed. Returning findings.");
+            Starter.logger.exit(lr, new Object[] {false});
+            return false;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        
+        // For the stop to be valid, the late date *MUST* be greater than or
+        //+ equal to the early date. 
+        if ( lateDate.getDate() != null && earlyDate.getDate() != null ) {
+            if ( lateDate.getDate().compareTo(earlyDate.getDate()) < 0 ) {
+                // Less than zero (0) means that lateDate is BEFORE earlyDate.
+                lr.setMessage("Validation completed. Returning findings.");
+                Starter.logger.exit(lr, new Object[] {false});
+                return false;
+            }
+        }
+        
+        // Before we compare the early and late times, we need to make sure that
+        //+ they are valid times. In order for them to be valid, they must pass
+        //+ these two tests:
+        //+
+        //+     Test 1: The hour must NOT be less than zero nor greater than 23.
+        //+     Test 2: The minute must NOT be less than zero nor greater than
+        //+             59.
+        String[] et;
+        String[] lt;
+        int etHour = 0;
+        int etMin = 0;
+        int ltHour = 0;
+        int ltMin = 0;
+        
+        if ( earlyTime.getText() != null && !earlyTime.getText().isBlank()
+                && lateTime.getText() != null && !lateTime.getText().isBlank() ) {
+            et = earlyTime.getText().split(":");
+            lt = lateTime.getText().split(":");
+            etHour = Integer.valueOf(et[0]);
+            etMin = Integer.valueOf(et[1]);
+            ltHour = Integer.valueOf(lt[0]);
+            ltMin = Integer.valueOf(lt[1]);        
+        }
+        
+        if ( (etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
+                || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59) ) {
+            // One of the above tests failed.
+            lr.setMessage("Validation completed. Returning findings.");
+            Starter.logger.exit(lr, new Object[] {false});
+            return false;
+        }
+        
+        // Create a couple of Date object to hold the early and late times for
+        //+ comparison, and reset the SimpleDateFormat object to only hold the
+        //+ times, in 24-hour format.
+        sdf = new SimpleDateFormat("HH:mm");
+        Date early = null;
+        Date late = null;
+        
+        if ( earlyTime.getText() != null && lateTime.getText() != null ) {
+            try {
+                early = sdf.parse(earlyTime.getText());
+                late = sdf.parse(lateTime.getText());
+            } catch ( ParseException ex ) {
+                    lr.setMessage("A stop time was not valid.");
+                    lr.setThrown(ex);
+                    Starter.logger.error(lr);
+                    lr.setMessage("Validation completed. Returning findings.");
+                    lr.setThrown(null);
+                    Starter.logger.exit(lr, new Object[] {false});
+                    // We will return false from here so that the data cannot be
+                    //+ saved.
+                    return false;
+            }
+        }
+        
+        // Make sure that the early and late time objects have been created.
+        if ( early != null && late != null ) {
+            // Now that we know that both times have been successfully created,
+            //+ we need to validate the times, but only if the early and late
+            //+ dates are the same day.
+            if ( lateDate.getDate().compareTo(earlyDate.getDate()) == 0 ) {
+                // Only perform the next text if the early and late dates are on
+                //+ the same date.
+                if ( late.compareTo(early) < 0 ) {
+                    // The late time is before the early time.
+                    lr.setMessage("Validation completed. Returning findings.");
+                    Starter.logger.exit(lr, new Object[] {false});
+                    return false;
+                }
+            }
+        }
+        
+        lr.setMessage("Validation completed. Returning findings.");
+        Starter.logger.exit(lr, new Object[] {true});
+        return true;
+    }
+    
     private void doClose() {
         this.dispose();
     }
@@ -219,6 +327,11 @@ public class CustomerSelector extends javax.swing.JDialog {
         jLabel1.setText("Customer:");
 
         customerList.setEditable(true);
+        customerList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                customerListItemStateChanged(evt);
+            }
+        });
         customerList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -228,6 +341,7 @@ public class CustomerSelector extends javax.swing.JDialog {
         selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         selectButton.setMnemonic('S');
         selectButton.setText("Select Customer");
+        selectButton.setEnabled(false);
         selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectButtonActionPerformed(evt);
@@ -255,6 +369,9 @@ public class CustomerSelector extends javax.swing.JDialog {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                earlyDateKeyReleased(evt);
+            }
         });
 
         earlyTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
@@ -269,9 +386,17 @@ public class CustomerSelector extends javax.swing.JDialog {
 
         jLabel3.setText("Late:");
 
+        lateDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lateDateActionPerformed(evt);
+            }
+        });
         lateDate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lateDateKeyReleased(evt);
             }
         });
 
@@ -279,6 +404,9 @@ public class CustomerSelector extends javax.swing.JDialog {
         lateTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lateTimeKeyReleased(evt);
             }
         });
 
@@ -349,10 +477,12 @@ public class CustomerSelector extends javax.swing.JDialog {
     private void earlyDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earlyDateActionPerformed
         lateDate.setDate(earlyDate.getDate());
         lateDate.getEditor().setText(earlyDate.getEditor().getText());
+        selectButton.setEnabled(isDataValid());
     }//GEN-LAST:event_earlyDateActionPerformed
 
     private void earlyTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyTimeKeyReleased
         lateTime.setText(earlyTime.getText());
+        selectButton.setEnabled(isDataValid());
     }//GEN-LAST:event_earlyTimeKeyReleased
 
     private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
@@ -361,6 +491,26 @@ public class CustomerSelector extends javax.swing.JDialog {
         else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
             doClose();
     }//GEN-LAST:event_checkEnterEscape
+
+    private void customerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_customerListItemStateChanged
+        selectButton.setEnabled(isDataValid());
+    }//GEN-LAST:event_customerListItemStateChanged
+
+    private void lateDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lateDateActionPerformed
+        selectButton.setEnabled(isDataValid());
+    }//GEN-LAST:event_lateDateActionPerformed
+
+    private void earlyDateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyDateKeyReleased
+        selectButton.setEnabled(isDataValid());
+    }//GEN-LAST:event_earlyDateKeyReleased
+
+    private void lateDateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lateDateKeyReleased
+        selectButton.setEnabled(isDataValid());
+    }//GEN-LAST:event_lateDateKeyReleased
+
+    private void lateTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lateTimeKeyReleased
+        selectButton.setEnabled(isDataValid());
+    }//GEN-LAST:event_lateTimeKeyReleased
 
     /**
      * @param args the command line arguments
