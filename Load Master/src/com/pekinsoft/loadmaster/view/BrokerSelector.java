@@ -148,6 +148,12 @@ public class BrokerSelector extends javax.swing.JDialog {
 
         jLabel1.setText("Broker/Agent:");
 
+        brokerList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                brokerListItemStateChanged(evt);
+            }
+        });
+
         selectBroker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         selectBroker.setMnemonic('S');
         selectBroker.setText("Select Broker/Agent");
@@ -225,6 +231,10 @@ public class BrokerSelector extends javax.swing.JDialog {
             }
         }       
     }//GEN-LAST:event_selectBrokerActionPerformed
+
+    private void brokerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_brokerListItemStateChanged
+        selectBroker.setEnabled(!brokerList.getSelectedItem().toString().equals("Select Broker/Agent..."));
+    }//GEN-LAST:event_brokerListItemStateChanged
 
     /**
      * @param args the command line arguments
