@@ -29,6 +29,9 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Aug 29, 2020  Sean Carrick        Initial creation.
+ *  Sep 01, 2020  Sean Carrick        Added data validation to the dialog to
+ *                                    ensure that all required fields are filled
+ *                                    in and that all provided data is valid.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;

@@ -33,6 +33,9 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Aug 30, 2020  Sean Carrick        Initial creation.
+ *  Sep 01, 2020  Sean Carrick        Added data validation to the dialog to 
+ *                                    ensure all required data is provided and 
+ *                                    that the data entered is valid.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -188,6 +191,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             Starter.logger.exit(lr, new Object[] {false});
             return false;
         }
+        
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
         // For the stop to be valid, the late date *MUST* be greater than or
@@ -326,7 +330,6 @@ public class CustomerSelector extends javax.swing.JDialog {
 
         jLabel1.setText("Customer:");
 
-        customerList.setEditable(true);
         customerList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 customerListItemStateChanged(evt);
@@ -374,7 +377,11 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
-        earlyTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        try {
+            earlyTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         earlyTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -400,7 +407,11 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
-        lateTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+        try {
+            lateTime.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         lateTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
