@@ -6,10 +6,12 @@
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.LoadCtl;
 import com.pekinsoft.loadmaster.controller.StopCtl;
 import com.pekinsoft.loadmaster.enums.SysExits;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.err.InvalidTimeException;
+import com.pekinsoft.loadmaster.model.LoadModel;
 import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.wiz.LoadBookerWizardPanelProvider;
@@ -28,7 +30,9 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import org.netbeans.api.wizard.WizardDisplayer;
 import org.netbeans.spi.wizard.Wizard;
@@ -468,8 +472,8 @@ public class LoadMaster extends javax.swing.JFrame {
         Starter.props.setPropertyAsInt("load.stop", 
                 Starter.props.getPropertyAsInt("load.stop", "0") + 1);
         
-        // Update the progress bar for the load.
-        loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
+//        // Update the progress bar for the load.
+//        loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
         
         
         // Retrieve the current stop from the table.
@@ -538,6 +542,8 @@ public class LoadMaster extends javax.swing.JFrame {
                 }
             }
         }
+        
+        updateLoadProgress();
     }
     
     private void doShowDeparture() {
@@ -548,6 +554,22 @@ public class LoadMaster extends javax.swing.JFrame {
         // Update the progress bar for the load.
         loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
         
+        // Declare a JDialog object to use for our departure dialogs.
+        JDialog dlg = null;
+        
+        int result = JOptionPane.showConfirmDialog(this, "Is this a delivery?");
+        boolean pickingUp = true;
+        
+        if ( result == JOptionPane.NO_OPTION ) {
+            pickingUp = false;
+            dlg = new DepartPickupDialog(this, true);
+            dlg.pack();
+            dlg.setVisible(true);
+        } else {
+            dlg = new DepartPickupDialog(this, true);
+            dlg.pack();
+            dlg.setVisible(true);
+        }        
         
         // Retrieve the current stop from the table.
         StopModel current = null;
@@ -601,6 +623,11 @@ public class LoadMaster extends javax.swing.JFrame {
                         MessageBox.showError(ex, "Parsing Error");
                     }
                     
+                    if ( !pickingUp ) {
+                        current.setSignedBy(
+                                ((DepartDeliveryDialog)dlg).getSignedBy());
+                    }
+                    
                     stops.update(current);
                     
                     try {
@@ -617,6 +644,80 @@ public class LoadMaster extends javax.swing.JFrame {
             }
         }
         
+        // Now, we need to update the load with the information provided if this
+        //+ stop is a pickup.
+        if ( pickingUp ) {
+            // To store the pickup information, we need to create and use two (2)
+            //+ objects: LoadModel and LoadCtl. First, we will create a LoadModel.
+            LoadModel load = new LoadModel();
+            String currentLoad = Starter.props.getProperty("load.current", 
+                    "No Active Load");
+            
+            // Now, we need to create our LoadCtl object.
+            try {
+                LoadCtl loads = new LoadCtl();
+                
+                // Next, check to be sure there are records available.
+                if ( loads.getRecordCount() > 0 ) {
+                    // We need to get the first record into our local load object.
+                    load = loads.get();
+                    
+                    if ( !currentLoad.equals("No Active Load") ) {
+                        if ( !load.getOrder().equalsIgnoreCase(currentLoad) ) {
+                            // We need to loop through all of the loads until we
+                            //+ find the record for the active load.
+                            while ( loads.hasNext() ) {
+                                load = loads.next();
+                                
+                                if ( load.getOrder().equalsIgnoreCase(
+                                        currentLoad) ) {
+                                    // Now, since we found our current load, we
+                                    //+ can update the information in the load...
+                                    load.setBol(((DepartPickupDialog)dlg)
+                                            .getBillOfLadingNumber());
+                                    load.setPieces(((DepartPickupDialog)dlg)
+                                            .getPieceCount());
+                                    load.setWeight(((DepartPickupDialog)dlg)
+                                            .getWeight());
+                                    
+                                    //+ Then, break out of the loop.
+                                    break;
+                                } // end if in the while
+                            } // end while loop
+                        } else {
+                            // We got lucky and our load was the first load in
+                            //+ the table, so store the pickup information.
+                            load.setBol(((DepartPickupDialog)dlg)
+                                    .getBillOfLadingNumber());
+                            load.setPieces(((DepartPickupDialog)dlg)
+                                    .getPieceCount());
+                            load.setWeight(((DepartPickupDialog)dlg)
+                                    .getWeight());
+                        } // end check of first load record
+                    } // end no active load check
+                } // end records exist check
+                
+                // Update the record to include the new data we just received.
+                loads.update(load);
+                
+                // Close the loads table.
+                loads.close();
+            } catch ( DataStoreException ex ) {
+                record.setMessage("An error occurred trying to access the loads"
+                        + " table.");
+                record.setSourceMethodName("doShowDeparture");
+                record.setSourceClassName(getClass().getName());
+                record.setThrown(ex);
+                Starter.logger.error(record);
+                
+                MessageBox.showError(ex, "Database Access Error");
+            }
+        }
+        
+        updateLoadProgress();
+    }
+    
+    private void updateLoadProgress() {
         if ( loadProgress.getValue() == loadProgress.getMaximum() ) {
             String msg = "Trip " + Starter.props.getProperty("load.current", 
                     "No Load") + " complete!";
@@ -630,6 +731,11 @@ public class LoadMaster extends javax.swing.JFrame {
                     "0"));
             loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", 
                     "0"));
+            
+            setTitle("Load Master - Current Trip: " 
+                    + Starter.props.getProperty("load.current", "No Active Load"));
+        } else {
+            loadProgress.setValue(loadProgress.getValue() + 1);
         }
     }
     
