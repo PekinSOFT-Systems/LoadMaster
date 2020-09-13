@@ -247,7 +247,7 @@ public class CustomerCtl {
      * 
      * @param cust The new data model to use to update the record.
      */
-    private void update(CustomerModel cust) {
+    public void update(CustomerModel cust) {
             customer = cust;
             
             records.set(row, customer);

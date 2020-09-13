@@ -6,7 +6,11 @@
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.StopCtl;
 import com.pekinsoft.loadmaster.enums.SysExits;
+import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.err.InvalidTimeException;
+import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.wiz.LoadBookerWizardPanelProvider;
 import com.pekinsoft.loadmaster.view.wiz.book.BrokerPage;
@@ -17,6 +21,9 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import javax.swing.AbstractAction;
@@ -230,7 +237,7 @@ public class LoadMaster extends javax.swing.JFrame {
         }
 
         public void actionPerformed(ActionEvent e) {
-            doNewLoad();
+            doBookLoad();
         }
         });
 
@@ -256,7 +263,7 @@ public class LoadMaster extends javax.swing.JFrame {
                 putValue(Action.NAME, "Depart from Stop...");
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/Depart.png")));
-                doShowArrival();
+                doArrival();
             } else if ( getValue(Action.NAME).toString().equalsIgnoreCase("Depart from Stop...") ) {
                 putValue(Action.NAME, "Arrive at Stop...");
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
@@ -427,7 +434,7 @@ public class LoadMaster extends javax.swing.JFrame {
         }
     }
     
-    private void doNewLoad() {
+    private void doBookLoad() {
         Class[] pages = new Class[] {
             LoadPage.class,
             BrokerPage.class,
@@ -456,18 +463,159 @@ public class LoadMaster extends javax.swing.JFrame {
         dlg.setVisible(true);
     }
     
-    private void doShowArrival() {
+    private void doArrival() {
+        // Update the stop number in the settings file.
         Starter.props.setPropertyAsInt("load.stop", 
                 Starter.props.getPropertyAsInt("load.stop", "0") + 1);
-        Starter.props.setProperty("load.status", "depart");
+        
+        // Update the progress bar for the load.
         loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
+        
+        
+        // Retrieve the current stop from the table.
+        StopModel current = null;
+        StopCtl stops = null;
+        
+        try {
+            stops = new StopCtl();
+        } catch ( DataStoreException ex ) {
+            record.setSourceMethodName("doArrival");
+            record.setMessage("An error occurred while creating a StopCtl "
+                    + "object.");
+            record.setThrown(ex);
+            Starter.logger.error(record);
+            
+            MessageBox.showError(ex, "Data Access Error");
+        } finally {
+            if ( stops != null ) {
+                if ( stops.getRecordCount() > 0 ) {
+                    current = stops.get();
+                    
+                    if ( !current.getTripNumber().equalsIgnoreCase(
+                            Starter.props.getProperty("load.current"))) {
+                        while ( stops.hasNext() ) {
+                            try {
+                                current = stops.next();
+                            } catch ( DataStoreException ex ) {
+                                record.setMessage("An error occurred while "
+                                        + "trying to move to the next stop.");
+                                Starter.logger.error(record);
+                                
+                                MessageBox.showError(ex, "Record Navigation "
+                                        + "Error");
+                            }
+                            
+                            if ( current.getTripNumber().equalsIgnoreCase(
+                                    Starter.props.getProperty("load.current")))
+                                break;
+                        }
+                    }
+                    
+                    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                    current.setArrDate(new Date());
+                    try {
+                        current.setArrTime(sdf.format(new Date()));
+                    } catch ( InvalidTimeException | ParseException ex ) {
+                        record.setMessage("Time not properly parsed or invalid.");
+                        record.setThrown(ex);
+                        Starter.logger.error(record);
+                        
+                        MessageBox.showError(ex, "Parsing Error");
+                    }
+                    
+                    stops.update(current);
+                    
+                    try {
+                        stops.close();
+                    } catch ( DataStoreException ex ) {
+                        record.setMessage("An error occurred while attempting "
+                                + "to access the stops table file.");
+                        record.setThrown(ex);
+                        Starter.logger.error(record);
+                        
+                        MessageBox.showError(ex, "Data Access Error");
+                    }
+                }
+            }
+        }
     }
     
     private void doShowDeparture() {
+        // Update the stop number in the settings file.
         Starter.props.setPropertyAsInt("load.stop", 
                 Starter.props.getPropertyAsInt("load.stop", "0") + 1);
+        
+        // Update the progress bar for the load.
         loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "0"));
-        Starter.props.setProperty("load.status", "arrive");
+        
+        
+        // Retrieve the current stop from the table.
+        StopModel current = null;
+        StopCtl stops = null;
+        
+        try {
+            stops = new StopCtl();
+        } catch ( DataStoreException ex ) {
+            record.setSourceMethodName("doDeparture");
+            record.setMessage("An error occurred while creating a StopCtl "
+                    + "object.");
+            record.setThrown(ex);
+            Starter.logger.error(record);
+            
+            MessageBox.showError(ex, "Data Access Error");
+        } finally {
+            if ( stops != null ) {
+                if ( stops.getRecordCount() > 0 ) {
+                    current = stops.get();
+                    
+                    if ( !current.getTripNumber().equalsIgnoreCase(
+                            Starter.props.getProperty("load.current"))) {
+                        while ( stops.hasNext() ) {
+                            try {
+                                current = stops.next();
+                            } catch ( DataStoreException ex ) {
+                                record.setMessage("An error occurred while "
+                                        + "trying to move to the next stop.");
+                                Starter.logger.error(record);
+                                
+                                MessageBox.showError(ex, "Record Navigation "
+                                        + "Error");
+                            }
+                            
+                            if ( current.getTripNumber().equalsIgnoreCase(
+                                    Starter.props.getProperty("load.current")))
+                                break;
+                        }
+                    }
+                    
+                    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                    Date dep = new Date();
+                    current.setDepDate(dep);
+                    try {
+                        current.setDepTime(sdf.format(dep));
+                    } catch ( InvalidTimeException | ParseException ex ) {
+                        record.setMessage("Time not properly parsed or invalid.");
+                        record.setThrown(ex);
+                        Starter.logger.error(record);
+                        
+                        MessageBox.showError(ex, "Parsing Error");
+                    }
+                    
+                    stops.update(current);
+                    
+                    try {
+                        stops.close();
+                    } catch ( DataStoreException ex ) {
+                        record.setMessage("An error occurred while attempting "
+                                + "to access the stops table file.");
+                        record.setThrown(ex);
+                        Starter.logger.error(record);
+                        
+                        MessageBox.showError(ex, "Data Access Error");
+                    }
+                }
+            }
+        }
         
         if ( loadProgress.getValue() == loadProgress.getMaximum() ) {
             String msg = "Trip " + Starter.props.getProperty("load.current", 
