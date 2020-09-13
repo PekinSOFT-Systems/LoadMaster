@@ -9,6 +9,7 @@ package com.pekinsoft.loadmaster.controller;
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.LoadModel;
+import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.LoadMaster;
 import java.io.BufferedReader;
@@ -316,15 +317,27 @@ public class LoadCtl {
             throw new DataStoreException(ex.getMessage(), ex);
         }
 
+        saveStops();
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     private void connect() throws DataStoreException {
+        entry.setMessage("Enter...");
+        entry.setSourceMethodName("connect");
+        entry.setParameters(new Object[]{});
+        Starter.logger.enter(entry);
+        
         BufferedReader in;
-        LoadMaster.fileProgress.setMinimum(0);
+        
+        entry.setMessage("Setting up LoadMaster.fileProgress...");
+        entry.setParameters(null);
+        Starter.logger.config(entry);
+        
         LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("table.loads.records", "0"));
+                Starter.props.getPropertyAsInt("table.loads.records", "0") 
+                + (Starter.props.getPropertyAsInt("table.stops.records", "0") * 2));
+        LoadMaster.fileProgress.setValue(0);
 //        LoadMaster.fileProgress.setVisible(true);
         
         try {
@@ -361,6 +374,11 @@ public class LoadCtl {
     }
     
     private void createAndAddRecord(String[] record) {
+        entry.setMessage("Entering...");
+        entry.setSourceMethodName("createAndAddRecord");
+        entry.setParameters(record);
+        Starter.logger.enter(entry);
+        
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
         load = new LoadModel();
@@ -386,21 +404,45 @@ public class LoadCtl {
         load.setRate(Double.valueOf(record[5]));
         load.setMiles(Integer.valueOf(record[6]));
         load.setWeight(Integer.valueOf(record[7]));
-        load.setCommodity(record[8]);
-        load.setHazMat(Boolean.parseBoolean(record[9]));
-        load.setTarped(Boolean.parseBoolean(record[10]));
-        load.setTwic(Boolean.parseBoolean(record[11]));
-        load.setTopCust(Boolean.parseBoolean(record[12]));
-        load.setLtl(Boolean.parseBoolean(record[13]));
-        load.setCbd(Boolean.parseBoolean(record[14]));
-        load.setRamps(Boolean.parseBoolean(record[15]));
-        load.setBroker(Long.valueOf(record[16]));
-        load.setBol(record[17]);
-        load.setAvgRPM(Double.valueOf(record[18]));
-        load.setCompleted(Boolean.parseBoolean(record[19]));
-        load.setCanelled(Boolean.parseBoolean(record[20]));
+        load.setPieces(Integer.valueOf(record[8]));
+        load.setCommodity(record[9]);
+        load.setHazMat(Boolean.parseBoolean(record[10]));
+        load.setTarped(Boolean.parseBoolean(record[11]));
+        load.setTeam(Boolean.parseBoolean(record[12]));
+        load.setTwic(Boolean.parseBoolean(record[13]));
+        load.setTopCust(Boolean.parseBoolean(record[14]));
+        load.setLtl(Boolean.parseBoolean(record[15]));
+        load.setCbd(Boolean.parseBoolean(record[16]));
+        load.setRamps(Boolean.parseBoolean(record[17]));
+        load.setBroker(Long.valueOf(record[18]));
+        load.setBol(record[19]);
+        load.setCompleted(Boolean.parseBoolean(record[20]));
+        load.setCancelled(Boolean.parseBoolean(record[21]));
         
         records.add(load);
+        
+        StopCtl stops = null;
+        
+        try {
+            stops = new StopCtl();
+        } catch ( DataStoreException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Throwing DataStoreException to calling method...");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("connect");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+        }
+        
+        if ( stops != null ) {
+            for ( StopModel stop : stops.getList() ) {
+                if ( stop.getTripNumber().equals(load.getTrip()) ) {
+                    load.addStop(stop);
+                }
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() + 1);
+            }
+        }
     }
     
     private String buildRecordLine(LoadModel model) {
@@ -410,12 +452,59 @@ public class LoadCtl {
                 + model.getStartOdo() + "~" + model.getEndOdo() + "~" 
                 + sdf.format(model.getDispatch()) + "~" + model.getRate()
                 + "~" + model.getMiles() + "~" + model.getWeight() + "~" 
-                + "~" + model.getCommodity() + "~" + model.isHazMat() + "~" 
-                + model.isTarped()+ "~" + model.isTwic()+ "~" + model.isTopCust()
-                + "~" + model.isLtl()+ "~" + model.isCbd()+ "~" + model.isRamps()
-                + "~" + model.getBroker() + "~" + model.getBol() + "~" 
-                + model.getAvgRPM() + "~" + model.isCompleted() + "~" 
-                + model.isCanelled();
+                + model.getPieces() + "~" + model.getCommodity() + "~" 
+                + model.isHazMat() + "~" + model.isTarped()+ "~" 
+                + model.isTeam() + "~" + model.isTwic() + "~" 
+                + model.isTopCust() + "~" + model.isLtl()+ "~" + model.isCbd()
+                + "~" + model.isRamps() + "~" + model.getBroker() + "~" 
+                + model.getBol() + "~" + "~" + model.isCompleted() + "~" 
+                + model.isCancelled();
+    }
+    
+    private void saveStops() {
+        StopCtl stops = null;
+        
+        try {
+            stops = new StopCtl();
+        } catch ( DataStoreException ex ) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "The above error occurred while trying to load the "
+                            + "existing stops.");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("connect");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
+        }
+        
+        if ( stops != null ) {
+            boolean exists = false;
+            
+            for ( StopModel stop : stops.getList() ) { // All stops in database
+                for ( LoadModel load : records ) { // All loads in database
+                    for ( StopModel s : load.getStops() ) { // All stops in load
+                        if ( s.getTripNumber().equals(load.getTrip()) ) {
+                            exists = true;
+                        }
+                    } // All stops in load
+                } // All loads in database
+                
+                if ( !exists ) {
+                    stops.addNew(stop);
+                }
+            } // All stops in database
+            
+            try {
+                stops.storeData();
+            } catch ( DataStoreException ex ) {
+                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                        + "The above error occurred while trying to store the "
+                                + "newly added stops.");
+                entry.setThrown(ex);
+                entry.setSourceMethodName("connect");
+                entry.setParameters(null);
+                Starter.logger.error(entry);
+            }
+        }
     }
     //</editor-fold>
 

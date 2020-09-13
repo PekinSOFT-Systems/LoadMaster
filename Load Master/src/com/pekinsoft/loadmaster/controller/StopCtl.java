@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.LogRecord;
 import java.util.logging.Level;
 
@@ -326,15 +327,16 @@ public class StopCtl {
         }
 
     }
+    
+    
+    public ArrayList<StopModel> getList() {
+        return records;
+    }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     private void connect() throws DataStoreException {
         BufferedReader in;
-        LoadMaster.fileProgress.setMinimum(0);
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("table.stops.records", "0"));
-//        LoadMaster.fileProgress.setVisible(true);
         
         try {
             in = new BufferedReader(new FileReader(TABLE));

@@ -8,8 +8,13 @@ package com.pekinsoft.loadmaster.view;
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.enums.SysExits;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.view.wiz.LoadBookerWizardPanelProvider;
+import com.pekinsoft.loadmaster.view.wiz.book.BrokerPage;
+import com.pekinsoft.loadmaster.view.wiz.book.LoadPage;
+import com.pekinsoft.loadmaster.view.wiz.book.StopsPage;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
@@ -18,6 +23,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JSeparator;
+import org.netbeans.api.wizard.WizardDisplayer;
+import org.netbeans.spi.wizard.Wizard;
 
 /**
  *
@@ -421,11 +428,26 @@ public class LoadMaster extends javax.swing.JFrame {
     }
     
     private void doNewLoad() {
-        Booker dlg = new Booker();
+        Class[] pages = new Class[] {
+            LoadPage.class,
+            BrokerPage.class,
+            StopsPage.class
+        };
         
-        dlg.pack();
-        mainDesktop.add(dlg);
-        dlg.setVisible(true);
+        // We will want to change the WizardResultProducer.NO_OP to a different
+        //+ object once we make sure that the wizard is going as expected.
+//        Wizard wiz = WizardPage.createWizard("Book New Load", pages, 
+//                WizardPage.WizardResultProducer.NO_OP);
+        Wizard wiz = new LoadBookerWizardPanelProvider().createWizard();
+        
+        int top = (Toolkit.getDefaultToolkit().getScreenSize().height - 400) / 2;
+        int left = (Toolkit.getDefaultToolkit().getScreenSize().width - 600) / 2;
+        WizardDisplayer.showWizard(wiz, new Rectangle(left, top, 600, 400));
+//        Booker dlg = new Booker();
+//        
+//        dlg.pack();
+//        mainDesktop.add(dlg);
+//        dlg.setVisible(true);
     }
     
     private void doShowSettings() {
