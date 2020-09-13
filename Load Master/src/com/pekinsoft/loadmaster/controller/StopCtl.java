@@ -256,7 +256,7 @@ public class StopCtl {
      * 
      * @param cust The new data model to use to update the record.
      */
-    private void update(StopModel cust) {
+    public void update(StopModel cust) {
             stop = cust;
             
             records.set(row, stop);
@@ -280,8 +280,8 @@ public class StopCtl {
      * @throws DataStoreException In the event there is an error writing the
      *                            data.
      */
-    public void storeData() throws DataStoreException {
-        BufferedWriter out;
+    public void close() throws DataStoreException {
+        BufferedWriter out = null;
         
         LoadMaster.loadProgress.setMaximum(
                 Starter.props.getPropertyAsInt("table.stops.records", "0"));
@@ -296,7 +296,7 @@ public class StopCtl {
                 entry.setMessage("Something went wrong deleting and recreating "
                         + "the data table.");
                 entry.setThrown(ex);
-                entry.setSourceMethodName("storeData");
+                entry.setSourceMethodName("close");
                 entry.setParameters(null);
                 Starter.logger.error(entry);
                 
@@ -319,7 +319,7 @@ public class StopCtl {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Throwing DataStoreException to calling method...");
             entry.setThrown(ex);
-            entry.setSourceMethodName("storeData");
+            entry.setSourceMethodName("close");
             entry.setParameters(null);
             Starter.logger.error(entry);
             

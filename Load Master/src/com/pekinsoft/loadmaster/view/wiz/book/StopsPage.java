@@ -103,6 +103,7 @@ public class StopsPage extends WizardPage {
             stops = null;
         }
         initComponents();
+        setForwardNavigationMode(WizardController.MODE_CAN_FINISH);
     }
     //</editor-fold>
 
@@ -246,7 +247,6 @@ public class StopsPage extends WizardPage {
 //            load.addStop(stop);
             
         }
-        setForwardNavigationMode(WizardController.MODE_CAN_FINISH);
     }                                         
     //</editor-fold>
 

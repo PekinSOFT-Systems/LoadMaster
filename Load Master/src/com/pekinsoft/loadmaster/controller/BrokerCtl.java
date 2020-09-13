@@ -253,7 +253,7 @@ public class BrokerCtl {
      * 
      * @param cust The new data model to use to update the record.
      */
-    private void update(BrokerModel cust) {
+    public void update(BrokerModel cust) {
             broker = cust;
             
             records.set(row, broker);

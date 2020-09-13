@@ -248,7 +248,7 @@ public class LoadCtl {
      * 
      * @param cust The new data model to use to update the record.
      */
-    private void update(LoadModel cust) {
+    public void update(LoadModel cust) {
             load = cust;
             
             records.set(row, load);
@@ -494,7 +494,7 @@ public class LoadCtl {
             } // All stops in database
             
             try {
-                stops.storeData();
+                stops.close();
             } catch ( DataStoreException ex ) {
                 entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                         + "The above error occurred while trying to store the "
