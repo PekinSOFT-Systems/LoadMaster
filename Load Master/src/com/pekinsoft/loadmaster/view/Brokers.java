@@ -98,7 +98,7 @@ public class Brokers extends javax.swing.JInternalFrame {
         zipField.setInputVerifier(new PostalCodeVerifier());
         
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
-        }
+    }
     
     private void doSave() {
         lr.setSourceMethodName("doSave");
@@ -128,7 +128,7 @@ public class Brokers extends javax.swing.JInternalFrame {
         lr.setMessage("Attempting to save the data to file.");
         Starter.logger.debug(lr);
         try {
-            records.storeData();
+            records.close();
             lr.setMessage("Save to file was successful!");
             Starter.logger.info(lr);
             
