@@ -278,7 +278,7 @@ public class BrokerCtl {
      * @throws DataStoreException In the event there is an error writing the
      *                            data.
      */
-    public void storeData() throws DataStoreException {
+    public void close() throws DataStoreException {
         BufferedWriter out;
         
         LoadMaster.loadProgress.setMaximum(

@@ -108,32 +108,36 @@ public class CustomerSelector extends javax.swing.JDialog {
     private void loadList() {
         customerList.removeAllItems();
         customerList.addItem("Select customer...");
+        customerList.addItem("Add a new customer...");
         
-        try {
-            records.first();
-        } catch ( DataStoreException ex ) {
-            lr.setMessage("Something went wrong moving to the next record.");
-            lr.setThrown(ex);
-            Starter.logger.error(lr);
-
-            MessageBox.showError(ex, "Database Access");
-        }
-        
-        for ( int x = 0; x < records.getRecordCount(); x++ ) {
-            CustomerModel c = records.get();
-            
-            customerList.addItem(c.getCompany() + ": " + c.getCity() + ", " 
-                    + c.getState() + " [" + c.getId() + "]");
-            
+        if ( records.getRecordCount() > 0 ) {
             try {
-                if (records.hasNext() ) 
-                    records.next();
+                records.first();
             } catch ( DataStoreException ex ) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
 
-//                MessageBox.showError(ex, "Database Access");
+                MessageBox.showError(ex, "Database Access");
+            }
+        
+        
+            for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                CustomerModel c = records.get();
+
+                customerList.addItem(c.getCompany() + ": " + c.getCity() + ", " 
+                        + c.getState() + " [" + c.getId() + "]");
+
+                try {
+                    if (records.hasNext() ) 
+                        records.next();
+                } catch ( DataStoreException ex ) {
+                    lr.setMessage("Something went wrong moving to the next record.");
+                    lr.setThrown(ex);
+                    Starter.logger.error(lr);
+
+    //                MessageBox.showError(ex, "Database Access");
+                }
             }
         }
     }
@@ -190,6 +194,25 @@ public class CustomerSelector extends javax.swing.JDialog {
             lr.setMessage("Validation completed. Returning findings.");
             Starter.logger.exit(lr, new Object[] {false});
             return false;
+        }
+        
+        if ( customerList.getSelectedItem().toString().equals("Add a new "
+                + "customer...") ) {
+            NewCustomerDlg dlg = new NewCustomerDlg( null, true );
+            dlg.pack();
+            dlg.setVisible(true);
+            
+            if ( !dlg.isCancelled() ) {
+                customer = dlg.getCustomer();
+                
+                records.addNew(customer);
+                
+                customerList.addItem(customer.getCompany() + ": " 
+                        + customer.getCity() + ", " + customer.getState() 
+                        + " [" + customer.getId() + "]");
+                
+                customerList.setSelectedIndex(customerList.getItemCount() - 1);
+            }
         }
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");

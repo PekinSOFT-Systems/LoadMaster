@@ -39,7 +39,7 @@ import com.pekinsoft.loadmaster.controller.BrokerCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.BrokerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
-import java.awt.Container;
+import com.pekinsoft.loadmaster.view.NewBrokerDlg;
 import org.netbeans.spi.wizard.WizardPage;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -133,6 +133,37 @@ public class BrokerPage extends WizardPage {
             records = new BrokerCtl();
             lr.setMessage("Brokers database accessed successfully!");
             Starter.logger.info(lr);
+            
+            if ( records.getRecordCount() == 0 ) {
+                // There are no brokers in the database, so show the New Broker/
+                //+ Agent dialog so the broker can be entered.
+                NewBrokerDlg dlg = new NewBrokerDlg(null, true);
+                dlg.pack();
+                dlg.setVisible(true);
+                
+                if ( !dlg.isCancelled() ) {
+                    // we need to populate the fields with the created broker or
+                    //+ agent data.
+                    BrokerModel b = dlg.getBroker();
+                    if ( b.getCompany().length() > 0 ) {
+                        brokerField.setText(b.getCompany());
+                    } else if ( b.getContact().length() > 0 ) {
+                        brokerField.setText(b.getContact());
+                    } else {
+                        brokerField.setText("<NO CONTACT OR COMPANY NAME>");
+                    }
+                    
+                    phoneField.setText(b.getPhone());
+                    faxField.setText(b.getFax());
+                    emailField.setText(b.getEmail());
+                    
+                    // Add this broker to the table.
+                    records.addNew(b);
+                    // Save the data.
+                    records.close();
+                    
+                }
+            }
         } catch ( DataStoreException ex ) {
             lr.setMessage("Something went wrong accessing the brokers database.");
             lr.setThrown(ex);
