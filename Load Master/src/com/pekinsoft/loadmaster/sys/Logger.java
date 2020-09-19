@@ -148,10 +148,10 @@ public class Logger {
      */
     private Logger() {
         this ( System.getProperty("user.home") 
-            + System.getProperty("file.separator") + ".loadmaster" 
-            + System.getProperty("file.separator") + "var" 
-            + System.getProperty("file.separator") + "logs" 
-            + System.getProperty("file.separator") + "application.log");
+            + File.separator + ".loadmaster" 
+            + File.separator + "var" 
+            + File.separator + "logs" 
+            + File.separator + "application.log");
     }
     
     /**
@@ -232,7 +232,12 @@ public class Logger {
         // In order to ACTUALLY initialize our log field, we will need to
         //+ enclose it in a try...catch() block. We will also need to do this
         //+ anytime we use the log field.
-        try {            
+        try {
+            File file = new File(path);
+            if (!file.exists()) {
+                File dirs = new File(path.substring(0, path.indexOf(file.getName())));
+                dirs.mkdirs();
+            }
             this.log = new FileWriter(path);
         } catch (IOException ex) {
             // We are going to simply show a message box to the user explaining
