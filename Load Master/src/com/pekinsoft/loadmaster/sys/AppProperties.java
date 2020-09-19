@@ -567,6 +567,19 @@ public class AppProperties {
         return PROJECT_WEB;
     }
     
+    public String getProjectDescription() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html><h3>Load Master</h3>\n");
+        sb.append("<p>The Load Master Project is the culmination of a bunch ");
+        sb.append("of different attempts and failures to try and bring about ");
+        sb.append("a simple load tracking and accounting package for one-truck");
+        sb.append(" owner/operator businesses. We at PekinSOFT believe that ");
+        sb.append("we have finally figured out exactly how to make this dream");
+        sb.append(" a reality...Load Master <strong><em>is</em></strong> ");
+        sb.append("that reality. Enjoy!");
+        return sb.toString();
+    }
+    
     public String getProjectEmail() {
         return PROJECT_EMAIL;
     }
