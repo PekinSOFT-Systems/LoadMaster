@@ -32,6 +32,9 @@
  *  Mar 21, 2020 Sean Carrick        Added the parameter `modules` to the 
  *                                   `critical` function, so that installed
  *                                   modules may be added to the error log.
+ *  Sep 19, 2020 Jiří Kovalský       Fixed logger file creation on Linux
+ *                                   systems to avoid NPE error when running
+ *                                   the application for the first time.
  * *****************************************************************************
  */
 
