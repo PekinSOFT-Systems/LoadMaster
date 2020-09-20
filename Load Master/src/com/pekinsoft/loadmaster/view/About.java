@@ -29,11 +29,14 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Sep 14, 2020  Sean Carrick        Initial creation.
+ *  Sep 20, 2020  Jiří Kovalský       Turned project website link into clickable
+ *                                    UI element.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
+import java.awt.Cursor;
 import java.awt.Toolkit;
 
 /**
@@ -67,6 +70,7 @@ public class About extends javax.swing.JDialog {
         top = (top - getHeight()) / 2;
         
         setLocation(left, top);
+        websiteLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
 //        getRootPane().setDefaultButton(closeButton);
     }
@@ -153,7 +157,13 @@ public class About extends javax.swing.JDialog {
             }
         });
 
+        websiteLabel.setForeground(java.awt.Color.blue);
         websiteLabel.setText("project website");
+        websiteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                websiteLabelMouseClicked(evt);
+            }
+        });
         websiteLabel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -245,6 +255,26 @@ public class About extends javax.swing.JDialog {
                 || evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE ) 
             dispose();
     }//GEN-LAST:event_checkEnterEscape
+
+    private void websiteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_websiteLabelMouseClicked
+        String[] commands = null;
+        String os = System.getProperty("os.name");
+        if (os.contains("Unix")) commands = new String[] {"firefox ", "konqueror ", "mozilla ", "opera "};
+        if (os.contains("Linux")) commands = new String[] {"firefox ", "google-chrome ", "mozilla ", "opera "};
+        if (os.contains("Windows")) commands = new String[] {"cmd.exe /c start "};
+        if (os.contains("Macintosh")) commands = new String[] {"open "};
+        if (commands == null) return;
+        for (String command : commands) {
+            String systemCommand = command + Starter.props.getProjectWebsite();
+            try {
+                Process process = Runtime.getRuntime().exec(systemCommand);
+                process.waitFor();
+                int exit = process.exitValue();
+                if (exit == 0) return;
+            } catch(Exception e) { e.printStackTrace(); }
+        }
+
+    }//GEN-LAST:event_websiteLabelMouseClicked
 
     /**
      * @param args the command line arguments
