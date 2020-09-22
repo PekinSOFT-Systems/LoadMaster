@@ -380,7 +380,6 @@ public class LoadMaster extends javax.swing.JFrame {
         }
         });
 
-//        systemTasks.add(new JSeparator());
 
         systemTasks.add(new AbstractAction() {
         {
