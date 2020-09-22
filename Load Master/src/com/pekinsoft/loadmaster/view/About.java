@@ -31,6 +31,10 @@
  *  Sep 14, 2020  Sean Carrick        Initial creation.
  *  Sep 20, 2020  Jiří Kovalský       Turned project website link into clickable
  *                                    UI element.
+ *  Sep 21, 2020  Sean Carrick        Cleaned up class by removing main() method
+ *                                    and commented out code. Also, added 
+ *                                    JavaDoc comments for the parameters on the 
+ *                                    constructor.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -47,7 +51,10 @@ public class About extends javax.swing.JDialog {
 
     /**
      * Creates new form About
-     */
+     * 
+     * @param parent    The window or dialog to which this one belongs.
+     * @param modal     Whether or not this dialog should be dealt with before
+     *                  the user can move on.     */
     public About(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
