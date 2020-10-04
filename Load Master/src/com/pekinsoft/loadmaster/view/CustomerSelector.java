@@ -202,7 +202,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             dlg.pack();
             dlg.setVisible(true);
             
-            if ( !dlg.isCancelled() ) {
+            if ( dlg.isCancelled() == false ) {
                 customer = dlg.getCustomer();
                 
                 records.addNew(customer);
@@ -235,29 +235,31 @@ public class CustomerSelector extends javax.swing.JDialog {
         //+     Test 1: The hour must NOT be less than zero nor greater than 23.
         //+     Test 2: The minute must NOT be less than zero nor greater than
         //+             59.
-        String[] et;
-        String[] lt;
-        int etHour = 0;
-        int etMin = 0;
-        int ltHour = 0;
-        int ltMin = 0;
-        
-        if ( earlyTime.getText() != null && !earlyTime.getText().isBlank()
-                && lateTime.getText() != null && !lateTime.getText().isBlank() ) {
-            et = earlyTime.getText().split(":");
-            lt = lateTime.getText().split(":");
-            etHour = Integer.valueOf(et[0]);
-            etMin = Integer.valueOf(et[1]);
-            ltHour = Integer.valueOf(lt[0]);
-            ltMin = Integer.valueOf(lt[1]);        
-        }
-        
-        if ( (etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
-                || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59) ) {
-            // One of the above tests failed.
-            lr.setMessage("Validation completed. Returning findings.");
-            Starter.logger.exit(lr, new Object[] {false});
-            return false;
+        if ( !earlyTime.getText().equals(" : ") ) {
+            String[] et;
+            String[] lt;
+            int etHour = 0;
+            int etMin = 0;
+            int ltHour = 0;
+            int ltMin = 0;
+
+            if ( earlyTime.getText() != null && !earlyTime.getText().isBlank()
+                    && lateTime.getText() != null && !lateTime.getText().isBlank() ) {
+                et = earlyTime.getText().split(":");
+                lt = lateTime.getText().split(":");
+                etHour = Integer.valueOf(et[0]);
+                etMin = Integer.valueOf(et[1]);
+                ltHour = Integer.valueOf(lt[0]);
+                ltMin = Integer.valueOf(lt[1]);        
+            }
+
+            if ( (etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
+                    || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59) ) {
+                // One of the above tests failed.
+                lr.setMessage("Validation completed. Returning findings.");
+                Starter.logger.exit(lr, new Object[] {false});
+                return false;
+            }
         }
         
         // Create a couple of Date object to hold the early and late times for
@@ -340,7 +342,6 @@ public class CustomerSelector extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        customerList = new javax.swing.JComboBox<>();
         selectButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         earlyDate = new org.jdesktop.swingx.JXDatePicker();
@@ -348,21 +349,11 @@ public class CustomerSelector extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         lateDate = new org.jdesktop.swingx.JXDatePicker();
         lateTime = new javax.swing.JFormattedTextField();
+        customerList = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Customer:");
-
-        customerList.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                customerListItemStateChanged(evt);
-            }
-        });
-        customerList.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                checkEnterEscape(evt);
-            }
-        });
 
         selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         selectButton.setMnemonic('S');
@@ -444,6 +435,13 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
+        customerList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        customerList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                customerListItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -461,7 +459,6 @@ public class CustomerSelector extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -472,7 +469,8 @@ public class CustomerSelector extends javax.swing.JDialog {
                                         .addComponent(lateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lateTime)))
-                                .addGap(0, 105, Short.MAX_VALUE)))))
+                                .addGap(0, 105, Short.MAX_VALUE))
+                            .addComponent(customerList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -526,10 +524,6 @@ public class CustomerSelector extends javax.swing.JDialog {
             doClose();
     }//GEN-LAST:event_checkEnterEscape
 
-    private void customerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_customerListItemStateChanged
-        selectButton.setEnabled(isDataValid());
-    }//GEN-LAST:event_customerListItemStateChanged
-
     private void lateDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lateDateActionPerformed
         selectButton.setEnabled(isDataValid());
     }//GEN-LAST:event_lateDateActionPerformed
@@ -545,6 +539,11 @@ public class CustomerSelector extends javax.swing.JDialog {
     private void lateTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lateTimeKeyReleased
         selectButton.setEnabled(isDataValid());
     }//GEN-LAST:event_lateTimeKeyReleased
+
+    private void customerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_customerListItemStateChanged
+        // Validate the data on the dialog
+        selectButton.setEnabled(isDataValid());
+    }//GEN-LAST:event_customerListItemStateChanged
 
     /**
      * @param args the command line arguments

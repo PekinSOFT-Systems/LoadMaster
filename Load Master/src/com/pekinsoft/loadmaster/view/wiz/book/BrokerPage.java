@@ -40,6 +40,7 @@ import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.BrokerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.NewBrokerDlg;
+import java.awt.Component;
 import org.netbeans.spi.wizard.WizardPage;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -331,4 +332,14 @@ public class BrokerPage extends WizardPage {
     }                                      
     //</editor-fold>
 
+    
+    @Override
+    protected String validateContents(Component comp, Object o) {
+        if ( brokerList.getSelectedItem().toString().equals(
+                "Select Broker/Agent...") ) {
+            return "An agent or broker must be selected.";
+        }
+        
+        return null;
+    }
 }
