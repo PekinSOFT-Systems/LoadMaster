@@ -349,6 +349,19 @@ public class LoadMaster extends javax.swing.JFrame {
         }
         });
 
+        systemTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "About Load Master...");
+            putValue(Action.SHORT_DESCRIPTION, "Displays the about dialog.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/Northwind16.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            doShowAbout();
+        }
+        });
+
         systemTasks.add(new JSeparator());
 
         systemTasks.add(new AbstractAction() {
@@ -367,7 +380,6 @@ public class LoadMaster extends javax.swing.JFrame {
         }
         });
 
-        systemTasks.add(new JSeparator());
 
         systemTasks.add(new AbstractAction() {
         {
@@ -459,6 +471,12 @@ public class LoadMaster extends javax.swing.JFrame {
 //        dlg.pack();
 //        mainDesktop.add(dlg);
 //        dlg.setVisible(true);
+    }
+    
+    private void doShowAbout() {
+        About dlg = new About(this, true);
+        dlg.pack();
+        dlg.setVisible(true);
     }
     
     private void doShowSettings() {

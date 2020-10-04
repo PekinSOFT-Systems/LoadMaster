@@ -29,6 +29,7 @@ public class SettingsDialog extends javax.swing.JDialog {
     }
     
     private void loadProperties() {
+        settingsTabbedPane.remove(accountingTab);
         settingsTabbedPane.remove(numberingTab);
         orderPrefixField.setEnabled(false);
         tripPrefixField.setEnabled(false);
@@ -219,6 +220,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         errorField = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         configField = new javax.swing.JTextField();
+        accountingTab = new javax.swing.JPanel();
         commandPanel = new javax.swing.JPanel();
         closeButton = new javax.swing.JButton();
 
@@ -335,12 +337,13 @@ public class SettingsDialog extends javax.swing.JDialog {
         truckInfoPanelLayout.setVerticalGroup(
             truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(truckInfoPanelLayout.createSequentialGroup()
-                .addGroup(truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(truckNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
-                        .addComponent(odometerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(odometerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(truckNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -859,10 +862,11 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addComponent(jLabel29)
                     .addComponent(configField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(directoriesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(dataField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataBrowseButton))
+                .addGroup(directoriesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataBrowseButton)
+                    .addGroup(directoriesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel23)
+                        .addComponent(dataField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(directoriesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
@@ -875,6 +879,19 @@ public class SettingsDialog extends javax.swing.JDialog {
         );
 
         settingsTabbedPane.addTab("Directories", directoriesTab);
+
+        javax.swing.GroupLayout accountingTabLayout = new javax.swing.GroupLayout(accountingTab);
+        accountingTab.setLayout(accountingTabLayout);
+        accountingTabLayout.setHorizontalGroup(
+            accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 564, Short.MAX_VALUE)
+        );
+        accountingTabLayout.setVerticalGroup(
+            accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 318, Short.MAX_VALUE)
+        );
+
+        settingsTabbedPane.addTab("Accounting", accountingTab);
 
         closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/Cancel.png"))); // NOI18N
         closeButton.setMnemonic('C');
@@ -1006,6 +1023,7 @@ public class SettingsDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel accountingTab;
     private javax.swing.JCheckBox chkAuthority;
     private javax.swing.JTextField cityField;
     private javax.swing.JButton closeButton;
