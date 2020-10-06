@@ -36,6 +36,10 @@
  *  Sep 01, 2020  Sean Carrick        Added data validation to the dialog to 
  *                                    ensure all required data is provided and 
  *                                    that the data entered is valid.
+ *  Oct 05, 2020  Jiří Kovalský       Removed unnecessary validity check later
+ *                                    duplicated by SimpleDateFormat parse call.
+ *                                    Also removed useless default model with
+ *                                    4 demo values for customer list.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -106,7 +110,6 @@ public class CustomerSelector extends javax.swing.JDialog {
     }
     
     private void loadList() {
-        customerList.removeAllItems();
         customerList.addItem("Select customer...");
         customerList.addItem("Add a new customer...");
         
@@ -222,40 +225,6 @@ public class CustomerSelector extends javax.swing.JDialog {
         if ( lateDate.getDate() != null && earlyDate.getDate() != null ) {
             if ( lateDate.getDate().compareTo(earlyDate.getDate()) < 0 ) {
                 // Less than zero (0) means that lateDate is BEFORE earlyDate.
-                lr.setMessage("Validation completed. Returning findings.");
-                Starter.logger.exit(lr, new Object[] {false});
-                return false;
-            }
-        }
-        
-        // Before we compare the early and late times, we need to make sure that
-        //+ they are valid times. In order for them to be valid, they must pass
-        //+ these two tests:
-        //+
-        //+     Test 1: The hour must NOT be less than zero nor greater than 23.
-        //+     Test 2: The minute must NOT be less than zero nor greater than
-        //+             59.
-        if ( !earlyTime.getText().equals(" : ") ) {
-            String[] et;
-            String[] lt;
-            int etHour = 0;
-            int etMin = 0;
-            int ltHour = 0;
-            int ltMin = 0;
-
-            if ( earlyTime.getText() != null && !earlyTime.getText().isBlank()
-                    && lateTime.getText() != null && !lateTime.getText().isBlank() ) {
-                et = earlyTime.getText().split(":");
-                lt = lateTime.getText().split(":");
-                etHour = Integer.valueOf(et[0]);
-                etMin = Integer.valueOf(et[1]);
-                ltHour = Integer.valueOf(lt[0]);
-                ltMin = Integer.valueOf(lt[1]);        
-            }
-
-            if ( (etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
-                    || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59) ) {
-                // One of the above tests failed.
                 lr.setMessage("Validation completed. Returning findings.");
                 Starter.logger.exit(lr, new Object[] {false});
                 return false;
@@ -435,7 +404,6 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
-        customerList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         customerList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 customerListItemStateChanged(evt);
