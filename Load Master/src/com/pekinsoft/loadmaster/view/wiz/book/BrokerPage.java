@@ -28,7 +28,10 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 6, 2020  Sean Carrick        Initial creation.
+ *  Sep 6, 2020   Sean Carrick        Initial creation.
+ *  Oct 6, 2020   Sean Carrick        Added "Add New Broker/Agent..." item to 
+ *                                    the brokerList JCombobox and the method to
+ *                                    display the Add Broker/Agent dialog.
  * *****************************************************************************
  */
 
@@ -177,6 +180,7 @@ public class BrokerPage extends WizardPage {
 
         brokerList.removeAllItems();
         brokerList.addItem("Select Broker/Agent...");
+        brokerList.addItem("Add New Broker/Agent...");
 
         try {
             records.first();
@@ -204,7 +208,7 @@ public class BrokerPage extends WizardPage {
                 //                MessageBox.showError(ex, "Database Access");
             }
         }
-        brokerList.setName(""); // NOI18N
+        brokerList.setName("brokerList"); // NOI18N
         brokerList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 selectedBrokerChanged(evt);
@@ -220,6 +224,8 @@ public class BrokerPage extends WizardPage {
         phoneField.setName("Phone"); // NOI18N
 
         jLabel3.setText("Fax:");
+        
+        faxField.setName("Fax");
 
         jLabel4.setText("Email:");
 
@@ -280,7 +286,24 @@ public class BrokerPage extends WizardPage {
         );
     }// </editor-fold>                        
 
-    private void selectedBrokerChanged(java.awt.event.ItemEvent evt) {                                       
+    private void selectedBrokerChanged(java.awt.event.ItemEvent evt) {          
+        // Before doing anything else, we need to see if the user wants to add
+        //+ a new broker/agent to the database.
+        if ( brokerList.getSelectedItem().toString().equalsIgnoreCase(
+                "add new broker/agent...") ) {
+            NewBrokerDlg dlg = new NewBrokerDlg(null, true);
+            dlg.pack();
+            dlg.setVisible(true);
+            
+            // Make sure the user did not cancel the dialog.
+            if ( !dlg.isCancelled() ) {
+                String newBroker = dlg.getBroker().getContact() + " (" +
+                        String.valueOf(dlg.getBroker().getId()) + ")";
+                brokerList.addItem(newBroker);
+                brokerList.setSelectedItem(newBroker);
+            }
+        }
+        
         // In order to get the selected broker, we need to loop through the
         //+ records to find which record has the selected ID number.
         if ( !brokerList.getSelectedItem().toString().equalsIgnoreCase(
