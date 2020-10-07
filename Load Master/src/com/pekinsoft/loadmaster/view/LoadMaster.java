@@ -18,6 +18,7 @@ import com.pekinsoft.loadmaster.view.wiz.LoadBookerWizardPanelProvider;
 import com.pekinsoft.loadmaster.view.wiz.book.BrokerPage;
 import com.pekinsoft.loadmaster.view.wiz.book.LoadPage;
 import com.pekinsoft.loadmaster.view.wiz.book.StopsPage;
+import com.pekinsoft.loadmaster.view.wiz.book.SummaryPage;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -454,7 +455,8 @@ public class LoadMaster extends javax.swing.JFrame {
         Class[] pages = new Class[] {
             LoadPage.class,
             BrokerPage.class,
-            StopsPage.class
+            StopsPage.class,
+            SummaryPage.class
         };
         
         // We will want to change the WizardResultProducer.NO_OP to a different

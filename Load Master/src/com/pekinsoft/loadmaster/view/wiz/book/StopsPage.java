@@ -29,6 +29,8 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Sep 6, 2020  Sean Carrick        Initial creation.
+ *  Oct 6, 2020  Jiří Kovalský       Trigger validation of wizard step content
+ *                                   whenever a new stop is added to the table.
  * *****************************************************************************
  */
 
@@ -214,6 +216,7 @@ public class StopsPage extends WizardPage {
             model.addRow(row);
             
             stopsTable.setModel(model);
+            putWizardData(stopsTable, row);
             
             StopModel stop = new StopModel();
             stop.setEarlyDate(dlg.getEarlyDate());
