@@ -270,7 +270,7 @@ public class StopsPage extends WizardPage {
         // If we get here, then a minimum of two stops have been entered, so we
         //+ can store the customer IDs to the wizard data.
         for (int x = 0; x < stopsTable.getRowCount(); x++ ) {
-            putWizardData("stop" + x + 1, stopsTable.getValueAt(x, 0));
+            putWizardData("stop" + x, stopsTable.getValueAt(x, 0));
         }
         
         // We also need to store our stops count to the settings file for later

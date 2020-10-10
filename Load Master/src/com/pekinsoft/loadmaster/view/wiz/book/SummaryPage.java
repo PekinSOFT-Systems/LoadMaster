@@ -94,7 +94,7 @@ public class SummaryPage extends WizardPage {
         summary.append("</thead><tbody>");
         summary.append("<tr><td>Order #</td><td>");
         summary.append(map.get("order").toString());
-        summary.append("</td></tr><tr><td>Trip #");
+        summary.append("</td></tr><tr><td>Trip #</td><td>");
         summary.append(map.get("trip").toString());
         summary.append("</td></tr><tr><td>Gross Pay</td><td>");
         summary.append(map.get("truck.pay").toString());
@@ -132,7 +132,7 @@ public class SummaryPage extends WizardPage {
         
         summary.append("<h2>Broker/Agent Information</h2><p>");
         summary.append("Broker: ");
-        summary.append(map.get("Broker"));
+        summary.append(map.get("broker"));
         summary.append("<br>");
         
         // Again, only report if the data is present, similar to the checkboxes.
@@ -146,7 +146,7 @@ public class SummaryPage extends WizardPage {
             summary.append(map.get("Fax").toString());
             summary.append("<br>");
         }
-        if ( map.get("Email").toString().length() > 0 ) {
+        if ( !map.get("Email").toString().equals(" ") ) {
             summary.append("Email: ");
             summary.append(map.get("Email").toString());
             summary.append("<br>");
@@ -154,7 +154,7 @@ public class SummaryPage extends WizardPage {
         summary.append("</p>");
         
         summary.append("<h2>Stop Information</h2>");
-        summary.append("<table><thhead><tr><th>Stop #</th><th>Company</th>");
+        summary.append("<table border=1><thead><tr><th>Stop #</th><th>Company</th>");
         summary.append("<th>Street</th><th>Suite</th><th>City</th>");
         summary.append("<th>State</th><th>Zip Code</th><th>Phone</th></tr>");
         summary.append("</thead><tbody>");
@@ -176,7 +176,7 @@ public class SummaryPage extends WizardPage {
             // If we are successful in opening the data table, we can then 
             //+ search for the customer we need. However, we need to loop through
             //+ all of the stops the user entered to get the customer ID numbers.
-            for ( int x = 1; x == Starter.props.getPropertyAsInt("stop.count", 
+            for ( int x = 0; x < Starter.props.getPropertyAsInt("stop.count", 
                     "0"); x++) {
                 long desiredID = Long.valueOf(map.get("stop" + x).toString());
                 
@@ -215,6 +215,7 @@ public class SummaryPage extends WizardPage {
         
         // Then, we need to put our document in our summary editor.
         summaryEditor.setContentType("text/html");
+        summaryEditor.setEditable(false);
         summaryEditor.setText(summary.toString());
     }
     //</editor-fold>
