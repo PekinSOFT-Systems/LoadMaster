@@ -31,6 +31,8 @@
  *  Sep 13, 2020  Sean Carrick        Initial creation.
  *  Oct 09, 2020  Sean Carrick        Added this header and removed the main() 
  *                                    method from the class.
+ *  Oct 10, 2020  Sean Carrick        Changed the titlebar text to read the 
+ *                                    Project Name from the properties file.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -86,7 +88,7 @@ public class LoadMaster extends javax.swing.JFrame {
         Starter.logger.enter(record);
         initComponents();
         
-        setTitle("Load Master - Current Trip: " 
+        setTitle(Starter.props.getProjectName() + " - Current Trip: " 
                 + Starter.props.getProperty("load.current", "No Active Load"));        
         
         versionLabel.setText("Version " + Starter.props.getVersion());
