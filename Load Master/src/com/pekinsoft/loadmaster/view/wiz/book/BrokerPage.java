@@ -38,7 +38,6 @@
  *                                    unique ID for the broker/agent.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.view.wiz.book;
 
 import com.pekinsoft.loadmaster.Starter;

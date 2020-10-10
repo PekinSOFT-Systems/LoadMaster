@@ -34,6 +34,12 @@
 
 package com.pekinsoft.loadmaster.view.wiz.book;
 
+import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.CustomerCtl;
+import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.model.CustomerModel;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import java.util.Map;
 import org.netbeans.spi.wizard.WizardPage;
 
@@ -51,6 +57,9 @@ public class SummaryPage extends WizardPage {
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private Map map;
+    private CustomerModel cust;
+    private CustomerCtl table;
+    private LogRecord entry;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
@@ -69,7 +78,12 @@ public class SummaryPage extends WizardPage {
     public SummaryPage () {
         super();
         
-        map = super.getWizardDataMap();
+        entry = new LogRecord(Level.ALL, "Logging intitated for SummaryPage.");
+        entry.setSourceClassName(this.getClass().getName());
+        entry.setSourceMethodName("SummaryPage() - Default Constructor");
+        entry.setParameters(null);
+        
+        map = getWizardDataMap();
         
         // We will use the `wizardData` Map to get the settings that the user
         //+ selected during this wizard and show them a summary, in HTML.
@@ -78,7 +92,8 @@ public class SummaryPage extends WizardPage {
         summary.append("<html><body><h1 style=\"text-align: center\">");
         summary.append("Book Load Summary</h1>");
         summary.append("<h2>Load Information</h2");
-        summary.append("<table><th><td>Setting</td><td>Value</td></th>");
+        summary.append("<table><thead><tr><th>Setting</th><th>Value</th></tr>");
+        summary.append("</thead><tbody>");
         summary.append("<tr><td>Order #</td><td>");
         summary.append(map.get("order").toString());
         summary.append("</td></tr><tr><td>Trip #");
@@ -89,7 +104,7 @@ public class SummaryPage extends WizardPage {
         summary.append(map.get("miles").toString());
         summary.append("</td></tr><tr><td>Commodity</td><td>");
         summary.append(map.get("commodity").toString());
-        summary.append("</td></tr><table>");
+        summary.append("</td></tr></tbody><table>");
         summary.append("<p>Other Load Information:<br><br>");
         
         // For the checkboxes on the LoadPage, we will use if statements to 
@@ -140,49 +155,68 @@ public class SummaryPage extends WizardPage {
         }
         summary.append("</p>");
         
-        summary.append("<h2>Shipper's Information</h2><p>");
-        summary.append("Customer ID: ").append(map.get("shipCustomerID").toString());
-        summary.append("<br>Company").append(map.get("shipCompany").toString());
-        summary.append("<br>Address: ");
-        summary.append(map.get("shipStreet").toString());
-        if ( map.get("shipSuite").toString().length() > 0 )
-            summary.append(", ").append(map.get("shipSuite").toString());
-        summary.append(", ").append(map.get("shipCity").toString());
-        summary.append(", ").append(map.get("shipState").toString());
-        summary.append("  ").append(map.get("shipZipCode").toString());
-        summary.append("<br>");
-        if ( map.get("shipContact").toString().length() > 0 )
-            summary.append(map.get("shipContact").toString()).append("<br>");
-        if ( !map.get("shipPhone").toString().equals("(   )    -    ") )
-            summary.append(map.get("shipPhone").toString()).append("<br>");
-        summary.append("Early Arrival: ").append(map.get("shipEarlyDate").toString());
-        summary.append(" @ ").append(map.get("shipEarlyTime").toString());
-        summary.append("<br>");
-        summary.append("Late Arrival: ").append(map.get("shipLateDate").toString());
-        summary.append(" @ ").append(map.get("shipLateTime").toString());
-        summary.append("</p>");
+        summary.append("<h2>Stop Information</h2>");
+        summary.append("<table><thhead><tr><th>Stop #</th><th>Company</th>");
+        summary.append("<th>Street</th><th>Suite</th><th>City</th>");
+        summary.append("<th>State</th><th>Zip Code</th><th>Phone</th></tr>");
+        summary.append("</thead><tbody>");
         
-        summary.append("<h2>Final Delivery Information</h2><p>");
-        summary.append("Customer ID: ").append(map.get("recCustomerID").toString());
-        summary.append("<br>Company").append(map.get("recCompany").toString());
-        summary.append("<br>Address: ");
-        summary.append(map.get("recStreet").toString());
-        if ( map.get("recSuite").toString().length() > 0 )
-            summary.append(", ").append(map.get("recSuite").toString());
-        summary.append(", ").append(map.get("recCity").toString());
-        summary.append(", ").append(map.get("recState").toString());
-        summary.append("  ").append(map.get("recZipCode").toString());
-        summary.append("<br>");
-        if ( map.get("recContact").toString().length() > 0 )
-            summary.append(map.get("recContact").toString()).append("<br>");
-        if ( !map.get("recPhone").toString().equals("(   )    -    ") )
-            summary.append(map.get("recPhone").toString()).append("<br>");
-        summary.append("Early Arrival: ").append(map.get("recEarlyDate").toString());
-        summary.append(" @ ").append(map.get("recEarlyTime").toString());
-        summary.append("<br>");
-        summary.append("Late Arrival: ").append(map.get("recLateDate").toString());
-        summary.append(" @ ").append(map.get("recLateTime").toString());
-        summary.append("</p>");
+        // To list out the stops, we want to list only the stop number, the
+        //+ company, street, suite, city, state, Zip Code, and phone number. In
+        //+ order to accomplish this, we will need to loop through all keys in
+        //+ the data map, appending the stop number to the word "stop". Once we
+        //+ have the customer ID for the stop, we will need to get that customer
+        //+ record from the database. To accomplish this, we will need to get
+        //+ the data from the customers table using a CustomerCtl object and a
+        //+ long value of the String of the customer ID stored in the data map.
+        //+ We will use a CustomerModel object to hold the record that matches
+        //+ the customer we are seeking.
+        
+        try {
+            table = new CustomerCtl();
+            
+            // If we are successful in opening the data table, we can then 
+            //+ search for the customer we need. However, we need to loop through
+            //+ all of the stops the user entered to get the customer ID numbers.
+            for ( int x = 1; x == Starter.props.getPropertyAsInt("stop.count", 
+                    "0"); x++) {
+                long desiredID = Long.valueOf(map.get("stop" + x).toString());
+                
+                // Now that we have the customer ID we need to match, we need to
+                //+ loop through all of the records in the customer table until
+                //+ we find that customer record.
+                do {
+                    if ( table.get().getId() == desiredID ) {
+                        cust = table.get();
+                        
+                        // Exit the loop.
+                        break;
+                    } else
+                        table.next();
+                }  while ( table.hasNext() );
+                
+                // Now that we have gotten the appropriate customer information
+                //+ for the stop, we can add the info to the summary page.
+                summary.append("<tr><td>").append(x).append("</td><td>");
+                summary.append(cust.getCompany()).append("</td><td>");
+                summary.append(cust.getStreet()).append("</td><td>");
+                summary.append(cust.getSuite()).append("</td><td>");
+                summary.append(cust.getCity()).append("</td><td>");
+                summary.append(cust.getState()).append("</td><td>");
+                summary.append(cust.getZip()).append("</td><td>");
+                summary.append(cust.getPhone()).append("</td></tr>");
+            }
+        } catch ( DataStoreException ex ) {
+            entry.setThrown(ex);
+            Starter.logger.error(entry);
+        }
+        
+        // Once we have added the information on each of the stops, we need to
+        //+ close out our table and our document.
+        summary.append("</tbody></table></body></html>");
+        
+        // Then, we need to put our document in our summary editor.
+        summaryEditor.setText(summary.toString());
     }
     //</editor-fold>
 

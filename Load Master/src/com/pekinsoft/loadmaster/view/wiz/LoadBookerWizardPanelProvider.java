@@ -90,9 +90,9 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public LoadBookerWizardPanelProvider() {
-        super(new String[]{"load", "broker", "stops"}, 
+        super(new String[]{"load", "broker", "stops", "summary"}, 
                 new String[]{"Load Information", "Broker Information",
-            "StopsPage"});
+            "StopsPage", "Summary"});
     }
 
     public LoadBookerWizardPanelProvider(String[] steps, String[] descriptions) {

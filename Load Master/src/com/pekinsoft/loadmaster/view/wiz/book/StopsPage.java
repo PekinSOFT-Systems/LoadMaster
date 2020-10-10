@@ -273,6 +273,10 @@ public class StopsPage extends WizardPage {
             putWizardData("stop" + x + 1, stopsTable.getValueAt(x, 0));
         }
         
+        // We also need to store our stops count to the settings file for later
+        //+ use.
+        Starter.props.setPropertyAsInt("stop.count", stopsTable.getRowCount());
+        
         return null;
     }
 }
