@@ -266,7 +266,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
             
             // We are on the summary page, which is the final page of the wizard,
             //+ there is nowhere else to go from here.
-            return new SummaryPage();
+            return new SummaryPage(map);
         } else {
             // An unknown page ID has been discovered. Typo?
             throw new Error("Unknown ID " + string + "\nPlease check the "
@@ -282,6 +282,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
         // We are not returning anything from this method, so just return a null
         //+ object, as everything that needed to be done was done here.
+        System.out.println(settings.get("brokerList"));
         return null;
     }
 

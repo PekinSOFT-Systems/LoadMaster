@@ -135,7 +135,6 @@ public class BrokerPage extends WizardPage {
 
         jLabel5.setText("Broker/Agent:");
 
-        brokerList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         try {
             records = new BrokerCtl();
             lr.setMessage("Brokers database accessed successfully!");
@@ -181,7 +180,6 @@ public class BrokerPage extends WizardPage {
             records = null;
         }
 
-        brokerList.removeAllItems();
         brokerList.addItem("Select Broker/Agent...");
         brokerList.addItem("Add New Broker/Agent...");
 
@@ -365,16 +363,6 @@ public class BrokerPage extends WizardPage {
                 "Select Broker/Agent...") ) {
             return "An agent or broker must be selected.";
         }
-        
-        // If we get to this point, the user has selected a broker/agent for the
-        //+ load, so we need to save the selected broker's/agent's unique id
-        //+ number for later use.
-        
-        String uid = brokerList.getSelectedItem().toString().substring(
-                brokerList.getSelectedItem().toString().indexOf("("));
-        uid = uid.substring(0, uid.length() - 1);
-        
-        putWizardData("brokerID", uid);
         
         return null;
     }
