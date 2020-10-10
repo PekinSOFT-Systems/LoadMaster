@@ -28,7 +28,9 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 6, 2020  Sean Carrick        Initial creation.
+ *  Sep 06, 2020  Sean Carrick        Initial creation.
+ *  Oct 09, 2020  Sean Carrick        Uncommented elseif blocks in the
+ *                                    validateContents() method.
  * *****************************************************************************
  */
 
@@ -264,12 +266,12 @@ public class LoadPage extends WizardPage {
         // Set the flags to our settings.
         if ( orderField.getText().length() == 0 )
             return "Order Number is required.";
-//        else if ( tripField.getText().length() == 0 )
-//            return "Trip Number is required.";
-//        else if ( grossPayField.getText().length() == 0 )
-//            return "Gross Truck Pay is required.";
-//        else if ( dispMilesField.getText().length() == 0 )
-//            return "Dispatched Miles is required.";
+        else if ( tripField.getText().length() == 0 )
+            return "Trip Number is required.";
+        else if ( grossPayField.getText().length() == 0 )
+            return "Gross Truck Pay is required.";
+        else if ( dispMilesField.getText().length() == 0 )
+            return "Dispatched Miles is required.";
         else
             return null;
     }

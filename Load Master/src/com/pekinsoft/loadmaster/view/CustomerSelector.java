@@ -40,6 +40,9 @@
  *                                    duplicated by SimpleDateFormat parse call.
  *                                    Also removed useless default model with
  *                                    4 demo values for customer list.
+ *  Oct 09, 2020  Sean Carrick        Removed useless main() method and added
+ *                                    text selection as the FocusGained event
+ *                                    for both JFormattedTextFields.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -56,6 +59,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -365,6 +369,11 @@ public class CustomerSelector extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        earlyTime.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                selectText(evt);
+            }
+        });
         earlyTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -395,6 +404,11 @@ public class CustomerSelector extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        lateTime.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                selectText(evt);
+            }
+        });
         lateTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);
@@ -513,47 +527,9 @@ public class CustomerSelector extends javax.swing.JDialog {
         selectButton.setEnabled(isDataValid());
     }//GEN-LAST:event_customerListItemStateChanged
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                CustomerSelector dialog = new CustomerSelector(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    private void selectText(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_selectText
+        ((JTextComponent)evt.getSource()).selectAll();
+    }//GEN-LAST:event_selectText
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> customerList;
