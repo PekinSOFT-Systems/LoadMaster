@@ -75,16 +75,14 @@ public class SummaryPage extends WizardPage {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public SummaryPage () {
+    public SummaryPage (Map map) {
         super();
-        
+        initComponents();
         entry = new LogRecord(Level.ALL, "Logging intitated for SummaryPage.");
         entry.setSourceClassName(this.getClass().getName());
         entry.setSourceMethodName("SummaryPage() - Default Constructor");
         entry.setParameters(null);
-        
-        map = getWizardDataMap();
-        
+                
         // We will use the `wizardData` Map to get the settings that the user
         //+ selected during this wizard and show them a summary, in HTML.
         StringBuilder summary = new StringBuilder();
@@ -216,6 +214,7 @@ public class SummaryPage extends WizardPage {
         summary.append("</tbody></table></body></html>");
         
         // Then, we need to put our document in our summary editor.
+        summaryEditor.setContentType("text/html");
         summaryEditor.setText(summary.toString());
     }
     //</editor-fold>
