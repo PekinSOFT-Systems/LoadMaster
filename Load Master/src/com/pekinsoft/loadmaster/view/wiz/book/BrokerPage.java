@@ -28,10 +28,14 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 6, 2020   Sean Carrick        Initial creation.
- *  Oct 6, 2020   Sean Carrick        Added "Add New Broker/Agent..." item to 
+ *  Sep 06, 2020  Sean Carrick        Initial creation.
+ *  Oct 06, 2020  Sean Carrick        Added "Add New Broker/Agent..." item to 
  *                                    the brokerList JCombobox and the method to
  *                                    display the Add Broker/Agent dialog.
+ *  Oct 09, 2020  Sean Carrick        Added putWizardData() method call into the
+ *                                    validateContents() method once the user
+ *                                    selects a broker/agent and store only the
+ *                                    unique ID for the broker/agent.
  * *****************************************************************************
  */
 
@@ -362,6 +366,16 @@ public class BrokerPage extends WizardPage {
                 "Select Broker/Agent...") ) {
             return "An agent or broker must be selected.";
         }
+        
+        // If we get to this point, the user has selected a broker/agent for the
+        //+ load, so we need to save the selected broker's/agent's unique id
+        //+ number for later use.
+        
+        String uid = brokerList.getSelectedItem().toString().substring(
+                brokerList.getSelectedItem().toString().indexOf("("));
+        uid = uid.substring(0, uid.length() - 1);
+        
+        putWizardData("brokerID", uid);
         
         return null;
     }

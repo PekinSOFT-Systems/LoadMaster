@@ -28,9 +28,13 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 6, 2020  Sean Carrick        Initial creation.
- *  Oct 6, 2020  Jiří Kovalský       Trigger validation of wizard step content
- *                                   whenever a new stop is added to the table.
+ *  Sep 06, 2020  Sean Carrick        Initial creation.
+ *  Oct 06, 2020  Jiří Kovalský       Trigger validation of wizard step content
+ *                                    whenever a new stop is added to the table.
+ *  Oct 09, 2020  Sean Carrick        Modified the table layout to coincide with
+ *                                    last changes by Jiří and added code to put
+ *                                    the Customer ID for each stop into the
+ *                                    wizard data map.
  * *****************************************************************************
  */
 
@@ -138,14 +142,19 @@ public class StopsPage extends WizardPage {
 
             },
             new String [] {
-                "Stop #", "Company Name", "Street Address", "Suite", "City", "ST", "Zip Code", "Phone"
+                "Customer ID", "Stop #", "Company Name", "Street Address", 
+                "Early Date", "Early Time", "Late Date", "Late Time", "Phone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.Long.class, 
+                java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, 
+                java.lang.Object.class, java.lang.String.class, 
+                java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -166,7 +175,8 @@ public class StopsPage extends WizardPage {
             stopsTable.getColumnModel().getColumn(7).setPreferredWidth(25);
         }
 
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+                "/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         addButton.setText("Add Stop...");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,16 +188,20 @@ public class StopsPage extends WizardPage {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 
+                    400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, 
+                    layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, 
+                        Short.MAX_VALUE)
                 .addComponent(addButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 
+                        302, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addButton)
                 .addContainerGap())
@@ -206,13 +220,15 @@ public class StopsPage extends WizardPage {
             String lDate = fmt.format(dlg.getLateDate());
             DefaultTableModel model = (DefaultTableModel)stopsTable.getModel();
             CustomerModel c = dlg.getSelectedCustomer();
-            Object[] row = {++stopNumber,       // Stop Number
+            Object[] row = {c.getId(),          // Customer ID
+                            ++stopNumber,       // Stop Number
                             c.getCompany(),     // Company name
                             c.getAddress(),     // Complete address
                             eDate,              // Early date
                             dlg.getEarlyTime(), // Early time
                             lDate,              // Late date
-                            dlg.getLateTime()}; // Late time
+                            dlg.getLateTime(),  // Late time
+                            c.getPhone()};      // Customer phone number
             model.addRow(row);
             
             stopsTable.setModel(model);
@@ -242,13 +258,7 @@ public class StopsPage extends WizardPage {
                 Starter.logger.error(entry);
             }
             
-//            if ( stopsTable.getRowCount() >= 2 ) {
-//                setForwardNavigationMode(WizardController.MODE_CAN_FINISH);
-//            }
             validateContents(stopsTable, null);
-            
-//            load.addStop(stop);
-            
         }
     }                                         
     //</editor-fold>
@@ -256,7 +266,13 @@ public class StopsPage extends WizardPage {
     protected String validateContents(Component comp, Object o) {
         if ( stopsTable.getRowCount() < 2 )
             return "A minimum of 2 stops are required.";
-        else
-            return null;
+        
+        // If we get here, then a minimum of two stops have been entered, so we
+        //+ can store the customer IDs to the wizard data.
+        for (int x = 0; x < stopsTable.getRowCount(); x++ ) {
+            putWizardData("stop" + x + 1, stopsTable.getValueAt(x, 0));
+        }
+        
+        return null;
     }
 }
