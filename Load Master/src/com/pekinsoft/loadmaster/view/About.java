@@ -35,6 +35,7 @@
  *                                    and commented out code. Also, added 
  *                                    JavaDoc comments for the parameters on the 
  *                                    constructor.
+ *  Oct 10, 2020  Sean Carrick        Added the Project Name to the titlebar.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -78,6 +79,8 @@ public class About extends javax.swing.JDialog {
         
         setLocation(left, top);
         websiteLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        setTitle("About " + Starter.props.getProjectName());
     }
 
     /**
@@ -100,6 +103,7 @@ public class About extends javax.swing.JDialog {
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setType(java.awt.Window.Type.UTILITY);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 checkEnterEscape(evt);

@@ -1,7 +1,41 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2020 PekinSOFT Systems
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * *****************************************************************************
+ * *****************************************************************************
+ *  Project    :   Load_Master
+ *  Class      :   AppProperties.java
+ *  Author     :   Sean Carrick
+ *  Created    :   Sep 13, 2020 @ 3:49:17 PM
+ *  Modified   :   Sep 13, 2020
+ *  
+ *  Purpose:
+ *  
+ *  Revision History:
+ *  
+ *  WHEN          BY                  REASON
+ *  ------------  ------------------- ------------------------------------------
+ *  Sep 13, 2020  Sean Carrick        Initial creation.
+ *  Oct 10, 2020  Sean Carrick        Added the trademark symbol (™) to the
+ *                                    Project Name and Vendor Name, as these two
+ *                                    names are legal trademarks of PekinSOFT™
+ *                  `                 Systems. Also added the copyright notice
+ *                                    to the description and the application
+ *                                    title to the About box titlebar.
+ * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.sys;
 
@@ -27,9 +61,9 @@ public class AppProperties {
     private static final String DATA_DIR;
     
     // Private fields for the softare and Project information.
-    private static final String NAME = "Load Master";
-    private static final String PROJECT_NAME = "Load Master";
-    private static final String VENDOR = "PekinSOFT Systems";
+    private static final String NAME = "Load Master™";
+    private static final String PROJECT_NAME = "Load Master™";
+    private static final String VENDOR = "PekinSOFT™ Systems";
     private static final String WEBSITE = "https://www.pekinsoft.com";
     private static final String PROJECT_WEB = "https://www.github.com/SeanCarrick/LoadMaster";
     private static final String VENDOR_PHONE = "(309) 989-0672";
@@ -569,14 +603,19 @@ public class AppProperties {
     
     public String getProjectDescription() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<html><h3>Load Master</h3>\n");
-        sb.append("<p>The Load Master Project is the culmination of a bunch ");
+        sb.append("<html><h3>Load Master™</h3>\n");
+        sb.append("<p>The Load Master™ Project is the culmination of a bunch ");
         sb.append("of different attempts and failures to try and bring about ");
         sb.append("a simple load tracking and accounting package for one-truck");
-        sb.append(" owner/operator businesses. We at PekinSOFT believe that ");
+        sb.append(" owner/operator businesses. We at PekinSOFT™ believe that ");
         sb.append("we have finally figured out exactly how to make this dream");
-        sb.append(" a reality...Load Master <strong><em>is</em></strong> ");
-        sb.append("that reality. Enjoy!");
+        sb.append(" a reality...Load Master™ <strong><em>is</em></strong> ");
+        sb.append("that reality. Enjoy!</p>");
+        sb.append("<h5>Copyright &amp; Trademark</h5><p>");
+        sb.append("Copyright© 2006-2020 ").append(getVendor());
+        sb.append(" All rights under copyright reserved.</p><p>");
+        sb.append(getProjectName()).append(" and PekinSOFT™");
+        sb.append(" are legal trademarks of ").append(getVendor()).append("</p>");
         return sb.toString();
     }
     
