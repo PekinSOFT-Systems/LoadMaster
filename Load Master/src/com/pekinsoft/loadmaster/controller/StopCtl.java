@@ -381,7 +381,8 @@ public class StopCtl {
         stop.setCustomer(Long.parseLong(record[2]));
         
         try {
-            stop.setEarlyDate(sdf.parse(record[3]));
+            if ( record[3].length() > 1 )
+                stop.setEarlyDate(sdf.parse(record[3]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the early date.");
@@ -407,7 +408,8 @@ public class StopCtl {
         }
         
         try {
-            stop.setLateDate(sdf.parse(record[5]));
+            if ( record[5].length() > 1 )
+                stop.setLateDate(sdf.parse(record[5]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the late date.");
@@ -433,7 +435,8 @@ public class StopCtl {
         }
         
         try {
-            stop.setArrDate(sdf.parse(record[7]));
+            if ( record[7].length() > 1 )
+                stop.setArrDate(sdf.parse(record[7]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the late date.");
@@ -459,7 +462,8 @@ public class StopCtl {
         }
         
         try {
-            stop.setDepDate(sdf.parse(record[9]));
+            if ( record[9].length() > 1 )
+                stop.setDepDate(sdf.parse(record[9]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the late date.");
@@ -484,7 +488,7 @@ public class StopCtl {
             MessageBox.showError(ex, "Data Retrieval Error");            
         }
         
-        stop.setSignedBy(record[11]);
+//        stop.setSignedBy(record[11]);
         
         records.add(stop);
     }
@@ -496,7 +500,7 @@ public class StopCtl {
                 + model.getCustomer() + "~" + sdf.format(model.getEarlyDate())
                  + "~" + model.getEarlyTime() + "~" 
                 + sdf.format(model.getLateDate()) + "~" + model.getLateTime()
-                + "~ ~ ~ ~ ";
+                + "~ ~ ~ ~ ~ ";
     }
     //</editor-fold>
 

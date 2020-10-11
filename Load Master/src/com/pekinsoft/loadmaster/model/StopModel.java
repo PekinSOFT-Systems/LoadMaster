@@ -130,12 +130,14 @@ public class StopModel {
 
     public void setEarlyTime(String earlyTime) throws InvalidTimeException,
             ParseException {
-        if ( earlyTime.isBlank() || earlyTime.isEmpty() ) 
-            throw new InvalidTimeException("Time must be provided.");
+//        if ( earlyTime.isBlank() || earlyTime.isEmpty() ) 
+//            throw new InvalidTimeException("Time must be provided.");
         
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            Date time = sdf.parse(earlyTime);
+            if ( earlyTime.length() > 1 ) {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                Date time = sdf.parse(earlyTime);
+            }
         } catch ( ParseException ex ) {
             throw new InvalidTimeException("The provided time, " + depTime 
                     + ", is invalid.");
@@ -158,12 +160,14 @@ public class StopModel {
 
     public void setLateTime(String lateTime) throws InvalidTimeException,
             ParseException {
-        if ( lateTime.isBlank() || lateTime.isEmpty() ) 
-            throw new InvalidTimeException("Time must be provided.");
+//        if ( lateTime.isBlank() || lateTime.isEmpty() ) 
+//            throw new InvalidTimeException("Time must be provided.");
         
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            Date time = sdf.parse(lateTime);
+            if ( lateTime.length() > 1 ) {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                Date time = sdf.parse(lateTime);
+            }
         } catch ( ParseException ex ) {
             throw new InvalidTimeException("The provided time, " + depTime 
                     + ", is invalid.");
@@ -186,12 +190,14 @@ public class StopModel {
     
     public void setArrTime(String arrTime) throws InvalidTimeException, 
             ParseException {
-        if ( arrTime.isBlank() || arrTime.isEmpty() ) 
-            throw new InvalidTimeException("Time must be provided.");
+//        if ( arrTime.isBlank() || arrTime.isEmpty() ) 
+//            throw new InvalidTimeException("Time must be provided.");
         
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            Date time = sdf.parse(arrTime);
+            if ( arrTime.length() > 1 ) {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                Date time = sdf.parse(arrTime);
+            }
         } catch ( ParseException ex ) {
             throw new InvalidTimeException("The provided time, " + depTime 
                     + ", is invalid.");
@@ -214,12 +220,14 @@ public class StopModel {
     
     public void setDepTime(String depTime) throws InvalidTimeException,
             ParseException {
-        if ( depTime.isBlank() || depTime.isEmpty() ) 
-            throw new InvalidTimeException("Time must be provided.");
+//        if ( depTime.isBlank() || depTime.isEmpty() ) 
+//            throw new InvalidTimeException("Time must be provided.");
         
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            Date time = sdf.parse(depTime);
+            if ( depTime.length() > 1 ) {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                Date time = sdf.parse(depTime);
+            }
         } catch ( ParseException ex ) {
             throw new InvalidTimeException("The provided time, " + depTime 
                     + ", is invalid.");

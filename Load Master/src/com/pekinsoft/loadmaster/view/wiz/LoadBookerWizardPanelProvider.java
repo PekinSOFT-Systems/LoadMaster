@@ -281,12 +281,13 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
         broker = broker.substring(0, broker.length() - 1);
         load.setBroker(Long.valueOf(broker));
         
-        for ( int x = 1; x == Starter.props.getPropertyAsInt("stop.count", "0");
-                x++ ) {
+        int stopCount = Starter.props.getPropertyAsInt("stop.count", "0");
+        int x = 0;
+        do {
             stop = new StopModel();
-            stop = (StopModel)settings.get("stop" + x);
+            stop = (StopModel)settings.get("stop" + ++x);
             stops.addNew(stop);
-        }
+        } while ( x < stopCount );
         
         try {
             stops.close();
