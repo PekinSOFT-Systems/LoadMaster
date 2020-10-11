@@ -33,7 +33,9 @@
  *                                    method from the class.
  *  Oct 10, 2020  Sean Carrick        Modified the width of the Book Load Wizard
  *                                    from 600 to 700 to better fit the Summary
- *                                    Page report.
+ *                                    Page report. Changed the titlebar text to 
+ *                                    read the Project Name from the properties 
+ *                                    file.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -89,7 +91,7 @@ public class LoadMaster extends javax.swing.JFrame {
         Starter.logger.enter(record);
         initComponents();
         
-        setTitle("Load Master - Current Trip: " 
+        setTitle(Starter.props.getProjectName() + " - Current Trip: " 
                 + Starter.props.getProperty("load.current", "No Active Load"));        
         
         versionLabel.setText("Version " + Starter.props.getVersion());
