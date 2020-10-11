@@ -98,7 +98,7 @@ public class LoadModel {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public LoadModel () {
-        
+        stops = new ArrayList<>();
     }
     //</editor-fold>
 

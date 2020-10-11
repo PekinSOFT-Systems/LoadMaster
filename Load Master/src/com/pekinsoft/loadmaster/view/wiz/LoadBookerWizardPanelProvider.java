@@ -287,6 +287,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
             stop = new StopModel();
             stop = (StopModel)settings.get("stop" + ++x);
             stops.addNew(stop);
+            load.addStop(stop);
         } while ( x < stopCount );
         
         try {
