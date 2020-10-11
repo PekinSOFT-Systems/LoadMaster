@@ -495,7 +495,8 @@ public class StopCtl {
         return model.getTripNumber() + "~" + model.getStopNumber() + "~"
                 + model.getCustomer() + "~" + sdf.format(model.getEarlyDate())
                  + "~" + model.getEarlyTime() + "~" 
-                + sdf.format(model.getLateDate()) + "~" + model.getLateTime();
+                + sdf.format(model.getLateDate()) + "~" + model.getLateTime()
+                + "~ ~ ~ ~ ";
     }
     //</editor-fold>
 

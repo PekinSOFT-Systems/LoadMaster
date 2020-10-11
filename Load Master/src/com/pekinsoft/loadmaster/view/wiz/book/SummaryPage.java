@@ -28,7 +28,12 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Oct 5, 2020  Sean Carrick        Initial creation.
+ *  Oct 05, 2020 Sean Carrick         Initial creation.
+ *  Oct 10, 2020 Sean Carrick         Modified summary report creation and now
+ *                                    have the stops being listed properly. The
+ *                                    Summary page is now the finish page. Also,
+ *                                    set the `summaryEditor` to be at the top
+ *                                    of the page when the document loads.
  * *****************************************************************************
  */
 
@@ -38,6 +43,8 @@ import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.controller.CustomerCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
+import com.pekinsoft.loadmaster.model.StopModel;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.Map;
@@ -155,9 +162,8 @@ public class SummaryPage extends WizardPage {
         
         summary.append("<h2>Stop Information</h2>");
         summary.append("<table border=1><thead><tr><th>Stop #</th><th>Company</th>");
-        summary.append("<th>Street</th><th>Suite</th><th>City</th>");
-        summary.append("<th>State</th><th>Zip Code</th><th>Phone</th></tr>");
-        summary.append("</thead><tbody>");
+        summary.append("<th>Early Date</th><th>Early Time</th><th>Late Date</th>");
+        summary.append("<th>Late Time</th></tr></thead><tbody>");
         
         // To list out the stops, we want to list only the stop number, the
         //+ company, street, suite, city, state, Zip Code, and phone number. In
@@ -178,7 +184,10 @@ public class SummaryPage extends WizardPage {
             //+ all of the stops the user entered to get the customer ID numbers.
             for ( int x = 0; x < Starter.props.getPropertyAsInt("stop.count", 
                     "0"); x++) {
-                long desiredID = Long.valueOf(map.get("stop" + x).toString());
+                int stopNum = x + 1;
+                Object row = map.get("stop" + stopNum);
+                StopModel stop = (StopModel)row;
+                long desiredID = stop.getCustomer();
                 
                 // Now that we have the customer ID we need to match, we need to
                 //+ loop through all of the records in the customer table until
@@ -195,14 +204,18 @@ public class SummaryPage extends WizardPage {
                 
                 // Now that we have gotten the appropriate customer information
                 //+ for the stop, we can add the info to the summary page.
-                summary.append("<tr><td>").append(x).append("</td><td>");
+                summary.append("<tr><td>");
+                summary.append(stop.getStopNumber()).append("</td><td>");
                 summary.append(cust.getCompany()).append("</td><td>");
-                summary.append(cust.getStreet()).append("</td><td>");
-                summary.append(cust.getSuite()).append("</td><td>");
-                summary.append(cust.getCity()).append("</td><td>");
-                summary.append(cust.getState()).append("</td><td>");
-                summary.append(cust.getZip()).append("</td><td>");
-                summary.append(cust.getPhone()).append("</td></tr>");
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                
+                summary.append(sdf.format(stop.getEarlyDate())).append("</td><td>");
+                summary.append(stop.getEarlyTime()).append("</td><td>");
+                summary.append(sdf.format(stop.getLateDate())).append("</td><td>");
+                summary.append(stop.getLateTime()).append("</td></tr>");
+//                summary.append(cust.getZip()).append("</td><td>");
+//                summary.append(cust.getPhone()).append("</td></tr>");
             }
         } catch ( DataStoreException ex ) {
             entry.setThrown(ex);
@@ -217,6 +230,7 @@ public class SummaryPage extends WizardPage {
         summaryEditor.setContentType("text/html");
         summaryEditor.setEditable(false);
         summaryEditor.setText(summary.toString());
+        summaryEditor.select(0, 0);
     }
     //</editor-fold>
 

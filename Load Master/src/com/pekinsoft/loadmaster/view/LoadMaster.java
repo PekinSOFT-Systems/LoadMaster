@@ -31,6 +31,9 @@
  *  Sep 13, 2020  Sean Carrick        Initial creation.
  *  Oct 09, 2020  Sean Carrick        Added this header and removed the main() 
  *                                    method from the class.
+ *  Oct 10, 2020  Sean Carrick        Modified the width of the Book Load Wizard
+ *                                    from 600 to 700 to better fit the Summary
+ *                                    Page report.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -496,8 +499,8 @@ public class LoadMaster extends javax.swing.JFrame {
         Wizard wiz = new LoadBookerWizardPanelProvider().createWizard();
         
         int top = (Toolkit.getDefaultToolkit().getScreenSize().height - 400) / 2;
-        int left = (Toolkit.getDefaultToolkit().getScreenSize().width - 600) / 2;
-        WizardDisplayer.showWizard(wiz, new Rectangle(left, top, 600, 400));
+        int left = (Toolkit.getDefaultToolkit().getScreenSize().width - 700) / 2;
+        WizardDisplayer.showWizard(wiz, new Rectangle(left, top, 700, 400));
 //        Booker dlg = new Booker();
 //        
 //        dlg.pack();
