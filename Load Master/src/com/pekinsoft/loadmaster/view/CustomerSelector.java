@@ -243,6 +243,12 @@ public class CustomerSelector extends javax.swing.JDialog {
         Date late = null;
         
         if ( earlyTime.getText() != null && lateTime.getText() != null ) {
+            String hours = earlyTime.getText().split(":")[0].trim();
+            String minutes = earlyTime.getText().split(":")[1].trim();
+            if ((hours.length() != 2) & (minutes.length() != 2)) return false;
+            hours = lateTime.getText().split(":")[0].trim();
+            minutes = lateTime.getText().split(":")[1].trim();
+            if ((hours.length() != 2) & (minutes.length() != 2)) return false;
             try {
                 early = sdf.parse(earlyTime.getText());
                 late = sdf.parse(lateTime.getText());
