@@ -34,6 +34,9 @@
  *                                    Summary page is now the finish page. Also,
  *                                    set the `summaryEditor` to be at the top
  *                                    of the page when the document loads.
+ *  Oct 12, 2020 Jiří Kovalský        Fixed incomplete <br> elements, typo in
+ *                                    identifier of selected broker and removed
+ *                                    redundant <table> element.
  * *****************************************************************************
  */
 
@@ -109,7 +112,7 @@ public class SummaryPage extends WizardPage {
         summary.append(map.get("miles").toString());
         summary.append("</td></tr><tr><td>Commodity</td><td>");
         summary.append(map.get("commodity").toString());
-        summary.append("</td></tr></tbody><table>");
+        summary.append("</td></tr></tbody>");
         summary.append("<p>Other Load Information:<br><br>");
         
         // For the checkboxes on the LoadPage, we will use if statements to 
@@ -119,7 +122,7 @@ public class SummaryPage extends WizardPage {
         if ( Boolean.valueOf(map.get("tarped").toString()) )
             summary.append("Load Must be Tarped<br>");
         if ( Boolean.valueOf(map.get("team").toString())) 
-            summary.append("Team Drivers Required");
+            summary.append("Team Drivers Required<br>");
         if ( Boolean.valueOf(map.get("ltl").toString())) {
             summary.append("Less Than Truckload<br>");
             summary.append("<div style=\"float: right; background-color:");
@@ -139,14 +142,14 @@ public class SummaryPage extends WizardPage {
         
         summary.append("<h2>Broker/Agent Information</h2><p>");
         summary.append("Broker: ");
-        summary.append(map.get("broker"));
+        summary.append(map.get("brokerList"));
         summary.append("<br>");
         
         // Again, only report if the data is present, similar to the checkboxes.
         if ( !map.get("Phone").toString().equals("(   )    -    ") ) {
             summary.append("Phone #: ");
             summary.append(map.get("Phone").toString());
-            summary.append("<br");
+            summary.append("<br>");
         }
         if ( !map.get("Fax").toString().equals("(   )    -    ") ) {
             summary.append("Fax #: ");
