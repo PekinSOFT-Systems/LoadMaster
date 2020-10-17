@@ -28,12 +28,28 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Oct 5, 2020  Sean Carrick        Initial creation.
+ *  Oct 05, 2020 Sean Carrick         Initial creation.
+ *  Oct 10, 2020 Sean Carrick         Modified summary report creation and now
+ *                                    have the stops being listed properly. The
+ *                                    Summary page is now the finish page. Also,
+ *                                    set the `summaryEditor` to be at the top
+ *                                    of the page when the document loads.
+ *  Oct 12, 2020 Jiří Kovalský        Fixed incomplete <br> elements, typo in
+ *                                    identifier of selected broker and removed
+ *                                    redundant <table> element.
  * *****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.view.wiz.book;
 
+import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.CustomerCtl;
+import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.model.CustomerModel;
+import com.pekinsoft.loadmaster.model.StopModel;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import java.util.Map;
 import org.netbeans.spi.wizard.WizardPage;
 
@@ -51,6 +67,9 @@ public class SummaryPage extends WizardPage {
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private Map map;
+    private CustomerModel cust;
+    private CustomerCtl table;
+    private LogRecord entry;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
@@ -66,11 +85,14 @@ public class SummaryPage extends WizardPage {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public SummaryPage () {
+    public SummaryPage (Map map) {
         super();
-        
-        map = super.getWizardDataMap();
-        
+        initComponents();
+        entry = new LogRecord(Level.ALL, "Logging intitated for SummaryPage.");
+        entry.setSourceClassName(this.getClass().getName());
+        entry.setSourceMethodName("SummaryPage() - Default Constructor");
+        entry.setParameters(null);
+                
         // We will use the `wizardData` Map to get the settings that the user
         //+ selected during this wizard and show them a summary, in HTML.
         StringBuilder summary = new StringBuilder();
@@ -78,10 +100,11 @@ public class SummaryPage extends WizardPage {
         summary.append("<html><body><h1 style=\"text-align: center\">");
         summary.append("Book Load Summary</h1>");
         summary.append("<h2>Load Information</h2");
-        summary.append("<table><th><td>Setting</td><td>Value</td></th>");
+        summary.append("<table><thead><tr><th>Setting</th><th>Value</th></tr>");
+        summary.append("</thead><tbody>");
         summary.append("<tr><td>Order #</td><td>");
         summary.append(map.get("order").toString());
-        summary.append("</td></tr><tr><td>Trip #");
+        summary.append("</td></tr><tr><td>Trip #</td><td>");
         summary.append(map.get("trip").toString());
         summary.append("</td></tr><tr><td>Gross Pay</td><td>");
         summary.append(map.get("truck.pay").toString());
@@ -89,7 +112,7 @@ public class SummaryPage extends WizardPage {
         summary.append(map.get("miles").toString());
         summary.append("</td></tr><tr><td>Commodity</td><td>");
         summary.append(map.get("commodity").toString());
-        summary.append("</td></tr><table>");
+        summary.append("</td></tr></tbody>");
         summary.append("<p>Other Load Information:<br><br>");
         
         // For the checkboxes on the LoadPage, we will use if statements to 
@@ -99,7 +122,7 @@ public class SummaryPage extends WizardPage {
         if ( Boolean.valueOf(map.get("tarped").toString()) )
             summary.append("Load Must be Tarped<br>");
         if ( Boolean.valueOf(map.get("team").toString())) 
-            summary.append("Team Drivers Required");
+            summary.append("Team Drivers Required<br>");
         if ( Boolean.valueOf(map.get("ltl").toString())) {
             summary.append("Less Than Truckload<br>");
             summary.append("<div style=\"float: right; background-color:");
@@ -119,70 +142,98 @@ public class SummaryPage extends WizardPage {
         
         summary.append("<h2>Broker/Agent Information</h2><p>");
         summary.append("Broker: ");
-        summary.append(map.get("Broker"));
+        summary.append(map.get("brokerList"));
         summary.append("<br>");
         
         // Again, only report if the data is present, similar to the checkboxes.
         if ( !map.get("Phone").toString().equals("(   )    -    ") ) {
             summary.append("Phone #: ");
             summary.append(map.get("Phone").toString());
-            summary.append("<br");
+            summary.append("<br>");
         }
         if ( !map.get("Fax").toString().equals("(   )    -    ") ) {
             summary.append("Fax #: ");
             summary.append(map.get("Fax").toString());
             summary.append("<br>");
         }
-        if ( map.get("Email").toString().length() > 0 ) {
+        if ( !map.get("Email").toString().equals(" ") ) {
             summary.append("Email: ");
             summary.append(map.get("Email").toString());
             summary.append("<br>");
         }
         summary.append("</p>");
         
-        summary.append("<h2>Shipper's Information</h2><p>");
-        summary.append("Customer ID: ").append(map.get("shipCustomerID").toString());
-        summary.append("<br>Company").append(map.get("shipCompany").toString());
-        summary.append("<br>Address: ");
-        summary.append(map.get("shipStreet").toString());
-        if ( map.get("shipSuite").toString().length() > 0 )
-            summary.append(", ").append(map.get("shipSuite").toString());
-        summary.append(", ").append(map.get("shipCity").toString());
-        summary.append(", ").append(map.get("shipState").toString());
-        summary.append("  ").append(map.get("shipZipCode").toString());
-        summary.append("<br>");
-        if ( map.get("shipContact").toString().length() > 0 )
-            summary.append(map.get("shipContact").toString()).append("<br>");
-        if ( !map.get("shipPhone").toString().equals("(   )    -    ") )
-            summary.append(map.get("shipPhone").toString()).append("<br>");
-        summary.append("Early Arrival: ").append(map.get("shipEarlyDate").toString());
-        summary.append(" @ ").append(map.get("shipEarlyTime").toString());
-        summary.append("<br>");
-        summary.append("Late Arrival: ").append(map.get("shipLateDate").toString());
-        summary.append(" @ ").append(map.get("shipLateTime").toString());
-        summary.append("</p>");
+        summary.append("<h2>Stop Information</h2>");
+        summary.append("<table border=1><thead><tr><th>Stop #</th><th>Company</th>");
+        summary.append("<th>Early Date</th><th>Early Time</th><th>Late Date</th>");
+        summary.append("<th>Late Time</th></tr></thead><tbody>");
         
-        summary.append("<h2>Final Delivery Information</h2><p>");
-        summary.append("Customer ID: ").append(map.get("recCustomerID").toString());
-        summary.append("<br>Company").append(map.get("recCompany").toString());
-        summary.append("<br>Address: ");
-        summary.append(map.get("recStreet").toString());
-        if ( map.get("recSuite").toString().length() > 0 )
-            summary.append(", ").append(map.get("recSuite").toString());
-        summary.append(", ").append(map.get("recCity").toString());
-        summary.append(", ").append(map.get("recState").toString());
-        summary.append("  ").append(map.get("recZipCode").toString());
-        summary.append("<br>");
-        if ( map.get("recContact").toString().length() > 0 )
-            summary.append(map.get("recContact").toString()).append("<br>");
-        if ( !map.get("recPhone").toString().equals("(   )    -    ") )
-            summary.append(map.get("recPhone").toString()).append("<br>");
-        summary.append("Early Arrival: ").append(map.get("recEarlyDate").toString());
-        summary.append(" @ ").append(map.get("recEarlyTime").toString());
-        summary.append("<br>");
-        summary.append("Late Arrival: ").append(map.get("recLateDate").toString());
-        summary.append(" @ ").append(map.get("recLateTime").toString());
-        summary.append("</p>");
+        // To list out the stops, we want to list only the stop number, the
+        //+ company, street, suite, city, state, Zip Code, and phone number. In
+        //+ order to accomplish this, we will need to loop through all keys in
+        //+ the data map, appending the stop number to the word "stop". Once we
+        //+ have the customer ID for the stop, we will need to get that customer
+        //+ record from the database. To accomplish this, we will need to get
+        //+ the data from the customers table using a CustomerCtl object and a
+        //+ long value of the String of the customer ID stored in the data map.
+        //+ We will use a CustomerModel object to hold the record that matches
+        //+ the customer we are seeking.
+        
+        try {
+            table = new CustomerCtl();
+            
+            // If we are successful in opening the data table, we can then 
+            //+ search for the customer we need. However, we need to loop through
+            //+ all of the stops the user entered to get the customer ID numbers.
+            for ( int x = 0; x < Starter.props.getPropertyAsInt("stop.count", 
+                    "0"); x++) {
+                int stopNum = x + 1;
+                Object row = map.get("stop" + stopNum);
+                StopModel stop = (StopModel)row;
+                long desiredID = stop.getCustomer();
+                
+                // Now that we have the customer ID we need to match, we need to
+                //+ loop through all of the records in the customer table until
+                //+ we find that customer record.
+                do {
+                    if ( table.get().getId() == desiredID ) {
+                        cust = table.get();
+                        
+                        // Exit the loop.
+                        break;
+                    } else
+                        table.next();
+                }  while ( table.hasNext() );
+                
+                // Now that we have gotten the appropriate customer information
+                //+ for the stop, we can add the info to the summary page.
+                summary.append("<tr><td>");
+                summary.append(stop.getStopNumber()).append("</td><td>");
+                summary.append(cust.getCompany()).append("</td><td>");
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                
+                summary.append(sdf.format(stop.getEarlyDate())).append("</td><td>");
+                summary.append(stop.getEarlyTime()).append("</td><td>");
+                summary.append(sdf.format(stop.getLateDate())).append("</td><td>");
+                summary.append(stop.getLateTime()).append("</td></tr>");
+//                summary.append(cust.getZip()).append("</td><td>");
+//                summary.append(cust.getPhone()).append("</td></tr>");
+            }
+        } catch ( DataStoreException ex ) {
+            entry.setThrown(ex);
+            Starter.logger.error(entry);
+        }
+        
+        // Once we have added the information on each of the stops, we need to
+        //+ close out our table and our document.
+        summary.append("</tbody></table></body></html>");
+        
+        // Then, we need to put our document in our summary editor.
+        summaryEditor.setContentType("text/html");
+        summaryEditor.setEditable(false);
+        summaryEditor.setText(summary.toString());
+        summaryEditor.select(0, 0);
     }
     //</editor-fold>
 

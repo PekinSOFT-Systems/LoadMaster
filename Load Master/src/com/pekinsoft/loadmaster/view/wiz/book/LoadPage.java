@@ -30,7 +30,9 @@
  *  ------------  ------------------- ------------------------------------------
  *  Sep 06, 2020  Sean Carrick        Initial creation.
  *  Oct 09, 2020  Sean Carrick        Uncommented elseif blocks in the
- *                                    validateContents() method.
+ *                                    validateContents() method. Also, added one
+ *                                    putWizardData() call for each field on 
+ *                                    this panel.
  * *****************************************************************************
  */
 
@@ -272,7 +274,24 @@ public class LoadPage extends WizardPage {
             return "Gross Truck Pay is required.";
         else if ( dispMilesField.getText().length() == 0 )
             return "Dispatched Miles is required.";
-        else
-            return null;
+        
+        // If we get to this point, then all required data has been collected
+        //+ and we need to store all data on this form to the settings map.
+        putWizardData("order", orderField.getText());
+        putWizardData("trip", tripField.getText());
+        putWizardData("truck.pay", grossPayField.getText());
+        putWizardData("miles", dispMilesField.getText());
+        putWizardData("commodity", commdityField.getText());
+        putWizardData("hazmat", hazMatField.isSelected());
+        putWizardData("tarped", tarpedField.isSelected());
+        putWizardData("team", teamField.isSelected());
+        putWizardData("twic", twicField.isSelected());
+        putWizardData("top.customer", topField.isSelected());
+        putWizardData("cbd", cbdField.isSelected());
+        putWizardData("ramps", rampsField.isSelected());
+        
+        // After we have stored all of the collected data for later use, we can
+        //+ return control to the wizard controller class.
+        return null;
     }
 }

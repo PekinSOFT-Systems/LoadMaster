@@ -28,21 +28,25 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 6, 2020  Sean Carrick        Initial creation.
- *  Oct 6, 2020  Jiří Kovalský       Trigger validation of wizard step content
- *                                   whenever a new stop is added to the table.
+ *  Sep 06, 2020  Sean Carrick        Initial creation.
+ *  Oct 06, 2020  Jiří Kovalský       Trigger validation of wizard step content
+ *                                    whenever a new stop is added to the table.
+ *  Oct 09, 2020  Sean Carrick        Modified the table layout to coincide with
+ *                                    last changes by Jiří and added code to put
+ *                                    the Customer ID for each stop into the
+ *                                    wizard data map.
+ *  Oct 10, 2020  Sean Carrick        Finally worked out getting the stops into
+ *                                    the summary table. This means that they
+ *                                    are now available for saving to file.
  * *****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.view.wiz.book;
 
 import com.pekinsoft.loadmaster.Starter;
-import com.pekinsoft.loadmaster.controller.StopCtl;
-import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.err.InvalidTimeException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
 import com.pekinsoft.loadmaster.model.StopModel;
-import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.CustomerSelector;
 import java.awt.Component;
 import java.text.ParseException;
@@ -74,7 +78,10 @@ public class StopsPage extends WizardPage {
 
     private LogRecord entry;
     private int stopNumber;
-    private StopCtl stops;
+    private StopModel stop;
+    private CustomerModel c;
+    
+    private CustomerSelector dlg;
     
     private boolean isLoading;
     //</editor-fold>
@@ -93,17 +100,6 @@ public class StopsPage extends WizardPage {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public StopsPage () {
-        try {
-            stops = new StopCtl();
-        } catch (DataStoreException ex) {
-            entry.setSourceClassName(this.getClass().getName());
-            entry.setSourceMethodName("StopsPage Constructor");
-            entry.setMessage("An error occurred accessing the stops database.");
-            entry.setThrown(ex);
-            Starter.logger.error(entry);
-            MessageBox.showError(ex, "Error Accessing Stops Database");
-            stops = null;
-        }
         initComponents();
         setForwardNavigationMode(WizardController.MODE_CAN_FINISH);
     }
@@ -138,11 +134,15 @@ public class StopsPage extends WizardPage {
 
             },
             new String [] {
-                "Stop #", "Company Name", "Street Address", "Suite", "City", "ST", "Zip Code", "Phone"
+                "Stop #", "Customer ID", "Company Name", "Location", 
+                "Early Date", "Early Time", "Late Date", "Late Time"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.Long.class, 
+                java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class, 
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false
@@ -166,7 +166,8 @@ public class StopsPage extends WizardPage {
             stopsTable.getColumnModel().getColumn(7).setPreferredWidth(25);
         }
 
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+                "/com/pekinsoft/loadmaster/res/add.png"))); // NOI18N
         addButton.setText("Add Stop...");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,16 +179,20 @@ public class StopsPage extends WizardPage {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 
+                    400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, 
+                    layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, 
+                        Short.MAX_VALUE)
                 .addComponent(addButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 
+                        302, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addButton)
                 .addContainerGap())
@@ -195,7 +200,7 @@ public class StopsPage extends WizardPage {
     }// </editor-fold>                        
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        CustomerSelector dlg = new CustomerSelector(null, true);
+        dlg = new CustomerSelector(null, true);
         dlg.pack();
         dlg.show();
         
@@ -205,10 +210,11 @@ public class StopsPage extends WizardPage {
             String eDate = fmt.format(dlg.getEarlyDate());
             String lDate = fmt.format(dlg.getLateDate());
             DefaultTableModel model = (DefaultTableModel)stopsTable.getModel();
-            CustomerModel c = dlg.getSelectedCustomer();
+            c = dlg.getSelectedCustomer();
             Object[] row = {++stopNumber,       // Stop Number
+                            c.getId(),          // Customer ID
                             c.getCompany(),     // Company name
-                            c.getAddress(),     // Complete address
+                            c.getCity() + ", " + c.getState(),
                             eDate,              // Early date
                             dlg.getEarlyTime(), // Early time
                             lDate,              // Late date
@@ -218,10 +224,11 @@ public class StopsPage extends WizardPage {
             stopsTable.setModel(model);
             putWizardData(stopsTable, row);
             
-            StopModel stop = new StopModel();
+            stop = new StopModel();
             stop.setEarlyDate(dlg.getEarlyDate());
             stop.setLateDate(dlg.getLateDate());
             stop.setCustomer(c.getId());
+            stop.setTripNumber(getWizardData("trip").toString());
             
             try {
                 stop.setEarlyTime(dlg.getEarlyTime());
@@ -234,29 +241,58 @@ public class StopsPage extends WizardPage {
                 entry.setParameters(null);
                 Starter.logger.error(entry);
             } catch ( ParseException ex ) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "Throwing DataStoreException to calling method...");
+                entry.setMessage(ex.getMessage());
                 entry.setThrown(ex);
                 entry.setSourceMethodName("connect");
                 entry.setParameters(null);
                 Starter.logger.error(entry);
             }
             
-//            if ( stopsTable.getRowCount() >= 2 ) {
-//                setForwardNavigationMode(WizardController.MODE_CAN_FINISH);
-//            }
             validateContents(stopsTable, null);
-            
-//            load.addStop(stop);
-            
         }
     }                                         
     //</editor-fold>
 
+    @Override
     protected String validateContents(Component comp, Object o) {
         if ( stopsTable.getRowCount() < 2 )
             return "A minimum of 2 stops are required.";
-        else
-            return null;
+        
+        // If we get here, then a minimum of two stops have been entered, so we
+        //+ can store the customer IDs to the wizard data.
+        for (int x = 0; x < stopsTable.getRowCount(); x++ ) {
+            long stopNum = Long.valueOf(stopsTable.getValueAt(x, 0).toString());
+            
+            StopModel row = new StopModel();
+            row.setCustomer(Long.valueOf(stopsTable.getValueAt(x, 1).toString()));
+            row.setTripNumber(getWizardData("trip").toString());
+            row.setStopNumber(Integer.valueOf(stopsTable.getValueAt(x, 0)
+                    .toString()));
+            
+            SimpleDateFormat dates = new SimpleDateFormat("MM/dd/yyyy");
+            
+            try {
+                row.setEarlyDate(dates.parse(stopsTable.getValueAt(x, 4)
+                        .toString()));
+                row.setEarlyTime(stopsTable.getValueAt(x, 5).toString());
+                row.setLateDate(dates.parse(stopsTable.getValueAt(x, 6)
+                        .toString()));
+                row.setLateTime(stopsTable.getValueAt(x, 7).toString());
+            } catch ( ParseException | InvalidTimeException ex ) {
+                entry.setMessage(ex.getMessage());
+                entry.setThrown(ex);
+                entry.setSourceMethodName("connect");
+                entry.setParameters(null);
+                Starter.logger.error(entry);
+            }
+            
+            putWizardData("stop" + stopNum, row);
+        }
+        
+        // We also need to store our stops count to the settings file for later
+        //+ use.
+        Starter.props.setPropertyAsInt("stop.count", stopsTable.getRowCount());
+        
+        return null;
     }
 }

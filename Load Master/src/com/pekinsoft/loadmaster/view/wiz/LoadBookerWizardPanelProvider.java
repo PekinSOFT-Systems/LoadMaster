@@ -28,7 +28,16 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 7, 2020  Sean Carrick        Initial creation.
+ *  Sep 07, 2020  Sean Carrick        Initial creation.
+ *  Oct 10, 2020  Sean Carrick        Modified constructors to call each 
+ *                                    successive constructor until such time as
+ *                                    the super() needed to be called to prevent
+ *                                    repetition of the same code for 
+ *                                    initialization.
+ *  Oct 12, 2020  Jiří Kovalský       Improved parsing of the truck.pay value
+ *                                    which will work in all countries not only
+ *                                    in USA, if Load Master plans to target
+ *                                    markets around the world.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view.wiz;
@@ -46,6 +55,9 @@ import com.pekinsoft.loadmaster.view.wiz.book.StopsPage;
 import com.pekinsoft.loadmaster.view.wiz.book.SummaryPage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.Map;
@@ -65,6 +77,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private Map settings;
     private WizardController controller;
@@ -90,42 +103,13 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public LoadBookerWizardPanelProvider() {
-        super(new String[]{"load", "broker", "stops"}, 
+        this(new String[]{"load", "broker", "stops", "summary"}, 
                 new String[]{"Load Information", "Broker Information",
-            "StopsPage"});
+            "StopsPage", "Summary"});
     }
 
     public LoadBookerWizardPanelProvider(String[] steps, String[] descriptions) {
-        super(steps, descriptions);
-
-        entry = new LogRecord(Level.ALL, "Configuring Book Load Wizard...");
-        entry.setSourceClassName(this.getClass().getName());
-        entry.setSourceMethodName("LoadBookerWizardPanelProvider");
-        entry.setMessage("super() called. Configuring other objects...");
-        Starter.logger.enter(entry);
-
-        try {
-            loads = new LoadCtl();
-        } catch (DataStoreException ex) {
-            entry.setMessage("An error occurred accessing the loads database.");
-            entry.setThrown(ex);
-            Starter.logger.error(entry);
-
-            MessageBox.showError(ex, "Loads Database Error");
-        }
-
-        try {
-            stops = new StopCtl();
-        } catch (DataStoreException ex) {
-            entry.setMessage("An error occurred accessing the stops database.");
-            entry.setThrown(ex);
-            Starter.logger.error(entry);
-
-            MessageBox.showError(ex, "Stops Database Error");
-        }
-
-        load = new LoadModel();
-        stop = new StopModel();
+        this("Book New Load Wizard", steps, descriptions);
     }
 
     public LoadBookerWizardPanelProvider(String title, String[] steps,
@@ -163,7 +147,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
     }
 
     public LoadBookerWizardPanelProvider(String title, String singleStep,
-            String singleDescription) {
+            String singleDescription) {        
         super(title, singleStep, singleDescription);
 
         entry = new LogRecord(Level.ALL, "Configuring Book Load Wizard...");
@@ -199,6 +183,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -232,6 +217,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     //</editor-fold>
+    
     @Override
     protected JComponent createPanel(WizardController wc, String string, Map map) {
         this.settings = map;
@@ -266,7 +252,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
             
             // We are on the summary page, which is the final page of the wizard,
             //+ there is nowhere else to go from here.
-            return new SummaryPage();
+            return new SummaryPage(map);
         } else {
             // An unknown page ID has been discovered. Typo?
             throw new Error("Unknown ID " + string + "\nPlease check the "
@@ -278,7 +264,67 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
     protected Object finish(Map settings) {
         // Once the user clicks finish, we need to create the load record in the
         //+ loads table, as well as the stop record(s) in the stops table.
-        MessageBox.showInfo("User completed wizard steps.", "Wizard Complete");
+        load = new LoadModel();
+        load.setMiles(Integer.valueOf(settings.get("miles").toString()));
+        load.setCbd(Boolean.parseBoolean(settings.get("cbd").toString()));
+        load.setCommodity(settings.get("commodity").toString());
+        load.setHazMat(Boolean.parseBoolean(settings.get("hazmat").toString()));
+        load.setLtl(Boolean.parseBoolean(settings.get("ltl").toString()));
+        load.setOrder(settings.get("order").toString());
+        load.setRamps(Boolean.parseBoolean(settings.get("ramps").toString()));
+        try {
+            NumberFormat nf = new java.text.DecimalFormat("#,##0.00");
+            Number pay = nf.parse(settings.get("truck.pay").toString());
+            load.setRate(pay.doubleValue());
+        } catch (ParseException ex) {
+            entry.setMessage("Couldn't parse truck.pay value.");
+            entry.setThrown(ex);
+            Starter.logger.error(entry);
+        }
+        load.setTarped(Boolean.parseBoolean(settings.get("tarped").toString()));
+        load.setTeam(Boolean.parseBoolean(settings.get("team").toString()));
+        load.setTrip(settings.get("trip").toString());
+        load.setTwic(Boolean.parseBoolean(settings.get("twic").toString()));
+        load.setTopCust(Boolean.parseBoolean(settings.get(
+                "top.customer").toString()));
+        
+        load.setDispatch(new Date());
+        
+        String broker = settings.get("brokerList").toString();
+        broker = broker.substring(broker.indexOf("(") + 1);
+        broker = broker.substring(0, broker.length() - 1);
+        load.setBroker(Long.valueOf(broker));
+        
+        int stopCount = Starter.props.getPropertyAsInt("stop.count", "0");
+        int x = 0;
+        do {
+            stop = new StopModel();
+            stop = (StopModel)settings.get("stop" + ++x);
+            stops.addNew(stop);
+            load.addStop(stop);
+        } while ( x < stopCount );
+        
+        try {
+            stops.close();
+        } catch ( DataStoreException ex ) {
+            entry.setMessage("An error occurred accessing the stops database.");
+            entry.setThrown(ex);
+            Starter.logger.error(entry);
+
+            MessageBox.showError(ex, "Stops Database Error");
+        }
+
+        loads.addNew(load);
+        
+        try {
+            loads.close();
+        } catch ( DataStoreException ex ) {
+            entry.setMessage("An error occurred accessing the loads database.");
+            entry.setThrown(ex);
+            Starter.logger.error(entry);
+
+            MessageBox.showError(ex, "Stops Database Error");
+        }
 
         // We are not returning anything from this method, so just return a null
         //+ object, as everything that needed to be done was done here.
@@ -294,9 +340,12 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
         //+ want to query the user as to whether or not they truly wish to 
         //+ cancel booking the load.
 
-        boolean result = true;
-
-        return result;
+        if ( MessageBox.askQuestion(
+                "Are you sure you want to cancel the Wizard?", 
+                "Confirm Cancellation", false) == MessageBox.YES_OPTION )
+            return true;
+        else
+            return false;
     }
 
 }

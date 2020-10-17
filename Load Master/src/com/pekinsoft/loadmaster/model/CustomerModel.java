@@ -1,7 +1,39 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2020 PekinSOFT Systems
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * *****************************************************************************
+ * *****************************************************************************
+ *  Project    :   Load_Master
+ *  Class      :   CustomerModel.java
+ *  Author     :   Sean Carrick
+ *  Created    :   Sep 6, 2020 @ 3:34:44 PM
+ *  Modified   :   Sep 6, 2020
+ *  
+ *  Purpose:
+ *  
+ *  Revision History:
+ *  
+ *  WHEN          BY                  REASON
+ *  ------------  ------------------- ------------------------------------------
+ *  Sep 06, 2020  Sean Carrick        Initial creation.
+ *  Oct 10, 2020  Sean Carrick        Added a constructor that takes a String
+ *                                    array as an argument to create a new
+ *                                    CustomerModel object from the provided
+ *                                    data.
+ * *****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.model;
@@ -55,6 +87,19 @@ public class CustomerModel {
         contact = "";
         phone = "";
         comments = "";
+    }
+    
+    public CustomerModel(String[] data) {
+        id = Long.valueOf(data[0]);
+        company = data[1];
+        street = data[2];
+        suite = data[3];
+        city = data[4];
+        state = data[5];
+        zip = data[6];
+        contact = data[7];
+        phone = data[8];
+        comments = data[9];
     }
     //</editor-fold>
 

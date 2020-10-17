@@ -28,13 +28,16 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Sep 6, 2020   Sean Carrick        Initial creation.
- *  Oct 6, 2020   Sean Carrick        Added "Add New Broker/Agent..." item to 
+ *  Sep 06, 2020  Sean Carrick        Initial creation.
+ *  Oct 06, 2020  Sean Carrick        Added "Add New Broker/Agent..." item to 
  *                                    the brokerList JCombobox and the method to
  *                                    display the Add Broker/Agent dialog.
+ *  Oct 09, 2020  Sean Carrick        Added putWizardData() method call into the
+ *                                    validateContents() method once the user
+ *                                    selects a broker/agent and store only the
+ *                                    unique ID for the broker/agent.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.view.wiz.book;
 
 import com.pekinsoft.loadmaster.Starter;
@@ -132,7 +135,6 @@ public class BrokerPage extends WizardPage {
 
         jLabel5.setText("Broker/Agent:");
 
-        brokerList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         try {
             records = new BrokerCtl();
             lr.setMessage("Brokers database accessed successfully!");
@@ -178,7 +180,6 @@ public class BrokerPage extends WizardPage {
             records = null;
         }
 
-        brokerList.removeAllItems();
         brokerList.addItem("Select Broker/Agent...");
         brokerList.addItem("Add New Broker/Agent...");
 
