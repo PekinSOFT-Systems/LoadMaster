@@ -34,6 +34,10 @@
  *                                    the super() needed to be called to prevent
  *                                    repetition of the same code for 
  *                                    initialization.
+ *  Oct 12, 2020  Jiří Kovalský       Improved parsing of the truck.pay value
+ *                                    which will work in all countries not only
+ *                                    in USA, if Load Master plans to target
+ *                                    markets around the world.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view.wiz;
@@ -51,6 +55,8 @@ import com.pekinsoft.loadmaster.view.wiz.book.StopsPage;
 import com.pekinsoft.loadmaster.view.wiz.book.SummaryPage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -266,7 +272,15 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
         load.setLtl(Boolean.parseBoolean(settings.get("ltl").toString()));
         load.setOrder(settings.get("order").toString());
         load.setRamps(Boolean.parseBoolean(settings.get("ramps").toString()));
-        load.setRate(Double.valueOf(settings.get("truck.pay").toString()));
+        try {
+            NumberFormat nf = new java.text.DecimalFormat("#,##0.00");
+            Number pay = nf.parse(settings.get("truck.pay").toString());
+            load.setRate(pay.doubleValue());
+        } catch (ParseException ex) {
+            entry.setMessage("Couldn't parse truck.pay value.");
+            entry.setThrown(ex);
+            Starter.logger.error(entry);
+        }
         load.setTarped(Boolean.parseBoolean(settings.get("tarped").toString()));
         load.setTeam(Boolean.parseBoolean(settings.get("team").toString()));
         load.setTrip(settings.get("trip").toString());
