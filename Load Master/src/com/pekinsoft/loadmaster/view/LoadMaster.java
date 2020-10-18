@@ -192,6 +192,7 @@ public class LoadMaster extends javax.swing.JFrame {
         tasksContainer.add(loadTasks);
 
         accountingTasks.setTitle("Accounting");
+        createAccountingTasks();
         tasksContainer.add(accountingTasks);
 
         jXTaskPane1.setTitle("Miscellaneous");
@@ -450,7 +451,19 @@ public class LoadMaster extends javax.swing.JFrame {
     }
     
     private void createAccountingTasks() {
-        
+        accountingTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Chart of Accounts...");
+            putValue(Action.SHORT_DESCRIPTION, "Displays the Chart of Accounts "
+                    + "Viewer.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/open-list.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            doShowChartOfAccounts();
+        }
+        });
     }
     
     private void createMiscTasks() {
@@ -770,6 +783,12 @@ public class LoadMaster extends javax.swing.JFrame {
         }
         
         updateLoadProgress();
+    }
+    
+    private void doShowChartOfAccounts() {
+        ChartOfAccountsViewer dlg = new ChartOfAccountsViewer(this, true);
+        dlg.pack();
+        dlg.setVisible(true);
     }
     
     private void updateLoadProgress() {
