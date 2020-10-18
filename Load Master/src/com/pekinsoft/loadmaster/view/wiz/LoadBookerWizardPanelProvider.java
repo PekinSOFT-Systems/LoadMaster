@@ -45,6 +45,7 @@ import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.LoadModel;
 import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.view.StartTripDialog;
 import com.pekinsoft.loadmaster.view.wiz.book.BrokerPage;
 import com.pekinsoft.loadmaster.view.wiz.book.LoadPage;
 import com.pekinsoft.loadmaster.view.wiz.book.StopsPage;
@@ -300,6 +301,31 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
             MessageBox.showError(ex, "Stops Database Error");
         }
 
+
+        // The last thing to do is to check to see if the driver is on an active
+        //+ trip.
+        if ( Starter.props.getProperty("load.current", "No Active Load")
+                .equalsIgnoreCase("No Active Load") ) {
+            // If not, see if the driver wants to start this trip.
+            int response = MessageBox.askQuestion("Would you like to start this "
+                    + "trip?", "Start Trip", false);
+
+            if ( response == MessageBox.YES_OPTION ) {
+                StartTripDialog dlg = new StartTripDialog(null, true);
+                dlg.pack();
+                dlg.setVisible(true);
+
+                if ( !dlg.isCancelled() ) {
+                    load.setStartOdo(dlg.getOdometer());
+                    
+                    Starter.props.setProperty("load.current", load.getTrip());
+                    Starter.props.setPropertyAsInt("stop.count", 
+                            load.getStopCount());
+                    Starter.props.setPropertyAsInt("load.stop", 0);
+                }
+            }
+        }
+        
         loads.addNew(load);
         
         try {

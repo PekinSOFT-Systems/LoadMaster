@@ -139,7 +139,7 @@ public class SummaryPage extends WizardPage {
         
         summary.append("<h2>Broker/Agent Information</h2><p>");
         summary.append("Broker: ");
-        summary.append(map.get("broker"));
+        summary.append(map.get("brokerList"));
         summary.append("<br>");
         
         // Again, only report if the data is present, similar to the checkboxes.
