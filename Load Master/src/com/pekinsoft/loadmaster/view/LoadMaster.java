@@ -96,7 +96,7 @@ public class LoadMaster extends javax.swing.JFrame {
         
         versionLabel.setText("Version " + Starter.props.getVersion());
         
-//        fileProgress.setVisible(false);
+        fileProgress.setVisible(false);
         
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(
                 "/com/pekinsoft/loadmaster/res/Northwind16.png"));
@@ -109,7 +109,13 @@ public class LoadMaster extends javax.swing.JFrame {
         loadProgress.setMinimum(0);
         loadProgress.setMaximum(Starter.props.getPropertyAsInt("load.stops", "4"));
         loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "1"));
-        
+        if ( Starter.props.getProperty("load.current", "No Active Load")
+                .equalsIgnoreCase("No Active Load") )
+            loadProgress.setVisible(false);
+    }
+    
+    public void setWindowTitle(String title) {
+        setTitle(title);
     }
 
     /**
@@ -509,18 +515,14 @@ public class LoadMaster extends javax.swing.JFrame {
         
         // We will want to change the WizardResultProducer.NO_OP to a different
         //+ object once we make sure that the wizard is going as expected.
-//        Wizard wiz = WizardPage.createWizard("Book New Load", pages, 
-//                WizardPage.WizardResultProducer.NO_OP);
         Wizard wiz = new LoadBookerWizardPanelProvider().createWizard();
         
         int top = (Toolkit.getDefaultToolkit().getScreenSize().height - 400) / 2;
         int left = (Toolkit.getDefaultToolkit().getScreenSize().width - 700) / 2;
         WizardDisplayer.showWizard(wiz, new Rectangle(left, top, 700, 400));
-//        Booker dlg = new Booker();
-//        
-//        dlg.pack();
-//        mainDesktop.add(dlg);
-//        dlg.setVisible(true);
+        
+        setTitle(Starter.props.getProjectName() + " - Current Trip: " 
+                + Starter.props.getProperty("load.current", "No Active Load"));
     }
     
     private void doShowAbout() {
