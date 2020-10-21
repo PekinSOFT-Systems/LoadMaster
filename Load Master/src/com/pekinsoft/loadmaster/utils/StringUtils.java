@@ -72,9 +72,9 @@ public class StringUtils {
      * @param source the String to check, may be null
      * @param width maximum length of result String, must be at least 4
      * @return abbreviated String, null if null String input
-     * @throws IllegalArgumnetException - if the width is too small
      */
-    public static String abbreviate(String source, int width) {
+    public static String abbreviate(String source, int width)
+            throws IllegalArgumentException {
         if ( source == null ) {
             return null;
         }

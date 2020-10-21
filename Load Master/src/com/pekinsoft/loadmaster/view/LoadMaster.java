@@ -41,6 +41,7 @@
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.EntryCtl;
 import com.pekinsoft.loadmaster.controller.LoadCtl;
 import com.pekinsoft.loadmaster.controller.StopCtl;
 import com.pekinsoft.loadmaster.enums.SysExits;
@@ -78,6 +79,7 @@ import org.netbeans.spi.wizard.Wizard;
  * @author Sean Carrick
  */
 public class LoadMaster extends javax.swing.JFrame {
+    public static EntryCtl batch;
     private final LogRecord record = new LogRecord(Level.ALL, 
             "Logging started for com.pekinsoft.loadmaster.view.LoadMaster");
     
@@ -112,6 +114,18 @@ public class LoadMaster extends javax.swing.JFrame {
         if ( Starter.props.getProperty("load.current", "No Active Load")
                 .equalsIgnoreCase("No Active Load") )
             loadProgress.setVisible(false);
+        
+        if ( Starter.props.getPropertyAsBoolean("acct.batch", "false") ) {
+            try {
+                batch = new EntryCtl();
+            } catch ( DataStoreException ex ) {
+                record.setMessage(ex.getMessage());
+                record.setThrown(ex);
+                Starter.logger.error(record);
+            }
+        } else {
+            batch = null;
+        }
     }
     
     public void setWindowTitle(String title) {
@@ -134,7 +148,7 @@ public class LoadMaster extends javax.swing.JFrame {
         systemTasks = new org.jdesktop.swingx.JXTaskPane();
         loadTasks = new org.jdesktop.swingx.JXTaskPane();
         accountingTasks = new org.jdesktop.swingx.JXTaskPane();
-        jXTaskPane1 = new org.jdesktop.swingx.JXTaskPane();
+        miscTasks = new org.jdesktop.swingx.JXTaskPane();
         overviewPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         overView = new javax.swing.JTextArea();
@@ -161,7 +175,6 @@ public class LoadMaster extends javax.swing.JFrame {
         });
 
         lrSplit.setDividerLocation(250);
-        lrSplit.setDividerSize(5);
 
         javax.swing.GroupLayout mainDesktopLayout = new javax.swing.GroupLayout(mainDesktop);
         mainDesktop.setLayout(mainDesktopLayout);
@@ -177,7 +190,6 @@ public class LoadMaster extends javax.swing.JFrame {
         lrSplit.setRightComponent(mainDesktop);
 
         tbSplit.setDividerLocation(525);
-        tbSplit.setDividerSize(5);
         tbSplit.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
@@ -201,8 +213,9 @@ public class LoadMaster extends javax.swing.JFrame {
         createAccountingTasks();
         tasksContainer.add(accountingTasks);
 
-        jXTaskPane1.setTitle("Miscellaneous");
-        tasksContainer.add(jXTaskPane1);
+        miscTasks.setTitle("Miscellaneous");
+        createMiscTasks();
+        tasksContainer.add(miscTasks);
 
         tbSplit.setTopComponent(tasksContainer);
 
@@ -473,7 +486,25 @@ public class LoadMaster extends javax.swing.JFrame {
     }
     
     private void createMiscTasks() {
-        
+        miscTasks.add(new AbstractAction() {
+        {
+            putValue(Action.NAME, "Fuel Purchase Entry...");
+            putValue(Action.SHORT_DESCRIPTION, "Displays the Fuel Purchase Entry"
+                    + " dialog.");
+            putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
+                    .getResource("/com/pekinsoft/loadmaster/res/GasPump.png")));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            doAddFuelPurchase();
+        }
+        });
+    }
+    
+    private void doAddFuelPurchase() {
+        FuelPurchaseDialog dlg = new FuelPurchaseDialog(this, true);
+        dlg.pack();
+        dlg.setVisible(true);
     }
     
     private void doClose() {
@@ -848,12 +879,12 @@ public class LoadMaster extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTaskPane accountingTasks;
     public static javax.swing.JProgressBar fileProgress;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXTaskPane jXTaskPane1;
     public static javax.swing.JProgressBar loadProgress;
     private org.jdesktop.swingx.JXTaskPane loadTasks;
     private javax.swing.JSplitPane lrSplit;
     private javax.swing.JDesktopPane mainDesktop;
     private org.jdesktop.swingx.JXStatusBar mainStatusBar;
+    private org.jdesktop.swingx.JXTaskPane miscTasks;
     private javax.swing.JTextArea overView;
     private javax.swing.JPanel overviewPanel;
     private org.jdesktop.swingx.JXTaskPane systemTasks;

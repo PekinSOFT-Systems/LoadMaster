@@ -8,6 +8,7 @@ package com.pekinsoft.loadmaster;
 
 import com.pekinsoft.loadmaster.controller.BrokerCtl;
 import com.pekinsoft.loadmaster.controller.CustomerCtl;
+import com.pekinsoft.loadmaster.controller.EntryCtl;
 import com.pekinsoft.loadmaster.controller.LoadCtl;
 import com.pekinsoft.loadmaster.controller.StopCtl;
 import com.pekinsoft.loadmaster.enums.SysExits;
@@ -33,6 +34,7 @@ public class Starter {
     public static final String DB_URL;
     public static VersionCalculator version;
     public static ArgumentParser params;
+    public static EntryCtl batch;
     
     static {
         logger = Logger.getInstance();
@@ -47,7 +49,7 @@ public class Starter {
         DB_URL = props.getProperty("app.data.folder",
                 System.getProperty("user.home") + System.getProperty("file.separator") +
                         ".loadmaster" + System.getProperty("file.separator") +
-                        "data" + System.getProperty("file.separator"));        
+                        "data" + System.getProperty("file.separator"));    
     }
 
     /**

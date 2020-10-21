@@ -467,7 +467,7 @@ public class LoadModel {
     /**
      * Sets all of the stops for the load.
      * 
-     * @param stops 
+     * @param stop 
      */
     public void addStop(StopModel stop) {
         this.stops.add(stop);
