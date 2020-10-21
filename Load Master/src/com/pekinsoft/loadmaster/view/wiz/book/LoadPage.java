@@ -280,7 +280,7 @@ public class LoadPage extends WizardPage {
         putWizardData("order", orderField.getText());
         putWizardData("trip", tripField.getText());
         putWizardData("truck.pay", grossPayField.getText());
-        putWizardData("miles", dispMilesField.getText());
+        putWizardData("miles", dispMilesField.getValue());
         putWizardData("commodity", commdityField.getText());
         putWizardData("hazmat", hazMatField.isSelected());
         putWizardData("tarped", tarpedField.isSelected());

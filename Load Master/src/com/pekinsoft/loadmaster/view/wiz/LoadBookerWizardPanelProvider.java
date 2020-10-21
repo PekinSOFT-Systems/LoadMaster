@@ -44,11 +44,14 @@ package com.pekinsoft.loadmaster.view.wiz;
 
 import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.controller.LoadCtl;
+import com.pekinsoft.loadmaster.controller.ReceivablesCtl;
 import com.pekinsoft.loadmaster.controller.StopCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.LoadModel;
+import com.pekinsoft.loadmaster.model.ReceivablesModel;
 import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.view.StartTripDialog;
 import com.pekinsoft.loadmaster.view.wiz.book.BrokerPage;
 import com.pekinsoft.loadmaster.view.wiz.book.LoadPage;
 import com.pekinsoft.loadmaster.view.wiz.book.StopsPage;
@@ -58,9 +61,9 @@ import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
-import java.util.Map;
 import javax.swing.JComponent;
 import org.netbeans.spi.wizard.WizardController;
 import org.netbeans.spi.wizard.WizardPanelProvider;
@@ -314,6 +317,53 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
             MessageBox.showError(ex, "Stops Database Error");
         }
 
+        // The last thing to do is to check to see if the driver is on an active
+        //+ trip.
+        if ( Starter.props.getProperty("load.current", "No Active Load")
+                .equalsIgnoreCase("No Active Load") ) {
+            // If not, see if the driver wants to start this trip.
+            int response = MessageBox.askQuestion("Would you like to start this "
+                    + "trip?", "Start Trip", false);
+
+            if ( response == MessageBox.YES_OPTION ) {
+                StartTripDialog dlg = new StartTripDialog(null, true);
+                dlg.pack();
+                dlg.setOrderNumber(load.getOrder());
+                dlg.setTripNumber(load.getTrip());
+                dlg.setVisible(true);
+
+                if ( !dlg.isCancelled() ) {
+                    load.setStartOdo(dlg.getOdometer());
+
+                    Starter.props.setProperty("load.current", load.getTrip());
+                    Starter.props.setPropertyAsInt("stop.count", 
+                            load.getStopCount() * 2);
+                    Starter.props.setPropertyAsInt("load.stop", 0);
+                    Starter.props.flush();
+                    
+                    ReceivablesCtl ctl;
+                    
+                    try {
+                        ctl = new ReceivablesCtl();
+//                        ReceivablesModel ar = ;
+                        ctl.addNew(new ReceivablesModel(
+                                load.getDispatch(),
+                                load.getTrip(),
+                                load.getOrder(),
+                                load.getRate()));
+                        ctl.close();
+                    } catch ( DataStoreException ex ) {
+                        entry.setMessage("An error occurred accessing the stops "
+                                + "database.");
+                        entry.setThrown(ex);
+                        Starter.logger.error(entry);
+
+                        MessageBox.showError(ex, "Receivables Journal Error");
+                    }
+                }
+            }
+        }
+
         loads.addNew(load);
         
         try {
@@ -325,6 +375,8 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
             MessageBox.showError(ex, "Stops Database Error");
         }
+        
+        // Now, we need to see if the user is currently on
 
         // We are not returning anything from this method, so just return a null
         //+ object, as everything that needed to be done was done here.
