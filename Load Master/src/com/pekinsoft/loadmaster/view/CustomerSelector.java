@@ -87,7 +87,7 @@ public class CustomerSelector extends javax.swing.JDialog {
         
         initComponents();
         
-        lr.setMessage("Attempting to access the brokers database...");
+        lr.setMessage("Attempting to access the customers database...");
         Starter.logger.debug(lr);
         try {
             records = new CustomerCtl();

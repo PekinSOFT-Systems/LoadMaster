@@ -304,7 +304,7 @@ public class AppProperties {
      * @param   key the property key
      * @return  the value in this property list with the specified key value.
      * @see #setProperty(java.lang.String, java.lang.String) 
-     * @see #defaults
+     * 
      */
     public String getProperty(String key) {
         return props.getProperty(key);
@@ -321,7 +321,7 @@ public class AppProperties {
      * @return  the value in this property list with the specified key, or the
      *          supplied default value if the key value is not found.
      * @see #setProperty
-     * @see #defaults
+     * 
      */
     public String getProperty(String key, String defaultValue) {
         return props.getProperty(key, defaultValue);

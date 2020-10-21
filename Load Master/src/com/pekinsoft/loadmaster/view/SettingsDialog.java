@@ -39,6 +39,8 @@ import com.pekinsoft.loadmaster.Starter;
 import com.pekinsoft.loadmaster.sys.AppProperties;
 import com.pekinsoft.loadmaster.utils.ScreenUtils;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -59,7 +61,7 @@ public class SettingsDialog extends javax.swing.JDialog {
     }
     
     private void loadProperties() {
-        settingsTabbedPane.remove(accountingTab);
+//        settingsTabbedPane.remove(accountingTab);
         settingsTabbedPane.remove(numberingTab);
         orderPrefixField.setEnabled(false);
         tripPrefixField.setEnabled(false);
@@ -110,6 +112,17 @@ public class SettingsDialog extends javax.swing.JDialog {
                 + System.getProperty("file.separator") + "err"
                 + System.getProperty("file.separator"));
         configField.setText(AppProperties.APP_DIR);
+        batchCheckBox.setSelected(Starter.props.getPropertyAsBoolean("acct.batch", "false"));
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        
+        try {
+            fiscalStartPicker.setDate(sdf.parse(Starter.props.getProperty("acct.fiscal.start", "01/01/2020")));
+            fiscalStartPicker.getEditor().setText(Starter.props.getProperty("acct.fiscal.start"));
+        } catch ( ParseException ex ) {
+            System.err.println(ex.getMessage());
+            ex.printStackTrace(System.err);
+        }
     }
 
     private void doClose() {
@@ -146,6 +159,10 @@ public class SettingsDialog extends javax.swing.JDialog {
         Starter.props.setProperty("invoice.prefix.value", invoicePrefixField.getText());
         Starter.props.setProperty("invoice.min", invoiceMinField.getText());
         Starter.props.setProperty("invoice.max", invoiceMaxField.getText());
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Starter.props.setProperty("acct.fiscal.start", sdf.format(fiscalStartPicker.getDate()));
+        Starter.props.setPropertyAsBoolean("acct.batch", batchCheckBox.isSelected());
         
         Starter.props.flush();
         
@@ -224,7 +241,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         orderMinField = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         orderMaxField = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        tripPanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         tripPrefixList = new javax.swing.JComboBox<>();
         tripPrefixField = new javax.swing.JTextField();
@@ -232,7 +249,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         tripMinField = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         tripMaxField = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        invoicePanel = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         invoicePrefixList = new javax.swing.JComboBox<>();
         invoicePrefixField = new javax.swing.JTextField();
@@ -251,6 +268,9 @@ public class SettingsDialog extends javax.swing.JDialog {
         jLabel29 = new javax.swing.JLabel();
         configField = new javax.swing.JTextField();
         accountingTab = new javax.swing.JPanel();
+        fiscalStartLabel = new javax.swing.JLabel();
+        fiscalStartPicker = new org.jdesktop.swingx.JXDatePicker();
+        batchCheckBox = new javax.swing.JCheckBox();
         commandPanel = new javax.swing.JPanel();
         closeButton = new javax.swing.JButton();
 
@@ -362,7 +382,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(odometerField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(vinField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         truckInfoPanelLayout.setVerticalGroup(
             truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -707,7 +727,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orderMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         orderPanelLayout.setVerticalGroup(
             orderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -723,7 +743,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Trip Number Options"));
+        tripPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Trip Number Options"));
 
         jLabel25.setText("Prefix:");
 
@@ -738,11 +758,11 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         jLabel28.setText("Max:");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout tripPanelLayout = new javax.swing.GroupLayout(tripPanel);
+        tripPanel.setLayout(tripPanelLayout);
+        tripPanelLayout.setHorizontalGroup(
+            tripPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tripPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -759,10 +779,10 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addComponent(tripMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        tripPanelLayout.setVerticalGroup(
+            tripPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tripPanelLayout.createSequentialGroup()
+                .addGroup(tripPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(tripPrefixList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tripPrefixField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -773,7 +793,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Invoice Number Options"));
+        invoicePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Invoice Number Options"));
 
         jLabel30.setText("Prefix:");
 
@@ -788,11 +808,11 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         jLabel33.setText("Max:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout invoicePanelLayout = new javax.swing.GroupLayout(invoicePanel);
+        invoicePanel.setLayout(invoicePanelLayout);
+        invoicePanelLayout.setHorizontalGroup(
+            invoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(invoicePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -809,10 +829,10 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addComponent(invoiceMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        invoicePanelLayout.setVerticalGroup(
+            invoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(invoicePanelLayout.createSequentialGroup()
+                .addGroup(invoicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(invoicePrefixList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(invoicePrefixField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -828,17 +848,17 @@ public class SettingsDialog extends javax.swing.JDialog {
         numberingTabLayout.setHorizontalGroup(
             numberingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(orderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tripPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(invoicePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         numberingTabLayout.setVerticalGroup(
             numberingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(numberingTabLayout.createSequentialGroup()
                 .addComponent(orderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tripPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(invoicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -910,15 +930,32 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         settingsTabbedPane.addTab("Directories", directoriesTab);
 
+        fiscalStartLabel.setText("Fiscal Year Start Date:");
+
+        batchCheckBox.setText("Use Batch Posting Method");
+
         javax.swing.GroupLayout accountingTabLayout = new javax.swing.GroupLayout(accountingTab);
         accountingTab.setLayout(accountingTabLayout);
         accountingTabLayout.setHorizontalGroup(
             accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(accountingTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fiscalStartLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fiscalStartPicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(batchCheckBox)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         accountingTabLayout.setVerticalGroup(
             accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 318, Short.MAX_VALUE)
+            .addGroup(accountingTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fiscalStartLabel)
+                    .addComponent(fiscalStartPicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(batchCheckBox))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         settingsTabbedPane.addTab("Accounting", accountingTab);
@@ -1012,6 +1049,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel accountingTab;
+    private javax.swing.JCheckBox batchCheckBox;
     private javax.swing.JCheckBox chkAuthority;
     private javax.swing.JTextField cityField;
     private javax.swing.JButton closeButton;
@@ -1026,9 +1064,12 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JTextField emailField;
     private javax.swing.JTextField errorField;
     private javax.swing.JFormattedTextField faxField;
+    private javax.swing.JLabel fiscalStartLabel;
+    private org.jdesktop.swingx.JXDatePicker fiscalStartPicker;
     private javax.swing.JPanel generalTab;
     private javax.swing.JTextField invoiceMaxField;
     private javax.swing.JTextField invoiceMinField;
+    private javax.swing.JPanel invoicePanel;
     private javax.swing.JTextField invoicePrefixField;
     private javax.swing.JComboBox<String> invoicePrefixList;
     private javax.swing.JLabel jLabel1;
@@ -1063,8 +1104,6 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField logField;
     private javax.swing.JComboBox<String> makeList;
     private javax.swing.JTextField modelField;
@@ -1087,6 +1126,7 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JTextField trailerVINField;
     private javax.swing.JTextField tripMaxField;
     private javax.swing.JTextField tripMinField;
+    private javax.swing.JPanel tripPanel;
     private javax.swing.JTextField tripPrefixField;
     private javax.swing.JComboBox<String> tripPrefixList;
     private javax.swing.JPanel truckInfoPanel;
