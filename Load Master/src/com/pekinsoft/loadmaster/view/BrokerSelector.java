@@ -46,6 +46,7 @@ import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.BrokerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.utils.ScreenUtils;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
@@ -60,6 +61,8 @@ public class BrokerSelector extends javax.swing.JDialog {
     private LogRecord lr = new LogRecord(Level.ALL, "Logging initialized for "
             + "BrokerSelector.");
     
+    private boolean filtering;
+    
     /**
      * Creates new form BrokerSelector
      */
@@ -71,6 +74,8 @@ public class BrokerSelector extends javax.swing.JDialog {
         lr.setSourceClassName(Brokers.class.getName());
         lr.setSourceMethodName("BrokerSelector");
         Starter.logger.enter(lr);
+        
+        filtering = false;
         
         lr.setMessage("Attempting to access the brokers database...");
         Starter.logger.debug(lr);
@@ -99,32 +104,72 @@ public class BrokerSelector extends javax.swing.JDialog {
         brokerList.removeAllItems();
         brokerList.addItem("Select Broker/Agent...");
         
-        try {
-            records.first();
-        } catch ( DataStoreException ex ) {
-            lr.setMessage("Something went wrong moving to the next record.");
-            lr.setThrown(ex);
-            Starter.logger.error(lr);
-
-            MessageBox.showError(ex, "Database Access");
-        }
+        ArrayList<BrokerModel> filtered = new ArrayList<>();
         
-        for ( int x = 0; x < records.getRecordCount(); x++ ) {
-            BrokerModel b = records.get();
-            
-            brokerList.addItem(b.getContact() + " (" + b.getId() + ")");
-            
+        if ( allFilterOption.isSelected() ) {
             try {
-                if (records.hasNext() ) 
-                    records.next();
+                records.first();
             } catch ( DataStoreException ex ) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
 
-//                MessageBox.showError(ex, "Database Access");
+                MessageBox.showError(ex, "Database Access");
             }
+
+            for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                BrokerModel b = records.get();
+
+                brokerList.addItem(b.getContact() + " (" + b.getId() + ")");
+
+                try {
+                    if (records.hasNext() ) 
+                        records.next();
+                } catch ( DataStoreException ex ) {
+                    lr.setMessage("Something went wrong moving to the next record.");
+                    lr.setThrown(ex);
+                    Starter.logger.error(lr);
+
+    //                MessageBox.showError(ex, "Database Access");
+                }
+            }
+        } else if ( cityFilterOption.isSelected() ) {
+            try {
+                filtered = records.getCompaniesByCity(criteriaField.getText(), 
+                        LoadMaster.fileProgress);
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+            }
+            
+            if ( filtered.size() > 0 ) {
+                for ( int x = 0; x < filtered.size(); x++ ) {
+                    brokerList.addItem(filtered.get(x).getContact() + " (" 
+                            + filtered.get(x).getId() + ")");
+                }
+            } else
+                MessageBox.showInfo("No matching records found!", "No Records");
+        } else if ( stateFilterOption.isSelected() ) {
+            try {
+                filtered = records.getCompaniesByState(criteriaField.getText(), 
+                        LoadMaster.fileProgress);
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+            }
+            
+            if ( filtered.size() > 0 ) {
+                for ( int x = 0; x < filtered.size(); x++ ) {
+                    brokerList.addItem(filtered.get(x).getContact() + " (" 
+                            + filtered.get(x).getId() + ")");
+                }
+            } else
+                MessageBox.showInfo("No matching records found!", "No Records");
         }
+        
+        filtering = false;
     }
     
     public BrokerModel getSelectedBroker() {
@@ -140,9 +185,17 @@ public class BrokerSelector extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        filterButtonGroup = new javax.swing.ButtonGroup();
+        brokerLabel = new javax.swing.JLabel();
         brokerList = new javax.swing.JComboBox<>();
         selectBroker = new javax.swing.JButton();
+        filterPanel = new javax.swing.JPanel();
+        allFilterOption = new javax.swing.JRadioButton();
+        cityFilterOption = new javax.swing.JRadioButton();
+        stateFilterOption = new javax.swing.JRadioButton();
+        criteriaLabel = new javax.swing.JLabel();
+        criteriaField = new javax.swing.JTextField();
+        filterButton = new javax.swing.JButton();
 
         setTitle("Select Load Broker/Agent");
         setAlwaysOnTop(true);
@@ -150,7 +203,7 @@ public class BrokerSelector extends javax.swing.JDialog {
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setResizable(false);
 
-        jLabel1.setText("Broker/Agent:");
+        brokerLabel.setText("Broker/Agent:");
 
         brokerList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -167,6 +220,76 @@ public class BrokerSelector extends javax.swing.JDialog {
             }
         });
 
+        filterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Filter List"));
+
+        filterButtonGroup.add(allFilterOption);
+        allFilterOption.setMnemonic('A');
+        allFilterOption.setSelected(true);
+        allFilterOption.setText("All");
+
+        filterButtonGroup.add(cityFilterOption);
+        cityFilterOption.setMnemonic('C');
+        cityFilterOption.setText("By City");
+
+        filterButtonGroup.add(stateFilterOption);
+        stateFilterOption.setMnemonic('S');
+        stateFilterOption.setText("By State");
+
+        criteriaLabel.setDisplayedMnemonic('V');
+        criteriaLabel.setText("Value to Search:");
+
+        criteriaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                criteriaFieldKeyTyped(evt);
+            }
+        });
+
+        filterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/filter.png"))); // NOI18N
+        filterButton.setEnabled(false);
+        filterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout filterPanelLayout = new javax.swing.GroupLayout(filterPanel);
+        filterPanel.setLayout(filterPanelLayout);
+        filterPanelLayout.setHorizontalGroup(
+            filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(filterPanelLayout.createSequentialGroup()
+                        .addComponent(allFilterOption)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cityFilterOption)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(stateFilterOption)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(filterPanelLayout.createSequentialGroup()
+                        .addComponent(criteriaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(criteriaField)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(filterButton)))
+                .addContainerGap())
+        );
+        filterPanelLayout.setVerticalGroup(
+            filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allFilterOption)
+                    .addComponent(cityFilterOption)
+                    .addComponent(stateFilterOption))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(criteriaLabel)
+                    .addComponent(criteriaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filterButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,8 +297,9 @@ public class BrokerSelector extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(filterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(brokerLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(brokerList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -185,10 +309,12 @@ public class BrokerSelector extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(filterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(brokerLabel)
                     .addComponent(brokerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(selectBroker)
@@ -237,12 +363,74 @@ public class BrokerSelector extends javax.swing.JDialog {
     }//GEN-LAST:event_selectBrokerActionPerformed
 
     private void brokerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_brokerListItemStateChanged
-        selectBroker.setEnabled(!brokerList.getSelectedItem().toString().equals("Select Broker/Agent..."));
+        if ( !filtering )
+            selectBroker.setEnabled(!brokerList.getSelectedItem().toString()
+                    .equals("Select Broker/Agent..."));
     }//GEN-LAST:event_brokerListItemStateChanged
 
+    private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
+        filtering = true;
+        loadBrokerList();
+    }//GEN-LAST:event_filterButtonActionPerformed
+
+    private void criteriaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_criteriaFieldKeyTyped
+        filterButton.setEnabled(criteriaField.getText().length() > 0);
+            
+    }//GEN-LAST:event_criteriaFieldKeyTyped
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FuelPurchaseDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FuelPurchaseDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FuelPurchaseDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FuelPurchaseDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                BrokerSelector dialog = new BrokerSelector(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allFilterOption;
+    private javax.swing.JLabel brokerLabel;
     private javax.swing.JComboBox<String> brokerList;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton cityFilterOption;
+    private javax.swing.JTextField criteriaField;
+    private javax.swing.JLabel criteriaLabel;
+    private javax.swing.JButton filterButton;
+    private javax.swing.ButtonGroup filterButtonGroup;
+    private javax.swing.JPanel filterPanel;
     private javax.swing.JButton selectBroker;
+    private javax.swing.JRadioButton stateFilterOption;
     // End of variables declaration//GEN-END:variables
 }

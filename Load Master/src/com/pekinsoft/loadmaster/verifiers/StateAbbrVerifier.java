@@ -17,7 +17,6 @@
 package com.pekinsoft.loadmaster.verifiers;
 
 import com.pekinsoft.loadmaster.utils.Utils;
-import com.pekinsoft.loadmaster.view.Customers;
 import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.InputVerifier;
@@ -50,14 +49,9 @@ public class StateAbbrVerifier extends InputVerifier {
             if ( !Utils.createStateAbbreviations().contains(abbr) ) {
                 ((JTextField) input).setBackground(errBack);
                 ((JTextField) input).setForeground(errFore);
-                Customers.helpPanel.setBackground(errBack);
-                Customers.helpLabel.setText("State is required and must be a"
-                        + "valid US State or Canadian Province.");
             } else {
                 ((JTextField) input).setBackground(back);
                 ((JTextField) input).setForeground(fore);
-                Customers.helpPanel.setBackground(ctl);
-                Customers.helpLabel.setText("");
             }
 
             return Utils.createStateAbbreviations().contains(abbr);
