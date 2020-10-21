@@ -56,6 +56,7 @@ import com.pekinsoft.loadmaster.utils.ScreenUtils;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -72,6 +73,8 @@ public class CustomerSelector extends javax.swing.JDialog {
     private LogRecord lr = new LogRecord(Level.ALL, 
             "Logging started in CustomerSelector.");
     
+    private boolean filtering;
+    
     /**
      * Creates new form CustomerSelector
      */
@@ -84,6 +87,8 @@ public class CustomerSelector extends javax.swing.JDialog {
         lr.setSourceMethodName("CustomerSelector");
         lr.setParameters(new Object[] {parent, modal});
         Starter.logger.enter(lr);
+        
+        filtering = false;
         
         initComponents();
         
@@ -114,39 +119,97 @@ public class CustomerSelector extends javax.swing.JDialog {
     }
     
     private void loadList() {
+        customerList.removeAllItems();
         customerList.addItem("Select customer...");
         customerList.addItem("Add a new customer...");
         
-        if ( records.getRecordCount() > 0 ) {
-            try {
-                records.first();
-            } catch ( DataStoreException ex ) {
-                lr.setMessage("Something went wrong moving to the next record.");
-                lr.setThrown(ex);
-                Starter.logger.error(lr);
-
-                MessageBox.showError(ex, "Database Access");
-            }
+        ArrayList<CustomerModel> filtered = new ArrayList<>();
         
-        
-            for ( int x = 0; x < records.getRecordCount(); x++ ) {
-                CustomerModel c = records.get();
-
-                customerList.addItem(c.getCompany() + ": " + c.getCity() + ", " 
-                        + c.getState() + " [" + c.getId() + "]");
-
+        if ( allFilterOption.isSelected() ) {
+            if ( records.getRecordCount() > 0 ) {
                 try {
-                    if (records.hasNext() ) 
-                        records.next();
+                    records.first();
                 } catch ( DataStoreException ex ) {
                     lr.setMessage("Something went wrong moving to the next record.");
                     lr.setThrown(ex);
                     Starter.logger.error(lr);
 
-    //                MessageBox.showError(ex, "Database Access");
+                    MessageBox.showError(ex, "Database Access");
+                }
+
+
+                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                    CustomerModel c = records.get();
+
+                    customerList.addItem(c.getCompany() + ": " + c.getCity() + ", " 
+                            + c.getState() + " [" + c.getId() + "]");
+
+                    try {
+                        if (records.hasNext() ) 
+                            records.next();
+                    } catch ( DataStoreException ex ) {
+                        lr.setMessage("Something went wrong moving to the next record.");
+                        lr.setThrown(ex);
+                        Starter.logger.error(lr);
+
+        //                MessageBox.showError(ex, "Database Access");
+                    }
                 }
             }
+        } else if ( cityFilterOption.isSelected() ) {
+            try {
+                filtered = records.getCompaniesByCity(criteriaField.getText(), 
+                        LoadMaster.fileProgress);
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+            }
+            
+            if ( filtered != null && filtered.size() > 0 ) {
+                for ( int x = 0; x < filtered.size(); x++ ) {
+                    customerList.addItem(filtered.get(x).getCompany() 
+                            + " (" + filtered.get(x).getId() + ")");
+                }
+            } else
+                MessageBox.showInfo("No matching records found!", "No Records");
+        } else if ( stateFilterOption.isSelected() ) {
+            try {
+                filtered = records.getCompaniesByState(criteriaField.getText(), 
+                        LoadMaster.fileProgress);
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+            }
+            
+            if ( filtered != null && filtered.size() > 0 ) {
+                for ( int x = 0; x < filtered.size(); x++ ) {
+                    customerList.addItem(filtered.get(x).getCompany() 
+                            + " (" + filtered.get(x).getId() + ")");
+                }
+            } else
+                MessageBox.showInfo("No matching records found!", "No Records");
+        } else if ( companyFilterOption.isSelected() ) {
+            try {
+                filtered = records.getCustomersByCompany(criteriaField.getText(), 
+                        LoadMaster.fileProgress);
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong moving to the next record.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+            }
+            
+            if ( filtered != null && filtered.size() > 0 ) {
+                for ( int x = 0; x < filtered.size(); x++ ) {
+                    customerList.addItem(filtered.get(x).getCompany() 
+                            + " (" + filtered.get(x).getId() + ")");
+                }
+            } else
+                MessageBox.showInfo("No matching records found!", "No Records");
         }
+        
+        filtering = false;
     }
     
     private void doSave() {
@@ -156,8 +219,8 @@ public class CustomerSelector extends javax.swing.JDialog {
                 "select customer...") ) {
             String selectedBroker = customerList.getSelectedItem().toString();
             long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("[") + 1,    // Start after (
-                    selectedBroker.indexOf("]")));  // End before )
+                    selectedBroker.indexOf("(") + 1,    // Start after (
+                    selectedBroker.indexOf(")")));  // End before )
         
             try {
                 records.first();
@@ -320,19 +383,28 @@ public class CustomerSelector extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        filterButtonGroup = new javax.swing.ButtonGroup();
+        customerLabel = new javax.swing.JLabel();
         selectButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        earlyLabel = new javax.swing.JLabel();
         earlyDate = new org.jdesktop.swingx.JXDatePicker();
         earlyTime = new javax.swing.JFormattedTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lateLabel = new javax.swing.JLabel();
         lateDate = new org.jdesktop.swingx.JXDatePicker();
         lateTime = new javax.swing.JFormattedTextField();
         customerList = new javax.swing.JComboBox<>();
+        filterPanel = new javax.swing.JPanel();
+        allFilterOption = new javax.swing.JRadioButton();
+        companyFilterOption = new javax.swing.JRadioButton();
+        cityFilterOption = new javax.swing.JRadioButton();
+        stateFilterOption = new javax.swing.JRadioButton();
+        criteriaLabel = new javax.swing.JLabel();
+        criteriaField = new javax.swing.JTextField();
+        filterButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Customer:");
+        customerLabel.setText("Customer:");
 
         selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         selectButton.setMnemonic('S');
@@ -349,7 +421,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("Early:");
+        earlyLabel.setText("Early:");
 
         earlyDate.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -389,7 +461,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setText("Late:");
+        lateLabel.setText("Late:");
 
         lateDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -430,6 +502,79 @@ public class CustomerSelector extends javax.swing.JDialog {
             }
         });
 
+        filterButtonGroup.add(allFilterOption);
+        allFilterOption.setMnemonic('A');
+        allFilterOption.setSelected(true);
+        allFilterOption.setText("All");
+
+        filterButtonGroup.add(companyFilterOption);
+        companyFilterOption.setMnemonic('m');
+        companyFilterOption.setText("Company");
+
+        filterButtonGroup.add(cityFilterOption);
+        cityFilterOption.setMnemonic('C');
+        cityFilterOption.setText("City");
+
+        filterButtonGroup.add(stateFilterOption);
+        stateFilterOption.setMnemonic('S');
+        stateFilterOption.setText("State");
+
+        criteriaLabel.setText("Filter Criteria:");
+
+        criteriaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                criteriaFieldKeyPressed(evt);
+            }
+        });
+
+        filterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/filter.png"))); // NOI18N
+        filterButton.setEnabled(false);
+        filterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout filterPanelLayout = new javax.swing.GroupLayout(filterPanel);
+        filterPanel.setLayout(filterPanelLayout);
+        filterPanelLayout.setHorizontalGroup(
+            filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(filterPanelLayout.createSequentialGroup()
+                        .addComponent(allFilterOption)
+                        .addGap(18, 18, 18)
+                        .addComponent(companyFilterOption)
+                        .addGap(18, 18, 18)
+                        .addComponent(cityFilterOption)
+                        .addGap(18, 18, 18)
+                        .addComponent(stateFilterOption)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(filterPanelLayout.createSequentialGroup()
+                        .addComponent(criteriaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(criteriaField)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(filterButton))))
+        );
+        filterPanelLayout.setVerticalGroup(
+            filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allFilterOption)
+                    .addComponent(companyFilterOption)
+                    .addComponent(cityFilterOption)
+                    .addComponent(stateFilterOption))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(criteriaLabel)
+                    .addComponent(criteriaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filterButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -442,9 +587,9 @@ public class CustomerSelector extends javax.swing.JDialog {
                         .addComponent(selectButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
+                            .addComponent(earlyLabel)
+                            .addComponent(customerLabel)
+                            .addComponent(lateLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -458,24 +603,30 @@ public class CustomerSelector extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lateTime)))
                                 .addGap(0, 105, Short.MAX_VALUE))
-                            .addComponent(customerList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(customerList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(filterPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {earlyTime, lateTime});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(filterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(customerLabel)
                     .addComponent(customerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(earlyLabel)
                     .addComponent(earlyDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(earlyTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lateLabel)
                     .addComponent(lateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -530,22 +681,41 @@ public class CustomerSelector extends javax.swing.JDialog {
 
     private void customerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_customerListItemStateChanged
         // Validate the data on the dialog
-        selectButton.setEnabled(isDataValid());
+        if ( !filtering ) 
+            selectButton.setEnabled(isDataValid());
     }//GEN-LAST:event_customerListItemStateChanged
 
     private void selectText(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_selectText
         ((JTextComponent)evt.getSource()).selectAll();
     }//GEN-LAST:event_selectText
 
+    private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
+        filtering = true;
+        loadList();
+    }//GEN-LAST:event_filterButtonActionPerformed
+
+    private void criteriaFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_criteriaFieldKeyPressed
+        filterButton.setEnabled(criteriaField.getText().length() > 0);
+    }//GEN-LAST:event_criteriaFieldKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allFilterOption;
+    private javax.swing.JRadioButton cityFilterOption;
+    private javax.swing.JRadioButton companyFilterOption;
+    private javax.swing.JTextField criteriaField;
+    private javax.swing.JLabel criteriaLabel;
+    private javax.swing.JLabel customerLabel;
     private javax.swing.JComboBox<String> customerList;
     private org.jdesktop.swingx.JXDatePicker earlyDate;
+    private javax.swing.JLabel earlyLabel;
     private javax.swing.JFormattedTextField earlyTime;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton filterButton;
+    private javax.swing.ButtonGroup filterButtonGroup;
+    private javax.swing.JPanel filterPanel;
     private org.jdesktop.swingx.JXDatePicker lateDate;
+    private javax.swing.JLabel lateLabel;
     private javax.swing.JFormattedTextField lateTime;
     private javax.swing.JButton selectButton;
+    private javax.swing.JRadioButton stateFilterOption;
     // End of variables declaration//GEN-END:variables
 }

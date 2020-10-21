@@ -375,8 +375,10 @@ public class StopCtl {
                 
                 line = in.readLine();
 
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() + 1);
+                if ( LoadMaster.fileProgress != null ) {
+                    LoadMaster.fileProgress.setValue(
+                            LoadMaster.fileProgress.getValue() + 1);
+                }
             }
             
             row = 0;    // Set our current row to the first record.
@@ -392,7 +394,7 @@ public class StopCtl {
             
             throw new DataStoreException(ex.getMessage(), ex);
         } finally {
-//            LoadMaster.fileProgress.setValue(0);
+            
         }
     }
     

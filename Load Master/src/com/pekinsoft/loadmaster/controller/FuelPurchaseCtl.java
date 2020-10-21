@@ -318,11 +318,13 @@ public class FuelPurchaseCtl {
         entry.setParameters(null);
         Starter.logger.config(entry);
         
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("journal.fuel.records", "0") 
-                + (Starter.props.getPropertyAsInt("journal.fuel.records", "0")));
-        LoadMaster.fileProgress.setValue(0);
-        LoadMaster.fileProgress.setVisible(true);
+        if ( LoadMaster.fileProgress != null ) {
+            LoadMaster.fileProgress.setMaximum(
+                    Starter.props.getPropertyAsInt("journal.fuel.records", "0") 
+                    + (Starter.props.getPropertyAsInt("journal.fuel.records", "0")));
+            LoadMaster.fileProgress.setValue(0);
+            LoadMaster.fileProgress.setVisible(true);
+        }
         
         try {
             in = new BufferedReader(new FileReader(TABLE));
@@ -336,8 +338,10 @@ public class FuelPurchaseCtl {
                 
                 line = in.readLine();
 
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() + 1);
+                if ( LoadMaster.fileProgress != null ) {
+                    LoadMaster.fileProgress.setValue(
+                            LoadMaster.fileProgress.getValue() + 1);
+                }
             }
             
             row = 0;    // Set our current row to the first record.
@@ -354,8 +358,10 @@ public class FuelPurchaseCtl {
             
             throw new DataStoreException(ex.getMessage(), ex);
         } finally {
-            LoadMaster.fileProgress.setValue(0);
-            LoadMaster.fileProgress.setVisible(false);
+            if ( LoadMaster.fileProgress != null ) {
+                LoadMaster.fileProgress.setValue(0);
+                LoadMaster.fileProgress.setVisible(false);
+            }
             Starter.props.setPropertyAsInt("journal.fuel.records", records.size());
             Starter.props.flush();
         }

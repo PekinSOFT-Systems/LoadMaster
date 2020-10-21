@@ -154,6 +154,272 @@ public class CustomerCtl {
     }
     
     /**
+     * Provides a method of retrieving the record for the specified company.
+     * This method may be used to find that specific company for multiple 
+     * purposes, including to make sure the user is not attempting to enter the 
+     * same company record multiple times. 
+     * <dl><dt>Note</dt><dd>It is a best practice to call this method prior to
+     * calling the `addNew(BrokerModel)` method as a means of ensuring each 
+     * broker is only entered into the database a single time.</dd></dl>
+     * <dl><dt>Developer's Note</dt><dd>If a `javax.swing.JProgressBar` is 
+     * provided to this method, the developer will need to reset the progress
+     * bar once this method has returned from their own code, as we only set it
+     * up for use and use it on each record while the search proceeds. This 
+     * method does not zero the progress bar out once completed, nor do we 
+     * change its visibility within this method. Therefore, prior to providing
+     * the progress bar, the developer needs to make sure that it is visible to
+     * the user and, once this method returns, the developer needs to handle the
+     * progress bar how they desire.
+     * 
+     * Furthermore, this method changes the tooltip text of the progress bar to
+     * "Broker Search Progress", so the developer will also need to reset the
+     * tooltip on the progress bar once this method returns.</dd></dl>
+     * 
+     * @param company The company whose record is to be located.
+     * @param bar a `javax.swing.JProgressBar` object to visually display the
+     *            search progress to the user. May be null.
+     * @return  `BrokerModel` object containing the company record, if it exists.
+     *          `null` otherwise.
+     * @throws DataStoreException in the event a database access error occurs.
+     */
+    public CustomerModel getByCompany(String company, 
+            javax.swing.JProgressBar bar) throws DataStoreException {
+        // Check to see if we were given a JProgressBar to work with.
+        if ( bar == null ) {
+            // If not, create one, even though it will not be displayed, just so
+            //+ we do not have to constantly repeat this check.
+            bar = new javax.swing.JProgressBar();
+        }
+        
+        bar.setMaximum(getRecordCount());
+        bar.setMinimum(0);
+        bar.setToolTipText("Broker Search Progress");
+        bar.setValue(0);
+        
+        // Store the current record number.
+        int lastRecord = getCurrentRecordNumber();
+        
+        // Prepare a record object.
+        CustomerModel tmp = null;
+        
+        if ( getRecordCount() > 0 ) {
+            // Move to the first record.
+            first();
+
+            // Now, loop through all of the records in the table.
+            for ( int x = 0; x < records.size(); x++ ) {
+                bar.setValue(x + 1);
+                // Check to see if the current record's company matches the company
+                //+ being sought by the user.
+                if ( records.get(x).getCompany().equalsIgnoreCase(company) ) {
+                    // Grab the record.
+                    tmp = records.get(x);
+
+                    // Break out of the loop because we do not need to continue.
+                    break;
+                }
+            }
+        }
+        
+        row = lastRecord;
+        
+        // Return the record we found, or null if there was no match.
+        return tmp;
+    }
+    
+    /**
+     * This method returns an `java.util.ArrayList<CustomerModel>` of all matching
+     * customer records.This method is useful for allowing the user to filter a 
+     * long list ofrecords down to narrow his/her search for a customer, such as 
+     * in the Book Load Wizard.
+     * <dl><dt>Developer's Note</dt><dd>If a `javax.swing.JProgressBar` is 
+     * provided to this method, the developer will need to reset the progress
+     * bar once this method has returned from their own code, as we only set it
+     * up for use and use it on each record while the search proceeds. This 
+     * method does not zero the progress bar out once completed, nor do we 
+     * change its visibility within this method. Therefore, prior to providing
+     * the progress bar, the developer needs to make sure that it is visible to
+     * the user and, once this method returns, the developer needs to handle the
+     * progress bar how they desire.
+     * 
+     * Furthermore, this method changes the tooltip text of the progress bar to
+     * "Broker Search Progress", so the developer will also need to reset the
+     * tooltip on the progress bar once this method returns.</dd></dl>
+     * 
+     * @param state The state in which the customer(s) must be located.
+     * @param bar a `javax.swing.JProgressBar` object to visually display the
+     *            search progress to the user. May be null.
+     * @return an `ArrayList` of all matching customers, or `null` if none found.
+     * @throws DataStoreException in the event a database access error occurs.
+     */
+    public ArrayList<CustomerModel> getCompaniesByState(String state,
+            javax.swing.JProgressBar bar) throws DataStoreException {
+        // Check to see if we were given a JProgressBar to work with.
+        if ( bar == null ) {
+            // If not, create one, even though it will not be displayed, just so
+            //+ we do not have to constantly repeat this check.
+            bar = new javax.swing.JProgressBar();
+        }
+        
+        bar.setMaximum(getRecordCount());
+        bar.setMinimum(0);
+        bar.setToolTipText("Broker Search Progress");
+        bar.setValue(0);
+        
+        // Initialize our ArrayList for returning to the requesting method.
+        ArrayList<CustomerModel> tmp = new ArrayList<>();
+        
+        if ( getRecordCount() > 0 ) {
+            // Loop through all of our records.
+            for ( int x = 0; x < records.size(); x++ ) {
+                bar.setValue(x + 1);
+                // Check to see if the current record contains a broker from the 
+                //+ requested state.
+                if ( records.get(x).getState().equalsIgnoreCase(state) ) {
+                    // Add the record to our returnable ArrayList.
+                    tmp.add(records.get(x));
+                }
+            }
+        }
+        
+        // Return either the list of located brokers or null.
+        return tmp.size() > 0 ? tmp : null;
+    }
+        
+    /**
+     * This method returns an `java.util.ArrayList<CustomerModel>` of all matching
+     * customer records.
+     * 
+     * This method is useful for allowing the user to filter a long list of 
+     * records down to narrow his/her search for a customer, such as in the Book
+     * Load Wizard.
+     * <dl><dt>Developer's Note</dt><dd>If a `javax.swing.JProgressBar` is 
+     * provided to this method, the developer will need to reset the progress
+     * bar once this method has returned from their own code, as we only set it
+     * up for use and use it on each record while the search proceeds. This 
+     * method does not zero the progress bar out once completed, nor do we 
+     * change its visibility within this method. Therefore, prior to providing
+     * the progress bar, the developer needs to make sure that it is visible to
+     * the user and, once this method returns, the developer needs to handle the
+     * progress bar how they desire.
+     * 
+     * Furthermore, this method changes the tooltip text of the progress bar to
+     * "Broker Search Progress", so the developer will also need to reset the
+     * tooltip on the progress bar once this method returns.</dd></dl>
+     * 
+     * @param city The city in which the customer(s) must be located.
+     * @return an `ArrayList` of all matching customers, or `null` if none found.
+     * @throws DataStoreException in the event a database access error occurs.
+     */
+    public ArrayList<CustomerModel> getCompaniesByCity(String city,
+            javax.swing.JProgressBar bar) throws DataStoreException {
+        // Check to see if we were given a JProgressBar to work with.
+        if ( bar == null ) {
+            // If not, create one, even though it will not be displayed, just so
+            //+ we do not have to constantly repeat this check.
+            bar = new javax.swing.JProgressBar();
+        }
+        
+        bar.setMaximum(getRecordCount());
+        bar.setMinimum(0);
+        bar.setToolTipText("Broker Search Progress");
+        bar.setValue(0);
+        
+        // Initialize our ArrayList for returning to the requesting method.
+        ArrayList<CustomerModel> tmp = new ArrayList<>();
+        
+        if ( getRecordCount() > 0 ) {
+            // Loop through all of our records.
+            for ( int x = 0; x < records.size(); x++ ) {
+                bar.setValue(x + 1);
+                // Check to see if the current record contains a broker from the 
+                //+ requested state.
+                if ( records.get(x).getCity().equalsIgnoreCase(city) ) {
+                    // Add the record to our returnable ArrayList.
+                    tmp.add(records.get(x));
+                }
+            }
+        }
+        
+        // Return either the list of located brokers or null.
+        return tmp.size() > 0 ? tmp : null;
+    }
+    
+    /**
+     * Provides a method of retrieving the record for the specified company.
+     * This method may be used to find that specific company for multiple 
+     * purposes, including to make sure the user is not attempting to enter the 
+     * same company record multiple times. 
+     * <dl><dt>Note</dt><dd>It is a best practice to call this method prior to
+     * calling the `addNew(BrokerModel)` method as a means of ensuring each 
+     * broker is only entered into the database a single time.</dd></dl>
+     * <dl><dt>Developer's Note</dt><dd>If a `javax.swing.JProgressBar` is 
+     * provided to this method, the developer will need to reset the progress
+     * bar once this method has returned from their own code, as we only set it
+     * up for use and use it on each record while the search proceeds. This 
+     * method does not zero the progress bar out once completed, nor do we 
+     * change its visibility within this method. Therefore, prior to providing
+     * the progress bar, the developer needs to make sure that it is visible to
+     * the user and, once this method returns, the developer needs to handle the
+     * progress bar how they desire.
+     * 
+     * Furthermore, this method changes the tooltip text of the progress bar to
+     * "Broker Search Progress", so the developer will also need to reset the
+     * tooltip on the progress bar once this method returns.</dd></dl>
+     * 
+     * @param company The company whose record is to be located.
+     * @param bar a `javax.swing.JProgressBar` object to visually display the
+     *            search progress to the user. May be null.
+     * @return  `ArrayList<BrokerModel>` object containing the company records, 
+     *          if any exist. `null` otherwise.
+     * @throws DataStoreException in the event a database access error occurs.
+     */
+    public ArrayList<CustomerModel> getCustomersByCompany(String company, 
+            javax.swing.JProgressBar bar) throws DataStoreException {
+        // Check to see if we were given a JProgressBar to work with.
+        if ( bar == null ) {
+            // If not, create one, even though it will not be displayed, just so
+            //+ we do not have to constantly repeat this check.
+            bar = new javax.swing.JProgressBar();
+        }
+        
+        bar.setMaximum(getRecordCount());
+        bar.setMinimum(0);
+        bar.setToolTipText("Broker Search Progress");
+        bar.setValue(0);
+        
+        // Store the current record number.
+        int lastRecord = getCurrentRecordNumber();
+        
+        // Prepare a record object.
+        ArrayList<CustomerModel> tmp = new ArrayList<>();
+        
+        if ( getRecordCount() > 0 ) {
+            // Move to the first record.
+            first();
+
+            // Now, loop through all of the records in the table.
+            for ( int x = 0; x < records.size(); x++ ) {
+                bar.setValue(x + 1);
+                // Check to see if the current record's company matches the company
+                //+ being sought by the user.
+                if ( records.get(x).getCompany().equalsIgnoreCase(company) ) {
+                    // Grab the record.
+                    tmp.add(records.get(x));
+
+                    // Break out of the loop because we do not need to continue.
+                    break;
+                }
+            }
+        }
+        
+        row = lastRecord;
+        
+        // Return the record we found, or null if there was no match.
+        return tmp.size() > 0 ? tmp : null;
+    }
+    
+    /**
      * Retrieves the total number of records (or rows) in this table.
      * 
      * @return int The number of records
@@ -349,10 +615,12 @@ public class CustomerCtl {
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     private void connect() throws DataStoreException {
         BufferedReader in;
-        LoadMaster.fileProgress.setMinimum(0);
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("table.customers.records", "0"));
-//        LoadMaster.fileProgress.setVisible(true);
+        if ( LoadMaster.fileProgress != null ) {
+            LoadMaster.fileProgress.setMinimum(0);
+            LoadMaster.fileProgress.setMaximum(
+                    Starter.props.getPropertyAsInt("table.customers.records", "0"));
+            LoadMaster.fileProgress.setVisible(true);
+        }
         
         try {
             in = new BufferedReader(new FileReader(TABLE));
@@ -366,8 +634,10 @@ public class CustomerCtl {
                 
                 line = in.readLine();
 
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() + 1);
+                if ( LoadMaster.fileProgress != null ) {
+                    LoadMaster.fileProgress.setValue(
+                            LoadMaster.fileProgress.getValue() + 1);
+                }
             }
             
             row = 0;    // Set our current row to the first record.
@@ -383,7 +653,10 @@ public class CustomerCtl {
             
             throw new DataStoreException(ex.getMessage(), ex);
         } finally {
-//            LoadMaster.fileProgress.setValue(0);
+            if ( LoadMaster.fileProgress != null ) {
+                LoadMaster.fileProgress.setValue(0);
+                LoadMaster.fileProgress.setVisible(false);
+            }
         }
     }
     
