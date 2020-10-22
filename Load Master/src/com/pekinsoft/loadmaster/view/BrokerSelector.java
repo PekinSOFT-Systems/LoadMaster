@@ -143,7 +143,7 @@ public class BrokerSelector extends javax.swing.JDialog {
                 Starter.logger.error(lr);
             }
             
-            if ( filtered.size() > 0 ) {
+            if ( filtered != null && filtered.size() > 0 ) {
                 for ( int x = 0; x < filtered.size(); x++ ) {
                     brokerList.addItem(filtered.get(x).getContact() + " (" 
                             + filtered.get(x).getId() + ")");
@@ -160,7 +160,7 @@ public class BrokerSelector extends javax.swing.JDialog {
                 Starter.logger.error(lr);
             }
             
-            if ( filtered.size() > 0 ) {
+            if ( filtered != null && filtered.size() > 0 ) {
                 for ( int x = 0; x < filtered.size(); x++ ) {
                     brokerList.addItem(filtered.get(x).getContact() + " (" 
                             + filtered.get(x).getId() + ")");

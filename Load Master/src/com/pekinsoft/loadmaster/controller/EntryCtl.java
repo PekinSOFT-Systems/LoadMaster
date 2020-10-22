@@ -313,11 +313,13 @@ public class EntryCtl {
         entry.setParameters(null);
         Starter.logger.config(entry);
         
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("table.loads.records", "0") 
-                + (Starter.props.getPropertyAsInt("table.stops.records", "0") * 2));
-        LoadMaster.fileProgress.setValue(0);
-        LoadMaster.fileProgress.setVisible(true);
+        if ( LoadMaster.fileProgress != null ) {
+            LoadMaster.fileProgress.setMaximum(
+                    Starter.props.getPropertyAsInt("table.loads.records", "0") 
+                    + (Starter.props.getPropertyAsInt("table.stops.records", "0") * 2));
+            LoadMaster.fileProgress.setValue(0);
+            LoadMaster.fileProgress.setVisible(true);
+        }
         
         try {
             in = new BufferedReader(new FileReader(TABLE));
@@ -331,8 +333,10 @@ public class EntryCtl {
                 
                 line = in.readLine();
 
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() + 1);
+                if ( LoadMaster.fileProgress != null ) {
+                    LoadMaster.fileProgress.setValue(
+                            LoadMaster.fileProgress.getValue() + 1);
+                }
             }
             
             row = 0;    // Set our current row to the first record.
@@ -348,8 +352,10 @@ public class EntryCtl {
             
             throw new DataStoreException(ex.getMessage(), ex);
         } finally {
-            LoadMaster.fileProgress.setValue(0);
-            LoadMaster.fileProgress.setVisible(false);
+            if ( LoadMaster.fileProgress != null ) {
+                LoadMaster.fileProgress.setValue(0);
+                LoadMaster.fileProgress.setVisible(false);
+            }
         }
     }
     
