@@ -98,6 +98,8 @@ public class Brokers extends javax.swing.JInternalFrame {
         zipField.setInputVerifier(new PostalCodeVerifier());
         
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
+        
+        doClear();
     }
     
     private void doSave() {
@@ -105,7 +107,7 @@ public class Brokers extends javax.swing.JInternalFrame {
         lr.setMessage("Saving the new broker record.");
         Starter.logger.enter(lr);
         
-        companyField.requestFocus();
+        nameField.requestFocus();
 
         broker = new BrokerModel();
         idField.setText(String.valueOf(broker.getId()));
@@ -122,8 +124,41 @@ public class Brokers extends javax.swing.JInternalFrame {
         broker.setStreet(streetField.getText());
         broker.setSuite(suiteField.getText());
         broker.setZip(zipField.getText());
+        
+        if ( records.getRecordCount() > 0 ) {
+            BrokerModel tester = null;
 
-        records.addNew(broker);
+            try {
+                LoadMaster.fileProgress.setVisible(true);
+
+                tester = records.getByCompany(broker.getCompany(), 
+                        LoadMaster.fileProgress);
+
+                LoadMaster.fileProgress.setVisible(false);
+                LoadMaster.fileProgress.setToolTipText("File Progress");
+            } catch ( DataStoreException ex ) {
+                lr.setMessage("Something went wrong searching the brokers database.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+
+                MessageBox.showError(ex, "Database Access");
+            }
+        
+            // Check to see if the record exists
+            if ( tester != null ) {
+                if ( tester.getCompany().equalsIgnoreCase(broker.getCompany())
+                        && tester.getCity().equalsIgnoreCase(broker.getCity())
+                        && tester.getState().equalsIgnoreCase(broker.getState()) ) 
+                    MessageBox.showInfo("Broker: " + broker.getCompany() + " in " 
+                            + broker.getCity() + ", " + broker.getState() 
+                            + " already exists.", "Broker Exists");
+                else 
+                    records.addNew(broker);
+
+            } else
+                records.addNew(broker);
+        } else
+            records.addNew(broker);
 
         lr.setMessage("Attempting to save the data to file.");
         Starter.logger.debug(lr);
@@ -131,7 +166,7 @@ public class Brokers extends javax.swing.JInternalFrame {
             records.close();
             lr.setMessage("Save to file was successful!");
             Starter.logger.info(lr);
-            
+
             setTitle("Customer Entry (" + records.getRecordCount() + " Records)");
         } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the brokers database.");
