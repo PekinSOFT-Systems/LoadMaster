@@ -70,7 +70,7 @@ public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public FuelPurchaseCtl () throws DataStoreException {
         super(new FuelPurchaseModel(), Starter.props.getDataFolder() 
-                + FuelPurchaseModel.ACCOUNT_NUMBER + ".jrnl");
+                + FuelPurchaseModel.DATA_FILE);
     }
     //</editor-fold>
 

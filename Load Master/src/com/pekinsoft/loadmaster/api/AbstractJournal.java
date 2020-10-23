@@ -99,7 +99,7 @@ public abstract class AbstractJournal<T> {
         row = 0;
         fileJustCreated = createFileIfNecessary();
         
-        if ( !fileJustCreated ) {
+        if ( fileJustCreated ) {
             connect();
         } else {
             entry.setMessage("Fuel Card Journal was just created.");

@@ -62,7 +62,7 @@ public class ReceivablesCtl extends AbstractJournal<ReceivablesModel> {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public ReceivablesCtl () throws DataStoreException {
         super(new ReceivablesModel(), Starter.props.getDataFolder() 
-                + ReceivablesModel.ACCOUNT_NUMBER + ".jrnl");
+                + ReceivablesModel.DATA_FILE);
     }
     //</editor-fold>
 

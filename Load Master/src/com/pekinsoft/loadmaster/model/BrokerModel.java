@@ -15,7 +15,7 @@ package com.pekinsoft.loadmaster.model;
  */
 public class BrokerModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
+    public static final String DATA_FILE = "brokers.tbl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

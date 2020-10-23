@@ -84,7 +84,8 @@ public class BrokerCtl extends AbstractJournal<BrokerModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public BrokerCtl () throws DataStoreException {
-        super(new BrokerModel(), Starter.props.getDataFolder() + "brokers.tbl");
+        super(new BrokerModel(), Starter.props.getDataFolder() 
+                + BrokerModel.DATA_FILE);
     }
     //</editor-fold>
 
@@ -279,6 +280,78 @@ public class BrokerCtl extends AbstractJournal<BrokerModel> {
         // Return either the list of located brokers or null.
         return tmp.size() > 0 ? tmp : null;
     }
+    
+    public BrokerModel getCompanyByContact(String contact,
+            javax.swing.JProgressBar bar) throws DataStoreException {
+        // Check to see if we were given a JProgressBar to work with.
+        if ( bar == null ) {
+            // If not, create one, even though it will not be displayed, just so
+            //+ we do not have to constantly repeat this check.
+            bar = new javax.swing.JProgressBar();
+        }
+        
+        bar.setMaximum(getRecordCount());
+        bar.setMinimum(0);
+        bar.setToolTipText("Broker Search Progress");
+        bar.setValue(0);
+        
+        // Initialize our ArrayList for returning to the requesting method.
+        BrokerModel tmp = new BrokerModel();
+        
+        if ( getRecordCount() > 0 ) {
+            // Loop through all of our records.
+            for ( int x = 0; x < records.size(); x++ ) {
+                bar.setValue(x + 1);
+                // Check to see if the current record contains a broker from the 
+                //+ requested state.
+                if ( records.get(x).getContact().toLowerCase().contains(
+                        contact.toLowerCase()) ) {
+                    // Add the record to our returnable ArrayList.
+                    tmp = records.get(x);
+                    break;
+                }
+            }
+        }
+        
+        // Return either the list of located brokers or null.
+        return tmp;
+    }
+    
+    public BrokerModel getCompanyByPhone(String phone,
+            javax.swing.JProgressBar bar) throws DataStoreException {
+        // Check to see if we were given a JProgressBar to work with.
+        if ( bar == null ) {
+            // If not, create one, even though it will not be displayed, just so
+            //+ we do not have to constantly repeat this check.
+            bar = new javax.swing.JProgressBar();
+        }
+        
+        bar.setMaximum(getRecordCount());
+        bar.setMinimum(0);
+        bar.setToolTipText("Broker Search Progress");
+        bar.setValue(0);
+        
+        // Initialize our ArrayList for returning to the requesting method.
+        BrokerModel tmp = new BrokerModel();
+        
+        if ( getRecordCount() > 0 ) {
+            // Loop through all of our records.
+            for ( int x = 0; x < records.size(); x++ ) {
+                bar.setValue(x + 1);
+                // Check to see if the current record contains a broker from the 
+                //+ requested state.
+                if ( records.get(x).getPhone().equalsIgnoreCase(phone) ) {
+                    // Add the record to our returnable ArrayList.
+                    tmp = records.get(x);
+                    break;
+                }
+            }
+        }
+        
+        // Return either the list of located brokers or null.
+        return tmp;
+    }
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Protected Override Methods">

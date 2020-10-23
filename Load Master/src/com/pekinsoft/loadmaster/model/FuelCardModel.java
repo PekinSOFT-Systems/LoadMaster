@@ -52,6 +52,7 @@ public class FuelCardModel {
      * The account number in the Chart of Accounts for the Fuel Card Account
      */
     public static final int ACCOUNT_NUMBER = 50040;
+    public static final String DATA_FILE = ACCOUNT_NUMBER + ".jrnl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

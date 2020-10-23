@@ -65,7 +65,7 @@ public class EntryCtl extends AbstractJournal<EntryModel> {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public EntryCtl () throws DataStoreException {
         super(new EntryModel(), Starter.props.getDataFolder() 
-                + EntryModel.ACCOUNT_NUMBER + ".ldgr");
+                + EntryModel.DATA_FILE);
     }
     //</editor-fold>
 

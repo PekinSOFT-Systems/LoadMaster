@@ -62,7 +62,8 @@ public class StopCtl extends AbstractJournal<StopModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public StopCtl () throws DataStoreException {
-        super(new StopModel(), Starter.props.getDataFolder() + "stops.tbl");
+        super(new StopModel(), Starter.props.getDataFolder() 
+                + StopModel.DATA_FILE);
     }
     //</editor-fold>
 

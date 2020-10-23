@@ -55,7 +55,7 @@ import java.util.Date;
  */
 public class StopModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
+    public static final String DATA_FILE = "stops.tbl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

@@ -58,7 +58,8 @@ public class ChartCtl extends AbstractJournal<ChartModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public ChartCtl () throws DataStoreException {
-        super(new ChartModel(), Starter.props.getDataFolder() + "coa.tbl");
+        super(new ChartModel(), Starter.props.getDataFolder() 
+                + ChartModel.DATA_FILE);
     }
     //</editor-fold>
 

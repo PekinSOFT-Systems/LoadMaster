@@ -52,6 +52,7 @@ import java.util.logging.LogRecord;
 public class ReserveModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
     public static final int ACCOUNT_NUMBER = 50060;
+    public static final String DATA_FILE = ACCOUNT_NUMBER + ".jrnl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

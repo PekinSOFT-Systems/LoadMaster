@@ -58,6 +58,7 @@ import java.util.Date;
 public class EntryModel {
     /** The account number for the General Ledger for file access. */
     public static final int ACCOUNT_NUMBER = 0;
+    public static final String DATA_FILE = ACCOUNT_NUMBER + ".ldgr";
     
     /** Transaction date. */
     private Date date;

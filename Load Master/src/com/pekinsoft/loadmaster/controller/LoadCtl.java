@@ -61,7 +61,8 @@ public class LoadCtl extends AbstractJournal<LoadModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public LoadCtl () throws DataStoreException {
-        super(new LoadModel(), Starter.props.getDataFolder() + "loads.tbl");
+        super(new LoadModel(), Starter.props.getDataFolder() 
+                + LoadModel.DATA_FILE);
     }
     //</editor-fold>
 

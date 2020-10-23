@@ -49,7 +49,7 @@ package com.pekinsoft.loadmaster.model;
  */
 public class CustomerModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
+    public static final String DATA_FILE = "customers.tbl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

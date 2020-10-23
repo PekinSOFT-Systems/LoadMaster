@@ -69,7 +69,7 @@ public class FuelCardCtl extends AbstractJournal<FuelCardModel> {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public FuelCardCtl () throws DataStoreException {
         super(new FuelCardModel(), Starter.props.getDataFolder() 
-                + FuelCardModel.ACCOUNT_NUMBER + ".jrnl");
+                + FuelCardModel.DATA_FILE);
     }
     //</editor-fold>
 

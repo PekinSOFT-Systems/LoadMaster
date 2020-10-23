@@ -60,6 +60,7 @@ public class FuelPurchaseModel {
      * The account number in the Chart of Accounts for the Fuel Purchase Account
      */
     public static final int ACCOUNT_NUMBER = 10040;
+    public static final String DATA_FILE = ACCOUNT_NUMBER + ".jrnl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

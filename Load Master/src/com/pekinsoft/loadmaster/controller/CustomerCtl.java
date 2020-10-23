@@ -59,7 +59,7 @@ public class CustomerCtl extends AbstractJournal<CustomerModel> {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public CustomerCtl () throws DataStoreException {
         super(new CustomerModel(), Starter.props.getDataFolder() 
-                + "customers.tbl");
+                + CustomerModel.DATA_FILE);
     }
     //</editor-fold>
 

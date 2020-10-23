@@ -43,7 +43,7 @@ package com.pekinsoft.loadmaster.model;
  */
 public class ChartModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    public static final String ACCOUNT_NUMBER = "coa";
+    public static final String DATA_FILE = "coa.tbl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">

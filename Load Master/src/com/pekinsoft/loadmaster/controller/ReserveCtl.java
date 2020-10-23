@@ -67,7 +67,7 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public ReserveCtl () throws DataStoreException {
         super(new ReserveModel(), Starter.props.getDataFolder() 
-                + ReserveModel.ACCOUNT_NUMBER + ".jrnl");
+                + ReserveModel.DATA_FILE);
     }
     //</editor-fold>
 
