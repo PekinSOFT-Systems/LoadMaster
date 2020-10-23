@@ -1,0 +1,137 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+utils.\+File\+Utils Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils}\index{com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_a42d497aba3e26fb7bb80d2cdd1cc1f2f}{copy\+File}} (final File to\+Copy, final File dest\+File)
+\item 
+static boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_ac35ec7af45dbff72b2ad054b51a35b63}{copy\+Jar\+Resources\+Recursively}} (final File dest\+Dir, final Jar\+U\+R\+L\+Connection jar\+Connection)  throws I\+O\+Exception 
+\item 
+static boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_a08d0841eb230d563a5aa743dac90ab6d}{copy\+Resources\+Recursively}} (final U\+RL origin\+Url, final File destination)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 58 of file File\+Utils.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_a42d497aba3e26fb7bb80d2cdd1cc1f2f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_a42d497aba3e26fb7bb80d2cdd1cc1f2f}} 
+\index{com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}!copyFile@{copyFile}}
+\index{copyFile@{copyFile}!com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{copyFile()}{copyFile()}}
+{\footnotesize\ttfamily static boolean com.\+pekinsoft.\+loadmaster.\+utils.\+File\+Utils.\+copy\+File (\begin{DoxyParamCaption}\item[{final File}]{to\+Copy,  }\item[{final File}]{dest\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 66 of file File\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                                                            \{}
+\DoxyCodeLine{67         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{return} FileUtils.copyStream(\textcolor{keyword}{new} FileInputStream(toCopy), }
+\DoxyCodeLine{69                                                 \textcolor{keyword}{new} FileOutputStream(destFile));}
+\DoxyCodeLine{70         \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} FileNotFoundException e) \{}
+\DoxyCodeLine{71             e.printStackTrace();}
+\DoxyCodeLine{72         \}}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{75     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_ac35ec7af45dbff72b2ad054b51a35b63}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_ac35ec7af45dbff72b2ad054b51a35b63}} 
+\index{com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}!copyJarResourcesRecursively@{copyJarResourcesRecursively}}
+\index{copyJarResourcesRecursively@{copyJarResourcesRecursively}!com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{copyJarResourcesRecursively()}{copyJarResourcesRecursively()}}
+{\footnotesize\ttfamily static boolean com.\+pekinsoft.\+loadmaster.\+utils.\+File\+Utils.\+copy\+Jar\+Resources\+Recursively (\begin{DoxyParamCaption}\item[{final File}]{dest\+Dir,  }\item[{final Jar\+U\+R\+L\+Connection}]{jar\+Connection }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 100 of file File\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101                                                                      \{}
+\DoxyCodeLine{102         \textcolor{keyword}{final} JarFile jarFile = jarConnection.getJarFile();}
+\DoxyCodeLine{103         }
+\DoxyCodeLine{104         \textcolor{keywordflow}{for} (\textcolor{keyword}{final} Enumeration<JarEntry> e = jarFile.entries(); }
+\DoxyCodeLine{105                                                         e.hasMoreElements();) \{}
+\DoxyCodeLine{106             \textcolor{keyword}{final} JarEntry entry = e.nextElement();}
+\DoxyCodeLine{107             }
+\DoxyCodeLine{108             \textcolor{keywordflow}{if} (entry.getName().startsWith(jarConnection.getEntryName())) \{}
+\DoxyCodeLine{109                 \textcolor{keyword}{final} String filename = StringUtils.removeStart(entry.getName(),}
+\DoxyCodeLine{110                         jarConnection.getEntryName());}
+\DoxyCodeLine{111                 }
+\DoxyCodeLine{112                 \textcolor{keyword}{final} File f = \textcolor{keyword}{new} File(destDir, filename);}
+\DoxyCodeLine{113                 }
+\DoxyCodeLine{114                 \textcolor{keywordflow}{if} (!entry.isDirectory()) \{}
+\DoxyCodeLine{115                     \textcolor{keyword}{final} InputStream entryInputStream = jarFile.getInputStream(entry);}
+\DoxyCodeLine{116                     }
+\DoxyCodeLine{117                     \textcolor{keywordflow}{if} (!FileUtils.copyStream(entryInputStream, f)) \{}
+\DoxyCodeLine{118                         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{119                     \}}
+\DoxyCodeLine{120                     }
+\DoxyCodeLine{121                     entryInputStream.close();}
+\DoxyCodeLine{122                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{123                     \textcolor{keywordflow}{if} ( !FileUtils.ensureDirectoryExists(f)) \{}
+\DoxyCodeLine{124                         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IOException(\textcolor{stringliteral}{"Could not create directory: "} +}
+\DoxyCodeLine{125                                 f.getAbsolutePath());}
+\DoxyCodeLine{126                     \}}
+\DoxyCodeLine{127                 \}}
+\DoxyCodeLine{128             \}}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130         }
+\DoxyCodeLine{131         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{132     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_a08d0841eb230d563a5aa743dac90ab6d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1FileUtils_a08d0841eb230d563a5aa743dac90ab6d}} 
+\index{com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}!copyResourcesRecursively@{copyResourcesRecursively}}
+\index{copyResourcesRecursively@{copyResourcesRecursively}!com.pekinsoft.loadmaster.utils.FileUtils@{com.pekinsoft.loadmaster.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{copyResourcesRecursively()}{copyResourcesRecursively()}}
+{\footnotesize\ttfamily static boolean com.\+pekinsoft.\+loadmaster.\+utils.\+File\+Utils.\+copy\+Resources\+Recursively (\begin{DoxyParamCaption}\item[{final U\+RL}]{origin\+Url,  }\item[{final File}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 134 of file File\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135                                                                            \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{137             \textcolor{keyword}{final} URLConnection urlConnection = originUrl.openConnection();}
+\DoxyCodeLine{138             }
+\DoxyCodeLine{139             \textcolor{keywordflow}{if} ( urlConnection instanceof JarURLConnection) \{}
+\DoxyCodeLine{140                 \textcolor{keywordflow}{return} FileUtils.copyJarResourcesRecursively(destination, }
+\DoxyCodeLine{141                         (JarURLConnection) urlConnection);}
+\DoxyCodeLine{142             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{143                 \textcolor{keywordflow}{return} FileUtils.copyFilesRecursively(\textcolor{keyword}{new} File(}
+\DoxyCodeLine{144                                                       originUrl.getPath()), }
+\DoxyCodeLine{145                                                       destination);}
+\DoxyCodeLine{146             \}}
+\DoxyCodeLine{147         \} \textcolor{keywordflow}{catch} ( \textcolor{keyword}{final} IOException e) \{}
+\DoxyCodeLine{148             e.printStackTrace();}
+\DoxyCodeLine{149         \}}
+\DoxyCodeLine{150         }
+\DoxyCodeLine{151         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{152     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/utils/\mbox{\hyperlink{FileUtils_8java}{File\+Utils.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="com.pekinsoft.loadmaster.Starter" name="com.pekinsoft.loadmaster.Starter">
+<area shape="rect" id="node1" title=" " alt="" coords="328,104,523,145"/>
+<area shape="rect" id="node2" href="$dc/dd1/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1ArgumentParser.html" title="ArgumentParser is a library for parsing command line arguments in an easy, intelligible and efficient..." alt="" coords="5,5,227,47"/>
+<area shape="rect" id="node3" href="$de/d8b/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1AppProperties.html" title=" " alt="" coords="5,71,227,112"/>
+<area shape="rect" id="node4" href="$df/dc9/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger.html" title=" " alt="" coords="5,136,227,177"/>
+<area shape="rect" id="node5" href="$df/d4f/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1VersionCalculator.html" title="This class is used for simply calculating the application version, as this functionality needs to be ..." alt="" coords="5,201,227,243"/>
+</map>

@@ -151,8 +151,6 @@ public class CustomerSelector extends javax.swing.JDialog {
                         lr.setMessage("Something went wrong moving to the next record.");
                         lr.setThrown(ex);
                         Starter.logger.error(lr);
-
-        //                MessageBox.showError(ex, "Database Access");
                     }
                 }
             }
@@ -169,7 +167,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             if ( filtered != null && filtered.size() > 0 ) {
                 for ( int x = 0; x < filtered.size(); x++ ) {
                     customerList.addItem(filtered.get(x).getCompany() 
-                            + " (" + filtered.get(x).getId() + ")");
+                            + " [" + filtered.get(x).getId() + "]");
                 }
             } else
                 MessageBox.showInfo("No matching records found!", "No Records");
@@ -186,7 +184,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             if ( filtered != null && filtered.size() > 0 ) {
                 for ( int x = 0; x < filtered.size(); x++ ) {
                     customerList.addItem(filtered.get(x).getCompany() 
-                            + " (" + filtered.get(x).getId() + ")");
+                            + " [" + filtered.get(x).getId() + "]");
                 }
             } else
                 MessageBox.showInfo("No matching records found!", "No Records");
@@ -203,7 +201,7 @@ public class CustomerSelector extends javax.swing.JDialog {
             if ( filtered != null && filtered.size() > 0 ) {
                 for ( int x = 0; x < filtered.size(); x++ ) {
                     customerList.addItem(filtered.get(x).getCompany() 
-                            + " (" + filtered.get(x).getId() + ")");
+                            + " [" + filtered.get(x).getId() + "]");
                 }
             } else
                 MessageBox.showInfo("No matching records found!", "No Records");
@@ -219,8 +217,8 @@ public class CustomerSelector extends javax.swing.JDialog {
                 "select customer...") ) {
             String selectedBroker = customerList.getSelectedItem().toString();
             long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("(") + 1,    // Start after (
-                    selectedBroker.indexOf(")")));  // End before )
+                    selectedBroker.indexOf("[") + 1,    // Start after (
+                    selectedBroker.indexOf("]")));  // End before )
         
             try {
                 records.first();

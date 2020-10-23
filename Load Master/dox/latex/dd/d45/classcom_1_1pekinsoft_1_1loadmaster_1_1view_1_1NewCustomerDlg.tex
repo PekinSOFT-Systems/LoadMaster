@@ -1,0 +1,163 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg}\index{com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{da/d6b/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{da/d27/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a1ef3833f593c3392bfa4208feb09f88f}{New\+Customer\+Dlg}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg}{New\+Customer\+Dlg}}. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a0c23bf576854e5050b50dfd87fe8952b}{is\+Cancelled}} ()
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a05a288a69d4a89b35518e76eedb26859}{get\+Customer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static javax.\+swing.\+J\+Label \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a91310b3c768ab8c31060a888eba55701}{help\+Label}}
+\item 
+static javax.\+swing.\+J\+Panel \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a305414eacf65135ca0c48df0f1972daa}{help\+Panel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 55 of file New\+Customer\+Dlg.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a1ef3833f593c3392bfa4208feb09f88f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a1ef3833f593c3392bfa4208feb09f88f}} 
+\index{com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}!NewCustomerDlg@{NewCustomerDlg}}
+\index{NewCustomerDlg@{NewCustomerDlg}!com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}}
+\doxysubsubsection{\texorpdfstring{NewCustomerDlg()}{NewCustomerDlg()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg.\+New\+Customer\+Dlg (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg}{New\+Customer\+Dlg}}. 
+
+
+
+Definition at line 72 of file New\+Customer\+Dlg.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                                                                 \{}
+\DoxyCodeLine{73         super(parent, modal);}
+\DoxyCodeLine{74         lr = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Creating the New Customer dialog..."});}
+\DoxyCodeLine{75         lr.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{76         lr.setSourceMethodName(\textcolor{stringliteral}{"NewBrokerDlg (constructor)"});}
+\DoxyCodeLine{77         lr.setParameters(\textcolor{keyword}{new} Object[]\{parent, modal\});}
+\DoxyCodeLine{78         Starter.logger.enter(lr);}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         initComponents();}
+\DoxyCodeLine{81         }
+\DoxyCodeLine{82         setTitle(\textcolor{stringliteral}{"New Customer Entry"});}
+\DoxyCodeLine{83         }
+\DoxyCodeLine{84         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{85         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{86         }
+\DoxyCodeLine{87         left = (left -\/ getWidth()) / 2;}
+\DoxyCodeLine{88         top = (top -\/ getHeight()) / 2;}
+\DoxyCodeLine{89         setLocation(left, top);}
+\DoxyCodeLine{90         }
+\DoxyCodeLine{91         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{92             records = \textcolor{keyword}{new} CustomerCtl();}
+\DoxyCodeLine{93         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{94             lr.setMessage(\textcolor{stringliteral}{"Something went wrong accessing the customers table."});}
+\DoxyCodeLine{95             lr.setThrown(ex);}
+\DoxyCodeLine{96             Starter.logger.error(lr);}
+\DoxyCodeLine{97             }
+\DoxyCodeLine{98             MessageBox.showError(ex, \textcolor{stringliteral}{"Data Store Error"});}
+\DoxyCodeLine{99         \}}
+\DoxyCodeLine{100         }
+\DoxyCodeLine{101         cancelled = \textcolor{keyword}{false};}
+\DoxyCodeLine{102     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a05a288a69d4a89b35518e76eedb26859}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a05a288a69d4a89b35518e76eedb26859}} 
+\index{com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}!getCustomer@{getCustomer}}
+\index{getCustomer@{getCustomer}!com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}}
+\doxysubsubsection{\texorpdfstring{getCustomer()}{getCustomer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg.\+get\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file New\+Customer\+Dlg.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108                                        \{}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} customer;}
+\DoxyCodeLine{110     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a0c23bf576854e5050b50dfd87fe8952b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a0c23bf576854e5050b50dfd87fe8952b}} 
+\index{com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}!isCancelled@{isCancelled}}
+\index{isCancelled@{isCancelled}!com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}}
+\doxysubsubsection{\texorpdfstring{isCancelled()}{isCancelled()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg.\+is\+Cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 104 of file New\+Customer\+Dlg.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104                                  \{}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} cancelled;}
+\DoxyCodeLine{106     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a91310b3c768ab8c31060a888eba55701}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a91310b3c768ab8c31060a888eba55701}} 
+\index{com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}!helpLabel@{helpLabel}}
+\index{helpLabel@{helpLabel}!com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}}
+\doxysubsubsection{\texorpdfstring{helpLabel}{helpLabel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Label com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg.\+help\+Label\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 1833 of file New\+Customer\+Dlg.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a305414eacf65135ca0c48df0f1972daa}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1NewCustomerDlg_a305414eacf65135ca0c48df0f1972daa}} 
+\index{com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}!helpPanel@{helpPanel}}
+\index{helpPanel@{helpPanel}!com.pekinsoft.loadmaster.view.NewCustomerDlg@{com.pekinsoft.loadmaster.view.NewCustomerDlg}}
+\doxysubsubsection{\texorpdfstring{helpPanel}{helpPanel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Panel com.\+pekinsoft.\+loadmaster.\+view.\+New\+Customer\+Dlg.\+help\+Panel\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 1834 of file New\+Customer\+Dlg.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{NewCustomerDlg_8java}{New\+Customer\+Dlg.\+java}}\end{DoxyCompactItemize}

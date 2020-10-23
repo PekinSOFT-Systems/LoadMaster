@@ -1,0 +1,172 @@
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md1}{}\doxysection{Load Master™}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{Project Notes}\label{index_autotoc_md2}
+\DoxyHorRuler{0}
+
+
+The Load Master™ Project is the culmination of a bunch of different attempts and failures to try and bring about a simple load tracking and accounting package for one-\/truck owner/operator businesses. I believe that I finally have figured out exactly what I want this system to do and how to do it. The next step is to actually implement my ideas into code and see what comes of it. This file contains the overview of how things should work...\hypertarget{index_autotoc_md3}{}\doxysubsection{1. Basic Overview}\label{index_autotoc_md3}
+The typical way that a one-\/truck owner/operator runs freight is as follows\+: \begin{DoxyVerb}1. Locates a load by whatever means the owner uses.
+2. Books the load.
+3. Makes the pick-up(s).
+4. Makes the delivery(ies).
+5. Completes the load paperwork.
+6. Submits the load paperwork, including the proof of delivery (POD) for
+   payment on the load.
+7. Receives a settlement for the load (after submitting the load paperwork,
+   including an invoice, if necessary).
+8. Distributes settlement to multiple expense and asset accounts for his/her
+   accounting system.
+9. Repeats the process for the next load.
+\end{DoxyVerb}
+
+
+In this general overview, there are other details, such as arrival/departure notices for each stop on the load. These types of activities will be included within the work flow of Load Master. Other details that could take place during a typical load, include\+: \begin{DoxyVerb}a. Arriving at a pick-up.
+b. Departing from a pick-up.
+c. Taking an advance on payment of the load.
+d. Arriving at a delivery.
+e. Departing from a delivery.
+f. Closing a load.
+\end{DoxyVerb}
+
+
+During the course of a load, the owner/operator may\+: \begin{DoxyVerb}1. Fuel up the truck.
+2. Replace tires on the truck and/or trailer.
+3. Have a breakdown and repair.
+4. Have PM service performed.
+\end{DoxyVerb}
+
+
+With all of this in mind, it would be nice to be able to have some of the accounting automated to place the above processes directly into the accounting system at the time they are performed. Therefore, Load Master™ will not be in the least a standard accounting or load tracking system. Instead, Load Master™ will have very few functions that are based on how owner/operators run the course of their business. The way Load Master will handle all of this is\+: \begin{DoxyVerb}1. Book the load.
+    This feature will allow the owner/operator to actually enter the 
+    details of the load they are preparing to run. This wizard will 
+    allow for the entry of all of the load details, such as trip and 
+    order numbers, pick-up and delivery customers (unlimited in the 
+    number of stops on the load), gross pay for the load, weight of 
+    the load's freight, number of miles on the load, piece count of 
+    the load, BOL number, as well as various other load-related 
+    information.
+
+2. Arrive/Depart Stops.
+    This feature will allow the driver to track his/her status on 
+    the load by letting the system know when they have arrived and 
+    departed the stops that make up the load. This information will 
+    update the load progress bar on the bottom of the window in the 
+    status area.
+
+3. Enter Fuel Purchase.
+    This feature will allow the driver to enter a fuel purchase at 
+    any time, whether currently on a booked load or not. The fuel 
+    purchase requires various information regarding the purchase, 
+    such as the number of gallons purchase, the price per gallon, 
+    diesel or DEF, whether or not it is a partial fill-up, location 
+    of the purchase, odometer reading at the time of the purchase, 
+    etc. This information allows the system to track the fuel expense 
+    for the truck and be able to provide the fuel economy and expense 
+    per mile.
+
+4. Enter Service Purchase.
+    This feature allows the driver to enter the purchase of a service 
+    or repair on the truck or trailer. This type of a purchase entry, 
+    like the fuel purchase, may be entered whether or not the driver 
+    is currently on a booked load and also requires certain information, 
+    such as: odometer reading, type of service or repair, component 
+    system to which the service or repair belongs, date of the service 
+    or repair, etc. By providing as much data as is practical, the 
+    system will be able to track the cost per mile of services/repairs.
+
+5. Enter Other Purchases.
+    This feature allows the driver to enter any other, uncategorized, 
+    purchase, whether or not currently running on a booked load. By 
+    using this feature, the accounting system behind Load Master will 
+    be able to assist the owner/operator with budgeting for their 
+    business by showing where their money comes from and where it goes. 
+    The more purchases that are tracked in this system, the better 
+    understanding of the cash flow of the business can be had.
+
+6. Close Load.
+    This feature simply provides a means by which the owner/operator can 
+    let the system know that a load has been completed. The Close Load 
+    feature should only be used once a load has been totally completed, 
+    including sending in the POD/Signed BOL. If the system settings have 
+    the company set up as independent, then closing the load will print 
+    a detailed invoice for the load.
+
+7. Settle Load.
+    This feature allows the owner/operator to split his/her load 
+    settlement into as many accounts as necessary. For example, if the 
+    O/O is leased to a carrier, then the settlement sheet s/he receives 
+    once the load is complete will have a breakdown of how much was 
+    retained by the carrier to which they are leased for, but not limited 
+    to:
+
+        - Bobtail insurance
+        - Tractor liability insurance
+        - Trailer liability insurance
+        - QualComm/PeopleNet fees
+        - Advances
+        - Advance fees
+        - Baseplates
+        - Electronic bank deposit
+        - Reserve account deposit
+
+    The Settle Load feature allows the driver to split the gross load 
+    payment out to as many accounts as necessary, which allows the 
+    accounting system to be able to accurately break down every expense 
+    and revenue to a per mile value. Using the Settle Load feature, like 
+    all of the Purchase Entry features, allows the owner/operator to have 
+    the best information available to know the financial health of their 
+    business.
+\end{DoxyVerb}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{2. Accounting System}\label{index_autotoc_md4}
+Load Master™ takes care of most of the accounting for you as you simply do what you must while on the load. For example, when you complete the Load Booking Wizard, if you are not currently on a trip, Load Master™ will prompt you to start the trip. When you start the trip, Load Master™ automatically records the gross revenue to the truck in the Accounts Receivable account. Then, if you take a cash advance for fuel and place it on your fuel card, Load Master™ will generate the transaction in the General Ledger, and reduce the gross revenue on the load by the amount of your cash advance, plus any fee you are charged for placing money on your fuel card. This way, you simply do what you need to do and the accounting is taken care of for you.
+
+Load Master™ comes with a set Chart of Accounts, which is specifically designed for the owner/operator truck driver. Therefore, you need not worry whether the revenue and expenses are being properly tracked. The most extra work that you will need to do is to settle your load once you are paid for it.
+
+To this end, when you receive your settlement sheet from the company that you are leased to, or from the broker or customer you hauled the load for, you simply click on the \char`\"{}\+Close Load\char`\"{} task and enter the information directly off of your settlement sheet. When you complete this task and click the \char`\"{}\+Close Load\char`\"{} button, Load Master™ takes care of all of the General Ledger transaction entries, as well as all of the specific account journal entries, for you. With this level of automation, you never need to worry that your General Ledger is not accurate. However, if you want to verify that it is correct, simply run either a Balance Sheet or Profit and Loss report. Those two reports will tell you exactly what the financial health of your compay is at that moment.
+
+Now that you have gotten a general overview of the accounting system, let us look at it in just a little more detail...
+
+As I mentioned, Load Master™ comes with a set Chart of Accounts that are perfect for the owner/operator truck driver. Therefore, let us look at the chart of accounts now\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Account Number }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Account Name }&\cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Account Number }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Account Name }&\cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-3}
+\endhead
+\PBS\raggedleft 9999 &\PBS\centering Accounts Payable &What you owe others on credit.  \\\cline{1-3}
+\PBS\raggedleft 10010 &\PBS\centering Accounting &All accounting and legal expenses.  \\\cline{1-3}
+\PBS\raggedleft 10020 &\PBS\centering Communications &All communications expenses.  \\\cline{1-3}
+\PBS\raggedleft 10030 &\PBS\centering Fees &Any fees that you need to pay.  \\\cline{1-3}
+\PBS\raggedleft 10040 &\PBS\centering Fuel &All fuel related expenses.  \\\cline{1-3}
+\PBS\raggedleft 10050 &\PBS\centering Insurance &All insurance expenses.  \\\cline{1-3}
+\PBS\raggedleft 10060 &\PBS\centering Interest &All business-\/related interest expenses.  \\\cline{1-3}
+\PBS\raggedleft 10070 &\PBS\centering Loading/\+Lumping &All loader and lumper fees.  \\\cline{1-3}
+\PBS\raggedleft 10080 &\PBS\centering Maintenance &Maintenance and repair expenses.  \\\cline{1-3}
+\PBS\raggedleft 10090 &\PBS\centering Office &All office expenses.  \\\cline{1-3}
+\PBS\raggedleft 10100 &\PBS\centering Physicals &All business-\/related medical costs.  \\\cline{1-3}
+\PBS\raggedleft 10110 &\PBS\centering rent/\+Lease &All rent/lease fees and expenses.  \\\cline{1-3}
+\PBS\raggedleft 10120 &\PBS\centering Scales &Scale costs and Pre\+Pass charges.  \\\cline{1-3}
+\PBS\raggedleft 10130 &\PBS\centering Supplies &Miscellaneous supplies expenses.  \\\cline{1-3}
+\PBS\raggedleft 10140 &\PBS\centering Tax/\+License &Business-\/related tax and license expenses.  \\\cline{1-3}
+\PBS\raggedleft 10150 &\PBS\centering Tolls/\+Parking &Toll charges and parking fees.  \\\cline{1-3}
+\PBS\raggedleft 10160 &\PBS\centering Travel &Business-\/related travel expenses.  \\\cline{1-3}
+\PBS\raggedleft 10170 &\PBS\centering Uniforms &Any uniform or logo shirt expenses.  \\\cline{1-3}
+\PBS\raggedleft 10180 &\PBS\centering Wages &All payroll expenses.  \\\cline{1-3}
+\PBS\raggedleft 50010 &\PBS\centering Checking Account &Primary banking account.  \\\cline{1-3}
+\PBS\raggedleft 50020 &\PBS\centering Savings Account &Primary savings account.  \\\cline{1-3}
+\PBS\raggedleft 50030 &\PBS\centering Retirement Savings Account &Savings for retirement.  \\\cline{1-3}
+\PBS\raggedleft 50040 &\PBS\centering Fuel Card &Fuel card account.  \\\cline{1-3}
+\PBS\raggedleft 50050 &\PBS\centering Accounts Receivable &Your gross truck pay at dispatch. What others owe you.  \\\cline{1-3}
+\PBS\raggedleft 50060 &\PBS\centering Maintenance Reserve &Your maintanance reserve account for P\+Ms and repairs.  \\\cline{1-3}
+\end{longtabu}
+
+
+As you can see by the numbering scheme, the accounts are broken out into liabilities (9999), expenses (10xxx) and assets (500xx). At the end of the day, the assets should balance out with the expenses and liabilities on your Balance Sheet report. However, you will be able to tell by watching the lower-\/left corner of the main Load Master™ window how your company is doing at any given moment. This is because whenever Load Master™ makes an entry in the General Ledger, or any of the other account journals, numerous calculations are executed to always give you the latest per mile breakdown of your revenue and expenses, as well as your fuel economy, provided that you are entering your fuel stops into the system.\hypertarget{index_autotoc_md5}{}\doxysubsection{3. Conclusion}\label{index_autotoc_md5}
+We at Pekin\+S\+O\+F\+T™ Systems are glad that you have chosen Load Master™ for your load tracking and accounting needs. We are always here to answer your questions about the system. Also, we love getting feedback from our users, as well as feature requests. So, feel free to fill out a \href{https://github.com/SeanCarrick/LoadMaster/issues/new?assignees=SeanCarrick&labels=enhancement&template=feature_request.md&title=\%5BRFE\%5D}{\texttt{ Feature Request}}, or \href{https://github.com/SeanCarrick/LoadMaster/issues/new?assignees=SeanCarrick&labels=bug&template=bug_report.md&title=\%5BBUG\%5D}{\texttt{ Bug Report}}, at our project\textquotesingle{}s web site.
+
+Once again, {\bfseries{thank you}} for choosing Load Master™ from Pekin\+S\+O\+F\+T™ Systems! 

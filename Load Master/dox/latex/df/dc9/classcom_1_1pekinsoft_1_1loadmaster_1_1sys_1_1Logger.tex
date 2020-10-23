@@ -1,0 +1,1206 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+sys.\+Logger Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a9d8a64a5d59214dfc6bb35dbfe875214}{Logger}} (String path, int level)
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} object that places the log file in the path specified by the calling application, logs all messages at the provided logging level or higher and is appended to on future runs of the application. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_adf99af74b0706feba2943a72e2af331f}{Logger}} (String path, int level, boolean append)
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} object that places the log file in the path specified by the calling application, logs all messages at the provided logging level or higher and has its ability to append messages from future runs of the application set by the calling application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a7365b2875b7592ec48a4ef5627cf8431}{config}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em This is a convenience method to allow an application to log a configuration level message without having to go through the rigamarole of passing the level every time a configuration needs to be written. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad55c5da173bf0c7108ef3b8fb0693985}{close}} ()
+\begin{DoxyCompactList}\small\item\em Provides the calling application with a method to close the log file prior to the application exiting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ac389edaf8928c9dcddb3b8cd100d5481}{critical}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em Logs a system critical error to the log file just before the application exits.\+This should only be used for unrecoverable errors in the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a647f0ff8b447b1d6224b08630e51f4b6}{debug}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em If the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} is currently enabled for debugging messages, then the given message is written out to the log file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aea78cddd36b78abdc153bec7b06d2e97}{enter}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em As long as the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} is not {\ttfamily O\+FF}, then an entry message to a method with one parameter will be written to the file, regardless of logging level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aa991c649128807e27829741717493a78}{error}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em Logs a non-\/critical error to the log file, typically, when it is thrown and just before the program recovers from it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a131c9b24da4ef0db77df12cda17980bf}{exit}} (Log\+Record record, Object return\+Value)
+\begin{DoxyCompactList}\small\item\em As long as {\ttfamily Logging} is not {\ttfamily O\+FF}, then a message will be written to the log file whenever control passes back out of the method that has a return value, but no parameters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a696b65caaf7a53db4a17362c6353f262}{get\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Provides a method for the calling application to determine the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}}\textquotesingle{}s currently set logging level. \end{DoxyCompactList}\item 
+Log\+Record \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a746ca3905ab772b036e2030a51330fb5}{get\+Record}} ()
+\begin{DoxyCompactList}\small\item\em Provides a method for retrieving the {\ttfamily Log\+Record} that is currently stored in the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}}, if any. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3cb1ec806f7ca10ca6340c1f9659b585}{handled\+Error}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em Logs a non-\/critical error to the log file, typically, when it is thrown and just before the program handles it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aaf0fd7d4f9ab1230c00f192b9f61bd77}{info}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em Provides a method of logging informational messages to the log file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a958021e292045c1564dc3d86e44dc328}{set\+Record}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em Provides a method of storing a {\ttfamily Log\+Record} in the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} for later use, either in the same {\ttfamily Class} or {\ttfamily Method}, or another. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a722abc6ac094e757b033598d7056422b}{set\+Level}} (int log\+Level)  throws Invalid\+Logging\+Level\+Exception 
+\begin{DoxyCompactList}\small\item\em Set the log level specifying which message levels will be logged by this {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_af71aca5de81415e736ff40faaae386b5}{warning}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em Provides a method of logging warning messages to the log file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aec18e44322ce906669aa3fdc827cc85e}{welcome}} (Log\+Record record)
+\begin{DoxyCompactList}\small\item\em This is a convenience method for logging system information at the top of the log file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a07ad2a98065f3f3dd4ecc52b18489f7e}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}{D\+E\+B\+UG}} = 0
+\begin{DoxyCompactList}\small\item\em Debugging\+: lowest level of logging. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a66fefacd7c192425bc2be89ab435cd3e}{C\+O\+N\+F\+IG}} = 1
+\begin{DoxyCompactList}\small\item\em Configuration\+: for logging configuration settings. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a1c3717799a7ec678785a339d7a61e8a7}{I\+N\+FO}} = 2
+\begin{DoxyCompactList}\small\item\em Information\+: for logging informational messages above the debug and configuration levels. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ab430a3e09c6da067febe6c5c6e1e781c}{W\+A\+RN}} = 3
+\begin{DoxyCompactList}\small\item\em Warning\+: for logging messages that were given to the user to warn them of inappropriate use or invalid data, etc. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad0c98cef3dde5fd2f6e54e2b3599124d}{E\+R\+R\+OR}} = 4
+\begin{DoxyCompactList}\small\item\em Error\+: for logging messages that were caused by recoverable errors in the application. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_acdf4908ada78f8c3fd4c116a910956cb}{C\+R\+I\+T\+I\+C\+AL}} = 5
+\begin{DoxyCompactList}\small\item\em Critical\+: for logging messages that were caused by critical, unrecoverable errors in the application that caused the application to exit abnormally. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{O\+FF}} = 100
+\begin{DoxyCompactList}\small\item\em Off\+: used for any errors in setting up the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a8753877d38ae0dd06a929ae3a83817f1}{\mbox{[}instance initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 61 of file Logger.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a9d8a64a5d59214dfc6bb35dbfe875214}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a9d8a64a5d59214dfc6bb35dbfe875214}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+Logger (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{int}]{level }\end{DoxyParamCaption})}
+
+
+
+Creates a {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} object that places the log file in the path specified by the calling application, logs all messages at the provided logging level or higher and is appended to on future runs of the application. 
+
+The valid levels are as follows\+: 
+\begin{DoxyItemize}
+\item D\+E\+B\+UG\+: Lowest level of logging. All messages sent to the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} will be written to the log file. 
+\item C\+O\+N\+F\+IG\+: Stores configuration messages to the log file. 
+\item I\+N\+FO\+: Stores informational messages to the log file. 
+\item W\+A\+RN\+: Stores messages to the log file that warned users of inappropriate use, bad data, invalid settings, etc. 
+\item E\+R\+R\+OR\+: Stores messages from recoverable errors to the log file. 
+\item C\+R\+I\+T\+I\+C\+AL\+: Stores messages from non-\/recoverable errors to the log file to keep track of errors and/or bugs that cause the application to fail and exit abnormally. 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the folder where the log file is to be placed. \\
+\hline
+{\em level} & The minimum level at which to write messages to the log. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 193 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{193                                           \{}
+\DoxyCodeLine{194         \textcolor{keyword}{this} ( path, level, true );}
+\DoxyCodeLine{195     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_adf99af74b0706feba2943a72e2af331f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_adf99af74b0706feba2943a72e2af331f}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+Logger (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{int}]{level,  }\item[{boolean}]{append }\end{DoxyParamCaption})}
+
+
+
+Creates a {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} object that places the log file in the path specified by the calling application, logs all messages at the provided logging level or higher and has its ability to append messages from future runs of the application set by the calling application. 
+
+The valid levels are as follows\+: 
+\begin{DoxyItemize}
+\item D\+E\+B\+UG\+: Lowest level of logging. All messages sent to the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} will be written to the log file. 
+\item C\+O\+N\+F\+IG\+: Stores configuration messages to the log file. 
+\item I\+N\+FO\+: Stores informational messages to the log file. 
+\item W\+A\+RN\+: Stores messages to the log file that warned users of inappropriate use, bad data, invalid settings, etc. 
+\item E\+R\+R\+OR\+: Stores messages from recoverable errors to the log file. 
+\item C\+R\+I\+T\+I\+C\+AL\+: Stores messages from non-\/recoverable errors to the log file to keep track of errors and/or bugs that cause the application to fail and exit abnormally. 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the folder where the log file is to be placed. \\
+\hline
+{\em level} & The minimum level at which to write messages to the log. \\
+\hline
+{\em append} & Whether to append messages from future application runs to the same log file, or to create a new log file at the time of this application run. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 223 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{223                                                           \{}
+\DoxyCodeLine{224         \textcolor{comment}{// The first thing we are going to do is to set our log field to null.}}
+\DoxyCodeLine{225         this.log = \textcolor{keyword}{null};    \textcolor{comment}{//+ In this way, it is "initialized" even though it}}
+\DoxyCodeLine{226         \textcolor{comment}{//+ initialized to nothing (null), it will prevent some design-\/time }}
+\DoxyCodeLine{227         \textcolor{comment}{//+ errors from showing up.}}
+\DoxyCodeLine{228         }
+\DoxyCodeLine{229         \textcolor{comment}{// Set our logging level to the level provided.}}
+\DoxyCodeLine{230         this.level = level;}
+\DoxyCodeLine{231         }
+\DoxyCodeLine{232         \textcolor{comment}{// Set our appending ability to the appending ability provided.}}
+\DoxyCodeLine{233         this.append = append;}
+\DoxyCodeLine{234         }
+\DoxyCodeLine{235         \textcolor{comment}{// In order to ACTUALLY initialize our log field, we will need to}}
+\DoxyCodeLine{236         \textcolor{comment}{//+ enclose it in a try...catch() block. We will also need to do this}}
+\DoxyCodeLine{237         \textcolor{comment}{//+ anytime we use the log field.}}
+\DoxyCodeLine{238         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{239             File file = \textcolor{keyword}{new} File(path);}
+\DoxyCodeLine{240             \textcolor{keywordflow}{if} (!file.exists()) \{}
+\DoxyCodeLine{241                 File dirs = \textcolor{keyword}{new} File(path.substring(0, path.indexOf(file.getName())));}
+\DoxyCodeLine{242                 dirs.mkdirs();}
+\DoxyCodeLine{243             \}}
+\DoxyCodeLine{244             this.log = \textcolor{keyword}{new} FileWriter(path);}
+\DoxyCodeLine{245         \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{246             \textcolor{comment}{// We are going to simply show a message box to the user explaining}}
+\DoxyCodeLine{247             \textcolor{comment}{//+ that logging setup failed and then we will turn off logging.}}
+\DoxyCodeLine{248             String ttl = \textcolor{stringliteral}{"Logging Setup Failure"};}
+\DoxyCodeLine{249             }
+\DoxyCodeLine{250             MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{251             }
+\DoxyCodeLine{252             \textcolor{comment}{// Now that we've told the calling application that there was an }}
+\DoxyCodeLine{253             \textcolor{comment}{//+ error, we can turn logging off.}}
+\DoxyCodeLine{254             this.level = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}};}
+\DoxyCodeLine{255         \}}
+\DoxyCodeLine{256     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a8753877d38ae0dd06a929ae3a83817f1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a8753877d38ae0dd06a929ae3a83817f1}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad55c5da173bf0c7108ef3b8fb0693985}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad55c5da173bf0c7108ef3b8fb0693985}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Provides the calling application with a method to close the log file prior to the application exiting. 
+
+
+
+Definition at line 293 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{293                         \{}
+\DoxyCodeLine{294         \textcolor{comment}{// We need to try to close the log, however, we will only do so if }}
+\DoxyCodeLine{295         \textcolor{comment}{//+ logging is not turned off.}}
+\DoxyCodeLine{296         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} \&\& this.level >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a66fefacd7c192425bc2be89ab435cd3e}{CONFIG}} ) \{}
+\DoxyCodeLine{297             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{298             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{299                 log.flush(); \textcolor{comment}{// First, flush it to be sure all data is written.}}
+\DoxyCodeLine{300                 log.close(); \textcolor{comment}{// Then close the file.}}
+\DoxyCodeLine{301             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{302                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{303                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{304                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{305             \}}
+\DoxyCodeLine{306         \}}
+\DoxyCodeLine{307     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a7365b2875b7592ec48a4ef5627cf8431}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a7365b2875b7592ec48a4ef5627cf8431}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!config@{config}}
+\index{config@{config}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{config()}{config()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+config (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+This is a convenience method to allow an application to log a configuration level message without having to go through the rigamarole of passing the level every time a configuration needs to be written. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 270 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270                                          \{}
+\DoxyCodeLine{271         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{272         \textcolor{comment}{//+ logging is not turned off and level is set to config or higher.}}
+\DoxyCodeLine{273         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} \&\& this.level >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a66fefacd7c192425bc2be89ab435cd3e}{CONFIG}} || this.level == \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}{DEBUG}}) \{}
+\DoxyCodeLine{274             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{275             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{276                 log.write(StringUtils.wrapAt(\textcolor{stringliteral}{"CONFIG: "} + record.getMessage(),}
+\DoxyCodeLine{277                         80) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{278                 }
+\DoxyCodeLine{279                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{280                 log.flush();}
+\DoxyCodeLine{281             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{282                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{283                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{284                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{285             \}}
+\DoxyCodeLine{286         \}}
+\DoxyCodeLine{287     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ac389edaf8928c9dcddb3b8cd100d5481}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ac389edaf8928c9dcddb3b8cd100d5481}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!critical@{critical}}
+\index{critical@{critical}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{critical()}{critical()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+critical (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+Logs a system critical error to the log file just before the application exits.\+This should only be used for unrecoverable errors in the program. 
+
+All other errors should be logged through the {\ttfamily error} method.
+
+The {\ttfamily extra\+Data} parameter should contain information pertinent to the user within the context of your application. The {\ttfamily error} logging method places system and Java information into the message by default. All of this extraneous information should aid the software designers, programmers and engineers to be able to track down the error to a specific cause, thereby allowing them to correct the application easier and quicker.
+
+When setting up your {\ttfamily Log\+Record} for a call to this method, follow these guidelines\+:
+
+
+\begin{DoxyDescription}
+\item[{\ttfamily Log\+Record.\+set\+Source\+Class\+Name()} ]This is used for exactly what the method says, the source class name where the {\ttfamily Exception} was thrown. 
+\item[{\ttfamily Log\+Record.\+set\+Source\+Method\+Name()} ]This is, likewise, used for what the method says, the source method name where the {\ttfamily Exception} was thrown 
+\item[{\ttfamily Log\+Record.\+set\+Thrown()} ]Again, use this for exactly what the method says, store the actual {\ttfamily Exception} that was thrown 
+\item[{\ttfamily Log\+Record.\+set\+Message()} ]Use this method to store the package in which the {\ttfamily Exception} was thrown, e.\+g., \char`\"{}com.\+myapp.\+mypkg\char`\"{} 
+\item[{\ttfamily Log\+Record.\+set\+Resource\+Bundle(\+String)} ]Use this method to pass the edition of the application that is being tested or run\+: i.\+e., Basic Edition, Corporate Edition, Enterprise Edition 
+\item[{\ttfamily Log\+Record.\+set\+Sequence\+Number()} ]Use this method to provide the build number that is being run at the time of the {\ttfamily Exception} being thrown 
+\item[{\ttfamily Log\+Record.\+set\+Logger\+Name()} ]Use this method to provide the version that is being run at the time of the {\ttfamily Exception}, i.\+e. \char`\"{}1.\+2.\+19\char`\"{}, \char`\"{}0.\+2.\+5\char`\"{}, etc. 
+\item[{\ttfamily Logger.\+set\+Parameters(\+Object\mbox{[}$\,$\mbox{]})} ]Use this method to provide a list of the installed modules when the exception was thrown 
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & A {\ttfamily Log\+Record} containing all pertinent information as described above. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 354 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{354                                            \{}
+\DoxyCodeLine{355         StringBuilder src = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{356         String rule = \textcolor{stringliteral}{"-\/"}.repeat(80);}
+\DoxyCodeLine{357         }
+\DoxyCodeLine{358         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"yyyy-\/MM-\/dd-\/HH-\/mm-\/ss"});}
+\DoxyCodeLine{359         Date now = \textcolor{keyword}{new} Date();}
+\DoxyCodeLine{360         String timeStamp = sdf.format(now);}
+\DoxyCodeLine{361         }
+\DoxyCodeLine{362         src.append(\textcolor{stringliteral}{"Error Location: "});}
+\DoxyCodeLine{363         src.append(record.getMessage());}
+\DoxyCodeLine{364         src.append(\textcolor{stringliteral}{"."});}
+\DoxyCodeLine{365         src.append(record.getSourceClassName().substring(}
+\DoxyCodeLine{366                 record.getSourceClassName().lastIndexOf(\textcolor{stringliteral}{"."})+1));}
+\DoxyCodeLine{367         src.append(\textcolor{stringliteral}{"."});}
+\DoxyCodeLine{368         src.append(record.getSourceMethodName());}
+\DoxyCodeLine{369         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{370         src.append(rule);}
+\DoxyCodeLine{371         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{372         src.append(\textcolor{stringliteral}{"Exception:  "});}
+\DoxyCodeLine{373         src.append(record.getThrown().getClass().getName());}
+\DoxyCodeLine{374         src.append(\textcolor{stringliteral}{"\(\backslash\)nMessage:     "});}
+\DoxyCodeLine{375         src.append(record.getThrown().getMessage());}
+\DoxyCodeLine{376         src.append(\textcolor{stringliteral}{"\(\backslash\)nStacktrace:\(\backslash\)n"});}
+\DoxyCodeLine{377         }
+\DoxyCodeLine{378         StackTraceElement[] stack = record.getThrown().getStackTrace();}
+\DoxyCodeLine{379         }
+\DoxyCodeLine{380         \textcolor{keywordflow}{for} ( StackTraceElement element : stack ) \{}
+\DoxyCodeLine{381             src.append(element.toString());}
+\DoxyCodeLine{382             src.append(\textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{383         \}}
+\DoxyCodeLine{384         }
+\DoxyCodeLine{385         src.append(rule);}
+\DoxyCodeLine{386         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{387         src.append(\textcolor{stringliteral}{" "}.repeat(21));}
+\DoxyCodeLine{388         src.append(\textcolor{stringliteral}{"N O R T H W I N D   I N F O R M A T I O N"});}
+\DoxyCodeLine{389         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{390         src.append(\textcolor{stringliteral}{"Edition..............."});}
+\DoxyCodeLine{391         src.append(record.getResourceBundleName());}
+\DoxyCodeLine{392         src.append(\textcolor{stringliteral}{"\(\backslash\)nVersion..............."});}
+\DoxyCodeLine{393         src.append(record.getLoggerName());}
+\DoxyCodeLine{394         src.append(\textcolor{stringliteral}{"\(\backslash\)nBuild................."});}
+\DoxyCodeLine{395         src.append(record.getSequenceNumber());}
+\DoxyCodeLine{396         src.append(\textcolor{stringliteral}{"\(\backslash\)nInstalled Modules:"});}
+\DoxyCodeLine{397         }
+\DoxyCodeLine{398         \textcolor{keywordflow}{for} (Object module : record.getParameters()) \{}
+\DoxyCodeLine{399             src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t"});}
+\DoxyCodeLine{400             src.append(module.toString());}
+\DoxyCodeLine{401         \}}
+\DoxyCodeLine{402         }
+\DoxyCodeLine{403         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{404         src.append(\textcolor{stringliteral}{" "}.repeat(24));}
+\DoxyCodeLine{405         src.append(\textcolor{stringliteral}{"S Y S T E M   I N F O R M A T I O N"});}
+\DoxyCodeLine{406         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{407         src.append(\textcolor{stringliteral}{"OS................."});}
+\DoxyCodeLine{408         src.append(System.getProperty(\textcolor{stringliteral}{"os.name"}));}
+\DoxyCodeLine{409         src.append(\textcolor{stringliteral}{"\(\backslash\)nOS Version........."});}
+\DoxyCodeLine{410         src.append(System.getProperty(\textcolor{stringliteral}{"os.version"}));}
+\DoxyCodeLine{411         src.append(\textcolor{stringliteral}{"\(\backslash\)nArchitecture......."});}
+\DoxyCodeLine{412         src.append(System.getProperty(\textcolor{stringliteral}{"os.arch"}));}
+\DoxyCodeLine{413         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{414         src.append(\textcolor{stringliteral}{" "}.repeat(26));}
+\DoxyCodeLine{415         src.append(\textcolor{stringliteral}{"J A V A   I N F O R M A T I O N"});}
+\DoxyCodeLine{416         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{417         src.append(\textcolor{stringliteral}{"Java Virtual Machine....."});}
+\DoxyCodeLine{418         src.append(System.getProperty(\textcolor{stringliteral}{"java.vm.name"}));}
+\DoxyCodeLine{419         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava VM Version.........."});}
+\DoxyCodeLine{420         src.append(System.getProperty(\textcolor{stringliteral}{"java.vm.version"}));}
+\DoxyCodeLine{421         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Runtime Name........"});}
+\DoxyCodeLine{422         src.append(System.getProperty(\textcolor{stringliteral}{"java.runtime.name"}));}
+\DoxyCodeLine{423         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Runtime Version....."});}
+\DoxyCodeLine{424         src.append(System.getProperty(\textcolor{stringliteral}{"java.runtime.version"}));}
+\DoxyCodeLine{425         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Specification......."});}
+\DoxyCodeLine{426         src.append(System.getProperty(\textcolor{stringliteral}{"java.specification.name"}));}
+\DoxyCodeLine{427         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Spec. Version......."});}
+\DoxyCodeLine{428         src.append(System.getProperty(\textcolor{stringliteral}{"java.specification.version"}));}
+\DoxyCodeLine{429         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Vendor.............."});}
+\DoxyCodeLine{430         src.append(System.getProperty(\textcolor{stringliteral}{"java.vendor"}));}
+\DoxyCodeLine{431         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Version............."});}
+\DoxyCodeLine{432         src.append(System.getProperty(\textcolor{stringliteral}{"java.version"}));}
+\DoxyCodeLine{433         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Version Date........"});}
+\DoxyCodeLine{434         src.append(System.getProperty(\textcolor{stringliteral}{"java.version.date"}));}
+\DoxyCodeLine{435         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Class Path.........."});}
+\DoxyCodeLine{436         src.append(System.getProperty(\textcolor{stringliteral}{"java.class.path"}));}
+\DoxyCodeLine{437         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Class Version......."});}
+\DoxyCodeLine{438         src.append(System.getProperty(\textcolor{stringliteral}{"java.class.version"}));}
+\DoxyCodeLine{439         src.append(\textcolor{stringliteral}{"\(\backslash\)nJava Library Path........"});}
+\DoxyCodeLine{440         src.append(System.getProperty(\textcolor{stringliteral}{"java.library.path"}));}
+\DoxyCodeLine{441         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{442         src.append(\textcolor{stringliteral}{" "}.repeat(26));}
+\DoxyCodeLine{443         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{444         src.append(\textcolor{stringliteral}{"User Country............."});}
+\DoxyCodeLine{445         src.append(System.getProperty(\textcolor{stringliteral}{"user.country"}));}
+\DoxyCodeLine{446         src.append(\textcolor{stringliteral}{"\(\backslash\)nUser Language............"});}
+\DoxyCodeLine{447         src.append(System.getProperty(\textcolor{stringliteral}{"user.language"}));}
+\DoxyCodeLine{448         src.append(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n\string~\string~\string~ END OF ERROR REPORT \string~\string~\string~"});}
+\DoxyCodeLine{449         }
+\DoxyCodeLine{450         \textcolor{comment}{// Make sure of the existence of the error log path.}}
+\DoxyCodeLine{451         File errPath = \textcolor{keyword}{new} File(ERR\_PATH);}
+\DoxyCodeLine{452         \textcolor{keywordflow}{if} ( !errPath.exists() ) \{}
+\DoxyCodeLine{453             errPath.mkdirs();}
+\DoxyCodeLine{454         \}}
+\DoxyCodeLine{455         }
+\DoxyCodeLine{456         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{457         \textcolor{comment}{//+ logging is not turned off.}}
+\DoxyCodeLine{458 \textcolor{comment}{//        if ( this.level != OFF ) \{}}
+\DoxyCodeLine{459             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{460             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{461                 this.err = \textcolor{keyword}{new} FileWriter(ERR\_PATH + }
+\DoxyCodeLine{462                         record.getSourceClassName().substring(}
+\DoxyCodeLine{463                                 record.getSourceClassName().lastIndexOf(\textcolor{stringliteral}{"."}) }
+\DoxyCodeLine{464                                         + 1) + \textcolor{stringliteral}{"\_"} + }
+\DoxyCodeLine{465                         \textcolor{stringliteral}{"class\_"} + timeStamp + \textcolor{stringliteral}{".err"});}
+\DoxyCodeLine{466         }
+\DoxyCodeLine{467 \textcolor{comment}{//                err.write(MSG\_HDR);}}
+\DoxyCodeLine{468                 err.write(src.toString());}
+\DoxyCodeLine{469 \textcolor{comment}{//                err.write(MSG\_FTR);}}
+\DoxyCodeLine{470                 }
+\DoxyCodeLine{471                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{472                 err.flush();}
+\DoxyCodeLine{473                 src = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{474                 src.append(MSG\_HDR);}
+\DoxyCodeLine{475                 src.append(\textcolor{stringliteral}{"See error log: "});}
+\DoxyCodeLine{476                 src.append(StringUtils.wrapAt(ERR\_PATH, 80));}
+\DoxyCodeLine{477                 src.append(record.getSourceClassName());}
+\DoxyCodeLine{478                 src.append(\textcolor{stringliteral}{"\_"});}
+\DoxyCodeLine{479                 src.append(timeStamp);}
+\DoxyCodeLine{480                 src.append(\textcolor{stringliteral}{".err\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{481                 }
+\DoxyCodeLine{482                 log.write(src.toString());}
+\DoxyCodeLine{483                 }
+\DoxyCodeLine{484                 \textcolor{comment}{// Flush the log.}}
+\DoxyCodeLine{485                 log.flush();}
+\DoxyCodeLine{486             \} \textcolor{keywordflow}{catch} ( IOException e ) \{}
+\DoxyCodeLine{487                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{488                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{489                 MessageBox.showError(e, ttl);}
+\DoxyCodeLine{490             \}}
+\DoxyCodeLine{491 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{492     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a647f0ff8b447b1d6224b08630e51f4b6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a647f0ff8b447b1d6224b08630e51f4b6}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!debug@{debug}}
+\index{debug@{debug}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+debug (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+If the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} is currently enabled for debugging messages, then the given message is written out to the log file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 500 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{500                                         \{}
+\DoxyCodeLine{501         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{502         \textcolor{comment}{//+ logging is not turned off and the level is set to debugging or}}
+\DoxyCodeLine{503         \textcolor{comment}{//+ higher.}}
+\DoxyCodeLine{504         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} \&\& this.level >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}{DEBUG}} ) \{}
+\DoxyCodeLine{505             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{506             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{507                 log.write(StringUtils.wrapAt(\textcolor{stringliteral}{"DEBUG: "} + record.getMessage(), }
+\DoxyCodeLine{508                         80) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{511                 log.flush();}
+\DoxyCodeLine{512             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{513                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{514                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{515                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{516             \}}
+\DoxyCodeLine{517         \}}
+\DoxyCodeLine{518     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aea78cddd36b78abdc153bec7b06d2e97}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aea78cddd36b78abdc153bec7b06d2e97}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!enter@{enter}}
+\index{enter@{enter}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{enter()}{enter()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+enter (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+As long as the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} is not {\ttfamily O\+FF}, then an entry message to a method with one parameter will be written to the file, regardless of logging level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 556 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{556                                         \{}
+\DoxyCodeLine{557         \textcolor{comment}{// We need to build our source before we write to the file.}}
+\DoxyCodeLine{558         String src = record.getSourceClassName() + \textcolor{stringliteral}{"."} }
+\DoxyCodeLine{559                 + record.getSourceMethodName() + \textcolor{stringliteral}{"( "} }
+\DoxyCodeLine{560                 + record.getParameters() + \textcolor{stringliteral}{" )"};}
+\DoxyCodeLine{561         }
+\DoxyCodeLine{562         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{563         \textcolor{comment}{//+ logging is not turned off.}}
+\DoxyCodeLine{564         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} ) \{}
+\DoxyCodeLine{565             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{566             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{567                 log.write(MSG\_HDR);}
+\DoxyCodeLine{568                 log.write(\textcolor{stringliteral}{" -\/> "} + LocalDateTime.now().toString() + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{569                 log.write(StringUtils.wrapAt(\textcolor{stringliteral}{"Entering: "} + src, 80) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{570                 }
+\DoxyCodeLine{571                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{572                 log.flush();}
+\DoxyCodeLine{573             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{574                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{575                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{576                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{577             \}}
+\DoxyCodeLine{578         \}}
+\DoxyCodeLine{579     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aa991c649128807e27829741717493a78}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aa991c649128807e27829741717493a78}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!error@{error}}
+\index{error@{error}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+error (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+Logs a non-\/critical error to the log file, typically, when it is thrown and just before the program recovers from it. 
+
+This should only be used for recoverable errors in the program. Any other errors, which are unrecoverable, should be logged through the {\ttfamily critical} method, just before the application exits. 
+
+The {\ttfamily extra\+Data} parameter should contain information pertinent to the user within the context of your application. The {\ttfamily error} logging method places system and Java information into the message by default. All of this extraneous information should aid the software designers, programmers and engineers to be able to track down the error to a specific cause, thereby allowing them to correct the application easier and quicker.
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 641 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{641                                         \{}
+\DoxyCodeLine{642         \textcolor{comment}{// We need to create our message with the Exception and extra data that}}
+\DoxyCodeLine{643         \textcolor{comment}{//+ has been provided.}}
+\DoxyCodeLine{644         String src = \textcolor{stringliteral}{"\#"}.repeat(80) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{645         src += \textcolor{stringliteral}{"\#"}.repeat(40 -\/ (\textcolor{stringliteral}{" E R R O R "}.length() / 2)) + \textcolor{stringliteral}{" E R R O R "};}
+\DoxyCodeLine{646         src += \textcolor{stringliteral}{"\#"}.repeat(39 -\/ (\textcolor{stringliteral}{" E R R O R "}.length() / 2)) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{647         src += \textcolor{stringliteral}{"Message: "} + record.getThrown().getMessage() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{648         \textcolor{keywordflow}{if} ( record.getThrown().getCause() != \textcolor{keyword}{null} )}
+\DoxyCodeLine{649             src += \textcolor{stringliteral}{"Source: "} + record.getThrown().getCause().toString() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{650         src += record.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nStacktrace:\(\backslash\)n"};}
+\DoxyCodeLine{651         }
+\DoxyCodeLine{652         StackTraceElement[] stack = record.getThrown().getStackTrace();}
+\DoxyCodeLine{653         }
+\DoxyCodeLine{654         \textcolor{keywordflow}{for} ( StackTraceElement element : stack ) \{}
+\DoxyCodeLine{655             src += element.toString() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{656         \}}
+\DoxyCodeLine{657         }
+\DoxyCodeLine{658         src += \textcolor{stringliteral}{"\#"}.repeat(40 -\/ (\textcolor{stringliteral}{" E N D   O F   E R R O R "}.length() / 2));}
+\DoxyCodeLine{659         src += \textcolor{stringliteral}{" E N D   O F   E R R O R "};}
+\DoxyCodeLine{660         src += \textcolor{stringliteral}{"\#"}.repeat(39 -\/ (\textcolor{stringliteral}{" E N D   O F   E R R O R "}.length() / 2)) + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{661         src += \textcolor{stringliteral}{" "}.repeat(40 -\/ (\textcolor{stringliteral}{"USER INFORMATION"}.length() / 2));}
+\DoxyCodeLine{662         src += \textcolor{stringliteral}{"USER INFORMATION"}+  \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{663         src += record.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{664         src += \textcolor{stringliteral}{" "}.repeat(40 -\/ (\textcolor{stringliteral}{"SYSTEM INFORMATION"}.length() / 2)) + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{665         src += \textcolor{stringliteral}{"SYSTEM INFORMATION"} + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{666         src += \textcolor{stringliteral}{"OS\(\backslash\)t\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"os.name"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{667         src += \textcolor{stringliteral}{"OS Version:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"os.version"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{668         src += \textcolor{stringliteral}{"Architecture:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"os.arch"}) + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{669         src += \textcolor{stringliteral}{" "}.repeat(40 -\/ (\textcolor{stringliteral}{"JAVA INFORMATION"}.length() / 2)) + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{670         src += \textcolor{stringliteral}{"JAVA INFORMATION"} + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{671         src += \textcolor{stringliteral}{"Java Virtual Machine: "} + System.getProperty(\textcolor{stringliteral}{"java.vm.name"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{672         src += \textcolor{stringliteral}{"Java VM Version:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"java.vm.version"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{673         src += \textcolor{stringliteral}{"Java Runtime:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"java.runtime.name"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{674         src += \textcolor{stringliteral}{"Java Runtime Version: "} + System.getProperty(\textcolor{stringliteral}{"java.runtime.version"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{675         src += \textcolor{stringliteral}{"Java Specification:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"java.specification.name"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{676         src += \textcolor{stringliteral}{"Java Spec. Version:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"java.specification.version"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{677         src += \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{678         src += \textcolor{stringliteral}{"JDK Module Path:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"jdk.module.path"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{679         src += \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{680         src += \textcolor{stringliteral}{"Java Library Path:\(\backslash\)t"} + System.getProperty(\textcolor{stringliteral}{"java.library.path"}) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{681         src += \textcolor{stringliteral}{"\(\backslash\)n -\/> "} + LocalDateTime.now().toString();}
+\DoxyCodeLine{682         }
+\DoxyCodeLine{683         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{684         \textcolor{comment}{//+ logging is not turned off.}}
+\DoxyCodeLine{685         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} ) \{}
+\DoxyCodeLine{686             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{687             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{688                 log.write(MSG\_HDR);}
+\DoxyCodeLine{689                 log.write(src);}
+\DoxyCodeLine{690                 log.write(MSG\_FTR);}
+\DoxyCodeLine{691                 }
+\DoxyCodeLine{692                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{693                 log.flush();}
+\DoxyCodeLine{694             \} \textcolor{keywordflow}{catch} ( IOException e ) \{}
+\DoxyCodeLine{695                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{696                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{697                 MessageBox.showError(e, ttl);}
+\DoxyCodeLine{698             \}}
+\DoxyCodeLine{699         \}}
+\DoxyCodeLine{700     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a131c9b24da4ef0db77df12cda17980bf}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a131c9b24da4ef0db77df12cda17980bf}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!exit@{exit}}
+\index{exit@{exit}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{exit()}{exit()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+exit (\begin{DoxyParamCaption}\item[{Log\+Record}]{record,  }\item[{Object}]{return\+Value }\end{DoxyParamCaption})}
+
+
+
+As long as {\ttfamily Logging} is not {\ttfamily O\+FF}, then a message will be written to the log file whenever control passes back out of the method that has a return value, but no parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+{\em return\+Value} & The name of the return variable. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 739 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{739                                                            \{}
+\DoxyCodeLine{740         \textcolor{comment}{// We need to build up our string to print.}}
+\DoxyCodeLine{741         String src = record.getSourceClassName() + \textcolor{stringliteral}{"."} }
+\DoxyCodeLine{742                 + record.getSourceMethodName() }
+\DoxyCodeLine{743                 + \textcolor{stringliteral}{" :: "} + returnValue;}
+\DoxyCodeLine{744         }
+\DoxyCodeLine{745         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{746         \textcolor{comment}{//+ logging is not turned off.}}
+\DoxyCodeLine{747         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} ) \{}
+\DoxyCodeLine{748             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{749             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{750                 log.write(StringUtils.wrapAt(\textcolor{stringliteral}{"Exiting: "} + src, 80));}
+\DoxyCodeLine{751                 log.write(\textcolor{stringliteral}{"\(\backslash\)n -\/> "} + LocalDateTime.now().toString());}
+\DoxyCodeLine{752                 log.write(MSG\_FTR);}
+\DoxyCodeLine{753                 }
+\DoxyCodeLine{754                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{755                 log.flush();}
+\DoxyCodeLine{756             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{757                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{758                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{759                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{760             \}}
+\DoxyCodeLine{761         \}}
+\DoxyCodeLine{762     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a07ad2a98065f3f3dd4ecc52b18489f7e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a07ad2a98065f3f3dd4ecc52b18489f7e}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}} com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 259 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{259                                        \{}
+\DoxyCodeLine{260         \textcolor{keywordflow}{return} logger;}
+\DoxyCodeLine{261     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a696b65caaf7a53db4a17362c6353f262}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a696b65caaf7a53db4a17362c6353f262}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!getLevel@{getLevel}}
+\index{getLevel@{getLevel}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{getLevel()}{getLevel()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+get\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Provides a method for the calling application to determine the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}}\textquotesingle{}s currently set logging level. 
+
+Though not needed by a calling application, it\textquotesingle{}s always a good practice to provide a method of checking a setting of one of the objects that a program uses, in case it IS ever needed.
+
+\begin{DoxyReturn}{Returns}
+The currently set logging level. 
+\end{DoxyReturn}
+
+
+Definition at line 844 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{844                           \{}
+\DoxyCodeLine{845         \textcolor{keywordflow}{return} this.level;}
+\DoxyCodeLine{846     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a746ca3905ab772b036e2030a51330fb5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a746ca3905ab772b036e2030a51330fb5}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!getRecord@{getRecord}}
+\index{getRecord@{getRecord}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{getRecord()}{getRecord()}}
+{\footnotesize\ttfamily Log\+Record com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+get\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Provides a method for retrieving the {\ttfamily Log\+Record} that is currently stored in the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}}, if any. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 854 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{854                                  \{}
+\DoxyCodeLine{855         \textcolor{keywordflow}{return} this.record; }
+\DoxyCodeLine{856     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3cb1ec806f7ca10ca6340c1f9659b585}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3cb1ec806f7ca10ca6340c1f9659b585}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!handledError@{handledError}}
+\index{handledError@{handledError}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{handledError()}{handledError()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+handled\+Error (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+Logs a non-\/critical error to the log file, typically, when it is thrown and just before the program handles it. 
+
+This should only be used for handled errors in the program. Any other errors, which are unrecoverable, should be logged through the {\ttfamily critical} method, just before the application exits. 
+
+The {\ttfamily extra\+Data} parameter should contain information pertinent to the user within the context of your application..
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 870 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{870                                                \{}
+\DoxyCodeLine{871         \textcolor{comment}{// We need to create our message with the Exception and extra data that}}
+\DoxyCodeLine{872         \textcolor{comment}{//+ has been provided.}}
+\DoxyCodeLine{873         String src = \textcolor{stringliteral}{"\#"}.repeat(80) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{874         src += \textcolor{stringliteral}{"\#"}.repeat(40 -\/ (\textcolor{stringliteral}{" E R R O R "}.length() / 2)) + \textcolor{stringliteral}{" E R R O R "};}
+\DoxyCodeLine{875         src += \textcolor{stringliteral}{"\#"}.repeat(39 -\/ (\textcolor{stringliteral}{" E R R O R "}.length() / 2)) + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{876         src += \textcolor{stringliteral}{"Message: "} + record.getThrown().getMessage() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{877         \textcolor{keywordflow}{if} ( record.getThrown().getCause() != \textcolor{keyword}{null} )}
+\DoxyCodeLine{878             src += \textcolor{stringliteral}{"Source: "} + record.getThrown().getCause().toString() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{879         src += \textcolor{stringliteral}{" "}.repeat(40 -\/ (\textcolor{stringliteral}{"Extra Data"}.length() / 2));}
+\DoxyCodeLine{880         src += \textcolor{stringliteral}{"EXTRA DATA"}+  \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{881         src += record.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{882         src += \textcolor{stringliteral}{"\(\backslash\)nStacktrace:\(\backslash\)n"};}
+\DoxyCodeLine{883         }
+\DoxyCodeLine{884         StackTraceElement[] stack = record.getThrown().getStackTrace();}
+\DoxyCodeLine{885         }
+\DoxyCodeLine{886         \textcolor{keywordflow}{for} ( StackTraceElement element : stack ) \{}
+\DoxyCodeLine{887             src += element.toString() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{888         \}}
+\DoxyCodeLine{889         }
+\DoxyCodeLine{890         src += \textcolor{stringliteral}{"\#"}.repeat(40 -\/ (\textcolor{stringliteral}{" E N D   O F   E R R O R "}.length() / 2));}
+\DoxyCodeLine{891         src += \textcolor{stringliteral}{" E N D   O F   E R R O R "};}
+\DoxyCodeLine{892         src += \textcolor{stringliteral}{"\#"}.repeat(39 -\/ (\textcolor{stringliteral}{" E N D   O F   E R R O R "}.length() / 2));}
+\DoxyCodeLine{893         src += \textcolor{stringliteral}{"\(\backslash\)n -\/> "} + LocalDateTime.now().toString();}
+\DoxyCodeLine{894         }
+\DoxyCodeLine{895         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{896         \textcolor{comment}{//+ logging is not turned off.}}
+\DoxyCodeLine{897         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} ) \{}
+\DoxyCodeLine{898             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{899             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{900                 log.write(MSG\_HDR);}
+\DoxyCodeLine{901                 log.write(src);}
+\DoxyCodeLine{902                 log.write(MSG\_FTR);}
+\DoxyCodeLine{903                 }
+\DoxyCodeLine{904                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{905                 log.flush();}
+\DoxyCodeLine{906             \} \textcolor{keywordflow}{catch} ( IOException e ) \{}
+\DoxyCodeLine{907                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{908                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{909                 MessageBox.showError(e, ttl);}
+\DoxyCodeLine{910             \}}
+\DoxyCodeLine{911         \}}
+\DoxyCodeLine{912     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aaf0fd7d4f9ab1230c00f192b9f61bd77}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aaf0fd7d4f9ab1230c00f192b9f61bd77}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!info@{info}}
+\index{info@{info}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+info (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+Provides a method of logging informational messages to the log file. 
+
+For this message to be logged, the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} must have been properly established (N\+OT in the {\ttfamily O\+FF} state) and the level must be set at {\ttfamily I\+N\+FO}, {\ttfamily C\+O\+N\+F\+IG} or {\ttfamily D\+E\+B\+UG}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 922 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{922                                        \{}
+\DoxyCodeLine{923         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{924         \textcolor{comment}{//+ logging is not turned off and the level is set to info or higher.}}
+\DoxyCodeLine{925         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} \&\& this.level >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a1c3717799a7ec678785a339d7a61e8a7}{INFO}} || this.level == \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}{DEBUG}} ) \{}
+\DoxyCodeLine{926             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{927             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{928                 log.write(StringUtils.wrapAt(\textcolor{stringliteral}{"INFO: "} + record.getMessage(), }
+\DoxyCodeLine{929                         80) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{930                 }
+\DoxyCodeLine{931                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{932                 log.flush();}
+\DoxyCodeLine{933             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{934                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{935                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{936                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{937             \}}
+\DoxyCodeLine{938         \}}
+\DoxyCodeLine{939     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a722abc6ac094e757b033598d7056422b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a722abc6ac094e757b033598d7056422b}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!setLevel@{setLevel}}
+\index{setLevel@{setLevel}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{setLevel()}{setLevel()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+set\+Level (\begin{DoxyParamCaption}\item[{int}]{log\+Level }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1InvalidLoggingLevelException}{Invalid\+Logging\+Level\+Exception}}}
+
+
+
+Set the log level specifying which message levels will be logged by this {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}}. 
+
+Message levels lower than this value will be discarded. The level value {\ttfamily Level.\+O\+FF} can be used to turn off logging altogether. 
+
+If the new level is {\ttfamily null}, it means that this {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} will turn itself to {\ttfamily Level.\+O\+FF} to avoid any {\ttfamily Null\+Pointer\+Exceptions}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+Level} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Logging\+Level\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 962 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{962                                                                            \{}
+\DoxyCodeLine{963         \textcolor{comment}{// Validate the data before we set it to our field.}}
+\DoxyCodeLine{964         \textcolor{keywordflow}{switch} ( logLevel ) \{}
+\DoxyCodeLine{965             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}{DEBUG}}:}
+\DoxyCodeLine{966             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a66fefacd7c192425bc2be89ab435cd3e}{CONFIG}}:}
+\DoxyCodeLine{967             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a1c3717799a7ec678785a339d7a61e8a7}{INFO}}:}
+\DoxyCodeLine{968             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ab430a3e09c6da067febe6c5c6e1e781c}{WARN}}:}
+\DoxyCodeLine{969             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad0c98cef3dde5fd2f6e54e2b3599124d}{ERROR}}:}
+\DoxyCodeLine{970             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_acdf4908ada78f8c3fd4c116a910956cb}{CRITICAL}}:}
+\DoxyCodeLine{971                 this.level = logLevel;}
+\DoxyCodeLine{972                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{973             \textcolor{keywordflow}{case} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}}:}
+\DoxyCodeLine{974             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{975                 this.level = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}};}
+\DoxyCodeLine{976                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{977         \}}
+\DoxyCodeLine{978     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a958021e292045c1564dc3d86e44dc328}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a958021e292045c1564dc3d86e44dc328}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!setRecord@{setRecord}}
+\index{setRecord@{setRecord}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{setRecord()}{setRecord()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+set\+Record (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+Provides a method of storing a {\ttfamily Log\+Record} in the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} for later use, either in the same {\ttfamily Class} or {\ttfamily Method}, or another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 947 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{947                                              \{}
+\DoxyCodeLine{948         this.record = record;}
+\DoxyCodeLine{949     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_af71aca5de81415e736ff40faaae386b5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_af71aca5de81415e736ff40faaae386b5}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!warning@{warning}}
+\index{warning@{warning}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+warning (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+Provides a method of logging warning messages to the log file. 
+
+For this message to be logged, the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} must have been properly established (N\+OT in the {\ttfamily O\+FF} state) and the level must be set at {\ttfamily W\+A\+RN} or {\ttfamily C\+R\+I\+T\+I\+C\+AL}. 
+
+A good practice for this type of message is to place user, system and java information into the message, as well as the information that you were going to display. This will provide a solid base of knowledge for tracking down the reason for the warning.
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The {\ttfamily Log\+Record} to use for this log entry. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 993 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{993                                           \{}
+\DoxyCodeLine{994         \textcolor{comment}{// We need to try to log the message, however, we will only do so if }}
+\DoxyCodeLine{995         \textcolor{comment}{//+ logging is not turned off and the level is set to warning or higher.}}
+\DoxyCodeLine{996         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} \&\& this.level >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ab430a3e09c6da067febe6c5c6e1e781c}{WARN}} || this.level == \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}{DEBUG}} ) \{}
+\DoxyCodeLine{997             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{998             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{999                 log.write(StringUtils.wrapAt(\textcolor{stringliteral}{"WARNING: "} + record.getMessage(),}
+\DoxyCodeLine{1000                         80) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{1001                 }
+\DoxyCodeLine{1002                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{1003                 log.flush();}
+\DoxyCodeLine{1004             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{1005                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{1006                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{1007                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{1008             \}}
+\DoxyCodeLine{1009         \}}
+\DoxyCodeLine{1010     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aec18e44322ce906669aa3fdc827cc85e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_aec18e44322ce906669aa3fdc827cc85e}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!welcome@{welcome}}
+\index{welcome@{welcome}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{welcome()}{welcome()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+welcome (\begin{DoxyParamCaption}\item[{Log\+Record}]{record }\end{DoxyParamCaption})}
+
+
+
+This is a convenience method for logging system information at the top of the log file. 
+
+This information is being logged to provide some info about the state of the system at application startup, which could possibly help in tracking down bugs.
+
+
+\begin{DoxyDescription}
+\item[{\ttfamily Log\+Record.\+set\+Source\+Class\+Name()} ]This is used for exactly what the method says, the source class name where the {\ttfamily Exception} was thrown. 
+\item[{\ttfamily Log\+Record.\+set\+Source\+Method\+Name()} ]This is, likewise, used for what the method says, the source method name where the {\ttfamily Exception} was thrown 
+\item[{\ttfamily Log\+Record.\+set\+Thrown()} ]Again, use this for exactly what the method says, store the actual {\ttfamily Exception} that was thrown 
+\item[{\ttfamily Log\+Record.\+set\+Message()} ]Use this method to store the package in which the {\ttfamily Exception} was thrown, e.\+g., \char`\"{}com.\+myapp.\+mypkg\char`\"{} 
+\item[{\ttfamily Log\+Record.\+set\+Resource\+Bundle(\+String)} ]Use this method to pass the edition of the application that is being tested or run\+: i.\+e., Basic Edition, Corporate Edition, Enterprise Edition 
+\item[{\ttfamily Log\+Record.\+set\+Sequence\+Number()} ]Use this method to provide the build number that is being run at the time of the {\ttfamily Exception} being thrown 
+\item[{\ttfamily Log\+Record.\+set\+Logger\+Name()} ]Use this method to provide the version that is being run at the time of the {\ttfamily Exception}, i.\+e. \char`\"{}1.\+2.\+19\char`\"{}, \char`\"{}0.\+2.\+5\char`\"{}, etc. 
+\item[{\ttfamily Logger.\+set\+Parameters(\+Object\mbox{[}$\,$\mbox{]})} ]Use this method to provide a list of the installed modules when the exception was thrown 
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & A {\ttfamily Log\+Record} containing all pertinent information as described above. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1049 of file Logger.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1049                                           \{}
+\DoxyCodeLine{1050         \textcolor{comment}{// We need to try to log the welcome message, however, we will only do }}
+\DoxyCodeLine{1051         \textcolor{comment}{//+ so if logging is not turned off.}}
+\DoxyCodeLine{1052         \textcolor{keywordflow}{if} ( this.level != \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}{OFF}} ) \{}
+\DoxyCodeLine{1053             String ruler = \textcolor{stringliteral}{"-\/"}.repeat(80);}
+\DoxyCodeLine{1054             String dRule = \textcolor{stringliteral}{"="}.repeat(80);}
+\DoxyCodeLine{1055             }
+\DoxyCodeLine{1056             \textcolor{comment}{// We're good to log the message to the log file.}}
+\DoxyCodeLine{1057             String msg = dRule + \textcolor{stringliteral}{" "}.repeat(21) + \textcolor{stringliteral}{"\(\backslash\)n"}}
+\DoxyCodeLine{1058                     + \textcolor{stringliteral}{"Northwind Traders Complete Accounting: "} }
+\DoxyCodeLine{1059                     + record.getResourceBundleName() + \textcolor{stringliteral}{"\(\backslash\)n"} + dRule + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};}
+\DoxyCodeLine{1060             msg += \textcolor{stringliteral}{"\(\backslash\)tNorthwind Traders Version: "} + record.getLoggerName() }
+\DoxyCodeLine{1061                     + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t                    Build: "} }
+\DoxyCodeLine{1062                     + record.getSequenceNumber() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t"}}
+\DoxyCodeLine{1063                     + \textcolor{stringliteral}{"        Installed Modules:\(\backslash\)n"};}
+\DoxyCodeLine{1064             }
+\DoxyCodeLine{1065             \textcolor{keywordflow}{for} ( Object o : record.getParameters() ) \{}
+\DoxyCodeLine{1066                 msg += \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t   "} + o.toString() + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{1067             \}}
+\DoxyCodeLine{1068             }
+\DoxyCodeLine{1069             msg +=(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{1070             msg += dRule + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{1071             msg +=(\textcolor{stringliteral}{" "}.repeat(24));}
+\DoxyCodeLine{1072             msg +=(\textcolor{stringliteral}{"S Y S T E M   I N F O R M A T I O N\(\backslash\)n"});}
+\DoxyCodeLine{1073             msg += ruler;}
+\DoxyCodeLine{1074             msg +=(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{1075             msg +=(\textcolor{stringliteral}{"OS................."});}
+\DoxyCodeLine{1076             msg +=(System.getProperty(\textcolor{stringliteral}{"os.name"}));}
+\DoxyCodeLine{1077             msg +=(\textcolor{stringliteral}{"\(\backslash\)nOS Version........."});}
+\DoxyCodeLine{1078             msg +=(System.getProperty(\textcolor{stringliteral}{"os.version"}));}
+\DoxyCodeLine{1079             msg +=(\textcolor{stringliteral}{"\(\backslash\)nArchitecture......."});}
+\DoxyCodeLine{1080             msg +=(System.getProperty(\textcolor{stringliteral}{"os.arch"}));}
+\DoxyCodeLine{1081             msg +=(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{1082             msg +=(\textcolor{stringliteral}{" "}.repeat(26));}
+\DoxyCodeLine{1083             msg +=(\textcolor{stringliteral}{"J A V A   I N F O R M A T I O N"});}
+\DoxyCodeLine{1084             msg +=(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{1085             msg +=(\textcolor{stringliteral}{"Java Virtual Machine....."});}
+\DoxyCodeLine{1086             msg +=(System.getProperty(\textcolor{stringliteral}{"java.vm.name"}));}
+\DoxyCodeLine{1087             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava VM Version.........."});}
+\DoxyCodeLine{1088             msg +=(System.getProperty(\textcolor{stringliteral}{"java.vm.version"}));}
+\DoxyCodeLine{1089             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Runtime Name........"});}
+\DoxyCodeLine{1090             msg +=(System.getProperty(\textcolor{stringliteral}{"java.runtime.name"}));}
+\DoxyCodeLine{1091             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Runtime Version....."});}
+\DoxyCodeLine{1092             msg +=(System.getProperty(\textcolor{stringliteral}{"java.runtime.version"}));}
+\DoxyCodeLine{1093             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Specification......."});}
+\DoxyCodeLine{1094             msg +=(System.getProperty(\textcolor{stringliteral}{"java.specification.name"}));}
+\DoxyCodeLine{1095             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Spec. Version......."});}
+\DoxyCodeLine{1096             msg +=(System.getProperty(\textcolor{stringliteral}{"java.specification.version"}));}
+\DoxyCodeLine{1097             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Vendor.............."});}
+\DoxyCodeLine{1098             msg +=(System.getProperty(\textcolor{stringliteral}{"java.vendor"}));}
+\DoxyCodeLine{1099             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Version............."});}
+\DoxyCodeLine{1100             msg +=(System.getProperty(\textcolor{stringliteral}{"java.version"}));}
+\DoxyCodeLine{1101             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Version Date........"});}
+\DoxyCodeLine{1102             msg +=(System.getProperty(\textcolor{stringliteral}{"java.version.date"}));}
+\DoxyCodeLine{1103             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Class Path.........."});}
+\DoxyCodeLine{1104             msg +=(System.getProperty(\textcolor{stringliteral}{"java.class.path"}));}
+\DoxyCodeLine{1105             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Class Version......."});}
+\DoxyCodeLine{1106             msg +=(System.getProperty(\textcolor{stringliteral}{"java.class.version"}));}
+\DoxyCodeLine{1107             msg +=(\textcolor{stringliteral}{"\(\backslash\)nJava Library Path........"});}
+\DoxyCodeLine{1108             msg +=(System.getProperty(\textcolor{stringliteral}{"java.library.path"}));}
+\DoxyCodeLine{1109             msg +=(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{1110             msg +=(\textcolor{stringliteral}{" "}.repeat(26));}
+\DoxyCodeLine{1111             msg +=(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{1112             msg +=(\textcolor{stringliteral}{"User Country............."});}
+\DoxyCodeLine{1113             msg +=(System.getProperty(\textcolor{stringliteral}{"user.country"}));}
+\DoxyCodeLine{1114             msg +=(\textcolor{stringliteral}{"\(\backslash\)nUser Language............"});}
+\DoxyCodeLine{1115             msg +=(System.getProperty(\textcolor{stringliteral}{"user.language"}));}
+\DoxyCodeLine{1116             msg += \textcolor{stringliteral}{"\(\backslash\)n"} + ruler + \textcolor{stringliteral}{"\(\backslash\)n"} + dRule + \textcolor{stringliteral}{"\(\backslash\)n"} + ruler + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{1117             }
+\DoxyCodeLine{1118             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{1119                 log.write(msg);}
+\DoxyCodeLine{1120                 }
+\DoxyCodeLine{1121                 \textcolor{comment}{// Now, flush the buffer to be sure the data was written.}}
+\DoxyCodeLine{1122                 log.flush();}
+\DoxyCodeLine{1123             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{1124                 \textcolor{comment}{// Let the user know that the message was not written.}}
+\DoxyCodeLine{1125                 String ttl = \textcolor{stringliteral}{"I/O Error: Entry Not Written"};}
+\DoxyCodeLine{1126                 MessageBox.showError(ex, ttl);}
+\DoxyCodeLine{1127             \}}
+\DoxyCodeLine{1128         \}}
+\DoxyCodeLine{1129     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a66fefacd7c192425bc2be89ab435cd3e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a66fefacd7c192425bc2be89ab435cd3e}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!CONFIG@{CONFIG}}
+\index{CONFIG@{CONFIG}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{CONFIG}{CONFIG}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+C\+O\+N\+F\+IG = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Configuration\+: for logging configuration settings. 
+
+
+
+Definition at line 70 of file Logger.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_acdf4908ada78f8c3fd4c116a910956cb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_acdf4908ada78f8c3fd4c116a910956cb}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!CRITICAL@{CRITICAL}}
+\index{CRITICAL@{CRITICAL}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{CRITICAL}{CRITICAL}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+C\+R\+I\+T\+I\+C\+AL = 5\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Critical\+: for logging messages that were caused by critical, unrecoverable errors in the application that caused the application to exit abnormally. 
+
+
+
+Definition at line 91 of file Logger.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a3f74c4ffa428d90995f344f58d31effd}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+D\+E\+B\+UG = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Debugging\+: lowest level of logging. 
+
+
+
+Definition at line 66 of file Logger.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad0c98cef3dde5fd2f6e54e2b3599124d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ad0c98cef3dde5fd2f6e54e2b3599124d}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!ERROR@{ERROR}}
+\index{ERROR@{ERROR}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{ERROR}{ERROR}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+E\+R\+R\+OR = 4\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Error\+: for logging messages that were caused by recoverable errors in the application. 
+
+
+
+Definition at line 85 of file Logger.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a1c3717799a7ec678785a339d7a61e8a7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a1c3717799a7ec678785a339d7a61e8a7}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!INFO@{INFO}}
+\index{INFO@{INFO}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{INFO}{INFO}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+I\+N\+FO = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Information\+: for logging informational messages above the debug and configuration levels. 
+
+
+
+Definition at line 75 of file Logger.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_a6f94b4206e014512bfdc1f34ce1f9574}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!OFF@{OFF}}
+\index{OFF@{OFF}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{OFF}{OFF}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+O\+FF = 100\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Off\+: used for any errors in setting up the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger}{Logger}}} object. 
+
+The calling application should check to make sure that logging is not turned off before calling a logging event. 
+
+Definition at line 97 of file Logger.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ab430a3e09c6da067febe6c5c6e1e781c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger_ab430a3e09c6da067febe6c5c6e1e781c}} 
+\index{com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}!WARN@{WARN}}
+\index{WARN@{WARN}!com.pekinsoft.loadmaster.sys.Logger@{com.pekinsoft.loadmaster.sys.Logger}}
+\doxysubsubsection{\texorpdfstring{WARN}{WARN}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+sys.\+Logger.\+W\+A\+RN = 3\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Warning\+: for logging messages that were given to the user to warn them of inappropriate use or invalid data, etc. 
+
+
+
+Definition at line 80 of file Logger.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/sys/\mbox{\hyperlink{Logger_8java}{Logger.\+java}}\end{DoxyCompactItemize}

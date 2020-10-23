@@ -56,12 +56,16 @@ import java.util.Date;
  */
 public class FuelPurchaseModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
+    /**
+     * The account number in the Chart of Accounts for the Fuel Purchase Account
+     */
+    public static final int ACCOUNT_NUMBER = 10040;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private long id;
     private Date date;
+    private String tripNumber;
     private int odometer;
     private String location;
     private double gallonsOfDiesel;
@@ -70,24 +74,14 @@ public class FuelPurchaseModel {
     private double gallonsOfDef;
     private double pricePerGallonDef;
     private String notes;
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
+    private boolean posted;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public FuelPurchaseModel () {
         this.id = System.currentTimeMillis();
         this.date = new Date();
+        this.tripNumber = "No Active Load";
         this.odometer = 0;
         this.location = "[No Location Provided]";
         this.gallonsOfDef = 0.0;
@@ -95,11 +89,8 @@ public class FuelPurchaseModel {
         this.notes = "";
         this.pricePerGallonDef = 0.0;
         this.pricePerGallonDiesel = 0.0;
+        this.posted = false;
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
@@ -192,6 +183,30 @@ public class FuelPurchaseModel {
      */
     public void setDate(Date date) {
         this.date = date;
+    }
+    
+    /**
+     * The trip number with which this model is associated. The value returned
+     * will either be the trip that was active at the time this transaction
+     * occurred, or the phrase &quot;No Active Load&quot;.
+     *
+     * @return the trip number associated with this model.
+     */
+    public String getTripNumber() {
+        return tripNumber;
+    }
+    
+    /**
+     * Sets the trip number with which this model is associated.
+     * <dl><dt>Developer's Note</dt><dd>The best thing to do to provide the data
+     * for this field is to pull the current load from the application settings
+     * file. There will either be a trip number or &quot;No Active Load&quot;.
+     * </dd></dl>
+     *
+     * @param tripNumber the trip number associated with this model.
+     */
+    public void setTripNumber(String tripNumber) {
+        this.tripNumber = tripNumber;
     }
 
     /**
@@ -505,11 +520,26 @@ public class FuelPurchaseModel {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     
+    /**
+     * Determines whether or not this transaction has been posted to the General
+     * Ledger.
+     * 
+     * @return `true` if already posted to the General Ledger, `false` otherwise.
+     */
+    public boolean isPosted() {
+        return posted;
+    }
+    
+    /**
+     * Sets the posted flag. This should only be set to `true` when the 
+     * transaction this model represents has been posted to the General Ledger.
+     * 
+     * @param posted `true` when posted to the General Ledger, `false` otherwise.
+     */
+    public void setPosted(boolean posted) {
+        this.posted = posted;
+    }
     //</editor-fold>
-
 
 }

@@ -1,0 +1,435 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+utils.\+Utils Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils}\index{com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_a9a8acbd467ce6b7de259e7c085a4b3ce}{get\+Program\+Directory}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the currently executing program\textquotesingle{}s program directory. \end{DoxyCompactList}\item 
+static Point \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_a541ac26127f1d054a23d79177a511061}{get\+Center\+Point}} (Dimension container, Dimension window)
+\begin{DoxyCompactList}\small\item\em Calculates central position of the window within its container. \end{DoxyCompactList}\item 
+static Set$<$ String $>$ \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_aacffa278491ce5baa2993d9b7a2dfdde}{create\+State\+Abbreviations}} ()
+\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_afb525ebac3f3560c14d3e402fdd79a82}{get\+State\+Abbreviation}} (String state)
+\begin{DoxyCompactList}\small\item\em Retrieves the state or province name abbreviation for the given state or province name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 55 of file Utils.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_aacffa278491ce5baa2993d9b7a2dfdde}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_aacffa278491ce5baa2993d9b7a2dfdde}} 
+\index{com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}!createStateAbbreviations@{createStateAbbreviations}}
+\index{createStateAbbreviations@{createStateAbbreviations}!com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}}
+\doxysubsubsection{\texorpdfstring{createStateAbbreviations()}{createStateAbbreviations()}}
+{\footnotesize\ttfamily static Set$<$String$>$ com.\+pekinsoft.\+loadmaster.\+utils.\+Utils.\+create\+State\+Abbreviations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 170 of file Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170                                                          \{}
+\DoxyCodeLine{171         Set<String> states = \textcolor{keyword}{new} HashSet<>();}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         \textcolor{comment}{// Add our state and province abbreviations into our set.}}
+\DoxyCodeLine{174         states.add(\textcolor{stringliteral}{"AL"}); \textcolor{comment}{// Alabama}}
+\DoxyCodeLine{175         states.add(\textcolor{stringliteral}{"AK"}); \textcolor{comment}{// Alaska}}
+\DoxyCodeLine{176         states.add(\textcolor{stringliteral}{"AR"}); \textcolor{comment}{// Arkansas}}
+\DoxyCodeLine{177         states.add(\textcolor{stringliteral}{"AZ"}); \textcolor{comment}{// Arizona}}
+\DoxyCodeLine{178         states.add(\textcolor{stringliteral}{"CA"}); \textcolor{comment}{// California}}
+\DoxyCodeLine{179         states.add(\textcolor{stringliteral}{"CO"}); \textcolor{comment}{// Colorado}}
+\DoxyCodeLine{180         states.add(\textcolor{stringliteral}{"CT"}); \textcolor{comment}{// Connecticut}}
+\DoxyCodeLine{181         states.add(\textcolor{stringliteral}{"DC"}); \textcolor{comment}{// Washington, D. C. (District of Columbia)}}
+\DoxyCodeLine{182         states.add(\textcolor{stringliteral}{"DE"}); \textcolor{comment}{// Delaware}}
+\DoxyCodeLine{183         states.add(\textcolor{stringliteral}{"FL"}); \textcolor{comment}{// Florida}}
+\DoxyCodeLine{184         states.add(\textcolor{stringliteral}{"GA"}); \textcolor{comment}{// Georgia}}
+\DoxyCodeLine{185         states.add(\textcolor{stringliteral}{"HI"}); \textcolor{comment}{// Hawaii}}
+\DoxyCodeLine{186         states.add(\textcolor{stringliteral}{"IA"}); \textcolor{comment}{// Iowa}}
+\DoxyCodeLine{187         states.add(\textcolor{stringliteral}{"ID"}); \textcolor{comment}{// Idaho}}
+\DoxyCodeLine{188         states.add(\textcolor{stringliteral}{"IL"}); \textcolor{comment}{// Illinois}}
+\DoxyCodeLine{189         states.add(\textcolor{stringliteral}{"IN"}); \textcolor{comment}{// Indiana}}
+\DoxyCodeLine{190         states.add(\textcolor{stringliteral}{"KS"}); \textcolor{comment}{// Kansas}}
+\DoxyCodeLine{191         states.add(\textcolor{stringliteral}{"KY"}); \textcolor{comment}{// Kentucky}}
+\DoxyCodeLine{192         states.add(\textcolor{stringliteral}{"LA"}); \textcolor{comment}{// Louisiana}}
+\DoxyCodeLine{193         states.add(\textcolor{stringliteral}{"MA"}); \textcolor{comment}{// Massachusetts}}
+\DoxyCodeLine{194         states.add(\textcolor{stringliteral}{"MD"}); \textcolor{comment}{// Maryland}}
+\DoxyCodeLine{195         states.add(\textcolor{stringliteral}{"ME"}); \textcolor{comment}{// Maine}}
+\DoxyCodeLine{196         states.add(\textcolor{stringliteral}{"MI"}); \textcolor{comment}{// Michigan}}
+\DoxyCodeLine{197         states.add(\textcolor{stringliteral}{"MN"}); \textcolor{comment}{// Minnesota}}
+\DoxyCodeLine{198         states.add(\textcolor{stringliteral}{"MO"}); \textcolor{comment}{// Missouri}}
+\DoxyCodeLine{199         states.add(\textcolor{stringliteral}{"MS"}); \textcolor{comment}{// Mississippi}}
+\DoxyCodeLine{200         states.add(\textcolor{stringliteral}{"MT"}); \textcolor{comment}{// Montana}}
+\DoxyCodeLine{201         states.add(\textcolor{stringliteral}{"NC"}); \textcolor{comment}{// North Carolina}}
+\DoxyCodeLine{202         states.add(\textcolor{stringliteral}{"ND"}); \textcolor{comment}{// North Dakota}}
+\DoxyCodeLine{203         states.add(\textcolor{stringliteral}{"NE"}); \textcolor{comment}{// Nebraska}}
+\DoxyCodeLine{204         states.add(\textcolor{stringliteral}{"NH"}); \textcolor{comment}{// New Hampshire}}
+\DoxyCodeLine{205         states.add(\textcolor{stringliteral}{"NJ"}); \textcolor{comment}{// New Jersey}}
+\DoxyCodeLine{206         states.add(\textcolor{stringliteral}{"NM"}); \textcolor{comment}{// New Mexico}}
+\DoxyCodeLine{207         states.add(\textcolor{stringliteral}{"NV"}); \textcolor{comment}{// Nevada}}
+\DoxyCodeLine{208         states.add(\textcolor{stringliteral}{"NY"}); \textcolor{comment}{// New York}}
+\DoxyCodeLine{209         states.add(\textcolor{stringliteral}{"OH"}); \textcolor{comment}{// Ohio}}
+\DoxyCodeLine{210         states.add(\textcolor{stringliteral}{"OK"}); \textcolor{comment}{// Oklahoma}}
+\DoxyCodeLine{211         states.add(\textcolor{stringliteral}{"OR"}); \textcolor{comment}{// Oregon}}
+\DoxyCodeLine{212         states.add(\textcolor{stringliteral}{"PA"}); \textcolor{comment}{// Pennsylvania}}
+\DoxyCodeLine{213         states.add(\textcolor{stringliteral}{"RI"}); \textcolor{comment}{// Rhode Island}}
+\DoxyCodeLine{214         states.add(\textcolor{stringliteral}{"SC"}); \textcolor{comment}{// South Carolina}}
+\DoxyCodeLine{215         states.add(\textcolor{stringliteral}{"SD"}); \textcolor{comment}{// South Dakota}}
+\DoxyCodeLine{216         states.add(\textcolor{stringliteral}{"TN"}); \textcolor{comment}{// Tennessee}}
+\DoxyCodeLine{217         states.add(\textcolor{stringliteral}{"TX"}); \textcolor{comment}{// Texas}}
+\DoxyCodeLine{218         states.add(\textcolor{stringliteral}{"UT"}); \textcolor{comment}{// Utah}}
+\DoxyCodeLine{219         states.add(\textcolor{stringliteral}{"VA"}); \textcolor{comment}{// Virginia}}
+\DoxyCodeLine{220         states.add(\textcolor{stringliteral}{"VT"}); \textcolor{comment}{// Vermont}}
+\DoxyCodeLine{221         states.add(\textcolor{stringliteral}{"WA"}); \textcolor{comment}{// Washington}}
+\DoxyCodeLine{222         states.add(\textcolor{stringliteral}{"WI"}); \textcolor{comment}{// Wisconsin}}
+\DoxyCodeLine{223         states.add(\textcolor{stringliteral}{"WV"}); \textcolor{comment}{// West Virginia}}
+\DoxyCodeLine{224         states.add(\textcolor{stringliteral}{"WY"}); \textcolor{comment}{// Wyoming}}
+\DoxyCodeLine{225         states.add(\textcolor{stringliteral}{"AL"}); \textcolor{comment}{// Alberta}}
+\DoxyCodeLine{226         states.add(\textcolor{stringliteral}{"BC"}); \textcolor{comment}{// British Columbia}}
+\DoxyCodeLine{227         states.add(\textcolor{stringliteral}{"MB"}); \textcolor{comment}{// Manitoba}}
+\DoxyCodeLine{228         states.add(\textcolor{stringliteral}{"NB"}); \textcolor{comment}{// New Brunswick}}
+\DoxyCodeLine{229         states.add(\textcolor{stringliteral}{"NF"}); \textcolor{comment}{// Newfoundland}}
+\DoxyCodeLine{230         states.add(\textcolor{stringliteral}{"NS"}); \textcolor{comment}{// Nova Scotia}}
+\DoxyCodeLine{231         states.add(\textcolor{stringliteral}{"NT"}); \textcolor{comment}{// Northwest Territories}}
+\DoxyCodeLine{232         states.add(\textcolor{stringliteral}{"ON"}); \textcolor{comment}{// Ontario}}
+\DoxyCodeLine{233         states.add(\textcolor{stringliteral}{"PE"}); \textcolor{comment}{// Prince Edward Island}}
+\DoxyCodeLine{234         states.add(\textcolor{stringliteral}{"QC"}); \textcolor{comment}{// Quebec}}
+\DoxyCodeLine{235         states.add(\textcolor{stringliteral}{"SK"}); \textcolor{comment}{// Saskatchewan}}
+\DoxyCodeLine{236         states.add(\textcolor{stringliteral}{"YT"}); \textcolor{comment}{// Yukon}}
+\DoxyCodeLine{237         }
+\DoxyCodeLine{238         \textcolor{comment}{// Return the set of state/province abbreviations.}}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} states;}
+\DoxyCodeLine{240     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_a541ac26127f1d054a23d79177a511061}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_a541ac26127f1d054a23d79177a511061}} 
+\index{com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}!getCenterPoint@{getCenterPoint}}
+\index{getCenterPoint@{getCenterPoint}!com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}}
+\doxysubsubsection{\texorpdfstring{getCenterPoint()}{getCenterPoint()}}
+{\footnotesize\ttfamily static Point com.\+pekinsoft.\+loadmaster.\+utils.\+Utils.\+get\+Center\+Point (\begin{DoxyParamCaption}\item[{Dimension}]{container,  }\item[{Dimension}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates central position of the window within its container. 
+
+
+\begin{DoxyDescription}
+\item[Contributed By ]Jiří Kovalský $<$jiri dot kovalsky at centrum dot cz$>$ 
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em container} & Dimensions of parent container where window will be located. \\
+\hline
+{\em window} & Dimensions of child window which will be displayed within its parent container. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Location of top left corner of window to be displayed in the center of its parent container. 
+\end{DoxyReturn}
+
+
+Definition at line 159 of file Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{159                                                                               \{}
+\DoxyCodeLine{160         \textcolor{keywordtype}{int} x = container.width / 2;}
+\DoxyCodeLine{161         \textcolor{keywordtype}{int} y = container.height / 2;}
+\DoxyCodeLine{162         x = x -\/ window.width / 2;}
+\DoxyCodeLine{163         y = y -\/ window.height / 2;}
+\DoxyCodeLine{164         x = x < 0 ? 0 : x;}
+\DoxyCodeLine{165         y = y < 0 ? 0 : y;}
+\DoxyCodeLine{166         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Point(x, y);}
+\DoxyCodeLine{167     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_a9a8acbd467ce6b7de259e7c085a4b3ce}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_a9a8acbd467ce6b7de259e7c085a4b3ce}} 
+\index{com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}!getProgramDirectory@{getProgramDirectory}}
+\index{getProgramDirectory@{getProgramDirectory}!com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}}
+\doxysubsubsection{\texorpdfstring{getProgramDirectory()}{getProgramDirectory()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+Utils.\+get\+Program\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retrieves the currently executing program\textquotesingle{}s program directory. 
+
+This should be the directory in which the program was executed, which could also be considered the program\textquotesingle{}s installation path.
+
+\begin{DoxyReturn}{Returns}
+java.\+lang.\+String the directory from which the program is running 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101     \{}
+\DoxyCodeLine{102         \textcolor{keywordflow}{if} (runningFromJAR())}
+\DoxyCodeLine{103         \{}
+\DoxyCodeLine{104             \textcolor{keywordflow}{return} getCurrentJARDirectory();}
+\DoxyCodeLine{105         \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{106         \{}
+\DoxyCodeLine{107             \textcolor{keywordflow}{return} getCurrentProjectDirectory();}
+\DoxyCodeLine{108         \}}
+\DoxyCodeLine{109     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_afb525ebac3f3560c14d3e402fdd79a82}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1Utils_afb525ebac3f3560c14d3e402fdd79a82}} 
+\index{com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}!getStateAbbreviation@{getStateAbbreviation}}
+\index{getStateAbbreviation@{getStateAbbreviation}!com.pekinsoft.loadmaster.utils.Utils@{com.pekinsoft.loadmaster.utils.Utils}}
+\doxysubsubsection{\texorpdfstring{getStateAbbreviation()}{getStateAbbreviation()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+Utils.\+get\+State\+Abbreviation (\begin{DoxyParamCaption}\item[{String}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retrieves the state or province name abbreviation for the given state or province name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & Name of the state or province to abbreviate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state or province abbreviation. 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{249                                                             \{}
+\DoxyCodeLine{250         String st = \textcolor{keyword}{null};}
+\DoxyCodeLine{251         }
+\DoxyCodeLine{252         \textcolor{keywordflow}{switch} (state.toLowerCase()) \{}
+\DoxyCodeLine{253             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"alabama"}:}
+\DoxyCodeLine{254                 st = \textcolor{stringliteral}{"AL"};}
+\DoxyCodeLine{255                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{256             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"alaska"}:}
+\DoxyCodeLine{257                 st = \textcolor{stringliteral}{"AK"};}
+\DoxyCodeLine{258                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{259             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"arizona"}:}
+\DoxyCodeLine{260                 st = \textcolor{stringliteral}{"AZ"};}
+\DoxyCodeLine{261                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{262             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"arkansas"}:}
+\DoxyCodeLine{263                 st = \textcolor{stringliteral}{"AR"};}
+\DoxyCodeLine{264                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{265             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"california"}:}
+\DoxyCodeLine{266                 st = \textcolor{stringliteral}{"CA"};}
+\DoxyCodeLine{267                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{268             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"colorado"}:}
+\DoxyCodeLine{269                 st = \textcolor{stringliteral}{"CO"};}
+\DoxyCodeLine{270                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{271             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"connecticut"}:}
+\DoxyCodeLine{272                 st = \textcolor{stringliteral}{"CT"};}
+\DoxyCodeLine{273                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{274             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"delaware"}:}
+\DoxyCodeLine{275                 st = \textcolor{stringliteral}{"DE"};}
+\DoxyCodeLine{276                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{277             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"florida"}:}
+\DoxyCodeLine{278                 st = \textcolor{stringliteral}{"FL"};}
+\DoxyCodeLine{279                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{280             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"georgia"}:}
+\DoxyCodeLine{281                 st = \textcolor{stringliteral}{"GA"};}
+\DoxyCodeLine{282                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{283             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"hawaii"}:}
+\DoxyCodeLine{284                 st = \textcolor{stringliteral}{"HI"};}
+\DoxyCodeLine{285                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{286             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"idaho"}:}
+\DoxyCodeLine{287                 st = \textcolor{stringliteral}{"ID"};}
+\DoxyCodeLine{288                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{289             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"illinois"}:}
+\DoxyCodeLine{290                 st = \textcolor{stringliteral}{"IL"};}
+\DoxyCodeLine{291                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{292             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"indiana"}:}
+\DoxyCodeLine{293                 st = \textcolor{stringliteral}{"IN"};}
+\DoxyCodeLine{294                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{295             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"iowa"}:}
+\DoxyCodeLine{296                 st = \textcolor{stringliteral}{"IA"};}
+\DoxyCodeLine{297                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{298             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"kansas"}:}
+\DoxyCodeLine{299                 st = \textcolor{stringliteral}{"KS"};}
+\DoxyCodeLine{300                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{301             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"kentucky"}:}
+\DoxyCodeLine{302                 st = \textcolor{stringliteral}{"KY"};}
+\DoxyCodeLine{303                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{304             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"louisiana"}:}
+\DoxyCodeLine{305                 st = \textcolor{stringliteral}{"LA"};}
+\DoxyCodeLine{306                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{307             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"maine"}:}
+\DoxyCodeLine{308                 st = \textcolor{stringliteral}{"ME"};}
+\DoxyCodeLine{309                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{310             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"maryland"}:}
+\DoxyCodeLine{311                 st = \textcolor{stringliteral}{"MD"};}
+\DoxyCodeLine{312                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{313             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"massachusetts"}:}
+\DoxyCodeLine{314                 st = \textcolor{stringliteral}{"MA"};}
+\DoxyCodeLine{315                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{316             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"michigan"}:}
+\DoxyCodeLine{317                 st = \textcolor{stringliteral}{"MI"};}
+\DoxyCodeLine{318                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{319             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"minnesota"}:}
+\DoxyCodeLine{320                 st = \textcolor{stringliteral}{"MN"};}
+\DoxyCodeLine{321                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{322             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"mississippi"}:}
+\DoxyCodeLine{323                 st = \textcolor{stringliteral}{"MS"};}
+\DoxyCodeLine{324                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{325             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"missouri"}:}
+\DoxyCodeLine{326                 st = \textcolor{stringliteral}{"MO"};}
+\DoxyCodeLine{327                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{328             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"montana"}:}
+\DoxyCodeLine{329                 st = \textcolor{stringliteral}{"MT"};}
+\DoxyCodeLine{330                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{331             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"nebraska"}:}
+\DoxyCodeLine{332                 st = \textcolor{stringliteral}{"NE"};}
+\DoxyCodeLine{333                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{334             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"nevada"}:}
+\DoxyCodeLine{335                 st = \textcolor{stringliteral}{"NV"};}
+\DoxyCodeLine{336                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{337             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"new hampshire"}:}
+\DoxyCodeLine{338                 st = \textcolor{stringliteral}{"NH"};}
+\DoxyCodeLine{339                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{340             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"new jersey"}:}
+\DoxyCodeLine{341                 st = \textcolor{stringliteral}{"NJ"};}
+\DoxyCodeLine{342                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{343             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"new mexico"}:}
+\DoxyCodeLine{344                 st = \textcolor{stringliteral}{"NM"};}
+\DoxyCodeLine{345                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{346             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"new york"}:}
+\DoxyCodeLine{347                 st = \textcolor{stringliteral}{"NY"};}
+\DoxyCodeLine{348                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{349             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"north carolina"}:}
+\DoxyCodeLine{350                 st = \textcolor{stringliteral}{"NC"};}
+\DoxyCodeLine{351                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{352             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"north dakota"}:}
+\DoxyCodeLine{353                 st = \textcolor{stringliteral}{"ND"};}
+\DoxyCodeLine{354                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{355             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"ohio"}:}
+\DoxyCodeLine{356                 st = \textcolor{stringliteral}{"OH"};}
+\DoxyCodeLine{357                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{358             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"oklahoma"}:}
+\DoxyCodeLine{359                 st = \textcolor{stringliteral}{"OK"};}
+\DoxyCodeLine{360                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{361             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"oregon"}:}
+\DoxyCodeLine{362                 st = \textcolor{stringliteral}{"OR"};}
+\DoxyCodeLine{363                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{364             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"pennsylvania"}:}
+\DoxyCodeLine{365                 st = \textcolor{stringliteral}{"PA"};}
+\DoxyCodeLine{366                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{367             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"rhode island"}:}
+\DoxyCodeLine{368                 st = \textcolor{stringliteral}{"RI"};}
+\DoxyCodeLine{369                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{370             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"south carolina"}:}
+\DoxyCodeLine{371                 st = \textcolor{stringliteral}{"SC"};}
+\DoxyCodeLine{372                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{373             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"south dakota"}:}
+\DoxyCodeLine{374                 st = \textcolor{stringliteral}{"SD"};}
+\DoxyCodeLine{375                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{376             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"tennessee"}:}
+\DoxyCodeLine{377                 st = \textcolor{stringliteral}{"TN"};}
+\DoxyCodeLine{378                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{379             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"texas"}:}
+\DoxyCodeLine{380                 st = \textcolor{stringliteral}{"TX"};}
+\DoxyCodeLine{381                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{382             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"utah"}:}
+\DoxyCodeLine{383                 st = \textcolor{stringliteral}{"UT"};}
+\DoxyCodeLine{384                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{385             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"vermont"}:}
+\DoxyCodeLine{386                 st = \textcolor{stringliteral}{"VT"};}
+\DoxyCodeLine{387                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{388             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"virginia"}:}
+\DoxyCodeLine{389                 st = \textcolor{stringliteral}{"VA"};}
+\DoxyCodeLine{390                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{391             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"washington"}:}
+\DoxyCodeLine{392                 st = \textcolor{stringliteral}{"WA"};}
+\DoxyCodeLine{393                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{394             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"west virginia"}:}
+\DoxyCodeLine{395                 st = \textcolor{stringliteral}{"WV"};}
+\DoxyCodeLine{396                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{397             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"wisconsin"}:}
+\DoxyCodeLine{398                 st = \textcolor{stringliteral}{"WI"};}
+\DoxyCodeLine{399                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{400             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"wyoming"}:}
+\DoxyCodeLine{401                 st = \textcolor{stringliteral}{"WY"};}
+\DoxyCodeLine{402                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{403             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"washington dc"}:}
+\DoxyCodeLine{404             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"washington, dc"}:}
+\DoxyCodeLine{405             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"washington, d.c."}:}
+\DoxyCodeLine{406             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"washington, d. c."}:}
+\DoxyCodeLine{407             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"dc"}:}
+\DoxyCodeLine{408                 st = \textcolor{stringliteral}{"DC"};}
+\DoxyCodeLine{409                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{410             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"alberta"}:}
+\DoxyCodeLine{411                 st = \textcolor{stringliteral}{"AB"};}
+\DoxyCodeLine{412                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{413             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"british columbia"}:}
+\DoxyCodeLine{414                 st = \textcolor{stringliteral}{"BC"};}
+\DoxyCodeLine{415                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{416             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"manitoba"}:}
+\DoxyCodeLine{417                 st = \textcolor{stringliteral}{"MB"};}
+\DoxyCodeLine{418                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{419             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"new brunswick"}:}
+\DoxyCodeLine{420                 st = \textcolor{stringliteral}{"NB"};}
+\DoxyCodeLine{421                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{422             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"newfoundland and labrador"}:}
+\DoxyCodeLine{423             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"newfoundland"}:}
+\DoxyCodeLine{424             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"labrador"}:}
+\DoxyCodeLine{425                 st = \textcolor{stringliteral}{"NL"};}
+\DoxyCodeLine{426                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{427             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"northwest territories"}:}
+\DoxyCodeLine{428                 st = \textcolor{stringliteral}{"NT"};}
+\DoxyCodeLine{429                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{430             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"nova scotia"}:}
+\DoxyCodeLine{431             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"novascotia"}:}
+\DoxyCodeLine{432                 st = \textcolor{stringliteral}{"NS"};}
+\DoxyCodeLine{433                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{434             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"nunavut"}:}
+\DoxyCodeLine{435                 st = \textcolor{stringliteral}{"NU"};}
+\DoxyCodeLine{436                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{437             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"ontario"}:}
+\DoxyCodeLine{438                 st = \textcolor{stringliteral}{"ON"};}
+\DoxyCodeLine{439                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{440             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"prince edward"}:}
+\DoxyCodeLine{441             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"prince edward island"}:}
+\DoxyCodeLine{442                 st = \textcolor{stringliteral}{"PE"};}
+\DoxyCodeLine{443                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{444             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"quebec"}:}
+\DoxyCodeLine{445                 st = \textcolor{stringliteral}{"QC"};}
+\DoxyCodeLine{446                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{447             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"saskatchewan"}:}
+\DoxyCodeLine{448                 st = \textcolor{stringliteral}{"SK"};}
+\DoxyCodeLine{449                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{450             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"yukon"}:}
+\DoxyCodeLine{451             \textcolor{keywordflow}{case} \textcolor{stringliteral}{"yukon territory"}:}
+\DoxyCodeLine{452                 st = \textcolor{stringliteral}{"YT"};}
+\DoxyCodeLine{453                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{454             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{455                 st = \textcolor{keyword}{null};}
+\DoxyCodeLine{456                 }
+\DoxyCodeLine{457         \}}
+\DoxyCodeLine{458         }
+\DoxyCodeLine{459         \textcolor{comment}{// Return the state abbreviation.}}
+\DoxyCodeLine{460         \textcolor{keywordflow}{return} st;}
+\DoxyCodeLine{461     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/utils/\mbox{\hyperlink{Utils_8java}{Utils.\+java}}\end{DoxyCompactItemize}

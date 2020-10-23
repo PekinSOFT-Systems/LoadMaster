@@ -23,6 +23,8 @@
  *  Modified   :   Sep 6, 2020
  *  
  *  Purpose:
+ *      Provides the definition of the customer data that is required to be
+ *      stored for each customer.
  *  
  *  Revision History:
  *  

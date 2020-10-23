@@ -1,0 +1,542 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl}\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a6757fada03599bd11ed04a380dabfb29}{Broker\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_abaa4a06c1d7c21261fd78abe4befdf9b}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current broker as a {\ttfamily Broker\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a8ec08088afa2c869bf17eab98de7a744}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the broker at the specified index as a {\ttfamily Broker\+Model} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a6b3cbe46932813d0f45a82341b7417e7}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this table. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ae62f8d027252ed452a5993de3ae8d516}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Provides a means of determining whether the data table contains at least one more record after the current record. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a18164762a0fcaccd03f16d8f9f93f866}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first record in this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ac6c9def36d85279ed4749b595c02d689}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last record in this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_adba57476d93769feef1a4b54c94fdd93}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next record in this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ac8b22b6892d0466a57d1035ff20d9fab}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous record in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a35ba5300353a95b415a1bb197c6d3ce7}{update}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} cust)
+\begin{DoxyCompactList}\small\item\em Allows for the updating of an existing customer record. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ad593e304397094af06f33b14d0bb07bf}{add\+New}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} cust)
+\begin{DoxyCompactList}\small\item\em Allows for the addition of new customers into the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a34042ab60f8cb3a480cd91f4da8a0962}{close}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the data out to the table data file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a4931cc333552e2a537cca263faafef2a}{\mbox{[}instance initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a7fe666133c633f01e2c489f11c118756}{\mbox{[}static initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 30 of file Broker\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a6757fada03599bd11ed04a380dabfb29}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a6757fada03599bd11ed04a380dabfb29}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!BrokerCtl@{BrokerCtl}}
+\index{BrokerCtl@{BrokerCtl}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{BrokerCtl()}{BrokerCtl()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+Broker\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 67 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                                   \{}
+\DoxyCodeLine{68         broker = \textcolor{keyword}{new} BrokerModel();}
+\DoxyCodeLine{69         TABLE = \textcolor{keyword}{new} File(Starter.DB\_URL + \textcolor{stringliteral}{"brokers.tbl"});}
+\DoxyCodeLine{70         }
+\DoxyCodeLine{71         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{73             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{74                 TABLE.createNewFile();}
+\DoxyCodeLine{75                 }
+\DoxyCodeLine{76                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{77                 fileJustCreated = \textcolor{keyword}{true};}
+\DoxyCodeLine{78             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{79                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{80                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{81                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{82                 entry.setSourceMethodName(\textcolor{stringliteral}{"BrokerCtl"});}
+\DoxyCodeLine{83                 entry.setThrown(ex);}
+\DoxyCodeLine{84                 Starter.logger.error(entry);}
+\DoxyCodeLine{85                 }
+\DoxyCodeLine{86                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{87             \}}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89         }
+\DoxyCodeLine{90         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{91             connect();}
+\DoxyCodeLine{92 \textcolor{comment}{//        else}}
+\DoxyCodeLine{93 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{94 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{95 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{96 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{97     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a4931cc333552e2a537cca263faafef2a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a4931cc333552e2a537cca263faafef2a}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a7fe666133c633f01e2c489f11c118756}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a7fe666133c633f01e2c489f11c118756}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ad593e304397094af06f33b14d0bb07bf}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ad593e304397094af06f33b14d0bb07bf}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}}}]{cust }\end{DoxyParamCaption})}
+
+
+
+Allows for the addition of new customers into the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust} & The new customer record to add to the table \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 267 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{267                                          \{}
+\DoxyCodeLine{268         records.add(cust);}
+\DoxyCodeLine{269         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{270         }
+\DoxyCodeLine{271         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"table.brokers.records"},}
+\DoxyCodeLine{272                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}());}
+\DoxyCodeLine{273     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a34042ab60f8cb3a480cd91f4da8a0962}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a34042ab60f8cb3a480cd91f4da8a0962}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Writes the data out to the table data file. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & In the event there is an error writing the data. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 281 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{281                                                   \{}
+\DoxyCodeLine{282         BufferedWriter out;}
+\DoxyCodeLine{283         }
+\DoxyCodeLine{284         LoadMaster.loadProgress.setMaximum(}
+\DoxyCodeLine{285                 Starter.props.getPropertyAsInt(\textcolor{stringliteral}{"table.stops.records"}, \textcolor{stringliteral}{"0"}));}
+\DoxyCodeLine{286         LoadMaster.loadProgress.setValue(}
+\DoxyCodeLine{287                 Starter.props.getPropertyAsInt(\textcolor{stringliteral}{"table.stops.records"}, \textcolor{stringliteral}{"0"}));}
+\DoxyCodeLine{288         }
+\DoxyCodeLine{289         \textcolor{keywordflow}{if} ( TABLE.exists() ) \{}
+\DoxyCodeLine{290             TABLE.delete();}
+\DoxyCodeLine{291             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{292                 TABLE.createNewFile();}
+\DoxyCodeLine{293             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{294                 entry.setMessage(\textcolor{stringliteral}{"Something went wrong deleting and recreating the data table."});}
+\DoxyCodeLine{295                 entry.setThrown(ex);}
+\DoxyCodeLine{296                 entry.setSourceMethodName(\textcolor{stringliteral}{"storeData"});}
+\DoxyCodeLine{297                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{298                 Starter.logger.error(entry);}
+\DoxyCodeLine{299                 }
+\DoxyCodeLine{300                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{301             \}}
+\DoxyCodeLine{302         \}}
+\DoxyCodeLine{303         }
+\DoxyCodeLine{304         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{305             out = \textcolor{keyword}{new} BufferedWriter(\textcolor{keyword}{new} FileWriter(TABLE));}
+\DoxyCodeLine{306             }
+\DoxyCodeLine{307             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < records.size(); x++ ) \{}
+\DoxyCodeLine{308                 out.write(buildRecordLine(records.get(x)) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{309                 }
+\DoxyCodeLine{310                 LoadMaster.fileProgress.setValue(}
+\DoxyCodeLine{311                         LoadMaster.fileProgress.getValue() -\/ 1);}
+\DoxyCodeLine{312             \}}
+\DoxyCodeLine{313             }
+\DoxyCodeLine{314             out.close();}
+\DoxyCodeLine{315         \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{316             entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{317                     + \textcolor{stringliteral}{"Throwing DataStoreException to calling method..."});}
+\DoxyCodeLine{318             entry.setThrown(ex);}
+\DoxyCodeLine{319             entry.setSourceMethodName(\textcolor{stringliteral}{"storeData"});}
+\DoxyCodeLine{320             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{321             Starter.logger.error(entry);}
+\DoxyCodeLine{322             }
+\DoxyCodeLine{323             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{324         \}}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a18164762a0fcaccd03f16d8f9f93f866}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a18164762a0fcaccd03f16d8f9f93f866}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Broker\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 167 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{167                                                          \{}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{169             row = 0;}
+\DoxyCodeLine{170             }
+\DoxyCodeLine{171             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{172                 broker = records.get(row);}
+\DoxyCodeLine{173             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{174                 broker = \textcolor{keyword}{null};}
+\DoxyCodeLine{175                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{176             \}}
+\DoxyCodeLine{177         \}}
+\DoxyCodeLine{178         }
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} broker;}
+\DoxyCodeLine{180     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_abaa4a06c1d7c21261fd78abe4befdf9b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_abaa4a06c1d7c21261fd78abe4befdf9b}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current broker as a {\ttfamily Broker\+Model} object. 
+
+\begin{DoxyReturn}{Returns}
+The current broker record. 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                              \{}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{112     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a8ec08088afa2c869bf17eab98de7a744}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a8ec08088afa2c869bf17eab98de7a744}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the broker at the specified index as a {\ttfamily Broker\+Model} object. 
+
+If the index provided is not valid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the broker to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The specified broker. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{get\+Record\+Count()}}}, {\ttfamily null} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123                                     \{}
+\DoxyCodeLine{124         \textcolor{keywordflow}{if} ( idx < 0 || idx >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}() )}
+\DoxyCodeLine{125             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{126         }
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{128     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a6b3cbe46932813d0f45a82341b7417e7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a6b3cbe46932813d0f45a82341b7417e7}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 144 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                                         \{}
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{146     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135                                 \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{137     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ae62f8d027252ed452a5993de3ae8d516}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ae62f8d027252ed452a5993de3ae8d516}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Provides a means of determining whether the data table contains at least one more record after the current record. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if there is at least one more record in the table, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155                              \{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{157     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ac6c9def36d85279ed4749b595c02d689}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ac6c9def36d85279ed4749b595c02d689}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Broker\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 190 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190                                                         \{}
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} ( row < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}() ) \{}
+\DoxyCodeLine{192             row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{193             }
+\DoxyCodeLine{194             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{195                 broker = records.get(row);}
+\DoxyCodeLine{196             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{197                 broker = \textcolor{keyword}{null};}
+\DoxyCodeLine{198                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{199             \}}
+\DoxyCodeLine{200         \}}
+\DoxyCodeLine{201         }
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} broker;}
+\DoxyCodeLine{203     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_adba57476d93769feef1a4b54c94fdd93}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_adba57476d93769feef1a4b54c94fdd93}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Broker\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 213 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{213                                                         \{}
+\DoxyCodeLine{214         \textcolor{keywordflow}{if} ( row < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}() ) \{}
+\DoxyCodeLine{215             row++;}
+\DoxyCodeLine{216             }
+\DoxyCodeLine{217             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{218                 broker = records.get(row);}
+\DoxyCodeLine{219             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{220                 broker = \textcolor{keyword}{null};}
+\DoxyCodeLine{221                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{222             \}}
+\DoxyCodeLine{223         \}}
+\DoxyCodeLine{224         }
+\DoxyCodeLine{225         \textcolor{keywordflow}{return} broker;}
+\DoxyCodeLine{226     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ac8b22b6892d0466a57d1035ff20d9fab}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_ac8b22b6892d0466a57d1035ff20d9fab}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Broker\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 236 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{236                                                             \{}
+\DoxyCodeLine{237         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{238             row-\/-\/;}
+\DoxyCodeLine{239             }
+\DoxyCodeLine{240             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{241                 broker = records.get(row);}
+\DoxyCodeLine{242             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{243                 broker = \textcolor{keyword}{null};}
+\DoxyCodeLine{244                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{245             \}}
+\DoxyCodeLine{246         \}}
+\DoxyCodeLine{247         }
+\DoxyCodeLine{248         \textcolor{keywordflow}{return} broker;}
+\DoxyCodeLine{249     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a35ba5300353a95b415a1bb197c6d3ce7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a35ba5300353a95b415a1bb197c6d3ce7}} 
+\index{com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.controller.BrokerCtl@{com.pekinsoft.loadmaster.controller.BrokerCtl}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Broker\+Ctl.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}}}]{cust }\end{DoxyParamCaption})}
+
+
+
+Allows for the updating of an existing customer record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust} & The new data model to use to update the record. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 256 of file Broker\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{256                                          \{}
+\DoxyCodeLine{257             broker = cust;}
+\DoxyCodeLine{258             }
+\DoxyCodeLine{259             records.set(row, broker);}
+\DoxyCodeLine{260     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{BrokerCtl_8java}{Broker\+Ctl.\+java}}\end{DoxyCompactItemize}

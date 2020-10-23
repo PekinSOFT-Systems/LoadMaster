@@ -1,0 +1,104 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Booker Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker}\index{com.pekinsoft.loadmaster.view.Booker@{com.pekinsoft.loadmaster.view.Booker}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Booker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d8/dbc/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Booker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d8/daf/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker_ac3120c54a8dc121b85cd3a20d295ab64}{Booker}} ()
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker}{Booker}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 30 of file Booker.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker_ac3120c54a8dc121b85cd3a20d295ab64}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker_ac3120c54a8dc121b85cd3a20d295ab64}} 
+\index{com.pekinsoft.loadmaster.view.Booker@{com.pekinsoft.loadmaster.view.Booker}!Booker@{Booker}}
+\index{Booker@{Booker}!com.pekinsoft.loadmaster.view.Booker@{com.pekinsoft.loadmaster.view.Booker}}
+\doxysubsubsection{\texorpdfstring{Booker()}{Booker()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Booker.\+Booker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker}{Booker}}. 
+
+
+
+Definition at line 41 of file Booker.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                     \{}
+\DoxyCodeLine{42         isLoading = \textcolor{keyword}{true};}
+\DoxyCodeLine{43         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Creating new Booker object."});}
+\DoxyCodeLine{44         entry.setSourceClassName(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1Booker_ac3120c54a8dc121b85cd3a20d295ab64}{Booker}}.class.getName());}
+\DoxyCodeLine{45         entry.setSourceMethodName(\textcolor{stringliteral}{"Booker"});}
+\DoxyCodeLine{46         entry.setParameters(\textcolor{keyword}{new} Object[]\{\});}
+\DoxyCodeLine{47         Starter.logger.enter(entry);}
+\DoxyCodeLine{48         }
+\DoxyCodeLine{49         initComponents();}
+\DoxyCodeLine{50         }
+\DoxyCodeLine{51         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{52         Date now = \textcolor{keyword}{new} Date();}
+\DoxyCodeLine{53         dispatchDate.setDate(now);}
+\DoxyCodeLine{54         dispatchDate.getEditor().setText(sdf.format(now));}
+\DoxyCodeLine{55         }
+\DoxyCodeLine{56         getRootPane().setDefaultButton(bookLoad);}
+\DoxyCodeLine{57         }
+\DoxyCodeLine{58         entry.setMessage(\textcolor{stringliteral}{"Creating our LoadModel object."});}
+\DoxyCodeLine{59         Starter.logger.config(entry);}
+\DoxyCodeLine{60         load = \textcolor{keyword}{new} LoadModel();}
+\DoxyCodeLine{61         }
+\DoxyCodeLine{62         entry.setMessage(\textcolor{stringliteral}{"Attempting to create our LoadCtl object."});}
+\DoxyCodeLine{63         Starter.logger.config(entry);}
+\DoxyCodeLine{64         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{65             loads = \textcolor{keyword}{new} LoadCtl();}
+\DoxyCodeLine{66             entry.setMessage(\textcolor{stringliteral}{"LoadCtl object successfully created."});}
+\DoxyCodeLine{67             Starter.logger.info(entry);}
+\DoxyCodeLine{68         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{69                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{70                         + \textcolor{stringliteral}{"Throwing DataStoreException to calling method..."});}
+\DoxyCodeLine{71                 entry.setThrown(ex);}
+\DoxyCodeLine{72                 entry.setSourceMethodName(\textcolor{stringliteral}{"connect"});}
+\DoxyCodeLine{73                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{74                 Starter.logger.error(entry);}
+\DoxyCodeLine{75         \}}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         isDirty = \textcolor{keyword}{false};}
+\DoxyCodeLine{78         stopNumber = 0;}
+\DoxyCodeLine{79         isLoading = \textcolor{keyword}{false};}
+\DoxyCodeLine{80         }
+\DoxyCodeLine{81         entry.setMessage(\textcolor{stringliteral}{"Leaving constructor..."});}
+\DoxyCodeLine{82         Starter.logger.exit(entry, \textcolor{keyword}{new} Object[]\{\});}
+\DoxyCodeLine{83     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{Booker_8java}{Booker.\+java}}\end{DoxyCompactItemize}

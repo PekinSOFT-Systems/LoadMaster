@@ -71,7 +71,7 @@ public class BrokerSelector extends javax.swing.JDialog {
         
         Starter.logger.config(lr);
         lr = new LogRecord(Level.ALL, "Logging initialized for BrokerSelector.");
-        lr.setSourceClassName(Brokers.class.getName());
+        lr.setSourceClassName(BrokerEntry.class.getName());
         lr.setSourceMethodName("BrokerSelector");
         Starter.logger.enter(lr);
         

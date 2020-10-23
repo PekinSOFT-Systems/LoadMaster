@@ -345,7 +345,6 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
                     
                     try {
                         ctl = new ReceivablesCtl();
-//                        ReceivablesModel ar = ;
                         ctl.addNew(new ReceivablesModel(
                                 load.getDispatch(),
                                 load.getTrip(),

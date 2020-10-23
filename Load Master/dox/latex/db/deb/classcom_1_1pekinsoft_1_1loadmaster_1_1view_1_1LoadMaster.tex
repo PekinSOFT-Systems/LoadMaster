@@ -1,0 +1,154 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster}\index{com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{da/dda/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d4/d2f/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a650be082a6555790a1174038e23ddb58}{Load\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster}{Load\+Master}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a2e407d80b0ddc159241484176cfe1d46}{set\+Window\+Title}} (String title)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static javax.\+swing.\+J\+Progress\+Bar \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a719fb718a5cb9b248a1fb0c4e7accf61}{file\+Progress}}
+\item 
+static javax.\+swing.\+J\+Progress\+Bar \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}{load\+Progress}}
+\item 
+static javax.\+swing.\+J\+Label \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a64af5411a7c0e3f62ea048f841daca17}{tips\+Label}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 80 of file Load\+Master.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a650be082a6555790a1174038e23ddb58}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a650be082a6555790a1174038e23ddb58}} 
+\index{com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}!LoadMaster@{LoadMaster}}
+\index{LoadMaster@{LoadMaster}!com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}}
+\doxysubsubsection{\texorpdfstring{LoadMaster()}{LoadMaster()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master.\+Load\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster}{Load\+Master}}. 
+
+
+
+Definition at line 87 of file Load\+Master.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87                         \{}
+\DoxyCodeLine{88         record.setSourceClassName(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a650be082a6555790a1174038e23ddb58}{LoadMaster}}.class.getName());}
+\DoxyCodeLine{89         record.setSourceMethodName(\textcolor{stringliteral}{"LoadMaster"});}
+\DoxyCodeLine{90         record.setMessage(\textcolor{stringliteral}{"Initializing the LoadMaster window..."});}
+\DoxyCodeLine{91         Starter.logger.enter(record);}
+\DoxyCodeLine{92         initComponents();}
+\DoxyCodeLine{93         }
+\DoxyCodeLine{94         setTitle(Starter.props.getProjectName() + \textcolor{stringliteral}{" -\/ Current Trip: "} }
+\DoxyCodeLine{95                 + Starter.props.getProperty(\textcolor{stringliteral}{"load.current"}, \textcolor{stringliteral}{"No Active Load"}));        }
+\DoxyCodeLine{96         }
+\DoxyCodeLine{97         versionLabel.setText(\textcolor{stringliteral}{"Version "} + Starter.props.getVersion());}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a719fb718a5cb9b248a1fb0c4e7accf61}{fileProgress}}.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{100         }
+\DoxyCodeLine{101         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(}
+\DoxyCodeLine{102                 \textcolor{stringliteral}{"/com/pekinsoft/loadmaster/res/Northwind16.png"}));}
+\DoxyCodeLine{103         setIconImage(icon);}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         record.setMessage(\textcolor{stringliteral}{"LoadMaster window initialization completed."});}
+\DoxyCodeLine{106         Starter.logger.exit(record, \textcolor{keyword}{null});}
+\DoxyCodeLine{107         }
+\DoxyCodeLine{108         \textcolor{comment}{// Set up the load information.}}
+\DoxyCodeLine{109         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}{loadProgress}}.setMinimum(0);}
+\DoxyCodeLine{110         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}{loadProgress}}.setMaximum(Starter.props.getPropertyAsInt(\textcolor{stringliteral}{"load.stops"}, \textcolor{stringliteral}{"4"}));}
+\DoxyCodeLine{111         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}{loadProgress}}.setValue(Starter.props.getPropertyAsInt(\textcolor{stringliteral}{"load.stop"}, \textcolor{stringliteral}{"1"}));}
+\DoxyCodeLine{112         \textcolor{keywordflow}{if} ( Starter.props.getProperty(\textcolor{stringliteral}{"load.current"}, \textcolor{stringliteral}{"No Active Load"})}
+\DoxyCodeLine{113                 .equalsIgnoreCase(\textcolor{stringliteral}{"No Active Load"}) )}
+\DoxyCodeLine{114             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}{loadProgress}}.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{115     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a2e407d80b0ddc159241484176cfe1d46}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a2e407d80b0ddc159241484176cfe1d46}} 
+\index{com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}!setWindowTitle@{setWindowTitle}}
+\index{setWindowTitle@{setWindowTitle}!com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}}
+\doxysubsubsection{\texorpdfstring{setWindowTitle()}{setWindowTitle()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master.\+set\+Window\+Title (\begin{DoxyParamCaption}\item[{String}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file Load\+Master.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117                                              \{}
+\DoxyCodeLine{118         setTitle(title);}
+\DoxyCodeLine{119     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a719fb718a5cb9b248a1fb0c4e7accf61}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a719fb718a5cb9b248a1fb0c4e7accf61}} 
+\index{com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}!fileProgress@{fileProgress}}
+\index{fileProgress@{fileProgress}!com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}}
+\doxysubsubsection{\texorpdfstring{fileProgress}{fileProgress}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Progress\+Bar com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master.\+file\+Progress\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 849 of file Load\+Master.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a1b6535c0ff1217b11b06e468ef3db097}} 
+\index{com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}!loadProgress@{loadProgress}}
+\index{loadProgress@{loadProgress}!com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}}
+\doxysubsubsection{\texorpdfstring{loadProgress}{loadProgress}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Progress\+Bar com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master.\+load\+Progress\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 852 of file Load\+Master.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a64af5411a7c0e3f62ea048f841daca17}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1LoadMaster_a64af5411a7c0e3f62ea048f841daca17}} 
+\index{com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}!tipsLabel@{tipsLabel}}
+\index{tipsLabel@{tipsLabel}!com.pekinsoft.loadmaster.view.LoadMaster@{com.pekinsoft.loadmaster.view.LoadMaster}}
+\doxysubsubsection{\texorpdfstring{tipsLabel}{tipsLabel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Label com.\+pekinsoft.\+loadmaster.\+view.\+Load\+Master.\+tips\+Label\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 862 of file Load\+Master.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{LoadMaster_8java}{Load\+Master.\+java}}\end{DoxyCompactItemize}

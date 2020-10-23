@@ -1,0 +1,136 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog}\index{com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{df/da2/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d2/da5/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_ad189a765e72ccc53592d1715a481725e}{Depart\+Pickup\+Dialog}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartDeliveryDialog}{Depart\+Delivery\+Dialog}}. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_a7004fe01cf3c6b72e228e23f37566a85}{get\+Bill\+Of\+Lading\+Number}} ()
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_afc3eb50c8b8ed292b253a3ed84c16032}{get\+Piece\+Count}} ()
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_a58a8bdb92b11a3381fa6bdc51a1aea4b}{get\+Weight}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 45 of file Depart\+Pickup\+Dialog.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_ad189a765e72ccc53592d1715a481725e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_ad189a765e72ccc53592d1715a481725e}} 
+\index{com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}!DepartPickupDialog@{DepartPickupDialog}}
+\index{DepartPickupDialog@{DepartPickupDialog}!com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}}
+\doxysubsubsection{\texorpdfstring{DepartPickupDialog()}{DepartPickupDialog()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog.\+Depart\+Pickup\+Dialog (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartDeliveryDialog}{Depart\+Delivery\+Dialog}}. 
+
+
+
+Definition at line 54 of file Depart\+Pickup\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                                                     \{}
+\DoxyCodeLine{55         super(parent, modal);}
+\DoxyCodeLine{56         initComponents();}
+\DoxyCodeLine{57         }
+\DoxyCodeLine{58         getRootPane().setDefaultButton(okButton);}
+\DoxyCodeLine{59         }
+\DoxyCodeLine{60         \textcolor{comment}{// Center the dialog on the screen.}}
+\DoxyCodeLine{61         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{62         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{63         }
+\DoxyCodeLine{64         left = ( left -\/ getWidth() ) / 2;}
+\DoxyCodeLine{65         top = ( top -\/ getHeight() ) / 2;}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         setLocation(left, top);}
+\DoxyCodeLine{68     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_a7004fe01cf3c6b72e228e23f37566a85}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_a7004fe01cf3c6b72e228e23f37566a85}} 
+\index{com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}!getBillOfLadingNumber@{getBillOfLadingNumber}}
+\index{getBillOfLadingNumber@{getBillOfLadingNumber}!com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}}
+\doxysubsubsection{\texorpdfstring{getBillOfLadingNumber()}{getBillOfLadingNumber()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog.\+get\+Bill\+Of\+Lading\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 74 of file Depart\+Pickup\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74                                           \{}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} bol;}
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_afc3eb50c8b8ed292b253a3ed84c16032}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_afc3eb50c8b8ed292b253a3ed84c16032}} 
+\index{com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}!getPieceCount@{getPieceCount}}
+\index{getPieceCount@{getPieceCount}!com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}}
+\doxysubsubsection{\texorpdfstring{getPieceCount()}{getPieceCount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog.\+get\+Piece\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file Depart\+Pickup\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                                \{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} pieces;}
+\DoxyCodeLine{80     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_a58a8bdb92b11a3381fa6bdc51a1aea4b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1DepartPickupDialog_a58a8bdb92b11a3381fa6bdc51a1aea4b}} 
+\index{com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!com.pekinsoft.loadmaster.view.DepartPickupDialog@{com.pekinsoft.loadmaster.view.DepartPickupDialog}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+view.\+Depart\+Pickup\+Dialog.\+get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file Depart\+Pickup\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82                            \{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} weight;}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{DepartPickupDialog_8java}{Depart\+Pickup\+Dialog.\+java}}\end{DoxyCompactItemize}

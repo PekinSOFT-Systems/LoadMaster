@@ -61,23 +61,31 @@ public class SettingsDialog extends javax.swing.JDialog {
     }
     
     private void loadProperties() {
-//        settingsTabbedPane.remove(accountingTab);
         settingsTabbedPane.remove(numberingTab);
         orderPrefixField.setEnabled(false);
         tripPrefixField.setEnabled(false);
         invoicePrefixField.setEnabled(false);
         
-        truckNumberField.setText(Starter.props.getProperty("truck.number", "[NOT SET]"));
+        truckNumberField.setText(Starter.props.getProperty("truck.number", 
+                "[NOT SET]"));
         vinField.setText(Starter.props.getProperty("truck.vin", "[NOT SET]"));
-        makeList.setSelectedItem(Starter.props.getProperty("truck.make", "Select Make..."));
+        makeList.setSelectedItem(Starter.props.getProperty("truck.make", 
+                "Select Make..."));
         modelField.setText(Starter.props.getProperty("truck.model", "[NOT SET]"));
-        odometerField.setText(Starter.props.getProperty("truck.start.odometer", "0"));
-        trailerNumberField.setText(Starter.props.getProperty("trailer.number", "[NOT SET]"));
-        trailerVINField.setText(Starter.props.getProperty("trailer.vin", "[NOT SET]"));
-        trailerMakeField.setText(Starter.props.getProperty("trailer.make", "[NOT SET]"));
-        trailerModelField.setText(Starter.props.getProperty("trailer.model", "[NOT SET]"));
-        companyNameField.setText(Starter.props.getProperty("company.name", "[NOT SET]"));
-        companyTypeList.setSelectedItem(Starter.props.getProperty("company.type", "Select Organization Type..."));
+        odometerField.setText(Starter.props.getProperty("truck.start.odometer", 
+                "0"));
+        trailerNumberField.setText(Starter.props.getProperty("trailer.number",
+                "[NOT SET]"));
+        trailerVINField.setText(Starter.props.getProperty("trailer.vin", 
+                "[NOT SET]"));
+        trailerMakeField.setText(Starter.props.getProperty("trailer.make",
+                "[NOT SET]"));
+        trailerModelField.setText(Starter.props.getProperty("trailer.model", 
+                "[NOT SET]"));
+        companyNameField.setText(Starter.props.getProperty("company.name", 
+                "[NOT SET]"));
+        companyTypeList.setSelectedItem(Starter.props.getProperty("company.type",
+                "Select Organization Type..."));
         streetField.setText(Starter.props.getProperty("company.street", ""));
         suiteField.setText(Starter.props.getProperty("company.suite", ""));
         cityField.setText(Starter.props.getProperty("company.city", ""));
@@ -86,33 +94,42 @@ public class SettingsDialog extends javax.swing.JDialog {
         phoneField.setText(Starter.props.getProperty("company.phone", ""));
         faxField.setText(Starter.props.getProperty("company.fax", ""));
         emailField.setText(Starter.props.getProperty("company.email", ""));
-        chkAuthority.setSelected(Starter.props.getPropertyAsBoolean("authority", "false"));
-        orderPrefixList.setSelectedItem(Starter.props.getProperty("order.prefix", "Select Prefix..."));
-        orderPrefixField.setText(Starter.props.getProperty("order.prefix.value", ""));
+        chkAuthority.setSelected(Starter.props.getPropertyAsBoolean("authority",
+                "false"));
+        orderPrefixList.setSelectedItem(Starter.props.getProperty("order.prefix",
+                "Select Prefix..."));
+        orderPrefixField.setText(Starter.props.getProperty("order.prefix.value",
+                ""));
         orderMinField.setText(Starter.props.getProperty("order.min", ""));
         orderMaxField.setText(Starter.props.getProperty("order.max", ""));
-        tripPrefixList.setSelectedItem(Starter.props.getProperty("trip.prefix", "Select Prefix..."));
-        tripPrefixField.setText(Starter.props.getProperty("trip.prefix.value", ""));
+        tripPrefixList.setSelectedItem(Starter.props.getProperty("trip.prefix", 
+                "Select Prefix..."));
+        tripPrefixField.setText(Starter.props.getProperty("trip.prefix.value",
+                ""));
         tripMinField.setText(Starter.props.getProperty("trip.min", ""));
         tripMaxField.setText(Starter.props.getProperty("trip.max", ""));
-        invoicePrefixList.setSelectedItem(Starter.props.getProperty("invoice.prefix", "Select Prefix..."));
-        invoicePrefixField.setText(Starter.props.getProperty("invoice.prefix.value", ""));
+        invoicePrefixList.setSelectedItem(Starter.props.getProperty(
+                "invoice.prefix", "Select Prefix..."));
+        invoicePrefixField.setText(Starter.props.getProperty(
+                "invoice.prefix.value", ""));
         invoiceMinField.setText(Starter.props.getProperty("invoice.min", ""));
         invoiceMaxField.setText(Starter.props.getProperty("invoice.max", "")
                 + System.getProperty("file.separator") + "data"
                 + System.getProperty("file.separator"));
-        dataField.setText(Starter.props.getProperty("data.directory", AppProperties.APP_DIR + "data"
+        dataField.setText(Starter.props.getProperty("data.directory", 
+                AppProperties.APP_DIR + "data"
                 + System.getProperty("file.separator")));
-        logField.setText(AppProperties.APP_DIR
-                /*+ System.getProperty("file.separator")*/ + "var"
+        logField.setText(AppProperties.APP_DIR + "var"
                 + System.getProperty("file.separator") + "log"
                 + System.getProperty("file.separator"));
-        errorField.setText(AppProperties.APP_DIR
-                /*+ System.getProperty("file.separator")*/ + "var" 
+        errorField.setText(AppProperties.APP_DIR + "var" 
                 + System.getProperty("file.separator") + "err"
                 + System.getProperty("file.separator"));
         configField.setText(AppProperties.APP_DIR);
-        batchCheckBox.setSelected(Starter.props.getPropertyAsBoolean("acct.batch", "false"));
+        batchCheckBox.setSelected(Starter.props.getPropertyAsBoolean("acct.batch", 
+                "false"));
+        maxAdvanceSpinner.setValue(Starter.props.getPropertyAsInt(
+                "acct.max.advance", "50"));
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
@@ -163,6 +180,8 @@ public class SettingsDialog extends javax.swing.JDialog {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Starter.props.setProperty("acct.fiscal.start", sdf.format(fiscalStartPicker.getDate()));
         Starter.props.setPropertyAsBoolean("acct.batch", batchCheckBox.isSelected());
+        Starter.props.setPropertyAsInt("acct.max.advance", 
+                Integer.valueOf(maxAdvanceSpinner.getValue().toString()));
         
         Starter.props.flush();
         
@@ -232,6 +251,11 @@ public class SettingsDialog extends javax.swing.JDialog {
         faxField = new javax.swing.JFormattedTextField();
         jLabel22 = new javax.swing.JLabel();
         emailField = new javax.swing.JTextField();
+        authorityPane = new javax.swing.JPanel();
+        dotLabel = new javax.swing.JLabel();
+        dotField = new javax.swing.JFormattedTextField();
+        mccLabel = new javax.swing.JLabel();
+        mccField = new javax.swing.JFormattedTextField();
         numberingTab = new javax.swing.JPanel();
         orderPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -271,6 +295,8 @@ public class SettingsDialog extends javax.swing.JDialog {
         fiscalStartLabel = new javax.swing.JLabel();
         fiscalStartPicker = new org.jdesktop.swingx.JXDatePicker();
         batchCheckBox = new javax.swing.JCheckBox();
+        maxAdvanceLabel = new javax.swing.JLabel();
+        maxAdvanceSpinner = new javax.swing.JSpinner();
         commandPanel = new javax.swing.JPanel();
         closeButton = new javax.swing.JButton();
 
@@ -382,7 +408,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(odometerField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(vinField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         truckInfoPanelLayout.setVerticalGroup(
             truckInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,6 +599,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 checkEnterKey(evt);
             }
         });
+        authorityPane.setVisible(chkAuthority.isSelected());
 
         jLabel12.setText("Street:");
 
@@ -602,6 +629,44 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         jLabel22.setText("Email:");
 
+        authorityPane.setBorder(javax.swing.BorderFactory.createTitledBorder("Authority Information"));
+
+        dotLabel.setText("DOT Number:");
+
+        dotField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####0"))));
+
+        mccLabel.setText("MCC Number:");
+
+        mccField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####0"))));
+
+        javax.swing.GroupLayout authorityPaneLayout = new javax.swing.GroupLayout(authorityPane);
+        authorityPane.setLayout(authorityPaneLayout);
+        authorityPaneLayout.setHorizontalGroup(
+            authorityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(authorityPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(authorityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mccLabel)
+                    .addComponent(dotLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(authorityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dotField)
+                    .addComponent(mccField))
+                .addContainerGap())
+        );
+        authorityPaneLayout.setVerticalGroup(
+            authorityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(authorityPaneLayout.createSequentialGroup()
+                .addGroup(authorityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dotLabel)
+                    .addComponent(dotField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(authorityPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mccLabel)
+                    .addComponent(mccField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout companyTabLayout = new javax.swing.GroupLayout(companyTab);
         companyTab.setLayout(companyTabLayout);
         companyTabLayout.setHorizontalGroup(
@@ -611,46 +676,52 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addComponent(chkAuthority)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(companyTabLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(companyNameField)
                     .addGroup(companyTabLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(companyNameField)
                             .addGroup(companyTabLayout.createSequentialGroup()
-                                .addComponent(streetField)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel13))
-                            .addGroup(companyTabLayout.createSequentialGroup()
-                                .addComponent(cityField)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel15)
+                                .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(companyTabLayout.createSequentialGroup()
+                                        .addComponent(streetField)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel13))
+                                    .addGroup(companyTabLayout.createSequentialGroup()
+                                        .addComponent(cityField)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel16)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(zipField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                    .addComponent(suiteField)))
+                            .addGroup(companyTabLayout.createSequentialGroup()
+                                .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(companyTabLayout.createSequentialGroup()
+                                .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel16)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(companyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(zipField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                            .addComponent(suiteField)))
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(companyTypeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(companyTabLayout.createSequentialGroup()
-                        .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(companyTabLayout.createSequentialGroup()
-                        .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(companyTypeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(authorityPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(305, 305, 305)))
                 .addContainerGap())
         );
         companyTabLayout.setVerticalGroup(
@@ -688,7 +759,9 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkAuthority)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(authorityPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         settingsTabbedPane.addTab("Company", companyTab);
@@ -727,7 +800,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orderMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         orderPanelLayout.setVerticalGroup(
             orderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -899,7 +972,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addComponent(dataField)
                     .addComponent(logField)
                     .addComponent(errorField)
-                    .addComponent(configField, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE))
+                    .addComponent(configField, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dataBrowseButton)
                 .addContainerGap())
@@ -934,18 +1007,30 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         batchCheckBox.setText("Use Batch Posting Method");
 
+        maxAdvanceLabel.setText("<html>\n<body>\nCompanies typically only allow X% of the gross revenue on the load to be taken as an advance. In the field below, set the maximum percentage your company allows you to take from the gross truck pay, prior to the load being delivered.</body></html>");
+
+        maxAdvanceSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 5));
+
         javax.swing.GroupLayout accountingTabLayout = new javax.swing.GroupLayout(accountingTab);
         accountingTab.setLayout(accountingTabLayout);
         accountingTabLayout.setHorizontalGroup(
             accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(accountingTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(fiscalStartLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fiscalStartPicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(batchCheckBox)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(maxAdvanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(accountingTabLayout.createSequentialGroup()
+                        .addComponent(fiscalStartLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fiscalStartPicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(batchCheckBox)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(accountingTabLayout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addComponent(maxAdvanceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         accountingTabLayout.setVerticalGroup(
             accountingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -955,7 +1040,11 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addComponent(fiscalStartLabel)
                     .addComponent(fiscalStartPicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(batchCheckBox))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(maxAdvanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(maxAdvanceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         settingsTabbedPane.addTab("Accounting", accountingTab);
@@ -1006,24 +1095,26 @@ public class SettingsDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
-        if ( evt.getSource() instanceof javax.swing.JTextField )
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-    }//GEN-LAST:event_doSelection
-
-    private void doDeselection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doDeselection
-        if ( evt.getSource() instanceof javax.swing.JTextField )
-            ((javax.swing.JTextField)evt.getSource()).select(0, 0);
-    }//GEN-LAST:event_doDeselection
-
-    private void checkEnterKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterKey
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-            doClose();
-    }//GEN-LAST:event_checkEnterKey
-
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         doClose();
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void invoicePrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_invoicePrefixListItemStateChanged
+        toggleFields();
+    }//GEN-LAST:event_invoicePrefixListItemStateChanged
+
+    private void tripPrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tripPrefixListItemStateChanged
+        toggleFields();
+    }//GEN-LAST:event_tripPrefixListItemStateChanged
+
+    private void orderPrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderPrefixListItemStateChanged
+        toggleFields();
+    }//GEN-LAST:event_orderPrefixListItemStateChanged
+
+    private void checkEnterKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterKey
+        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
+        doClose();
+    }//GEN-LAST:event_checkEnterKey
 
     private void chkAuthorityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chkAuthorityStateChanged
         // If the authority checkbox is checked, we want to show the numbering
@@ -1031,24 +1122,24 @@ public class SettingsDialog extends javax.swing.JDialog {
         if ( chkAuthority.isSelected() ) {
             settingsTabbedPane.add(numberingTab, 2);
             settingsTabbedPane.setTitleAt(2, "Numbering");
+            authorityPane.setVisible(chkAuthority.isSelected());
         } else
-            settingsTabbedPane.remove(numberingTab);
+        settingsTabbedPane.remove(numberingTab);
     }//GEN-LAST:event_chkAuthorityStateChanged
 
-    private void orderPrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderPrefixListItemStateChanged
-        toggleFields();
-    }//GEN-LAST:event_orderPrefixListItemStateChanged
+    private void doDeselection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doDeselection
+        if ( evt.getSource() instanceof javax.swing.JTextField )
+        ((javax.swing.JTextField)evt.getSource()).select(0, 0);
+    }//GEN-LAST:event_doDeselection
 
-    private void tripPrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tripPrefixListItemStateChanged
-        toggleFields();
-    }//GEN-LAST:event_tripPrefixListItemStateChanged
-
-    private void invoicePrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_invoicePrefixListItemStateChanged
-        toggleFields();
-    }//GEN-LAST:event_invoicePrefixListItemStateChanged
+    private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
+        if ( evt.getSource() instanceof javax.swing.JTextField )
+        ((javax.swing.JTextField)evt.getSource()).selectAll();
+    }//GEN-LAST:event_doSelection
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel accountingTab;
+    private javax.swing.JPanel authorityPane;
     private javax.swing.JCheckBox batchCheckBox;
     private javax.swing.JCheckBox chkAuthority;
     private javax.swing.JTextField cityField;
@@ -1061,6 +1152,8 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JButton dataBrowseButton;
     private javax.swing.JTextField dataField;
     private javax.swing.JPanel directoriesTab;
+    private javax.swing.JFormattedTextField dotField;
+    private javax.swing.JLabel dotLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JTextField errorField;
     private javax.swing.JFormattedTextField faxField;
@@ -1106,6 +1199,10 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField logField;
     private javax.swing.JComboBox<String> makeList;
+    private javax.swing.JLabel maxAdvanceLabel;
+    private javax.swing.JSpinner maxAdvanceSpinner;
+    private javax.swing.JFormattedTextField mccField;
+    private javax.swing.JLabel mccLabel;
     private javax.swing.JTextField modelField;
     private javax.swing.JPanel numberingTab;
     private javax.swing.JFormattedTextField odometerField;

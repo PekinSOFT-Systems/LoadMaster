@@ -1,0 +1,114 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Selector Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector}\index{com.pekinsoft.loadmaster.view.BrokerSelector@{com.pekinsoft.loadmaster.view.BrokerSelector}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Selector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d9/d5c/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Selector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dd/dec/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector_a3546fd9b47482d4a61717eb55dec858b}{Broker\+Selector}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector}{Broker\+Selector}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector_a64676fbdca2de25b79c2bed7b7f0fcdb}{get\+Selected\+Broker}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 56 of file Broker\+Selector.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector_a3546fd9b47482d4a61717eb55dec858b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector_a3546fd9b47482d4a61717eb55dec858b}} 
+\index{com.pekinsoft.loadmaster.view.BrokerSelector@{com.pekinsoft.loadmaster.view.BrokerSelector}!BrokerSelector@{BrokerSelector}}
+\index{BrokerSelector@{BrokerSelector}!com.pekinsoft.loadmaster.view.BrokerSelector@{com.pekinsoft.loadmaster.view.BrokerSelector}}
+\doxysubsubsection{\texorpdfstring{BrokerSelector()}{BrokerSelector()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Selector.\+Broker\+Selector (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector}{Broker\+Selector}}. 
+
+
+
+Definition at line 66 of file Broker\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                                                 \{}
+\DoxyCodeLine{67         super(parent, modal);}
+\DoxyCodeLine{68         }
+\DoxyCodeLine{69         Starter.logger.config(lr);}
+\DoxyCodeLine{70         lr = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initialized for BrokerSelector."});}
+\DoxyCodeLine{71         lr.setSourceClassName(Brokers.class.getName());}
+\DoxyCodeLine{72         lr.setSourceMethodName(\textcolor{stringliteral}{"BrokerSelector"});}
+\DoxyCodeLine{73         Starter.logger.enter(lr);}
+\DoxyCodeLine{74         }
+\DoxyCodeLine{75         lr.setMessage(\textcolor{stringliteral}{"Attempting to access the brokers database..."});}
+\DoxyCodeLine{76         Starter.logger.debug(lr);}
+\DoxyCodeLine{77         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{78             records = \textcolor{keyword}{new} BrokerCtl();}
+\DoxyCodeLine{79             lr.setMessage(\textcolor{stringliteral}{"Brokers database accessed successfully!"});}
+\DoxyCodeLine{80             Starter.logger.info(lr);}
+\DoxyCodeLine{81         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{82             lr.setMessage(\textcolor{stringliteral}{"Something went wrong accessing the brokers database."});}
+\DoxyCodeLine{83             lr.setThrown(ex);}
+\DoxyCodeLine{84             Starter.logger.error(lr);}
+\DoxyCodeLine{85             }
+\DoxyCodeLine{86             MessageBox.showError(ex, \textcolor{stringliteral}{"Database Access"});}
+\DoxyCodeLine{87             }
+\DoxyCodeLine{88             records = \textcolor{keyword}{null};}
+\DoxyCodeLine{89         \}}
+\DoxyCodeLine{90         }
+\DoxyCodeLine{91         initComponents();}
+\DoxyCodeLine{92         }
+\DoxyCodeLine{93         loadBrokerList();}
+\DoxyCodeLine{94         }
+\DoxyCodeLine{95         setLocation(ScreenUtils.centerDialog(\textcolor{keyword}{this}));}
+\DoxyCodeLine{96     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector_a64676fbdca2de25b79c2bed7b7f0fcdb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerSelector_a64676fbdca2de25b79c2bed7b7f0fcdb}} 
+\index{com.pekinsoft.loadmaster.view.BrokerSelector@{com.pekinsoft.loadmaster.view.BrokerSelector}!getSelectedBroker@{getSelectedBroker}}
+\index{getSelectedBroker@{getSelectedBroker}!com.pekinsoft.loadmaster.view.BrokerSelector@{com.pekinsoft.loadmaster.view.BrokerSelector}}
+\doxysubsubsection{\texorpdfstring{getSelectedBroker()}{getSelectedBroker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1BrokerModel}{Broker\+Model}} com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Selector.\+get\+Selected\+Broker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file Broker\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{130                                            \{}
+\DoxyCodeLine{131         \textcolor{keywordflow}{return} broker;}
+\DoxyCodeLine{132     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{BrokerSelector_8java}{Broker\+Selector.\+java}}\end{DoxyCompactItemize}

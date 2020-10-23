@@ -1,0 +1,89 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+verifiers.\+State\+Abbr\+Verifier Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier}\index{com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier@{com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+verifiers.\+State\+Abbr\+Verifier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{d2/d6f/classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+verifiers.\+State\+Abbr\+Verifier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{dd/d37/classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier_a679e4a510853e99c2cf694827b092a6c}{verify}} (J\+Component input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$Integrity\+Trucking at outlook dot com$>$ 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 33 of file State\+Abbr\+Verifier.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier_a679e4a510853e99c2cf694827b092a6c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1StateAbbrVerifier_a679e4a510853e99c2cf694827b092a6c}} 
+\index{com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier@{com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier}!verify@{verify}}
+\index{verify@{verify}!com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier@{com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+verifiers.\+State\+Abbr\+Verifier.\+verify (\begin{DoxyParamCaption}\item[{J\+Component}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file State\+Abbr\+Verifier.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                             \{}
+\DoxyCodeLine{42         \textcolor{comment}{// In order to validate the input, we need to first check that the}}
+\DoxyCodeLine{43         \textcolor{comment}{//+ parameter is an instance of JTextField.}}
+\DoxyCodeLine{44         String abbr = \textcolor{keyword}{new} String();}
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} ( input instanceof JTextField ) \{}
+\DoxyCodeLine{46             abbr = ((JTextField) input).getText();}
+\DoxyCodeLine{47         \}}
+\DoxyCodeLine{48         }
+\DoxyCodeLine{49         \textcolor{keywordflow}{if} ( abbr != \textcolor{keyword}{null} \&\& !abbr.isBlank() \&\& !abbr.isEmpty() ) \{}
+\DoxyCodeLine{50             \textcolor{keywordflow}{if} ( !Utils.createStateAbbreviations().contains(abbr) ) \{}
+\DoxyCodeLine{51                 ((JTextField) input).setBackground(errBack);}
+\DoxyCodeLine{52                 ((JTextField) input).setForeground(errFore);}
+\DoxyCodeLine{53                 Customers.helpPanel.setBackground(errBack);}
+\DoxyCodeLine{54                 Customers.helpLabel.setText(\textcolor{stringliteral}{"State is required and must be a"}}
+\DoxyCodeLine{55                         + \textcolor{stringliteral}{"valid US State or Canadian Province."});}
+\DoxyCodeLine{56             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{57                 ((JTextField) input).setBackground(back);}
+\DoxyCodeLine{58                 ((JTextField) input).setForeground(fore);}
+\DoxyCodeLine{59                 Customers.helpPanel.setBackground(ctl);}
+\DoxyCodeLine{60                 Customers.helpLabel.setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{61             \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63             \textcolor{keywordflow}{return} Utils.createStateAbbreviations().contains(abbr);}
+\DoxyCodeLine{64         \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{65             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{66     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/verifiers/\mbox{\hyperlink{StateAbbrVerifier_8java}{State\+Abbr\+Verifier.\+java}}\end{DoxyCompactItemize}

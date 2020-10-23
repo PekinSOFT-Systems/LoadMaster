@@ -275,6 +275,10 @@ public class EntryCtl {
         return records.get(idx);
     }
     
+    public String[] getAsStringArray() {
+        return buildRecordLine(get()).split("~");
+    }
+    
     /**
      * Retrieves the current record number of the record in this ledger.
      * 
@@ -406,10 +410,10 @@ public class EntryCtl {
     }
     
     private String buildRecordLine(EntryModel model) {
-        return record.getDateAsString() + "~" + record.getCode() + "~"
-                + record.getDescription() + "~" + record.getFromAccount()
-                + "~" + record.getToAccount() + "~" + record.getAmount()
-                + "~" + record.isDeductible() + "~" + record.isBalanced();
+        return model.getDateAsString() + "~" + model.getCode() + "~"
+                + model.getDescription() + "~" + model.getFromAccount()
+                + "~" + model.getToAccount() + "~" + model.getAmount()
+                + "~" + model.isDeductible() + "~" + model.isBalanced();
     }
     
     private void createAndAddRecord(String[] line) {

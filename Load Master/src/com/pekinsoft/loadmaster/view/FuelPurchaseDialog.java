@@ -35,6 +35,7 @@ import com.pekinsoft.loadmaster.controller.EntryCtl;
 import com.pekinsoft.loadmaster.controller.FuelPurchaseCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.EntryModel;
+import com.pekinsoft.loadmaster.model.FuelCardModel;
 import com.pekinsoft.loadmaster.model.FuelPurchaseModel;
 import java.awt.Toolkit;
 import java.text.DecimalFormat;
@@ -52,6 +53,7 @@ import org.jdesktop.swingx.JXDatePicker;
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  */
 public class FuelPurchaseDialog extends javax.swing.JDialog {
+
     private LogRecord entry;
 
     /**
@@ -64,24 +66,24 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         entry.setSourceMethodName("FuelPurchaseDialog (Constructor)");
         entry.setParameters(new Object[]{parent, modal});
         Starter.logger.enter(entry);
-        
+
         initComponents();
-        
+
         getRootPane().setDefaultButton(okButton);
-        
-        int left = (Toolkit.getDefaultToolkit().getScreenSize().width 
-                - getWidth() ) / 2;
-        int top = (Toolkit.getDefaultToolkit().getScreenSize().height 
-                - getHeight() ) / 2;
+
+        int left = (Toolkit.getDefaultToolkit().getScreenSize().width
+                - getWidth()) / 2;
+        int top = (Toolkit.getDefaultToolkit().getScreenSize().height
+                - getHeight()) / 2;
         setLocation(left, top);
-        
+
         defPanel.setVisible(defCheckBox.isSelected());
     }
-    
+
     private void doClose() {
         dispose();
     }
-    
+
     private void doSave() {
         // First thing to do is to store the fuel purchase to the journal.
         FuelPurchaseModel purchase = new FuelPurchaseModel();
@@ -93,7 +95,7 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
             purchase.setGallonsOfDiesel(amt.doubleValue());
             amt = nf.parse(dieselPriceField.getText());
             purchase.setPricePerGallonDiesel(amt.doubleValue());
-        } catch ( ParseException ex ) {
+        } catch (ParseException ex) {
             entry.setSourceMethodName("doSave");
             entry.setMessage(ex.getMessage());
             entry.setParameters(null);
@@ -102,16 +104,16 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         }
         purchase.setNotes(notesField.getText());
         purchase.setId(Long.parseLong(idField.getText()));
-        
+
         // Now, store the DEF information, if DEF was purchased.
-        if ( defCheckBox.isSelected() ) {
+        if (defCheckBox.isSelected()) {
             try {
                 NumberFormat nf = new DecimalFormat("#,##0.000");
                 Number amt = nf.parse(defGallonsField.getText());
                 purchase.setGallonsOfDef(amt.doubleValue());
                 amt = nf.parse(defPriceField.getText());
                 purchase.setPricePerGallonDef(amt.doubleValue());
-            } catch ( ParseException ex ) {
+            } catch (ParseException ex) {
                 entry.setSourceMethodName("doSave");
                 entry.setMessage(ex.getMessage());
                 entry.setParameters(null);
@@ -122,7 +124,11 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
             purchase.setGallonsOfDef(0.0);
             purchase.setPricePerGallonDef(0.0);
         }
-        
+
+        purchase.setTripNumber(Starter.props.getProperty("load.current",
+                "No Active Load"));
+        purchase.setPosted(false);
+
         // Now that we have created our FuelPurchaseModel object and provided it
         //+ its data, we can add it to the Fuel Account Journal.
         FuelPurchaseModel model = new FuelPurchaseModel();
@@ -136,95 +142,28 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         model.setLocation(locationField.getText());
         model.setNotes(notesField.getText());
         model.setOdometer(odometerField.getText());
-        
+
         try {
             FuelPurchaseCtl records = new FuelPurchaseCtl();
+
+            if ( !Starter.props.getPropertyAsBoolean("acct.batch", "false") ) {
+                model.setPosted(records.postTransactions());
+            }
             
             records.addNew(model);
+            
             records.close();
-            
-        } catch ( DataStoreException ex ) {
-            
+
+        } catch (DataStoreException ex) {
+
         }
-        
-        // Since the batch EntryCtl object is not null, the user is using 
-        //+ the batch posting method, so we need to add this transaction to
-        //+ the batch of transactions.
-        EntryModel transaction = new EntryModel();
-        transaction.setAmount(purchase.getGallonsOfDiesel() 
-                * purchase.getPricePerGallonDiesel());
-        transaction.setBalanced(false);
-        transaction.setCode("Diesel");
-        transaction.setDate(purchase.getDate());
-        transaction.setDeductible(true);
-        transaction.setDescription(purchase.getGallonsOfDiesel() 
-                + " gallons at " + purchase.getLocation());
-        transaction.setFromAccount(50040);
-        transaction.setToAccount(10040);
 
         // If the user is using the batch posting method, we need to add this
         //+ purchase to the batch.
-        if ( LoadMaster.batch != null ) 
-            LoadMaster.batch.addNew(transaction);
-        else {
-            // We need to get our general ledger and add this transaction to it.
-            try {
-                // Get our General Ledger.
-                EntryCtl ledger = new EntryCtl();
-                
-                // Add our new transaction to it.
-                ledger.addNew(transaction);
-                
-                // Close the General Ledger, thereby writing the data out to it.
-                ledger.close();
-            } catch ( DataStoreException ex ) {
-                entry.setSourceMethodName("doSave");
-                entry.setMessage(ex.getMessage());
-                entry.setParameters(null);
-                entry.setThrown(ex);
-                Starter.logger.error(entry);
-            }
+        if (!Starter.props.getPropertyAsBoolean("acct.batch", "false")) {
+            
         }
 
-        // Next, we need to check to see if DEF was also purchased.
-        if ( purchase.isDefPurchased() ) {
-            // We need to create a new transaction for this purchase.
-            transaction = new EntryModel();
-            transaction.setAmount(purchase.getGallonsOfDef() 
-                    * purchase.getPricePerGallonDef());
-            transaction.setBalanced(false);
-            transaction.setCode("DEF");
-            transaction.setDate(purchase.getDate());
-            transaction.setDeductible(true);
-            transaction.setDescription(purchase.getGallonsOfDef() 
-                    + " gallons at " + purchase.getLocation());
-            transaction.setFromAccount(50040);
-            transaction.setToAccount(10040);
-
-            // If the user is using the batch posting method, we need to add this
-            //+ purchase to the batch.
-            if ( LoadMaster.batch != null ) 
-                LoadMaster.batch.addNew(transaction);
-        } else {
-            // We need to get our general ledger and add this transaction to it.
-            try {
-                // Get our General Ledger.
-                EntryCtl ledger = new EntryCtl();
-                
-                // Add our new transaction to it.
-                ledger.addNew(transaction);
-                
-                // Close the General Ledger, thereby writing the data out to it.
-                ledger.close();
-            } catch ( DataStoreException ex ) {
-                entry.setSourceMethodName("doSave");
-                entry.setMessage(ex.getMessage());
-                entry.setParameters(null);
-                entry.setThrown(ex);
-                Starter.logger.error(entry);
-            }
-        }
-        
         // Leave as last statement.
         doClose();
     }
@@ -458,6 +397,11 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/ok.png"))); // NOI18N
         okButton.setMnemonic('O');
         okButton.setText("OK");
+        okButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okButtonActionPerformed(evt);
+            }
+        });
         okButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkForEscape(evt);
@@ -566,7 +510,7 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
     private void checkForEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkForEscape
         // If the user types the ESCAPE key, we need do nothing except dispose 
         //+ of this dialog.
-        if ( evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE )
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE)
             doClose();
     }//GEN-LAST:event_checkForEscape
 
@@ -578,17 +522,21 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
 
     private void selectText(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_selectText
         JTextComponent txt = null;
-        if ( evt.getSource() instanceof JXDatePicker ) {
-            txt = ((JXDatePicker)evt.getSource()).getEditor();
-        } else if ( evt.getSource() instanceof JFormattedTextField ) {
-            txt = (JFormattedTextField)evt.getSource();
-        } else if ( evt.getSource() instanceof JTextField ) {
-            txt = (JTextField)evt.getSource();
+        if (evt.getSource() instanceof JXDatePicker) {
+            txt = ((JXDatePicker) evt.getSource()).getEditor();
+        } else if (evt.getSource() instanceof JFormattedTextField) {
+            txt = (JFormattedTextField) evt.getSource();
+        } else if (evt.getSource() instanceof JTextField) {
+            txt = (JTextField) evt.getSource();
         }
-        
-        if ( txt != null ) 
+
+        if (txt != null)
             txt.selectAll();
     }//GEN-LAST:event_selectText
+
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_okButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;

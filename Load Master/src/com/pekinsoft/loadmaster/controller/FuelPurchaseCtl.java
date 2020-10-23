@@ -26,14 +26,21 @@
  * 
  *   WHEN          BY                  REASON
  *   ------------  ------------------- ------------------------------------------
- *   Oct 21, 2020    Sean Carrick Initial Creation.
+ *   Oct 21, 2020  Sean Carrick        Initial Creation.
+ *   Oct 22, 2020  Sean Carrick        Modified FuelCardControl to extend the
+ *                                     AbstractJournal class. This modification
+ *                                     will save countless time on class creation
+ *                                     and maintenance moving into the future.
  *  ******************************************************************************
  */
 
 package com.pekinsoft.loadmaster.controller;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.api.AbstractJournal;
 import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.model.EntryModel;
+import com.pekinsoft.loadmaster.model.FuelCardModel;
 import com.pekinsoft.loadmaster.model.FuelPurchaseModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.LoadMaster;
@@ -45,274 +52,105 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
+import java.time.Instant;
+import java.util.Date;
 
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  * 
- * @version 0.1.0
+ * @version 0.2.67
  * @since 0.7.8 build 2549
  */
-public class FuelPurchaseCtl {
-    //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
-
+public class FuelPurchaseCtl extends AbstractJournal {
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
-    private final ArrayList<FuelPurchaseModel> records;
     private final File TABLE;
-    
-    private final LogRecord entry;
-    
-    private FuelPurchaseModel record;
-    private int row;
-    
-    private boolean fileJustCreated;
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public FuelPurchaseCtl () throws DataStoreException {
-        entry = new LogRecord(Level.ALL, "Logging initiated for ReceivablesCtl "
-                + "class.");
-        entry.setSourceClassName(this.getClass().getName());
-        entry.setSourceMethodName("FuelPurchaseCtl (Constructor)");
+        super();
+        
+        entry.setSourceClassName(getClass().getCanonicalName());
+        entry.setSourceMethodName(getClass().getName() + " (Constructor)");
         entry.setParameters(null);
+        entry.setMessage("Initializing a FuelPurchaseCtl journal object.");
         Starter.logger.enter(entry);
         
-        fileJustCreated = false;
-        
-        records = new ArrayList<>();
-        row = 0;
-        
-        TABLE = new File(Starter.props.getDataFolder() + "10040.jrnl");
+        TABLE = new File(Starter.props.getDataFolder() 
+                + FuelPurchaseModel.ACCOUNT_NUMBER + ".jrnl");
 
         // Check to see if the table file exists:
-        if ( !TABLE.exists() ) {
-            try {
-                TABLE.createNewFile();
-                
-                // Set our flag:
-                fileJustCreated = true;
-            } catch (IOException ex) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "\nThrowing DataStoreException...");
-                entry.setParameters(null);
-                entry.setSourceMethodName("FuelPurchaseCtl (Constructor)");
-                entry.setThrown(ex);
-                Starter.logger.error(entry);
-                
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        if ( !fileJustCreated )
+        if ( createFileIfNecessary() )
             connect();
-//        else
-//            MessageBox.showInfo("Data file was just now created.\n"
-//                    + "Add records to it, then save, in order\n"
-//                    + "to not see this message in the future.", 
-//                    "New Data File Created");
+        else {
+            entry.setMessage("Fuel Expense Journal was just created.");
+            entry.setSourceClassName(getClass().getCanonicalName());
+            entry.setSourceMethodName(getClass().getName() + " (Constructor)");
+            entry.setParameters(null);
+            entry.setThrown(null);
+            entry.setInstant(Instant.now());
+            Starter.logger.info(entry);
+        }
         
         entry.setMessage("Done creating FuelPurchaseCtl object.");
         Starter.logger.exit(entry, null);
     }
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
-    //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
     public void addNew(FuelPurchaseModel model) {
-        records.add(model);
-        row = getRecordCount() - 1;
+        super.addNew(model);
         
         Starter.props.setPropertyAsInt("journal.fuel.records", getRecordCount());
     }
     
-    /**
-     * Closes the connection to the data store file. Prior to closing the 
-     * connection, the records contained within this controller are saved back
-     * to file.
-     * 
-     * @throws DataStoreException in the event an error occurs saving or closing
-     *                            the data store.
-     */
+    @Override
+    public FuelPurchaseModel first() throws DataStoreException {
+        return (FuelPurchaseModel)super.first();
+    }
+    
+    @Override
+    public FuelPurchaseModel previous() throws DataStoreException {
+        return (FuelPurchaseModel)super.previous();
+    }
+    
+    @Override
+    public FuelPurchaseModel next() throws DataStoreException {
+        return (FuelPurchaseModel)super.next();
+    }
+    
+    @Override
+    public FuelPurchaseModel last() throws DataStoreException {
+        return (FuelPurchaseModel)super.last();
+    }
+    
+    @Override
+    public FuelPurchaseModel get() {
+        return (FuelPurchaseModel)super.get();
+    }
+    
+    @Override
+    public FuelPurchaseModel get(int idx) {
+        return (FuelPurchaseModel)super.get(idx);
+    }
+    
+    @Override
     public void close() throws DataStoreException {
         save();
-    }
-    
-    /**
-     * Moves the record pointer to the first transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the first
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public FuelPurchaseModel first() throws DataStoreException {
-        if ( row >= 0 ) {
-            row = 0;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Moves the record pointer to the previous transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the first
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public FuelPurchaseModel previous() throws DataStoreException {
-        if ( row > 0 ) {
-            row--;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Moves the record pointer to the next transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the first
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public FuelPurchaseModel next() throws DataStoreException {
-        if ( row < records.size() ) {
-            row++;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Moves the record pointer to the last transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the last
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public FuelPurchaseModel last() throws DataStoreException {
-        if ( row < records.size() ) {
-            row = records.size() - 1;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Determines whether or not there are more transactions in this journal.
-     * 
-     * @return `true` if more transactions, `false` if not.
-     */
-    public boolean hasNext() {
-        return row < records.size();
-    }
-    
-    /**
-     * Retrieves the current entry as an `ReceivablesModel` object.
-     * 
-     * @return The current entry.
-     */
-    public FuelPurchaseModel get() {
-        return records.get(row);
-    }
-    
-    /**
-     * Retrieves the entry at the specified index. If the specified index is
-     * invalid, returns `null`.
-     * 
-     * @param idx   The specified index from which to retrieve the entry.
-     * @return      The entry at the specified index. If the specified index is 
-     *              invalid (i.e., less than zero or greater than
-     *              `getRecordCount()`), null is returned.
-     */
-    public FuelPurchaseModel get(int idx) {
-        return records.get(idx);
-    }
-    
-    /**
-     * Retrieves the current record number of the record in this journal.
-     * 
-     * @return int The current record number
-     */
-    public int getCurrentRecordNumber() {
-        return row + 1;
-    }
-    
-    /**
-     * Retrieves the total number of records (or rows) in this table.
-     * 
-     * @return int The number of records
-     */
-    public int getRecordCount() {
-        return records.size();
-    }
-    
-    public void update(FuelPurchaseModel model) {
-        record = model;
-        
-        records.set(row, model);
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    private void connect() throws DataStoreException {
+    @Override
+    protected void connect() throws DataStoreException {
         entry.setMessage("Enter...");
+        entry.setSourceClassName(getClass().getCanonicalName());
         entry.setSourceMethodName("connect");
         entry.setParameters(new Object[]{});
+        entry.setThrown(null);
+        entry.setInstant(Instant.now());
         Starter.logger.enter(entry);
-        
-        BufferedReader in;
         
         entry.setMessage("Setting up LoadMaster.fileProgress...");
         entry.setParameters(null);
@@ -326,9 +164,7 @@ public class FuelPurchaseCtl {
             LoadMaster.fileProgress.setVisible(true);
         }
         
-        try {
-            in = new BufferedReader(new FileReader(TABLE));
-            
+        try (BufferedReader in = new BufferedReader(new FileReader(TABLE))) {
             String line = in.readLine();
             
             while ( line != null ) {
@@ -345,9 +181,6 @@ public class FuelPurchaseCtl {
             }
             
             row = 0;    // Set our current row to the first record.
-            
-            in.close();
-            
         } catch ( IOException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Throwing DataStoreException to calling method...");
@@ -367,8 +200,8 @@ public class FuelPurchaseCtl {
         }
     }
     
-    private void save() throws DataStoreException {
-        BufferedWriter out;
+    @Override
+    protected void save() throws DataStoreException {
         
         LoadMaster.fileProgress.setMaximum(
                 Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
@@ -391,17 +224,15 @@ public class FuelPurchaseCtl {
             }
         }
         
-        try {
-            out = new BufferedWriter(new FileWriter(TABLE));
+        try (BufferedWriter out = new BufferedWriter(new FileWriter(TABLE))) {
             
             for ( int x = 0; x < records.size(); x++ ) {
-                out.write(buildRecordLine(records.get(x)) + "\n");
+                out.write(buildRecordLine((FuelPurchaseModel)records.get(x)) 
+                        + "\n");
                 
                 LoadMaster.fileProgress.setValue(
                         LoadMaster.fileProgress.getValue() - 1);
             }
-            
-            out.close();
         } catch ( IOException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Throwing DataStoreException to calling method...");
@@ -421,7 +252,8 @@ public class FuelPurchaseCtl {
                 + String.valueOf(model.getPricePerGallonDiesel()) + "~" 
                 + model.isDefPurchased() + "~" + model.getGallonsOfDefAsString()
                 + "~" + String.valueOf(model.getPricePerGallonDef()) + "~"
-                + model.getNotes();
+                + model.getNotes() + "~" + model.getTripNumber() + "~"
+                + model.isPosted();
     }
     
     private void createAndAddRecord(String[] line) {
@@ -432,11 +264,11 @@ public class FuelPurchaseCtl {
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
-//        record = new ReceivablesModel();
+        record = new FuelPurchaseModel();
         
         
         try {
-            record.setDate(sdf.parse(line[1]));
+            ((FuelPurchaseModel)record).setDate(sdf.parse(line[1]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the dispatch date.");
@@ -448,15 +280,17 @@ public class FuelPurchaseCtl {
             MessageBox.showError(ex, "Parsing Error");
         }
         
-        record.setId(line[0]);
-        record.setOdometer(line[2]);
-        record.setLocation(line[3]);
-        record.setGallonsOfDiesel(line[4]);
-        record.setPricePerGallonOfDiesel(line[5]);
-        record.setDefPurchased(Boolean.parseBoolean(line[6]));
-        record.setGallonsOfDef(line[7]);
-        record.setPricePerGallonDef(line[8]);
-        record.setNotes(line[9]);
+        ((FuelPurchaseModel)record).setId(line[0]);
+        ((FuelPurchaseModel)record).setOdometer(line[2]);
+        ((FuelPurchaseModel)record).setLocation(line[3]);
+        ((FuelPurchaseModel)record).setGallonsOfDiesel(line[4]);
+        ((FuelPurchaseModel)record).setPricePerGallonOfDiesel(line[5]);
+        ((FuelPurchaseModel)record).setDefPurchased(Boolean.parseBoolean(line[6]));
+        ((FuelPurchaseModel)record).setGallonsOfDef(line[7]);
+        ((FuelPurchaseModel)record).setPricePerGallonDef(line[8]);
+        ((FuelPurchaseModel)record).setNotes(line[9]);
+        ((FuelPurchaseModel)record).setTripNumber(line[10]);
+        ((FuelPurchaseModel)record).setPosted(Boolean.parseBoolean(line[11]));
         
         records.add(record);
         
@@ -464,5 +298,129 @@ public class FuelPurchaseCtl {
                 LoadMaster.fileProgress.getValue() + 1);
     }
     //</editor-fold>
+
+    @Override
+    protected boolean createFileIfNecessary() {
+        boolean success = true;
+        if ( !TABLE.exists() ) {
+            try {
+                TABLE.createNewFile();
+            } catch (IOException ex) {
+                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                        + "\nThrowing DataStoreException...");
+                entry.setParameters(null);
+                entry.setSourceMethodName("createFileIfNecessary");
+                entry.setThrown(ex);
+                Starter.logger.error(entry);
+                
+                success = false;
+            }
+        }
+        
+        return success;
+    }
+
+    @Override
+    public boolean postTransactions() throws DataStoreException {
+        // For this, we are going to need to create an EntryCtl object, as well
+        //+ as an EntryModel object.
+        EntryCtl gl = new EntryCtl();
+        EntryModel tx = null;
+        
+        // We also need a return value to send back to the calling method.
+        boolean success = true; // Default to a successful posting procedure.
+        
+        // We need to loop through all of our journal entries, so we can enter
+        //+ our diesel purchase into the General Ledger.
+        for ( int x = 0; x < records.size(); x++ ) {
+            // Check to see if the current record has not yet been posted.
+            if ( !((FuelPurchaseModel)records.get(x)).isPosted() ) {
+                // Since the record has not yet been posted to the GL, we need 
+                //+ to do so now.
+                tx = new EntryModel();
+                tx.setAmount(((FuelPurchaseModel)records.get(x)).getGallonsOfDiesel()
+                        * ((FuelPurchaseModel)records.get(x)).getPricePerGallonDiesel());
+                tx.setBalanced(false);
+                tx.setCode("DieselPurch");
+                try {
+                    tx.setDate(((FuelPurchaseModel)records.get(x)).getDateAsString());
+                } catch ( ParseException ex ) {
+                    // If we get a ParseException setting the date, we will log
+                    //+ it...
+                    entry.setSourceClassName(getClass().getCanonicalName());
+                    entry.setSourceMethodName("postTransactions");
+                    entry.setParameters(null);
+                    entry.setThrown(ex);
+                    entry.setMessage(ex.getMessage());
+                    entry.setInstant(Instant.now());
+                    Starter.logger.error(entry);
+                    
+                    // ...but we will still set a date for the transaction, we
+                    //+ will just make it the current date.
+                    tx.setDate(new Date());
+                }
+                tx.setDeductible(true);
+                
+                String desc = "Purchased " + ((FuelPurchaseModel)records.get(x))
+                        .getGallonsOfDieselAsString();
+                desc += " gallons at ";
+                desc += ((FuelPurchaseModel)records.get(x)).getLocation();
+                
+                if ( ((FuelPurchaseModel)records.get(x)).getTripNumber()
+                        .equalsIgnoreCase("No Active Load") ) {
+                    desc += " while not under an active load.";
+                } else {
+                    tx.setDescription(" while on Trip # " 
+                            + ((FuelPurchaseModel)records.get(x)).getTripNumber());
+                }
+                tx.setDescription(desc);
+                
+                tx.setFromAccount(FuelCardModel.ACCOUNT_NUMBER);
+                tx.setToAccount(FuelPurchaseModel.ACCOUNT_NUMBER);
+                
+                // Now that we have created the GL transaction entry, we can add
+                //+ it to the GL.
+                gl.addNew(tx);
+                
+                // Now we have to do it all again for the DEF that may have been
+                //+ purchased at this same fuel stop.
+                if ( ((FuelPurchaseModel)records.get(x)).isDefPurchased() ) {
+                    tx.setAmount(((FuelPurchaseModel)records.get(x)).getGallonsOfDef()
+                            * ((FuelPurchaseModel)records.get(x)).getPricePerGallonDef());
+                    tx.setBalanced(false);
+                    tx.setCode("DEFPurch");
+                    tx.setDate(((FuelPurchaseModel)records.get(x)).getDate());
+                    tx.setDeductible(true);
+
+                    desc = "Purchased " + ((FuelPurchaseModel)records.get(x))
+                            .getGallonsOfDefAsString();
+                    desc += " gallons at ";
+                    desc += ((FuelPurchaseModel)records.get(x)).getLocation();
+
+                    if ( ((FuelPurchaseModel)records.get(x)).getTripNumber()
+                            .equalsIgnoreCase("No Active Load") ) {
+                        desc += " while not under an active load.";
+                    } else {
+                        tx.setDescription(" while on Trip # " 
+                                + ((FuelPurchaseModel)records.get(x)).getTripNumber());
+                    }
+                    tx.setDescription(desc);
+
+                    tx.setFromAccount(FuelCardModel.ACCOUNT_NUMBER);
+                    tx.setToAccount(FuelPurchaseModel.ACCOUNT_NUMBER);
+
+                    // Now that we have created the GL transaction entry, we can add
+                    //+ it to the GL.
+                    gl.addNew(tx);
+                }
+            } // No `else`, because transactions only need to be posted once.
+        } // Continue until all records have been read and posted.
+        
+        // Finally, we can post the transactions to the General Ledger.
+        gl.close();
+        
+        // Leave as the last line of the method:
+        return success;
+    }
 
 }

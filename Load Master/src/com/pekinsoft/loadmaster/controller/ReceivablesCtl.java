@@ -273,6 +273,38 @@ public class ReceivablesCtl {
     }
     
     /**
+     * Provides a means of selecting a specific AR entry based upon the load 
+     * from which it was earned. This method searches through the entries in the
+     * Accounts Receivable Journal to find the record with the specified trip
+     * number.
+     * 
+     * @param tripNumber    the desired trip number.
+     * @return              the requested journal entry, or `null` if not found.
+     * @throws DataStoreException in the event an error occurs accessing the
+     *                            date file.
+     */
+    public ReceivablesModel getByTripNumber(String tripNumber) 
+            throws DataStoreException {
+        int lastRecord = getCurrentRecordNumber();
+        first();    // move to the first record.
+        
+        ReceivablesModel m = null;
+        
+        for ( int x = 0; x < getRecordCount(); x++ ) {
+            m = records.get(x);
+            
+            if ( m.getTripNumber().equalsIgnoreCase(tripNumber) )
+                break;
+            else
+                m = null;
+        }
+        
+        row = lastRecord; // move back to the record we were on before the search.
+        
+        return m;
+    }
+    
+    /**
      * Retrieves the current record number of the record in this journal.
      * 
      * @return int The current record number
@@ -360,8 +392,6 @@ public class ReceivablesCtl {
     }
     
     private void save() throws DataStoreException {
-        BufferedWriter out;
-        
         LoadMaster.fileProgress.setMaximum(
                 Starter.props.getPropertyAsInt("journal.ar.records", "0"));
         LoadMaster.fileProgress.setValue(
@@ -383,17 +413,13 @@ public class ReceivablesCtl {
             }
         }
         
-        try {
-            out = new BufferedWriter(new FileWriter(TABLE));
-            
+        try ( BufferedWriter out = new BufferedWriter(new FileWriter(TABLE)) ) {
             for ( int x = 0; x < records.size(); x++ ) {
                 out.write(buildRecordLine(records.get(x)) + "\n");
                 
                 LoadMaster.fileProgress.setValue(
                         LoadMaster.fileProgress.getValue() - 1);
             }
-            
-            out.close();
         } catch ( IOException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Throwing DataStoreException to calling method...");
@@ -420,11 +446,10 @@ public class ReceivablesCtl {
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
-//        record = new ReceivablesModel();
-        
-        
         try {
-            record.setDate(sdf.parse(line[1]));
+            
+            record = new ReceivablesModel(sdf.parse(line[1]), line[2], line[3], 
+                    Double.valueOf(line[4]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the dispatch date.");

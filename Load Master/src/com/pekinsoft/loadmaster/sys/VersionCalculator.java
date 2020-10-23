@@ -30,15 +30,11 @@ import com.pekinsoft.loadmaster.Starter;
  */
 public class VersionCalculator {
     // Private fields for versioning of the software.
-//    public static final int MAJOR;
-//    public static final int MINOR;
-//    public static final int REVISION;
-//    public static final long BUILD;
     
     // Private fields for the softare and Project information.
-    private static final String NAME = "Load Master";
-    private static final String PROJECT_NAME = "LoadMaster";
-    private static final String VENDOR = "PekinSOFT Systems";
+    private static final String NAME = "Load Master™";
+    private static final String PROJECT_NAME = "Load Master™";
+    private static final String VENDOR = "PekinSOFT™ Systems";
     private static final String WEBSITE = "https://www.northwind.com";
     private static final String PROJECT_WEB = "https://www.github.com/SeanCarrick/LoadMaster";
     private static final String VENDOR_PHONE = "(309) 989-0672";
@@ -102,55 +98,39 @@ public class VersionCalculator {
         log.debug(record);
         record.setMessage("Initializing complete!");
         log.exit(record, null);
-        }    
+    }    
     
-    public VersionCalculator() {}
+    public VersionCalculator() { /* Static class only. Do not initialize. */ }
     
-//    public int getMajor() {
-//        return MAJOR;
-//    }
-//    
-//    public int getMinor() {
-//        return MINOR;
-//    }
-//    
-//    public int getRevision() {
-//        return REVISION;
-//    }
-//    
-//    public long getBuild() {
-//        return BUILD;
-//    }
-    
-    public String getName() {
+    public static String getName() {
         return NAME;
     }
     
-    public String getProjectName() {
+    public static String getProjectName() {
         return PROJECT_NAME;
     }
     
-    public String getVendor() {
+    public static String getVendor() {
         return VENDOR;
     }
     
-    public String getWebsite() {
+    public static String getWebsite() {
         return WEBSITE;
     }
     
-    public String getProjectWebsite() {
+    public static String getProjectWebsite() {
         return PROJECT_WEB;
     }
     
-    public String getVendorPhone() {
+    public static String getVendorPhone() {
         return VENDOR_PHONE;
     }
     
-    public String getProjectLead() {
+    public static String getProjectLead() {
         return PROJECT_LEAD;
     }
     
-    public String getProjectEmail() {
+    public static String getProjectEmail() {
         return PROJECT_EMAIL;
     }
 }

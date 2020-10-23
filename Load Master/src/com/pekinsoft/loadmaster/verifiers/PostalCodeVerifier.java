@@ -16,7 +16,7 @@
  */
 package com.pekinsoft.loadmaster.verifiers;
 
-import com.pekinsoft.loadmaster.view.Customers;
+import com.pekinsoft.loadmaster.view.CustomerEntry;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.util.regex.Matcher;
@@ -91,13 +91,13 @@ public class PostalCodeVerifier extends InputVerifier {
             if ( isValid ) {
                 ((JTextField) input).setBackground(back);
                 ((JTextField) input).setForeground(fore);
-                Customers.helpPanel.setBackground(ctl);
-                Customers.helpLabel.setText("");
+                CustomerEntry.helpPanel.setBackground(ctl);
+                CustomerEntry.helpLabel.setText("");
             } else {
                 ((JTextField) input).setBackground(errBack);
                 ((JTextField) input).setForeground(errFore);
-                Customers.helpPanel.setBackground(Color.RED);
-                Customers.helpLabel.setText("Zip Code is required and must be a "
+                CustomerEntry.helpPanel.setBackground(Color.RED);
+                CustomerEntry.helpLabel.setText("Zip Code is required and must be a "
                         + "valid US Zip Code or Canadian Postal Code.");
             }
         } else 

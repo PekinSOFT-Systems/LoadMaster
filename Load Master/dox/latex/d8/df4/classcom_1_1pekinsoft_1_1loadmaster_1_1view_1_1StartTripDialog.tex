@@ -1,0 +1,158 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog}\index{com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dd/dd2/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dd/d86/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a0e1602634fc2e6c2026f3d7f62c732c4}{Start\+Trip\+Dialog}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog}{Start\+Trip\+Dialog}}. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_aef08350f36fef546ec13a54c22eba7f6}{is\+Cancelled}} ()
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_ae19561ca327ea69f5438eb68711b57ec}{get\+Odometer}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a97b5199c1bbc0c830c081049829e912a}{set\+Order\+Number}} (String order)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a89130512cf766770307f2a5236c1a87a}{set\+Trip\+Number}} (String trip)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 40 of file Start\+Trip\+Dialog.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a0e1602634fc2e6c2026f3d7f62c732c4}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a0e1602634fc2e6c2026f3d7f62c732c4}} 
+\index{com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}!StartTripDialog@{StartTripDialog}}
+\index{StartTripDialog@{StartTripDialog}!com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}}
+\doxysubsubsection{\texorpdfstring{StartTripDialog()}{StartTripDialog()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog.\+Start\+Trip\+Dialog (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog}{Start\+Trip\+Dialog}}. 
+
+
+
+Definition at line 47 of file Start\+Trip\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                                                  \{}
+\DoxyCodeLine{48         super(parent, modal);}
+\DoxyCodeLine{49         initComponents();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         getRootPane().setDefaultButton(okButton);}
+\DoxyCodeLine{52         \textcolor{keywordtype}{int} left = (Toolkit.getDefaultToolkit().getScreenSize().width }
+\DoxyCodeLine{53                 -\/ getWidth()) / 2;}
+\DoxyCodeLine{54         \textcolor{keywordtype}{int} top = (Toolkit.getDefaultToolkit().getScreenSize().height}
+\DoxyCodeLine{55                 -\/ getHeight()) / 2;}
+\DoxyCodeLine{56         setLocation(left, top);}
+\DoxyCodeLine{57     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_ae19561ca327ea69f5438eb68711b57ec}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_ae19561ca327ea69f5438eb68711b57ec}} 
+\index{com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}!getOdometer@{getOdometer}}
+\index{getOdometer@{getOdometer}!com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}}
+\doxysubsubsection{\texorpdfstring{getOdometer()}{getOdometer()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog.\+get\+Odometer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file Start\+Trip\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                              \{}
+\DoxyCodeLine{64         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{65             odometerField.commitEdit();}
+\DoxyCodeLine{66         \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{67             System.err.println(ex.getMessage());}
+\DoxyCodeLine{68             ex.printStackTrace(System.err);}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{70         }
+\DoxyCodeLine{71         \textcolor{keywordflow}{return} Integer.parseInt(odometerField.getValue().toString());}
+\DoxyCodeLine{72     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_aef08350f36fef546ec13a54c22eba7f6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_aef08350f36fef546ec13a54c22eba7f6}} 
+\index{com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}!isCancelled@{isCancelled}}
+\index{isCancelled@{isCancelled}!com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}}
+\doxysubsubsection{\texorpdfstring{isCancelled()}{isCancelled()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog.\+is\+Cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file Start\+Trip\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                  \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} isCancelled;}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a97b5199c1bbc0c830c081049829e912a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a97b5199c1bbc0c830c081049829e912a}} 
+\index{com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}!setOrderNumber@{setOrderNumber}}
+\index{setOrderNumber@{setOrderNumber}!com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}}
+\doxysubsubsection{\texorpdfstring{setOrderNumber()}{setOrderNumber()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog.\+set\+Order\+Number (\begin{DoxyParamCaption}\item[{String}]{order }\end{DoxyParamCaption})}
+
+
+
+Definition at line 74 of file Start\+Trip\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74                                              \{}
+\DoxyCodeLine{75         this.orderField.setText(order);}
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a89130512cf766770307f2a5236c1a87a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1StartTripDialog_a89130512cf766770307f2a5236c1a87a}} 
+\index{com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}!setTripNumber@{setTripNumber}}
+\index{setTripNumber@{setTripNumber}!com.pekinsoft.loadmaster.view.StartTripDialog@{com.pekinsoft.loadmaster.view.StartTripDialog}}
+\doxysubsubsection{\texorpdfstring{setTripNumber()}{setTripNumber()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+view.\+Start\+Trip\+Dialog.\+set\+Trip\+Number (\begin{DoxyParamCaption}\item[{String}]{trip }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file Start\+Trip\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                                            \{}
+\DoxyCodeLine{79         this.tripField.setText(trip);}
+\DoxyCodeLine{80     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{StartTripDialog_8java}{Start\+Trip\+Dialog.\+java}}\end{DoxyCompactItemize}

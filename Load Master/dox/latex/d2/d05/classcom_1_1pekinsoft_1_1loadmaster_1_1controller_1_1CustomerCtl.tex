@@ -1,0 +1,534 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl}\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_abe44a919bdeca05f198fbaf873a87895}{Customer\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a74ab9ad21a03c41cc3ab7199541d31e9}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current customer as a {\ttfamily Customer\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3153a4bdb9abea14302d8b464ee51559}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the customer at the specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a9d73d6d8c2ceb95bbcf80e485e1321da}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this table. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a48f8e5e36d310d726019c2da13a10261}{has\+Next}} ()
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a54ff38ab258c0870f8db5ee2c78481e6}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first record in this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a14148e34c50de4f87c7804ed31add17d}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last record in this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_ab03db288725cc7fec250bb7774c88bb4}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next record in this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a512ae06e89f61ff5f1413933ddaac7ac}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous record in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a598ccd676b448bc8a3fe468093fd90e3}{update}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} cust)
+\begin{DoxyCompactList}\small\item\em Allows for the updating of an existing customer record. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a601eab09d9967a4a7730d6923ec6ebfd}{add\+New}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} cust)
+\begin{DoxyCompactList}\small\item\em Allows for the addition of new customers into the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_aee435c1944ea2091482e5a0c84b66fb4}{store\+Data}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the data out to the table data file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a49cc4f145d32b64cc5346ce348edaf9c}{\mbox{[}static initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 31 of file Customer\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_abe44a919bdeca05f198fbaf873a87895}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_abe44a919bdeca05f198fbaf873a87895}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!CustomerCtl@{CustomerCtl}}
+\index{CustomerCtl@{CustomerCtl}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{CustomerCtl()}{CustomerCtl()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+Customer\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 59 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                     \{}
+\DoxyCodeLine{60         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Creating a CustomerCtl object."});}
+\DoxyCodeLine{61         entry.setInstant(Instant.now());}
+\DoxyCodeLine{62         entry.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{63         entry.setSourceMethodName(getClass().getName() + \textcolor{stringliteral}{" (Constructor)"});}
+\DoxyCodeLine{64         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{65         Starter.logger.enter(entry);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{68         row = 0;}
+\DoxyCodeLine{69         fileJustCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{70         }
+\DoxyCodeLine{71         customer = \textcolor{keyword}{new} CustomerModel();}
+\DoxyCodeLine{72         TABLE = \textcolor{keyword}{new} File(Starter.DB\_URL + \textcolor{stringliteral}{"customers.tbl"});}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{76             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{77                 fileJustCreated = TABLE.createNewFile();}
+\DoxyCodeLine{78             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{79                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{80                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{81                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{82                 entry.setSourceMethodName(\textcolor{stringliteral}{"Customer"});}
+\DoxyCodeLine{83                 entry.setThrown(ex);}
+\DoxyCodeLine{84                 Starter.logger.error(entry);}
+\DoxyCodeLine{85                 }
+\DoxyCodeLine{86                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{87             \}}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89         }
+\DoxyCodeLine{90         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{91             connect();}
+\DoxyCodeLine{92         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{93             entry.setMessage(\textcolor{stringliteral}{"Data file `customers.tbl` was just created."});}
+\DoxyCodeLine{94             entry.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{95             entry.setSourceMethodName(\textcolor{stringliteral}{"CustomerCtl (Constructor)"});}
+\DoxyCodeLine{96             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{97             Starter.logger.info(entry);}
+\DoxyCodeLine{98         \}}
+\DoxyCodeLine{99     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a49cc4f145d32b64cc5346ce348edaf9c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a49cc4f145d32b64cc5346ce348edaf9c}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a601eab09d9967a4a7730d6923ec6ebfd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a601eab09d9967a4a7730d6923ec6ebfd}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}}}]{cust }\end{DoxyParamCaption})}
+
+
+
+Allows for the addition of new customers into the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust} & The new customer record to add to the table \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 263 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{263                                            \{}
+\DoxyCodeLine{264         records.add(cust);}
+\DoxyCodeLine{265         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{266         }
+\DoxyCodeLine{267         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"table.customers.records"},}
+\DoxyCodeLine{268                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}());}
+\DoxyCodeLine{269     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a54ff38ab258c0870f8db5ee2c78481e6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a54ff38ab258c0870f8db5ee2c78481e6}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Customer\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 163 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                                            \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{165             row = 0;}
+\DoxyCodeLine{166             }
+\DoxyCodeLine{167             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{168                 customer = records.get(row);}
+\DoxyCodeLine{169             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{170                 customer = \textcolor{keyword}{null};}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173         \}}
+\DoxyCodeLine{174         }
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} customer;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a74ab9ad21a03c41cc3ab7199541d31e9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a74ab9ad21a03c41cc3ab7199541d31e9}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current customer as a {\ttfamily Customer\+Model} object. 
+
+\begin{DoxyReturn}{Returns}
+The current customer. 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                                \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{114     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3153a4bdb9abea14302d8b464ee51559}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3153a4bdb9abea14302d8b464ee51559}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the customer at the specified index. 
+
+If the provided index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the customer to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The customer at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{get\+Record\+Count()}}}), then {\ttfamily null} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                       \{}
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} ( idx < 0 || idx >= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}() )}
+\DoxyCodeLine{127             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{128         }
+\DoxyCodeLine{129         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{130     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a9d73d6d8c2ceb95bbcf80e485e1321da}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a9d73d6d8c2ceb95bbcf80e485e1321da}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146                                         \{}
+\DoxyCodeLine{147         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{148     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{137                                 \{}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{139     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a48f8e5e36d310d726019c2da13a10261}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a48f8e5e36d310d726019c2da13a10261}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151                              \{}
+\DoxyCodeLine{152         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{153     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a14148e34c50de4f87c7804ed31add17d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a14148e34c50de4f87c7804ed31add17d}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Customer\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 186 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                                                           \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{if} ( row < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}() ) \{}
+\DoxyCodeLine{188             row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{189             }
+\DoxyCodeLine{190             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{191                 customer = records.get(row);}
+\DoxyCodeLine{192             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{193                 customer = \textcolor{keyword}{null};}
+\DoxyCodeLine{194                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{195             \}}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197         }
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} customer;}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_ab03db288725cc7fec250bb7774c88bb4}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_ab03db288725cc7fec250bb7774c88bb4}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Customer\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                           \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{if} ( row < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}() ) \{}
+\DoxyCodeLine{211             row++;}
+\DoxyCodeLine{212             }
+\DoxyCodeLine{213             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{214                 customer = records.get(row);}
+\DoxyCodeLine{215             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{216                 customer = \textcolor{keyword}{null};}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} customer;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a512ae06e89f61ff5f1413933ddaac7ac}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a512ae06e89f61ff5f1413933ddaac7ac}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous record in this table. 
+
+\begin{DoxyReturn}{Returns}
+Customer\+Model The previous customer record, if not at the first record in the table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the table \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 232 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                                               \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{234             row-\/-\/;}
+\DoxyCodeLine{235             }
+\DoxyCodeLine{236             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{237                 customer = records.get(row);}
+\DoxyCodeLine{238             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{239                 customer = \textcolor{keyword}{null};}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{241             \}}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         }
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} customer;}
+\DoxyCodeLine{245     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_aee435c1944ea2091482e5a0c84b66fb4}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_aee435c1944ea2091482e5a0c84b66fb4}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!storeData@{storeData}}
+\index{storeData@{storeData}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{storeData()}{storeData()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+store\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Writes the data out to the table data file. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & In the event there is an error writing the data. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 277 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{277                                                       \{}
+\DoxyCodeLine{278         BufferedWriter out;}
+\DoxyCodeLine{279         }
+\DoxyCodeLine{280         LoadMaster.loadProgress.setMaximum(}
+\DoxyCodeLine{281                 Starter.props.getPropertyAsInt(\textcolor{stringliteral}{"table.customers.records"}, \textcolor{stringliteral}{"0"}));}
+\DoxyCodeLine{282         LoadMaster.loadProgress.setValue(}
+\DoxyCodeLine{283                 Starter.props.getPropertyAsInt(\textcolor{stringliteral}{"table.customers.records"}, \textcolor{stringliteral}{"0"}));}
+\DoxyCodeLine{284         }
+\DoxyCodeLine{285         \textcolor{keywordflow}{if} ( TABLE.exists() ) \{}
+\DoxyCodeLine{286             TABLE.delete();}
+\DoxyCodeLine{287             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{288                 TABLE.createNewFile();}
+\DoxyCodeLine{289             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{290                 entry.setMessage(\textcolor{stringliteral}{"Something went wrong deleting and recreating the data table."});}
+\DoxyCodeLine{291                 entry.setThrown(ex);}
+\DoxyCodeLine{292                 entry.setSourceMethodName(\textcolor{stringliteral}{"storeData"});}
+\DoxyCodeLine{293                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{294                 Starter.logger.error(entry);}
+\DoxyCodeLine{295                 }
+\DoxyCodeLine{296                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{297             \}}
+\DoxyCodeLine{298         \}}
+\DoxyCodeLine{299         }
+\DoxyCodeLine{300         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{301             out = \textcolor{keyword}{new} BufferedWriter(\textcolor{keyword}{new} FileWriter(TABLE));}
+\DoxyCodeLine{302             }
+\DoxyCodeLine{303             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < records.size(); x++ ) \{}
+\DoxyCodeLine{304                 out.write(buildRecordLine(records.get(x)) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{305                 }
+\DoxyCodeLine{306                 LoadMaster.fileProgress.setValue(}
+\DoxyCodeLine{307                         LoadMaster.fileProgress.getValue() -\/ 1);}
+\DoxyCodeLine{308             \}}
+\DoxyCodeLine{309             }
+\DoxyCodeLine{310             out.close();}
+\DoxyCodeLine{311         \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{312             entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{313                     + \textcolor{stringliteral}{"Throwing DataStoreException to calling method..."});}
+\DoxyCodeLine{314             entry.setThrown(ex);}
+\DoxyCodeLine{315             entry.setSourceMethodName(\textcolor{stringliteral}{"storeData"});}
+\DoxyCodeLine{316             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{317             Starter.logger.error(entry);}
+\DoxyCodeLine{318             }
+\DoxyCodeLine{319             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{320         \}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a598ccd676b448bc8a3fe468093fd90e3}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a598ccd676b448bc8a3fe468093fd90e3}} 
+\index{com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.controller.CustomerCtl@{com.pekinsoft.loadmaster.controller.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Customer\+Ctl.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}}}]{cust }\end{DoxyParamCaption})}
+
+
+
+Allows for the updating of an existing customer record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust} & The new data model to use to update the record. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 252 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{252                                            \{}
+\DoxyCodeLine{253             customer = cust;}
+\DoxyCodeLine{254             }
+\DoxyCodeLine{255             records.set(row, customer);}
+\DoxyCodeLine{256     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{CustomerCtl_8java}{Customer\+Ctl.\+java}}\end{DoxyCompactItemize}

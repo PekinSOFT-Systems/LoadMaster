@@ -136,7 +136,7 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         lr.setMessage("Attempting to save the data to file.");
         Starter.logger.debug(lr);
         try {
-            records.storeData();
+            records.close();
             lr.setMessage("Save to file was successful!");
             Starter.logger.info(lr);
             
