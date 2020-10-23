@@ -20,35 +20,35 @@
  *   Modified: Sep 06, 2020
  * 
  *   Purpose:
- *      Provides all data access functionality for the loads.
+ *      Provides all data access functionality for the records.
  * 
  *   Revision History
  * 
  *   WHEN          BY                  REASON
  *   ------------  ------------------- ------------------------------------------
  *   Sep 06, 2020  Sean Carrick        Initial Creation.
+ *   Oct 23, 2020  Sean Carrick        Altered this class to implement only the
+ *                                     three (3) abstract methods in the super
+ *                                     class: 
+ *                                          - buildRecordLine(FuelCardModel)
+ *                                          - createAndAddRecord(String[])
+ *                                          - postTransactions()
+ *                                     All other functionality is taken care of
+ *                                     in AbstractJournal<T>.
+ *
  *  ******************************************************************************
  */
 
 package com.pekinsoft.loadmaster.controller;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.api.AbstractJournal;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.LoadModel;
 import com.pekinsoft.loadmaster.model.StopModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
-import com.pekinsoft.loadmaster.view.LoadMaster;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
 
 /**
  *
@@ -57,372 +57,37 @@ import java.util.logging.LogRecord;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class LoadCtl {
-    //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
-    // Table Data:
-    private final File TABLE;
-    
-    // Table Information:
-    private LoadModel load;
-    private final ArrayList<LoadModel> records;
-    private int row;
-    
-    // System:
-    private LogRecord entry;
-    
-    // Flags:
-    private boolean fileJustCreated = false;
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        records = new ArrayList<>();
-        row = 0;
-        entry = new LogRecord(Level.FINEST, "");
-        entry.setSourceClassName(this.getClass().getCanonicalName());
-    }
-    //</editor-fold>
+public class LoadCtl extends AbstractJournal<LoadModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public LoadCtl () throws DataStoreException {
-        load = new LoadModel();
-        TABLE = new File(Starter.DB_URL + "loads.tbl");
-        
-        // Check to see if the table file exists:
-        if ( !TABLE.exists() ) {
-            try {
-                TABLE.createNewFile();
-                
-                // Set our flag:
-                fileJustCreated = true;
-            } catch (IOException ex) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "\nThrowing DataStoreException...");
-                entry.setParameters(null);
-                entry.setSourceMethodName("BrokerCtl");
-                entry.setThrown(ex);
-                Starter.logger.error(entry);
-                
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        if ( !fileJustCreated )
-            connect();
-//        else
-//            MessageBox.showInfo("Data file was just now created.\n"
-//                    + "Add records to it, then save, in order\n"
-//                    + "to not see this message in the future.", 
-//                    "New Data File Created");
+        super(new LoadModel(), Starter.props.getDataFolder() + "loads.tbl");
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    /**
-     * Retrieves the current load as a `LoadModel` object.
-     * 
-     * @return The current load.
-     */
-    public LoadModel get() {
-        return records.get(row);
-    }
-    
-    /**
-     * Retrieves the load at the specified index. If the specified index is
-     * invalid, returns `null`.
-     * 
-     * @param idx   The specified index from which to retrieve the load.
-     * @return      The load at the specified index. If the specified index is 
-     *              invalid (i.e., less than zero or greater than
-     *              `getRecordCount()`), null is returned.
-     */
-    public LoadModel get(int idx) {
-        return records.get(idx);
-    }
-    
-    /**
-     * Retrieves the total number of records (or rows) in this table.
-     * 
-     * @return int The number of records
-     */
-    public int getRecordCount() {
-        return records.size();
-    }
-    
-    /**
-     * Retrieves the current record number of the record in this table.
-     * 
-     * @return int The current record number
-     */
-    public int getCurrentRecordNumber() {
-        return row + 1;
-    }
-    
-    
-    public boolean hasNext() {
-        return row < records.size();
-    }
-    
-    /**
-     * Moves the record pointer to the first record in this table.
-     * 
-     * @return LoadModel The previous customer record, if not at the first
-     *                       record in the table.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the table
-     */
-    public LoadModel first() throws DataStoreException {
-        if ( row >= 0 ) {
-            row = 0;
-            
-            try {
-                load = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                load = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return load;
-    }
-    
-    /**
-     * Moves the record pointer to the last record in this table.
-     * 
-     * @return LoadModel The previous customer record, if not at the first
-     *                       record in the table.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the table
-     */
-    public LoadModel last() throws DataStoreException {
-        if ( row < getRecordCount() ) {
-            row = getRecordCount() - 1;
-            
-            try {
-                load = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                load = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return load;
-    }
-    
-    /**
-     * Moves the record pointer to the next record in this table.
-     * 
-     * @return LoadModel The previous customer record, if not at the first
-     *                       record in the table.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the table
-     */
-    public LoadModel next() throws DataStoreException {
-        if ( row < getRecordCount() ) {
-            row++;
-            
-            try {
-                load = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                load = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return load;
-    }
-    
-    /**
-     * Moves the record pointer to the previous record in this table.
-     * 
-     * @return LoadModel The previous customer record, if not at the first
-     *                       record in the table.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the table
-     */
-    public LoadModel previous() throws DataStoreException {
-        if ( row > 0 ) {
-            row--;
-            
-            try {
-                load = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                load = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return load;
-    }
-    
-    /**
-     * Allows for the updating of an existing customer record.
-     * 
-     * @param cust The new data model to use to update the record.
-     */
-    public void update(LoadModel cust) {
-            load = cust;
-            
-            records.set(row, load);
-    }
-    
-    /**
-     * Allows for the addition of new customers into the table.
-     * 
-     * @param cust The new customer record to add to the table
-     */
-    public void addNew(LoadModel cust) {
-        records.add(cust);
-        row = getRecordCount() - 1;
-        
-        Starter.props.setPropertyAsInt("table.loads.records", getRecordCount());
-    }
-    
-    /**
-     * Writes the data out to the table data file.
-     * 
-     * @throws DataStoreException In the event there is an error writing the
-     *                            data.
-     */
-    public void close() throws DataStoreException {
-        BufferedWriter out;
-        
-        LoadMaster.loadProgress.setMaximum(
-                Starter.props.getPropertyAsInt("table.stops.records", "0"));
-        LoadMaster.loadProgress.setValue(
-                Starter.props.getPropertyAsInt("table.stops.records", "0"));
-        
-        if ( TABLE.exists() ) {
-            TABLE.delete();
-            try {
-                TABLE.createNewFile();
-            } catch ( IOException ex ) {
-                entry.setMessage("Something went wrong deleting and recreating the data table.");
-                entry.setThrown(ex);
-                entry.setSourceMethodName("storeData");
-                entry.setParameters(null);
-                Starter.logger.error(entry);
-                
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        try {
-            out = new BufferedWriter(new FileWriter(TABLE));
-            
-            for ( int x = 0; x < records.size(); x++ ) {
-                out.write(buildRecordLine(records.get(x)) + "\n");
-                
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() - 1);
-            }
-            
-            out.close();
-        } catch ( IOException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "Throwing DataStoreException to calling method...");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("storeData");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-            
-            throw new DataStoreException(ex.getMessage(), ex);
-        }
 
-        saveStops();
-    }
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    private void connect() throws DataStoreException {
-        entry.setMessage("Enter...");
-        entry.setSourceMethodName("connect");
-        entry.setParameters(new Object[]{});
-        Starter.logger.enter(entry);
-        
-        BufferedReader in;
-        
-        entry.setMessage("Setting up LoadMaster.fileProgress...");
-        entry.setParameters(null);
-        Starter.logger.config(entry);
-        
-        if ( LoadMaster.fileProgress != null ) {
-            LoadMaster.fileProgress.setMaximum(
-                    Starter.props.getPropertyAsInt("journal.fuel.records", "0") 
-                    + (Starter.props.getPropertyAsInt("journal.fuel.records", "0")));
-            LoadMaster.fileProgress.setValue(0);
-            LoadMaster.fileProgress.setVisible(true);
-        }
-        
-        try {
-            in = new BufferedReader(new FileReader(TABLE));
-            
-            String line = in.readLine();
-            
-            while ( line != null ) {
-                String[] record = line.split("~");
-                
-                createAndAddRecord(record);
-                
-                line = in.readLine();
-
-                if ( LoadMaster.fileProgress != null ) {
-                    LoadMaster.fileProgress.setValue(
-                            LoadMaster.fileProgress.getValue() + 1);
-                }
-            }
-            
-            row = 0;    // Set our current row to the first record.
-            
-            in.close();
-        } catch ( IOException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "Throwing DataStoreException to calling method...");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("connect");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-            
-            throw new DataStoreException(ex.getMessage(), ex);
-        } finally {
-            if ( LoadMaster.fileProgress != null ) {
-                LoadMaster.fileProgress.setValue(0);
-                LoadMaster.fileProgress.setVisible(false);
-            }
-        }
-    }
-    
-    private void createAndAddRecord(String[] record) {
+    //<editor-fold defaultstate="collapsed" desc="Protected Override Methods">
+    @Override
+    protected void createAndAddRecord(String[] line) {
         entry.setMessage("Entering...");
         entry.setSourceMethodName("createAndAddRecord");
-        entry.setParameters(record);
+        entry.setParameters(line);
         Starter.logger.enter(entry);
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
-        load = new LoadModel();
+        record = new LoadModel();
         
-        load.setOrder(record[0]);
-        load.setTrip(record[1]);
-        load.setStartOdo(Integer.valueOf(record[2]));
-        load.setEndOdo(Integer.valueOf(record[3]));
+        record.setOrder(line[0]);
+        record.setTrip(line[1]);
+        record.setStartOdo(Integer.valueOf(line[2]));
+        record.setEndOdo(Integer.valueOf(line[3]));
         
         try {
-            load.setDispatch(sdf.parse(record[4]));
+            record.setDispatch(sdf.parse(line[4]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the dispatch date.");
@@ -434,25 +99,25 @@ public class LoadCtl {
             MessageBox.showError(ex, "Parsing Error");
         }
         
-        load.setRate(Double.valueOf(record[5]));
-        load.setMiles(Integer.valueOf(record[6]));
-        load.setWeight(Integer.valueOf(record[7]));
-        load.setPieces(Integer.valueOf(record[8]));
-        load.setCommodity(record[9]);
-        load.setHazMat(Boolean.parseBoolean(record[10]));
-        load.setTarped(Boolean.parseBoolean(record[11]));
-        load.setTeam(Boolean.parseBoolean(record[12]));
-        load.setTwic(Boolean.parseBoolean(record[13]));
-        load.setTopCust(Boolean.parseBoolean(record[14]));
-        load.setLtl(Boolean.parseBoolean(record[15]));
-        load.setCbd(Boolean.parseBoolean(record[16]));
-        load.setRamps(Boolean.parseBoolean(record[17]));
-        load.setBroker(Long.valueOf(record[18]));
-        load.setBol(record[19]);
-        load.setCompleted(Boolean.parseBoolean(record[20]));
-        load.setCancelled(Boolean.parseBoolean(record[21]));
+        record.setRate(Double.valueOf(line[5]));
+        record.setMiles(Integer.valueOf(line[6]));
+        record.setWeight(Integer.valueOf(line[7]));
+        record.setPieces(Integer.valueOf(line[8]));
+        record.setCommodity(line[9]);
+        record.setHazMat(Boolean.parseBoolean(line[10]));
+        record.setTarped(Boolean.parseBoolean(line[11]));
+        record.setTeam(Boolean.parseBoolean(line[12]));
+        record.setTwic(Boolean.parseBoolean(line[13]));
+        record.setTopCust(Boolean.parseBoolean(line[14]));
+        record.setLtl(Boolean.parseBoolean(line[15]));
+        record.setCbd(Boolean.parseBoolean(line[16]));
+        record.setRamps(Boolean.parseBoolean(line[17]));
+        record.setBroker(Long.valueOf(line[18]));
+        record.setBol(line[19]);
+        record.setCompleted(Boolean.parseBoolean(line[20]));
+        record.setCancelled(Boolean.parseBoolean(line[21]));
         
-        records.add(load);
+        records.add(record);
         
         StopCtl stops = null;
         
@@ -469,8 +134,8 @@ public class LoadCtl {
         
         if ( stops != null ) {
             for ( StopModel stop : stops.getList() ) {
-                if ( stop.getTripNumber().equals(load.getTrip()) ) {
-                    load.addStop(stop);
+                if ( stop.getTripNumber().equals(record.getTrip()) ) {
+                    record.addStop(stop);
                 }
 //                LoadMaster.fileProgress.setValue(
 //                        LoadMaster.fileProgress.getValue() + 1);
@@ -478,7 +143,7 @@ public class LoadCtl {
         }
     }
     
-    private String buildRecordLine(LoadModel model) {
+    protected String buildRecordLine(LoadModel model) {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
         return model.getOrder() + "~" + model.getTrip() + "~" 
@@ -493,51 +158,10 @@ public class LoadCtl {
                 + model.getBol() + "~" + "~" + model.isCompleted() + "~" 
                 + model.isCancelled();
     }
-    
-    private void saveStops() {
-        StopCtl stops = null;
-        
-        try {
-            stops = new StopCtl();
-        } catch ( DataStoreException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "The above error occurred while trying to load the "
-                            + "existing stops.");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("connect");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-        }
-        
-        if ( stops != null ) {
-            boolean exists = false;
-            
-            for ( StopModel stop : stops.getList() ) { // All stops in database
-                for ( LoadModel load : records ) { // All loads in database
-                    for ( StopModel s : load.getStops() ) { // All stops in load
-                        if ( s.getTripNumber().equals(load.getTrip()) ) {
-                            exists = true;
-                        }
-                    } // All stops in load
-                } // All loads in database
-                
-                if ( !exists ) {
-                    stops.addNew(stop);
-                }
-            } // All stops in database
-            
-            try {
-                stops.close();
-            } catch ( DataStoreException ex ) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "The above error occurred while trying to store the "
-                                + "newly added stops.");
-                entry.setThrown(ex);
-                entry.setSourceMethodName("connect");
-                entry.setParameters(null);
-                Starter.logger.error(entry);
-            }
-        }
+
+    @Override
+    public boolean postTransactions() throws DataStoreException {
+        throw new UnsupportedOperationException("Not necessary for this object.");
     }
     //</editor-fold>
 

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  ******************************************************************************
+ *  ****************************************************************************
  *   Project:  Load_Master
  *   Module:   FuelPurchaseCtl
  *   Created:  Oct 19, 2020
@@ -25,13 +25,22 @@
  *   Revision History
  * 
  *   WHEN          BY                  REASON
- *   ------------  ------------------- ------------------------------------------
+ *   ------------  ------------------- -----------------------------------------
  *   Oct 21, 2020  Sean Carrick        Initial Creation.
  *   Oct 22, 2020  Sean Carrick        Modified FuelCardControl to extend the
  *                                     AbstractJournal class. This modification
  *                                     will save countless time on class creation
  *                                     and maintenance moving into the future.
- *  ******************************************************************************
+ *   Oct 23, 2020  Sean Carrick        Altered this class to implement only the
+ *                                     three (3) abstract methods in the super
+ *                                     class: 
+ *                                          - buildRecordLine(FuelCardModel)
+ *                                          - createAndAddRecord(String[])
+ *                                          - postTransactions()
+ *                                     All other functionality is taken care of
+ *                                     in AbstractJournal<T>.
+ *
+ *  ****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.controller;
@@ -44,12 +53,6 @@ import com.pekinsoft.loadmaster.model.FuelCardModel;
 import com.pekinsoft.loadmaster.model.FuelPurchaseModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.LoadMaster;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -62,190 +65,22 @@ import java.util.Date;
  * @version 0.2.67
  * @since 0.7.8 build 2549
  */
-public class FuelPurchaseCtl extends AbstractJournal {
-    //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
-    private final File TABLE;
-    //</editor-fold>
+public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public FuelPurchaseCtl () throws DataStoreException {
-        super();
-        
-        entry.setSourceClassName(getClass().getCanonicalName());
-        entry.setSourceMethodName(getClass().getName() + " (Constructor)");
-        entry.setParameters(null);
-        entry.setMessage("Initializing a FuelPurchaseCtl journal object.");
-        Starter.logger.enter(entry);
-        
-        TABLE = new File(Starter.props.getDataFolder() 
+        super(new FuelPurchaseModel(), Starter.props.getDataFolder() 
                 + FuelPurchaseModel.ACCOUNT_NUMBER + ".jrnl");
-
-        // Check to see if the table file exists:
-        if ( createFileIfNecessary() )
-            connect();
-        else {
-            entry.setMessage("Fuel Expense Journal was just created.");
-            entry.setSourceClassName(getClass().getCanonicalName());
-            entry.setSourceMethodName(getClass().getName() + " (Constructor)");
-            entry.setParameters(null);
-            entry.setThrown(null);
-            entry.setInstant(Instant.now());
-            Starter.logger.info(entry);
-        }
-        
-        entry.setMessage("Done creating FuelPurchaseCtl object.");
-        Starter.logger.exit(entry, null);
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    public void addNew(FuelPurchaseModel model) {
-        super.addNew(model);
-        
-        Starter.props.setPropertyAsInt("journal.fuel.records", getRecordCount());
-    }
-    
-    @Override
-    public FuelPurchaseModel first() throws DataStoreException {
-        return (FuelPurchaseModel)super.first();
-    }
-    
-    @Override
-    public FuelPurchaseModel previous() throws DataStoreException {
-        return (FuelPurchaseModel)super.previous();
-    }
-    
-    @Override
-    public FuelPurchaseModel next() throws DataStoreException {
-        return (FuelPurchaseModel)super.next();
-    }
-    
-    @Override
-    public FuelPurchaseModel last() throws DataStoreException {
-        return (FuelPurchaseModel)super.last();
-    }
-    
-    @Override
-    public FuelPurchaseModel get() {
-        return (FuelPurchaseModel)super.get();
-    }
-    
-    @Override
-    public FuelPurchaseModel get(int idx) {
-        return (FuelPurchaseModel)super.get(idx);
-    }
-    
-    @Override
-    public void close() throws DataStoreException {
-        save();
-    }
+
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
+    //<editor-fold defaultstate="collapsed" desc="Protected Override Methods">
     @Override
-    protected void connect() throws DataStoreException {
-        entry.setMessage("Enter...");
-        entry.setSourceClassName(getClass().getCanonicalName());
-        entry.setSourceMethodName("connect");
-        entry.setParameters(new Object[]{});
-        entry.setThrown(null);
-        entry.setInstant(Instant.now());
-        Starter.logger.enter(entry);
-        
-        entry.setMessage("Setting up LoadMaster.fileProgress...");
-        entry.setParameters(null);
-        Starter.logger.config(entry);
-        
-        if ( LoadMaster.fileProgress != null ) {
-            LoadMaster.fileProgress.setMaximum(
-                    Starter.props.getPropertyAsInt("journal.fuel.records", "0") 
-                    + (Starter.props.getPropertyAsInt("journal.fuel.records", "0")));
-            LoadMaster.fileProgress.setValue(0);
-            LoadMaster.fileProgress.setVisible(true);
-        }
-        
-        try (BufferedReader in = new BufferedReader(new FileReader(TABLE))) {
-            String line = in.readLine();
-            
-            while ( line != null ) {
-                String[] record = line.split("~");
-                
-                createAndAddRecord(record);
-                
-                line = in.readLine();
-
-                if ( LoadMaster.fileProgress != null ) {
-                    LoadMaster.fileProgress.setValue(
-                            LoadMaster.fileProgress.getValue() + 1);
-                }
-            }
-            
-            row = 0;    // Set our current row to the first record.
-        } catch ( IOException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "Throwing DataStoreException to calling method...");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("connect");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-            
-            throw new DataStoreException(ex.getMessage(), ex);
-        } finally {
-            if ( LoadMaster.fileProgress != null ) {
-                LoadMaster.fileProgress.setValue(0);
-                LoadMaster.fileProgress.setVisible(false);
-            }
-            Starter.props.setPropertyAsInt("journal.fuel.records", records.size());
-            Starter.props.flush();
-        }
-    }
-    
-    @Override
-    protected void save() throws DataStoreException {
-        
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
-        LoadMaster.fileProgress.setValue(
-                Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
-        
-        if ( TABLE.exists() ) {
-            TABLE.delete();
-            try {
-                TABLE.createNewFile();
-            } catch ( IOException ex ) {
-                entry.setMessage("Something went wrong deleting and recreating "
-                        + "the data table.");
-                entry.setThrown(ex);
-                entry.setSourceMethodName("save");
-                entry.setParameters(null);
-                Starter.logger.error(entry);
-                
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        try (BufferedWriter out = new BufferedWriter(new FileWriter(TABLE))) {
-            
-            for ( int x = 0; x < records.size(); x++ ) {
-                out.write(buildRecordLine((FuelPurchaseModel)records.get(x)) 
-                        + "\n");
-                
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() - 1);
-            }
-        } catch ( IOException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "Throwing DataStoreException to calling method...");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("storeData");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-            
-            throw new DataStoreException(ex.getMessage(), ex);
-        }
-    }
-    
-    private String buildRecordLine(FuelPurchaseModel model) {
+    protected String buildRecordLine(FuelPurchaseModel model) {
         return model.getIdAsString() + "~" + model.getDateAsString() + "~"
                 + model.getOdometer() + "~" + model.getLocation()+ "~"
                 + model.getGallonsOfDieselAsString()+ "~" 
@@ -256,7 +91,8 @@ public class FuelPurchaseCtl extends AbstractJournal {
                 + model.isPosted();
     }
     
-    private void createAndAddRecord(String[] line) {
+    @Override
+    protected void createAndAddRecord(String[] line) {
         entry.setMessage("Entering...");
         entry.setSourceMethodName("createAndAddRecord");
         entry.setParameters(line);
@@ -268,7 +104,7 @@ public class FuelPurchaseCtl extends AbstractJournal {
         
         
         try {
-            ((FuelPurchaseModel)record).setDate(sdf.parse(line[1]));
+            record.setDate(sdf.parse(line[1]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the dispatch date.");
@@ -280,44 +116,22 @@ public class FuelPurchaseCtl extends AbstractJournal {
             MessageBox.showError(ex, "Parsing Error");
         }
         
-        ((FuelPurchaseModel)record).setId(line[0]);
-        ((FuelPurchaseModel)record).setOdometer(line[2]);
-        ((FuelPurchaseModel)record).setLocation(line[3]);
-        ((FuelPurchaseModel)record).setGallonsOfDiesel(line[4]);
-        ((FuelPurchaseModel)record).setPricePerGallonOfDiesel(line[5]);
-        ((FuelPurchaseModel)record).setDefPurchased(Boolean.parseBoolean(line[6]));
-        ((FuelPurchaseModel)record).setGallonsOfDef(line[7]);
-        ((FuelPurchaseModel)record).setPricePerGallonDef(line[8]);
-        ((FuelPurchaseModel)record).setNotes(line[9]);
-        ((FuelPurchaseModel)record).setTripNumber(line[10]);
-        ((FuelPurchaseModel)record).setPosted(Boolean.parseBoolean(line[11]));
+        record.setId(line[0]);
+        record.setOdometer(line[2]);
+        record.setLocation(line[3]);
+        record.setGallonsOfDiesel(line[4]);
+        record.setPricePerGallonOfDiesel(line[5]);
+        record.setDefPurchased(Boolean.parseBoolean(line[6]));
+        record.setGallonsOfDef(line[7]);
+        record.setPricePerGallonDef(line[8]);
+        record.setNotes(line[9]);
+        record.setTripNumber(line[10]);
+        record.setPosted(Boolean.parseBoolean(line[11]));
         
         records.add(record);
         
         LoadMaster.fileProgress.setValue(
                 LoadMaster.fileProgress.getValue() + 1);
-    }
-    //</editor-fold>
-
-    @Override
-    protected boolean createFileIfNecessary() {
-        boolean success = true;
-        if ( !TABLE.exists() ) {
-            try {
-                TABLE.createNewFile();
-            } catch (IOException ex) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "\nThrowing DataStoreException...");
-                entry.setParameters(null);
-                entry.setSourceMethodName("createFileIfNecessary");
-                entry.setThrown(ex);
-                Starter.logger.error(entry);
-                
-                success = false;
-            }
-        }
-        
-        return success;
     }
 
     @Override
@@ -422,5 +236,6 @@ public class FuelPurchaseCtl extends AbstractJournal {
         // Leave as the last line of the method:
         return success;
     }
+    //</editor-fold>
 
 }

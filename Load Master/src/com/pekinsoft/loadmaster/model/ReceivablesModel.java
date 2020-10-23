@@ -88,9 +88,9 @@ public class ReceivablesModel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-//    public ReceivablesModel () {
-//        this(new Date(), "[NO TRIP]", "[NO ORDER]", 0.00);
-//    }
+    public ReceivablesModel () {
+        this(new Date(), "[NO TRIP]", "[NO ORDER]", 0.00);
+    }
     
     public ReceivablesModel(Date date, String tripNumber, String orderNumber,
             double amount) {

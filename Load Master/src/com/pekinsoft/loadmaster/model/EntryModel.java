@@ -56,6 +56,9 @@ import java.util.Date;
  * @since 0.7.8 build 2549
  */
 public class EntryModel {
+    /** The account number for the General Ledger for file access. */
+    public static final int ACCOUNT_NUMBER = 0;
+    
     /** Transaction date. */
     private Date date;
     /** Transaction code. */

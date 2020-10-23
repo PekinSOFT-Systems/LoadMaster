@@ -26,28 +26,29 @@
  * 
  *   WHEN          BY                  REASON
  *   ------------  ------------------- ------------------------------------------
- *   Oct 19, 2020    Sean Carrick Initial Creation.
+ *   Oct 19, 2020  Sean Carrick        Initial Creation.
+ *   Oct 23, 2020  Sean Carrick        Altered this class to implement only the
+ *                                     three (3) abstract methods in the super
+ *                                     class: 
+ *                                          - buildRecordLine(FuelCardModel)
+ *                                          - createAndAddRecord(String[])
+ *                                          - postTransactions()
+ *                                     All other functionality is taken care of
+ *                                     in AbstractJournal<T>.
+ *
  *  ******************************************************************************
  */
 
 package com.pekinsoft.loadmaster.controller;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.api.AbstractJournal;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.ReceivablesModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.view.LoadMaster;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
 
 /**
  *
@@ -56,222 +57,16 @@ import java.util.logging.LogRecord;
  * @version 0.1.0
  * @since 0.7.8 build 2549
  */
-public class ReceivablesCtl {
-    //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
-    private final ArrayList<ReceivablesModel> records;
-    private final File TABLE;
-    
-    private final LogRecord entry;
-    
-    private ReceivablesModel record;
-    private int row;
-    
-    private boolean fileJustCreated;
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
-    //</editor-fold>
+public class ReceivablesCtl extends AbstractJournal<ReceivablesModel> {
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public ReceivablesCtl () throws DataStoreException {
-        entry = new LogRecord(Level.ALL, "Logging initiated for ReceivablesCtl "
-                + "class.");
-        entry.setSourceClassName(this.getClass().getName());
-        entry.setSourceMethodName("ReceivablesCtl (Constructor)");
-        entry.setParameters(null);
-        Starter.logger.enter(entry);
-        
-        fileJustCreated = false;
-        
-        records = new ArrayList<>();
-        row = 0;
-        
-        TABLE = new File(Starter.props.getDataFolder() + "50500.jrnl");
-
-        // Check to see if the table file exists:
-        if ( !TABLE.exists() ) {
-            try {
-                TABLE.createNewFile();
-                
-                // Set our flag:
-                fileJustCreated = true;
-            } catch (IOException ex) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "\nThrowing DataStoreException...");
-                entry.setParameters(null);
-                entry.setSourceMethodName("ReceivablesCtl");
-                entry.setThrown(ex);
-                Starter.logger.error(entry);
-                
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        if ( !fileJustCreated )
-            connect();
-//        else
-//            MessageBox.showInfo("Data file was just now created.\n"
-//                    + "Add records to it, then save, in order\n"
-//                    + "to not see this message in the future.", 
-//                    "New Data File Created");
-        
-        entry.setMessage("Done creating ReceivablesCtl object.");
-        Starter.logger.exit(entry, null);
+        super(new ReceivablesModel(), Starter.props.getDataFolder() 
+                + ReceivablesModel.ACCOUNT_NUMBER + ".jrnl");
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    public void addNew(ReceivablesModel model) {
-        records.add(model);
-        row = getRecordCount() - 1;
-        
-        Starter.props.setPropertyAsInt("journal.ar.records", getRecordCount());
-    }
-    
-    public void close() throws DataStoreException {
-        save();
-    }
-    
-    /**
-     * Moves the record pointer to the first transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the first
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public ReceivablesModel first() throws DataStoreException {
-        if ( row >= 0 ) {
-            row = 0;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Moves the record pointer to the previous transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the first
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public ReceivablesModel previous() throws DataStoreException {
-        if ( row > 0 ) {
-            row--;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Moves the record pointer to the next transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the first
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public ReceivablesModel next() throws DataStoreException {
-        if ( row < records.size() ) {
-            row++;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Moves the record pointer to the last transaction in this journal.
-     * 
-     * @return LoadModel The previous transaction record, if not at the last
-     *                       transaction in the journal.
-     * @throws DataStoreException in the event an error occurs while accessing
-     *                       the journal
-     */
-    public ReceivablesModel last() throws DataStoreException {
-        if ( row < records.size() ) {
-            row = records.size() - 1;
-            
-            try {
-                record = records.get(row);
-            } catch (IndexOutOfBoundsException ex) {
-                record = null;
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        return record;
-    }
-    
-    /**
-     * Determines whether or not there are more transactions in this journal.
-     * 
-     * @return `true` if more transactions, `false` if not.
-     */
-    public boolean hasNext() {
-        return row < records.size();
-    }
-    
-    /**
-     * Retrieves the current entry as an `ReceivablesModel` object.
-     * 
-     * @return The current entry.
-     */
-    public ReceivablesModel get() {
-        return records.get(row);
-    }
-    
-    /**
-     * Retrieves the entry at the specified index. If the specified index is
-     * invalid, returns `null`.
-     * 
-     * @param idx   The specified index from which to retrieve the entry.
-     * @return      The entry at the specified index. If the specified index is 
-     *              invalid (i.e., less than zero or greater than
-     *              `getRecordCount()`), null is returned.
-     */
-    public ReceivablesModel get(int idx) {
-        return records.get(idx);
-    }
-    
     /**
      * Provides a means of selecting a specific AR entry based upon the load 
      * from which it was earned. This method searches through the entries in the
@@ -303,142 +98,18 @@ public class ReceivablesCtl {
         
         return m;
     }
-    
-    /**
-     * Retrieves the current record number of the record in this journal.
-     * 
-     * @return int The current record number
-     */
-    public int getCurrentRecordNumber() {
-        return row + 1;
-    }
-    
-    /**
-     * Retrieves the total number of records (or rows) in this table.
-     * 
-     * @return int The number of records
-     */
-    public int getRecordCount() {
-        return records.size();
-    }
-    
-    public void update(ReceivablesModel model) {
-        record = model;
-        
-        records.set(row, model);
-    }
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    private void connect() throws DataStoreException {
-        entry.setMessage("Enter...");
-        entry.setSourceMethodName("connect");
-        entry.setParameters(new Object[]{});
-        Starter.logger.enter(entry);
-        
-        BufferedReader in;
-        
-        entry.setMessage("Setting up LoadMaster.fileProgress...");
-        entry.setParameters(null);
-        Starter.logger.config(entry);
-        
-        if ( LoadMaster.fileProgress != null ) {
-            LoadMaster.fileProgress.setMaximum(
-                    Starter.props.getPropertyAsInt("journal.fuel.records", "0") 
-                    + (Starter.props.getPropertyAsInt("journal.fuel.records", "0")));
-            LoadMaster.fileProgress.setValue(0);
-            LoadMaster.fileProgress.setVisible(true);
-        }
-        
-        try {
-            in = new BufferedReader(new FileReader(TABLE));
-            
-            String line = in.readLine();
-            
-            while ( line != null ) {
-                String[] record = line.split("~");
-                
-                createAndAddRecord(record);
-                
-                line = in.readLine();
-
-                if ( LoadMaster.fileProgress != null ) {
-                    LoadMaster.fileProgress.setValue(
-                            LoadMaster.fileProgress.getValue() + 1);
-                }
-            }
-            
-            row = 0;    // Set our current row to the first record.
-            
-            in.close();
-            
-        } catch ( IOException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "Throwing DataStoreException to calling method...");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("connect");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-            
-            throw new DataStoreException(ex.getMessage(), ex);
-        } finally {
-            if ( LoadMaster.fileProgress != null ) {
-                LoadMaster.fileProgress.setValue(0);
-                LoadMaster.fileProgress.setVisible(false);
-            }
-            Starter.props.setPropertyAsInt("journal.ar.records", records.size());
-            Starter.props.flush();
-        }
-    }
-    
-    private void save() throws DataStoreException {
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("journal.ar.records", "0"));
-        LoadMaster.fileProgress.setValue(
-                Starter.props.getPropertyAsInt("journal.ar.records", "0"));
-        
-        if ( TABLE.exists() ) {
-            TABLE.delete();
-            try {
-                TABLE.createNewFile();
-            } catch ( IOException ex ) {
-                entry.setMessage("Something went wrong deleting and recreating "
-                        + "the data table.");
-                entry.setThrown(ex);
-                entry.setSourceMethodName("save");
-                entry.setParameters(null);
-                Starter.logger.error(entry);
-                
-                throw new DataStoreException(ex.getMessage(), ex);
-            }
-        }
-        
-        try ( BufferedWriter out = new BufferedWriter(new FileWriter(TABLE)) ) {
-            for ( int x = 0; x < records.size(); x++ ) {
-                out.write(buildRecordLine(records.get(x)) + "\n");
-                
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() - 1);
-            }
-        } catch ( IOException ex ) {
-            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                    + "Throwing DataStoreException to calling method...");
-            entry.setThrown(ex);
-            entry.setSourceMethodName("storeData");
-            entry.setParameters(null);
-            Starter.logger.error(entry);
-            
-            throw new DataStoreException(ex.getMessage(), ex);
-        }
-    }
-    
-    private String buildRecordLine(ReceivablesModel model) {
+    //<editor-fold defaultstate="collapsed" desc="Protected Override Methods">
+    @Override
+    protected String buildRecordLine(ReceivablesModel model) {
         return model.getIdAsString() + "~" + model.getDateAsString() + "~"
                 + model.getTripNumber() + "~" + model.getOrderNumber() + "~"
                 + model.getAmountAsString() + "~" + model.isSettled();
     }
     
-    private void createAndAddRecord(String[] line) {
+    @Override
+    protected void createAndAddRecord(String[] line) {
         entry.setMessage("Entering...");
         entry.setSourceMethodName("createAndAddRecord");
         entry.setParameters(line);
@@ -471,6 +142,11 @@ public class ReceivablesCtl {
         
         LoadMaster.fileProgress.setValue(
                 LoadMaster.fileProgress.getValue() + 1);
+    }
+
+    @Override
+    public boolean postTransactions() throws DataStoreException {
+        throw new UnsupportedOperationException("Not necessary for this object.");
     }
     //</editor-fold>
 
