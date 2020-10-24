@@ -1,4 +1,4 @@
-# Load Master
+# Load Master ![Load Master Icon](https://github.com/SeanCarrick/LoadMaster/blob/master/Northwind48.png)
 ********************************************************************************
                                                  L O A D   M A S T E R                              
                                                P r o j e c t   N o t e s                            
