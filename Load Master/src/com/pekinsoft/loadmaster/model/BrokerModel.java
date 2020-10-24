@@ -79,7 +79,7 @@ public class BrokerModel implements JournalInterface {
      *         tilde (~) character.
      */
     @Override
-    public String buildRecordLine() {
+    public String createRecord() {
         StringBuilder record = new StringBuilder();
         record.append(id).append("~");
         if ( company == null || company.isBlank() || company.isEmpty() )

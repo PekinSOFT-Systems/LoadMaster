@@ -541,7 +541,7 @@ public class FuelPurchaseModel implements JournalInterface {
     }
 
     @Override
-    public String buildRecordLine() {
+    public String createRecord() {
         StringBuilder data = new StringBuilder();
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         

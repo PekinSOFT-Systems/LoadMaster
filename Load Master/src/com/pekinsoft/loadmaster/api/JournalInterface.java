@@ -57,7 +57,7 @@ public interface JournalInterface {
      * 
      * @return data formatted for file.
      */
-    public String buildRecordLine();
+    public String createRecord();
     
     /**
      * Creates a General Ledger entry, formatted to be written to the General

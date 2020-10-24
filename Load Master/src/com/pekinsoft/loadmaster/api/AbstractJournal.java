@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 /**
  * `AbstractJournal` is a generic class for use in maintaining the data files
@@ -330,7 +331,7 @@ public class AbstractJournal {
             String line = in.readLine();
             
             while ( line != null ) {
-                createAndAddRecord(line.split(line));
+                loadRecord(line.split(line));
                 
                 line = in.readLine();
 
@@ -355,14 +356,9 @@ public class AbstractJournal {
     }
     
     private void save() throws DataStoreException {
-        BufferedWriter out;
+        setUpReverseProgressBar();
         
-        LoadMaster.fileProgress.setMaximum(
-                Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
-        LoadMaster.fileProgress.setValue(
-                Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
-        
-        if ( dataFile.exists() ) {
+       if ( dataFile.exists() ) {
             dataFile.delete();
             try {
                 dataFile.createNewFile();
@@ -378,17 +374,12 @@ public class AbstractJournal {
             }
         }
         
-        try {
-            out = new BufferedWriter(new FileWriter(dataFile));
-            
+        try ( BufferedWriter out = new BufferedWriter(new FileWriter(dataFile))) {
             for ( int x = 0; x < records.size(); x++ ) {
-                out.write(records.get(x).buildRecordLine() + "\n");
+                out.write(records.get(x).createRecord() + "\n");
                 
-                LoadMaster.fileProgress.setValue(
-                        LoadMaster.fileProgress.getValue() - 1);
+                reduceProgressBar();
             }
-            
-            out.close();
         } catch ( IOException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Throwing DataStoreException to calling method...");
@@ -398,37 +389,33 @@ public class AbstractJournal {
             Starter.logger.error(entry);
             
             throw new DataStoreException(ex.getMessage(), ex);
+        } finally {
+            destroyProgressBar();
         }
     }
     
-    private void createAndAddRecord(String[] lines) {
+    private void loadRecord(String[] lines) {
         entry.setMessage("Entering...");
         entry.setSourceMethodName("createAndAddRecord");
         entry.setParameters(lines);
         Starter.logger.enter(entry);
         
-        Constructor cons = null;
         try {
-            cons = record.getClass().getDeclaredConstructor(String.class);
-            cons.setAccessible(true);
             record = (JournalInterface)getConstructor().newInstance(lines);
-        } catch ( InstantiationException | IllegalAccessException 
-                | InvocationTargetException | NoSuchMethodException ex ) {
-            entry.setMessage(ex.getLocalizedMessage());
+        } catch (InstantiationException | IllegalAccessException 
+                | IllegalArgumentException | InvocationTargetException ex) {
+            entry.setMessage(ex.getMessage());
             entry.setThrown(ex);
-            entry.setSourceMethodName("createAndAddRecord");
-            entry.setLevel(Level.WARNING);
-            entry.setParameters(null);
-            entry.setInstant(Instant.now());
+            entry.setSourceMethodName("loadRecord");
+            entry.setParameters(lines);
             Starter.logger.error(entry);
         }
-        
+
         record.load(lines);
         
         records.add(record);
         
-        LoadMaster.fileProgress.setValue(
-                LoadMaster.fileProgress.getValue() + 1);
+        advanceProgressBar();
         
         entry.setMessage("Completed creating and adding a record.");
         entry.setLevel(Level.FINE);
@@ -469,11 +456,24 @@ public class AbstractJournal {
         }
     }
     
+    private void setUpReverseProgressBar() {
+        LoadMaster.fileProgress.setMaximum(
+                Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
+        LoadMaster.fileProgress.setValue(
+                Starter.props.getPropertyAsInt("journal.fuel.records", "0"));
+        
+     }
+    
     private void advanceProgressBar() {
         if ( LoadMaster.fileProgress != null ) {
             LoadMaster.fileProgress.setValue(
                     LoadMaster.fileProgress.getValue() + 1);
         }
+    }
+    
+    private void reduceProgressBar() {
+                LoadMaster.fileProgress.setValue(
+                        LoadMaster.fileProgress.getValue() - 1);
     }
     
     private void destroyProgressBar() {

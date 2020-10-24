@@ -327,7 +327,7 @@ public class EntryModel implements JournalInterface {
     }
 
     @Override
-    public String buildRecordLine() {
+    public String createRecord() {
         StringBuilder data = new StringBuilder();
         
         data.append(date).append("~");
