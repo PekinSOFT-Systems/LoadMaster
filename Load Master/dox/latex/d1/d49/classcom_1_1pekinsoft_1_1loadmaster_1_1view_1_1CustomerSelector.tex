@@ -1,0 +1,200 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector}\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dd/dca/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{de/d54/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a282a4ba90b9487f582fa5a745ea84356}{Customer\+Selector}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector}{Customer\+Selector}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a08fa3cbfde1c83dc11e506b2e55be21d}{get\+Selected\+Customer}} ()
+\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a02c7e431c80244493f3a79095093bb9e}{get\+Early\+Date}} ()
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a0dc51d38112ddf122cddf985d5a26400}{get\+Early\+Time}} ()
+\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a5bc806bb44db00b3791597690eaf6e7b}{get\+Late\+Date}} ()
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_ac3ebde867e13fd97b9949f426de15884}{get\+Late\+Time}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 69 of file Customer\+Selector.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a282a4ba90b9487f582fa5a745ea84356}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a282a4ba90b9487f582fa5a745ea84356}} 
+\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}!CustomerSelector@{CustomerSelector}}
+\index{CustomerSelector@{CustomerSelector}!com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+\doxysubsubsection{\texorpdfstring{CustomerSelector()}{CustomerSelector()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector.\+Customer\+Selector (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector}{Customer\+Selector}}. 
+
+
+
+Definition at line 81 of file Customer\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                                                                   \{}
+\DoxyCodeLine{82         super(parent, modal);}
+\DoxyCodeLine{83         lr.setSourceClassName(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a282a4ba90b9487f582fa5a745ea84356}{CustomerSelector}}.class.getName());}
+\DoxyCodeLine{84         Starter.logger.info(lr);}
+\DoxyCodeLine{85         }
+\DoxyCodeLine{86         lr.setMessage(\textcolor{stringliteral}{"Creating an instance of the CustomerSelector dialog."});}
+\DoxyCodeLine{87         lr.setSourceMethodName(\textcolor{stringliteral}{"CustomerSelector"});}
+\DoxyCodeLine{88         lr.setParameters(\textcolor{keyword}{new} Object[] \{parent, modal\});}
+\DoxyCodeLine{89         Starter.logger.enter(lr);}
+\DoxyCodeLine{90         }
+\DoxyCodeLine{91         filtering = \textcolor{keyword}{false};}
+\DoxyCodeLine{92         }
+\DoxyCodeLine{93         initComponents();}
+\DoxyCodeLine{94         }
+\DoxyCodeLine{95         lr.setMessage(\textcolor{stringliteral}{"Attempting to access the customers database..."});}
+\DoxyCodeLine{96         Starter.logger.debug(lr);}
+\DoxyCodeLine{97         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{98             records = \textcolor{keyword}{new} CustomerCtl();}
+\DoxyCodeLine{99             lr.setMessage(\textcolor{stringliteral}{"Customers database accessed successfully!"});}
+\DoxyCodeLine{100             Starter.logger.info(lr);}
+\DoxyCodeLine{101         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{102             lr.setMessage(\textcolor{stringliteral}{"Something went wrong accessing the customers database."});}
+\DoxyCodeLine{103             lr.setThrown(ex);}
+\DoxyCodeLine{104             Starter.logger.error(lr);}
+\DoxyCodeLine{105             }
+\DoxyCodeLine{106             MessageBox.showError(ex, \textcolor{stringliteral}{"Database Access"});}
+\DoxyCodeLine{107             }
+\DoxyCodeLine{108             records = \textcolor{keyword}{null};}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110         }
+\DoxyCodeLine{111         loadList();}
+\DoxyCodeLine{112         }
+\DoxyCodeLine{113         setLocation(ScreenUtils.centerDialog(\textcolor{keyword}{this}));}
+\DoxyCodeLine{114         }
+\DoxyCodeLine{115         getRootPane().setDefaultButton(selectButton);}
+\DoxyCodeLine{116         }
+\DoxyCodeLine{117         lr.setMessage(\textcolor{stringliteral}{"CustomerSelector creation complete."});}
+\DoxyCodeLine{118         Starter.logger.exit(lr, \textcolor{keyword}{null});}
+\DoxyCodeLine{119     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a02c7e431c80244493f3a79095093bb9e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a02c7e431c80244493f3a79095093bb9e}} 
+\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}!getEarlyDate@{getEarlyDate}}
+\index{getEarlyDate@{getEarlyDate}!com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+\doxysubsubsection{\texorpdfstring{getEarlyDate()}{getEarlyDate()}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector.\+get\+Early\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 361 of file Customer\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{361                                \{}
+\DoxyCodeLine{362         \textcolor{keywordflow}{return} earlyDate.getDate();}
+\DoxyCodeLine{363     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a0dc51d38112ddf122cddf985d5a26400}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a0dc51d38112ddf122cddf985d5a26400}} 
+\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}!getEarlyTime@{getEarlyTime}}
+\index{getEarlyTime@{getEarlyTime}!com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+\doxysubsubsection{\texorpdfstring{getEarlyTime()}{getEarlyTime()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector.\+get\+Early\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 365 of file Customer\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{365                                  \{}
+\DoxyCodeLine{366         \textcolor{keywordflow}{return} earlyTime.getText();}
+\DoxyCodeLine{367     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a5bc806bb44db00b3791597690eaf6e7b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a5bc806bb44db00b3791597690eaf6e7b}} 
+\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}!getLateDate@{getLateDate}}
+\index{getLateDate@{getLateDate}!com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+\doxysubsubsection{\texorpdfstring{getLateDate()}{getLateDate()}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector.\+get\+Late\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 369 of file Customer\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{369                               \{}
+\DoxyCodeLine{370         \textcolor{keywordflow}{return} lateDate.getDate();}
+\DoxyCodeLine{371     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_ac3ebde867e13fd97b9949f426de15884}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_ac3ebde867e13fd97b9949f426de15884}} 
+\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}!getLateTime@{getLateTime}}
+\index{getLateTime@{getLateTime}!com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+\doxysubsubsection{\texorpdfstring{getLateTime()}{getLateTime()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector.\+get\+Late\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 373 of file Customer\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{373                                 \{}
+\DoxyCodeLine{374         \textcolor{keywordflow}{return} lateTime.getText();}
+\DoxyCodeLine{375     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a08fa3cbfde1c83dc11e506b2e55be21d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerSelector_a08fa3cbfde1c83dc11e506b2e55be21d}} 
+\index{com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}!getSelectedCustomer@{getSelectedCustomer}}
+\index{getSelectedCustomer@{getSelectedCustomer}!com.pekinsoft.loadmaster.view.CustomerSelector@{com.pekinsoft.loadmaster.view.CustomerSelector}}
+\doxysubsubsection{\texorpdfstring{getSelectedCustomer()}{getSelectedCustomer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1CustomerModel}{Customer\+Model}} com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Selector.\+get\+Selected\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 357 of file Customer\+Selector.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{357                                                \{}
+\DoxyCodeLine{358         \textcolor{keywordflow}{return} customer;}
+\DoxyCodeLine{359     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{CustomerSelector_8java}{Customer\+Selector.\+java}}\end{DoxyCompactItemize}

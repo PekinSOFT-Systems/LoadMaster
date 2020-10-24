@@ -1,0 +1,173 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator}\index{com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}}
+
+
+Jemmy operator for main application window.  
+
+
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{dd/d21/classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{d1/dae/classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a924ca5c5e39a4b4d2cce2dd36944cbc1}{call\+Load\+Master\+Settings}} ()
+\begin{DoxyCompactList}\small\item\em Invokes Load Master Settings... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a3b678ce5086a9bc6ae3131a70231e5e9}{call\+About}} ()
+\begin{DoxyCompactList}\small\item\em Invokes About Load Master... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_aca259b738b906bbae98394ace0f85ce3}{call\+Exit}} ()
+\begin{DoxyCompactList}\small\item\em Invokes Exit Master Settings... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a5943ff11ffbd217c03f306427dd13c80}{call\+Book\+New\+Load}} ()
+\begin{DoxyCompactList}\small\item\em Invokes Book New Load... \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator}{Main\+Window\+Operator}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a541511e52e6582ad83d0a2040ff95d48}{get\+Default}} ()
+\begin{DoxyCompactList}\small\item\em Returns operator for main application window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Jemmy operator for main application window. 
+
+\begin{DoxyAuthor}{Author}
+Jiří Kovalský 
+\end{DoxyAuthor}
+
+
+Definition at line 50 of file Main\+Window\+Operator.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a3b678ce5086a9bc6ae3131a70231e5e9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a3b678ce5086a9bc6ae3131a70231e5e9}} 
+\index{com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}!callAbout@{callAbout}}
+\index{callAbout@{callAbout}!com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}}
+\doxysubsubsection{\texorpdfstring{callAbout()}{callAbout()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator.\+call\+About (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Invokes About Load Master... 
+
+action from the application toolbar. 
+
+Definition at line 98 of file Main\+Window\+Operator.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98                             \{}
+\DoxyCodeLine{99         invokeAction(\textcolor{stringliteral}{"Load Master System"}, \textcolor{keyword}{new} \textcolor{keywordtype}{int}[]\{0, 0, 0, 1\});}
+\DoxyCodeLine{100     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a5943ff11ffbd217c03f306427dd13c80}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a5943ff11ffbd217c03f306427dd13c80}} 
+\index{com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}!callBookNewLoad@{callBookNewLoad}}
+\index{callBookNewLoad@{callBookNewLoad}!com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}}
+\doxysubsubsection{\texorpdfstring{callBookNewLoad()}{callBookNewLoad()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator.\+call\+Book\+New\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Invokes Book New Load... 
+
+action from the application toolbar. 
+
+Definition at line 112 of file Main\+Window\+Operator.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                                   \{}
+\DoxyCodeLine{113         invokeAction(\textcolor{stringliteral}{"Loads"}, \textcolor{keyword}{new} \textcolor{keywordtype}{int}[]\{0, 0, 0, 0\});}
+\DoxyCodeLine{114     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_aca259b738b906bbae98394ace0f85ce3}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_aca259b738b906bbae98394ace0f85ce3}} 
+\index{com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}!callExit@{callExit}}
+\index{callExit@{callExit}!com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}}
+\doxysubsubsection{\texorpdfstring{callExit()}{callExit()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator.\+call\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Invokes Exit Master Settings... 
+
+action from the application toolbar. 
+
+Definition at line 105 of file Main\+Window\+Operator.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105                            \{}
+\DoxyCodeLine{106         invokeAction(\textcolor{stringliteral}{"Load Master System"}, \textcolor{keyword}{new} \textcolor{keywordtype}{int}[]\{0, 0, 0, 6\});}
+\DoxyCodeLine{107     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a924ca5c5e39a4b4d2cce2dd36944cbc1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a924ca5c5e39a4b4d2cce2dd36944cbc1}} 
+\index{com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}!callLoadMasterSettings@{callLoadMasterSettings}}
+\index{callLoadMasterSettings@{callLoadMasterSettings}!com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}}
+\doxysubsubsection{\texorpdfstring{callLoadMasterSettings()}{callLoadMasterSettings()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator.\+call\+Load\+Master\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Invokes Load Master Settings... 
+
+action from the application toolbar. 
+
+Definition at line 91 of file Main\+Window\+Operator.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                          \{}
+\DoxyCodeLine{92         invokeAction(\textcolor{stringliteral}{"Load Master System"}, \textcolor{keyword}{new} \textcolor{keywordtype}{int}[]\{0, 0, 0, 0\});}
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a541511e52e6582ad83d0a2040ff95d48}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a541511e52e6582ad83d0a2040ff95d48}} 
+\index{com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}!getDefault@{getDefault}}
+\index{getDefault@{getDefault}!com.pekinsoft.loadmaster.operators.MainWindowOperator@{com.pekinsoft.loadmaster.operators.MainWindowOperator}}
+\doxysubsubsection{\texorpdfstring{getDefault()}{getDefault()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator}{Main\+Window\+Operator}} com.\+pekinsoft.\+loadmaster.\+operators.\+Main\+Window\+Operator.\+get\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns operator for main application window. 
+
+\begin{DoxyReturn}{Returns}
+Default operator for main application window. 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file Main\+Window\+Operator.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61                                                   \{}
+\DoxyCodeLine{62         String title = Tools.getApplicationTitle();}
+\DoxyCodeLine{63         MainWindowOperator mainWindowOperator = \textcolor{keyword}{new} MainWindowOperator(title);}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} mainWindowOperator;}
+\DoxyCodeLine{65     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/test/com/pekinsoft/loadmaster/operators/\mbox{\hyperlink{MainWindowOperator_8java}{Main\+Window\+Operator.\+java}}\end{DoxyCompactItemize}

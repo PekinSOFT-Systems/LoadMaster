@@ -1,0 +1,83 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Fuel\+Purchase\+Dialog Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog}\index{com.pekinsoft.loadmaster.view.FuelPurchaseDialog@{com.pekinsoft.loadmaster.view.FuelPurchaseDialog}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Fuel\+Purchase\+Dialog\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d2/dc5/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Fuel\+Purchase\+Dialog\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d3/d62/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog_a86315d4dee17da0699a0883ec1cf2526}{Fuel\+Purchase\+Dialog}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog}{Fuel\+Purchase\+Dialog}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 54 of file Fuel\+Purchase\+Dialog.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog_a86315d4dee17da0699a0883ec1cf2526}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog_a86315d4dee17da0699a0883ec1cf2526}} 
+\index{com.pekinsoft.loadmaster.view.FuelPurchaseDialog@{com.pekinsoft.loadmaster.view.FuelPurchaseDialog}!FuelPurchaseDialog@{FuelPurchaseDialog}}
+\index{FuelPurchaseDialog@{FuelPurchaseDialog}!com.pekinsoft.loadmaster.view.FuelPurchaseDialog@{com.pekinsoft.loadmaster.view.FuelPurchaseDialog}}
+\doxysubsubsection{\texorpdfstring{FuelPurchaseDialog()}{FuelPurchaseDialog()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Fuel\+Purchase\+Dialog.\+Fuel\+Purchase\+Dialog (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1FuelPurchaseDialog}{Fuel\+Purchase\+Dialog}}. 
+
+
+
+Definition at line 60 of file Fuel\+Purchase\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                                                     \{}
+\DoxyCodeLine{61         super(parent, modal);}
+\DoxyCodeLine{62         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Initializing the FuelPurchaseDialog"});}
+\DoxyCodeLine{63         entry.setSourceClassName(getClass().getName());}
+\DoxyCodeLine{64         entry.setSourceMethodName(\textcolor{stringliteral}{"FuelPurchaseDialog (Constructor)"});}
+\DoxyCodeLine{65         entry.setParameters(\textcolor{keyword}{new} Object[]\{parent, modal\});}
+\DoxyCodeLine{66         Starter.logger.enter(entry);}
+\DoxyCodeLine{67         }
+\DoxyCodeLine{68         initComponents();}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{70         getRootPane().setDefaultButton(okButton);}
+\DoxyCodeLine{71         }
+\DoxyCodeLine{72         \textcolor{keywordtype}{int} left = (Toolkit.getDefaultToolkit().getScreenSize().width }
+\DoxyCodeLine{73                 -\/ getWidth() ) / 2;}
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} top = (Toolkit.getDefaultToolkit().getScreenSize().height }
+\DoxyCodeLine{75                 -\/ getHeight() ) / 2;}
+\DoxyCodeLine{76         setLocation(left, top);}
+\DoxyCodeLine{77         }
+\DoxyCodeLine{78         defPanel.setVisible(defCheckBox.isSelected());}
+\DoxyCodeLine{79     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{FuelPurchaseDialog_8java}{Fuel\+Purchase\+Dialog.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,134 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Entry\+Form Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm}\index{com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Entry\+Form\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d4/d51/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Entry\+Form\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d7/d9f/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a9b9911ec52b442deaced64d841143b25}{Customer\+Entry\+Form}} ()
+\begin{DoxyCompactList}\small\item\em Creates new form Customers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static javax.\+swing.\+J\+Label \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a5d842685826361124d9154f0cfc625bc}{help\+Label}}
+\item 
+static javax.\+swing.\+J\+Panel \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_ae76b8963abf615eb78fdd17a6dab9e54}{help\+Panel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 60 of file Customer\+Entry\+Form.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a9b9911ec52b442deaced64d841143b25}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a9b9911ec52b442deaced64d841143b25}} 
+\index{com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}!CustomerEntryForm@{CustomerEntryForm}}
+\index{CustomerEntryForm@{CustomerEntryForm}!com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}}
+\doxysubsubsection{\texorpdfstring{CustomerEntryForm()}{CustomerEntryForm()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Entry\+Form.\+Customer\+Entry\+Form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates new form Customers. 
+
+
+
+Definition at line 76 of file Customer\+Entry\+Form.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                                \{}
+\DoxyCodeLine{77         lr = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initialized for Customers."});}
+\DoxyCodeLine{78         lr.setSourceClassName(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a9b9911ec52b442deaced64d841143b25}{CustomerEntryForm}}.class.getName());}
+\DoxyCodeLine{79         lr.setSourceMethodName(\textcolor{stringliteral}{"Customers"});}
+\DoxyCodeLine{80         Starter.logger.enter(lr);}
+\DoxyCodeLine{81         }
+\DoxyCodeLine{82         lr.setMessage(\textcolor{stringliteral}{"Attempting to access the customers database..."});}
+\DoxyCodeLine{83         Starter.logger.debug(lr);}
+\DoxyCodeLine{84         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{85             records = \textcolor{keyword}{new} CustomerCtl();}
+\DoxyCodeLine{86             lr.setMessage(\textcolor{stringliteral}{"Customers database accessed successfully!"});}
+\DoxyCodeLine{87         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{88             lr.setMessage(\textcolor{stringliteral}{"Something went wrong accessing the customers database."});}
+\DoxyCodeLine{89             lr.setThrown(ex);}
+\DoxyCodeLine{90             Starter.logger.error(lr);}
+\DoxyCodeLine{91             }
+\DoxyCodeLine{92             MessageBox.showError(ex, \textcolor{stringliteral}{"Database Access"});}
+\DoxyCodeLine{93             }
+\DoxyCodeLine{94             records = \textcolor{keyword}{null};}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96         }
+\DoxyCodeLine{97         initComponents();}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         \textcolor{comment}{// Set up the input verifiers for the state and zip fields.}}
+\DoxyCodeLine{100         stateField.setInputVerifier(\textcolor{keyword}{new} StateAbbrVerifier());}
+\DoxyCodeLine{101         zipField.setInputVerifier(\textcolor{keyword}{new} PostalCodeVerifier());}
+\DoxyCodeLine{102         }
+\DoxyCodeLine{103         setTitle(getTitle() + \textcolor{stringliteral}{" ("} + records.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1CustomerCtl_a3d8b2332e7536e2158f284a21487736b}{getRecordCount}}() + \textcolor{stringliteral}{" Records)"});}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         \textcolor{comment}{// Set the accessible description for the required fields to "required"}}
+\DoxyCodeLine{106         \textcolor{comment}{//+ for data validation purposes.}}
+\DoxyCodeLine{107         companyField.getAccessibleContext().setAccessibleDescription(\textcolor{stringliteral}{"required"});}
+\DoxyCodeLine{108         streetField.getAccessibleContext().setAccessibleDescription(\textcolor{stringliteral}{"required"});}
+\DoxyCodeLine{109         cityField.getAccessibleContext().setAccessibleDescription(\textcolor{stringliteral}{"required"});}
+\DoxyCodeLine{110         stateField.getAccessibleContext().setAccessibleDescription(\textcolor{stringliteral}{"required"});}
+\DoxyCodeLine{111         zipField.getAccessibleContext().setAccessibleDescription(\textcolor{stringliteral}{"required"});}
+\DoxyCodeLine{112         }
+\DoxyCodeLine{113         }
+\DoxyCodeLine{114         lr.setMessage(\textcolor{stringliteral}{"Customers dialog construction complete."});}
+\DoxyCodeLine{115         Starter.logger.exit(lr, \textcolor{keyword}{null});}
+\DoxyCodeLine{116     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a5d842685826361124d9154f0cfc625bc}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_a5d842685826361124d9154f0cfc625bc}} 
+\index{com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}!helpLabel@{helpLabel}}
+\index{helpLabel@{helpLabel}!com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}}
+\doxysubsubsection{\texorpdfstring{helpLabel}{helpLabel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Label com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Entry\+Form.\+help\+Label\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 738 of file Customer\+Entry\+Form.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_ae76b8963abf615eb78fdd17a6dab9e54}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CustomerEntryForm_ae76b8963abf615eb78fdd17a6dab9e54}} 
+\index{com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}!helpPanel@{helpPanel}}
+\index{helpPanel@{helpPanel}!com.pekinsoft.loadmaster.view.CustomerEntryForm@{com.pekinsoft.loadmaster.view.CustomerEntryForm}}
+\doxysubsubsection{\texorpdfstring{helpPanel}{helpPanel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Panel com.\+pekinsoft.\+loadmaster.\+view.\+Customer\+Entry\+Form.\+help\+Panel\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 739 of file Customer\+Entry\+Form.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{CustomerEntryForm_8java}{Customer\+Entry\+Form.\+java}}\end{DoxyCompactItemize}

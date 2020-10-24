@@ -1,0 +1,481 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+
+
+{\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{Abstract\+Journal}}} is a generic class for use in maintaining the data files and objects for Load Master™.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae2f9d656f7b79e90f4ca30de372c8fec}{Abstract\+Journal}} (\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} model, String file\+Path)  throws Data\+Store\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a822ed096080b947d5e7e1a77da17ad50}{add\+New}} (\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a1a8a7baff5d64186a6c5af8ba631fed0}{close}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Closes the connection to the data store file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ad099c218488c03f224be3e2efbeb1a78}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first transaction in this journal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a923ecc66e6ec68349aee0c5752a6d6ee}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous transaction in this journal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a5b8652d394533a4a094ba641bac43f4b}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next transaction in this journal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae7db2cffea5f9a9702e2cee29c08bfaf}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last transaction in this journal. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae4f79f295df8a8d594526032b9124a7d}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not there are more transactions in this journal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9d3fd96f6bc91de7677541b7718bf179}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current entry as an {\ttfamily Receivables\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a971b95762e54805a01cb4d1a1efa41ae}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the entry at the specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_aab2c769be4b543c885bf99674af7529b}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this journal. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9fc272074f9950eeb1ffca143f1df292}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a179944a4a52f35de4600e8bde44f8dcc}{update}} (\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} model)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+{\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{Abstract\+Journal}}} is a generic class for use in maintaining the data files and objects for Load Master™. 
+
+By using reflection, we will only have this one class to maintain in the future for all data file access.
+
+Though most people organize their data files in such a way that makes sense to a person reading it in a text editor, Load Master™ will not need to do so. As an example, a human would format the data file for a contact such as the following, using an asterisk as a field delimiter\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{id}*lastName*firstName*street*apartment*city*state*ZipCode*phoneNumber*email}
+\end{DoxyCode}
+
+
+Since the computer is not human, and does not look at things the same way a human does, we don\textquotesingle{}t need to worry about the format, other than that the system reads in the data in the same order as it was written out. In order to accomplish this, {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{Abstract\+Journal}}} sorts the methods by name so that the setter methods will be called in the same order as the getter methods. Therefore, using the example above, the data file will be formatted as such\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{aprtment*city*email*\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ad099c218488c03f224be3e2efbeb1a78}{first}}*\textcolor{keywordtype}{id}*\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae7db2cffea5f9a9702e2cee29c08bfaf}{last}}*phone*state*street*ZipCode}
+\end{DoxyCode}
+
+
+Though this format is not easy for a human to read, it will work for the system none-\/the-\/less.
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]By using this single class for accessing all of the data files for Load Master™, we must require each model class to pass the full path and file name to the data file for that model into the constructor for {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{Abstract\+Journal}}}. In this way, the generic, reflective class will be able to open the file for input/output as needed. 
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]Every model class for which you want to use the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{Abstract\+Journal}}} for data file access must implement the \begin{DoxySeeAlso}{See also}
+{\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}}} interface. This allows {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal}{Abstract\+Journal}}} to transfer the data from the respective data file to the \mbox{\hyperlink{namespacecom_1_1pekinsoft_1_1loadmaster_1_1model}{model}}, and from the \mbox{\hyperlink{namespacecom_1_1pekinsoft_1_1loadmaster_1_1model}{model}} to the respective data file. By managing data transfer between the \mbox{\hyperlink{namespacecom_1_1pekinsoft_1_1loadmaster_1_1model}{model}} and the data file in this manner, the output of the data file will be organized in the manner directed by the developer.
+\end{DoxySeeAlso}
+
+\end{DoxyDescription}
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+\end{DoxyDescription}
+
+Definition at line 102 of file Abstract\+Journal.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae2f9d656f7b79e90f4ca30de372c8fec}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae2f9d656f7b79e90f4ca30de372c8fec}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!AbstractJournal@{AbstractJournal}}
+\index{AbstractJournal@{AbstractJournal}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{AbstractJournal()}{AbstractJournal()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+Abstract\+Journal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}}}]{model,  }\item[{String}]{file\+Path }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 124 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                       \{}
+\DoxyCodeLine{126         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Initializing the AbstractJournal "}}
+\DoxyCodeLine{127                 + \textcolor{stringliteral}{"class with the type: "} + model.getClass().getCanonicalName());}
+\DoxyCodeLine{128         entry.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{129         entry.setSourceMethodName(getClass().getName());}
+\DoxyCodeLine{130         entry.setParameters(\textcolor{keyword}{new} Object[]\{model, filePath\});}
+\DoxyCodeLine{131         entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{132         entry.setInstant(Instant.now());}
+\DoxyCodeLine{133         Starter.logger.enter(entry);}
+\DoxyCodeLine{134         this.record = model;}
+\DoxyCodeLine{135         }
+\DoxyCodeLine{136         getters = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{137         setters = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{138         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{139         }
+\DoxyCodeLine{140         row = 0;}
+\DoxyCodeLine{141         }
+\DoxyCodeLine{142         dataFile = \textcolor{keyword}{new} File(filePath);}
+\DoxyCodeLine{143         }
+\DoxyCodeLine{144         connect();}
+\DoxyCodeLine{145     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a822ed096080b947d5e7e1a77da17ad50}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a822ed096080b947d5e7e1a77da17ad50}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 149 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{149                                                \{}
+\DoxyCodeLine{150         records.add(model);}
+\DoxyCodeLine{151         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9fc272074f9950eeb1ffca143f1df292}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{152         }
+\DoxyCodeLine{153         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"journal.fuel.records"}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9fc272074f9950eeb1ffca143f1df292}{getRecordCount}}());}
+\DoxyCodeLine{154     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a1a8a7baff5d64186a6c5af8ba631fed0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a1a8a7baff5d64186a6c5af8ba631fed0}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Closes the connection to the data store file. 
+
+Prior to closing the connection, the records contained within this controller are saved back to file.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs saving or closing the data store. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 164 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164                                                   \{}
+\DoxyCodeLine{165         save();}
+\DoxyCodeLine{166     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ad099c218488c03f224be3e2efbeb1a78}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ad099c218488c03f224be3e2efbeb1a78}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first transaction in this journal. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the journal. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the journal \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 176 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{176                                                               \{}
+\DoxyCodeLine{177         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{178             row = 0;}
+\DoxyCodeLine{179             }
+\DoxyCodeLine{180             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{181                 record = records.get(row);}
+\DoxyCodeLine{182             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{183                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{184                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{185             \}}
+\DoxyCodeLine{186         \}}
+\DoxyCodeLine{187         }
+\DoxyCodeLine{188         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{189     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9d3fd96f6bc91de7677541b7718bf179}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9d3fd96f6bc91de7677541b7718bf179}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current entry as an {\ttfamily Receivables\+Model} object. 
+
+\begin{DoxyReturn}{Returns}
+The current entry. 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{274                                   \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{276     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a971b95762e54805a01cb4d1a1efa41ae}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a971b95762e54805a01cb4d1a1efa41ae}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the entry at the specified index. 
+
+If the specified index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The specified index from which to retrieve the entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9fc272074f9950eeb1ffca143f1df292}{get\+Record\+Count()}}}), null is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 287 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{287                                          \{}
+\DoxyCodeLine{288         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{289     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_aab2c769be4b543c885bf99674af7529b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_aab2c769be4b543c885bf99674af7529b}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this journal. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 296 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{296                                         \{}
+\DoxyCodeLine{297         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{298     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9fc272074f9950eeb1ffca143f1df292}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9fc272074f9950eeb1ffca143f1df292}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 305 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{305                                 \{}
+\DoxyCodeLine{306         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{307     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae4f79f295df8a8d594526032b9124a7d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae4f79f295df8a8d594526032b9124a7d}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not there are more transactions in this journal. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if more transactions, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 265 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265                              \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{267     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae7db2cffea5f9a9702e2cee29c08bfaf}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae7db2cffea5f9a9702e2cee29c08bfaf}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last transaction in this journal. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the last transaction in the journal. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the journal \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 245 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{245                                                              \{}
+\DoxyCodeLine{246         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{247             row = records.size() -\/ 1;}
+\DoxyCodeLine{248             }
+\DoxyCodeLine{249             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{250                 record = records.get(row);}
+\DoxyCodeLine{251             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{252                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{253                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{254             \}}
+\DoxyCodeLine{255         \}}
+\DoxyCodeLine{256         }
+\DoxyCodeLine{257         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{258     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a5b8652d394533a4a094ba641bac43f4b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a5b8652d394533a4a094ba641bac43f4b}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next transaction in this journal. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the journal. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the journal \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 222 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{222                                                              \{}
+\DoxyCodeLine{223         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{224             row++;}
+\DoxyCodeLine{225             }
+\DoxyCodeLine{226             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{227                 record = records.get(row);}
+\DoxyCodeLine{228             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{229                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{230                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{231             \}}
+\DoxyCodeLine{232         \}}
+\DoxyCodeLine{233         }
+\DoxyCodeLine{234         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{235     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a923ecc66e6ec68349aee0c5752a6d6ee}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a923ecc66e6ec68349aee0c5752a6d6ee}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}} com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous transaction in this journal. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the journal. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the journal \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 199 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                                                  \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{201             row-\/-\/;}
+\DoxyCodeLine{202             }
+\DoxyCodeLine{203             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{204                 record = records.get(row);}
+\DoxyCodeLine{205             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{206                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{207                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{208             \}}
+\DoxyCodeLine{209         \}}
+\DoxyCodeLine{210         }
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{212     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a179944a4a52f35de4600e8bde44f8dcc}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a179944a4a52f35de4600e8bde44f8dcc}} 
+\index{com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.api.AbstractJournal@{com.pekinsoft.loadmaster.api.AbstractJournal}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacecom_1_1pekinsoft_1_1loadmaster_1_1api_1_1JournalInterface}{Journal\+Interface}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 309 of file Abstract\+Journal.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{309                                                \{}
+\DoxyCodeLine{310         record = model;}
+\DoxyCodeLine{311         }
+\DoxyCodeLine{312         records.set(row, model);}
+\DoxyCodeLine{313     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/api/\mbox{\hyperlink{LoadMaster_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2api_2AbstractJournal_8java}{Abstract\+Journal.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,124 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Entry\+Form Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm}\index{com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Entry\+Form\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d3/d2d/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Entry\+Form\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{de/dc0/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3bbd72e2ade23137571612d7e4ac0f00}{Broker\+Entry\+Form}} ()
+\begin{DoxyCompactList}\small\item\em Creates new form Brokers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static javax.\+swing.\+J\+Label \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3e1e0991e001bff9b2f530ab2b7b9c57}{help\+Label}}
+\item 
+static javax.\+swing.\+J\+Panel \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a2d5ae3615d410265713aea0dffbf4452}{help\+Panel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 57 of file Broker\+Entry\+Form.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3bbd72e2ade23137571612d7e4ac0f00}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3bbd72e2ade23137571612d7e4ac0f00}} 
+\index{com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}!BrokerEntryForm@{BrokerEntryForm}}
+\index{BrokerEntryForm@{BrokerEntryForm}!com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}}
+\doxysubsubsection{\texorpdfstring{BrokerEntryForm()}{BrokerEntryForm()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Entry\+Form.\+Broker\+Entry\+Form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates new form Brokers. 
+
+
+
+Definition at line 73 of file Broker\+Entry\+Form.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73                              \{}
+\DoxyCodeLine{74         lr = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initialized for Customers."});}
+\DoxyCodeLine{75         lr.setSourceClassName(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3bbd72e2ade23137571612d7e4ac0f00}{BrokerEntryForm}}.class.getName());}
+\DoxyCodeLine{76         lr.setSourceMethodName(\textcolor{stringliteral}{"Brokers"});}
+\DoxyCodeLine{77         Starter.logger.enter(lr);}
+\DoxyCodeLine{78         }
+\DoxyCodeLine{79         lr.setMessage(\textcolor{stringliteral}{"Attempting to access the brokers database..."});}
+\DoxyCodeLine{80         Starter.logger.debug(lr);}
+\DoxyCodeLine{81         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{82             records = \textcolor{keyword}{new} BrokerCtl();}
+\DoxyCodeLine{83             lr.setMessage(\textcolor{stringliteral}{"Brokers database accessed successfully!"});}
+\DoxyCodeLine{84         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{85             lr.setMessage(\textcolor{stringliteral}{"Something went wrong accessing the brokers database."});}
+\DoxyCodeLine{86             lr.setThrown(ex);}
+\DoxyCodeLine{87             Starter.logger.error(lr);}
+\DoxyCodeLine{88             }
+\DoxyCodeLine{89             MessageBox.showError(ex, \textcolor{stringliteral}{"Database Access"});}
+\DoxyCodeLine{90             }
+\DoxyCodeLine{91             records = \textcolor{keyword}{null};}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{93         }
+\DoxyCodeLine{94         initComponents();}
+\DoxyCodeLine{95         }
+\DoxyCodeLine{96         \textcolor{comment}{// Set up the input verifiers for the state and zip fields.}}
+\DoxyCodeLine{97         stateField.setInputVerifier(\textcolor{keyword}{new} StateAbbrVerifier());}
+\DoxyCodeLine{98         zipField.setInputVerifier(\textcolor{keyword}{new} PostalCodeVerifier());}
+\DoxyCodeLine{99         }
+\DoxyCodeLine{100         setTitle(getTitle() + \textcolor{stringliteral}{" ("} + records.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1BrokerCtl_a1958a5625b7319c84749c58e56874a03}{getRecordCount}}() + \textcolor{stringliteral}{" Records)"});}
+\DoxyCodeLine{101         }
+\DoxyCodeLine{102         doClear();}
+\DoxyCodeLine{103     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3e1e0991e001bff9b2f530ab2b7b9c57}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a3e1e0991e001bff9b2f530ab2b7b9c57}} 
+\index{com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}!helpLabel@{helpLabel}}
+\index{helpLabel@{helpLabel}!com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}}
+\doxysubsubsection{\texorpdfstring{helpLabel}{helpLabel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Label com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Entry\+Form.\+help\+Label\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 760 of file Broker\+Entry\+Form.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a2d5ae3615d410265713aea0dffbf4452}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1BrokerEntryForm_a2d5ae3615d410265713aea0dffbf4452}} 
+\index{com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}!helpPanel@{helpPanel}}
+\index{helpPanel@{helpPanel}!com.pekinsoft.loadmaster.view.BrokerEntryForm@{com.pekinsoft.loadmaster.view.BrokerEntryForm}}
+\doxysubsubsection{\texorpdfstring{helpPanel}{helpPanel}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Panel com.\+pekinsoft.\+loadmaster.\+view.\+Broker\+Entry\+Form.\+help\+Panel\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 761 of file Broker\+Entry\+Form.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{BrokerEntryForm_8java}{Broker\+Entry\+Form.\+java}}\end{DoxyCompactItemize}

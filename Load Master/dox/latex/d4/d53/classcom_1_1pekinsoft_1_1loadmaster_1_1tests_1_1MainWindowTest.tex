@@ -1,0 +1,155 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+tests.\+Main\+Window\+Test Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest}\index{com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}}
+
+
+Very basic test of the main application window.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a26c04bcd8c93b2eb17fe1f85e646a557}{test\+Book\+New\+Load\+Wizard}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a0c76b672bdb40e88675c6d66368211aa}{test\+Load\+Settings}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a5a1ab5bdc56ad941b24dc496c479eb60}{test\+About\+Dialog}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_ad4b7cf461e00882b0188efee40a86838}{set\+Up\+Class}} ()
+\item 
+static void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_adcd0466a15c469882251a84b18f129da}{tear\+Down\+Class}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Very basic test of the main application window. 
+
+\begin{DoxyAuthor}{Author}
+Jiří Kovalský 
+\end{DoxyAuthor}
+
+
+Definition at line 52 of file Main\+Window\+Test.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_ad4b7cf461e00882b0188efee40a86838}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_ad4b7cf461e00882b0188efee40a86838}} 
+\index{com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}!setUpClass@{setUpClass}}
+\index{setUpClass@{setUpClass}!com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}}
+\doxysubsubsection{\texorpdfstring{setUpClass()}{setUpClass()}}
+{\footnotesize\ttfamily static void com.\+pekinsoft.\+loadmaster.\+tests.\+Main\+Window\+Test.\+set\+Up\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 57 of file Main\+Window\+Test.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                                     \{}
+\DoxyCodeLine{58         Starter.main(\textcolor{keyword}{new} String[]\{\});}
+\DoxyCodeLine{59         mainWindowOperator = MainWindowOperator.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a541511e52e6582ad83d0a2040ff95d48}{getDefault}}();}
+\DoxyCodeLine{60     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_adcd0466a15c469882251a84b18f129da}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_adcd0466a15c469882251a84b18f129da}} 
+\index{com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}!tearDownClass@{tearDownClass}}
+\index{tearDownClass@{tearDownClass}!com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}}
+\doxysubsubsection{\texorpdfstring{tearDownClass()}{tearDownClass()}}
+{\footnotesize\ttfamily static void com.\+pekinsoft.\+loadmaster.\+tests.\+Main\+Window\+Test.\+tear\+Down\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 63 of file Main\+Window\+Test.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                        \{}
+\DoxyCodeLine{64         mainWindowOperator.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_aca259b738b906bbae98394ace0f85ce3}{callExit}}();}
+\DoxyCodeLine{65         Tools.pushButtonInDialog(\textcolor{stringliteral}{"Confirm Close"}, \textcolor{stringliteral}{"Yes"});}
+\DoxyCodeLine{66     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a5a1ab5bdc56ad941b24dc496c479eb60}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a5a1ab5bdc56ad941b24dc496c479eb60}} 
+\index{com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}!testAboutDialog@{testAboutDialog}}
+\index{testAboutDialog@{testAboutDialog}!com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}}
+\doxysubsubsection{\texorpdfstring{testAboutDialog()}{testAboutDialog()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+tests.\+Main\+Window\+Test.\+test\+About\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 100 of file Main\+Window\+Test.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100                                   \{}
+\DoxyCodeLine{101         mainWindowOperator.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a3b678ce5086a9bc6ae3131a70231e5e9}{callAbout}}();}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         AboutOperator aboutOperator = \textcolor{keyword}{new} AboutOperator();}
+\DoxyCodeLine{104         assertTrue(aboutOperator.projectDescriptionContains(\textcolor{stringliteral}{"Project is the culmination of a bunch of different"}));}
+\DoxyCodeLine{105         aboutOperator.close();}
+\DoxyCodeLine{106     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a26c04bcd8c93b2eb17fe1f85e646a557}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a26c04bcd8c93b2eb17fe1f85e646a557}} 
+\index{com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}!testBookNewLoadWizard@{testBookNewLoadWizard}}
+\index{testBookNewLoadWizard@{testBookNewLoadWizard}!com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}}
+\doxysubsubsection{\texorpdfstring{testBookNewLoadWizard()}{testBookNewLoadWizard()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+tests.\+Main\+Window\+Test.\+test\+Book\+New\+Load\+Wizard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file Main\+Window\+Test.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69                                         \{}
+\DoxyCodeLine{70         mainWindowOperator.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a5943ff11ffbd217c03f306427dd13c80}{callBookNewLoad}}();}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         BookNewLoadWizardOperator bookNewLoadWizardOperator = \textcolor{keyword}{new} BookNewLoadWizardOperator();}
+\DoxyCodeLine{73         assertEquals(bookNewLoadWizardOperator.getPageName(), \textcolor{stringliteral}{"Load Information"});}
+\DoxyCodeLine{74         bookNewLoadWizardOperator.setOrderNumber(\textcolor{stringliteral}{"10"});}
+\DoxyCodeLine{75         bookNewLoadWizardOperator.setTripNumber(\textcolor{stringliteral}{"20"});}
+\DoxyCodeLine{76         bookNewLoadWizardOperator.setGrossPay(\textcolor{stringliteral}{"30"});}
+\DoxyCodeLine{77         bookNewLoadWizardOperator.setMilesNumber(\textcolor{stringliteral}{"40"});}
+\DoxyCodeLine{78         bookNewLoadWizardOperator.setCommodity(\textcolor{stringliteral}{"Bee hives"});}
+\DoxyCodeLine{79         bookNewLoadWizardOperator.checkOption(\textcolor{stringliteral}{"Tarped"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{80         bookNewLoadWizardOperator.goNext();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         assertEquals(bookNewLoadWizardOperator.getPageName(), \textcolor{stringliteral}{"Broker Information"});}
+\DoxyCodeLine{83         bookNewLoadWizardOperator.cancel();}
+\DoxyCodeLine{84         Tools.pushButtonInDialog(\textcolor{stringliteral}{"Confirm Cancellation"}, \textcolor{stringliteral}{"Yes"});}
+\DoxyCodeLine{85     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a0c76b672bdb40e88675c6d66368211aa}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1tests_1_1MainWindowTest_a0c76b672bdb40e88675c6d66368211aa}} 
+\index{com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}!testLoadSettings@{testLoadSettings}}
+\index{testLoadSettings@{testLoadSettings}!com.pekinsoft.loadmaster.tests.MainWindowTest@{com.pekinsoft.loadmaster.tests.MainWindowTest}}
+\doxysubsubsection{\texorpdfstring{testLoadSettings()}{testLoadSettings()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+tests.\+Main\+Window\+Test.\+test\+Load\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file Main\+Window\+Test.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88                                    \{}
+\DoxyCodeLine{89         mainWindowOperator.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1operators_1_1MainWindowOperator_a924ca5c5e39a4b4d2cce2dd36944cbc1}{callLoadMasterSettings}}();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         SettingsOperator loadMasterSettingsOperator = \textcolor{keyword}{new} SettingsOperator();}
+\DoxyCodeLine{92         loadMasterSettingsOperator.switchToAccountingSettings();}
+\DoxyCodeLine{93         loadMasterSettingsOperator.switchToDirectoriesSettings();}
+\DoxyCodeLine{94         loadMasterSettingsOperator.switchToCompanySettings();}
+\DoxyCodeLine{95         loadMasterSettingsOperator.switchToGeneralSettings();}
+\DoxyCodeLine{96         loadMasterSettingsOperator.close();}
+\DoxyCodeLine{97     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/test/com/pekinsoft/loadmaster/tests/\mbox{\hyperlink{MainWindowTest_8java}{Main\+Window\+Test.\+java}}\end{DoxyCompactItemize}

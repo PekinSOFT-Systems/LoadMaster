@@ -1,0 +1,156 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Chart\+Of\+Accounts\+Viewer Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer}\index{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer@{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Chart\+Of\+Accounts\+Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d5/dae/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Chart\+Of\+Accounts\+Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d4/d8d/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{Chart\+Of\+Accounts\+Viewer}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer}{Chart\+Of\+Accounts\+Viewer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_a3c3e32db8350b5d0f1805432b953bd6d}{main}} (String args\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 56 of file Chart\+Of\+Accounts\+Viewer.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}} 
+\index{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer@{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer}!ChartOfAccountsViewer@{ChartOfAccountsViewer}}
+\index{ChartOfAccountsViewer@{ChartOfAccountsViewer}!com.pekinsoft.loadmaster.view.ChartOfAccountsViewer@{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer}}
+\doxysubsubsection{\texorpdfstring{ChartOfAccountsViewer()}{ChartOfAccountsViewer()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Chart\+Of\+Accounts\+Viewer.\+Chart\+Of\+Accounts\+Viewer (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer}{Chart\+Of\+Accounts\+Viewer}}. 
+
+
+
+Definition at line 63 of file Chart\+Of\+Accounts\+Viewer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                                                        \{}
+\DoxyCodeLine{64         super(parent, modal);}
+\DoxyCodeLine{65         }
+\DoxyCodeLine{66         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Instantiating the Chart of Accounts "}}
+\DoxyCodeLine{67                 + \textcolor{stringliteral}{"Viewer..."});}
+\DoxyCodeLine{68         entry.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{70         initComponents();}
+\DoxyCodeLine{71         }
+\DoxyCodeLine{72         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(}
+\DoxyCodeLine{73                 \textcolor{stringliteral}{"/com/pekinsoft/loadmaster/res/open-\/list.png"}));}
+\DoxyCodeLine{74         setIconImage(icon);}
+\DoxyCodeLine{75         }
+\DoxyCodeLine{76         getRootPane().setDefaultButton(closeButton);}
+\DoxyCodeLine{77         }
+\DoxyCodeLine{78         setLocation(ScreenUtils.centerDialog(\textcolor{keyword}{this}));}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         chart = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{81         }
+\DoxyCodeLine{82         COA = \textcolor{keyword}{new} File(Starter.props.getDataFolder() + \textcolor{stringliteral}{"coa.tbl"});}
+\DoxyCodeLine{83         }
+\DoxyCodeLine{84         \textcolor{keywordflow}{if} ( !COA.exists() )}
+\DoxyCodeLine{85             generateChartOfAccounts();}
+\DoxyCodeLine{86         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{87             getChartOfAccountsFromFile();}
+\DoxyCodeLine{88         }
+\DoxyCodeLine{89         populateTable();}
+\DoxyCodeLine{90     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_a3c3e32db8350b5d0f1805432b953bd6d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_a3c3e32db8350b5d0f1805432b953bd6d}} 
+\index{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer@{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer}!main@{main}}
+\index{main@{main}!com.pekinsoft.loadmaster.view.ChartOfAccountsViewer@{com.pekinsoft.loadmaster.view.ChartOfAccountsViewer}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void com.\+pekinsoft.\+loadmaster.\+view.\+Chart\+Of\+Accounts\+Viewer.\+main (\begin{DoxyParamCaption}\item[{String}]{args\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the command line arguments \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 309 of file Chart\+Of\+Accounts\+Viewer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{309                                            \{}
+\DoxyCodeLine{310         \textcolor{comment}{/* Set the Nimbus look and feel */}}
+\DoxyCodeLine{311         \textcolor{comment}{//<editor-\/fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">}}
+\DoxyCodeLine{312         \textcolor{comment}{/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.}}
+\DoxyCodeLine{313 \textcolor{comment}{         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html }}
+\DoxyCodeLine{314 \textcolor{comment}{         */}}
+\DoxyCodeLine{315         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{316             \textcolor{keywordflow}{for} (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) \{}
+\DoxyCodeLine{317                 \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"Nimbus"}.equals(info.getName())) \{}
+\DoxyCodeLine{318                     javax.swing.UIManager.setLookAndFeel(info.getClassName());}
+\DoxyCodeLine{319                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{320                 \}}
+\DoxyCodeLine{321             \}}
+\DoxyCodeLine{322         \} \textcolor{keywordflow}{catch} (ClassNotFoundException ex) \{}
+\DoxyCodeLine{323             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{ChartOfAccountsViewer}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{324         \} \textcolor{keywordflow}{catch} (InstantiationException ex) \{}
+\DoxyCodeLine{325             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{ChartOfAccountsViewer}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{326         \} \textcolor{keywordflow}{catch} (IllegalAccessException ex) \{}
+\DoxyCodeLine{327             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{ChartOfAccountsViewer}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{328         \} \textcolor{keywordflow}{catch} (javax.swing.UnsupportedLookAndFeelException ex) \{}
+\DoxyCodeLine{329             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{ChartOfAccountsViewer}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{330         \}}
+\DoxyCodeLine{331         \textcolor{comment}{//</editor-\/fold>}}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333         \textcolor{comment}{/* Create and display the dialog */}}
+\DoxyCodeLine{334         java.awt.EventQueue.invokeLater(\textcolor{keyword}{new} Runnable() \{}
+\DoxyCodeLine{335             \textcolor{keyword}{public} \textcolor{keywordtype}{void} run() \{}
+\DoxyCodeLine{336                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{ChartOfAccountsViewer}} dialog = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ChartOfAccountsViewer_aee8d885a51bc5f2012523c83f09a32a6}{ChartOfAccountsViewer}}(\textcolor{keyword}{new} javax.swing.JFrame(), \textcolor{keyword}{true});}
+\DoxyCodeLine{337                 dialog.addWindowListener(\textcolor{keyword}{new} java.awt.event.WindowAdapter() \{}
+\DoxyCodeLine{338                     @Override}
+\DoxyCodeLine{339                     public void windowClosing(java.awt.event.WindowEvent e) \{}
+\DoxyCodeLine{340                         System.exit(0);}
+\DoxyCodeLine{341                     \}}
+\DoxyCodeLine{342                 \});}
+\DoxyCodeLine{343                 dialog.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{344             \}}
+\DoxyCodeLine{345         \});}
+\DoxyCodeLine{346     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{ChartOfAccountsViewer_8java}{Chart\+Of\+Accounts\+Viewer.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,8 @@
+<map id="com.pekinsoft.loadmaster.Starter" name="com.pekinsoft.loadmaster.Starter">
+<area shape="rect" id="node1" title=" " alt="" coords="367,136,561,177"/>
+<area shape="rect" id="node2" href="$dc/dd1/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1ArgumentParser.html" title="ArgumentParser is a library for parsing command line arguments in an easy, intelligible and efficient..." alt="" coords="25,5,246,47"/>
+<area shape="rect" id="node3" href="$de/d8b/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1AppProperties.html" title=" " alt="" coords="25,71,246,112"/>
+<area shape="rect" id="node4" href="$df/dc9/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1Logger.html" title=" " alt="" coords="25,136,246,177"/>
+<area shape="rect" id="node5" href="$dc/d02/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl.html" title="The EntryCtl class provides the system interoperability for the General Ledger of the Load Master acc..." alt="" coords="5,201,265,243"/>
+<area shape="rect" id="node6" href="$df/d4f/classcom_1_1pekinsoft_1_1loadmaster_1_1sys_1_1VersionCalculator.html" title="This class is used for simply calculating the application version, as this functionality needs to be ..." alt="" coords="25,267,246,308"/>
+</map>

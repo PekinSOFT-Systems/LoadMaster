@@ -26,12 +26,17 @@
  * 
  *   WHEN          BY                  REASON
  *   ------------  ------------------- ------------------------------------------
- *   Oct 19, 2020    Sean Carrick Initial Creation.
+ *   Oct 19, 2020  Sean Carrick        Initial Creation.
+ *   Oct 23, 2020  Sean Carrick        Modified this model to implement the
+ *                                     JournalInterface so that it can use the
+ *                                     AbstractJournal as its data manipulation
+ *                                     object.
  *  ******************************************************************************
  */
 
 package com.pekinsoft.loadmaster.model;
 
+import com.pekinsoft.loadmaster.api.JournalInterface;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -54,9 +59,9 @@ import java.util.Date;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class FuelPurchaseModel {
+public class FuelPurchaseModel implements JournalInterface {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
+    public static final String FILE_NAME = "10040.jrnl";
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
@@ -72,18 +77,6 @@ public class FuelPurchaseModel {
     private String notes;
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
-    //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public FuelPurchaseModel () {
         this.id = System.currentTimeMillis();
@@ -96,10 +89,6 @@ public class FuelPurchaseModel {
         this.pricePerGallonDef = 0.0;
         this.pricePerGallonDiesel = 0.0;
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
@@ -505,11 +494,32 @@ public class FuelPurchaseModel {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    
-    //</editor-fold>
+    @Override
+    public void load(String[] data) {
+        id = Long.parseLong(data[0]);
+        odometer = Integer.parseInt(data[2]);
+        location = data[3];
+        gallonsOfDiesel = Double.parseDouble(data[4]);
+        pricePerGallonDiesel = Double.parseDouble(data[5]);
+        defPurchased = Boolean.parseBoolean(data[6]);
+        gallonsOfDef = Double.parseDouble(data[7]);
+        pricePerGallonDef = Double.parseDouble(data[8]);
+        notes = data[9];
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            date = sdf.parse(data[1]);
+        } catch ( ParseException ex ) {
+            // We will just today's date in this field.
+            date = new Date();
+        }
+    }
 
+    @Override
+    public String buildRecordLine() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    //</editor-fold>
 
 }

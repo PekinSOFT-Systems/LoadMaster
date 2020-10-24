@@ -219,8 +219,8 @@ public class CustomerSelector extends javax.swing.JDialog {
                 "select customer...") ) {
             String selectedBroker = customerList.getSelectedItem().toString();
             long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("(") + 1,    // Start after (
-                    selectedBroker.indexOf(")")));  // End before )
+                    selectedBroker.indexOf("[") + 1,    // Start after (
+                    selectedBroker.indexOf("]")));  // End before )
         
             try {
                 records.first();

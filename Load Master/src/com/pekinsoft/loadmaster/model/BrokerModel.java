@@ -6,6 +6,9 @@
 
 package com.pekinsoft.loadmaster.model;
 
+import com.pekinsoft.loadmaster.api.JournalInterface;
+import java.util.ArrayList;
+
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
@@ -13,7 +16,7 @@ package com.pekinsoft.loadmaster.model;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class BrokerModel {
+public class BrokerModel implements JournalInterface {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
     
     //</editor-fold>
@@ -65,6 +68,79 @@ public class BrokerModel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
+    /**
+     * Provides a means of loading this model with data.
+     * 
+     * @param data the data to load.
+     */
+    @Override
+    public void load(String[] data) {
+        this.id = Long.parseLong(data[0]);
+        this.company = data[1];
+        this.street = data[2];
+        this.suite = data[3];
+        this.city = data[4];
+        this.state = data[5];
+        this.zip = data[6];
+        this.contact = data[7];
+        this.phone = data[8];
+        this.fax = data[9];
+        this.email = data[10];
+    }
+    
+    /**
+     * Provides a means of getting the data from this model in a format useful
+     * to the data file.
+     * 
+     * @return record data as a single string, with the fields delimited by a 
+     *         tilde (~) character.
+     */
+    @Override
+    public String buildRecordLine() {
+        StringBuilder record = new StringBuilder();
+        record.append(id).append("~");
+        if ( company == null || company.isBlank() || company.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(company).append("~");
+        if ( street == null || street.isBlank() || street.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(street).append("~");
+        if ( suite == null || suite.isBlank() || suite.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(suite).append("~");
+        if ( city == null || city.isBlank() || city.isEmpty() ) 
+            record.append(" ~");
+        else
+            record.append(city).append("~");
+        if ( state == null || state.isBlank() || city.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(state).append("~");
+        if ( zip == null || zip.isBlank() || zip.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(zip).append("~");
+        if ( contact == null || contact.isBlank() || contact.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(contact).append("~");
+        if ( phone == null || phone.isBlank() || phone.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(phone).append("~");
+        if ( fax == null || fax.isBlank() || fax.isEmpty() )
+            record.append(" ~");
+        else
+            record.append(fax).append("~");
+        if ( email != null || !email.isBlank() || !email.isEmpty() )
+            record.append(email);
+        
+        return record.toString();
+    }
+
     /**
      * Retrieves the unique identification number for this broker.
      * @return long Unique identification number

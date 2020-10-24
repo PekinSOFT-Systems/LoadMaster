@@ -31,8 +31,8 @@
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.api.AbstractJournal;
 import com.pekinsoft.loadmaster.controller.EntryCtl;
-import com.pekinsoft.loadmaster.controller.FuelPurchaseCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.EntryModel;
 import com.pekinsoft.loadmaster.model.FuelPurchaseModel;
@@ -138,7 +138,8 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         model.setOdometer(odometerField.getText());
         
         try {
-            FuelPurchaseCtl records = new FuelPurchaseCtl();
+            AbstractJournal records = new AbstractJournal(new FuelPurchaseModel(),
+                    Starter.props.getDataFolder() + FuelPurchaseModel.FILE_NAME);
             
             records.addNew(model);
             records.close();

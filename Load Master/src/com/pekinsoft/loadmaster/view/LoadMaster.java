@@ -429,7 +429,7 @@ public class LoadMaster extends javax.swing.JFrame {
         }
 
         public void actionPerformed(ActionEvent e) {
-            Customers dlg = new Customers();
+            CustomerEntryForm dlg = new CustomerEntryForm();
             mainDesktop.add(dlg);
             dlg.pack();
             dlg.setVisible(true);
@@ -446,7 +446,7 @@ public class LoadMaster extends javax.swing.JFrame {
         }
 
         public void actionPerformed(ActionEvent e) {
-            Brokers dlg = new Brokers();
+            BrokerEntryForm dlg = new BrokerEntryForm();
             mainDesktop.add(dlg);
             dlg.pack();
             dlg.setVisible(true);

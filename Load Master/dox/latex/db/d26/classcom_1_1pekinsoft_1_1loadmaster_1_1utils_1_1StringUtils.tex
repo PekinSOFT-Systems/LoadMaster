@@ -1,0 +1,354 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils}\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_acc0056f1352c8882c9d27bcc71d043c2}{delete\+Whitespace}} (String source)
+\begin{DoxyCompactList}\small\item\em Abbreviates a String using ellipses. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a01585f977d65659892ad7d85428966dc}{remove\+Start}} (String source, String remove)
+\begin{DoxyCompactList}\small\item\em Removes a substring only if it is at the beginning of a source string, otherwise returns the source string. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a7bc51b135559b727489d28f6dc8714ff}{remove\+Start\+Ignore\+Case}} (String source, String remove)
+\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_ac517b0169fa341dd87efba7149551a1d}{remove\+End}} (String source, String remove)
+\begin{DoxyCompactList}\small\item\em Removes a substring only if it is at the end of a source string, otherwise returns the source string. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a2ebf68d49cc55515ba7e5400f7ed135a}{pad\+Left}} (String to\+Pad, int field\+Width)
+\begin{DoxyCompactList}\small\item\em Pads the provided {\ttfamily String} to the left side of the field of the given field width. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_adb3fc6678f6d8d35ab08779bd3b3eb25}{pad\+Right}} (String to\+Pad, int field\+Width)
+\begin{DoxyCompactList}\small\item\em Pads the provided {\ttfamily String} to the right side of the field of the given field width. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 44 of file String\+Utils.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_acc0056f1352c8882c9d27bcc71d043c2}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_acc0056f1352c8882c9d27bcc71d043c2}} 
+\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}!deleteWhitespace@{deleteWhitespace}}
+\index{deleteWhitespace@{deleteWhitespace}!com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsubsection{\texorpdfstring{deleteWhitespace()}{deleteWhitespace()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils.\+delete\+Whitespace (\begin{DoxyParamCaption}\item[{String}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Abbreviates a String using ellipses. 
+
+This will turn \char`\"{}\+Now is the time for
+   all good men\char`\"{} into \char`\"{}\+Now is the time for...\char`\"{}.
+
+Specifically\+:
+\begin{DoxyItemize}
+\item If the number of characters in {\ttfamily source} is less than or equal to {\ttfamily max\+Length, return}source{\ttfamily .}
+\item {\ttfamily Else abbreviate it to (}substring(source, max\+Langth -\/ 3) + \char`\"{}...\char`\"{}{\ttfamily ).}
+\item {\ttfamily If}width{\ttfamily is less than four, throw and}Illegal\+Argument\+Exception{\ttfamily .}
+\item {\ttfamily In no case will it return a String of length greater than}width\`{}.
+\end{DoxyItemize}
+
+\`{}\`{}\`{}java String\+Utils.\+abbreviate(null, $\ast$) = null String\+Utils.\+abbreviate(\char`\"{}\char`\"{}, 4) = \char`\"{}\char`\"{} String\+Utils.\+abbreviate(abcdefg, 6) = \char`\"{}abc...\char`\"{} String\+Utils.\+abbreviate(\char`\"{}abcdefg\char`\"{}, 7) = \char`\"{}abcdefg\char`\"{} String\+Utils.\+abbreviate(\char`\"{}abcdefg\char`\"{}, 8) = \char`\"{}abcdefg\char`\"{} String\+Utils.\+abbreviate(\char`\"{}abcdefg\char`\"{}, 4) = \char`\"{}a...\char`\"{} String\+Utils.\+abbreviate(\char`\"{}abcdefg\char`\"{}, 3) = Illegal\+Argument\+Exception
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the String to check, may be null \\
+\hline
+{\em width} & maximum length of result String, must be at least 4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+abbreviated String, null if null String input $\ast$/ public static String abbreviate(\+String source, int width) throws Illegal\+Argument\+Exception \{ if ( source == null ) \{ return null; \} if ( width $<$ 4 ) \{ throw new Illegal\+Argument\+Exception(\char`\"{}max\+Length must be greater than \char`\"{}
+\begin{DoxyItemize}
+\item \char`\"{}four (4).\char`\"{}); \} if ( source.\+length() $<$= width ) \{ return source; \}
+\end{DoxyItemize}
+\end{DoxyReturn}
+return source.\+substring(0, width -\/ 3) + \char`\"{}...\char`\"{}; \}
+
+/$\ast$$\ast$ Unlike {\ttfamily abbreviate}, this method will allow you to wrap the {\ttfamily String} at a given width. This is accomplished by placing a newline character into the string, {\ttfamily source}, at the given {\ttfamily width} position. Once the newline character is inserted, the portion of the string prior to the newline is dropped out of the source string, and the process repeats until the source string fits within the given width.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the source string to wrap. \\
+\hline
+{\em width} & the width at which the source string should be wrapped. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the source string wrapped at the given width using newline characters. $\ast$/ public static String wrap\+At(\+String source, int width) \{ String\+Builder sb = new String\+Builder(); int current = 0;
+\end{DoxyReturn}
+while ( source.\+length() $>$ width ) \{ sb.\+append(source.\+substring(0, width)).append(\char`\"{}\textbackslash{}n\char`\"{}); source = source.\+substring(width); \} sb.\+append(source);
+
+return sb.\+to\+String(); \}
+
+/$\ast$$\ast$ Deletes all whitespaces from a String as defined by {\ttfamily Character.\+is\+Whitespace(char)}.
+
+\`{}\`{}\`{}java String\+Utils.\+delete\+Whitespace(null) = null \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_acc0056f1352c8882c9d27bcc71d043c2}{String\+Utils.\+delete\+Whitespace}}(\char`\"{}\char`\"{}) = \char`\"{}\char`\"{} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_acc0056f1352c8882c9d27bcc71d043c2}{String\+Utils.\+delete\+Whitespace}}(\char`\"{}abc\char`\"{}) = \char`\"{}abc\char`\"{} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_acc0056f1352c8882c9d27bcc71d043c2}{String\+Utils.\+delete\+Whitespace}}(\char`\"{}   ab  c  \char`\"{}) = \char`\"{}abc\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the String to delete whitespace from, may be null \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String without whitespaces, null if null String input 
+\end{DoxyReturn}
+
+
+Definition at line 131 of file String\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131                                                          \{}
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} ( source == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{133             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{134         \}}
+\DoxyCodeLine{135         }
+\DoxyCodeLine{136         \textcolor{keywordtype}{char}[] chars = source.toCharArray();}
+\DoxyCodeLine{137         source = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{138         }
+\DoxyCodeLine{139         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{char} c : chars ) \{}
+\DoxyCodeLine{140             \textcolor{keywordflow}{if} ( !Character.isWhitespace(c) ) \{}
+\DoxyCodeLine{141                 source += c;}
+\DoxyCodeLine{142             \}}
+\DoxyCodeLine{143         \}}
+\DoxyCodeLine{144         }
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{146     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a2ebf68d49cc55515ba7e5400f7ed135a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a2ebf68d49cc55515ba7e5400f7ed135a}} 
+\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}!padLeft@{padLeft}}
+\index{padLeft@{padLeft}!com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsubsection{\texorpdfstring{padLeft()}{padLeft()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils.\+pad\+Left (\begin{DoxyParamCaption}\item[{String}]{to\+Pad,  }\item[{int}]{field\+Width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pads the provided {\ttfamily String} to the left side of the field of the given field width. 
+
+This method is guaranteed to never return a value longer than the given {\ttfamily field\+Width}. If the provided value is already longer than the {\ttfamily field\+Width} value, then an abbreviated {\ttfamily String} is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Pad} & the {\ttfamily String} to left-\/align in the field. \\
+\hline
+{\em field\+Width} & the width of the field \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily String} containing the {\ttfamily to\+Pad} value padded on the right end with spaces to bring the length of the value to the width of the field. {\ttfamily String} of {\ttfamily width} number of spaces if an empty {\ttfamily String} is provided. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & in the event {\ttfamily to\+Pad} is {\ttfamily null}, or {\ttfamily field\+Width} is less than four. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 243 of file String\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{243                                                                \{}
+\DoxyCodeLine{244         \textcolor{keywordflow}{if} ( toPad == \textcolor{keyword}{null} || fieldWidth < 4 ) \{}
+\DoxyCodeLine{245             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IllegalArgumentException(\textcolor{stringliteral}{"Values are no good"});}
+\DoxyCodeLine{246         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( toPad.isBlank() ) \{}
+\DoxyCodeLine{247             \textcolor{keywordflow}{return} \textcolor{stringliteral}{" "}.repeat(fieldWidth);}
+\DoxyCodeLine{248         \}}
+\DoxyCodeLine{249         }
+\DoxyCodeLine{250         \textcolor{keywordflow}{if} ( toPad.length() > fieldWidth ) \{}
+\DoxyCodeLine{251             \textcolor{keywordflow}{return} abbreviate(toPad, fieldWidth);}
+\DoxyCodeLine{252         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{253             \textcolor{keywordflow}{return} toPad + \textcolor{stringliteral}{" "}.repeat(fieldWidth -\/ toPad.length());}
+\DoxyCodeLine{254         \}}
+\DoxyCodeLine{255     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_adb3fc6678f6d8d35ab08779bd3b3eb25}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_adb3fc6678f6d8d35ab08779bd3b3eb25}} 
+\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}!padRight@{padRight}}
+\index{padRight@{padRight}!com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsubsection{\texorpdfstring{padRight()}{padRight()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils.\+pad\+Right (\begin{DoxyParamCaption}\item[{String}]{to\+Pad,  }\item[{int}]{field\+Width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pads the provided {\ttfamily String} to the right side of the field of the given field width. 
+
+This method is guaranteed to never return a value longer than the given {\ttfamily field\+Width}. If the provided value is already longer than the {\ttfamily field\+Width} value, then an abbreviated {\ttfamily String} is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Pad} & the {\ttfamily String} to right-\/align in the field. \\
+\hline
+{\em field\+Width} & the width of the field \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily String} containing the {\ttfamily to\+Pad} value padded on the left end with spaces to bring the length of the value to the width of the field. {\ttfamily String} of {\ttfamily width} number of spaces if an empty {\ttfamily String} is provided. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & in the event {\ttfamily to\+Pad} is {\ttfamily null}, or {\ttfamily field\+Width} is less than four. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 272 of file String\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{272                                                                 \{}
+\DoxyCodeLine{273         \textcolor{keywordflow}{if} ( toPad == \textcolor{keyword}{null} || fieldWidth < 4 ) \{}
+\DoxyCodeLine{274             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IllegalArgumentException(\textcolor{stringliteral}{"Values are no good"});}
+\DoxyCodeLine{275         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( toPad.isBlank() ) \{}
+\DoxyCodeLine{276             \textcolor{keywordflow}{return} \textcolor{stringliteral}{" "}.repeat(fieldWidth);}
+\DoxyCodeLine{277         \}}
+\DoxyCodeLine{278         }
+\DoxyCodeLine{279         \textcolor{keywordflow}{if} ( toPad.length() > fieldWidth ) \{}
+\DoxyCodeLine{280             \textcolor{keywordflow}{return} abbreviate(toPad, fieldWidth);}
+\DoxyCodeLine{281         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{282             \textcolor{keywordflow}{return} \textcolor{stringliteral}{" "}.repeat(fieldWidth -\/ toPad.length()) + toPad;}
+\DoxyCodeLine{283         \}}
+\DoxyCodeLine{284     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_ac517b0169fa341dd87efba7149551a1d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_ac517b0169fa341dd87efba7149551a1d}} 
+\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}!removeEnd@{removeEnd}}
+\index{removeEnd@{removeEnd}!com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsubsection{\texorpdfstring{removeEnd()}{removeEnd()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils.\+remove\+End (\begin{DoxyParamCaption}\item[{String}]{source,  }\item[{String}]{remove }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes a substring only if it is at the end of a source string, otherwise returns the source string. 
+
+A {\ttfamily null} source string will return {\ttfamily null}. An empty (\char`\"{}\char`\"{}) source string will return the empty string. A {\ttfamily null} search string will return the source string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the source String to search, may be null \\
+\hline
+{\em remove} & the String to search for and remove, may be null \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the substring with the string removed, if found, {\ttfamily null} if {\ttfamily null} String input 
+\end{DoxyReturn}
+
+
+Definition at line 210 of file String\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{210                                                                  \{}
+\DoxyCodeLine{211         \textcolor{keywordflow}{if} ( source == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{212             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{213         \}}
+\DoxyCodeLine{214         \textcolor{keywordflow}{if} ( \textcolor{keyword}{remove} == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{215             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{216         \}}
+\DoxyCodeLine{217         \textcolor{keywordflow}{if} ( source.isBlank() ) \{}
+\DoxyCodeLine{218             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         \textcolor{keywordflow}{if} ( source.endsWith(\textcolor{keyword}{remove}) ) \{}
+\DoxyCodeLine{222             \textcolor{keywordflow}{return} source.substring(0, source.indexOf(\textcolor{keyword}{remove}));}
+\DoxyCodeLine{223         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{224             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{225         \}}
+\DoxyCodeLine{226     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a01585f977d65659892ad7d85428966dc}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a01585f977d65659892ad7d85428966dc}} 
+\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}!removeStart@{removeStart}}
+\index{removeStart@{removeStart}!com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsubsection{\texorpdfstring{removeStart()}{removeStart()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils.\+remove\+Start (\begin{DoxyParamCaption}\item[{String}]{source,  }\item[{String}]{remove }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes a substring only if it is at the beginning of a source string, otherwise returns the source string. 
+
+A {\ttfamily null} source string will return {\ttfamily null}. An empty (\char`\"{}\char`\"{}) source string will return the empty string. A {\ttfamily null} search string will return the source string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the string from which the substring should be removed. \\
+\hline
+{\em remove} & the substring to remove from the source string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+java.\+lang.\+String the source string with the substring removed, except as provided for above. 
+\end{DoxyReturn}
+
+
+Definition at line 159 of file String\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{159                                                                    \{}
+\DoxyCodeLine{160         \textcolor{keywordflow}{if} ( source == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{161             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{162         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( source.isBlank() ) \{}
+\DoxyCodeLine{163             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{164         \}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{if} ( \textcolor{keyword}{remove} == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{166             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{167         \}}
+\DoxyCodeLine{168         }
+\DoxyCodeLine{169         String holder = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{170         }
+\DoxyCodeLine{171         \textcolor{keywordflow}{if} ( source.startsWith(\textcolor{keyword}{remove}) ) \{}
+\DoxyCodeLine{172             holder = source.substring(\textcolor{keyword}{remove}.length());}
+\DoxyCodeLine{173         \}}
+\DoxyCodeLine{174         }
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} holder;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a7bc51b135559b727489d28f6dc8714ff}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1StringUtils_a7bc51b135559b727489d28f6dc8714ff}} 
+\index{com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}!removeStartIgnoreCase@{removeStartIgnoreCase}}
+\index{removeStartIgnoreCase@{removeStartIgnoreCase}!com.pekinsoft.loadmaster.utils.StringUtils@{com.pekinsoft.loadmaster.utils.StringUtils}}
+\doxysubsubsection{\texorpdfstring{removeStartIgnoreCase()}{removeStartIgnoreCase()}}
+{\footnotesize\ttfamily static String com.\+pekinsoft.\+loadmaster.\+utils.\+String\+Utils.\+remove\+Start\+Ignore\+Case (\begin{DoxyParamCaption}\item[{String}]{source,  }\item[{String}]{remove }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 178 of file String\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{178                                                                              \{}
+\DoxyCodeLine{179         \textcolor{keywordflow}{if} ( source == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{180             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{181         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( source.isBlank() ) \{}
+\DoxyCodeLine{182             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{183         \}}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if} ( \textcolor{keyword}{remove} == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{185             \textcolor{keywordflow}{return} source;}
+\DoxyCodeLine{186         \}}
+\DoxyCodeLine{187         }
+\DoxyCodeLine{188         String holder = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{189         }
+\DoxyCodeLine{190         \textcolor{keywordflow}{if} ( source.toLowerCase().startsWith(\textcolor{keyword}{remove}.toLowerCase()) ) \{}
+\DoxyCodeLine{191             holder = source.substring(\textcolor{keyword}{remove}.length());}
+\DoxyCodeLine{192         \}}
+\DoxyCodeLine{193         }
+\DoxyCodeLine{194         \textcolor{keywordflow}{return} holder;}
+\DoxyCodeLine{195     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/utils/\mbox{\hyperlink{StringUtils_8java}{String\+Utils.\+java}}\end{DoxyCompactItemize}

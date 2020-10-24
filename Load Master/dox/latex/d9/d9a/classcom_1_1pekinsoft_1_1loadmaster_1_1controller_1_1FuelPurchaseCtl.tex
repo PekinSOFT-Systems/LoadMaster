@@ -1,0 +1,115 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Purchase\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl}\index{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_a8f8b731c4282f0cf07d8aa5c075fe707}{Fuel\+Purchase\+Ctl}} ()  throws Data\+Store\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_a43d9b872708a9fb0902a2f370edc16cb}{\mbox{[}instance initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_ab5505adcbe7119334e6941007e5d04b0}{\mbox{[}static initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+7.\+8 build 2549 
+\end{DoxySince}
+
+
+Definition at line 59 of file Fuel\+Purchase\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_a8f8b731c4282f0cf07d8aa5c075fe707}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_a8f8b731c4282f0cf07d8aa5c075fe707}} 
+\index{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}!FuelPurchaseCtl@{FuelPurchaseCtl}}
+\index{FuelPurchaseCtl@{FuelPurchaseCtl}!com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}}
+\doxysubsubsection{\texorpdfstring{FuelPurchaseCtl()}{FuelPurchaseCtl()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Purchase\+Ctl.\+Fuel\+Purchase\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 89 of file Fuel\+Purchase\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89                                                         \{}
+\DoxyCodeLine{90         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initiated for ReceivablesCtl "}}
+\DoxyCodeLine{91                 + \textcolor{stringliteral}{"class."});}
+\DoxyCodeLine{92         entry.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{93         entry.setSourceMethodName(\textcolor{stringliteral}{"FuelPurchaseCtl (Constructor)"});}
+\DoxyCodeLine{94         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{95         Starter.logger.enter(entry);}
+\DoxyCodeLine{96         }
+\DoxyCodeLine{97         fileJustCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{100         row = 0;}
+\DoxyCodeLine{101         }
+\DoxyCodeLine{102         TABLE = \textcolor{keyword}{new} File(Starter.props.getDataFolder() + \textcolor{stringliteral}{"10040.jrnl"});}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{106             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{107                 TABLE.createNewFile();}
+\DoxyCodeLine{108                 }
+\DoxyCodeLine{109                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{110                 fileJustCreated = \textcolor{keyword}{true};}
+\DoxyCodeLine{111             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{112                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{113                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{114                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{115                 entry.setSourceMethodName(\textcolor{stringliteral}{"FuelPurchaseCtl (Constructor)"});}
+\DoxyCodeLine{116                 entry.setThrown(ex);}
+\DoxyCodeLine{117                 Starter.logger.error(entry);}
+\DoxyCodeLine{118                 }
+\DoxyCodeLine{119                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{120             \}}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122         }
+\DoxyCodeLine{123         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{124             connect();}
+\DoxyCodeLine{125 \textcolor{comment}{//        else}}
+\DoxyCodeLine{126 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{127 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{128 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{129 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{130         }
+\DoxyCodeLine{131         entry.setMessage(\textcolor{stringliteral}{"Done creating FuelPurchaseCtl object."});}
+\DoxyCodeLine{132         Starter.logger.exit(entry, \textcolor{keyword}{null});}
+\DoxyCodeLine{133     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_a43d9b872708a9fb0902a2f370edc16cb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_a43d9b872708a9fb0902a2f370edc16cb}} 
+\index{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Purchase\+Ctl.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_ab5505adcbe7119334e6941007e5d04b0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelPurchaseCtl_ab5505adcbe7119334e6941007e5d04b0}} 
+\index{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.FuelPurchaseCtl@{com.pekinsoft.loadmaster.controller.FuelPurchaseCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Purchase\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{FuelPurchaseCtl_8java}{Fuel\+Purchase\+Ctl.\+java}}\end{DoxyCompactItemize}

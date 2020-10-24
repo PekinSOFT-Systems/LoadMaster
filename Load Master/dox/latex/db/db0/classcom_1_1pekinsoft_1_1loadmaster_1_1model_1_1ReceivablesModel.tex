@@ -1,0 +1,659 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel}\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+
+
+The {\ttfamily Receivable\+Model} class provides the definition of an Accounts Receivable object.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_afac0526d40f6d083fd9b398fe8995acb}{Receivables\+Model}} (Date date, String trip\+Number, String order\+Number, double amount)
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_aaf21bd6d4de5e082702c3b28c2819c4d}{get\+Trip\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the trip number for this receivable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af1e2d147d618228ca6cc828cce97e466}{set\+Trip\+Number}} (String trip\+Number)
+\begin{DoxyCompactList}\small\item\em Sets the trip number for this receivable. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a10566a111985de30386ee1ffa9b9f913}{get\+Order\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the order number for this receivable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af6f53cad862e0e94f577737f3f6a95c0}{set\+Order\+Number}} (String order\+Number)
+\begin{DoxyCompactList}\small\item\em Sets the order number for this receivable. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_ac472f18afdab042e2a4c6d16529b6a87}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date this receivable was acquired as a {\ttfamily java.\+util.\+Date} object. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a3720c83f22ba62daf3706db9c9423d0a}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date this receivable was acquired as a {\ttfamily java.\+lang.\+String} in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a00d0d427d67f70b590186153ccd33c4d}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the date this receivable was acquired as a {\ttfamily java.\+lang.\+String} in the provided format, such as M\+MM dd, yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a6fb1fa17cc1588f1ada0e5b3d49d4b14}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the date this receivable was acquired using a {\ttfamily java.\+util.\+Date} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a5134a348a1c8b9145e653f95d4189b3a}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the date this receivable was acquired using a {\ttfamily java.\+lang.\+String} in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a92d529305b21d24e2f8d1180667ce7aa}{set\+Date}} (String date, String format)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the date this receivable was acquired using a {\ttfamily java.\+lang.\+String} in the specified format. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a6dad11bb611d3fbe76934ef48af49eed}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of this receivable. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a54f4c90b095d8119fc07ada412bd9144}{get\+Amount\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of this receivable as a {\ttfamily java.\+lang.\+String}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a693790d1c05f0a367e25a5589fc31b84}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of this receivable from a {\ttfamily java.\+lang.\+double} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a0bfe970e5ca32ed936d028b4664e8f61}{set\+Amount}} (String amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of this receivable from a {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a3d448bdf4f016fded070fa74c3c5803f}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique identifying number of this receivable. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a1cb7ca384e6a56c72e7a33a741de2513}{get\+Id\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique identifying number of this receivable as a {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a2e0ebd87f7e74a226095407a1b9e0708}{set\+Id}} (long id)
+\begin{DoxyCompactList}\small\item\em Sets the unique identification number for this receivable from the provided {\ttfamily java.\+lang.\+long} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a755d9fa5a8bc1dc6cf72da10cf2c2a2b}{set\+Id}} (String id)
+\begin{DoxyCompactList}\small\item\em Sets the unique identification number for this receivable from the provided {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a8d7058e6e8f369cc1c4af3b1f328d194}{is\+Settled}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this journal entry has been settled to the General Ledger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a54f7cd52b010f601d679f4b9cdcef31b}{set\+Settled}} (boolean settled)
+\begin{DoxyCompactList}\small\item\em Sets whether this journal entry has been settled to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af7a55b2ccffbbadc54ab307fca2fffce}{\mbox{[}instance initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_aa6ba5d3043c286e45933444427eb2126}{\mbox{[}static initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The {\ttfamily Receivable\+Model} class provides the definition of an Accounts Receivable object. 
+
+An Accounts Receivable object, in the scope of Load Master, is the total revenue that will be paid to the truck at the completion of a load. This value will be entered at the time the load is booked and will be stored in the AR Journal until such time as the driver can settle the load, moving money from the AR account to the various accounts for insurance, maintenance, fuel, wages, etc.
+
+When settling the load, all money from the AR account will need to be moved to other accounts, either asset/income or liability/expense accounts. Once all loads have been settled, the AR account should have a total balance of zero (0.\+00).
+
+
+\begin{DoxyDescription}
+\item[Note\+:]Entries into the Accounts Receivable Journal are {\bfseries{{\itshape never}}} entered into the General Ledger, in and of themselves. Rather, the entries are made in the GL at the time the load is settled, with money being withdrawn/debited from the AR account and portions of that money being deposited/credited to various other accounts.
+\end{DoxyDescription}
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+7.\+8 build 2549 
+\end{DoxySince}
+
+
+Definition at line 64 of file Receivables\+Model.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_afac0526d40f6d083fd9b398fe8995acb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_afac0526d40f6d083fd9b398fe8995acb}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!ReceivablesModel@{ReceivablesModel}}
+\index{ReceivablesModel@{ReceivablesModel}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{ReceivablesModel()}{ReceivablesModel()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+Receivables\+Model (\begin{DoxyParamCaption}\item[{Date}]{date,  }\item[{String}]{trip\+Number,  }\item[{String}]{order\+Number,  }\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96                            \{}
+\DoxyCodeLine{97         this.\textcolor{keywordtype}{id} = System.currentTimeMillis();}
+\DoxyCodeLine{98         this.date = date;}
+\DoxyCodeLine{99         this.tripNumber = tripNumber;}
+\DoxyCodeLine{100         this.orderNumber = orderNumber;}
+\DoxyCodeLine{101         this.amount = amount;}
+\DoxyCodeLine{102         this.settled = \textcolor{keyword}{false};}
+\DoxyCodeLine{103     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af7a55b2ccffbbadc54ab307fca2fffce}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af7a55b2ccffbbadc54ab307fca2fffce}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_aa6ba5d3043c286e45933444427eb2126}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_aa6ba5d3043c286e45933444427eb2126}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a6dad11bb611d3fbe76934ef48af49eed}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a6dad11bb611d3fbe76934ef48af49eed}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of this receivable. 
+
+\begin{DoxyReturn}{Returns}
+receivable amount/value. 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219                               \{}
+\DoxyCodeLine{220         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{221     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a54f4c90b095d8119fc07ada412bd9144}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a54f4c90b095d8119fc07ada412bd9144}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getAmountAsString@{getAmountAsString}}
+\index{getAmountAsString@{getAmountAsString}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getAmountAsString()}{getAmountAsString()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Amount\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of this receivable as a {\ttfamily java.\+lang.\+String}. 
+
+\begin{DoxyReturn}{Returns}
+receivable amount/value. 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                       \{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{return} String.valueOf(this.amount);}
+\DoxyCodeLine{230     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_ac472f18afdab042e2a4c6d16529b6a87}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_ac472f18afdab042e2a4c6d16529b6a87}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date this receivable was acquired as a {\ttfamily java.\+util.\+Date} object. 
+
+\begin{DoxyReturn}{Returns}
+receivable acquisition date. 
+\end{DoxyReturn}
+
+
+Definition at line 153 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153                           \{}
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{155     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a3720c83f22ba62daf3706db9c9423d0a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a3720c83f22ba62daf3706db9c9423d0a}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date this receivable was acquired as a {\ttfamily java.\+lang.\+String} in the format M\+M/dd/yyyy. 
+
+\begin{DoxyReturn}{Returns}
+receivable acquisition date. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                     \{}
+\DoxyCodeLine{164         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{165         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{166     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a00d0d427d67f70b590186153ccd33c4d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a00d0d427d67f70b590186153ccd33c4d}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date this receivable was acquired as a {\ttfamily java.\+lang.\+String} in the provided format, such as M\+MM dd, yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The desired format for the date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+receivable acquisition date in the desired format. 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175                                                  \{}
+\DoxyCodeLine{176         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{177         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{178     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a3d448bdf4f016fded070fa74c3c5803f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a3d448bdf4f016fded070fa74c3c5803f}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getId@{getId}}
+\index{getId@{getId}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique identifying number of this receivable. 
+
+\begin{DoxyReturn}{Returns}
+the unique ID 
+\end{DoxyReturn}
+
+
+Definition at line 255 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{255                         \{}
+\DoxyCodeLine{256         \textcolor{keywordflow}{return} id;}
+\DoxyCodeLine{257     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a1cb7ca384e6a56c72e7a33a741de2513}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a1cb7ca384e6a56c72e7a33a741de2513}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getIdAsString@{getIdAsString}}
+\index{getIdAsString@{getIdAsString}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getIdAsString()}{getIdAsString()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Id\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique identifying number of this receivable as a {\ttfamily java.\+lang.\+String} value. 
+
+\begin{DoxyReturn}{Returns}
+the unique ID. 
+\end{DoxyReturn}
+
+
+Definition at line 265 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265                                   \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} String.valueOf(this.\textcolor{keywordtype}{id});}
+\DoxyCodeLine{267     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a10566a111985de30386ee1ffa9b9f913}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a10566a111985de30386ee1ffa9b9f913}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getOrderNumber@{getOrderNumber}}
+\index{getOrderNumber@{getOrderNumber}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getOrderNumber()}{getOrderNumber()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Order\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the order number for this receivable. 
+
+\begin{DoxyReturn}{Returns}
+the order number. 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{134                                    \{}
+\DoxyCodeLine{135         \textcolor{keywordflow}{return} orderNumber;}
+\DoxyCodeLine{136     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_aaf21bd6d4de5e082702c3b28c2819c4d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_aaf21bd6d4de5e082702c3b28c2819c4d}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!getTripNumber@{getTripNumber}}
+\index{getTripNumber@{getTripNumber}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{getTripNumber()}{getTripNumber()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+get\+Trip\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the trip number for this receivable. 
+
+\begin{DoxyReturn}{Returns}
+the trip number. 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{116                                   \{}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} tripNumber;}
+\DoxyCodeLine{118     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a8d7058e6e8f369cc1c4af3b1f328d194}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a8d7058e6e8f369cc1c4af3b1f328d194}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!isSettled@{isSettled}}
+\index{isSettled@{isSettled}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{isSettled()}{isSettled()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+is\+Settled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this journal entry has been settled to the General Ledger. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if posted to the GL, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 297 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297                                \{}
+\DoxyCodeLine{298         \textcolor{keywordflow}{return} this.settled;}
+\DoxyCodeLine{299     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a693790d1c05f0a367e25a5589fc31b84}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a693790d1c05f0a367e25a5589fc31b84}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of this receivable from a {\ttfamily java.\+lang.\+double} value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & the total value of this receivable. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 237 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{237                                          \{}
+\DoxyCodeLine{238         this.amount = amount;}
+\DoxyCodeLine{239     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a0bfe970e5ca32ed936d028b4664e8f61}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a0bfe970e5ca32ed936d028b4664e8f61}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{String}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of this receivable from a {\ttfamily java.\+lang.\+String} value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & the total value of this receivable. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 246 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{246                                          \{}
+\DoxyCodeLine{247         this.amount = Double.parseDouble(amount);}
+\DoxyCodeLine{248     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a6fb1fa17cc1588f1ada0e5b3d49d4b14}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a6fb1fa17cc1588f1ada0e5b3d49d4b14}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the date this receivable was acquired using a {\ttfamily java.\+util.\+Date} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & receivable acquisition date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 185 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{185                                    \{}
+\DoxyCodeLine{186         this.date = date;}
+\DoxyCodeLine{187     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a5134a348a1c8b9145e653f95d4189b3a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a5134a348a1c8b9145e653f95d4189b3a}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the date this receivable was acquired using a {\ttfamily java.\+lang.\+String} in the format M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date the receivable was acquired. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event the date cannot be parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 196 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{196                                                            \{}
+\DoxyCodeLine{197         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{198         this.date = sdf.parse(date);}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a92d529305b21d24e2f8d1180667ce7aa}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a92d529305b21d24e2f8d1180667ce7aa}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date,  }\item[{String}]{format }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the date this receivable was acquired using a {\ttfamily java.\+lang.\+String} in the specified format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date the receivable was acquired. \\
+\hline
+{\em format} & The format the date is in. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event the date cannot be parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                                           \{}
+\DoxyCodeLine{210         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{211         this.date = sdf.parse(date);}
+\DoxyCodeLine{212     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a2e0ebd87f7e74a226095407a1b9e0708}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a2e0ebd87f7e74a226095407a1b9e0708}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setId@{setId}}
+\index{setId@{setId}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Id (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the unique identification number for this receivable from the provided {\ttfamily java.\+lang.\+long} value. 
+
+This method should only be used when reading in the journal from file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & unique id number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 276 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{276                                \{}
+\DoxyCodeLine{277         this.\textcolor{keywordtype}{id} = id;}
+\DoxyCodeLine{278     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a755d9fa5a8bc1dc6cf72da10cf2c2a2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a755d9fa5a8bc1dc6cf72da10cf2c2a2b}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setId@{setId}}
+\index{setId@{setId}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Id (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the unique identification number for this receivable from the provided {\ttfamily java.\+lang.\+String} value. 
+
+This method should only be used when reading in the journal from file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & unique id number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 287 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{287                                  \{}
+\DoxyCodeLine{288         this.\textcolor{keywordtype}{id} = Long.valueOf(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{289     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af6f53cad862e0e94f577737f3f6a95c0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af6f53cad862e0e94f577737f3f6a95c0}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setOrderNumber@{setOrderNumber}}
+\index{setOrderNumber@{setOrderNumber}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setOrderNumber()}{setOrderNumber()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Order\+Number (\begin{DoxyParamCaption}\item[{String}]{order\+Number }\end{DoxyParamCaption})}
+
+
+
+Sets the order number for this receivable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Number} & the order number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 143 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143                                                    \{}
+\DoxyCodeLine{144         this.orderNumber = orderNumber;}
+\DoxyCodeLine{145     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a54f7cd52b010f601d679f4b9cdcef31b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_a54f7cd52b010f601d679f4b9cdcef31b}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setSettled@{setSettled}}
+\index{setSettled@{setSettled}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setSettled()}{setSettled()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Settled (\begin{DoxyParamCaption}\item[{boolean}]{settled }\end{DoxyParamCaption})}
+
+
+
+Sets whether this journal entry has been settled to the General Ledger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em settled} & {\ttfamily true} if posted. Default is {\ttfamily false} and needs to be updated once the journal entry is posted to the GL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 307 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{307                                             \{}
+\DoxyCodeLine{308         this.settled = settled;}
+\DoxyCodeLine{309     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af1e2d147d618228ca6cc828cce97e466}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReceivablesModel_af1e2d147d618228ca6cc828cce97e466}} 
+\index{com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}!setTripNumber@{setTripNumber}}
+\index{setTripNumber@{setTripNumber}!com.pekinsoft.loadmaster.model.ReceivablesModel@{com.pekinsoft.loadmaster.model.ReceivablesModel}}
+\doxysubsubsection{\texorpdfstring{setTripNumber()}{setTripNumber()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Receivables\+Model.\+set\+Trip\+Number (\begin{DoxyParamCaption}\item[{String}]{trip\+Number }\end{DoxyParamCaption})}
+
+
+
+Sets the trip number for this receivable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip\+Number} & the trip number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Receivables\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                                  \{}
+\DoxyCodeLine{126         this.tripNumber = tripNumber;}
+\DoxyCodeLine{127     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/model/\mbox{\hyperlink{ReceivablesModel_8java}{Receivables\+Model.\+java}}\end{DoxyCompactItemize}
