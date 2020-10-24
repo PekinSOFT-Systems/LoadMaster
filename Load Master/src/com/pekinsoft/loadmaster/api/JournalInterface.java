@@ -34,6 +34,8 @@
 
 package com.pekinsoft.loadmaster.api;
 
+import com.pekinsoft.loadmaster.model.EntryModel;
+
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
@@ -43,8 +45,34 @@ package com.pekinsoft.loadmaster.api;
  */
 public interface JournalInterface {
 
+    /**
+     * Loads data from the journal into the model.
+     * 
+     * @param data the journal data to load.
+     */
     public void load(String[] data);
     
+    /**
+     * Prepares the model data to be written to the journal.
+     * 
+     * @return data formatted for file.
+     */
     public String buildRecordLine();
+    
+    /**
+     * Creates a General Ledger entry, formatted to be written to the General
+     * Ledger file.
+     * 
+     * @return data formatted for the General Ledger file.
+     */
+    public EntryModel getGeneralLedgerEntry();
+    
+    /**
+     * Determines whether the journal entry has been posted to the General 
+     * Ledger.
+     * 
+     * @return `true` if already posted to the General Ledger, `false` otherwise.
+     */
+    public boolean isPosted();
     
 }

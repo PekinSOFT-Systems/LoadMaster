@@ -33,6 +33,7 @@
 package com.pekinsoft.loadmaster.controller;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.api.AbstractJournal;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.EntryModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
@@ -60,9 +61,6 @@ import java.util.logging.LogRecord;
  * @since 0.7.8 build 2549
  */
 public class EntryCtl {
-    //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private final ArrayList<EntryModel> records;
@@ -74,18 +72,8 @@ public class EntryCtl {
     private int row;
     
     private boolean fileJustCreated;
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
+    
+    private AbstractJournal journal;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
@@ -96,7 +84,8 @@ public class EntryCtl {
         entry.setParameters(null);
         Starter.logger.enter(entry);
         
-        fileJustCreated = false;
+        journal = new AbstractJournal(new EntryModel(), 
+                Starter.props.getDataFolder() + "0.ldgr");
         
         records = new ArrayList<>();
         record = new EntryModel();
@@ -134,10 +123,6 @@ public class EntryCtl {
         entry.setMessage("Done creating EntryCtl object.");
         Starter.logger.exit(entry, null);
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">

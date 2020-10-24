@@ -42,6 +42,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 
 /**
  * The `FuelEntryModel` defines the data required and stored for a fuel purchase
@@ -75,6 +76,7 @@ public class FuelPurchaseModel implements JournalInterface {
     private double gallonsOfDef;
     private double pricePerGallonDef;
     private String notes;
+    private boolean posted;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
@@ -88,6 +90,7 @@ public class FuelPurchaseModel implements JournalInterface {
         this.notes = "";
         this.pricePerGallonDef = 0.0;
         this.pricePerGallonDiesel = 0.0;
+        this.posted = false;
     }
     //</editor-fold>
 
@@ -494,6 +497,26 @@ public class FuelPurchaseModel implements JournalInterface {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+    
+    /**
+     * Determines whether or not this journal entry has been posted to the 
+     * General Ledger.
+     * 
+     * @return `true` if already posted to the GL, `false` otherwise.
+     */
+    public boolean isPosted() {
+        return posted;
+    }
+    
+    /**
+     * Sets whether or not this journal entry has been posted to the General
+     * Ledger.
+     * 
+     * @param posted `true` when posted, `false` otherwise.
+     */
+    public void setPosted(boolean posted) {
+        this.posted = posted;
+    }
 
     @Override
     public void load(String[] data) {
@@ -506,6 +529,7 @@ public class FuelPurchaseModel implements JournalInterface {
         gallonsOfDef = Double.parseDouble(data[7]);
         pricePerGallonDef = Double.parseDouble(data[8]);
         notes = data[9];
+        posted = Boolean.parseBoolean(data[10]);
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         try {
@@ -518,7 +542,54 @@ public class FuelPurchaseModel implements JournalInterface {
 
     @Override
     public String buildRecordLine() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        StringBuilder data = new StringBuilder();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        
+        data.append(id).append("~");
+        data.append(getDateAsString()).append("~");
+        data.append(odometer).append("~");
+        data.append(location).append("~");
+        data.append(gallonsOfDiesel).append("~");
+        data.append(pricePerGallonDiesel).append("~");
+        data.append(defPurchased).append("~");
+        data.append(gallonsOfDef).append("~");
+        data.append(pricePerGallonDef).append("~");
+        data.append(notes).append("~").append(posted);
+        
+        return data.toString();
+    }
+    
+    @Override
+    public EntryModel getGeneralLedgerEntry() {
+        EntryModel ret = new EntryModel();
+        ret.setDate(date);
+        
+        if ( defPurchased ) {
+            ret.setCode("DieselDef");
+            ret.setDescription(gallonsOfDiesel + " gallons of diesel and "
+                    + gallonsOfDef + " gallons of DEF at " + location);
+            
+            ret.setAmount((gallonsOfDef * pricePerGallonDef) 
+                    + (gallonsOfDiesel * pricePerGallonDiesel));
+        } else {
+            ret.setCode("Diesel");
+            ret.setDescription(gallonsOfDiesel + " gallons of diesel at " 
+                    + location);
+            
+            ret.setAmount(gallonsOfDiesel * pricePerGallonDiesel);
+        }
+        
+        ret.setFromAccount(50040);
+        ret.setToAccount(10040);
+        ret.setDeductible(true);
+        ret.setBalanced(false);
+        
+        // Since we were called upon to create a General Ledger Entry object, we
+        //+ must be posting to the GL now, so update our posted flag to indicate
+        //+ that this entry has been posted.
+        posted = true;
+        
+        return ret;
     }
     //</editor-fold>
 

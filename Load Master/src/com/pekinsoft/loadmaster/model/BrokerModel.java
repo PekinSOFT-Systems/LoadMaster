@@ -7,7 +7,6 @@
 package com.pekinsoft.loadmaster.model;
 
 import com.pekinsoft.loadmaster.api.JournalInterface;
-import java.util.ArrayList;
 
 /**
  *
@@ -35,18 +34,6 @@ public class BrokerModel implements JournalInterface {
     private String email;       /** Email address for the broker       OPTIONAL*/
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
-    //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public BrokerModel () {
         id = System.currentTimeMillis();
@@ -61,10 +48,6 @@ public class BrokerModel implements JournalInterface {
         fax = "";
         email = "";
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
@@ -139,6 +122,16 @@ public class BrokerModel implements JournalInterface {
             record.append(email);
         
         return record.toString();
+    }
+    
+    @Override
+    public EntryModel getGeneralLedgerEntry() {
+        throw new UnsupportedOperationException("Not necessary for this model.");
+    }
+    
+    @Override
+    public boolean isPosted() {
+        throw new UnsupportedOperationException("Not necessary for this model.");
     }
 
     /**
@@ -360,10 +353,6 @@ public class BrokerModel implements JournalInterface {
     public void setFax(String fax) {
         this.fax = fax;
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    
     //</editor-fold>
 
 }

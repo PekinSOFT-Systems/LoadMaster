@@ -38,7 +38,9 @@
 package com.pekinsoft.loadmaster.api;
 
 import com.pekinsoft.loadmaster.Starter;
+import com.pekinsoft.loadmaster.controller.EntryCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
+import com.pekinsoft.loadmaster.model.EntryModel;
 import com.pekinsoft.loadmaster.view.LoadMaster;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -506,6 +508,34 @@ public class AbstractJournal {
         entry.setInstant(Instant.now());
         Starter.logger.exit(entry, retDate);
         return retDate;
+    }
+
+    public boolean postToGeneralLedger() throws DataStoreException {
+        // For this, we are going to need to create an EntryCtl object, as well
+        //+ as an EntryModel object.
+        EntryCtl gl = new EntryCtl();
+
+        // We also need a return value to send back to the calling method.
+        boolean success = true; // Default to a successful posting procedure.
+        
+        // We need to loop through all of our journal entries, so we can enter
+        //+ our diesel purchase into the General Ledger.
+        for ( int x = 0; x < records.size(); x++ ) {
+            // Check to see if the current record has not yet been posted.
+            if ( !records.get(x).isPosted() ) {
+                // Since the record has not yet been posted to the GL, we need 
+                //+ to do so now.
+                gl.addNew(records.get(x).getGeneralLedgerEntry());
+            } else
+                // No entries needed to be posted.
+                success = false;
+        } // Continue until all records have been read and posted.
+
+        // Finally, we can post the transactions to the General Ledger.
+        gl.close();
+
+        // Leave as the last line of the method:
+        return success;
     }
     //</editor-fold>
 

@@ -29,10 +29,13 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Oct 19, 2020  Sean Carrick        Initial creation.
+ *  Oct 23, 2020  Sean Carrick        Changed to implement the JournalInterface.
+ *
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.model;
 
+import com.pekinsoft.loadmaster.api.JournalInterface;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,7 +58,7 @@ import java.util.Date;
  * @version 0.1.0
  * @since 0.7.8 build 2549
  */
-public class EntryModel {
+public class EntryModel implements JournalInterface {
     /** Transaction date. */
     private Date date;
     /** Transaction code. */
@@ -303,5 +306,49 @@ public class EntryModel {
      */
     public void setBalanced(boolean balanced) {
         this.balanced = balanced;
+    }
+
+    @Override
+    public void load(String[] data) {
+        code = data[1];
+        description = data[2];
+        fromAccount = Integer.parseInt(data[3]);
+        toAccount = Integer.parseInt(data[4]);
+        amount = Double.parseDouble(data[5]);
+        deductible = Boolean.parseBoolean(data[6]);
+        balanced = Boolean.parseBoolean(data[7]);
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            date = sdf.parse(data[0]);
+        } catch ( ParseException ex ) {
+            System.err.print(ex);
+        }
+    }
+
+    @Override
+    public String buildRecordLine() {
+        StringBuilder data = new StringBuilder();
+        
+        data.append(date).append("~");
+        data.append(code).append("~");
+        data.append(description).append("~");
+        data.append(fromAccount).append("~");
+        data.append(toAccount).append("~");
+        data.append(amount).append("~");
+        data.append(deductible).append("~");
+        data.append(balanced);
+        
+        return data.toString();
+    }
+    
+    @Override
+    public EntryModel getGeneralLedgerEntry() {
+        throw new UnsupportedOperationException("Not necessary for this model.");
+    }
+    
+    @Override
+    public boolean isPosted() {
+        throw new UnsupportedOperationException("Not necessary for this model.");
     }
 }
