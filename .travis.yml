@@ -18,6 +18,7 @@ matrix:
           env:
             - OPTS="-Djavac.compilerargs=-nowarn -Dbuild.compiler.deprecation=false"
           before_script:
+            - cd Load\ Master/
             - ant $OPTS clean
             - ant $OPTS build
           script: 
