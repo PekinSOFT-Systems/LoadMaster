@@ -93,6 +93,100 @@ public class Utils {
     
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods and Functions">
     /**
+     * Returns the proper application folder based on the operating system upon
+     * which the application is running. The application path will be different
+     * on each operating system:
+     * <table>
+     * <thead><th>Operating System</th><th>Application Folder Location</th>
+     * </thead>
+     * <tr><td>Windows</td><td>{user.home}\AppData\Load Master\</td></tr>
+     * <tr><td>Mac OS-X</td><td>{user.home}/Library/Application Support/</td></tr>
+     * <tr><td>Linux</td><td>{user.home}/.loadmaster/</td></tr></table>
+     * 
+     * @return the appropriation to store application data for the OS
+     */
+    public static String determineApplicationDataFolder() {
+        String appDataHome = "data/";
+        String currentOS = System.getProperty("os.name");
+        String userHome = System.getProperty("user.home");
+        
+        if ( currentOS.toLowerCase().contains("win") ) {
+            // Windows system.
+            return userHome + "\\AppData\\" + appDataHome;
+        } else if ( currentOS.toLowerCase().contains("mac") ) {
+            // Mac OS system.
+            return userHome + "/Application Support/";
+        } else {
+            // Linux or Solaris system.
+            return userHome + "/.loadmaster/";
+        }
+    }
+    
+    /**
+     * Returns the proper location for storage of application logs based upon
+     * the current operating system. Each OS has a specific location on where to
+     * store event logs, so we are going to use the appropriate location for our
+     * application. The locations are as follows:
+     * <table>
+     * <thead><th>Operating System</th><th>Application Log Location</th>
+     * </thead>
+     * <tr><td>Windows</td><td>%SystemRoot%\System32\Config\</td></tr>
+     * <tr><td>Mac OS-X</td><td>/Library/Logs/</td></tr>
+     * <tr><td>Linux and Solaris</td><td>/var/log/LoadMaster*</td></tr></table>
+     * <dl><dt>* Developer's Note</dt><dd>If we are going to store our logs in
+     * the system default location, we will need to have the application create
+     * a user on the system for itself, or join a group for itself, to give the
+     * application permission to write to the `/var/log/` folder.</dd></dl>
+     * 
+     */
+    public static String determineApplicationLogFolder() {
+        String currentOS = System.getProperty("os.name");
+        String logHome = "";
+        
+        if ( currentOS.toLowerCase().contains("win") ) {
+            // Windows system.
+            return "%SystemRoot%\\System32\\Config\\LoadMaster\\";
+        } else if ( currentOS.toLowerCase().contains("mac") ) {
+            // Mac OS system.
+            return "/Library/Logs/LoadMaster";
+        } else {
+            // Linux or Solaris system.
+            return "/var/log/loadmaster";
+        }
+    }
+    
+    /**
+     * Returns the proper location for settings to be stored based upon the
+     * operating system upon which the application is currently running. Each OS
+     * has a specific location in which to store these settings, so we are going
+     * to use the proper location.
+     * <table>
+     * <thead><th>Operating System</th><th>Application Log Location</th>
+     * </thead>
+     * <tr><td>Windows</td><td>{user.home}\AppData\Load Master\</td></tr>
+     * <tr><td>Mac OS-X</td><td>{user.home}/Library/Preferences/</td></tr>
+     * <tr><td>Linux and Solaris</td><td>{user.home}/.loadmaster</td></tr></table>
+     * 
+     * @return 
+     */
+    public static String determineUserSettingsLocation() {
+        String appDataHome = "data/";
+        String currentOS = System.getProperty("os.name");
+        String userPrefHome = System.getProperty("user.home");
+        
+        if ( currentOS.toLowerCase().contains("win") ) {
+            // Windows system.
+            return userPrefHome + "\\AppData\\LoadMaster\\loadmaster.cnf";
+        } else if ( currentOS.toLowerCase().contains("mac") ) {
+            // Mac OS system.
+            return userPrefHome + "/Library/Preferences/LoadMaster.config";
+        } else {
+            // Linux or Solaris system.
+            return userPrefHome + "/.loadmaster/";
+        }
+    }
+    
+    /**
      * Retrieves the currently executing program's program directory. This 
      * should be the directory in which the program was executed, which could
      * also be considered the program's installation path.
