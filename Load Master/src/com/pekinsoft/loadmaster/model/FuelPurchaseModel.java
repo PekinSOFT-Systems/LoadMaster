@@ -32,6 +32,7 @@
 
 package com.pekinsoft.loadmaster.model;
 
+import com.pekinsoft.loadmaster.Starter;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -56,11 +57,14 @@ import java.util.Date;
  */
 public class FuelPurchaseModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
+    public static final int ACCOUNT_NUMBER = 10040;
+    public static final String JOURNAL = Starter.props.getDataFolder() 
+            + ACCOUNT_NUMBER;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private long id;
+    private String tripNumber;
     private Date date;
     private int odometer;
     private String location;
@@ -70,18 +74,7 @@ public class FuelPurchaseModel {
     private double gallonsOfDef;
     private double pricePerGallonDef;
     private String notes;
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Static Initializer">
-    static {
-        
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
-    {
-        
-    }
+    private boolean posted;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
@@ -96,10 +89,6 @@ public class FuelPurchaseModel {
         this.pricePerGallonDef = 0.0;
         this.pricePerGallonDiesel = 0.0;
     }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
@@ -504,6 +493,55 @@ public class FuelPurchaseModel {
      */
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+    
+    /**
+     * Retrieves the trip number this Fuel Purchase is related to, "No Active
+     * Load" in the event this Fuel Purchase was made while not on an active
+     * trip.
+     * 
+     * @return the associated trip number or "No Active Load"
+     */
+    public String getTripNumber() {
+        return tripNumber;
+    }
+    
+    /**
+     * Sets the trip number this Fuel Purchase is related to, or "No Active Load"
+     * in the event this Fuel Purchase was made while not on an active trip.
+     * 
+     * @param tripNumber the associated trip number of "No Active Load"
+     */
+    public void setTripNumber(String tripNumber) {
+        if ( tripNumber == null || tripNumber.isBlank() || tripNumber.isEmpty() ) 
+            tripNumber = "No Active Load";
+        
+        this.tripNumber = tripNumber;
+    }
+    
+    /**
+     * Determines if this Fuel Purchase has been posted to the General Ledger or
+     * not. All summary financial information, as well as financial reports, are
+     * only pulled from the General Ledger, so it behooves the user to post all
+     * Journal transactions to the General Ledger as soon as possible after the
+     * entry has been made in the Account Journal.
+     * 
+     * @return `true` if transaction posted to the GL, `false` otherwise.
+     */
+    public boolean isPosted() {
+        return posted;
+    }
+    
+    /**
+     * Sets the flag that this Fuel Purchase has been posted to the General
+     * Ledger. This flag should only be set once the data has actually been 
+     * posted from the Account Journal to the General Ledger.
+     * 
+     * @param posted `true` once posted to the GL, `false` when the record is
+     *               created and until it is posted to the GL.
+     */
+    public void setPosted(boolean posted) {
+        this.posted = posted;
     }
     //</editor-fold>
 
