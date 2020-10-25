@@ -36,6 +36,7 @@
  *                                        - postTransactions()
  *                                   All other functionality is taken care of
  *                                   in AbstractJournal<T>.
+ * Oct 25, 2020  Sean Carrick        Removed unnecessary casting of record.
  * 
  * *****************************************************************************
  */
@@ -78,9 +79,9 @@ public class ChartCtl extends AbstractJournal<ChartModel> {
         
 //        record = new ReceivablesModel();
         
-        ((ChartModel)record).setNumber(Long.parseLong(line[0]));
-        ((ChartModel)record).setName(line[1]);
-        ((ChartModel)record).setDescription(line[2]);
+        record.setNumber(Long.parseLong(line[0]));
+        record.setName(line[1]);
+        record.setDescription(line[2]);
         
         records.add(record);
     }

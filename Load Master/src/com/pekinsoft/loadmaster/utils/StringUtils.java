@@ -15,20 +15,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Northwind-Basic
- *  Class      :   StringUtils.java
- *  Author     :   Sean Carrick
- *  Created    :   Mar 8, 2020 @ 12:34:09 PM
- *  Modified   :   Mar 8, 2020
+ * Project    :   Northwind-Basic
+ * Class      :   StringUtils.java
+ * Author     :   Sean Carrick
+ * Created    :   Mar 8, 2020 @ 12:34:09 PM
+ * Modified   :   Mar 8, 2020
  *  
- *  Purpose:
+ * Purpose:
  *  
- *  Revision History:
+ * Revision History:
  *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Mar 8, 2020  Sean Carrick        Initial creation.
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Mar 08, 2020  Sean Carrick        Initial creation.
+ * Oct 25, 2020  Sean Carrick        Added the method getMiddle() to allow users
+ *                                   to get the substring between two given
+ *                                   characters, exclusively. The given
+ *                                   characters will not be returned as part of
+ *                                   the resulting substring.
+ * 
  * *****************************************************************************
  */
 
@@ -149,7 +154,8 @@ public class StringUtils {
      * Removes a substring only if it is at the beginning of a source string, 
      * otherwise returns the source string. A `null` source string will return
      * `null`. An empty ("") source string will return the empty string. A `null`
-     * search string will return the source string.
+     * search string will return the source string. This method is 
+     * case-sensitive.
      * 
      * @param source    the string from which the substring should be removed.
      * @param remove    the substring to remove from the source string.
@@ -175,6 +181,18 @@ public class StringUtils {
         return holder;
     }
     
+    /**
+     * Removes a substring only if it is at the beginning of a source string, 
+     * otherwise returns the source string. A `null` source string will return
+     * `null`. An empty ("") source string will return the empty string. A `null`
+     * search string will return the source string. This method is 
+     * case-insensitive.
+     * 
+     * @param source    the string from which the substring should be removed.
+     * @param remove    the substring to remove from the source string.
+     * @return java.lang.String the source string with the substring removed,
+     *                          except as provided for above.
+     */
     public static String removeStartIgnoreCase(String source, String remove) {
         if ( source == null ) {
             return null;
@@ -195,34 +213,66 @@ public class StringUtils {
     }
     
     /**
-     * Removes a substring only if it is at the end of a source string, otherwise
-     * returns the source string.
-     * 
-     * A `null` source string will return `null`. An empty ("") source string
-     * will return the empty string. A `null` search string will return the 
-     * source string.
+     * Returns a substring pulled from the source from the start to the 
+     * end, exclusive. The substring that is returned from the middle of
+     * the source string will begin at the first character **after** the 
+     * character provided as the start, and end **before** the character
+     * provided as the end. The start and end characters ***will not*** be a 
+     * part of the returned substring.
      * 
      * @param source the source String to search, may be null
-     * @param remove the String to search for and remove, may be null
-     * @return the substring with the string removed, if found, `null` if `null`
-     *              String input
+     * @param start the character or string after which the substring will start
+     * @param end  the character or string before which the substring will end
+     * @return the substring between the start and end values, if found, `null`
+     *              if `null` String provided as source, the source string if
      */
-    public static String removeEnd(String source, String remove) {
+    public static String getMiddle(String source, String start, String end) {
         if ( source == null ) {
             return null;
         }
-        if ( remove == null ) {
+        if ( start == null && end == null ) {
             return source;
         }
-        if ( source.isBlank() ) {
+        if ( source.isBlank() || source.isEmpty() ) {
             return source;
         }
         
-        if ( source.endsWith(remove) ) {
-            return source.substring(0, source.indexOf(remove));
+        if ( source.contains(start) && source.contains(end) ) {
+            return source.substring(source.indexOf(start) + 1, 
+                    source.indexOf(end) - 1);
+        } else if ( source.contains(start) && (!source.contains(end)
+                || end == null || end.isBlank() || end.isEmpty()) ) {
+            return source.substring(source.indexOf(start) + 1);
         } else {
             return source;
         }
+    }
+    
+    /**
+     * Removes a substring only if it is at the end of a source string, otherwise
+     * returns the source string.A `null` source string will return `null`.An 
+     * empty ("") source string will return the empty string.A `null` search 
+     * string will return the source string.
+     * 
+     * 
+     * @param source the source String to search, may be null
+     * @param beginIndex the beginning index of the substring to retrieve
+     * @param endIndex the ending index of the substring to remove
+     * @return the substring with the string removed, if found, `null` if `null`
+     *              String input
+     */
+    public static String removeEnd(String source, int beginIndex, int endIndex) {
+        if ( source == null ) {
+            return null;
+        }
+        if ( beginIndex == endIndex ) {
+            return null;
+        }
+        if ( source.isBlank() || source.isEmpty() ) {
+            return source;
+        }
+        
+        return source.substring(beginIndex, endIndex);
     }
     
     /**

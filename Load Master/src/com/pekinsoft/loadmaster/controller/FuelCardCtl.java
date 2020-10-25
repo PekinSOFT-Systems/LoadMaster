@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  ******************************************************************************
+ * *****************************************************************************
  *   Project:  Load_Master
  *   Module:   FuelCardCtl
  *   Created:  Oct 19, 2020
@@ -24,22 +24,24 @@
  * 
  *   Revision History
  * 
- *   WHEN          BY                  REASON
- *   ------------  ------------------- ------------------------------------------
- *   Oct 21, 2020  Sean Carrick        Initial Creation.
- *   Oct 22, 2020  Sean Carrick        Modified FuelCardControl to extend the
- *                                     AbstractJournal class. This modification
- *                                     will save countless time on class creation
- *                                     and maintenance moving into the future.
- *   Oct 23, 2020  Sean Carrick        Altered this class to implement only the
- *                                     three (3) abstract methods in the super
- *                                     class: 
- *                                          - buildRecordLine(FuelCardModel)
- *                                          - createAndAddRecord(String[])
- *                                          - postTransactions()
- *                                     All other functionality is taken care of
- *                                     in AbstractJournal<T>.
- *  ******************************************************************************
+ * WHEN          BY                  REASON
+ * ------------  ------------------- -----------------------------------------
+ * Oct 21, 2020  Sean Carrick        Initial Creation.
+ * Oct 22, 2020  Sean Carrick        Modified FuelCardControl to extend the
+ *                                   AbstractJournal class. This modification
+ *                                   will save countless time on class creation
+ *                                   and maintenance moving into the future.
+ * Oct 23, 2020  Sean Carrick        Altered this class to implement only the
+ *                                   three (3) abstract methods in the super
+ *                                   class: 
+ *                                        - buildRecordLine(FuelCardModel)
+ *                                        - createAndAddRecord(String[])
+ *                                        - postTransactions()
+ *                                   All other functionality is taken care of
+ *                                   in AbstractJournal<T>.
+ * Oct 25, 2020  Sean Carrick        Removed unnecessary casting of the record.
+ * 
+ * *****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.controller;
@@ -170,7 +172,7 @@ public class FuelCardCtl extends AbstractJournal<FuelCardModel> {
         
         
         try {
-            ((FuelCardModel)record).setDate(sdf.parse(line[1]));
+            record.setDate(sdf.parse(line[1]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the dispatch date.");
@@ -182,11 +184,11 @@ public class FuelCardCtl extends AbstractJournal<FuelCardModel> {
             MessageBox.showError(ex, "Parsing Error");
         }
         
-        ((FuelCardModel)record).setId(Long.parseLong(line[0]));
-        ((FuelCardModel)record).setFromAcct(Integer.parseInt(line[2]));
-        ((FuelCardModel)record).setTripNumber(line[3]);
-        ((FuelCardModel)record).setAmount(Double.parseDouble(line[4]));
-        ((FuelCardModel)record).setPosted(Boolean.parseBoolean(line[5]));
+        record.setId(Long.parseLong(line[0]));
+        record.setFromAcct(Integer.parseInt(line[2]));
+        record.setTripNumber(line[3]);
+        record.setAmount(Double.parseDouble(line[4]));
+        record.setPosted(Boolean.parseBoolean(line[5]));
         
         records.add(record);
         

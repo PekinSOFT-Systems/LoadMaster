@@ -13,34 +13,41 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  ****************************************************************************
- *   Project:  Load_Master
- *   Module:   FuelPurchaseCtl
- *   Created:  Oct 19, 2020
- *   Modified: Oct 19, 2020
+ * *****************************************************************************
+ * Project:  Load_Master
+ * Module:   FuelPurchaseCtl
+ * Created:  Oct 19, 2020
+ * Modified: Oct 19, 2020
  * 
- *   Purpose:
+ * Purpose:
  *      Provides all data access for the Fuel Purchases journal.
  * 
- *   Revision History
+ * Revision History
  * 
- *   WHEN          BY                  REASON
- *   ------------  ------------------- -----------------------------------------
- *   Oct 21, 2020  Sean Carrick        Initial Creation.
- *   Oct 22, 2020  Sean Carrick        Modified FuelCardControl to extend the
- *                                     AbstractJournal class. This modification
- *                                     will save countless time on class creation
- *                                     and maintenance moving into the future.
- *   Oct 23, 2020  Sean Carrick        Altered this class to implement only the
- *                                     three (3) abstract methods in the super
- *                                     class: 
- *                                          - buildRecordLine(FuelCardModel)
- *                                          - createAndAddRecord(String[])
- *                                          - postTransactions()
- *                                     All other functionality is taken care of
- *                                     in AbstractJournal<T>.
- *
- *  ****************************************************************************
+ * WHEN          BY                  REASON
+ * ------------  ------------------- -----------------------------------------
+ * Oct 21, 2020  Sean Carrick        Initial Creation.
+ * Oct 22, 2020  Sean Carrick        Modified FuelCardControl to extend the
+ *                                   AbstractJournal class. This modification
+ *                                   will save countless time on class creation
+ *                                   and maintenance moving into the future.
+ * Oct 23, 2020  Sean Carrick        Altered this class to implement only the
+ *                                   three (3) abstract methods in the super
+ *                                   class: 
+ *                                        - buildRecordLine(FuelCardModel)
+ *                                        - createAndAddRecord(String[])
+ *                                        - postTransactions()
+ *                                   All other functionality is taken care of
+ *                                   in AbstractJournal<T>.
+ * Oct 25, 2020  Sean Carrick        Removed unnecessary casting of the record.
+ *                                   Also, added the functionality of being able
+ *                                   to make a fuel purchase from an account
+ *                                   other than the Fuel Card account, by adding
+ *                                   the setter and getter for the new 
+ *                                   `fromAccount` field in the 
+ *                                   FuelPurchaseModel.
+ * 
+ * *****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.controller;
@@ -88,7 +95,7 @@ public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
                 + model.isDefPurchased() + "~" + model.getGallonsOfDefAsString()
                 + "~" + String.valueOf(model.getPricePerGallonDef()) + "~"
                 + model.getNotes() + "~" + model.getTripNumber() + "~"
-                + model.isPosted();
+                + model.getFromAccount() + "~" + model.isPosted();
     }
     
     @Override
@@ -126,7 +133,8 @@ public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
         record.setPricePerGallonDef(line[8]);
         record.setNotes(line[9]);
         record.setTripNumber(line[10]);
-        record.setPosted(Boolean.parseBoolean(line[11]));
+        record.setFromAccount(Integer.parseInt(line[11]));
+        record.setPosted(Boolean.parseBoolean(line[12]));
         
         records.add(record);
         
@@ -148,16 +156,16 @@ public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
         //+ our diesel purchase into the General Ledger.
         for ( int x = 0; x < records.size(); x++ ) {
             // Check to see if the current record has not yet been posted.
-            if ( !((FuelPurchaseModel)records.get(x)).isPosted() ) {
+            if ( !records.get(x).isPosted() ) {
                 // Since the record has not yet been posted to the GL, we need 
                 //+ to do so now.
                 tx = new EntryModel();
-                tx.setAmount(((FuelPurchaseModel)records.get(x)).getGallonsOfDiesel()
-                        * ((FuelPurchaseModel)records.get(x)).getPricePerGallonDiesel());
+                tx.setAmount(records.get(x).getGallonsOfDiesel()
+                        * records.get(x).getPricePerGallonDiesel());
                 tx.setBalanced(false);
                 tx.setCode("DieselPurch");
                 try {
-                    tx.setDate(((FuelPurchaseModel)records.get(x)).getDateAsString());
+                    tx.setDate(records.get(x).getDateAsString());
                 } catch ( ParseException ex ) {
                     // If we get a ParseException setting the date, we will log
                     //+ it...
@@ -175,21 +183,21 @@ public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
                 }
                 tx.setDeductible(true);
                 
-                String desc = "Purchased " + ((FuelPurchaseModel)records.get(x))
+                String desc = "Purchased " + records.get(x)
                         .getGallonsOfDieselAsString();
                 desc += " gallons at ";
-                desc += ((FuelPurchaseModel)records.get(x)).getLocation();
+                desc += records.get(x).getLocation();
                 
-                if ( ((FuelPurchaseModel)records.get(x)).getTripNumber()
+                if ( records.get(x).getTripNumber()
                         .equalsIgnoreCase("No Active Load") ) {
                     desc += " while not under an active load.";
                 } else {
                     tx.setDescription(" while on Trip # " 
-                            + ((FuelPurchaseModel)records.get(x)).getTripNumber());
+                            + records.get(x).getTripNumber());
                 }
                 tx.setDescription(desc);
                 
-                tx.setFromAccount(FuelCardModel.ACCOUNT_NUMBER);
+                tx.setFromAccount(records.get(x).getFromAccount());
                 tx.setToAccount(FuelPurchaseModel.ACCOUNT_NUMBER);
                 
                 // Now that we have created the GL transaction entry, we can add
@@ -198,25 +206,25 @@ public class FuelPurchaseCtl extends AbstractJournal<FuelPurchaseModel> {
                 
                 // Now we have to do it all again for the DEF that may have been
                 //+ purchased at this same fuel stop.
-                if ( ((FuelPurchaseModel)records.get(x)).isDefPurchased() ) {
-                    tx.setAmount(((FuelPurchaseModel)records.get(x)).getGallonsOfDef()
-                            * ((FuelPurchaseModel)records.get(x)).getPricePerGallonDef());
+                if ( records.get(x).isDefPurchased() ) {
+                    tx.setAmount(records.get(x).getGallonsOfDef()
+                            * records.get(x).getPricePerGallonDef());
                     tx.setBalanced(false);
                     tx.setCode("DEFPurch");
-                    tx.setDate(((FuelPurchaseModel)records.get(x)).getDate());
+                    tx.setDate(records.get(x).getDate());
                     tx.setDeductible(true);
 
-                    desc = "Purchased " + ((FuelPurchaseModel)records.get(x))
+                    desc = "Purchased " + records.get(x)
                             .getGallonsOfDefAsString();
                     desc += " gallons at ";
-                    desc += ((FuelPurchaseModel)records.get(x)).getLocation();
+                    desc += records.get(x).getLocation();
 
-                    if ( ((FuelPurchaseModel)records.get(x)).getTripNumber()
+                    if ( records.get(x).getTripNumber()
                             .equalsIgnoreCase("No Active Load") ) {
                         desc += " while not under an active load.";
                     } else {
                         tx.setDescription(" while on Trip # " 
-                                + ((FuelPurchaseModel)records.get(x)).getTripNumber());
+                                + records.get(x).getTripNumber());
                     }
                     tx.setDescription(desc);
 

@@ -34,6 +34,7 @@
  */
 package com.pekinsoft.loadmaster.model;
 
+import com.pekinsoft.loadmaster.api.DefaultModel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,7 +46,7 @@ import java.util.Date;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class FuelCardModel {
+public class FuelCardModel implements DefaultModel {
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
     /**

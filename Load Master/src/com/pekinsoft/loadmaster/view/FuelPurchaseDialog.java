@@ -13,30 +13,39 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  ******************************************************************************
- *   Project:  Load_Master
- *   Module:   FuelPurchaseDialog
- *   Created:  Oct 20, 2020
- *   Modified: Oct 20, 2020
+ * *****************************************************************************
+ * Project:  Load_Master
+ * Module:   FuelPurchaseDialog
+ * Created:  Oct 20, 2020
+ * Modified: Oct 20, 2020
  * 
- *   Purpose:
+ * Purpose:
+ *      Dialog for user to enter a fuel purchase into the system. This dialog
+ *      takes into account if there is money available on the fuel card. If no
+ *      money is available on the fuel card, we will need to allow the user to
+ *      select a different account from which to purchase their fuel, such as
+ *      the checking, savings, or reserve accounts.
  * 
- *   Revision History
+ * Revision History
  * 
- *   WHEN          BY                  REASON
- *   ------------  ------------------- ------------------------------------------
- *   Oct 20, 2020    Sean Carrick Initial Creation.
- *  ******************************************************************************
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Oct 20, 2020  Sean Carrick        Initial Creation.
+ * Oct 25, 2020  Sean Carrick        Added the Purpose statement, above. Added
+ *                                   the ability to change the account from 
+ *                                   which the fuel purchase may be paid. 
+ *                                   updated the save method to reflect these
+ *                                   changes. Removed unused imports.
+ *
+ * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
-import com.pekinsoft.loadmaster.controller.EntryCtl;
 import com.pekinsoft.loadmaster.controller.FuelPurchaseCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
-import com.pekinsoft.loadmaster.model.EntryModel;
-import com.pekinsoft.loadmaster.model.FuelCardModel;
 import com.pekinsoft.loadmaster.model.FuelPurchaseModel;
+import com.pekinsoft.loadmaster.utils.StringUtils;
 import java.awt.Toolkit;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -55,6 +64,7 @@ import org.jdesktop.swingx.JXDatePicker;
 public class FuelPurchaseDialog extends javax.swing.JDialog {
 
     private LogRecord entry;
+    private int accountNumber;
 
     /**
      * Creates new form FuelPurchaseDialog
@@ -76,6 +86,14 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         int top = (Toolkit.getDefaultToolkit().getScreenSize().height
                 - getHeight()) / 2;
         setLocation(left, top);
+        
+        infoLabel.setText("<html><body>The default account from which to buy "
+                + "fuel is the Fuel Card (50040) account. However, if there "
+                + "is no money available (see title), you can change the used "
+                + "account here. Load Master™ only allows you to select from "
+                + "Checking (50010), savings (50020) or reserve (50060) "
+                + "accounts as alternatives.");
+        accountNumber = 50040;
 
         defPanel.setVisible(defCheckBox.isSelected());
     }
@@ -127,30 +145,19 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
 
         purchase.setTripNumber(Starter.props.getProperty("load.current",
                 "No Active Load"));
+        purchase.setFromAccount(accountNumber);
         purchase.setPosted(false);
 
         // Now that we have created our FuelPurchaseModel object and provided it
         //+ its data, we can add it to the Fuel Account Journal.
-        FuelPurchaseModel model = new FuelPurchaseModel();
-        model.setDate(datePicker.getDate());
-        model.setDefPurchased(defCheckBox.isSelected());
-        model.setGallonsOfDef(defGallonsField.getText());
-        model.setPricePerGallonDef(defPriceField.getText());
-        model.setGallonsOfDiesel(dieselGallonsField.getText());
-        model.setPricePerGallonOfDiesel(dieselPriceField.getText());
-        model.setId(idField.getText());
-        model.setLocation(locationField.getText());
-        model.setNotes(notesField.getText());
-        model.setOdometer(odometerField.getText());
-
         try {
             FuelPurchaseCtl records = new FuelPurchaseCtl();
 
             if ( !Starter.props.getPropertyAsBoolean("acct.batch", "false") ) {
-                model.setPosted(records.postTransactions());
+                purchase.setPosted(records.postTransactions());
             }
             
-            records.addNew(model);
+            records.addNew(purchase);
             
             records.close();
 
@@ -201,6 +208,10 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         notesField = new javax.swing.JTextArea();
         odometerLabel = new javax.swing.JLabel();
         odometerField = new javax.swing.JFormattedTextField();
+        accountPanel = new javax.swing.JPanel();
+        infoLabel = new javax.swing.JLabel();
+        accountList = new javax.swing.JComboBox<>();
+        accountLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -388,6 +399,11 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/cancel16.png"))); // NOI18N
         cancelButton.setMnemonic('C');
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
         cancelButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 checkForEscape(evt);
@@ -424,6 +440,49 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         odometerLabel.setText("Odometer:");
 
         odometerField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
+
+        accountPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Account Information"));
+
+        infoLabel.setText("jLabel1");
+
+        accountList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fuel Card [50040]", "Reserve [50060]", "Checking [50010]", "Savings [50020" }));
+        accountList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                accountListItemStateChanged(evt);
+            }
+        });
+        accountList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                checkForEscape(evt);
+            }
+        });
+
+        accountLabel.setText("Account to Use:");
+
+        javax.swing.GroupLayout accountPanelLayout = new javax.swing.GroupLayout(accountPanel);
+        accountPanel.setLayout(accountPanelLayout);
+        accountPanelLayout.setHorizontalGroup(
+            accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(accountPanelLayout.createSequentialGroup()
+                        .addComponent(accountLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(accountList, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        accountPanelLayout.setVerticalGroup(
+            accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(accountPanelLayout.createSequentialGroup()
+                .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountLabel)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -468,12 +527,15 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
                                 .addComponent(notesLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1)))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addComponent(accountPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(accountPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateLabel)
                     .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -496,7 +558,7 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(notesLabel)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -538,7 +600,21 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_okButtonActionPerformed
 
+    private void accountListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_accountListItemStateChanged
+        // In this event, we need to get the account number from the selected
+        //+ account into our accountNumber field.
+        accountNumber = Integer.parseInt(StringUtils.getMiddle(
+                accountList.getSelectedItem().toString(), "[", "]"));
+    }//GEN-LAST:event_accountListItemStateChanged
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        doClose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel accountLabel;
+    private javax.swing.JComboBox<String> accountList;
+    private javax.swing.JPanel accountPanel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel dateLabel;
     private org.jdesktop.swingx.JXDatePicker datePicker;
@@ -555,6 +631,7 @@ public class FuelPurchaseDialog extends javax.swing.JDialog {
     private javax.swing.JLabel dieselPriceLabel;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel infoLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField locationField;
     private javax.swing.JLabel locationLabel;

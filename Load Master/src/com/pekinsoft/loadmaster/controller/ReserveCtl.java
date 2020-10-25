@@ -36,6 +36,7 @@
  *                                        - postTransactions()
  *                                   All other functionality is taken care of
  *                                   in AbstractJournal<T>.
+ * Oct 25, 2020  Sean Carrick        Removed unnecessary casting of the record.
  * 
  * *****************************************************************************
  */
@@ -97,7 +98,7 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
         
         
         try {
-            ((ReserveModel)record).setDate(sdf.parse(line[1]));
+            record.setDate(sdf.parse(line[1]));
         } catch ( ParseException ex ) {
             entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                     + "Parsing error while parsing the dispatch date.");
@@ -110,7 +111,7 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
         }
         
         try {
-            ((ReserveModel)record).setDate(line[1]);
+            record.setDate(line[1]);
         } catch ( ParseException ex ) {
             entry.setSourceClassName(getClass().getCanonicalName());
             entry.setSourceMethodName("createAndAddRecord");
@@ -121,14 +122,14 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
             Starter.logger.error(entry);
             
             // We will just create the date on the fly.
-            ((ReserveModel)record).setDate(new Date());
+            record.setDate(new Date());
         }
         
-        ((ReserveModel)record).setId(Long.parseLong(line[0]));
-        ((ReserveModel)record).setTripNumber(line[2]);
-        ((ReserveModel)record).setFromAccount(Integer.parseInt(line[3]));
-        ((ReserveModel)record).setAmount(Double.parseDouble(line[4]));
-        ((ReserveModel)record).setPosted(Boolean.parseBoolean(line[5]));
+        record.setId(Long.parseLong(line[0]));
+        record.setTripNumber(line[2]);
+        record.setFromAccount(Integer.parseInt(line[3]));
+        record.setAmount(Double.parseDouble(line[4]));
+        record.setPosted(Boolean.parseBoolean(line[5]));
         
         records.add(record);
         
@@ -150,14 +151,14 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
         //+ our diesel purchase into the General Ledger.
         for ( int x = 0; x < records.size(); x++ ) {
             // Check to see if the current record has not yet been posted.
-            if ( !((ReserveModel)records.get(x)).isPosted() ) {
+            if ( !records.get(x).isPosted() ) {
                 // Since the record has not yet been posted to the GL, we need 
                 //+ to do so now.
                 tx = new EntryModel();
-                tx.setAmount(((ReserveModel)records.get(x)).getAmount());
+                tx.setAmount(records.get(x).getAmount());
                 tx.setCode("RES");
                 try {
-                    tx.setDate(((ReserveModel)records.get(x)).getDateAsString());
+                    tx.setDate(records.get(x).getDateAsString());
                 } catch ( ParseException ex ) {
                     // If we get a ParseException setting the date, we will log
                     //+ it...
@@ -177,12 +178,12 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
                 
                 String desc = "";
                 
-                if ( ((ReserveModel)records.get(x)).getTripNumber()
+                if ( records.get(x).getTripNumber()
                         .equalsIgnoreCase("No Active Load") ) {
                     desc += "Extra money put to reserves from another account.";
                 } else {
                     tx.setDescription("Percentage of Trip # " 
-                            + ((ReserveModel)records.get(x)).getTripNumber());
+                            + records.get(x).getTripNumber());
                 }
                 tx.setDescription(desc);
                 
@@ -194,7 +195,7 @@ public class ReserveCtl extends AbstractJournal<ReserveModel> {
                 gl.addNew(tx);
                 
                 ReserveCtl reserves = new ReserveCtl();
-                ((ReserveModel)record).setPosted(true);
+                record.setPosted(true);
                 reserves.update(record);
                 reserves.close();
             } // No `else`, because transactions only need to be posted once.

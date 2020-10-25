@@ -13,21 +13,26 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  ******************************************************************************
- *   Project:  Load_Master
- *   Module:   FuelPurchaseModel
- *   Created:  Oct 19, 2020
- *   Modified: Oct 19, 2020
+ * *****************************************************************************
+ * Project:  Load_Master
+ * Module:   FuelPurchaseModel
+ * Created:  Oct 19, 2020
+ * Modified: Oct 19, 2020
  * 
- *   Purpose:
+ * Purpose:
  *      Defines a fuel entry object for the database and accounting system.
  * 
- *   Revision History
+ * Revision History
  * 
- *   WHEN          BY                  REASON
- *   ------------  ------------------- ------------------------------------------
- *   Oct 19, 2020    Sean Carrick Initial Creation.
- *  ******************************************************************************
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Oct 19, 2020  Sean Carrick        Initial Creation.
+ * Oct 25, 2020  Sean Carrick        Added the ability to make a fuel purchase
+ *                                   from an account other than the Fuel Card
+ *                                   account by adding the field `fromAccount`,
+ *                                   as well as the setter and getter for it.
+ * 
+ * *****************************************************************************
  */
 
 package com.pekinsoft.loadmaster.model;
@@ -74,6 +79,7 @@ public class FuelPurchaseModel {
     private double gallonsOfDef;
     private double pricePerGallonDef;
     private String notes;
+    private int fromAccount;
     private boolean posted;
     //</editor-fold>
 
@@ -89,6 +95,7 @@ public class FuelPurchaseModel {
         this.notes = "";
         this.pricePerGallonDef = 0.0;
         this.pricePerGallonDiesel = 0.0;
+        this.fromAccount = FuelCardModel.ACCOUNT_NUMBER; // Default, can be chgd
         this.posted = false;
     }
     //</editor-fold>
@@ -519,6 +526,26 @@ public class FuelPurchaseModel {
      */
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+    
+    /**
+     * Retrieves the credit account from which this Fuel Purchase is to be 
+     * withdrawn.
+     * 
+     * @return the credit account associated with this Fuel Purchase.
+     */
+    public int getFromAccount() {
+        return fromAccount;
+    }
+    
+    /**
+     * Sets the credit account from which this Fuel Purchase is to be withdrawn.
+     * 
+     * @param fromAccount the credit account from which to withdraw the Fuel 
+     *                    Purchase price.
+     */
+    public void setFromAccount(int fromAccount) {
+        this.fromAccount = fromAccount;
     }
     
     /**
