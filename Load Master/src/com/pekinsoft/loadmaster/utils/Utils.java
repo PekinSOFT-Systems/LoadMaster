@@ -15,26 +15,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Northwind-Basic
- *  Class      :   Utils.java
- *  Author     :   Sean Carrick
- *  Created    :   Mar 8, 2020 @ 12:32:47 PM
- *  Modified   :   Mar 8, 2020
+ * Project    :   Northwind-Basic
+ * Class      :   Utils.java
+ * Author     :   Sean Carrick
+ * Created    :   Mar 8, 2020 @ 12:32:47 PM
+ * Modified   :   Mar 8, 2020
  *  
- *  Purpose:
+ * Purpose:
  *  
- *  Revision History:
+ * Revision History:
  *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Mar 08, 2020  Sean Carrick        Initial creation.
- *  Mar 21, 2020  Jiri Kovalsky       Added the getCenterPoint function.
- *  Mar 21, 2020  Sean Carrick        Moved getCenterPoint function into code 
- *                                    fold for `public static methods and 
- *                                    functions`.
- *  Oct 25, 2020  Sean Carrick        Added the `determineApplicationFolder`
- *                                    function.
+ * WHEN          BY                  REASON
+ * ------------  ------------------- -------------------------------------------
+ * Mar 08, 2020  Sean Carrick        Initial creation.
+ * Mar 21, 2020  Jiri Kovalsky       Added the getCenterPoint function.
+ * Mar 21, 2020  Sean Carrick        Moved getCenterPoint function into code 
+ *                                   fold for `public static methods and 
+ *                                   functions`.
+ * Oct 25, 2020  Sean Carrick        Added the following methods:
+ *                                     - getApplicationFolderByOS
+ *                                     - getApplicationDataFolderByOS
+ *                                     - getApplicationSettingsLocationByOS
+ *                                     - getSystemLogLocationByOS
+ *
  * *****************************************************************************
  */
 
@@ -51,7 +54,7 @@ import java.util.Set;
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  * 
- * @version 0.1.0
+ * @version 0.2.15
  * @since 0.1.0
  */
 public class Utils {
@@ -62,6 +65,128 @@ public class Utils {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Static Methods and Functions">
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application data files. Each OS has a different location where these 
+     * files get stored, and this application will follow those standards.
+     * 
+     * The typical location for data files on each OS are:
+     * 
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\ |
+     * | Apple Mac OS-X™ | {user.home}/Library/Application Data/LoadMaster/ |
+     * | Linux and Solaris™ | {user.home}/.loadmaster/* |
+     * 
+     * <dl><dt>Developer's Note</dt><dd>Notice the difference between the Linux
+     * and Solaris location of the application settings file and the information
+     * regarding the location of the application folder in Linux and Solaris. 
+     * this one has the same name, but this one **does not** end with a slash (/) 
+     * character. That is the only difference between the configuration file and  
+     * the application data folder.</dd></dl>
+     * 
+     * @param osName the name of the operating system upon which the application
+     *               is running.
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationFolderByOS(String osName) {
+        String location = "";
+        String userHome = System.getProperty("user.home");
+        
+        if ( osName.toLowerCase().contains("win") ) {
+            location = userHome + "\\AppData\\LoadMaster\\";
+        } else if ( osName.toLowerCase().contains("mac") ) {
+            location = userHome + "/Library/Preferences/LoadMaster/";
+        } else {
+            location = userHome + ".loadmaster/";
+        }
+        
+        return location;
+    }
+    
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application data files. Each OS has a different location where these 
+     * files get stored, and this application will follow those standards.
+     * 
+     * The typical location for data files on each OS are:
+     * 
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\data\\ |
+     * | Apple Mac OS-X™ | {user.home}/Library/Application Data/LoadMaster/data/ |
+     * | Linux and Solaris™ | {user.home}/.loadmaster/data/ |
+     * 
+     * @param osName the name of the operating system upon which the application
+     *               is running.
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationDataFolderByOS(String osName) {
+        String location = "";
+        String userHome = System.getProperty("user.home");
+        
+        if ( osName.toLowerCase().contains("win") ) {
+            location = userHome + "\\AppData\\LoadMaster\\data\\";
+        } else if ( osName.toLowerCase().contains("mac") ) {
+            location = userHome + "/Library/Application Data/LoadMaster/data/";
+        } else {
+            location = userHome + ".loadmaster/data/";
+        }
+        
+        return location;
+    }
+    
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application settings files. Each OS has a different location where these
+     * file get stored, and this method allows applications to follow those
+     * well-established standards.
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\LoadMaster.cnf |
+     * | Apple Mac OS-X™ | {user.home}/Library/Preferences/LoadMaster/LoadMaster.pref |
+     * | Linux and Solaris™ | {user.home}/.loadmaster* |
+     * 
+     * <dl><dt>Developer's Note</dt><dd>Notice the difference between the Linux
+     * and Solaris location of the application settings file and the information
+     * regarding the location of the application folder in Linux and Solaris. 
+     * this one has the same name, but this one **does not** end with a slash (/) 
+     * character. That is the only difference between the configuration file and  
+     * the application data folder.</dd></dl>
+     * 
+     * @param osName the name of the operating system upon which the application
+     *               is running.
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationSettingsLocationByOS(String osName) {
+        String location = "";
+        String userHome = System.getProperty("user.home");
+        
+        if ( osName.toLowerCase().contains("win") ) {
+            location = userHome + "\\AppData\\LoadMaster\\LoadMaster.cnf";
+        } else if ( osName.toLowerCase().contains("mac") ) {
+            location = userHome + "/Library/Preferences/LoadMaster/LoadMaster.pref";
+        } else {
+            location = userHome + "/.loadmaster";
+        }
+        
+        return location;
+    }
+    
+    public static String getSystemLogLocationByOS(String osName) {
+        String location = "";
+        
+        if ( osName.toLowerCase().contains("win") ) {
+            location = "%SystemRoot%\\System32\\Config\\LoadMaster\\loadmaster.evt";
+        } else if ( osName.toLowerCase().contains("mac") ) {
+            location = "/Library/Logs/LoadMaster/application.log";
+        } else {
+            location = "/var/log/loadmaster/application.log";
+        }
+        
+        return location;
+    }
+    
     /**
      * Gets the name of the program's JAR file.
      * 

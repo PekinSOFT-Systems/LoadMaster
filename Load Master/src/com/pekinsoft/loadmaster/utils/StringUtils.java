@@ -15,20 +15,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Northwind-Basic
- *  Class      :   StringUtils.java
- *  Author     :   Sean Carrick
- *  Created    :   Mar 8, 2020 @ 12:34:09 PM
- *  Modified   :   Mar 8, 2020
+ * Project    :   Northwind-Basic
+ * Class      :   StringUtils.java
+ * Author     :   Sean Carrick
+ * Created    :   Mar 8, 2020 @ 12:34:09 PM
+ * Modified   :   Mar 8, 2020
  *  
- *  Purpose:
+ * Purpose:
  *  
- *  Revision History:
+ * Revision History:
  *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Mar 8, 2020  Sean Carrick        Initial creation.
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Mar 08, 2020  Sean Carrick        Initial creation.
+ *
  * *****************************************************************************
  */
 
