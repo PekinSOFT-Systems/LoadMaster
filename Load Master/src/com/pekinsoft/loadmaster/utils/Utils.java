@@ -28,11 +28,13 @@
  *  
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
- *  Mar 8, 2020  Sean Carrick        Initial creation.
- *  Mar 21, 2020 Jiri Kovalsky       Added the getCenterPoint function.
- *  Mar 21, 2020 Sean Carrick        Moved getCenterPoint function into code 
- *                                   fold for `public static methods and 
- *                                   functions`.
+ *  Mar 08, 2020  Sean Carrick        Initial creation.
+ *  Mar 21, 2020  Jiri Kovalsky       Added the getCenterPoint function.
+ *  Mar 21, 2020  Sean Carrick        Moved getCenterPoint function into code 
+ *                                    fold for `public static methods and 
+ *                                    functions`.
+ *  Oct 25, 2020  Sean Carrick        Added the `determineApplicationFolder`
+ *                                    function.
  * *****************************************************************************
  */
 
