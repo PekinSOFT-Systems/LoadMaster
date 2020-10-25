@@ -1,9 +1,7 @@
 dist: xenial
 language: java
 jdk:
-  - jdk12
-  - jdk14
-  - jdk15
+  - jdk8
 addons:
   apt:
     packages:
