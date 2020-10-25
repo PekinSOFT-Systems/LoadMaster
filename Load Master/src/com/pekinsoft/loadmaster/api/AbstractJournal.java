@@ -65,6 +65,7 @@ import java.util.logging.LogRecord;
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  * 
  * @version 0.1.0
+ * @param <T>
  * @since 0.1.0
  */
 public abstract class AbstractJournal<T> {
