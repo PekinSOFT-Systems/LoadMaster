@@ -13,9 +13,9 @@ matrix:
           jdk: openjdk12
           before_script:
             - cd Load\ Master/
-            - mkdir /usr/share/
             - mkdir /usr/share/ant
             - mkdir /usr/share/ant/lib
             - cp lib/* /home/travis/.ant/lib
           script: 
+            - ant -Dnb.internal.action.name=build jar
             - ant -Dnb.internal.action.name=test test
