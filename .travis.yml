@@ -7,13 +7,11 @@ matrix:
           before_script:
             - cd Load\ Master/
           script: 
-            - ant $OPTS build
+            - ant build
 
         - name: Execute automated tests for basic functionality of Load Master
           jdk: openjdk12
-          env:
-            - OPTS="-Djavac.compilerargs=-nowarn -Dbuild.compiler.deprecation=false"
           before_script:
             - cd Load\ Master/
           script: 
-            - ant $OPTS test
+            - ant test
