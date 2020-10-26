@@ -1,25 +1,20 @@
 language: java
-addons:
-  apt:
-    packages:
-      - ant
-      - ant-optional
-      - openjfx
-      - xvfb
 install:
-  - export PATH="$PATH:$TRAVIS_BUILD_DIR/loadmaster/travis"
-  - export DISPLAY=:99.0
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - sleep 3
+  - ant deps
 matrix:
     include:
+        - name: Build Load Master application
+          jdk: openjdk12
+          before_script:
+            - cd Load\ Master/
+          script: 
+            - ant $OPTS build
+
         - name: Execute automated tests for basic functionality of Load Master
           jdk: openjdk12
           env:
             - OPTS="-Djavac.compilerargs=-nowarn -Dbuild.compiler.deprecation=false"
           before_script:
             - cd Load\ Master/
-            - ant $OPTS clean
-            - ant $OPTS build
           script: 
             - ant $OPTS test
