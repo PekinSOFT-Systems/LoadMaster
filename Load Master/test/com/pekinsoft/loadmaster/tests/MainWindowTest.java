@@ -66,7 +66,7 @@ public class MainWindowTest {
         Tools.pushButtonInDialog("Confirm Close", "Yes");
     }
 
-    @Test
+    //@Test
     public void testBookNewLoadWizard() {
         mainWindowOperator.callBookNewLoad();
 
