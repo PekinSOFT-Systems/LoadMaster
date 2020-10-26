@@ -1,6 +1,8 @@
 language: java
-install:
-  - ant deps
+addons:
+  apt:
+    packages:
+      - ant1.10.0
 matrix:
     include:
         - name: Build Load Master application
