@@ -1,5 +1,11 @@
 dist: bionic
 language: java
+addons:
+  apt:
+    packages:
+      - ant
+      - ant-optional
+      - xvfb
 matrix:
     include:
         - name: Build Load Master application
@@ -14,5 +20,4 @@ matrix:
           before_script:
             - cd Load\ Master/
           script: 
-            - ant -Dnb.internal.action.name=build jar
             - ant -Dnb.internal.action.name=test test
