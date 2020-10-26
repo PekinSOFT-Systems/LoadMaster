@@ -2,7 +2,6 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
-    <Property name="closable" type="boolean" value="true"/>
     <Property name="defaultCloseOperation" type="int" value="0"/>
     <Property name="iconifiable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Customer Entry"/>
@@ -31,14 +30,14 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="notesPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="companyLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="streetLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cityLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="contactLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -47,7 +46,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="contactField" min="-2" pref="290" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="phoneField" max="32767" attributes="0"/>
                               </Group>
@@ -58,18 +57,18 @@
                                       <Group type="102" attributes="0">
                                           <Component id="cityField" max="32767" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="stateLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="stateField" min="-2" pref="39" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="zipLabel" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="zipField" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="suiteLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="suiteField" min="-2" pref="58" max="-2" attributes="0"/>
                                       </Group>
@@ -81,7 +80,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="helpPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="commandPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -93,46 +92,46 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="idField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="companyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="companyField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="streetLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="streetField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="suiteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="suiteField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cityField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="stateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="stateField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="zipLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="zipField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="contactLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="contactField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="phoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="phoneField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="notesPanel" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="helpPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="commandPanel" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -172,10 +171,10 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Customer ID:"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="idLabel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="idLabel.setText(bundle.getString(&quot;customersdlg.customerIDLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="idField">
       <Properties>
@@ -187,10 +186,15 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="companyLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Company:&lt;/strong&gt;"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="DejaVu Sans" size="12" style="1"/>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="companyLabel.setText(bundle.getString(&quot;customersdlg.companyLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="companyField">
       <Properties>
@@ -202,10 +206,15 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="streetLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Street:&lt;/strong&gt;"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="DejaVu Sans" size="12" style="1"/>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="streetLabel.setText(bundle.getString(&quot;customersdlg.streetLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="streetField">
       <Properties>
@@ -217,10 +226,10 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Suite:"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="suiteLabel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="suiteLabel.setText(bundle.getString(&quot;customersdlg.suiteLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="suiteField">
       <Properties>
@@ -232,10 +241,15 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="cityLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;City:&lt;/strong&gt;"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="DejaVu Sans" size="12" style="1"/>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cityLabel.setText(bundle.getString(&quot;customersdlg.cityLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="cityField">
       <Properties>
@@ -247,10 +261,15 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="stateLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;State:&lt;/strong&gt;"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="DejaVu Sans" size="12" style="1"/>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="stateLabel.setText(bundle.getString(&quot;customersdlg.stateLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="stateField">
       <Properties>
@@ -262,10 +281,15 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="zipLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Zip Code:&lt;/strong&gt;"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="DejaVu Sans" size="12" style="1"/>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="zipLabel.setText(bundle.getString(&quot;customersdlg.zipLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="zipField">
       <Properties>
@@ -277,10 +301,10 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Contact:"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="contactLabel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="contactLabel.setText(bundle.getString(&quot;customersdlg.contactLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="contactField">
       <Properties>
@@ -292,10 +316,10 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Phone:"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="phoneLabel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="phoneLabel.setText(bundle.getString(&quot;customersdlg.phoneLabelTxt&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="phoneField">
       <Properties>
@@ -310,16 +334,15 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="checkEnterEscape"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="notesPanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Notes">
-              <Font PropertyName="font" name="sansserif" size="12" style="0"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="notesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString(&quot;customersdlg.notesPanelTitle&quot;), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(&quot;sansserif&quot;, 0, 12))); // I18N"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -366,7 +389,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="commandPanel">
 
       <Layout>
         <DimensionLayout dim="0">

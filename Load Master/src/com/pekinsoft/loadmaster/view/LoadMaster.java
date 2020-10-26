@@ -15,27 +15,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Load_Master
- *  Class      :   LoadMaster.java
- *  Author     :   Sean Carrick
- *  Created    :   Sep 13, 2020 @ 3:49:17 PM
- *  Modified   :   Sep 13, 2020
+ * Project    :   Load_Master
+ * Class      :   LoadMaster.java
+ * Author     :   Sean Carrick
+ * Created    :   Sep 13, 2020 @ 3:49:17 PM
+ * Modified   :   Sep 13, 2020
+ * 
+ * Purpose:
  *  
- *  Purpose:
+ * Revision History:
  *  
- *  Revision History:
- *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Sep 13, 2020  Sean Carrick        Initial creation.
- *  Oct 09, 2020  Sean Carrick        Added this header and removed the main() 
- *                                    method from the class.
- *  Oct 10, 2020  Sean Carrick        Modified the width of the Book Load Wizard
- *                                    from 600 to 700 to better fit the Summary
- *                                    Page report. Changed the titlebar text to 
- *                                    read the Project Name from the properties 
- *                                    file.
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Sep 13, 2020  Sean Carrick        Initial creation.
+ * Oct 09, 2020  Sean Carrick        Added this header and removed the main() 
+ *                                   method from the class.
+ * Oct 10, 2020  Sean Carrick        Modified the width of the Book Load Wizard
+ *                                   from 600 to 700 to better fit the Summary
+ *                                   Page report. Changed the titlebar text to 
+ *                                   read the Project Name from the properties 
+ *                                   file.
+ * Oct 25, 2020  Sean Carrick        Set up I18N.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -63,6 +63,8 @@ import java.awt.event.ActionEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import javax.swing.AbstractAction;
@@ -79,6 +81,8 @@ import org.netbeans.spi.wizard.Wizard;
  * @author Sean Carrick
  */
 public class LoadMaster extends javax.swing.JFrame {
+    private final ResourceBundle bundle = ResourceBundle.getBundle(
+            "MessagesBundle", Locale.getDefault());
     public static EntryCtl batch;
     private final LogRecord record = new LogRecord(Level.ALL, 
             "Logging started for com.pekinsoft.loadmaster.view.LoadMaster");
@@ -93,10 +97,13 @@ public class LoadMaster extends javax.swing.JFrame {
         Starter.logger.enter(record);
         initComponents();
         
-        setTitle(Starter.props.getProjectName() + " - Current Trip: " 
-                + Starter.props.getProperty("load.current", "No Active Load"));        
+        setTitle(Starter.props.getProjectName() 
+                + bundle.getString("mainForm.frameTitle")
+                + Starter.props.getProperty("load.current", 
+                        bundle.getString("loadmaster.noActiveLoad")));        
         
-        versionLabel.setText("Version " + Starter.props.getVersion());
+        versionLabel.setText(bundle.getString("mainForm.versionLabel")
+                + Starter.props.getVersion());
         
         fileProgress.setVisible(false);
         
@@ -111,8 +118,9 @@ public class LoadMaster extends javax.swing.JFrame {
         loadProgress.setMinimum(0);
         loadProgress.setMaximum(Starter.props.getPropertyAsInt("load.stops", "4"));
         loadProgress.setValue(Starter.props.getPropertyAsInt("load.stop", "1"));
-        if ( Starter.props.getProperty("load.current", "No Active Load")
-                .equalsIgnoreCase("No Active Load") )
+        if ( Starter.props.getProperty("load.current", 
+                bundle.getString("loadmaster.noActiveLoad"))
+                .equalsIgnoreCase(bundle.getString("loadmaster.noActiveLoad")) )
             loadProgress.setVisible(false);
         
         if ( Starter.props.getPropertyAsBoolean("acct.batch", "false") ) {
@@ -290,8 +298,8 @@ public class LoadMaster extends javax.swing.JFrame {
     private void createLoadTasks() {
         loadTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Book New Load...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the load booking dialog");
+            putValue(Action.NAME, bundle.getString("mainForm.bookLoadTask"));
+            putValue(Action.SHORT_DESCRIPTION, bundle.getString("mainForm.bookLoadTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/add.png")));
         }
@@ -307,25 +315,34 @@ public class LoadMaster extends javax.swing.JFrame {
         {
             if ( Starter.props.getProperty("load.status", 
                     "arrive").equals("depart") ){
-                putValue(Action.NAME, "Depart from Stop...");
+                putValue(Action.NAME, bundle.getString("mainForm.departStop"));
+                putValue(Action.SHORT_DESCRIPTION, 
+                        bundle.getString("mainForm.departStopTip"));
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/Depart.png")));
             } else {
-                putValue(Action.NAME, "Arrive at Stop...");
-                putValue(Action.SHORT_DESCRIPTION, "Displays stop arrival dialog");
+                putValue(Action.NAME, bundle.getString("mainForm.arriveStop"));
+                putValue(Action.SHORT_DESCRIPTION, 
+                        bundle.getString("mainForm.arriveStopTip"));
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                         .getResource("/com/pekinsoft/loadmaster/res/Arrive.png")));
             }
         }
 
         public void actionPerformed(ActionEvent e) {                
-            if ( getValue(Action.NAME).toString().equalsIgnoreCase("Arrive at Stop...") ) {
-                putValue(Action.NAME, "Depart from Stop...");
+            if ( getValue(Action.NAME).toString().equalsIgnoreCase(
+                    bundle.getString("mainForm.arriveStopTip")) ) {
+                putValue(Action.NAME, bundle.getString("mainForm.departStop"));
+                putValue(Action.SHORT_DESCRIPTION, 
+                        bundle.getString("mainForm.departStopTip"));
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/Depart.png")));
                 doArrival();
-            } else if ( getValue(Action.NAME).toString().equalsIgnoreCase("Depart from Stop...") ) {
-                putValue(Action.NAME, "Arrive at Stop...");
+            } else if ( getValue(Action.NAME).toString().equalsIgnoreCase(
+                    bundle.getString("mainForm.departStop")) ) {
+                putValue(Action.NAME, bundle.getString("mainForm.arriveStop"));
+                putValue(Action.SHORT_DESCRIPTION, 
+                        bundle.getString("mainForm.arriveStopTip"));
                 putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/Arrive.png")));
                 doShowDeparture();
@@ -337,8 +354,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         loadTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Take Cash Advance...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays cash advance dialog");
+            putValue(Action.NAME, bundle.getString("mainForm.cashAdvance"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.cashAdvanceTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/money3D.png")));
         }
@@ -355,8 +373,8 @@ public class LoadMaster extends javax.swing.JFrame {
 
         loadTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "View Loads Queue...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays Loads Queue dialog");
+            putValue(Action.NAME, bundle.getString("mainForm.viewLoadQueue"));
+            putValue(Action.SHORT_DESCRIPTION, bundle.getString("mainForm.viewLoadQueueTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/freight.png")));
         }
@@ -370,8 +388,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         loadTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Close Load");
-            putValue(Action.SHORT_DESCRIPTION, "Closes out the current load.");
+            putValue(Action.NAME, bundle.getString("mainForm.closeLoad"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.closeLoadTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/mark.png")));
             
@@ -384,9 +403,9 @@ public class LoadMaster extends javax.swing.JFrame {
                 //+ load we are closing.
                 doCloseLoad();
             } else 
-                MessageBox.showWarning("Load is not yet complete.\n\nPlease "
-                        + "complete all stops before closing the load.", 
-                        "Load Incomplete");
+                MessageBox.showWarning(
+                        bundle.getString("mainForm.closeLoadWarning"), 
+                        bundle.getString("mainForm.closeLoadWarningTitle"));
         }
         });
     }
@@ -394,8 +413,9 @@ public class LoadMaster extends javax.swing.JFrame {
     private void createSystemTasks() {
         systemTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Load Master Settings...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the settings dialog.");
+            putValue(Action.NAME, bundle.getString("mainForm.settingsTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("Displays the settings dialog.Tip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/configuration.png")));
         }
@@ -407,8 +427,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         systemTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "About Load Master...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the about dialog.");
+            putValue(Action.NAME, bundle.getString("mainForm.aboutTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("Displays the about dialog.Tip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/Northwind16.png")));
         }
@@ -422,8 +443,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         systemTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Add Customer...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the New Customer dialog.");
+            putValue(Action.NAME, bundle.getString("mainForm.addCustomerTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.addCustomerTaskTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/people.png")));
         }
@@ -439,8 +461,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         systemTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Add Broker/Agent...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the New Broker/Agent dialog.");
+            putValue(Action.NAME, bundle.getString("mainForm.addBrokerTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.addBrokerTaskTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/users.png")));
         }
@@ -457,8 +480,9 @@ public class LoadMaster extends javax.swing.JFrame {
 
         systemTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Exit Load Master...");
-            putValue(Action.SHORT_DESCRIPTION, "Exits Load Master cleanly.");
+            putValue(Action.NAME, bundle.getString("mainForm.exitTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.exitTaskTip"));
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/Turnoff.png")));
         }
@@ -472,8 +496,10 @@ public class LoadMaster extends javax.swing.JFrame {
     private void createAccountingTasks() {
         accountingTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Chart of Accounts...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the Chart of Accounts "
+            putValue(Action.NAME, 
+                    bundle.getString("mainForm.chartOfAccountsTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.chartOfAccountsTaskTip")
                     + "Viewer.");
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/open-list.png")));
@@ -488,8 +514,9 @@ public class LoadMaster extends javax.swing.JFrame {
     private void createMiscTasks() {
         miscTasks.add(new AbstractAction() {
         {
-            putValue(Action.NAME, "Fuel Purchase Entry...");
-            putValue(Action.SHORT_DESCRIPTION, "Displays the Fuel Purchase Entry"
+            putValue(Action.NAME, bundle.getString("mainForm.fuelPurchaseTask"));
+            putValue(Action.SHORT_DESCRIPTION, 
+                    bundle.getString("mainForm.fuelPurchaseTaskTip")
                     + " dialog.");
             putValue(Action.SMALL_ICON, new javax.swing.ImageIcon(getClass()
                     .getResource("/com/pekinsoft/loadmaster/res/GasPump.png")));
@@ -552,8 +579,10 @@ public class LoadMaster extends javax.swing.JFrame {
         int left = (Toolkit.getDefaultToolkit().getScreenSize().width - 700) / 2;
         WizardDisplayer.showWizard(wiz, new Rectangle(left, top, 700, 400));
         
-        setTitle(Starter.props.getProjectName() + " - Current Trip: " 
-                + Starter.props.getProperty("load.current", "No Active Load"));
+        setTitle(Starter.props.getProjectName() 
+                + bundle.getString("mainForm.frameTitle")
+                + Starter.props.getProperty("load.current", 
+                        bundle.getString("loadmaster.noActiveLoad")));
     }
     
     private void doShowAbout() {
@@ -590,7 +619,7 @@ public class LoadMaster extends javax.swing.JFrame {
             record.setThrown(ex);
             Starter.logger.error(record);
             
-            MessageBox.showError(ex, "Data Access Error");
+            MessageBox.showError(ex, bundle.getString("mbDBErrorTitle"));
         } finally {
             if ( stops != null ) {
                 if ( stops.getRecordCount() > 0 ) {
@@ -606,8 +635,8 @@ public class LoadMaster extends javax.swing.JFrame {
                                         + "trying to move to the next stop.");
                                 Starter.logger.error(record);
                                 
-                                MessageBox.showError(ex, "Record Navigation "
-                                        + "Error");
+                                MessageBox.showError(ex, 
+                                        bundle.getString("mbDBErrorTitle"));
                             }
                             
                             if ( current.getTripNumber().equalsIgnoreCase(
@@ -625,7 +654,8 @@ public class LoadMaster extends javax.swing.JFrame {
                         record.setThrown(ex);
                         Starter.logger.error(record);
                         
-                        MessageBox.showError(ex, "Parsing Error");
+                        MessageBox.showError(ex, 
+                                bundle.getString("mbParseErrorTitle"));
                     }
                     
                     stops.update(current);
@@ -638,7 +668,8 @@ public class LoadMaster extends javax.swing.JFrame {
                         record.setThrown(ex);
                         Starter.logger.error(record);
                         
-                        MessageBox.showError(ex, "Data Access Error");
+                        MessageBox.showError(ex, 
+                                bundle.getString("mbDBErrorTitle"));
                     }
                 }
             }
@@ -685,7 +716,7 @@ public class LoadMaster extends javax.swing.JFrame {
             record.setThrown(ex);
             Starter.logger.error(record);
             
-            MessageBox.showError(ex, "Data Access Error");
+            MessageBox.showError(ex, bundle.getString("mbDBErrorTitle"));
         } finally {
             if ( stops != null ) {
                 if ( stops.getRecordCount() > 0 ) {
@@ -701,8 +732,8 @@ public class LoadMaster extends javax.swing.JFrame {
                                         + "trying to move to the next stop.");
                                 Starter.logger.error(record);
                                 
-                                MessageBox.showError(ex, "Record Navigation "
-                                        + "Error");
+                                MessageBox.showError(ex, 
+                                        bundle.getString("mbDBErrorTitle"));
                             }
                             
                             if ( current.getTripNumber().equalsIgnoreCase(
@@ -739,7 +770,8 @@ public class LoadMaster extends javax.swing.JFrame {
                         record.setThrown(ex);
                         Starter.logger.error(record);
                         
-                        MessageBox.showError(ex, "Data Access Error");
+                        MessageBox.showError(ex, 
+                                bundle.getString("mbDBErrorTitle"));
                     }
                 }
             }
@@ -752,7 +784,7 @@ public class LoadMaster extends javax.swing.JFrame {
             //+ objects: LoadModel and LoadCtl. First, we will create a LoadModel.
             LoadModel load = new LoadModel();
             String currentLoad = Starter.props.getProperty("load.current", 
-                    "No Active Load");
+                    bundle.getString("loadmaster.noActiveLoad"));
             
             // Now, we need to create our LoadCtl object.
             try {
@@ -763,7 +795,8 @@ public class LoadMaster extends javax.swing.JFrame {
                     // We need to get the first record into our local load object.
                     load = loads.get();
                     
-                    if ( !currentLoad.equals("No Active Load") ) {
+                    if ( !currentLoad.equals(
+                            bundle.getString("loadmaster.noActiveLoad")) ) {
                         if ( !load.getOrder().equalsIgnoreCase(currentLoad) ) {
                             // We need to loop through all of the loads until we
                             //+ find the record for the active load.
@@ -811,7 +844,7 @@ public class LoadMaster extends javax.swing.JFrame {
                 record.setThrown(ex);
                 Starter.logger.error(record);
                 
-                MessageBox.showError(ex, "Database Access Error");
+                MessageBox.showError(ex, bundle.getString("mbDBErrorTitle"));
             }
         }
         
@@ -827,12 +860,13 @@ public class LoadMaster extends javax.swing.JFrame {
     private void updateLoadProgress() {
         if ( loadProgress.getValue() == loadProgress.getMaximum() ) {
             String msg = "Trip " + Starter.props.getProperty("load.current", 
-                    "No Load") + " complete!";
+                    bundle.getString("loadmaster.noActiveLoad")) + " complete!";
             MessageBox.showInfo(msg, "Load Complete");
 
             Starter.props.setPropertyAsInt("load.stops", 0);
             Starter.props.setPropertyAsInt("load.stop", 0);
-            Starter.props.setProperty("load.current", "No Active Load");
+            Starter.props.setProperty("load.current", 
+                    bundle.getString("loadmaster.noActiveLoad"));
 
             loadProgress.setMaximum(Starter.props.getPropertyAsInt("load.stops", 
                     "0"));
@@ -840,7 +874,8 @@ public class LoadMaster extends javax.swing.JFrame {
                     "0"));
             
             setTitle("Load Master - Current Trip: " 
-                    + Starter.props.getProperty("load.current", "No Active Load"));
+                    + Starter.props.getProperty("load.current", 
+                            bundle.getString("loadmaster.noActiveLoad")));
         } else {
             loadProgress.setValue(loadProgress.getValue() + 1);
         }

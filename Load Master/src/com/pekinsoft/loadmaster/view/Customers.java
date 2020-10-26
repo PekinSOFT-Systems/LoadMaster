@@ -15,23 +15,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Load Master
- *  Class      :   Customers.java
- *  Author     :   Sean Carrick
- *  Created    :   Aug 29, 2020 @ 12:23:34 AM
- *  Modified   :   Aug 29, 2020
+ * Project    :   Load Master
+ * Class      :   Customers.java
+ * Author     :   Sean Carrick
+ * Created    :   Aug 29, 2020 @ 12:23:34 AM
+ * Modified   :   Aug 29, 2020
  *  
- *  Purpose:
+ * Purpose:
  *  
- *  Revision History:
+ * Revision History:
  *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Aug 29, 2020  Sean Carrick        Initial creation.
- *  Sep 01, 2020  Sean Carrick        Added data validation to the dialog to
- *                                    ensure that all required fields are filled
- *                                    in and that all data entered is valid.
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Aug 29, 2020  Sean Carrick        Initial creation.
+ * Sep 01, 2020  Sean Carrick        Added data validation to the dialog to
+ *                                   ensure that all required fields are filled
+ *                                   in and that all data entered is valid.
+ * Oct 25, 2020  Sean Carrick        Set up I18N.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.view;
@@ -44,11 +44,10 @@ import com.pekinsoft.loadmaster.utils.MessageBox;
 import com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier;
 import com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.SystemColor;
 import java.awt.event.KeyEvent;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.LogRecord;
 import java.util.logging.Level;
 import javax.swing.JTextField;
@@ -58,6 +57,8 @@ import javax.swing.JTextField;
  * @author Sean Carrick
  */
 public class Customers extends javax.swing.JInternalFrame {
+    private final ResourceBundle bundle = ResourceBundle.getBundle(
+            "MessagesBundle", Locale.getDefault());
     private final Color errFore = Color.YELLOW;
     private final Color errBack = Color.RED;
     private final Color fore = SystemColor.textText;
@@ -89,7 +90,7 @@ public class Customers extends javax.swing.JInternalFrame {
             lr.setThrown(ex);
             Starter.logger.error(lr);
             
-            MessageBox.showError(ex, "Database Access");
+            MessageBox.showError(ex, bundle.getString("mbDBErrorTitle"));
             
             records = null;
         }
@@ -100,7 +101,9 @@ public class Customers extends javax.swing.JInternalFrame {
         stateField.setInputVerifier(new StateAbbrVerifier());
         zipField.setInputVerifier(new PostalCodeVerifier());
         
-        setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
+        setTitle(bundle.getString("customersdlg.frameTitle") + " (" 
+                + records.getRecordCount() 
+                + " " + bundle.getString("customersdlg.recordCountLabel") + ")");
         
         // Set the accessible description for the required fields to "required"
         //+ for data validation purposes.
@@ -146,22 +149,26 @@ public class Customers extends javax.swing.JInternalFrame {
             lr.setMessage("Save to file was successful!");
             Starter.logger.info(lr);
             
-            setTitle("Customer Entry (" + records.getRecordCount() + " Records)");
+            setTitle(bundle.getString("customersDlgTitle") + " (" 
+                    + records.getRecordCount() 
+                    + bundle.getString("recordCountLabel"));
         } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the customers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
 
-            MessageBox.showError(ex, "Database Access");
+            MessageBox.showError(ex, bundle.getString("mbDBErrorTitle"));
 
             records = null;
         }
 
-        lr.setMessage("Checking to see if user would like to enter another customer...");
+        lr.setMessage("Checking to see if user would like to enter another "
+                + "customer...");
         Starter.logger.info(lr);
 
-        int choice = MessageBox.askQuestion("Would you like to add another "
-                + "customer?", "Add Another", false);
+        int choice = MessageBox.askQuestion(bundle.getString(
+                "customersdlg.mbAskQuestionText"), bundle.getString(
+                        "customersdlg.mbAskQuestionTitle"), false);
 
         if (choice == MessageBox.NO_OPTION) {
             lr.setMessage("No more customers being added. Exiting the function "
@@ -215,32 +222,31 @@ public class Customers extends javax.swing.JInternalFrame {
 
         helpPanel = new javax.swing.JPanel();
         helpLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
         idField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        companyLabel = new javax.swing.JLabel();
         companyField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        streetLabel = new javax.swing.JLabel();
         streetField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        suiteLabel = new javax.swing.JLabel();
         suiteField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        cityLabel = new javax.swing.JLabel();
         cityField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        stateLabel = new javax.swing.JLabel();
         stateField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        zipLabel = new javax.swing.JLabel();
         zipField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        contactLabel = new javax.swing.JLabel();
         contactField = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        phoneLabel = new javax.swing.JLabel();
         phoneField = new javax.swing.JFormattedTextField();
-        jPanel1 = new javax.swing.JPanel();
+        notesPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         notesField = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
+        commandPanel = new javax.swing.JPanel();
         cancelButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
 
-        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconifiable(true);
         setTitle("Customer Entry");
@@ -263,7 +269,7 @@ public class Customers extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setText("Customer ID:");
+        idLabel.setText(bundle.getString("customersdlg.customerIDLabelTxt"));
 
         idField.setEditable(false);
         idField.setFocusable(false);
@@ -274,7 +280,8 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setText("<html><strong>Company:</strong>");
+        companyLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        companyLabel.setText(bundle.getString("customersdlg.companyLabelTxt"));
 
         companyField.setName("companyField"); // NOI18N
         companyField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -291,7 +298,8 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setText("<html><strong>Street:</strong>");
+        streetLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        streetLabel.setText(bundle.getString("customersdlg.streetLabelTxt"));
 
         streetField.setName("streetField"); // NOI18N
         streetField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -308,7 +316,7 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("Suite:");
+        suiteLabel.setText(bundle.getString("customersdlg.suiteLabelTxt"));
 
         suiteField.setName("suiteField"); // NOI18N
         suiteField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -325,7 +333,8 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("<html><strong>City:</strong>");
+        cityLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        cityLabel.setText(bundle.getString("customersdlg.cityLabelTxt"));
 
         cityField.setName("cityField"); // NOI18N
         cityField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -342,7 +351,8 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel6.setText("<html><strong>State:</strong>");
+        stateLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        stateLabel.setText(bundle.getString("customersdlg.stateLabelTxt"));
 
         stateField.setName("stateField"); // NOI18N
         stateField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -359,7 +369,8 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setText("<html><strong>Zip Code:</strong>");
+        zipLabel.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        zipLabel.setText(bundle.getString("customersdlg.zipLabelTxt"));
 
         zipField.setName("zipField"); // NOI18N
         zipField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -376,7 +387,7 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setText("Contact:");
+        contactLabel.setText(bundle.getString("customersdlg.contactLabelTxt"));
 
         contactField.setName("contactField"); // NOI18N
         contactField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -393,7 +404,7 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel9.setText("Phone:");
+        phoneLabel.setText(bundle.getString("customersdlg.phoneLabelTxt"));
 
         try {
             phoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###) ###-####")));
@@ -415,7 +426,8 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Notes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 12))); // NOI18N
+        notesPanel.setBorder(null);
+        notesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("customersdlg.notesPanelTitle"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 12))); // I18N
 
         notesField.setColumns(20);
         notesField.setLineWrap(true);
@@ -437,18 +449,18 @@ public class Customers extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(notesField);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout notesPanelLayout = new javax.swing.GroupLayout(notesPanel);
+        notesPanel.setLayout(notesPanelLayout);
+        notesPanelLayout.setHorizontalGroup(
+            notesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        notesPanelLayout.setVerticalGroup(
+            notesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notesPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
         );
@@ -487,22 +499,22 @@ public class Customers extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout commandPanelLayout = new javax.swing.GroupLayout(commandPanel);
+        commandPanel.setLayout(commandPanelLayout);
+        commandPanelLayout.setHorizontalGroup(
+            commandPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, commandPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(saveButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelButton)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        commandPanelLayout.setVerticalGroup(
+            commandPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, commandPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(commandPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
                     .addComponent(saveButton))
                 .addContainerGap())
@@ -515,14 +527,14 @@ public class Customers extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(notesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(companyLabel)
+                            .addComponent(idLabel)
+                            .addComponent(streetLabel)
+                            .addComponent(cityLabel)
+                            .addComponent(contactLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -530,7 +542,7 @@ public class Customers extends javax.swing.JInternalFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jLabel9)
+                                    .addComponent(phoneLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(phoneField))
                                 .addComponent(companyField, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,22 +552,22 @@ public class Customers extends javax.swing.JInternalFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(cityField)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(stateLabel)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(zipLabel)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(zipField)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
+                                            .addComponent(suiteLabel)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(suiteField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(helpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(commandPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -563,40 +575,40 @@ public class Customers extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(idLabel)
                     .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyLabel)
                     .addComponent(companyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(streetLabel)
                     .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
+                    .addComponent(suiteLabel)
                     .addComponent(suiteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityLabel)
                     .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stateLabel)
                     .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zipLabel)
                     .addComponent(zipField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(contactLabel)
                     .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
+                    .addComponent(phoneLabel)
                     .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(notesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(helpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(commandPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -635,41 +647,31 @@ public class Customers extends javax.swing.JInternalFrame {
         
         switch ( name ) {
             case "cityField":
-                msg = "<html>City in which the customer is located. "
-                        + "This is a <strong>required</strong> field.";
+                msg = bundle.getString("customersdlg.selectCityFieldMsg");
                 break;
             case "companyField":
-                msg = "<html>Company name for this customer. This "
-                        + "is a <strong>required</strong> field.";
+                msg = bundle.getString("customersdlg.selectCompanyFieldMsg");
                 break;
             case "streetField":
-                msg = "<html>Street address for this customer. This"
-                        + " is a <strong>required</strong> field.";
+                msg = bundle.getString("customersdlg.selectStreetFieldMsg");
                 break;
             case "suiteField":
-                msg = "<html>Suite number for this customer, if any"
-                        + ". This field is <em>optional</em>.";
+                msg = bundle.getString("customersdlg.selectSuiteFieldMsg");
                 break;
             case "stateField":
-                msg = "<html>Postal abbreviation for the state or "
-                        + "province in which this customer is located. This is "
-                        + "a <strong>required</strong> field.";
+                msg = bundle.getString("customersdlg.selectStateFieldMsg");
                 break;
             case "zipField":
-                msg = "<html>Postal (Zip) Code for this customer. This is a "
-                        + "<strong>required</strong> field.";
+                msg = bundle.getString("customersdlg.selectZipFieldMsg");
                 break;
             case "contactField":
-                msg = "<html>Name of contact at this customer. This field is "
-                        + "<em>optional</em>.";
+                msg = bundle.getString("customersdlg.selectContactFieldMsg");
                 break;
             case "phoneField":
-                msg = "<html>Phone number for this customer. This field is "
-                        + "<em>optional</em>.";
+                msg = bundle.getString("customersdlg.selectPhoneFieldMsg");
                 break;
             case "notesField":
-                msg = "<html>Any notes or comments about this customer. This "
-                        + "field is <em>optional</em>.";
+                msg = bundle.getString("customersdlg.selectNotesFieldMsg");
                 break;
             default:
                 msg = "";
@@ -733,29 +735,29 @@ public class Customers extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField cityField;
+    private javax.swing.JLabel cityLabel;
+    private javax.swing.JPanel commandPanel;
     private javax.swing.JTextField companyField;
+    private javax.swing.JLabel companyLabel;
     private javax.swing.JTextField contactField;
+    private javax.swing.JLabel contactLabel;
     public static javax.swing.JLabel helpLabel;
     public static javax.swing.JPanel helpPanel;
     private javax.swing.JTextField idField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea notesField;
+    private javax.swing.JPanel notesPanel;
     private javax.swing.JFormattedTextField phoneField;
+    private javax.swing.JLabel phoneLabel;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField stateField;
+    private javax.swing.JLabel stateLabel;
     private javax.swing.JTextField streetField;
+    private javax.swing.JLabel streetLabel;
     private javax.swing.JTextField suiteField;
+    private javax.swing.JLabel suiteLabel;
     private javax.swing.JTextField zipField;
+    private javax.swing.JLabel zipLabel;
     // End of variables declaration//GEN-END:variables
 }
