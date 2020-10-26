@@ -13,5 +13,6 @@ matrix:
           jdk: openjdk12
           before_script:
             - cd Load\ Master/
+            - ls -l lib
           script: 
             - ant -Dnb.internal.action.name=test test
