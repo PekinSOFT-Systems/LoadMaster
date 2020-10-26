@@ -14,7 +14,7 @@ install:
 matrix:
     include:
         - name: Execute automated tests for basic functionality of Load Master
-          jdk: openjdk8
+          jdk: openjdk12
           env:
             - OPTS="-Djavac.compilerargs=-nowarn -Dbuild.compiler.deprecation=false"
           before_script:
