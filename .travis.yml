@@ -13,6 +13,6 @@ matrix:
           jdk: openjdk12
           before_script:
             - cd Load\ Master/
-            - ls -l lib
+            - cp lib/* /home/travis/.ant/lib
           script: 
             - ant -Dnb.internal.action.name=test test
