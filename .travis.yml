@@ -7,11 +7,11 @@ matrix:
           before_script:
             - cd Load\ Master/
           script: 
-            - ant build
+            - ant -Dnb.internal.action.name=build jar
 
         - name: Execute automated tests for basic functionality of Load Master
           jdk: openjdk12
           before_script:
             - cd Load\ Master/
           script: 
-            - ant test
+            - ant -Dnb.internal.action.name=test test
