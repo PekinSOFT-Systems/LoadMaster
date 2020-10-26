@@ -13,7 +13,6 @@ matrix:
           jdk: openjdk12
           before_script:
             - cd Load\ Master/
-            - mkdir /usr/share/ant/lib
             - cp lib/* /usr/share/ant/lib
           script: 
             - ant -Dnb.internal.action.name=build jar
