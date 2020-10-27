@@ -5,11 +5,11 @@ addons:
     packages:
       - ant
       - ant-optional
-      - xvfb
+#      - xvfb
 install:
   - export PATH="$PATH:$TRAVIS_BUILD_DIR/nbbuild/travis"
-  - export DISPLAY=:99.0
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+#  - export DISPLAY=:99.0
+#  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - sleep 3
 matrix:
     include:
@@ -19,12 +19,12 @@ matrix:
             - cd Load\ Master/
           script: 
             - ant -Dnb.internal.action.name=build jar
-            - echo "==== 1/2 - Building application complete ===="
+#            - echo "==== 1/2 - Building application complete ===="
 
-        - name: Execute automated tests for basic functionality of Load Master
-          jdk: openjdk12
-          before_script:
-            - cd Load\ Master/
-          script: 
-            - ant -Dnb.internal.action.name=test test
-            - echo "==== 2/2 - Automated testing complete ===="
+#        - name: Execute automated tests for basic functionality of Load Master
+#          jdk: openjdk12
+#          before_script:
+#            - cd Load\ Master/
+#          script: 
+#            - ant -Dnb.internal.action.name=test test
+#            - echo "==== 2/2 - Automated testing complete ===="
