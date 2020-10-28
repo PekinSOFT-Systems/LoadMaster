@@ -20,7 +20,7 @@
  *  Class      :   MainWindowTest.java
  *  Author     :   Jiří Kovalský
  *  Created    :   Oct 16, 2020 @ 06:28:10 PM
- *  Modified   :   Oct 23, 2020
+ *  Modified   :   Oct 28, 2020
  *  
  *  Purpose: Very basic test of the main application window.
  *  
@@ -29,6 +29,9 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Oct 16, 2020  Jiří Kovalský       Initial creation.
+ *  Oct 28, 2020  Jiří Kovalský       Not exiting application via UI to avoid
+ *                                    premature termination of forked VM. Also
+ *                                    capturing screenshot before the test end.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.tests;
@@ -43,6 +46,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.netbeans.jemmy.util.PNGEncoder;
 
 /**
  * Very basic test of the main application window.
@@ -61,12 +65,12 @@ public class MainWindowTest {
 
     @AfterClass
     public static void tearDownClass() {
-        Tools.sleep(3000);
         mainWindowOperator.callExit();
-        Tools.pushButtonInDialog("Confirm Close", "Yes");
+        Tools.pushButtonInDialog("Confirm Close", "No");
+        PNGEncoder.captureScreen("ApplicationExiting.png", PNGEncoder.COLOR_MODE);
     }
 
-    //@Test
+    @Test
     public void testBookNewLoadWizard() {
         mainWindowOperator.callBookNewLoad();
 
