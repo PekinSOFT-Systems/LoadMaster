@@ -89,7 +89,7 @@ public class MainWindowTest {
         
 //        assertEquals(bookNewLoadWizardOperator.getPageName(), "Broker Information");
         bookNewLoadWizardOperator.cancel();
-        Tools.pushButtonInDialog("Confirm Cancellation", "Yes");
+//        Tools.pushButtonInDialog("Confirm Cancellation", "Yes");
     }
 
     @Test
