@@ -84,7 +84,7 @@ public class MainWindowTest {
         bookNewLoadWizardOperator.setCommodity("Bee hives");
         bookNewLoadWizardOperator.checkOption("Tarped", true);
         bookNewLoadWizardOperator.goNext();
-        new EventTool().waitNoEvent(5000);
+        bookNewLoadWizardOperator = new BookNewLoadWizardOperator();
 
         assertEquals(bookNewLoadWizardOperator.getPageName(), "Broker Information");
         bookNewLoadWizardOperator.cancel();
