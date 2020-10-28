@@ -20,7 +20,7 @@
  *  Class      :   Tools.java
  *  Author     :   Jiří Kovalský
  *  Created    :   Oct 18, 2020 @ 10:16:36 PM
- *  Modified   :   Oct 23, 2020
+ *  Modified   :   Oct 28, 2020
  *  
  *  Purpose: Auxiliary class for functional automated tests.
  *  
@@ -29,6 +29,8 @@
  *  WHEN          BY                  REASON
  *  ------------  ------------------- ------------------------------------------
  *  Oct 18, 2020  Jiří Kovalský       Initial creation.
+ *  Oct 28, 2020  Jiří Kovalský       Pushing buttons now blocks further execution
+                                      of the test until the event is dispatched.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.tests;
@@ -75,7 +77,7 @@ public class Tools {
     public static void pushButtonInDialog(String dialogTitle, String buttonName) {
         JDialogOperator dialog = new JDialogOperator(dialogTitle);
         JButtonOperator button = new JButtonOperator(dialog, buttonName);
-        button.pushNoBlock();
+        button.push();
     }
 
 }

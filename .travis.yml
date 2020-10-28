@@ -19,7 +19,6 @@ matrix:
             - cd Load\ Master/
           script: 
             - ant -Dnb.internal.action.name=build jar
-            - echo "==== 1/2 - Building application complete ===="
 
         - name: Execute automated tests for basic functionality of Load Master
           jdk: openjdk12
@@ -27,4 +26,3 @@ matrix:
             - cd Load\ Master/
           script: 
             - ant -Dnb.internal.action.name=test test
-            - echo "==== 2/2 - Automated testing complete ===="
