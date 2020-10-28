@@ -33,7 +33,6 @@
  */
 package com.pekinsoft.loadmaster.operators;
 
-import org.netbeans.jemmy.EventTool;
 import org.netbeans.jemmy.operators.JButtonOperator;
 import org.netbeans.jemmy.operators.JCheckBoxOperator;
 import org.netbeans.jemmy.operators.JDialogOperator;
@@ -59,8 +58,6 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
     public void setOrderNumber(String orderNumber) {
         JTextFieldOperator orderNumberField = new JTextFieldOperator(this, 0);
         orderNumberField.typeText(orderNumber);
-        new EventTool().waitNoEvent(1000);
-        System.out.println("======== Order number: " + orderNumberField.getDisplayedText());
     }
 
     /**
@@ -72,8 +69,6 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
     public void setGrossPay(String grossPay) {
         JTextFieldOperator grossPayField = new JTextFieldOperator(this, 1);
         grossPayField.typeText(grossPay);
-        new EventTool().waitNoEvent(1000);
-        System.out.println("======== Gross pay: " + grossPayField.getDisplayedText());
     }
 
     /**
@@ -84,8 +79,6 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
     public void setTripNumber(String tripNumber) {
         JTextFieldOperator tripNumberField = new JTextFieldOperator(this, 2);
         tripNumberField.typeText(tripNumber);
-        new EventTool().waitNoEvent(1000);
-        System.out.println("======== Trip: " + tripNumberField.getDisplayedText());
     }
 
     /**
@@ -96,8 +89,6 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
     public void setMilesNumber(String milesNumber) {
         JTextFieldOperator milesNumberField = new JTextFieldOperator(this, 3);
         milesNumberField.typeText(milesNumber);
-        new EventTool().waitNoEvent(1000);
-        System.out.println("======== Miles: " + milesNumberField.getDisplayedText());
     }
 
     /**
@@ -108,8 +99,6 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
     public void setCommodity(String commodity) {
         JTextFieldOperator commodityField = new JTextFieldOperator(this, 4);
         commodityField.typeText(commodity);
-        new EventTool().waitNoEvent(1000);
-        System.out.println("======== Commodity: " + commodityField.getDisplayedText());
     }
 
     /**
@@ -121,8 +110,6 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
     public void checkOption(String option, boolean value) {
         JCheckBoxOperator optionCheckBox = new JCheckBoxOperator(this, option);
         optionCheckBox.setSelected(value);
-        new EventTool().waitNoEvent(1000);
-        System.out.println("============ Option " + option + " is " + optionCheckBox.isSelected());
     }
 
     /**
@@ -130,9 +117,7 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
      */
     public void goNext() {
         JButtonOperator nextButtonOperator = new JButtonOperator(this, "Next >");
-        System.out.println("============ Next > button is " + (nextButtonOperator.isEnabled() ? "ENABLED" : "DISABLED ============"));
         nextButtonOperator.push();
-        new EventTool().waitNoEvent(1000);
     }
 
     /**
