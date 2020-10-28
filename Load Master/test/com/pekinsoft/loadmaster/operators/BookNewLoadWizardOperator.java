@@ -124,8 +124,8 @@ public class BookNewLoadWizardOperator extends JDialogOperator {
      * Clicks Cancel button of the wizard.
      */
     public void cancel() {
-        JButtonOperator nextButtonOperator = new JButtonOperator(this, "Cancel");
-        nextButtonOperator.push();
+        JButtonOperator cancelButtonOperator = new JButtonOperator(this, "Cancel");
+        cancelButtonOperator.push();
     }
 
     /**
