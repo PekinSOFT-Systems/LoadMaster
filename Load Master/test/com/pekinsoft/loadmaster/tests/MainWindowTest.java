@@ -75,6 +75,7 @@ public class MainWindowTest {
     @Test
     public void testBookNewLoadWizard() {
         mainWindowOperator.callBookNewLoad();
+        new EventTool().waitNoEvent(1000);
 
         BookNewLoadWizardOperator bookNewLoadWizardOperator = new BookNewLoadWizardOperator();
         assertEquals(bookNewLoadWizardOperator.getPageName(), "Load Information");
@@ -86,14 +87,7 @@ public class MainWindowTest {
         bookNewLoadWizardOperator.checkOption("Tarped", true);
         bookNewLoadWizardOperator.goNext();
         
-        JLabelOperator labelOperator = new JLabelOperator(bookNewLoadWizardOperator, 0);
-        System.out.println("label 0: " + labelOperator.getText());
-        labelOperator = new JLabelOperator(bookNewLoadWizardOperator, 1);
-        System.out.println("label 0: " + labelOperator.getText());
-        labelOperator = new JLabelOperator(bookNewLoadWizardOperator, 2);
-        System.out.println("label 0: " + labelOperator.getText());
-
-//        assertEquals(bookNewLoadWizardOperator.getPageName(), "Broker Information");
+        assertEquals(bookNewLoadWizardOperator.getPageName(), "Broker Information");
         bookNewLoadWizardOperator.cancel();
         Tools.pushButtonInDialog("Confirm Cancellation", "Yes");
     }
