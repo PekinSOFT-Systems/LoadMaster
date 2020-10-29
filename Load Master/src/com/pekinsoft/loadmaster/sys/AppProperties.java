@@ -34,7 +34,8 @@
  *                  `                Systems. Also added the copyright notice
  *                                   to the description and the application
  *                                   title to the About box titlebar.
- * Oct 29, 2020  Sean Carrick        Updated: this header and the Project Website
+ * Oct 29, 2020  Sean Carrick        Updated: this header and the Project 
+ *                                   Website.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.sys;
