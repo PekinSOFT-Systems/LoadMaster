@@ -15,26 +15,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Load_Master
- *  Class      :   AppProperties.java
- *  Author     :   Sean Carrick
- *  Created    :   Sep 13, 2020 @ 3:49:17 PM
- *  Modified   :   Sep 13, 2020
+ * Project    :   Load_Master
+ * Class      :   AppProperties.java
+ * Author     :   Sean Carrick
+ * Created    :   Sep 13, 2020 @ 3:49:17 PM
+ * Modified   :   Sep 13, 2020
  *  
- *  Purpose:
+ * Purpose:
  *  
- *  Revision History:
+ * Revision History:
  *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Sep 13, 2020  Sean Carrick        Initial creation.
- *  Oct 10, 2020  Sean Carrick        Added the trademark symbol (™) to the
- *                                    Project Name and Vendor Name, as these two
- *                                    names are legal trademarks of PekinSOFT™
- *                  `                 Systems. Also added the copyright notice
- *                                    to the description and the application
- *                                    title to the About box titlebar.
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Sep 13, 2020  Sean Carrick        Initial creation.
+ * Oct 10, 2020  Sean Carrick        Added the trademark symbol (™) to the
+ *                                   Project Name and Vendor Name, as these two
+ *                                   names are legal trademarks of PekinSOFT™
+ *                  `                Systems. Also added the copyright notice
+ *                                   to the description and the application
+ *                                   title to the About box titlebar.
+ * Oct 29, 2020  Sean Carrick        Updated: this header and the Project Website
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.sys;
@@ -65,7 +65,7 @@ public class AppProperties {
     private static final String PROJECT_NAME = "Load Master™";
     private static final String VENDOR = "PekinSOFT™ Systems";
     private static final String WEBSITE = "https://www.pekinsoft.com";
-    private static final String PROJECT_WEB = "https://www.github.com/SeanCarrick/LoadMaster";
+    private static final String PROJECT_WEB = "http://loadmaster.pekinsoft.com";
     private static final String VENDOR_PHONE = "(309) 989-0672";
     private static final String PROJECT_LEAD = "Sean Carrick";
     private static final String PROJECT_EMAIL = "sean@pekinsoft.com";
