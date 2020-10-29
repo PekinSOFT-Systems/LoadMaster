@@ -16,14 +16,17 @@ Information about compiling CSS, JS, SVG, etc.
 
 ## Environment setup
 
-When setting up your environment to contribute to PekinSOFT™ Systems projects, we ask that you *fork* the repository for the project in which you are interested. We strive to make sure that any required libraries are included in the repository, typically at the root level. If you have any issues running the project after you have forked it, please let us know by submitting an [Issue](https://github.com/PekinSOFT-Systems/LoadMaster/issues/new?assignees=SeanCarrick+jkovalsky&labels=won%27t+run&template=forked_issue.md&title=%5BRunning+Issue%5D) and we will try to assist with the configuration.
+When setting up your environment to contribute to PekinSOFT™ Systems projects, we ask that you *fork* the repository for the project in which you are interested. We strive to make sure that any required libraries are included in the repository, typically at the root level. If you have any issues running the project after you have forked it, please let us know by submitting an [Issue](https://github.com/PekinSOFT-Systems/LoadMaster/issues/new?labels=won%27t+run&template=forked_issue.md&title=%5BRunning+Issue%5D) and we will try to assist with the configuration.
 
 ## Testing
 
+Since we at PekinSOFT™ Systems consider quality as one of the most important features of the software we built, we protect our main codebase from regressions already during pull request reviews. Automatic checks consist of WhiteSource Bolt security tests of the source code and Selenium based tests of the application behavior. No pull requests heading to master branch with failed checks will be accepted unless the such pull request gets exceptional approval from the project team. Any contribution adding brand new UI components like menus, dialogs, settings etc. must be accompanied by corresponding functional test.
 
 ### Adding tests
 
 General information about the test suite and how to format and structure tests.
+
+All automated tests are located in `test/com/pekinsoft/loadmaster` directory under the project root. Every major UI component has its own operator class which exposes operations which real users can perform with the UI component. Such operators typically extend standard [Jemmy](https://github.com/openjdk/jemmy-v2) operators and implement their specific functionality which are then used by concrete [JUnit](https://junit.org/junit5/) functional tests. Test classes can contain multiple tests methods which must be annotated with @Test annotation. While Jemmy operators are stored in `operators` package, the functional tests belong to `tests` package. 
 
 ### Running tests
 
