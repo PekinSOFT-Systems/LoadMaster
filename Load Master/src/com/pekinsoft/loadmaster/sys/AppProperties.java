@@ -62,8 +62,8 @@ public class AppProperties {
     private static final String DATA_DIR;
     
     // Private fields for the softare and Project information.
-    private static final String NAME = "Load Master™";
-    private static final String PROJECT_NAME = "Load Master™";
+    private static final String NAME = "LoadMaster™";
+    private static final String PROJECT_NAME = "LoadMaster™";
     private static final String VENDOR = "PekinSOFT™ Systems";
     private static final String WEBSITE = "https://www.pekinsoft.com";
     private static final String PROJECT_WEB = "http://loadmaster.pekinsoft.com";
