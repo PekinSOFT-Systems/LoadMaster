@@ -1,6 +1,6 @@
 ## Welcome to PekinSOFT™ Systems LoadMaster™ Project Page
 
-![LoadMaster™](https://github.com/PekinSOFT-Systems/LoadMaster-Images/blob/master/Images/logo.png)
+<img src="https://github.com/PekinSOFT-Systems/LoadMaster-Images/blob/master/Images/logo.png" alt="LoadMaster™ Splash" />
 
 PekinSOFT™ Systems is proud to present LoadMaster™ Load Tracking and Accounting for owner/operator truck drivers! This project has been in the planning stages for approximately two years and is finally reached the development phase. We are working hard on getting to our first release, which will hopefully be by the end of 2020. A lot of activity has been taking place on our repository, and there is still a lot more to come.
 
