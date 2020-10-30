@@ -507,16 +507,12 @@ public class LoadMaster extends javax.swing.JFrame {
         dlg.setVisible(true);
     }
     
-    private void doClose() {
-        String msg = "Exit Load Master?";
-        int response = MessageBox.askQuestion(msg, "Confirm Close", false);
-        
-        if ( response == MessageBox.YES_OPTION ) {
-            Starter.props.setPropertyAsInt("windows.main.state", 
-                    getExtendedState());
+    private void doClose() {Starter.props.setPropertyAsInt("windows.main.tb", 
+                tbSplit.getDividerLocation());
+        Starter.props.setPropertyAsInt("windows.main.lr", 
+                lrSplit.getDividerLocation());
 
-        Starter.props.setPropertyAsInt("windows.main.tb", tbSplit.getDividerLocation());
-        Starter.props.setPropertyAsInt("windows.main.lr", lrSplit.getDividerLocation());
+        Starter.props.setPropertyAsInt("windows.main.state", getExtendedState());
         
         if ( getExtendedState() != JFrame.MAXIMIZED_BOTH ) {
             Starter.props.setPropertyAsInt("windows.main.top", getLocation().y);
@@ -524,8 +520,38 @@ public class LoadMaster extends javax.swing.JFrame {
             Starter.props.setPropertyAsInt("windows.main.height", getSize().height);
             Starter.props.setPropertyAsInt("windows.main.width", getSize().width);
         }
-            Starter.exit(SysExits.EX_OK);
+                
+        if ( Boolean.parseBoolean(Starter.props.getProperty(
+                "acct.batch", "false")) ) {
+            int unprocessed = Starter.props.getPropertyAsInt("acct.batch.count", 
+                    "0");
+            if ( unprocessed > 0 ) {
+                confirmExit(unprocessed);
+            } else {
+                exit(SysExits.EX_OK);
+            }
+        
+        } else {
+            exit(SysExits.EX_OK);
         }
+    }
+    
+    private void confirmExit(int count) {
+        int response = MessageBox.askQuestion("There are " + count + 
+                " unprocessed transactions.\n\nWould you like to process these "
+                        + "before exiting", "Unposted Transactions", true);
+        
+        if ( response == MessageBox.YES_OPTION ) {
+            // Process batch to General Ledger.
+        } else if ( response == MessageBox.NO_OPTION ) {
+            exit(SysExits.EX_OK);
+        } // if the response is MessageBox.CANCEL_OPTION, we do nothing to let
+          //+ the application continue. Maybe the user is going to process the
+          //+ batch manually.
+    }
+    
+    private void exit(SysExits status) {
+        Starter.exit(status);
     }
     
     private void doCloseLoad() {
