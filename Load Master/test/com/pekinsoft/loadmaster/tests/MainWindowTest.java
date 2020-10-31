@@ -67,15 +67,14 @@ public class MainWindowTest {
 
     @AfterClass
     public static void tearDownClass() {
-        mainWindowOperator.callExit();
-        Tools.pushButtonInDialog("Confirm Close", "No");
+//        mainWindowOperator.callExit();
+//        Tools.pushButtonInDialog("Confirm Close", "No");
         PNGEncoder.captureScreen("ApplicationExiting.png", PNGEncoder.COLOR_MODE);
     }
 
     @Test
     public void testBookNewLoadWizard() {
         mainWindowOperator.callBookNewLoad();
-        new EventTool().waitNoEvent(1000);
 
         BookNewLoadWizardOperator bookNewLoadWizardOperator = new BookNewLoadWizardOperator();
         assertEquals(bookNewLoadWizardOperator.getPageName(), "Load Information");
