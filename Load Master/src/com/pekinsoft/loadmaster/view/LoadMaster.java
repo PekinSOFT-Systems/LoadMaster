@@ -522,7 +522,7 @@ public class LoadMaster extends javax.swing.JFrame {
         }
                 
         if ( Boolean.parseBoolean(Starter.props.getProperty(
-                "acct.batch", "false")) ) {
+                "acct.batch", "false")) & Starter.batch != null) {
             int unprocessed = Starter.batch.getRecordCount();
             if ( unprocessed > 0 ) {
                 confirmExit(unprocessed);
