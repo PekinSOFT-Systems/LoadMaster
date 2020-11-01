@@ -38,41 +38,58 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The `EntryModel` class defines a General Ledger entry for the accounting 
+ * The `EntryModel` class defines a General Ledger entry for the accounting
  * system in Load Master. Each GL entry consists of specific data that is the
- * same for every GL entry. 
- * 
+ * same for every GL entry.
+ *
  * Since the Load Master accounting system is double-entry, each transaction
- * amount must be removed (debited or withdrawn) from one account and placed 
+ * amount must be removed (debited or withdrawn) from one account and placed
  * into (credited or deposited) into another account. The entries in the GL are
  * not very detailed, but the details of any transaction may be viewed in the
  * various accounts' associated journals. Whereas the GL maintains the "books"
- * of the accounting system, so to speak, the various journals maintain the 
+ * of the accounting system, so to speak, the various journals maintain the
  * detailed histories of the GL transactions.
- * 
+ *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.7.8 build 2549
  */
 public class EntryModel {
-    /** Transaction date. */
+
+    /**
+     * Transaction date.
+     */
     private Date date;
-    /** Transaction code. */
+    /**
+     * Transaction code.
+     */
     private String code;
-    /** Transaction description. */
+    /**
+     * Transaction description.
+     */
     private String description;
-    /** Account from which money will be removed. */
+    /**
+     * Account from which money will be removed.
+     */
     private int fromAccount;
-    /** Account to which money will be deposited. */
+    /**
+     * Account to which money will be deposited.
+     */
     private int toAccount;
-    /** Transaction amount. */
+    /**
+     * Transaction amount.
+     */
     private double amount;
-    /** Whether transaction is tax deductible. */
+    /**
+     * Whether transaction is tax deductible.
+     */
     private boolean deductible;
-    /** Whether transaction has been balanced with bank statement. */
+    /**
+     * Whether transaction has been balanced with bank statement.
+     */
     private boolean balanced;
-    
+
     /**
      * Creates a default instance of the `EntryModel` object, providing only the
      * current date. All other fields are set to default values.
@@ -80,20 +97,20 @@ public class EntryModel {
     public EntryModel() {
         this(new Date(), "", "", 0, 0, 0.00, false, false);
     }
-    
+
     /**
      * Creates a new instance of the `EntryModel` object with the supplied field
      * values.
-     * 
-     * @param date          Transaction date.
-     * @param code          Transaction code or check number.
-     * @param description   Transaction details or description.
-     * @param from          Account from which the money should be withdrawn.
-     * @param to            Account to which the money should be deposited.
-     * @param amount        Transaction amount.
-     * @param deductible    Whether transaction is tax-deductible.
-     * @param balanced      Whether transaction has been balanced with bank
-     *                      statement.
+     *
+     * @param date Transaction date.
+     * @param code Transaction code or check number.
+     * @param description Transaction details or description.
+     * @param from Account from which the money should be withdrawn.
+     * @param to Account to which the money should be deposited.
+     * @param amount Transaction amount.
+     * @param deductible Whether transaction is tax-deductible.
+     * @param balanced Whether transaction has been balanced with bank
+     * statement.
      */
     public EntryModel(Date date, String code, String description, int from,
             int to, double amount, boolean deductible, boolean balanced) {
@@ -109,28 +126,29 @@ public class EntryModel {
 
     /**
      * Retrieves the transaction date.
-     * 
+     *
      * @return Transaction date
      */
     public Date getDate() {
         return date;
     }
-    
+
     /**
-     * Retrieves the transaction date as a `String` value in the format 
+     * Retrieves the transaction date as a `String` value in the format
      * MM/dd/yyyy.
-     * 
+     *
      * @return Transaction date as string.
      */
     public String getDateAsString() {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         return sdf.format(this.date);
     }
-    
+
     /**
-     * Retrieves the transaction date as a `String` value in the provided format.
-     * 
-     * @param format    Format for the date, such as MMM dd, yyyy.
+     * Retrieves the transaction date as a `String` value in the provided
+     * format.
+     *
+     * @param format Format for the date, such as MMM dd, yyyy.
      * @return Transaction date as string.
      */
     public String getDateAsString(String format) {
@@ -140,42 +158,42 @@ public class EntryModel {
 
     /**
      * Sets the transaction date for the entry.
-     * 
+     *
      * @param date Transaction date.
      */
     public void setDate(Date date) {
         this.date = date;
     }
-    
+
     /**
      * Sets the transaction date from a `String` value, formatted as MM/dd/yyyy.
-     * 
-     * @param date  Transaction date in MM/dd/yyyy formatted string.
+     *
+     * @param date Transaction date in MM/dd/yyyy formatted string.
      * @throws ParseException In the event the date cannot be properly parsed.
      */
     public void setDate(String date) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        
+
         this.date = sdf.parse(date);
     }
-    
+
     /**
      * Sets the transaction date from a `String` value formatted in the same
      * manner as the format string provided.
-     * 
-     * @param format    Format of the provided date, such as MMM dd, yyyy.
-     * @param date      The transaction date.
+     *
+     * @param format Format of the provided date, such as MMM dd, yyyy.
+     * @param date The transaction date.
      * @throws ParseException In the event the date cannot be properly parsed.
      */
     public void setDate(String format, String date) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
-        
+
         this.date = sdf.parse(date);
     }
 
     /**
      * Retrieves the transaction code or check number of the transaction.
-     * 
+     *
      * @return The transaction code or check number.
      */
     public String getCode() {
@@ -184,7 +202,7 @@ public class EntryModel {
 
     /**
      * Sets the transaction code or check number for the transaction.
-     * 
+     *
      * @param code Transaction code or check number.
      */
     public void setCode(String code) {
@@ -193,7 +211,7 @@ public class EntryModel {
 
     /**
      * Retrieves the transaction details or description.
-     * 
+     *
      * @return Transaction details or description.
      */
     public String getDescription() {
@@ -202,7 +220,7 @@ public class EntryModel {
 
     /**
      * Sets the transaction details or description.
-     * 
+     *
      * @param description Transaction details or description.
      */
     public void setDescription(String description) {
@@ -210,9 +228,9 @@ public class EntryModel {
     }
 
     /**
-     * Retrieves the account from which the money for the transaction was 
+     * Retrieves the account from which the money for the transaction was
      * withdrawn.
-     * 
+     *
      * @return Debit account.
      */
     public int getFromAccount() {
@@ -222,7 +240,7 @@ public class EntryModel {
     /**
      * Sets the account from which the money for the transaction should be
      * withdrawn.
-     * 
+     *
      * @param fromAccount Debit account.
      */
     public void setFromAccount(int fromAccount) {
@@ -230,9 +248,9 @@ public class EntryModel {
     }
 
     /**
-     * Retrieves the account to which the money for the transaction was 
+     * Retrieves the account to which the money for the transaction was
      * deposited.
-     * 
+     *
      * @return Credit account.
      */
     public int getToAccount() {
@@ -242,7 +260,7 @@ public class EntryModel {
     /**
      * Sets the account to which the money for the transaction should be
      * deposited.
-     * 
+     *
      * @param toAccount Credit account.
      */
     public void setToAccount(int toAccount) {
@@ -251,7 +269,7 @@ public class EntryModel {
 
     /**
      * Retrieves the amount of the transaction.
-     * 
+     *
      * @return Transaction amount.
      */
     public double getAmount() {
@@ -260,7 +278,7 @@ public class EntryModel {
 
     /**
      * Sets the amount of the transaction.
-     * 
+     *
      * @param amount Transaction amount.
      */
     public void setAmount(double amount) {
@@ -269,7 +287,7 @@ public class EntryModel {
 
     /**
      * Determines whether or not the transaction amount is tax-deductible.
-     * 
+     *
      * @return `true` if deductible, `false` if not.
      */
     public boolean isDeductible() {
@@ -278,7 +296,7 @@ public class EntryModel {
 
     /**
      * Sets whether or not the transaction amount is tax-deductible.
-     * 
+     *
      * @param deductible `true` if deductible, `false` if not.
      */
     public void setDeductible(boolean deductible) {
@@ -288,7 +306,7 @@ public class EntryModel {
     /**
      * Determines whether or not this transaction has been balanced with the
      * bank statement.
-     * 
+     *
      * @return `true` if balanced, `false` if not.
      */
     public boolean isBalanced() {
@@ -298,7 +316,7 @@ public class EntryModel {
     /**
      * Sets whether or not this transaction has been balanced with the bank
      * statement.
-     * 
+     *
      * @param balanced `true` if balanced, `false` if not.
      */
     public void setBalanced(boolean balanced) {

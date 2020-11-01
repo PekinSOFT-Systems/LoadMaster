@@ -54,45 +54,48 @@ import javax.swing.table.DefaultTableModel;
  * @author Sean Carrick
  */
 public class ChartOfAccountsViewer extends javax.swing.JDialog {
+
     private final File COA;
     private LogRecord entry;
     private ArrayList<ChartModel> chart;
+
     /**
      * Creates new form ChartOfAccountsViewer
      */
     public ChartOfAccountsViewer(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        
+
         entry = new LogRecord(Level.ALL, "Instantiating the Chart of Accounts "
                 + "Viewer...");
         entry.setSourceClassName(this.getClass().getName());
-        
+
         initComponents();
-        
+
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(
                 "/com/pekinsoft/loadmaster/res/open-list.png"));
         setIconImage(icon);
-        
+
         getRootPane().setDefaultButton(closeButton);
-        
+
         setLocation(ScreenUtils.centerDialog(this));
 
         chart = new ArrayList<>();
-        
+
         COA = new File(Starter.props.getDataFolder() + "coa.tbl");
-        
-        if ( !COA.exists() )
+
+        if (!COA.exists()) {
             generateChartOfAccounts();
-        else
+        } else {
             getChartOfAccountsFromFile();
-        
+        }
+
         populateTable();
     }
-    
+
     private void generateChartOfAccounts() {
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(COA));
-            
+
             // We need to create the default Chart of Accounts, which will 
             // Consist of the following:
             //+     * Accounts Payable
@@ -119,7 +122,6 @@ public class ChartOfAccountsViewer extends javax.swing.JDialog {
             //+     * Retirement Savings Acct
             //+     * Fuel Card
             //+     * Accounts Receivable
-            
             out.write("9999~AP~Accounts Payable: What you owe others on credit.\n");
             out.write("10010~Accounting~All accounting and legal expenses.\n");
             out.write("10020~Communications~All communications expenses.\n");
@@ -144,38 +146,38 @@ public class ChartOfAccountsViewer extends javax.swing.JDialog {
             out.write("50030~Retirement Savings Account~Savings for retirement.\n");
             out.write("50040~Fuel Card~Fuel card account.\n");
             out.write("50500~Accounts Receivable~Your truck pay at dispatch.\n");
-            
+
             // Now that we've created the default chart of accounts, we can 
             //+ close the file.
             out.close();
-        } catch ( IOException ex ) {
+        } catch (IOException ex) {
             entry.setSourceMethodName("generateChartOfAccounts");
             entry.setMessage(ex.getMessage());
             entry.setThrown(ex);
             Starter.logger.error(entry);
         }
-        
+
         // Once the file is created, let's read it back in so we only need to
         //+ populate the table one time.
         getChartOfAccountsFromFile();
     }
-    
+
     private void getChartOfAccountsFromFile() {
         try {
             BufferedReader in = new BufferedReader(new FileReader(COA));
-            
+
             // We need to read in the chart of accounts from file and save it to
             //+ our member field `chart`.
             String line = in.readLine();
-            
-            while ( line != null ) {
+
+            while (line != null) {
                 String[] record = line.split("~");
-                
+
                 createAndAddRecord(record);
-                
+
                 line = in.readLine();
             }
-        } catch ( IOException ex ) {
+        } catch (IOException ex) {
             entry.setSourceMethodName("getChartOfAccountsFromFile");
             entry.setMessage(ex.getMessage());
             entry.setThrown(ex);
@@ -183,27 +185,27 @@ public class ChartOfAccountsViewer extends javax.swing.JDialog {
         }
 
     }
-    
+
     private void createAndAddRecord(String[] record) {
         ChartModel model = new ChartModel();
         model.setNumber(Long.parseLong(record[0]));
         model.setName(record[1]);
         model.setDescription(record[2]);
-        
+
         chart.add(model);
     }
-    
+
     private void populateTable() {
-        DefaultTableModel model = (DefaultTableModel)coaTable.getModel();
-        
-        for ( int x = 0; x < chart.size(); x++ ) {
+        DefaultTableModel model = (DefaultTableModel) coaTable.getModel();
+
+        for (int x = 0; x < chart.size(); x++) {
             Object[] row = {chart.get(x).getNumber(),
-                            chart.get(x).getName(),
-                            chart.get(x).getDescription()
+                chart.get(x).getName(),
+                chart.get(x).getDescription()
             };
             model.addRow(row);
         }
-        
+
         coaTable.setModel(model);
     }
 
@@ -299,8 +301,9 @@ public class ChartOfAccountsViewer extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void checkEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEscape
-        if ( evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE )
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE) {
             dispose();
+        }
     }//GEN-LAST:event_checkEscape
 
     /**

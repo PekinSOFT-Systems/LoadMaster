@@ -52,34 +52,36 @@ public class About extends javax.swing.JDialog {
 
     /**
      * Creates new form About
-     * 
-     * @param parent    The window or dialog to which this one belongs.
-     * @param modal     Whether or not this dialog should be dealt with before
-     *                  the user can move on.     */
+     *
+     * @param parent The window or dialog to which this one belongs.
+     * @param modal Whether or not this dialog should be dealt with before the
+     * user can move on.
+     */
     public About(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-        titleLabel.setText("<html><h2>" + Starter.props.getProjectName() 
+
+        titleLabel.setText("<html><h2>" + Starter.props.getProjectName()
                 + "</h2></html>");
-        versionLabel.setText("<html><strong><em>Version</em> " 
+        versionLabel.setText("<html><strong><em>Version</em> "
                 + Starter.props.getVersion() + "</strong></html>");
-        vendorLabel.setText("<html><h3>" + Starter.props.getVendor() 
+        vendorLabel.setText("<html><h3>" + Starter.props.getVendor()
                 + "</h3></html>");
-        websiteLabel.setText("<html><p>" + Starter.props.getProjectWebsite() 
+        websiteLabel.setText("<html><p>" + Starter.props.getProjectWebsite()
                 + "</p></html>");
         aboutEditor.setText(Starter.props.getProjectDescription());
-        aboutEditor.setSelectionStart(0); aboutEditor.setSelectionEnd(0);
-        
+        aboutEditor.setSelectionStart(0);
+        aboutEditor.setSelectionEnd(0);
+
         int left = Toolkit.getDefaultToolkit().getScreenSize().width;
         int top = Toolkit.getDefaultToolkit().getScreenSize().height;
-        
+
         left = (left - getWidth()) / 2;
         top = (top - getHeight()) / 2;
-        
+
         setLocation(left, top);
         websiteLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
+
         setTitle("About " + Starter.props.getProjectName());
     }
 
@@ -260,27 +262,42 @@ public class About extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
-        if ( evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER
-                || evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE ) 
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER
+                || evt.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE) {
             dispose();
+        }
     }//GEN-LAST:event_checkEnterEscape
 
     private void websiteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_websiteLabelMouseClicked
         String[] commands = null;
         String os = System.getProperty("os.name");
-        if (os.contains("Unix")) commands = new String[] {"firefox ", "konqueror ", "mozilla ", "opera "};
-        if (os.contains("Linux")) commands = new String[] {"firefox ", "google-chrome ", "mozilla ", "opera "};
-        if (os.contains("Windows")) commands = new String[] {"cmd.exe /c start "};
-        if (os.contains("Macintosh")) commands = new String[] {"open "};
-        if (commands == null) return;
+        if (os.contains("Unix")) {
+            commands = new String[]{"firefox ", "konqueror ", "mozilla ", "opera "};
+        }
+        if (os.contains("Linux")) {
+            commands = new String[]{"firefox ", "google-chrome ", "mozilla ", "opera "};
+        }
+        if (os.contains("Windows")) {
+            commands = new String[]{"cmd.exe /c start "};
+        }
+        if (os.contains("Macintosh")) {
+            commands = new String[]{"open "};
+        }
+        if (commands == null) {
+            return;
+        }
         for (String command : commands) {
             String systemCommand = command + Starter.props.getProjectWebsite();
             try {
                 Process process = Runtime.getRuntime().exec(systemCommand);
                 process.waitFor();
                 int exit = process.exitValue();
-                if (exit == 0) return;
-            } catch(Exception e) { e.printStackTrace(); }
+                if (exit == 0) {
+                    return;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }//GEN-LAST:event_websiteLabelMouseClicked

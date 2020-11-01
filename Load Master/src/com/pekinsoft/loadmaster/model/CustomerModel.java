@@ -35,48 +35,76 @@
  *                                    data.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.model;
 
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class CustomerModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
-    private long id;            /** Unique customer identification number REQ'D*/
-    private String company;     /** Company name for the customer         REQ'D*/
-    private String street;      /** Street address for the customer       REQ'D*/
-    private String suite;       /** Suite number for the customer      OPTIONAL*/
-    private String city;        /** City for the customer                 REQ'D*/
-    private String state;       /** State for the customer                REQ'D*/
-    private String zip;         /** Zip Code for the customer             REQ'D*/
-    private String contact;     /** Contact name for the customer      OPTIONAL*/
-    private String phone;       /** Phone Number for the customer      OPTIONAL*/
-    private String comments;    /** Any notes about the customer       OPTIONAL*/
-    //</editor-fold>
+    private long id;
+    /**
+     * Unique customer identification number REQ'D
+     */
+    private String company;
+    /**
+     * Company name for the customer REQ'D
+     */
+    private String street;
+    /**
+     * Street address for the customer REQ'D
+     */
+    private String suite;
+    /**
+     * Suite number for the customer OPTIONAL
+     */
+    private String city;
+    /**
+     * City for the customer REQ'D
+     */
+    private String state;
+    /**
+     * State for the customer REQ'D
+     */
+    private String zip;
+    /**
+     * Zip Code for the customer REQ'D
+     */
+    private String contact;
+    /**
+     * Contact name for the customer OPTIONAL
+     */
+    private String phone;
+    /**
+     * Phone Number for the customer OPTIONAL
+     */
+    private String comments;
 
+    /**
+     * Any notes about the customer OPTIONAL
+     */
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public CustomerModel () {
+    public CustomerModel() {
         id = System.currentTimeMillis();
         company = "";
         street = "";
@@ -88,7 +116,7 @@ public class CustomerModel {
         phone = "";
         comments = "";
     }
-    
+
     public CustomerModel(String[] data) {
         id = Long.valueOf(data[0]);
         company = data[1];
@@ -104,32 +132,32 @@ public class CustomerModel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
     /**
      * Retrieves the unique identification number for this customer.
+     *
      * @return long Unique identification number
      */
     public long getId() {
         return id;
     }
-    
+
     /**
      * Sets the unique identification number for this customer. However, this
      * value should never be changed from what is created when the object is
      * created, this is necessary for creating an object from the data in the
      * table.
-     * 
+     *
      * @param id Unique identification number
      */
     public void setId(long id) {
         this.id = id;
     }
-    
+
     /**
      * Retrieves the name of the company for this customer.
+     *
      * @return String The company name
      */
     public String getCompany() {
@@ -138,24 +166,26 @@ public class CustomerModel {
 
     /**
      * Sets the company name for this customer.
-     * 
+     *
      * <dl>
-     *  <dt><strong><em>NOTE</em></strong></dt>
-     *  <dd>The company name is required and will only store fifty (50) 
-     *      characters of the name, if it is longer than 50.</dd>
+     * <dt><strong><em>NOTE</em></strong></dt>
+     * <dd>The company name is required and will only store fifty (50)
+     * characters of the name, if it is longer than 50.</dd>
      * </dl>
+     *
      * @param company The new company name
      */
     public void setCompany(String company) {
-        if ( company.length() > 50 )
+        if (company.length() > 50) {
             this.company = company.substring(0, 49);
-        else
+        } else {
             this.company = company;
+        }
     }
 
     /**
      * Retrieves the street address for the customer.
-     * 
+     *
      * @return String The street address, i.e., 100 E. Main Street
      */
     public String getStreet() {
@@ -164,31 +194,32 @@ public class CustomerModel {
 
     /**
      * Sets the street address for this customer.
-     * 
+     *
      * <dl>
-     *  <dt><strong><em>NOTE</em></strong></dt>
-     *  <dd>The street address is required and is limited to forty (40) 
-     *      characters.</dd>
+     * <dt><strong><em>NOTE</em></strong></dt>
+     * <dd>The street address is required and is limited to forty (40)
+     * characters.</dd>
      * </dl>
-     * 
+     *
      * @param street The street address, i.e., 100 E. Main Street
      */
     public void setStreet(String street) {
-        if ( street.length() > 40 )
+        if (street.length() > 40) {
             this.street = street.substring(0, 39);
-        else
+        } else {
             this.street = street;
+        }
     }
 
     /**
      * Retrieves the suite number for this customer.
-     * 
+     *
      * <dl>
-     *  <dt><strong><em>NOTE</em></strong></dt>
-     *  <dd>This method may return `null` if no suite number is stored in the
-     *      database.</dd>
+     * <dt><strong><em>NOTE</em></strong></dt>
+     * <dd>This method may return `null` if no suite number is stored in the
+     * database.</dd>
      * </dl>
-     * 
+     *
      * @return String The suite number for this customer, or `null` if none.
      */
     public String getSuite() {
@@ -197,31 +228,33 @@ public class CustomerModel {
 
     /**
      * Sets the suite number for this customer.
-     * 
+     *
      * <dl>
-     *  <dt><strong><em>NOTE</em></strong></dt>
-     *  <dd>The suite number is <strong>not</strong> required and may store a 
-     *      `null` value. The maximum length of this field is fifteen (15) 
-     *      characters.</dd>
+     * <dt><strong><em>NOTE</em></strong></dt>
+     * <dd>The suite number is <strong>not</strong> required and may store a
+     * `null` value. The maximum length of this field is fifteen (15)
+     * characters.</dd>
      * </dl>
-     * 
+     *
      * @param suite The suite number, if any.
      */
     public void setSuite(String suite) {
         // For parsing from file, there needs to be some data in the suite
         //+ variable, even if it is just a space.
-        if ( suite.isBlank() || suite.isEmpty() )
+        if (suite.isBlank() || suite.isEmpty()) {
             suite = " ";
-        
-        if ( suite.length() > 15 )
+        }
+
+        if (suite.length() > 15) {
             this.suite = suite.substring(0, 14);
-        else
+        } else {
             this.suite = suite;
+        }
     }
 
     /**
      * Retrieves the city for this customer.
-     * 
+     *
      * @return String The city in which the customer is located
      */
     public String getCity() {
@@ -230,25 +263,26 @@ public class CustomerModel {
 
     /**
      * Sets the city in which this customer is located.
-     * 
+     *
      * <dl>
-     *  <dt><strong><em>NOTE</em></strong></dt>
-     *  <dd>The city is a required field and is limited to thirty (30)
-     *      characters.</dd>
+     * <dt><strong><em>NOTE</em></strong></dt>
+     * <dd>The city is a required field and is limited to thirty (30)
+     * characters.</dd>
      * </dl>
-     * 
+     *
      * @param city The city in which the customer is located
      */
     public void setCity(String city) {
-        if ( city.length() > 30 )
+        if (city.length() > 30) {
             this.city = city.substring(0, 29);
-        else
+        } else {
             this.city = city;
+        }
     }
 
     /**
      * Retrieves the state in which this customer is located.
-     * 
+     *
      * @return String The state in which this customer is located
      */
     public String getState() {
@@ -257,13 +291,13 @@ public class CustomerModel {
 
     /**
      * Sets the state in which this customer is located.
-     * 
+     *
      * <dl>
-     *  <dt><strong><em>NOTE</em></strong>
-     *  <dd>The state is a required field and is limited to two (2) characters.
-     *      </dd>
+     * <dt><strong><em>NOTE</em></strong>
+     * <dd>The state is a required field and is limited to two (2) characters.
+     * </dd>
      * </dl>
-     * 
+     *
      * @param state The state in which the customer is located
      */
     public void setState(String state) {
@@ -277,17 +311,18 @@ public class CustomerModel {
     public void setZip(String zip) {
         this.zip = zip;
     }
-    
+
     public String getAddress() {
         String address = getStreet() + ", ";
-        
-        if ( suite != null && !suite.isBlank() && !suite.isEmpty() )
+
+        if (suite != null && !suite.isBlank() && !suite.isEmpty()) {
             address += getSuite() + ", ";
-        
+        }
+
         address += getCity() + ", ";
         address += getState() + " ";
         address += getZip();
-        
+
         return address;
     }
 
@@ -298,13 +333,15 @@ public class CustomerModel {
     public void setContact(String contact) {
         // For parsing from file, there needs to be some data in the contact
         //+ variable, even if it is just a space.
-        if ( contact.isBlank() || contact.isEmpty() )
+        if (contact.isBlank() || contact.isEmpty()) {
             contact = " ";
-        
-        if ( contact.length() > 30 )
+        }
+
+        if (contact.length() > 30) {
             this.contact = contact.substring(0, 29);
-        else
+        } else {
             this.contact = contact;
+        }
     }
 
     public String getPhone() {
@@ -314,9 +351,10 @@ public class CustomerModel {
     public void setPhone(String phone) {
         // For parsing from file, there needs to be some data in the phone
         //+ variable, even if it is just a space.
-        if ( phone.isBlank() || phone.isEmpty() )
+        if (phone.isBlank() || phone.isEmpty()) {
             phone = " ";
-        
+        }
+
         this.phone = phone;
     }
 
@@ -327,15 +365,14 @@ public class CustomerModel {
     public void setComments(String comments) {
         // For parsing from file, there needs to be some data in the comments
         //+ variable, even if it is just a space.
-        if ( comments.isBlank() || comments.isEmpty() )
+        if (comments.isBlank() || comments.isEmpty()) {
             comments = " ";
-        
+        }
+
         this.comments = comments;
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    
     //</editor-fold>
-
 }

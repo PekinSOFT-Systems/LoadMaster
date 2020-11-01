@@ -40,7 +40,6 @@
  *                                    are now available for saving to file.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.view.wiz.book;
 
 import com.pekinsoft.loadmaster.Starter;
@@ -60,15 +59,14 @@ import org.netbeans.spi.wizard.WizardPage;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class StopsPage extends WizardPage {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     // Variables declaration - do not modify                     
     private javax.swing.JButton addButton;
@@ -80,26 +78,26 @@ public class StopsPage extends WizardPage {
     private int stopNumber;
     private StopModel stop;
     private CustomerModel c;
-    
+
     private CustomerSelector dlg;
-    
+
     private boolean isLoading;
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public StopsPage () {
+    public StopsPage() {
         initComponents();
         setForwardNavigationMode(WizardController.MODE_CAN_FINISH);
     }
@@ -112,9 +110,7 @@ public class StopsPage extends WizardPage {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,30 +126,28 @@ public class StopsPage extends WizardPage {
         addButton = new javax.swing.JButton();
 
         stopsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Stop #", "Customer ID", "Company Name", "Location", 
-                "Early Date", "Early Time", "Late Date", "Late Time"
-            }
+                new Object[][]{},
+                new String[]{
+                    "Stop #", "Customer ID", "Company Name", "Location",
+                    "Early Date", "Early Time", "Late Date", "Late Time"
+                }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.Long.class, 
-                java.lang.String.class, java.lang.String.class, 
-                java.lang.String.class, java.lang.String.class, 
+            Class[] types = new Class[]{
+                java.lang.Long.class, java.lang.Long.class,
+                java.lang.String.class, java.lang.String.class,
+                java.lang.String.class, java.lang.String.class,
                 java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane1.setViewportView(stopsTable);
@@ -178,99 +172,100 @@ public class StopsPage extends WizardPage {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 
-                    400, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, 
-                    layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, 
-                        Short.MAX_VALUE)
-                .addComponent(addButton)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                400, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                layout.createSequentialGroup()
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+                                        .addComponent(addButton)
+                                        .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 
-                        302, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addButton)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        302, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addButton)
+                                .addContainerGap())
         );
     }// </editor-fold>                        
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
         dlg = new CustomerSelector(null, true);
         dlg.pack();
         dlg.show();
-        
-        if ( dlg != null ) {
-             
+
+        if (dlg != null) {
+
             SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
             String eDate = fmt.format(dlg.getEarlyDate());
             String lDate = fmt.format(dlg.getLateDate());
-            DefaultTableModel model = (DefaultTableModel)stopsTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) stopsTable.getModel();
             c = dlg.getSelectedCustomer();
-            Object[] row = {++stopNumber,       // Stop Number
-                            c.getId(),          // Customer ID
-                            c.getCompany(),     // Company name
-                            c.getCity() + ", " + c.getState(),
-                            eDate,              // Early date
-                            dlg.getEarlyTime(), // Early time
-                            lDate,              // Late date
-                            dlg.getLateTime()}; // Late time
+            Object[] row = {++stopNumber, // Stop Number
+                c.getId(), // Customer ID
+                c.getCompany(), // Company name
+                c.getCity() + ", " + c.getState(),
+                eDate, // Early date
+                dlg.getEarlyTime(), // Early time
+                lDate, // Late date
+                dlg.getLateTime()}; // Late time
             model.addRow(row);
-            
+
             stopsTable.setModel(model);
             putWizardData(stopsTable, row);
-            
+
             stop = new StopModel();
             stop.setEarlyDate(dlg.getEarlyDate());
             stop.setLateDate(dlg.getLateDate());
             stop.setCustomer(c.getId());
             stop.setTripNumber(getWizardData("trip").toString());
-            
+
             try {
                 stop.setEarlyTime(dlg.getEarlyTime());
                 stop.setLateTime(dlg.getLateTime());
-            } catch ( InvalidTimeException ex ) {
+            } catch (InvalidTimeException ex) {
                 entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                         + "Provided time is invalid.");
                 entry.setThrown(ex);
                 entry.setSourceMethodName("connect");
                 entry.setParameters(null);
                 Starter.logger.error(entry);
-            } catch ( ParseException ex ) {
+            } catch (ParseException ex) {
                 entry.setMessage(ex.getMessage());
                 entry.setThrown(ex);
                 entry.setSourceMethodName("connect");
                 entry.setParameters(null);
                 Starter.logger.error(entry);
             }
-            
+
             validateContents(stopsTable, null);
         }
-    }                                         
+    }
     //</editor-fold>
 
     @Override
     protected String validateContents(Component comp, Object o) {
-        if ( stopsTable.getRowCount() < 2 )
+        if (stopsTable.getRowCount() < 2) {
             return "A minimum of 2 stops are required.";
-        
+        }
+
         // If we get here, then a minimum of two stops have been entered, so we
         //+ can store the customer IDs to the wizard data.
-        for (int x = 0; x < stopsTable.getRowCount(); x++ ) {
+        for (int x = 0; x < stopsTable.getRowCount(); x++) {
             long stopNum = Long.valueOf(stopsTable.getValueAt(x, 0).toString());
-            
+
             StopModel row = new StopModel();
             row.setCustomer(Long.valueOf(stopsTable.getValueAt(x, 1).toString()));
             row.setTripNumber(getWizardData("trip").toString());
             row.setStopNumber(Integer.valueOf(stopsTable.getValueAt(x, 0)
                     .toString()));
-            
+
             SimpleDateFormat dates = new SimpleDateFormat("MM/dd/yyyy");
-            
+
             try {
                 row.setEarlyDate(dates.parse(stopsTable.getValueAt(x, 4)
                         .toString()));
@@ -278,21 +273,21 @@ public class StopsPage extends WizardPage {
                 row.setLateDate(dates.parse(stopsTable.getValueAt(x, 6)
                         .toString()));
                 row.setLateTime(stopsTable.getValueAt(x, 7).toString());
-            } catch ( ParseException | InvalidTimeException ex ) {
+            } catch (ParseException | InvalidTimeException ex) {
                 entry.setMessage(ex.getMessage());
                 entry.setThrown(ex);
                 entry.setSourceMethodName("connect");
                 entry.setParameters(null);
                 Starter.logger.error(entry);
             }
-            
+
             putWizardData("stop" + stopNum, row);
         }
-        
+
         // We also need to store our stops count to the settings file for later
         //+ use.
         Starter.props.setPropertyAsInt("stop.count", stopsTable.getRowCount());
-        
+
         return null;
     }
 }

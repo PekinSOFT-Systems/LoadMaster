@@ -55,61 +55,61 @@ import java.util.logging.LogRecord;
  * @author Sean Carrick
  */
 public class BrokerSelector extends javax.swing.JDialog {
-    
+
     private BrokerModel broker;
     private BrokerCtl records;
     private LogRecord lr = new LogRecord(Level.ALL, "Logging initialized for "
             + "BrokerSelector.");
-    
+
     private boolean filtering;
-    
+
     /**
      * Creates new form BrokerSelector
      */
     public BrokerSelector(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        
+
         Starter.logger.config(lr);
         lr = new LogRecord(Level.ALL, "Logging initialized for BrokerSelector.");
         lr.setSourceClassName(Brokers.class.getName());
         lr.setSourceMethodName("BrokerSelector");
         Starter.logger.enter(lr);
-        
+
         filtering = false;
-        
+
         lr.setMessage("Attempting to access the brokers database...");
         Starter.logger.debug(lr);
         try {
             records = new BrokerCtl();
             lr.setMessage("Brokers database accessed successfully!");
             Starter.logger.info(lr);
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the brokers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
-            
+
             MessageBox.showError(ex, "Database Access");
-            
+
             records = null;
         }
-        
+
         initComponents();
-        
+
         loadBrokerList();
-        
+
         setLocation(ScreenUtils.centerDialog(this));
     }
-    
+
     private void loadBrokerList() {
         brokerList.removeAllItems();
         brokerList.addItem("Select Broker/Agent...");
-        
+
         ArrayList<BrokerModel> filtered = new ArrayList<>();
-        
-        if ( allFilterOption.isSelected() ) {
+
+        if (allFilterOption.isSelected()) {
             try {
                 records.first();
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
@@ -117,61 +117,64 @@ public class BrokerSelector extends javax.swing.JDialog {
                 MessageBox.showError(ex, "Database Access");
             }
 
-            for ( int x = 0; x < records.getRecordCount(); x++ ) {
+            for (int x = 0; x < records.getRecordCount(); x++) {
                 BrokerModel b = records.get();
 
                 brokerList.addItem(b.getContact() + " (" + b.getId() + ")");
 
                 try {
-                    if (records.hasNext() ) 
+                    if (records.hasNext()) {
                         records.next();
-                } catch ( DataStoreException ex ) {
+                    }
+                } catch (DataStoreException ex) {
                     lr.setMessage("Something went wrong moving to the next record.");
                     lr.setThrown(ex);
                     Starter.logger.error(lr);
 
-    //                MessageBox.showError(ex, "Database Access");
+                    //                MessageBox.showError(ex, "Database Access");
                 }
             }
-        } else if ( cityFilterOption.isSelected() ) {
+        } else if (cityFilterOption.isSelected()) {
             try {
-                filtered = records.getCompaniesByCity(criteriaField.getText(), 
+                filtered = records.getCompaniesByCity(criteriaField.getText(),
                         LoadMaster.fileProgress);
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
             }
-            
-            if ( filtered != null && filtered.size() > 0 ) {
-                for ( int x = 0; x < filtered.size(); x++ ) {
-                    brokerList.addItem(filtered.get(x).getContact() + " (" 
+
+            if (filtered != null && filtered.size() > 0) {
+                for (int x = 0; x < filtered.size(); x++) {
+                    brokerList.addItem(filtered.get(x).getContact() + " ("
                             + filtered.get(x).getId() + ")");
                 }
-            } else
+            } else {
                 MessageBox.showInfo("No matching records found!", "No Records");
-        } else if ( stateFilterOption.isSelected() ) {
+            }
+        } else if (stateFilterOption.isSelected()) {
             try {
-                filtered = records.getCompaniesByState(criteriaField.getText(), 
+                filtered = records.getCompaniesByState(criteriaField.getText(),
                         LoadMaster.fileProgress);
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
             }
-            
-            if ( filtered != null && filtered.size() > 0 ) {
-                for ( int x = 0; x < filtered.size(); x++ ) {
-                    brokerList.addItem(filtered.get(x).getContact() + " (" 
+
+            if (filtered != null && filtered.size() > 0) {
+                for (int x = 0; x < filtered.size(); x++) {
+                    brokerList.addItem(filtered.get(x).getContact() + " ("
                             + filtered.get(x).getId() + ")");
                 }
-            } else
+            } else {
                 MessageBox.showInfo("No matching records found!", "No Records");
+            }
         }
-        
+
         filtering = false;
     }
-    
+
     public BrokerModel getSelectedBroker() {
         return broker;
     }
@@ -327,45 +330,46 @@ public class BrokerSelector extends javax.swing.JDialog {
     private void selectBrokerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBrokerActionPerformed
         // In order to get the selected broker, we need to loop through the
         //+ records to find which record has the selected ID number.
-        if ( !brokerList.getSelectedItem().toString().equalsIgnoreCase(
-                "select broker/agent...") ) {
+        if (!brokerList.getSelectedItem().toString().equalsIgnoreCase(
+                "select broker/agent...")) {
             String selectedBroker = brokerList.getSelectedItem().toString();
             long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("(") + 1,    // Start after (
+                    selectedBroker.indexOf("(") + 1, // Start after (
                     selectedBroker.indexOf(")")));  // End before )
-        
+
             try {
                 records.first();
 
-                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                for (int x = 0; x < records.getRecordCount(); x++) {
                     BrokerModel b = records.get();
 
-                    if ( brokerID == b.getId() ) {
+                    if (brokerID == b.getId()) {
                         broker = b;
                         break;
                     } else {
-                        if ( records.hasNext() ) 
+                        if (records.hasNext()) {
                             records.next();
+                        }
                     }
                 }
-        
-                setVisible(false); 
-            } catch ( DataStoreException ex ) {
+
+                setVisible(false);
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
 
-    //            MessageBox.showError(ex, "Database Access");
-
+                //            MessageBox.showError(ex, "Database Access");
                 dispose();
             }
-        }       
+        }
     }//GEN-LAST:event_selectBrokerActionPerformed
 
     private void brokerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_brokerListItemStateChanged
-        if ( !filtering )
+        if (!filtering) {
             selectBroker.setEnabled(!brokerList.getSelectedItem().toString()
                     .equals("Select Broker/Agent..."));
+        }
     }//GEN-LAST:event_brokerListItemStateChanged
 
     private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
@@ -375,7 +379,7 @@ public class BrokerSelector extends javax.swing.JDialog {
 
     private void criteriaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_criteriaFieldKeyTyped
         filterButton.setEnabled(criteriaField.getText().length() > 0);
-            
+
     }//GEN-LAST:event_criteriaFieldKeyTyped
 
     /**

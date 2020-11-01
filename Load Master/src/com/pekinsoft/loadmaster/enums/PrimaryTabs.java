@@ -28,20 +28,20 @@ public enum PrimaryTabs {
     CUSTOMERS(4),
     EMPLOYEES(5),
     GL(6);
-    
+
     final int value;
-    
+
     PrimaryTabs(int value) {
         this.value = value;
     }
-    
+
     public int toInt() {
         return value;
     }
-    
+
     @Override
     public String toString() {
-        switch ( value ) {
+        switch (value) {
             case 0:
                 return "Loads Tracker";
             case 1:

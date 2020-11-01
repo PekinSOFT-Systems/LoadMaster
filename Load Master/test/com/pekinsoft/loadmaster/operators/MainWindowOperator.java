@@ -93,14 +93,14 @@ public class MainWindowOperator extends JFrameOperator {
     }
 
     /**
-     *  Invokes About Load Master... action from the application toolbar.
+     * Invokes About Load Master... action from the application toolbar.
      */
     public void callAbout() {
         invokeAction("Load Master System", new int[]{0, 0, 0, 1});
     }
 
     /**
-     *  Invokes Exit Master Settings... action from the application toolbar.
+     * Invokes Exit Master Settings... action from the application toolbar.
      */
     public void callExit() {
         invokeAction("Load Master System", new int[]{0, 0, 0, 6});

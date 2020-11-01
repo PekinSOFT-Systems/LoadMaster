@@ -47,38 +47,38 @@ public class DepartPickupDialog extends javax.swing.JDialog {
     private String bol;
     private int pieces;
     private int weight;
-    
+
     /**
      * Creates new form DepartDeliveryDialog
      */
     public DepartPickupDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         getRootPane().setDefaultButton(okButton);
-        
+
         // Center the dialog on the screen.
         int left = Toolkit.getDefaultToolkit().getScreenSize().width;
         int top = Toolkit.getDefaultToolkit().getScreenSize().height;
-        
-        left = ( left - getWidth() ) / 2;
-        top = ( top - getHeight() ) / 2;
-        
+
+        left = (left - getWidth()) / 2;
+        top = (top - getHeight()) / 2;
+
         setLocation(left, top);
     }
-    
+
     private void doCancel() {
         setVisible(false);
     }
-    
+
     public String getBillOfLadingNumber() {
         return bol;
     }
-    
+
     public int getPieceCount() {
         return pieces;
     }
-    
+
     public int getWeight() {
         return weight;
     }
@@ -218,8 +218,9 @@ public class DepartPickupDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE)
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             doCancel();
+        }
     }//GEN-LAST:event_formKeyReleased
 
     private void bolFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bolFieldKeyReleased

@@ -55,6 +55,7 @@ import javax.swing.JTextField;
  * @author Sean Carrick
  */
 public class Brokers extends javax.swing.JInternalFrame {
+
     private final Color errFore = Color.YELLOW;
     private final Color errBack = Color.RED;
     private final Color fore = SystemColor.textText;
@@ -62,11 +63,11 @@ public class Brokers extends javax.swing.JInternalFrame {
     private final Color ctl = SystemColor.control;
     private final Color tip = SystemColor.info;
     private final Color tipText = SystemColor.infoText;
-        
+
     private BrokerCtl records;
     private BrokerModel broker;
     private final LogRecord lr;
-    
+
     /**
      * Creates new form Brokers
      */
@@ -75,38 +76,38 @@ public class Brokers extends javax.swing.JInternalFrame {
         lr.setSourceClassName(Brokers.class.getName());
         lr.setSourceMethodName("Brokers");
         Starter.logger.enter(lr);
-        
+
         lr.setMessage("Attempting to access the brokers database...");
         Starter.logger.debug(lr);
         try {
             records = new BrokerCtl();
             lr.setMessage("Brokers database accessed successfully!");
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the brokers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
-            
+
             MessageBox.showError(ex, "Database Access");
-            
+
             records = null;
         }
-        
+
         initComponents();
-        
+
         // Set up the input verifiers for the state and zip fields.
         stateField.setInputVerifier(new StateAbbrVerifier());
         zipField.setInputVerifier(new PostalCodeVerifier());
-        
+
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
-        
+
         doClear();
     }
-    
+
     private void doSave() {
         lr.setSourceMethodName("doSave");
         lr.setMessage("Saving the new broker record.");
         Starter.logger.enter(lr);
-        
+
         nameField.requestFocus();
 
         broker = new BrokerModel();
@@ -124,41 +125,44 @@ public class Brokers extends javax.swing.JInternalFrame {
         broker.setStreet(streetField.getText());
         broker.setSuite(suiteField.getText());
         broker.setZip(zipField.getText());
-        
-        if ( records.getRecordCount() > 0 ) {
+
+        if (records.getRecordCount() > 0) {
             BrokerModel tester = null;
 
             try {
                 LoadMaster.fileProgress.setVisible(true);
 
-                tester = records.getByCompany(broker.getCompany(), 
+                tester = records.getByCompany(broker.getCompany(),
                         LoadMaster.fileProgress);
 
                 LoadMaster.fileProgress.setVisible(false);
                 LoadMaster.fileProgress.setToolTipText("File Progress");
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong searching the brokers database.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
 
                 MessageBox.showError(ex, "Database Access");
             }
-        
-            // Check to see if the record exists
-            if ( tester != null ) {
-                if ( tester.getCompany().equalsIgnoreCase(broker.getCompany())
-                        && tester.getCity().equalsIgnoreCase(broker.getCity())
-                        && tester.getState().equalsIgnoreCase(broker.getState()) ) 
-                    MessageBox.showInfo("Broker: " + broker.getCompany() + " in " 
-                            + broker.getCity() + ", " + broker.getState() 
-                            + " already exists.", "Broker Exists");
-                else 
-                    records.addNew(broker);
 
-            } else
+            // Check to see if the record exists
+            if (tester != null) {
+                if (tester.getCompany().equalsIgnoreCase(broker.getCompany())
+                        && tester.getCity().equalsIgnoreCase(broker.getCity())
+                        && tester.getState().equalsIgnoreCase(broker.getState())) {
+                    MessageBox.showInfo("Broker: " + broker.getCompany() + " in "
+                            + broker.getCity() + ", " + broker.getState()
+                            + " already exists.", "Broker Exists");
+                } else {
+                    records.addNew(broker);
+                }
+
+            } else {
                 records.addNew(broker);
-        } else
+            }
+        } else {
             records.addNew(broker);
+        }
 
         lr.setMessage("Attempting to save the data to file.");
         Starter.logger.debug(lr);
@@ -198,19 +202,19 @@ public class Brokers extends javax.swing.JInternalFrame {
             doClear();
         }
     }
-    
+
     private void doCancel() {
         lr.setSourceMethodName("doCancel");
         lr.setMessage("Entering the form closing function.");
         Starter.logger.enter(lr);
-        
+
         LoadMaster.fileProgress.setValue(0);
-        
+
         lr.setMessage("Closing the window.");
         Starter.logger.exit(lr, null);
         dispose();
     }
-    
+
     private void doClear() {
         broker = new BrokerModel();
         idField.setText(String.valueOf(broker.getId()));
@@ -225,29 +229,29 @@ public class Brokers extends javax.swing.JInternalFrame {
         faxField.setText("");
         emailField.setText("");
     }
-    
+
     private boolean isOneNamePresent() {
-        return ( nameField.getText() != null && !nameField.getText().isBlank() 
-                && !nameField.getText().isEmpty() ) ||
-                ( companyField.getText() != null && !companyField.getText().isBlank()
-                && !companyField.getText().isEmpty() );
+        return (nameField.getText() != null && !nameField.getText().isBlank()
+                && !nameField.getText().isEmpty())
+                || (companyField.getText() != null && !companyField.getText().isBlank()
+                && !companyField.getText().isEmpty());
     }
-    
+
     private boolean isOneContactMethodPresent() {
-        return ( phoneField.getValue() != null && !phoneField.getValue().equals("") ) 
-                || ( faxField.getValue() != null && !faxField.getText().equals("") ) ||
-                (( streetField.getText() != null && !streetField.getText().isBlank()
-                    && !streetField.getText().isEmpty() ) &&
-                ( cityField.getText() != null && !cityField.getText().isBlank() 
-                    && !cityField.getText().isEmpty() ) &&
-                ( stateField.getText() != null && !stateField.getText().isBlank()
-                    && !stateField.getText().isEmpty() ) &&
-                ( zipField.getText() != null && !zipField.getText().isBlank()
-                    && !zipField.getText().isEmpty() 
-                    && !zipField.getText().equalsIgnoreCase("unavailable") ))
-                || ( emailField.getText() != null 
-                    && !emailField.getText().isBlank()
-                    && !emailField.getText().isEmpty() );
+        return (phoneField.getValue() != null && !phoneField.getValue().equals(""))
+                || (faxField.getValue() != null && !faxField.getText().equals(""))
+                || ((streetField.getText() != null && !streetField.getText().isBlank()
+                && !streetField.getText().isEmpty())
+                && (cityField.getText() != null && !cityField.getText().isBlank()
+                && !cityField.getText().isEmpty())
+                && (stateField.getText() != null && !stateField.getText().isBlank()
+                && !stateField.getText().isEmpty())
+                && (zipField.getText() != null && !zipField.getText().isBlank()
+                && !zipField.getText().isEmpty()
+                && !zipField.getText().equalsIgnoreCase("unavailable")))
+                || (emailField.getText() != null
+                && !emailField.getText().isBlank()
+                && !emailField.getText().isEmpty());
     }
 
     /**
@@ -651,10 +655,11 @@ public class Brokers extends javax.swing.JInternalFrame {
 
     private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
         // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE ) 
+        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             doCancel();
+        }
     }//GEN-LAST:event_checkEnterEscape
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
@@ -667,20 +672,20 @@ public class Brokers extends javax.swing.JInternalFrame {
 
     private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
         String name = "";
-        
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                    ((javax.swing.JTextArea)evt.getSource()).getText().length(), 
-                    ((javax.swing.JTextArea)evt.getSource()).getText().length());
+
+        if (evt.getSource() instanceof javax.swing.JTextField) {
+            name = ((javax.swing.JTextField) evt.getSource()).getName();
+            ((javax.swing.JTextField) evt.getSource()).selectAll();
+        } else if (evt.getSource() instanceof javax.swing.JTextArea) {
+            name = ((javax.swing.JTextArea) evt.getSource()).getName();
+            ((javax.swing.JTextArea) evt.getSource()).select(
+                    ((javax.swing.JTextArea) evt.getSource()).getText().length(),
+                    ((javax.swing.JTextArea) evt.getSource()).getText().length());
         }
-        
+
         String msg = "";
-        
-        switch ( name ) {
+
+        switch (name) {
             case "cityField":
                 msg = "<html>City in which the broker is located. "
                         + "This field is <em>optional</em>.";
@@ -729,8 +734,8 @@ public class Brokers extends javax.swing.JInternalFrame {
                 msg = "";
                 break;
         }
-        
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
+
+        if (msg != null && !msg.isBlank() && !msg.isEmpty()) {
             helpPanel.setBackground(tip);
             helpLabel.setForeground(tipText);
             helpLabel.setText(msg);
@@ -743,12 +748,12 @@ public class Brokers extends javax.swing.JInternalFrame {
 
     private void validateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_validateData
         // Deselect the text in the field.
-        if ( evt.getSource() instanceof JTextField )
-            ((JTextField)evt.getSource()).select(0, 0);
-        
+        if (evt.getSource() instanceof JTextField) {
+            ((JTextField) evt.getSource()).select(0, 0);
+        }
+
         saveButton.setEnabled(isOneContactMethodPresent() && isOneNamePresent());
     }//GEN-LAST:event_validateData
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;

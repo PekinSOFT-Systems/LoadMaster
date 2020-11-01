@@ -42,7 +42,6 @@
  *                                     - getSystemLogLocationByOS
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.utils;
 
 import java.awt.Dimension;
@@ -55,13 +54,14 @@ import java.util.Set;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class Utils {
+
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    private Utils () {
+    private Utils() {
         // Privatized in order to prohibit this class from being instantiated.
     }
     //</editor-fold>
@@ -69,11 +69,10 @@ public class Utils {
     //<editor-fold defaultstate="collapsed" desc="Private Static Methods and Functions">
     /**
      * Gets the name of the program's JAR file.
-     * 
+     *
      * @return java.lang.String program's JAR file name
      */
-    private static String getJarName()
-    {
+    private static String getJarName() {
         return new File(Utils.class.getProtectionDomain()
                 .getCodeSource()
                 .getLocation()
@@ -85,83 +84,182 @@ public class Utils {
      * Tests to see if the project is currently executing from within a JAR file
      * or from a folder structure. This is useful for testing if the program is
      * running inside or outside the IDE.
-     * 
+     *
      * @return boolean true if running inside a JAR file; false if running in
-     *                  the IDE
+     * the IDE
      */
-    private static boolean runningFromJAR()
-    {
+    private static boolean runningFromJAR() {
         String jarName = getJarName();
         return jarName.contains(".jar");
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods and Functions">
     /**
-     * Retrieves the currently executing program's program directory. This 
+     * Gets the operating system (OS) specific location of where to store any
+     * application data files.Each OS has a different location where these files
+     * get stored, and this application will follow those standards. The typical
+     * location for data files on each OS are:
+     *
+     * | Operating System | Application Data Location | | ---------------- |
+     * ------------------------- | | Microsoft Windows™ |
+     * {user.home}\\AppData\\LoadMaster\\ | | Apple Mac OS-X™ |
+     * {user.home}/Library/Application Data/LoadMaster/ | | Linux and Solaris™ |
+     * {user.home}/.loadmaster/* |
+     *
+     * <dl><dt>Developer's Note</dt><dd>Notice the difference between the Linux
+     * and Solaris location of the application settings file and the information
+     * regarding the location of the application folder in Linux and Solaris.
+     * this one has the same name, but this one **does not** end with a slash
+     * (/) character. That is the only difference between the configuration file
+     * and the application data folder.</dd></dl>
+     *
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationFolderByOS() {
+        String osName = System.getProperty("os.name");
+        String location = "";
+        String userHome = System.getProperty("user.home");
+
+        if (osName.toLowerCase().contains("win")) {
+            location = "AppData\\LoadMaster";
+        } else if (osName.toLowerCase().contains("mac")) {
+            location = "Library/Preferences/LoadMaster";
+        } else {
+            location = ".loadmaster";
+        }
+        return userHome + File.separator + location + File.separator;
+    }
+
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application data files.Each OS has a different location where these files
+     * get stored, and this application will follow those standards. The typical
+     * location for data files on each OS are:
+     *
+     * | Operating System | Application Data Location | | ---------------- |
+     * ------------------------- | | Microsoft Windows™ |
+     * {user.home}\\AppData\\LoadMaster\\data\\ | | Apple Mac OS-X™ |
+     * {user.home}/Library/Application Data/LoadMaster/data/ | | Linux and
+     * Solaris™ | {user.home}/.loadmaster/data/ |
+     *
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationDataFolderByOS() {
+        return getApplicationFolderByOS() + "data" + File.separator;
+    }
+
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application settings files.Each OS has a different location where these
+     * file get stored, and this method allows applications to follow those
+     * well-established standards. | Operating System | Application Data
+     * Location | | ---------------- | ------------------------- | | Microsoft
+     * Windows™ | {user.home}\\AppData\\LoadMaster\\LoadMaster.pref | | Apple
+     * Mac OS-X™ | {user.home}/Library/Preferences/LoadMaster/LoadMaster.pref |
+     * | Linux and Solaris™ | {user.home}/LoadMaster.pref |
+     *
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationSettingsLocationByOS() {
+        String osName = System.getProperty("os.name");
+        String location = getApplicationFolderByOS();
+
+        if (osName.toLowerCase().contains("mac")) {
+            location += "Preferences" + File.separator + "LoadMaster"
+                    + File.separator + "LoadMaster.pref";
+        } else {
+            location += "LoadMaster.pref";
+        }
+
+        return location;
+    }
+
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application log files. Each OS has a different location where these file
+     * get stored, and this method allows applications to follow those
+     * well-established standards. | Operating System | Application Log Location
+     * | | ---------------- | ------------------------- | | Microsoft Windows™ |
+     * %SystemRoot%\\System32\\Config\\LoadMaster\\loadmaster.evt | | Apple Mac
+     * OS-X™ | /Library/Logs/LoadMaster/application.log | | Linux and Solaris™ |
+     * /var/log/loadmaster/application.log |
+     *
+     * @return the OS-specific storage location.
+     */
+    public String getSystemLogLocationByOS() {
+        String osName = System.getProperty("os.name");
+        String location = "";
+
+        if (osName.toLowerCase().contains("win")) {
+            location = "%SystemRoot%\\System32\\Config\\LoadMaster\\loadmaster.evt";
+        } else if (osName.toLowerCase().contains("mac")) {
+            location = "/Library/Logs/LoadMaster/application.log";
+        } else {
+            location = "/var/log/loadmaster/application.log";
+        }
+
+        return location;
+    }
+
+    /**
+     * Retrieves the currently executing program's program directory. This
      * should be the directory in which the program was executed, which could
      * also be considered the program's installation path.
-     * 
+     *
      * @return java.lang.String the directory from which the program is running
      */
-    public static String getProgramDirectory()
-    {
-        if (runningFromJAR())
-        {
+    public static String getProgramDirectory() {
+        if (runningFromJAR()) {
             return getCurrentJARDirectory();
-        } else
-        {
+        } else {
             return getCurrentProjectDirectory();
         }
     }
 
     /**
      * Retrieves the current project's project directory.
-     * 
+     *
      * @return java.lang.String the project's directory
      */
-    private static String getCurrentProjectDirectory()
-    {
+    private static String getCurrentProjectDirectory() {
         return new File("").getAbsolutePath();
     }
 
     /**
      * Retrieves the JAR file's current directory location.
-     * 
+     *
      * @return java.lang.String the directory in which the JAR file is located
      */
-    private static String getCurrentJARDirectory()
-    {
-        try
-        {
+    private static String getCurrentJARDirectory() {
+        try {
             return new File(Utils.class.getProtectionDomain()
                     .getCodeSource()
                     .getLocation()
                     .toURI()
                     .getPath())
                     .getParent();
-        } catch (URISyntaxException exception)
-        {
+        } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
         return "";
     }
-    
+
     /**
-     *  Calculates central position of the window within its container.
-     * 
+     * Calculates central position of the window within its container.
+     *
      * <dl>
-     *  <dt>Contributed By</dt>
-     *  <dd>Jiří Kovalský &lt;jiri dot kovalsky at centrum dot cz&gt;</dd>
+     * <dt>Contributed By</dt>
+     * <dd>Jiří Kovalský &lt;jiri dot kovalsky at centrum dot cz&gt;</dd>
      * </dl>
-     * 
-     * @param container Dimensions of parent container where window will be 
-     *                  located.
-     * @param window Dimensions of child window which will be displayed within 
-     *               its parent container.
-     * @return Location of top left corner of window to be displayed in the 
-     *         center of its parent container.
+     *
+     * @param container Dimensions of parent container where window will be
+     * located.
+     * @param window Dimensions of child window which will be displayed within
+     * its parent container.
+     * @return Location of top left corner of window to be displayed in the
+     * center of its parent container.
      */
     public static Point getCenterPoint(Dimension container, Dimension window) {
         int x = container.width / 2;
@@ -173,10 +271,9 @@ public class Utils {
         return new Point(x, y);
     }
 
-    
     public static Set<String> createStateAbbreviations() {
         Set<String> states = new HashSet<>();
-        
+
         // Add our state and province abbreviations into our set.
         states.add("AL"); // Alabama
         states.add("AK"); // Alaska
@@ -241,21 +338,21 @@ public class Utils {
         states.add("QC"); // Quebec
         states.add("SK"); // Saskatchewan
         states.add("YT"); // Yukon
-        
+
         // Return the set of state/province abbreviations.
         return states;
     }
-    
+
     /**
      * Retrieves the state or province name abbreviation for the given state or
      * province name.
-     * 
+     *
      * @param state Name of the state or province to abbreviate.
-     * @return      The state or province abbreviation.
+     * @return The state or province abbreviation.
      */
     public static String getStateAbbreviation(String state) {
         String st = null;
-        
+
         switch (state.toLowerCase()) {
             case "alabama":
                 st = "AL";
@@ -460,9 +557,9 @@ public class Utils {
                 break;
             default:
                 st = null;
-                
+
         }
-        
+
         // Return the state abbreviation.
         return st;
     }

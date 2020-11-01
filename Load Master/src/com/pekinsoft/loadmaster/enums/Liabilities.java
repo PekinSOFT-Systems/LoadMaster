@@ -10,5 +10,5 @@ package com.pekinsoft.loadmaster.enums;
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  */
 public enum Liabilities {
-    
+
 }

@@ -31,7 +31,6 @@
  *  Mar 8, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.utils;
 
 import java.security.NoSuchAlgorithmException;
@@ -46,7 +45,7 @@ import javax.crypto.spec.PBEKeySpec;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
@@ -60,14 +59,14 @@ public class PasswordUtils {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    private PasswordUtils () {
+    private PasswordUtils() {
         // Privatized constructor to keep class from being instantiated.
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
     /**
-     * Method provides a means of generating salt for password hashing to 
+     * Method provides a means of generating salt for password hashing to
      * protect the password for hackers and allow for storage in a database.
      * <p>
      * Password-based encryption generates a cryptographic key using a user
@@ -81,22 +80,22 @@ public class PasswordUtils {
      * and gain access to those accounts.</p>
      * <p>
      * We provide this method to allow the calling application to generate salt.
-     * 
+     *
      * @param length Number of bits of salt to generate.
-     * @return       Optional&lt;String&gt; of the salt.
+     * @return Optional&lt;String&gt; of the salt.
      */
     public static Optional<String> generateSalt(final int length) {
-        if ( length < 1 ) {
+        if (length < 1) {
             System.err.println("error in generateSalt :: length must be > 0");
             return Optional.empty();
         }
-        
+
         byte[] salt = new byte[length];
         RAND.nextBytes(salt);
-        
+
         return Optional.of(Base64.getEncoder().encodeToString(salt));
     }
-    
+
     /**
      * This method actually performs the hashing of the provided password, using
      * the provided salt string. With these two ingredients, we will generate a
@@ -104,28 +103,28 @@ public class PasswordUtils {
      * able to be determined what the original password was.
      * <p>
      * For security's sake, we immediately convert the password to a character
-     * array and the salt to a byte array. As soon as we are done with the 
+     * array and the salt to a byte array. As soon as we are done with the
      * provided strings, we set them up for garbage collection. Likewise, as
      * soon as we are done with the arrays, we place null characters in each
      * element, so as to keep the original password a secret.
-     * 
-     * @param password  String pulled from a password field on a logon dialog.
-     * @param salt      String of randomly generated salt.
-     * @return          A secure hash of the original password.
+     *
+     * @param password String pulled from a password field on a logon dialog.
+     * @param salt String of randomly generated salt.
+     * @return A secure hash of the original password.
      */
     public static Optional<String> hashPassword(String password, String salt) {
         char[] chars = password.toCharArray();
         byte[] bytes = salt.getBytes();
-        
+
         PBEKeySpec spec = new PBEKeySpec(chars, bytes, ITERATIONS, KEY_LENGTH);
-        
+
         Arrays.fill(chars, Character.MIN_VALUE);
-        
+
         try {
             SecretKeyFactory fac = SecretKeyFactory.getInstance(ALGORITHM);
             byte[] securePassword = fac.generateSecret(spec).getEncoded();
             return Optional.of(Base64.getEncoder().encodeToString(securePassword));
-            
+
         } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
             System.err.println("Exception encountered in hashPassword()");
             return Optional.empty();
@@ -133,19 +132,21 @@ public class PasswordUtils {
             spec.clearPassword();
         }
     }
-    
+
     /**
      * This method allows the calling application to verify that a user entered
      * the correct password, by checking it against a known hash.
-     * 
+     *
      * @param password The entered password.
-     * @param key      The hash of the original password that was stored.
-     * @param salt     The same random salt as originally used.
-     * @return         Whether the passwords match or not.
+     * @param key The hash of the original password that was stored.
+     * @param salt The same random salt as originally used.
+     * @return Whether the passwords match or not.
      */
     public static boolean verifyPassword(String password, String key, String salt) {
         Optional<String> optEncrypted = hashPassword(password, salt);
-        if (!optEncrypted.isPresent()) return false;
+        if (!optEncrypted.isPresent()) {
+            return false;
+        }
         return optEncrypted.get().equals(key);
     }
     //</editor-fold>

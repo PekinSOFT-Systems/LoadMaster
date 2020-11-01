@@ -28,13 +28,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Sean Carrick
  */
 public class Booker extends javax.swing.JInternalFrame {
+
     private boolean isDirty;
     private boolean isLoading;
     private int stopNumber;
     private LogRecord entry;
     private LoadCtl loads;
     private LoadModel load;
-    
+
     /**
      * Creates new form Booker
      */
@@ -45,43 +46,43 @@ public class Booker extends javax.swing.JInternalFrame {
         entry.setSourceMethodName("Booker");
         entry.setParameters(new Object[]{});
         Starter.logger.enter(entry);
-        
+
         initComponents();
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Date now = new Date();
         dispatchDate.setDate(now);
         dispatchDate.getEditor().setText(sdf.format(now));
-        
+
         getRootPane().setDefaultButton(bookLoad);
-        
+
         entry.setMessage("Creating our LoadModel object.");
         Starter.logger.config(entry);
         load = new LoadModel();
-        
+
         entry.setMessage("Attempting to create our LoadCtl object.");
         Starter.logger.config(entry);
         try {
             loads = new LoadCtl();
             entry.setMessage("LoadCtl object successfully created.");
             Starter.logger.info(entry);
-        } catch ( DataStoreException ex ) {
-                entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
-                        + "Throwing DataStoreException to calling method...");
-                entry.setThrown(ex);
-                entry.setSourceMethodName("connect");
-                entry.setParameters(null);
-                Starter.logger.error(entry);
+        } catch (DataStoreException ex) {
+            entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
+                    + "Throwing DataStoreException to calling method...");
+            entry.setThrown(ex);
+            entry.setSourceMethodName("connect");
+            entry.setParameters(null);
+            Starter.logger.error(entry);
         }
-        
+
         isDirty = false;
         stopNumber = 0;
         isLoading = false;
-        
+
         entry.setMessage("Leaving constructor...");
         Starter.logger.exit(entry, new Object[]{});
     }
-    
+
     private boolean arePickupTimesValid() {
         // Before we compare the early and late times, we need to make sure that
         //+ they are valid times. In order for them to be valid, they must pass
@@ -96,69 +97,69 @@ public class Booker extends javax.swing.JInternalFrame {
         int etMin = 0;
         int ltHour = 0;
         int ltMin = 0;
-        
-        if ( earlyPickupTime.getText() != null && !earlyPickupTime.getText().isBlank()
-                && latePickupTime.getText() != null && !latePickupTime.getText().isBlank() ) {
+
+        if (earlyPickupTime.getText() != null && !earlyPickupTime.getText().isBlank()
+                && latePickupTime.getText() != null && !latePickupTime.getText().isBlank()) {
             et = earlyPickupTime.getText().split(":");
             lt = latePickupTime.getText().split(":");
             etHour = Integer.valueOf(et[0]);
             etMin = Integer.valueOf(et[1]);
             ltHour = Integer.valueOf(lt[0]);
-            ltMin = Integer.valueOf(lt[1]);        
+            ltMin = Integer.valueOf(lt[1]);
         }
-        
-        if ( (etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
-                || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59) ) {
+
+        if ((etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
+                || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59)) {
             // One of the above tests failed.
-            MessageBox.showWarning("Either the Early or Late time is not valid.", 
+            MessageBox.showWarning("Either the Early or Late time is not valid.",
                     "Invalid Time Format");
             return false;
         }
-        
+
         // Create a couple of Date object to hold the early and late times for
         //+ comparison, and reset the SimpleDateFormat object to only hold the
         //+ times, in 24-hour format.
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         Date early = null;
         Date late = null;
-        
-        if ( earlyPickupTime.getText() != null && latePickupTime.getText() != null ) {
+
+        if (earlyPickupTime.getText() != null && latePickupTime.getText() != null) {
             try {
                 early = sdf.parse(earlyPickupTime.getText());
                 late = sdf.parse(latePickupTime.getText());
-            } catch ( ParseException ex ) {
-                    entry.setMessage("A stop time was not valid.");
-                    entry.setThrown(ex);
-                    Starter.logger.error(entry);
-                    entry.setMessage("Validation completed. Returning findings.");
-                    entry.setThrown(null);
-                    Starter.logger.exit(entry, new Object[] {false});
-                    // We will return false from here so that the data cannot be
-                    //+ saved.
-                    MessageBox.showError(ex, "Date Parsing Error");
-                    return false;
+            } catch (ParseException ex) {
+                entry.setMessage("A stop time was not valid.");
+                entry.setThrown(ex);
+                Starter.logger.error(entry);
+                entry.setMessage("Validation completed. Returning findings.");
+                entry.setThrown(null);
+                Starter.logger.exit(entry, new Object[]{false});
+                // We will return false from here so that the data cannot be
+                //+ saved.
+                MessageBox.showError(ex, "Date Parsing Error");
+                return false;
             }
         }
-        
+
         // Now that we know that both times have been successfully created,
         //+ we need to validate the times, but only if the early and late
         //+ dates are the same day.
-        if ( latePickupDate.getDate().compareTo(earlyPickupDate.getDate()) == 0 ) {
+        if (latePickupDate.getDate().compareTo(earlyPickupDate.getDate()) == 0) {
             // Only perform the next text if the early and late dates are on
             //+ the same date.
-            if ( late.compareTo(early) < 0 ) {
+            if (late.compareTo(early) < 0) {
                 // The late time is before the early time.
                 entry.setMessage("Validation completed. Returning findings.");
-                Starter.logger.exit(entry, new Object[] {false});
+                Starter.logger.exit(entry, new Object[]{false});
                 MessageBox.showWarning("Late pickup date is cannot be before the"
                         + " early pickup date", "Invalid Late Pickup Date");
                 return false;
             }
         }
-        
+
         return true;
     }
-    
+
     private boolean areDeliveryTimesValid() {
         // Before we compare the early and late times, we need to make sure that
         //+ they are valid times. In order for them to be valid, they must pass
@@ -180,75 +181,75 @@ public class Booker extends javax.swing.JInternalFrame {
         int etMin = 0;
         int ltHour = 0;
         int ltMin = 0;
-        
-        if ( earlyDeliveryTime.getText() != null && !earlyDeliveryTime.getText().isBlank()
-                && lateDeliveryTime.getText() != null && !lateDeliveryTime.getText().isBlank() ) {
+
+        if (earlyDeliveryTime.getText() != null && !earlyDeliveryTime.getText().isBlank()
+                && lateDeliveryTime.getText() != null && !lateDeliveryTime.getText().isBlank()) {
             et = earlyDeliveryTime.getText().split(":");
             lt = lateDeliveryTime.getText().split(":");
             etHour = Integer.valueOf(et[0]);
             etMin = Integer.valueOf(et[1]);
             ltHour = Integer.valueOf(lt[0]);
-            ltMin = Integer.valueOf(lt[1]);        
+            ltMin = Integer.valueOf(lt[1]);
         }
-        
-        if ( (etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
-                || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59) ) {
+
+        if ((etHour < 0 || etHour > 23) || (etMin < 0 || etMin > 59)
+                || (ltHour < 0 || ltHour > 23) || (ltMin < 0 || ltMin > 59)) {
             // One of the above tests failed.
-            MessageBox.showWarning("Either the Early or Late time is not valid.", 
+            MessageBox.showWarning("Either the Early or Late time is not valid.",
                     "Invalid Time Format");
             return false;
         }
-        
+
         // Create a couple of Date object to hold the early and late times for
         //+ comparison, and reset the SimpleDateFormat object to only hold the
         //+ times, in 24-hour format.
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         Date early = null;
         Date late = null;
-        
-        if ( earlyDeliveryTime.getText() != null && lateDeliveryTime.getText() != null ) {
+
+        if (earlyDeliveryTime.getText() != null && lateDeliveryTime.getText() != null) {
             try {
                 early = sdf.parse(earlyDeliveryTime.getText());
                 late = sdf.parse(lateDeliveryTime.getText());
-            } catch ( ParseException ex ) {
-                    entry.setMessage("A stop time was not valid.");
-                    entry.setThrown(ex);
-                    Starter.logger.error(entry);
-                    entry.setMessage("Validation completed. Returning findings.");
-                    entry.setThrown(null);
-                    Starter.logger.exit(entry, new Object[] {false});
-                    // We will return false from here so that the data cannot be
-                    //+ saved.
-                    MessageBox.showError(ex, "Date Parsing Error");
-                    return false;
+            } catch (ParseException ex) {
+                entry.setMessage("A stop time was not valid.");
+                entry.setThrown(ex);
+                Starter.logger.error(entry);
+                entry.setMessage("Validation completed. Returning findings.");
+                entry.setThrown(null);
+                Starter.logger.exit(entry, new Object[]{false});
+                // We will return false from here so that the data cannot be
+                //+ saved.
+                MessageBox.showError(ex, "Date Parsing Error");
+                return false;
             }
         }
-        
+
         // Now that we know that both times have been successfully created,
         //+ we need to validate the times, but only if the early and late
         //+ dates are the same day.
-        if ( lateDeliveryDate.getDate().compareTo(earlyDeliveryDate.getDate()) == 0 ) {
+        if (lateDeliveryDate.getDate().compareTo(earlyDeliveryDate.getDate()) == 0) {
             // Only perform the next text if the early and late dates are on
             //+ the same date.
-            if ( late.compareTo(early) < 0 ) {
+            if (late.compareTo(early) < 0) {
                 // The late time is before the early time.
                 entry.setMessage("Validation completed. Returning findings.");
-                Starter.logger.exit(entry, new Object[] {false});
+                Starter.logger.exit(entry, new Object[]{false});
                 MessageBox.showWarning("Late pickup date is cannot be before the"
                         + " early pickup date", "Invalid Late Pickup Date");
                 return false;
             }
         }
-        
+
         return true;
     }
-    
+
     private boolean arePickupAndDeliveryDatesValid() {
         // Lastly, we will perform the most complex validation we need to do, 
         //+ and that is making sure that the dates for pickup and delivery are
         //+ correct according to the rules at the beginning of this method.
-        if ( latePickupDate.getDate() != null && earlyPickupDate.getDate() != null ) {
-            if ( latePickupDate.getDate().compareTo(earlyPickupDate.getDate()) < 0 ) {
+        if (latePickupDate.getDate() != null && earlyPickupDate.getDate() != null) {
+            if (latePickupDate.getDate().compareTo(earlyPickupDate.getDate()) < 0) {
                 // Less than zero (0) means that lateDate is BEFORE earlyDate.
                 MessageBox.showWarning("Late pickup date must be the same date"
                         + "or later than early date.", "Invlid Pickup Date");
@@ -256,89 +257,89 @@ public class Booker extends javax.swing.JInternalFrame {
             }
         }
 
-        if ( lateDeliveryDate.getDate() != null && earlyDeliveryDate.getDate() != null ) {
-            if ( lateDeliveryDate.getDate().compareTo(earlyDeliveryDate.getDate()) < 0 ) {
+        if (lateDeliveryDate.getDate() != null && earlyDeliveryDate.getDate() != null) {
+            if (lateDeliveryDate.getDate().compareTo(earlyDeliveryDate.getDate()) < 0) {
                 // Less than zero (0) means that lateDate is BEFORE earlyDate.
                 MessageBox.showWarning("Late delivery date must be the same date"
                         + "or later than early date.", "Invalid Delivery Date");
                 return false;
             }
         }
-        
+
         return true;
     }
-    
+
     private boolean isAtLeastOneBrokerContactMethodPresent() {
         // Then, we will make sure that at least one of the broker/agent contact
         //+ methods have been provided.
-        if ( (phoneField.getValue() == null 
+        if ((phoneField.getValue() == null
                 || phoneField.getValue().toString().isBlank()
                 || phoneField.getValue().toString().isEmpty())
-                && (faxField.getValue() == null 
+                && (faxField.getValue() == null
                 || faxField.getValue().toString().isBlank()
-                || faxField.getValue().toString().isEmpty()) 
-                && (emailField.getText() == null 
+                || faxField.getValue().toString().isEmpty())
+                && (emailField.getText() == null
                 || emailField.getText().isBlank()
-                || emailField.getText().isEmpty()) ) {
+                || emailField.getText().isEmpty())) {
             MessageBox.showWarning("Need at least one contact method for the\n"
                     + "broker or agent.", "Missing Data");
             return false;
         }
-        
+
         return true;
     }
-    
+
     private boolean areRequiredFieldsPresent() {
         // First, we will validate the easy stuff: order, trip, odometer, rate,
         //+ miles, and broker/agent.
-        if ( orderNumberField.getText() == null
+        if (orderNumberField.getText() == null
                 || orderNumberField.getText().isBlank()
-                || orderNumberField.getText().isEmpty() ) {
+                || orderNumberField.getText().isEmpty()) {
             MessageBox.showWarning("Order number is required.", "Missing Data");
             return false;
         }
-        if ( tripNumberField.getText() == null
+        if (tripNumberField.getText() == null
                 || tripNumberField.getText().isBlank()
-                || tripNumberField.getText().isEmpty() ) {
+                || tripNumberField.getText().isEmpty()) {
             MessageBox.showWarning("Trip number is required.", "Missing Data");
             return false;
         }
-        if ( begOdoField.getText() == null
-                ||begOdoField.getText().isBlank()
-                || begOdoField.getText().isEmpty() ) {
+        if (begOdoField.getText() == null
+                || begOdoField.getText().isBlank()
+                || begOdoField.getText().isEmpty()) {
             MessageBox.showWarning("Starting odometer is required.", "Missing Data");
             return false;
         }
-        if ( grossPay.getText() == null || grossPay.getText().isBlank()
-                || grossPay.getText().isEmpty() ) {
+        if (grossPay.getText() == null || grossPay.getText().isBlank()
+                || grossPay.getText().isEmpty()) {
             MessageBox.showWarning("Gross rate is required.", "Missing Data");
             return false;
         }
-        if ( loadMiles.getText() == null || loadMiles.getText().isBlank()
-                || loadMiles.getText().isEmpty() ) {
+        if (loadMiles.getText() == null || loadMiles.getText().isBlank()
+                || loadMiles.getText().isEmpty()) {
             MessageBox.showWarning("Loaded miles is required.", "Missing Data");
             return false;
         }
-        if ( brokerField.getText() == null || brokerField.getText().isBlank()
-                || brokerField.getText().isEmpty() ) {
+        if (brokerField.getText() == null || brokerField.getText().isBlank()
+                || brokerField.getText().isEmpty()) {
             MessageBox.showWarning("Broker name or company is required.", "Missing Data");
             return false;
         }
-        
+
         return true;
     }
-    
+
     private boolean areThereAtLeastTwoStops() {
         // Next, we will validate that a minimum of two (2) stops have been 
         //+ entered.
-        if ( load.getStopCount() < 2 ) {
+        if (load.getStopCount() < 2) {
             MessageBox.showWarning("Minimum of two stops are required.", "Missing Data");
             return false;
         }
-        
+
         return true;
     }
-    
+
     private boolean isDataValid() {
         /* For validating the data on this screen, the following fields are 
          * required:
@@ -379,20 +380,20 @@ public class Booker extends javax.swing.JInternalFrame {
                 && arePickupTimesValid()
                 && areDeliveryTimesValid();
     }
-    
+
     private void calculateRPM() {
-        if ( (grossPay.getText() != null || !grossPay.getText().isBlank() ||
-                !grossPay.getText().isEmpty()) && (loadMiles.getText() != null
-                || !loadMiles.getText().isBlank() 
-                || !loadMiles.getText().isEmpty()) ) {
+        if ((grossPay.getText() != null || !grossPay.getText().isBlank()
+                || !grossPay.getText().isEmpty()) && (loadMiles.getText() != null
+                || !loadMiles.getText().isBlank()
+                || !loadMiles.getText().isEmpty())) {
             Double pay = Double.valueOf(grossPay.getText());
             Double miles = Double.valueOf(loadMiles.getText());
-            
+
             Double rate = pay / miles;
             perMileRate.setEditable(true);
             perMileRate.setText(String.format("%.2f", rate));
             perMileRate.setEditable(false);
-            
+
             MessageBox.showInfo(pay.toString() + " / " + miles.toString(), "Debugging Message");
         }
     }
@@ -400,24 +401,24 @@ public class Booker extends javax.swing.JInternalFrame {
     private void doBook() {
         MessageBox.showInfo("All data is valid!", "Debugging Message");
     }
-    
+
     private void doCancel() {
-        if ( isDirty ) {
+        if (isDirty) {
             int choice = MessageBox.askQuestion("Load has been changed.\n\n"
-                    + "Are you sure you wish to discard changes?", 
+                    + "Are you sure you wish to discard changes?",
                     "Confirm Cancel", false);
-            
-            if ( choice == MessageBox.YES_OPTION ) {
-        
+
+            if (choice == MessageBox.YES_OPTION) {
+
                 LoadMaster.fileProgress.setValue(0);
                 dispose();
             }
-        } else
-        
+        } else {
             LoadMaster.fileProgress.setValue(0);
-            dispose();
+        }
+        dispose();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1352,10 +1353,11 @@ public class Booker extends javax.swing.JInternalFrame {
 
     private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
         // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             doBook();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE ) 
+        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             doCancel();
+        }
     }//GEN-LAST:event_checkEnterEscape
 
     private void lookupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupButtonActionPerformed
@@ -1363,74 +1365,79 @@ public class Booker extends javax.swing.JInternalFrame {
         BrokerSelector dlg = new BrokerSelector(null, true);
         dlg.pack();
         dlg.show();
-        
-        if ( dlg != null ) {
+
+        if (dlg != null) {
             BrokerModel b = dlg.getSelectedBroker();
-            
-            if ( b.getContact() == null || b.getContact().isBlank()
-                    || b.getContact().isEmpty() ) {
-                if ( b.getCompany() != null && !b.getCompany().isBlank()
-                        && !b.getCompany().isEmpty() )
+
+            if (b.getContact() == null || b.getContact().isBlank()
+                    || b.getContact().isEmpty()) {
+                if (b.getCompany() != null && !b.getCompany().isBlank()
+                        && !b.getCompany().isEmpty()) {
                     brokerField.setText(b.getCompany());
+                }
             } else {
                 brokerField.setText(b.getContact());
             }
-            
-            if ( b.getPhone() == null || b.getPhone().isBlank()
-                    || b.getPhone().isEmpty() ) {
-                if ( b.getFax() == null || b.getFax().isBlank()
-                        || b.getFax().isEmpty() ) {
-                    if ( b.getEmail() != null && !b.getEmail().isBlank()
-                            && !b.getEmail().isEmpty() )
+
+            if (b.getPhone() == null || b.getPhone().isBlank()
+                    || b.getPhone().isEmpty()) {
+                if (b.getFax() == null || b.getFax().isBlank()
+                        || b.getFax().isEmpty()) {
+                    if (b.getEmail() != null && !b.getEmail().isBlank()
+                            && !b.getEmail().isEmpty()) {
                         emailField.setText(b.getEmail());
-                } else 
+                    }
+                } else {
                     faxField.setText(b.getFax());
-            } else 
+                }
+            } else {
                 phoneField.setText(b.getPhone());
+            }
         }
-        if ( !isLoading ) 
+        if (!isLoading) {
             bookLoad.setEnabled(isDataValid());
+        }
     }//GEN-LAST:event_lookupButtonActionPerformed
 
     private void addStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStopActionPerformed
         CustomerSelector dlg = new CustomerSelector(null, true);
         dlg.pack();
         dlg.show();
-        
-        if ( dlg != null ) {
-             
+
+        if (dlg != null) {
+
             SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
             String eDate = fmt.format(dlg.getEarlyDate());
             String lDate = fmt.format(dlg.getLateDate());
-            DefaultTableModel model = (DefaultTableModel)stopsTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) stopsTable.getModel();
             CustomerModel c = dlg.getSelectedCustomer();
-            Object[] row = {++stopNumber,       // Stop Number
-                            c.getCompany(),     // Company name
-                            c.getAddress(),     // Complete address
-                            eDate,              // Early date
-                            dlg.getEarlyTime(), // Early time
-                            lDate,              // Late date
-                            dlg.getLateTime()}; // Late time
+            Object[] row = {++stopNumber, // Stop Number
+                c.getCompany(), // Company name
+                c.getAddress(), // Complete address
+                eDate, // Early date
+                dlg.getEarlyTime(), // Early time
+                lDate, // Late date
+                dlg.getLateTime()}; // Late time
             model.addRow(row);
-            
+
             stopsTable.setModel(model);
-            
+
             StopModel stop = new StopModel();
             stop.setEarlyDate(dlg.getEarlyDate());
             stop.setLateDate(dlg.getLateDate());
             stop.setCustomer(c.getId());
-            
+
             try {
                 stop.setEarlyTime(dlg.getEarlyTime());
                 stop.setLateTime(dlg.getLateTime());
-            } catch ( InvalidTimeException ex ) {
+            } catch (InvalidTimeException ex) {
                 entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                         + "Provided time is invalid.");
                 entry.setThrown(ex);
                 entry.setSourceMethodName("connect");
                 entry.setParameters(null);
                 Starter.logger.error(entry);
-            } catch ( ParseException ex ) {
+            } catch (ParseException ex) {
                 entry.setMessage(ex.getMessage() + "\n\n" + "-".repeat(80)
                         + "Throwing DataStoreException to calling method...");
                 entry.setThrown(ex);
@@ -1438,13 +1445,14 @@ public class Booker extends javax.swing.JInternalFrame {
                 entry.setParameters(null);
                 Starter.logger.error(entry);
             }
-            
+
             load.addStop(stop);
-            
+
         }
 
-        if ( !isLoading ) 
+        if (!isLoading) {
             bookLoad.setEnabled(isDataValid());
+        }
     }//GEN-LAST:event_addStopActionPerformed
 
     private void cancelLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelLoadActionPerformed
@@ -1453,23 +1461,26 @@ public class Booker extends javax.swing.JInternalFrame {
 
     private void flagDirty(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_flagDirty
         isDirty = true;
-        
-        if ( !isLoading ) 
+
+        if (!isLoading) {
             bookLoad.setEnabled(isDataValid());
+        }
     }//GEN-LAST:event_flagDirty
 
     private void flagDirtyProperty(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_flagDirtyProperty
         isDirty = true;
-        
-        if ( !isLoading ) 
+
+        if (!isLoading) {
             bookLoad.setEnabled(isDataValid());
+        }
     }//GEN-LAST:event_flagDirtyProperty
 
     private void flagDirtyCheck(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_flagDirtyCheck
         isDirty = true;
-        
-        if ( !isLoading ) 
+
+        if (!isLoading) {
             bookLoad.setEnabled(isDataValid());
+        }
     }//GEN-LAST:event_flagDirtyCheck
 
     private void bookLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookLoadActionPerformed
@@ -1480,19 +1491,19 @@ public class Booker extends javax.swing.JInternalFrame {
         // Autofill the late pickup date with the date selected here.
         latePickupDate.setDate(earlyPickupDate.getDate());
         latePickupDate.getEditor().setText(earlyPickupDate.getEditor().getText());
-        
+
         isDirty = true;
     }//GEN-LAST:event_earlyPickupDateActionPerformed
 
     private void earlyPickupTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyPickupTimeKeyReleased
         latePickupTime.setText(earlyPickupTime.getText());
-        
+
         flagDirty(evt);
     }//GEN-LAST:event_earlyPickupTimeKeyReleased
 
     private void earlyDeliveryTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_earlyDeliveryTimeKeyReleased
         lateDeliveryTime.setText(earlyDeliveryTime.getText());
-        
+
         flagDirty(evt);
     }//GEN-LAST:event_earlyDeliveryTimeKeyReleased
 
@@ -1515,11 +1526,11 @@ public class Booker extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_loadMilesVetoableChange
 
     private void grossPayFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_grossPayFocusLost
-        calculateRPM();       
+        calculateRPM();
     }//GEN-LAST:event_grossPayFocusLost
 
     private void grossPayFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_grossPayFocusGained
-        calculateRPM();       
+        calculateRPM();
     }//GEN-LAST:event_grossPayFocusGained
 
     private void loadMilesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loadMilesFocusGained
@@ -1527,13 +1538,12 @@ public class Booker extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_loadMilesFocusGained
 
     private void loadMilesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loadMilesFocusLost
-        calculateRPM();    
+        calculateRPM();
     }//GEN-LAST:event_loadMilesFocusLost
 
     private void loadMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMilesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loadMilesActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStop;

@@ -31,7 +31,6 @@
  *  Mar 8, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.utils;
 
 import java.io.File;
@@ -51,13 +50,14 @@ import java.util.jar.JarFile;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class FileUtils {
+
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    private FileUtils () {
+    private FileUtils() {
         // Privatized to prevent this class from being instantiated.
     }
     //</editor-fold>
@@ -65,122 +65,122 @@ public class FileUtils {
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods and Functions">
     public static boolean copyFile(final File toCopy, final File destFile) {
         try {
-            return FileUtils.copyStream(new FileInputStream(toCopy), 
-                                                new FileOutputStream(destFile));
+            return FileUtils.copyStream(new FileInputStream(toCopy),
+                    new FileOutputStream(destFile));
         } catch (final FileNotFoundException e) {
             e.printStackTrace();
         }
-        
+
         return false;
     }
-    
-    private static boolean copyFilesRecursively(final File toCopy, 
-                                                final File destDir) {
+
+    private static boolean copyFilesRecursively(final File toCopy,
+            final File destDir) {
         assert destDir.isDirectory();
-        
-        if ( !toCopy.isDirectory() ) {
+
+        if (!toCopy.isDirectory()) {
             return FileUtils.copyFile(toCopy, new File(destDir, toCopy.getName()));
         } else {
             final File newDestDir = new File(destDir, toCopy.getName());
-            
-            if ( !newDestDir.exists() && !newDestDir.mkdir() ) {
+
+            if (!newDestDir.exists() && !newDestDir.mkdir()) {
                 return false;
             }
-            
-            for ( final File child : toCopy.listFiles() ) {
-                if ( !FileUtils.copyFilesRecursively(child, newDestDir)) {
+
+            for (final File child : toCopy.listFiles()) {
+                if (!FileUtils.copyFilesRecursively(child, newDestDir)) {
                     return false;
                 }
             }
         }
-        
+
         return true;
     }
-    
+
     public static boolean copyJarResourcesRecursively(final File destDir,
             final JarURLConnection jarConnection) throws IOException {
         final JarFile jarFile = jarConnection.getJarFile();
-        
-        for (final Enumeration<JarEntry> e = jarFile.entries(); 
-                                                        e.hasMoreElements();) {
+
+        for (final Enumeration<JarEntry> e = jarFile.entries();
+                e.hasMoreElements();) {
             final JarEntry entry = e.nextElement();
-            
+
             if (entry.getName().startsWith(jarConnection.getEntryName())) {
                 final String filename = StringUtils.removeStart(entry.getName(),
                         jarConnection.getEntryName());
-                
+
                 final File f = new File(destDir, filename);
-                
+
                 if (!entry.isDirectory()) {
                     final InputStream entryInputStream = jarFile.getInputStream(entry);
-                    
+
                     if (!FileUtils.copyStream(entryInputStream, f)) {
                         return false;
                     }
-                    
+
                     entryInputStream.close();
                 } else {
-                    if ( !FileUtils.ensureDirectoryExists(f)) {
-                        throw new IOException("Could not create directory: " +
-                                f.getAbsolutePath());
+                    if (!FileUtils.ensureDirectoryExists(f)) {
+                        throw new IOException("Could not create directory: "
+                                + f.getAbsolutePath());
                     }
                 }
             }
         }
-        
+
         return true;
     }
-    
+
     public static boolean copyResourcesRecursively(final URL originUrl,
-                                                   final File destination) {
+            final File destination) {
         try {
             final URLConnection urlConnection = originUrl.openConnection();
-            
-            if ( urlConnection instanceof JarURLConnection) {
-                return FileUtils.copyJarResourcesRecursively(destination, 
+
+            if (urlConnection instanceof JarURLConnection) {
+                return FileUtils.copyJarResourcesRecursively(destination,
                         (JarURLConnection) urlConnection);
             } else {
                 return FileUtils.copyFilesRecursively(new File(
-                                                      originUrl.getPath()), 
-                                                      destination);
+                        originUrl.getPath()),
+                        destination);
             }
-        } catch ( final IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
-        
+
         return false;
     }
-    
+
     private static boolean copyStream(final InputStream is, final File f) {
         try {
             return FileUtils.copyStream(is, new FileOutputStream(f));
-        } catch ( final FileNotFoundException e ) {
+        } catch (final FileNotFoundException e) {
             e.printStackTrace();
         }
-        
+
         return false;
     }
-    
+
     private static boolean copyStream(final InputStream is,
-                                      final OutputStream os) {
+            final OutputStream os) {
         try {
             final byte[] buf = new byte[1024];
-            
+
             int len = 0;
-            while ( (len = is.read(buf)) > 0 ) {
+            while ((len = is.read(buf)) > 0) {
                 os.write(buf);
             }
-            
+
             is.close();
             os.close();
             return true;
-        } catch ( final IOException e ) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
-        
+
         return false;
     }
-    
+
     private static boolean ensureDirectoryExists(final File f) {
         return f.exists() || f.mkdir();
     }

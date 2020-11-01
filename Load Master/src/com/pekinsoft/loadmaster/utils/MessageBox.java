@@ -31,7 +31,6 @@
  *  Mar 8, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.utils;
 
 import javax.swing.JOptionPane;
@@ -39,11 +38,12 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class MessageBox {
+
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
     public static final int YES_OPTION = JOptionPane.YES_OPTION;
     public static final int NO_OPTION = JOptionPane.NO_OPTION;
@@ -53,12 +53,10 @@ public class MessageBox {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    private MessageBox () {
-        
+    private MessageBox() {
+
     }
     //</editor-fold>
 
@@ -71,18 +69,18 @@ public class MessageBox {
      * via this method, nor should input be sought. Again, only informational
      * messages should be displayed using this method.
      * </p>
-     * 
-     * @param message   The message to display to the user.
-     * @param title     The title of the message box.
-     * 
+     *
+     * @param message The message to display to the user.
+     * @param title The title of the message box.
+     *
      */
     public static void showInfo(String message, String title) {
-        JOptionPane.showMessageDialog(null, 
-                                      message, 
-                                      title, 
-                                      JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                message,
+                title,
+                JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     /**
      * Standardized method of displaying warning messages to the user.
      * <p>
@@ -92,28 +90,28 @@ public class MessageBox {
      * shown using the showError method. Questions and input should be sought
      * using the appropriate methods.
      * </p>
-     * 
-     * @param message   The message to display to the user.
-     * @param title     The title of the message box.
-     * 
+     *
+     * @param message The message to display to the user.
+     * @param title The title of the message box.
+     *
      */
     public static void showWarning(String message, String title) {
-        JOptionPane.showMessageDialog(null, 
-                                      message, 
-                                      title, 
-                                      JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                message,
+                title,
+                JOptionPane.WARNING_MESSAGE);
     }
-    
+
     /**
      * Standardized method of displaying errors to the user.
      * <p>
-     * Error messages should be displayed from any `catch()` block where
-     * the `try` block has failed. Some critical errors should be followed
-     * by a call to the `exit()` method and the program should be 
-     * terminated. However, that functionality should only be reserved for
-     * critical errors, from which the user cannot recover.
-     * 
-     * @param ex    The exception that was thrown.
+     * Error messages should be displayed from any `catch()` block where the
+     * `try` block has failed. Some critical errors should be followed by a call
+     * to the `exit()` method and the program should be terminated. However,
+     * that functionality should only be reserved for critical errors, from
+     * which the user cannot recover.
+     *
+     * @param ex The exception that was thrown.
      * @param title The title of the message box
      */
     public static void showError(Exception ex, String title) {
@@ -121,12 +119,12 @@ public class MessageBox {
         msg += ex.getMessage() + "\n\nException: ";
         msg += ex.getClass().getSimpleName();
 
-        JOptionPane.showMessageDialog(null, 
-                                      msg, 
-                                      title, 
-                                      JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                msg,
+                title,
+                JOptionPane.ERROR_MESSAGE);
     }
-    
+
     /**
      * Standarized method of displaying a question to the user.
      * <p>
@@ -134,36 +132,36 @@ public class MessageBox {
      * particular action they may have taken. Mostly, this method should be used
      * to confirm closing a window that has unsaved changes.
      * </p>
-     * 
-     * @param question  The question that the user needs to answer.
-     * @param title     The title of the message box.
-     * @param cancel    Whether to include a cancel button as an option.
-     * @return          an integer indicating the option selected by the user.
-     *                   This will be one of:
-     *                   <ul>
-     *                      <li>MessageBox.YES_OPTION</li>
-     *                      <li>MessagBox.NO_OPTION</li>
-     *                      <li>MessageBox.CANCEL_OPTION, if cancel button is
-     *                          included</li>
-     *                   </ul>
+     *
+     * @param question The question that the user needs to answer.
+     * @param title The title of the message box.
+     * @param cancel Whether to include a cancel button as an option.
+     * @return an integer indicating the option selected by the user. This will
+     * be one of:
+     * <ul>
+     * <li>MessageBox.YES_OPTION</li>
+     * <li>MessagBox.NO_OPTION</li>
+     * <li>MessageBox.CANCEL_OPTION, if cancel button is included</li>
+     * </ul>
      */
     public static int askQuestion(String question, String title, boolean cancel) {
         int choice = 0;
-        
-        if ( cancel )
-            choice = JOptionPane.showConfirmDialog(null, 
-                                              question, 
-                                              title, 
-                                              JOptionPane.YES_NO_CANCEL_OPTION);
-        else
+
+        if (cancel) {
             choice = JOptionPane.showConfirmDialog(null,
-                                              question,
-                                              title,
-                                              JOptionPane.YES_NO_OPTION);
-        
+                    question,
+                    title,
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+        } else {
+            choice = JOptionPane.showConfirmDialog(null,
+                    question,
+                    title,
+                    JOptionPane.YES_NO_OPTION);
+        }
+
         return choice;
     }
-    
+
     /**
      * Standardized method of seeking additional input from the user.
      * <p>
@@ -172,15 +170,14 @@ public class MessageBox {
      * this method would be to get the value of a required field that the user
      * did not enter on a form.
      * </p>
-     * 
-     * @param prompt    A description of the information the user needs to 
-     *                   provide.
-     * @param title     The title of the message box.
-     * @return          The input requested of the user.
+     *
+     * @param prompt A description of the information the user needs to provide.
+     * @param title The title of the message box.
+     * @return The input requested of the user.
      */
     public static String getInput(String prompt, String title) {
-        return JOptionPane.showInputDialog(null, prompt, title, 
-                                           JOptionPane.PLAIN_MESSAGE);
+        return JOptionPane.showInputDialog(null, prompt, title,
+                JOptionPane.PLAIN_MESSAGE);
     }
     //</editor-fold>
 }

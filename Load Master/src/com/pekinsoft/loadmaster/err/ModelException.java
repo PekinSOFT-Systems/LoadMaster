@@ -1,14 +1,16 @@
 package com.pekinsoft.loadmaster.err;
 
 public class ModelException extends Exception {
-    
-    /** Creates a new instance of ModeloException */
+
+    /**
+     * Creates a new instance of ModeloException
+     */
     public ModelException(String msg, Throwable cause) {
-        super(msg, cause);        
+        super(msg, cause);
     }
-    
+
     public ModelException(String msg) {
-        this(msg, null);        
+        this(msg, null);
     }
-    
+
 }

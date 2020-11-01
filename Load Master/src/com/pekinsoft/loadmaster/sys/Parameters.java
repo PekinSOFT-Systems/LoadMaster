@@ -24,26 +24,27 @@ import java.util.prefs.Preferences;
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  */
 public class Parameters {
+
     private static final String jdbcDriver = "org.hsqldb.jdbcDriver";
     private static final String defaultUrl = "jdbc:hsqldb:";
     private static final String defaultOptions = ";shutdown=true";
     private static final String defaultDatabase = "data/nwind";
-    
+
     private Preferences prefs = Preferences.userNodeForPackage(Parameters.class);
-    
+
     public String getDatabase() {
-        return prefs.get("database", System.getProperty("user.home") + 
-                File.separator + defaultDatabase);
+        return prefs.get("database", System.getProperty("user.home")
+                + File.separator + defaultDatabase);
     }
-    
+
     public void setDatabase(String database) {
         prefs.put("database", database);
     }
-    
+
     public String getJdbcUrl() {
         return defaultUrl + getDatabase() + defaultOptions;
     }
-    
+
     public String getJdbcDriver() {
         return jdbcDriver;
     }

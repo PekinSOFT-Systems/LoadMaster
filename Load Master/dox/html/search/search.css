@@ -244,11 +244,11 @@ DIV.searchresults {
 }
 
 .pages b {
-   color: white;
-   padding: 5px 5px 3px 5px;
-   background-image: url("../tab_a.png");
-   background-repeat: repeat-x;
-   text-shadow: 0 1px 1px #000000;
+    color: white;
+    padding: 5px 5px 3px 5px;
+    background-image: url("../tab_a.png");
+    background-repeat: repeat-x;
+    text-shadow: 0 1px 1px #000000;
 }
 
 .pages {

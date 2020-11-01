@@ -31,7 +31,6 @@
  *  Mar 8, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.err;
 
 import java.io.NotSerializableException;
@@ -39,7 +38,7 @@ import java.io.NotSerializableException;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
@@ -48,24 +47,23 @@ public class InvalidPropertiesFormatException extends Exception {
     private static final long serialVersionUID = 7763056076009360219L;
 
     /**
-     * Constructs an InvalidPropertiesFormatException with the specified
-     * cause.
+     * Constructs an InvalidPropertiesFormatException with the specified cause.
      *
-     * @param  cause the cause (which is saved for later retrieval by the
-     *         {@link Throwable#getCause()} method).
+     * @param cause the cause (which is saved for later retrieval by the
+     * {@link Throwable#getCause()} method).
      */
     public InvalidPropertiesFormatException(Throwable cause) {
-        super(cause==null ? null : cause.toString());
+        super(cause == null ? null : cause.toString());
         this.initCause(cause);
     }
 
-   /**
-    * Constructs an InvalidPropertiesFormatException with the specified
-    * detail message.
-    *
-    * @param   message   the detail message. The detail message is saved for
-    *          later retrieval by the {@link Throwable#getMessage()} method.
-    */
+    /**
+     * Constructs an InvalidPropertiesFormatException with the specified detail
+     * message.
+     *
+     * @param message the detail message. The detail message is saved for later
+     * retrieval by the {@link Throwable#getMessage()} method.
+     */
     public InvalidPropertiesFormatException(String message) {
         super(message);
     }
@@ -75,8 +73,7 @@ public class InvalidPropertiesFormatException extends Exception {
      * objects are not intended to be serializable.
      */
     private void writeObject(java.io.ObjectOutputStream out)
-        throws NotSerializableException
-    {
+            throws NotSerializableException {
         throw new NotSerializableException("Not serializable.");
     }
 
@@ -85,8 +82,7 @@ public class InvalidPropertiesFormatException extends Exception {
      * objects are not intended to be serializable.
      */
     private void readObject(java.io.ObjectInputStream in)
-        throws NotSerializableException
-    {
+            throws NotSerializableException {
         throw new NotSerializableException("Not serializable.");
     }
 

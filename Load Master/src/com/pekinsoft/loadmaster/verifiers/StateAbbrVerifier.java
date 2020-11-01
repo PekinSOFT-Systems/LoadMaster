@@ -30,23 +30,24 @@ import javax.swing.JTextField;
  * @since 0.1.0
  */
 public class StateAbbrVerifier extends InputVerifier {
+
     private final Color errFore = Color.YELLOW;
     private final Color errBack = Color.RED;
     private final Color fore = SystemColor.textText;
     private final Color back = SystemColor.text;
     private final Color ctl = SystemColor.control;
-        
+
     @Override
     public boolean verify(JComponent input) {
         // In order to validate the input, we need to first check that the
         //+ parameter is an instance of JTextField.
         String abbr = new String();
-        if ( input instanceof JTextField ) {
+        if (input instanceof JTextField) {
             abbr = ((JTextField) input).getText();
         }
-        
-        if ( abbr != null && !abbr.isBlank() && !abbr.isEmpty() ) {
-            if ( !Utils.createStateAbbreviations().contains(abbr) ) {
+
+        if (abbr != null && !abbr.isBlank() && !abbr.isEmpty()) {
+            if (!Utils.createStateAbbreviations().contains(abbr)) {
                 ((JTextField) input).setBackground(errBack);
                 ((JTextField) input).setForeground(errFore);
             } else {
@@ -55,8 +56,9 @@ public class StateAbbrVerifier extends InputVerifier {
             }
 
             return Utils.createStateAbbreviations().contains(abbr);
-        } else
+        } else {
             return true;
+        }
     }
-    
+
 }

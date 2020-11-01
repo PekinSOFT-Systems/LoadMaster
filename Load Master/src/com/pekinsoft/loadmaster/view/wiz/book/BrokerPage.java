@@ -54,15 +54,14 @@ import java.util.logging.LogRecord;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class BrokerPage extends WizardPage {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     // Variables declaration - do not modify                     
     private javax.swing.JTextField brokerField;
@@ -75,7 +74,7 @@ public class BrokerPage extends WizardPage {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField phoneField;
-    
+
     private LogRecord lr;
     private BrokerCtl records;
     private BrokerModel broker;
@@ -84,18 +83,18 @@ public class BrokerPage extends WizardPage {
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public BrokerPage () {
+    public BrokerPage() {
         initComponents();
     }
     //</editor-fold>
@@ -107,9 +106,7 @@ public class BrokerPage extends WizardPage {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,7 +116,7 @@ public class BrokerPage extends WizardPage {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-        
+
         lr = new LogRecord(Level.ALL, "Initializing BrokerPage components...");
 
         jLabel5 = new javax.swing.JLabel();
@@ -139,38 +136,38 @@ public class BrokerPage extends WizardPage {
             records = new BrokerCtl();
             lr.setMessage("Brokers database accessed successfully!");
             Starter.logger.info(lr);
-            
-            if ( records.getRecordCount() == 0 ) {
+
+            if (records.getRecordCount() == 0) {
                 // There are no brokers in the database, so show the New Broker/
                 //+ Agent dialog so the broker can be entered.
                 NewBrokerDlg dlg = new NewBrokerDlg(null, true);
                 dlg.pack();
                 dlg.setVisible(true);
-                
-                if ( !dlg.isCancelled() ) {
+
+                if (!dlg.isCancelled()) {
                     // we need to populate the fields with the created broker or
                     //+ agent data.
                     BrokerModel b = dlg.getBroker();
-                    if ( b.getCompany().length() > 0 ) {
+                    if (b.getCompany().length() > 0) {
                         brokerField.setText(b.getCompany());
-                    } else if ( b.getContact().length() > 0 ) {
+                    } else if (b.getContact().length() > 0) {
                         brokerField.setText(b.getContact());
                     } else {
                         brokerField.setText("<NO CONTACT OR COMPANY NAME>");
                     }
-                    
+
                     phoneField.setText(b.getPhone());
                     faxField.setText(b.getFax());
                     emailField.setText(b.getEmail());
-                    
+
                     // Add this broker to the table.
                     records.addNew(b);
                     // Save the data.
                     records.close();
-                    
+
                 }
             }
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the brokers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
@@ -185,7 +182,7 @@ public class BrokerPage extends WizardPage {
 
         try {
             records.first();
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong moving to the next record.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
@@ -193,15 +190,16 @@ public class BrokerPage extends WizardPage {
             MessageBox.showError(ex, "Database Access");
         }
 
-        for ( int x = 0; x < records.getRecordCount(); x++ ) {
+        for (int x = 0; x < records.getRecordCount(); x++) {
             BrokerModel b = records.get();
 
             brokerList.addItem(b.getContact() + " (" + b.getId() + ")");
 
             try {
-                if (records.hasNext() )
-                records.next();
-            } catch ( DataStoreException ex ) {
+                if (records.hasNext()) {
+                    records.next();
+                }
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
@@ -225,7 +223,7 @@ public class BrokerPage extends WizardPage {
         phoneField.setName("Phone"); // NOI18N
 
         jLabel3.setText("Fax:");
-        
+
         faxField.setName("Fax");
 
         jLabel4.setText("Email:");
@@ -235,135 +233,135 @@ public class BrokerPage extends WizardPage {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(brokerList, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(brokerField)
-                            .addGroup(layout.createSequentialGroup()
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(phoneField)
-                                    .addComponent(faxField, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(brokerList, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(jLabel1)
+                                                        .addComponent(jLabel3)
+                                                        .addComponent(jLabel4))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(brokerField)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(phoneField)
+                                                                        .addComponent(faxField, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                                                                .addGap(0, 0, Short.MAX_VALUE))
+                                                        .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(brokerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(brokerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(brokerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(brokerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(faxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(120, Short.MAX_VALUE))
         );
     }// </editor-fold>                        
 
-    private void selectedBrokerChanged(java.awt.event.ItemEvent evt) {          
+    private void selectedBrokerChanged(java.awt.event.ItemEvent evt) {
         // Before doing anything else, we need to see if the user wants to add
         //+ a new broker/agent to the database.
-        if ( brokerList.getSelectedItem().toString().equalsIgnoreCase(
-                "add new broker/agent...") ) {
+        if (brokerList.getSelectedItem().toString().equalsIgnoreCase(
+                "add new broker/agent...")) {
             NewBrokerDlg dlg = new NewBrokerDlg(null, true);
             dlg.pack();
             dlg.setVisible(true);
-            
+
             // Make sure the user did not cancel the dialog.
-            if ( !dlg.isCancelled() ) {
-                String newBroker = dlg.getBroker().getContact() + " (" +
-                        String.valueOf(dlg.getBroker().getId()) + ")";
+            if (!dlg.isCancelled()) {
+                String newBroker = dlg.getBroker().getContact() + " ("
+                        + String.valueOf(dlg.getBroker().getId()) + ")";
                 brokerList.addItem(newBroker);
                 brokerList.setSelectedItem(newBroker);
             }
         }
-        
+
         // In order to get the selected broker, we need to loop through the
         //+ records to find which record has the selected ID number.
-        if ( !brokerList.getSelectedItem().toString().equalsIgnoreCase(
-                "select broker/agent...") ) {
+        if (!brokerList.getSelectedItem().toString().equalsIgnoreCase(
+                "select broker/agent...")) {
             String selectedBroker = brokerList.getSelectedItem().toString();
             long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("(") + 1,    // Start after (
+                    selectedBroker.indexOf("(") + 1, // Start after (
                     selectedBroker.indexOf(")")));  // End before )
-        
+
             try {
                 records.first();
 
-                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                for (int x = 0; x < records.getRecordCount(); x++) {
                     BrokerModel b = records.get();
 
-                    if ( brokerID == b.getId() ) {
+                    if (brokerID == b.getId()) {
                         broker = b;
                         break;
                     } else {
-                        if ( records.hasNext() ) 
+                        if (records.hasNext()) {
                             records.next();
+                        }
                     }
                 }
-                
-                if ( broker.getContact() != null && !broker.getContact().isBlank()
-                        && !broker.getContact().isEmpty() ) {
+
+                if (broker.getContact() != null && !broker.getContact().isBlank()
+                        && !broker.getContact().isEmpty()) {
                     brokerField.setText(broker.getContact());
                 } else {
                     brokerField.setText(broker.getCompany());
                 }
-                
-                if ( broker.getPhone() != null ) {
+
+                if (broker.getPhone() != null) {
                     phoneField.setText(broker.getPhone());
                 }
-                if ( broker.getFax() != null ) {
+                if (broker.getFax() != null) {
                     faxField.setText(broker.getFax());
                 }
-                if ( broker.getEmail() != null ) {
+                if (broker.getEmail() != null) {
                     emailField.setText(broker.getEmail());
                 }
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
 
-    //            MessageBox.showError(ex, "Database Access");
+                //            MessageBox.showError(ex, "Database Access");
             }
-        }       
-    }                                      
+        }
+    }
     //</editor-fold>
 
-    
     @Override
     protected String validateContents(Component comp, Object o) {
-        if ( brokerList.getSelectedItem().toString().equals(
-                "Select Broker/Agent...") ) {
+        if (brokerList.getSelectedItem().toString().equals(
+                "Select Broker/Agent...")) {
             return "An agent or broker must be selected.";
         }
-        
+
         return null;
     }
 }

@@ -43,7 +43,7 @@ import java.awt.Toolkit;
 public class DepartDeliveryDialog extends javax.swing.JDialog {
 
     private String signedBy;
-    
+
     /**
      * Creates new form DepartDeliveryDialog
      */
@@ -54,13 +54,13 @@ public class DepartDeliveryDialog extends javax.swing.JDialog {
         // Center the dialog on the screen.
         int left = Toolkit.getDefaultToolkit().getScreenSize().width;
         int top = Toolkit.getDefaultToolkit().getScreenSize().height;
-        
-        left = ( left - getWidth() ) / 2;
-        top = ( top - getHeight() ) / 2;
-        
+
+        left = (left - getWidth()) / 2;
+        top = (top - getHeight()) / 2;
+
         setLocation(left, top);
     }
-    
+
     public String getSignedBy() {
         return signedBy;
     }

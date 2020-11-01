@@ -70,11 +70,11 @@ public class CustomerSelector extends javax.swing.JDialog {
 
     private CustomerModel customer;
     private CustomerCtl records;
-    private LogRecord lr = new LogRecord(Level.ALL, 
+    private LogRecord lr = new LogRecord(Level.ALL,
             "Logging started in CustomerSelector.");
-    
+
     private boolean filtering;
-    
+
     /**
      * Creates new form CustomerSelector
      */
@@ -82,54 +82,54 @@ public class CustomerSelector extends javax.swing.JDialog {
         super(parent, modal);
         lr.setSourceClassName(CustomerSelector.class.getName());
         Starter.logger.info(lr);
-        
+
         lr.setMessage("Creating an instance of the CustomerSelector dialog.");
         lr.setSourceMethodName("CustomerSelector");
-        lr.setParameters(new Object[] {parent, modal});
+        lr.setParameters(new Object[]{parent, modal});
         Starter.logger.enter(lr);
-        
+
         filtering = false;
-        
+
         initComponents();
-        
+
         lr.setMessage("Attempting to access the customers database...");
         Starter.logger.debug(lr);
         try {
             records = new CustomerCtl();
             lr.setMessage("Customers database accessed successfully!");
             Starter.logger.info(lr);
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the customers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
-            
+
             MessageBox.showError(ex, "Database Access");
-            
+
             records = null;
         }
-        
+
         loadList();
-        
+
         setLocation(ScreenUtils.centerDialog(this));
-        
+
         getRootPane().setDefaultButton(selectButton);
-        
+
         lr.setMessage("CustomerSelector creation complete.");
         Starter.logger.exit(lr, null);
     }
-    
+
     private void loadList() {
         customerList.removeAllItems();
         customerList.addItem("Select customer...");
         customerList.addItem("Add a new customer...");
-        
+
         ArrayList<CustomerModel> filtered = new ArrayList<>();
-        
-        if ( allFilterOption.isSelected() ) {
-            if ( records.getRecordCount() > 0 ) {
+
+        if (allFilterOption.isSelected()) {
+            if (records.getRecordCount() > 0) {
                 try {
                     records.first();
-                } catch ( DataStoreException ex ) {
+                } catch (DataStoreException ex) {
                     lr.setMessage("Something went wrong moving to the next record.");
                     lr.setThrown(ex);
                     Starter.logger.error(lr);
@@ -137,239 +137,246 @@ public class CustomerSelector extends javax.swing.JDialog {
                     MessageBox.showError(ex, "Database Access");
                 }
 
-
-                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                for (int x = 0; x < records.getRecordCount(); x++) {
                     CustomerModel c = records.get();
 
-                    customerList.addItem(c.getCompany() + ": " + c.getCity() + ", " 
+                    customerList.addItem(c.getCompany() + ": " + c.getCity() + ", "
                             + c.getState() + " [" + c.getId() + "]");
 
                     try {
-                        if (records.hasNext() ) 
+                        if (records.hasNext()) {
                             records.next();
-                    } catch ( DataStoreException ex ) {
+                        }
+                    } catch (DataStoreException ex) {
                         lr.setMessage("Something went wrong moving to the next record.");
                         lr.setThrown(ex);
                         Starter.logger.error(lr);
 
-        //                MessageBox.showError(ex, "Database Access");
+                        //                MessageBox.showError(ex, "Database Access");
                     }
                 }
             }
-        } else if ( cityFilterOption.isSelected() ) {
+        } else if (cityFilterOption.isSelected()) {
             try {
-                filtered = records.getCompaniesByCity(criteriaField.getText(), 
+                filtered = records.getCompaniesByCity(criteriaField.getText(),
                         LoadMaster.fileProgress);
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
             }
-            
-            if ( filtered != null && filtered.size() > 0 ) {
-                for ( int x = 0; x < filtered.size(); x++ ) {
-                    customerList.addItem(filtered.get(x).getCompany() 
+
+            if (filtered != null && filtered.size() > 0) {
+                for (int x = 0; x < filtered.size(); x++) {
+                    customerList.addItem(filtered.get(x).getCompany()
                             + " (" + filtered.get(x).getId() + ")");
                 }
-            } else
+            } else {
                 MessageBox.showInfo("No matching records found!", "No Records");
-        } else if ( stateFilterOption.isSelected() ) {
+            }
+        } else if (stateFilterOption.isSelected()) {
             try {
-                filtered = records.getCompaniesByState(criteriaField.getText(), 
+                filtered = records.getCompaniesByState(criteriaField.getText(),
                         LoadMaster.fileProgress);
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
             }
-            
-            if ( filtered != null && filtered.size() > 0 ) {
-                for ( int x = 0; x < filtered.size(); x++ ) {
-                    customerList.addItem(filtered.get(x).getCompany() 
+
+            if (filtered != null && filtered.size() > 0) {
+                for (int x = 0; x < filtered.size(); x++) {
+                    customerList.addItem(filtered.get(x).getCompany()
                             + " (" + filtered.get(x).getId() + ")");
                 }
-            } else
+            } else {
                 MessageBox.showInfo("No matching records found!", "No Records");
-        } else if ( companyFilterOption.isSelected() ) {
+            }
+        } else if (companyFilterOption.isSelected()) {
             try {
-                filtered = records.getCustomersByCompany(criteriaField.getText(), 
+                filtered = records.getCustomersByCompany(criteriaField.getText(),
                         LoadMaster.fileProgress);
-            } catch ( DataStoreException ex ) {
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
             }
-            
-            if ( filtered != null && filtered.size() > 0 ) {
-                for ( int x = 0; x < filtered.size(); x++ ) {
-                    customerList.addItem(filtered.get(x).getCompany() 
+
+            if (filtered != null && filtered.size() > 0) {
+                for (int x = 0; x < filtered.size(); x++) {
+                    customerList.addItem(filtered.get(x).getCompany()
                             + " (" + filtered.get(x).getId() + ")");
                 }
-            } else
+            } else {
                 MessageBox.showInfo("No matching records found!", "No Records");
+            }
         }
-        
+
         filtering = false;
     }
-    
+
     private void doSave() {
         // In order to get the selected broker, we need to loop through the
         //+ records to find which record has the selected ID number.
-        if ( !customerList.getSelectedItem().toString().equalsIgnoreCase(
-                "select customer...") ) {
+        if (!customerList.getSelectedItem().toString().equalsIgnoreCase(
+                "select customer...")) {
             String selectedBroker = customerList.getSelectedItem().toString();
             long brokerID = Long.valueOf(selectedBroker.substring(
-                    selectedBroker.indexOf("(") + 1,    // Start after (
+                    selectedBroker.indexOf("(") + 1, // Start after (
                     selectedBroker.indexOf(")")));  // End before )
-        
+
             try {
                 records.first();
 
-                for ( int x = 0; x < records.getRecordCount(); x++ ) {
+                for (int x = 0; x < records.getRecordCount(); x++) {
                     CustomerModel c = records.get();
 
-                    if ( brokerID == c.getId() ) {
+                    if (brokerID == c.getId()) {
                         customer = c;
                         break;
                     } else {
-                        if ( records.hasNext() ) 
+                        if (records.hasNext()) {
                             records.next();
+                        }
                     }
                 }
-        
-                setVisible(false); 
-            } catch ( DataStoreException ex ) {
+
+                setVisible(false);
+            } catch (DataStoreException ex) {
                 lr.setMessage("Something went wrong moving to the next record.");
                 lr.setThrown(ex);
                 Starter.logger.error(lr);
 
-    //            MessageBox.showError(ex, "Database Access");
-
+                //            MessageBox.showError(ex, "Database Access");
                 dispose();
             }
-        }       
+        }
     }
-    
+
     private boolean isDataValid() {
         lr.setSourceMethodName("isDateValid");
         lr.setMessage("Validating the input data.");
         Starter.logger.enter(lr);
-        
+
         // Before testing any of the dates, we need to make sure that the user
         //+ has selected a customer from the list.
-        if ( customerList.getSelectedItem().toString().equals("Select "
-                + "customer...") ) {
+        if (customerList.getSelectedItem().toString().equals("Select "
+                + "customer...")) {
             // No customer has been chosen, so no sense in moving forward with
             //+ the data validation.
             lr.setMessage("Validation completed. Returning findings.");
-            Starter.logger.exit(lr, new Object[] {false});
+            Starter.logger.exit(lr, new Object[]{false});
             return false;
         }
-        
-        if ( customerList.getSelectedItem().toString().equals("Add a new "
-                + "customer...") ) {
-            NewCustomerDlg dlg = new NewCustomerDlg( null, true );
+
+        if (customerList.getSelectedItem().toString().equals("Add a new "
+                + "customer...")) {
+            NewCustomerDlg dlg = new NewCustomerDlg(null, true);
             dlg.pack();
             dlg.setVisible(true);
-            
-            if ( dlg.isCancelled() == false ) {
+
+            if (dlg.isCancelled() == false) {
                 customer = dlg.getCustomer();
-                
+
                 records.addNew(customer);
-                
-                customerList.addItem(customer.getCompany() + ": " 
-                        + customer.getCity() + ", " + customer.getState() 
+
+                customerList.addItem(customer.getCompany() + ": "
+                        + customer.getCity() + ", " + customer.getState()
                         + " [" + customer.getId() + "]");
-                
+
                 customerList.setSelectedIndex(customerList.getItemCount() - 1);
             }
         }
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        
+
         // For the stop to be valid, the late date *MUST* be greater than or
         //+ equal to the early date. 
-        if ( lateDate.getDate() != null && earlyDate.getDate() != null ) {
-            if ( lateDate.getDate().compareTo(earlyDate.getDate()) < 0 ) {
+        if (lateDate.getDate() != null && earlyDate.getDate() != null) {
+            if (lateDate.getDate().compareTo(earlyDate.getDate()) < 0) {
                 // Less than zero (0) means that lateDate is BEFORE earlyDate.
                 lr.setMessage("Validation completed. Returning findings.");
-                Starter.logger.exit(lr, new Object[] {false});
+                Starter.logger.exit(lr, new Object[]{false});
                 return false;
             }
         }
-        
+
         // Create a couple of Date object to hold the early and late times for
         //+ comparison, and reset the SimpleDateFormat object to only hold the
         //+ times, in 24-hour format.
         sdf = new SimpleDateFormat("HH:mm");
         Date early = null;
         Date late = null;
-        
-        if ( earlyTime.getText() != null && lateTime.getText() != null ) {
+
+        if (earlyTime.getText() != null && lateTime.getText() != null) {
             String hours = earlyTime.getText().split(":")[0].trim();
             String minutes = earlyTime.getText().split(":")[1].trim();
-            if ((hours.length() != 2) & (minutes.length() != 2)) return false;
+            if ((hours.length() != 2) & (minutes.length() != 2)) {
+                return false;
+            }
             hours = lateTime.getText().split(":")[0].trim();
             minutes = lateTime.getText().split(":")[1].trim();
-            if ((hours.length() != 2) & (minutes.length() != 2)) return false;
+            if ((hours.length() != 2) & (minutes.length() != 2)) {
+                return false;
+            }
             try {
                 early = sdf.parse(earlyTime.getText());
                 late = sdf.parse(lateTime.getText());
-            } catch ( ParseException ex ) {
-                    lr.setMessage("A stop time was not valid.");
-                    lr.setThrown(ex);
-                    Starter.logger.error(lr);
-                    lr.setMessage("Validation completed. Returning findings.");
-                    lr.setThrown(null);
-                    Starter.logger.exit(lr, new Object[] {false});
-                    // We will return false from here so that the data cannot be
-                    //+ saved.
-                    return false;
+            } catch (ParseException ex) {
+                lr.setMessage("A stop time was not valid.");
+                lr.setThrown(ex);
+                Starter.logger.error(lr);
+                lr.setMessage("Validation completed. Returning findings.");
+                lr.setThrown(null);
+                Starter.logger.exit(lr, new Object[]{false});
+                // We will return false from here so that the data cannot be
+                //+ saved.
+                return false;
             }
         }
-        
+
         // Make sure that the early and late time objects have been created.
-        if ( early != null && late != null ) {
+        if (early != null && late != null) {
             // Now that we know that both times have been successfully created,
             //+ we need to validate the times, but only if the early and late
             //+ dates are the same day.
-            if ( lateDate.getDate().compareTo(earlyDate.getDate()) == 0 ) {
+            if (lateDate.getDate().compareTo(earlyDate.getDate()) == 0) {
                 // Only perform the next text if the early and late dates are on
                 //+ the same date.
-                if ( late.compareTo(early) < 0 ) {
+                if (late.compareTo(early) < 0) {
                     // The late time is before the early time.
                     lr.setMessage("Validation completed. Returning findings.");
-                    Starter.logger.exit(lr, new Object[] {false});
+                    Starter.logger.exit(lr, new Object[]{false});
                     return false;
                 }
             }
         }
-        
+
         lr.setMessage("Validation completed. Returning findings.");
-        Starter.logger.exit(lr, new Object[] {true});
+        Starter.logger.exit(lr, new Object[]{true});
         return true;
     }
-    
+
     private void doClose() {
         this.dispose();
     }
-    
+
     public CustomerModel getSelectedCustomer() {
         return customer;
     }
-    
+
     public Date getEarlyDate() {
         return earlyDate.getDate();
     }
-    
+
     public String getEarlyTime() {
         return earlyTime.getText();
     }
-    
+
     public Date getLateDate() {
         return lateDate.getDate();
     }
-    
+
     public String getLateTime() {
         return lateTime.getText();
     }
@@ -642,7 +649,7 @@ public class CustomerSelector extends javax.swing.JDialog {
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void earlyDateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_earlyDateFocusLost
-        
+
     }//GEN-LAST:event_earlyDateFocusLost
 
     private void earlyDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earlyDateActionPerformed
@@ -657,10 +664,11 @@ public class CustomerSelector extends javax.swing.JDialog {
     }//GEN-LAST:event_earlyTimeKeyReleased
 
     private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
+        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             doClose();
+        }
     }//GEN-LAST:event_checkEnterEscape
 
     private void lateDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lateDateActionPerformed
@@ -681,12 +689,13 @@ public class CustomerSelector extends javax.swing.JDialog {
 
     private void customerListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_customerListItemStateChanged
         // Validate the data on the dialog
-        if ( !filtering ) 
+        if (!filtering) {
             selectButton.setEnabled(isDataValid());
+        }
     }//GEN-LAST:event_customerListItemStateChanged
 
     private void selectText(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_selectText
-        ((JTextComponent)evt.getSource()).selectAll();
+        ((JTextComponent) evt.getSource()).selectAll();
     }//GEN-LAST:event_selectText
 
     private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed

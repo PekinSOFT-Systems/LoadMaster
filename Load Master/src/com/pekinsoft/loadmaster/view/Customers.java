@@ -58,6 +58,7 @@ import javax.swing.JTextField;
  * @author Sean Carrick
  */
 public class Customers extends javax.swing.JInternalFrame {
+
     private final Color errFore = Color.YELLOW;
     private final Color errBack = Color.RED;
     private final Color fore = SystemColor.textText;
@@ -65,11 +66,11 @@ public class Customers extends javax.swing.JInternalFrame {
     private final Color ctl = SystemColor.control;
     private final Color tip = SystemColor.info;
     private final Color tipText = SystemColor.infoText;
-        
+
     private CustomerCtl records;
     private CustomerModel customer;
     private final LogRecord lr;
-    
+
     /**
      * Creates new form Customers
      */
@@ -78,30 +79,30 @@ public class Customers extends javax.swing.JInternalFrame {
         lr.setSourceClassName(Customers.class.getName());
         lr.setSourceMethodName("Customers");
         Starter.logger.enter(lr);
-        
+
         lr.setMessage("Attempting to access the customers database...");
         Starter.logger.debug(lr);
         try {
             records = new CustomerCtl();
             lr.setMessage("Customers database accessed successfully!");
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the customers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
-            
+
             MessageBox.showError(ex, "Database Access");
-            
+
             records = null;
         }
-        
+
         initComponents();
-        
+
         // Set up the input verifiers for the state and zip fields.
         stateField.setInputVerifier(new StateAbbrVerifier());
         zipField.setInputVerifier(new PostalCodeVerifier());
-        
+
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
-        
+
         // Set the accessible description for the required fields to "required"
         //+ for data validation purposes.
         companyField.getAccessibleContext().setAccessibleDescription("required");
@@ -109,17 +110,16 @@ public class Customers extends javax.swing.JInternalFrame {
         cityField.getAccessibleContext().setAccessibleDescription("required");
         stateField.getAccessibleContext().setAccessibleDescription("required");
         zipField.getAccessibleContext().setAccessibleDescription("required");
-        
-        
+
         lr.setMessage("Customers dialog construction complete.");
         Starter.logger.exit(lr, null);
     }
-    
+
     private void doSave() {
         lr.setSourceMethodName("doSave");
         lr.setMessage("Saving the new customer record.");
         Starter.logger.enter(lr);
-        
+
         companyField.requestFocus();
 
         customer = new CustomerModel();
@@ -145,7 +145,7 @@ public class Customers extends javax.swing.JInternalFrame {
             records.storeData();
             lr.setMessage("Save to file was successful!");
             Starter.logger.info(lr);
-            
+
             setTitle("Customer Entry (" + records.getRecordCount() + " Records)");
         } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the customers database.");
@@ -177,19 +177,19 @@ public class Customers extends javax.swing.JInternalFrame {
             doClear();
         }
     }
-    
+
     private void doCancel() {
         lr.setSourceMethodName("doCancel");
         lr.setMessage("Entering the form closing function.");
         Starter.logger.enter(lr);
-        
+
         LoadMaster.fileProgress.setValue(0);
-        
+
         lr.setMessage("Closing the window.");
         Starter.logger.exit(lr, null);
         dispose();
     }
-    
+
     private void doClear() {
         customer = new CustomerModel();
         idField.setText(String.valueOf(customer.getId()));
@@ -604,10 +604,11 @@ public class Customers extends javax.swing.JInternalFrame {
 
     private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
         // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER ) 
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE ) 
+        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             doCancel();
+        }
     }//GEN-LAST:event_checkEnterEscape
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -620,20 +621,20 @@ public class Customers extends javax.swing.JInternalFrame {
 
     private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
         String name = "";
-        
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                    ((javax.swing.JTextArea)evt.getSource()).getText().length(), 
-                    ((javax.swing.JTextArea)evt.getSource()).getText().length());
+
+        if (evt.getSource() instanceof javax.swing.JTextField) {
+            name = ((javax.swing.JTextField) evt.getSource()).getName();
+            ((javax.swing.JTextField) evt.getSource()).selectAll();
+        } else if (evt.getSource() instanceof javax.swing.JTextArea) {
+            name = ((javax.swing.JTextArea) evt.getSource()).getName();
+            ((javax.swing.JTextArea) evt.getSource()).select(
+                    ((javax.swing.JTextArea) evt.getSource()).getText().length(),
+                    ((javax.swing.JTextArea) evt.getSource()).getText().length());
         }
-        
+
         String msg = "";
-        
-        switch ( name ) {
+
+        switch (name) {
             case "cityField":
                 msg = "<html>City in which the customer is located. "
                         + "This is a <strong>required</strong> field.";
@@ -675,8 +676,8 @@ public class Customers extends javax.swing.JInternalFrame {
                 msg = "";
                 break;
         }
-        
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
+
+        if (msg != null && !msg.isBlank() && !msg.isEmpty()) {
             helpPanel.setBackground(tip);
             helpLabel.setForeground(tipText);
             helpLabel.setText(msg);
@@ -688,47 +689,47 @@ public class Customers extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_doSelection
 
     private void validateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_validateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                        .getAccessibleDescription() != null ) {
-                
-                switch ( ((JTextField)evt.getSource()).getName() ) {
+        if (evt.getSource() instanceof JTextField) {
+            if (((JTextField) evt.getSource()).getAccessibleContext()
+                    .getAccessibleDescription() != null) {
+
+                switch (((JTextField) evt.getSource()).getName()) {
                     case "companyField":
                     case "streetField":
                     case "cityField":
                     case "stateField":
                     case "zipField":
-                        
-                        if ( ((JTextField)evt.getSource()).getText().isBlank()
-                                || ((JTextField)evt.getSource()).getText()
-                                        .isEmpty() ) {
-                            ((JTextField)evt.getSource()).setForeground(errFore);
-                            ((JTextField)evt.getSource()).setBackground(errBack);
+
+                        if (((JTextField) evt.getSource()).getText().isBlank()
+                                || ((JTextField) evt.getSource()).getText()
+                                        .isEmpty()) {
+                            ((JTextField) evt.getSource()).setForeground(errFore);
+                            ((JTextField) evt.getSource()).setBackground(errBack);
                         } else {
-                            ((JTextField)evt.getSource()).setForeground(fore);
-                            ((JTextField)evt.getSource()).setBackground(back);
+                            ((JTextField) evt.getSource()).setForeground(fore);
+                            ((JTextField) evt.getSource()).setBackground(back);
                         }
-                        
+
                         break;
                     default:
                         break;
                 }
             } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
+                ((JTextField) evt.getSource()).setForeground(fore);
+                ((JTextField) evt.getSource()).setBackground(back);
             }
-            
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty() 
+
+            if (companyField.getText().isBlank() || companyField.getText().isEmpty()
                     && streetField.getText().isBlank() || streetField.getText().isEmpty()
                     && cityField.getText().isBlank() || cityField.getText().isEmpty()
                     && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                    && zipField.getText().isBlank() || zipField.getText().isEmpty() )
+                    && zipField.getText().isBlank() || zipField.getText().isEmpty()) {
                 saveButton.setEnabled(false);
-            else
+            } else {
                 saveButton.setEnabled(true);
+            }
         }
     }//GEN-LAST:event_validateData
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;

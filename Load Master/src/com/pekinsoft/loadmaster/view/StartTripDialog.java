@@ -38,9 +38,9 @@ import java.text.ParseException;
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  */
 public class StartTripDialog extends javax.swing.JDialog {
-    
+
     private boolean isCancelled;
-    
+
     /**
      * Creates new form StartTripDialog
      */
@@ -49,32 +49,32 @@ public class StartTripDialog extends javax.swing.JDialog {
         initComponents();
 
         getRootPane().setDefaultButton(okButton);
-        int left = (Toolkit.getDefaultToolkit().getScreenSize().width 
+        int left = (Toolkit.getDefaultToolkit().getScreenSize().width
                 - getWidth()) / 2;
         int top = (Toolkit.getDefaultToolkit().getScreenSize().height
                 - getHeight()) / 2;
         setLocation(left, top);
     }
-    
+
     public boolean isCancelled() {
         return isCancelled;
     }
-    
+
     public int getOdometer() {
         try {
             odometerField.commitEdit();
-        } catch ( ParseException ex ) {
+        } catch (ParseException ex) {
             System.err.println(ex.getMessage());
             ex.printStackTrace(System.err);
         }
-        
+
         return Integer.parseInt(odometerField.getValue().toString());
     }
-    
+
     public void setOrderNumber(String order) {
         this.orderField.setText(order);
     }
-    
+
     public void setTripNumber(String trip) {
         this.tripField.setText(trip);
     }

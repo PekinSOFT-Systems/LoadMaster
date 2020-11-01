@@ -29,7 +29,6 @@
  *   Oct 19, 2020    Sean Carrick Initial Creation.
  *  ******************************************************************************
  */
-
 package com.pekinsoft.loadmaster.model;
 
 import java.text.DecimalFormat;
@@ -41,24 +40,23 @@ import java.util.Date;
 /**
  * The `FuelEntryModel` defines the data required and stored for a fuel purchase
  * made through Load Master.
- * 
+ *
  * This class provides a means for a driver to store critical information about
  * each fuel purchase as a means of maintaining a history of fuel purchases and
  * understanding how driving conditions, speeds, etc., affect fuel economy. By
- * having all of this information stored in the Fuel Account Journal, 
+ * having all of this information stored in the Fuel Account Journal,
  * `10040.jrnl`, the driver will be able to make informed decisions regarding
  * his/her driving practices in order to reduce their fuel expense over time.
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class FuelPurchaseModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private long id;
     private Date date;
@@ -74,18 +72,18 @@ public class FuelPurchaseModel {
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public FuelPurchaseModel () {
+    public FuelPurchaseModel() {
         this.id = System.currentTimeMillis();
         this.date = new Date();
         this.odometer = 0;
@@ -99,48 +97,46 @@ public class FuelPurchaseModel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
     /**
      * Retrieves the unique identifying number for this fuel purchase.
-     * 
+     *
      * @return unique id number.
      */
     public long getId() {
         return id;
     }
-    
+
     /**
      * Retrieves the unique identifying number for this fuel purchase as a
      * `java.lang.String` value.
-     * 
+     *
      * @return unique id number.
      */
     public String getIdAsString() {
         return String.valueOf(id);
     }
-    
+
     /**
-     * Sets the unique identifying number for this fuel purchase. 
-     * <dl><dt>Note</dt><dd>This setter should only be used when reading data in 
+     * Sets the unique identifying number for this fuel purchase.
+     * <dl><dt>Note</dt><dd>This setter should only be used when reading data in
      * from a data file, as the unique ID number is automatically created when
      * creating a new `FuelPurchaseModel` object.</dd></dl>
-     * 
+     *
      * @param id unique id number.
      */
     public void setId(long id) {
         this.id = id;
     }
-    
+
     /**
-     * Sets the unique identifying number for this fuel purchase, from a 
-     * `java.lang.String` value. 
-     * <dl><dt>Note</dt><dd>This setter should only be used when reading data in 
+     * Sets the unique identifying number for this fuel purchase, from a
+     * `java.lang.String` value.
+     * <dl><dt>Note</dt><dd>This setter should only be used when reading data in
      * from a data file, as the unique ID number is automatically created when
      * creating a new `FuelPurchaseModel` object.</dd></dl>
-     * 
+     *
      * @param id unique id number.
      */
     public void setId(String id) {
@@ -150,28 +146,28 @@ public class FuelPurchaseModel {
     /**
      * Retrieves the purchase date for this fuel entry as a `java.util.Date`
      * object.
-     * 
+     *
      * @return the purchase date.
      */
     public Date getDate() {
         return date;
     }
-    
+
     /**
      * Retrieves the purchase date for this fuel entry as a `java.lang.String`
      * value, formatted as MM/dd/yyyy.
-     * 
+     *
      * @return the purchase date.
      */
     public String getDateAsString() {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         return sdf.format(date);
     }
-    
+
     /**
      * Retrieves the purchase date for this fuel entry as a `java.lang.String`
      * value, formatted with the provided date format, such as MMM dd, yyyy.
-     * 
+     *
      * @param format The format to apply to the purchase date.
      * @return the purchase date.
      */
@@ -183,11 +179,11 @@ public class FuelPurchaseModel {
     /**
      * Sets the purchase date for this fuel entry as a `java.util.Date` object.
      * <dl><dt>Note</dt><dd>The date is created as the current date by default
-     * when a new `FuelPurchaseModel` is created. This setter may be used for 
-     * adding the date to the object when reading records from a data file, or 
-     * when entering a fuel purchase at a date later than when it was 
+     * when a new `FuelPurchaseModel` is created. This setter may be used for
+     * adding the date to the object when reading records from a data file, or
+     * when entering a fuel purchase at a date later than when it was
      * purchased.</dd></dl>
-     * 
+     *
      * @param date the purchase date.
      */
     public void setDate(Date date) {
@@ -196,17 +192,17 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the odometer reading at the time of fuel purchase.
-     * 
+     *
      * @return odometer reading at time of fuel purchase.
      */
     public int getOdometer() {
         return odometer;
     }
-    
+
     /**
      * Retrieves the odometer reading at the time of fuel purchase as a
      * `java.lang.String` value.
-     * 
+     *
      * @return odometer reading at time of fuel purchase.
      */
     public String getOdometerAsString() {
@@ -215,17 +211,17 @@ public class FuelPurchaseModel {
 
     /**
      * Sets the odometer reading at the time of fuel purchase.
-     * 
+     *
      * @param odometer odometer reading at time of fuel purchase.
      */
     public void setOdometer(int odometer) {
         this.odometer = odometer;
     }
-    
+
     /**
      * Sets the odometer reading at the time of fuel purchase, from a
      * `java.lang.String` value.
-     * 
+     *
      * @param odometer odometer reading at time of fuel purchase.
      */
     public void setOdometer(String odometer) {
@@ -234,7 +230,7 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the location the fuel was purchased.
-     * 
+     *
      * @return location of fuel purchase.
      */
     public String getLocation() {
@@ -243,10 +239,10 @@ public class FuelPurchaseModel {
 
     /**
      * Sets the location of the fuel purchase.
-     * <dl><dt>Note</dt><dd>This is a free-form field with no limits on its 
+     * <dl><dt>Note</dt><dd>This is a free-form field with no limits on its
      * length. Therefore, the truck stop name, city, state, and other data may
      * be stored in this field.</dd></dl>
-     * 
+     *
      * @param location location of fuel purchase.
      */
     public void setLocation(String location) {
@@ -255,32 +251,32 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the total number of gallons of diesel fuel purchased.
-     * 
+     *
      * @return gallons purchased.
      */
     public double getGallonsOfDiesel() {
         return gallonsOfDiesel;
     }
-    
+
     /**
      * Retrieves the total number of gallons of diesel fuel purchased as a
      * `java.lang.String` value.
-     * 
+     *
      * @return gallons purchased.
      */
     public String getGallonsOfDieselAsString() {
         return String.valueOf(gallonsOfDiesel);
     }
-    
+
     /**
-     * Retrieves the total number of gallons of diesel fuel purchased as a 
+     * Retrieves the total number of gallons of diesel fuel purchased as a
      * `java.lang.double` value, in the supplied format.
-     * 
-     * @param format    The format to apply to the number.
-     * @return          gallons purchased.
+     *
+     * @param format The format to apply to the number.
+     * @return gallons purchased.
      * @throws ParseException in the event the number cannot be parsed.
      */
-    public double getGallonsOfDieselAsString(String format) 
+    public double getGallonsOfDieselAsString(String format)
             throws ParseException {
         NumberFormat nf = new DecimalFormat("#,##0.00");
         Number gallons = nf.parse(getGallonsOfDieselAsString());
@@ -289,17 +285,17 @@ public class FuelPurchaseModel {
 
     /**
      * Sets the total number of gallons of diesel fuel purchased.
-     * 
+     *
      * @param gallonsOfDiesel gallons purchased.
      */
     public void setGallonsOfDiesel(double gallonsOfDiesel) {
         this.gallonsOfDiesel = gallonsOfDiesel;
     }
-    
+
     /**
      * Sets the total number of gallons of diesel fuel purchased, from a
      * `java.lang.String` value.
-     * 
+     *
      * @param gallonsOfDiesel gallons purchased.
      */
     public void setGallonsOfDiesel(String gallonsOfDiesel) {
@@ -308,32 +304,32 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the price per gallon of diesel fuel when purchased.
-     * 
+     *
      * @return price per gallon at time of purchase.
      */
     public double getPricePerGallonDiesel() {
         return pricePerGallonDiesel;
     }
-    
+
     /**
      * Retrieves the price per gallon of diesel fuel purchased as a
      * `java.lang.String` value.
-     * 
+     *
      * @return price per gallon.
      */
     public String getPricePerGallonDieselAsString() {
         return String.valueOf(gallonsOfDiesel);
     }
-    
+
     /**
      * Retrieves the price per gallon of diesel fuel purchased as a
      * `java.lang.double` value, in the supplied format.
-     * 
-     * @param format    The format to apply to the number.
-     * @return          price per gallon.
+     *
+     * @param format The format to apply to the number.
+     * @return price per gallon.
      * @throws ParseException in the event the number cannot be parsed.
      */
-    public double getPricePerGallonDieselAsString(String format) 
+    public double getPricePerGallonDieselAsString(String format)
             throws ParseException {
         NumberFormat nf = new DecimalFormat("#,##0.00");
         Number gallons = nf.parse(getGallonsOfDieselAsString());
@@ -342,17 +338,17 @@ public class FuelPurchaseModel {
 
     /**
      * Sets the price per gallon of diesel fuel when purchased.
-     * 
+     *
      * @param pricePerGallonDiesel price per gallon at time of purchase.
      */
     public void setPricePerGallonDiesel(double pricePerGallonDiesel) {
         this.pricePerGallonDiesel = pricePerGallonDiesel;
     }
-    
+
     /**
      * Sets the price per gallon of diesel fuel when purchased, from a
      * `java.lang.String` value.
-     * 
+     *
      * @param pricePerGallon price per gallon at time of purchase.
      */
     public void setPricePerGallonOfDiesel(String pricePerGallon) {
@@ -362,7 +358,7 @@ public class FuelPurchaseModel {
     /**
      * Determines whether diesel exhaust fluid (DEF) was purchased during this
      * fuel stop.
-     * 
+     *
      * @return `true` if purchasing DEF at the same time, `false` otherwise.
      */
     public boolean isDefPurchased() {
@@ -371,8 +367,8 @@ public class FuelPurchaseModel {
 
     /**
      * Sets whether diesel exhaust fluid (DEF) was purchased at the same time.
-     * 
-     * @param defPurchased 
+     *
+     * @param defPurchased
      */
     public void setDefPurchased(boolean defPurchased) {
         this.defPurchased = defPurchased;
@@ -380,32 +376,32 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the number of gallons of DEF purchased.
-     * 
+     *
      * @return gallons of DEF purchased.
      */
     public double getGallonsOfDef() {
         return gallonsOfDef;
     }
-    
+
     /**
      * Retrieves the total number of gallons of diesel fuel purchased as a
      * `java.lang.String` value.
-     * 
+     *
      * @return gallons purchased.
      */
     public String getGallonsOfDefAsString() {
         return String.valueOf(gallonsOfDef);
     }
-    
+
     /**
-     * Retrieves the total number of gallons of diesel fuel purchased as a 
+     * Retrieves the total number of gallons of diesel fuel purchased as a
      * `java.lang.double` value, in the supplied format.
-     * 
-     * @param format    The format to apply to the number.
-     * @return          gallons purchased.
+     *
+     * @param format The format to apply to the number.
+     * @return gallons purchased.
      * @throws ParseException in the event the number cannot be parsed.
      */
-    public double getGallonsOfDefAsString(String format) 
+    public double getGallonsOfDefAsString(String format)
             throws ParseException {
         NumberFormat nf = new DecimalFormat("#,##0.00");
         Number gallons = nf.parse(getGallonsOfDefAsString());
@@ -414,17 +410,17 @@ public class FuelPurchaseModel {
 
     /**
      * Sets the number of gallons of DEF purchased.
-     * 
+     *
      * @param gallonsOfDef gallons of DEF purchased.
      */
     public void setGallonsOfDef(double gallonsOfDef) {
         this.gallonsOfDef = gallonsOfDef;
     }
-    
+
     /**
      * Sets the number of gallons of DEF purchased from a `java.lang.String`
      * value.
-     * 
+     *
      * @param gallonsOfDef gallons of DEF purchased.
      */
     public void setGallonsOfDef(String gallonsOfDef) {
@@ -433,32 +429,32 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the price per gallon of DEF at the time of the purchase.
-     * 
+     *
      * @return price per gallon of DEF at time of purchase.
      */
     public double getPricePerGallonDef() {
         return pricePerGallonDef;
     }
-    
+
     /**
      * Retrieves the price per gallon of DEF fuel purchased as a
      * `java.lang.String` value.
-     * 
+     *
      * @return price per gallon.
      */
     public String getPricePerGallonDefAsString() {
         return String.valueOf(gallonsOfDef);
     }
-    
+
     /**
      * Retrieves the price per gallon of DEF fuel purchased as a
      * `java.lang.double` value, in the supplied format.
-     * 
-     * @param format    The format to apply to the number.
-     * @return          price per gallon.
+     *
+     * @param format The format to apply to the number.
+     * @return price per gallon.
      * @throws ParseException in the event the number cannot be parsed.
      */
-    public double getPricePerGallonDefAsString(String format) 
+    public double getPricePerGallonDefAsString(String format)
             throws ParseException {
         NumberFormat nf = new DecimalFormat("#,##0.00");
         Number gallons = nf.parse(getGallonsOfDefAsString());
@@ -467,17 +463,17 @@ public class FuelPurchaseModel {
 
     /**
      * Sets the price per gallon of DEF at the time of purchase.
-     * 
+     *
      * @param pricePerGallonDef price per gallon of DEF at the time of purchase.
      */
     public void setPricePerGallonDef(double pricePerGallonDef) {
         this.pricePerGallonDef = pricePerGallonDef;
     }
-    
+
     /**
      * Sets the price per gallon of DEF at the time of purchase, from a
      * `java.lang.String` value.
-     * 
+     *
      * @param pricePerGallon price per gallon of DEF at the time of purchase.
      */
     public void setPricePerGallonDef(String pricePerGallon) {
@@ -486,7 +482,7 @@ public class FuelPurchaseModel {
 
     /**
      * Retrieves the notes stored regarding this fuel stop.
-     * 
+     *
      * @return notes.
      */
     public String getNotes() {
@@ -499,7 +495,7 @@ public class FuelPurchaseModel {
      * wants to keep regarding the fuel stop. Some suggestions are:<ul><li>
      * weather</li><li>average speed</li><li>road conditions</li><li>mountains
      * or plains</li><li>etc.</li></ul></dd></dl>
-     * 
+     *
      * @param notes notes regarding the fuel stop.
      */
     public void setNotes(String notes) {
@@ -508,8 +504,5 @@ public class FuelPurchaseModel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    
     //</editor-fold>
-
-
 }

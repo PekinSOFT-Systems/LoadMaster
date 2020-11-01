@@ -31,27 +31,28 @@
  *  Aug 31, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.err;
 
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class InvalidTimeException extends Exception {
 
     /**
-     * Creates a new instance of <code>InvalidTimeException</code> without detail message.
+     * Creates a new instance of <code>InvalidTimeException</code> without
+     * detail message.
      */
     public InvalidTimeException() {
     }
 
-
     /**
-     * Constructs an instance of <code>InvalidTimeException</code> with the specified detail message.
+     * Constructs an instance of <code>InvalidTimeException</code> with the
+     * specified detail message.
+     *
      * @param msg the detail message.
      */
     public InvalidTimeException(String msg) {

@@ -31,21 +31,19 @@
  *  Oct 11, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.model;
 
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class ChartModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private long number;
     private String name;
@@ -54,26 +52,24 @@ public class ChartModel {
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public ChartModel () {
-        
+    public ChartModel() {
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
     public long getNumber() {
         return number;
@@ -101,8 +97,5 @@ public class ChartModel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
-    
     //</editor-fold>
-
-
 }

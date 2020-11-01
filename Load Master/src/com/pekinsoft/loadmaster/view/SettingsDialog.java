@@ -54,19 +54,19 @@ public class SettingsDialog extends javax.swing.JDialog {
     public SettingsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         setLocation(ScreenUtils.centerDialog(this));
-        
+
         loadProperties();
     }
-    
+
     private void loadProperties() {
 //        settingsTabbedPane.remove(accountingTab);
         settingsTabbedPane.remove(numberingTab);
         orderPrefixField.setEnabled(false);
         tripPrefixField.setEnabled(false);
         invoicePrefixField.setEnabled(false);
-        
+
         truckNumberField.setText(Starter.props.getProperty("truck.number", "[NOT SET]"));
         vinField.setText(Starter.props.getProperty("truck.vin", "[NOT SET]"));
         makeList.setSelectedItem(Starter.props.getProperty("truck.make", "Select Make..."));
@@ -108,18 +108,18 @@ public class SettingsDialog extends javax.swing.JDialog {
                 + System.getProperty("file.separator") + "log"
                 + System.getProperty("file.separator"));
         errorField.setText(AppProperties.APP_DIR
-                /*+ System.getProperty("file.separator")*/ + "var" 
+                /*+ System.getProperty("file.separator")*/ + "var"
                 + System.getProperty("file.separator") + "err"
                 + System.getProperty("file.separator"));
         configField.setText(AppProperties.APP_DIR);
         batchCheckBox.setSelected(Starter.props.getPropertyAsBoolean("acct.batch", "false"));
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        
+
         try {
             fiscalStartPicker.setDate(sdf.parse(Starter.props.getProperty("acct.fiscal.start", "01/01/2020")));
             fiscalStartPicker.getEditor().setText(Starter.props.getProperty("acct.fiscal.start"));
-        } catch ( ParseException ex ) {
+        } catch (ParseException ex) {
             System.err.println(ex.getMessage());
             ex.printStackTrace(System.err);
         }
@@ -159,17 +159,17 @@ public class SettingsDialog extends javax.swing.JDialog {
         Starter.props.setProperty("invoice.prefix.value", invoicePrefixField.getText());
         Starter.props.setProperty("invoice.min", invoiceMinField.getText());
         Starter.props.setProperty("invoice.max", invoiceMaxField.getText());
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Starter.props.setProperty("acct.fiscal.start", sdf.format(fiscalStartPicker.getDate()));
         Starter.props.setPropertyAsBoolean("acct.batch", batchCheckBox.isSelected());
-        
+
         Starter.props.flush();
-        
+
         // Then, close the dialog.
         this.dispose();
     }
-    
+
     private void toggleFields() {
         orderPrefixField.setEnabled(orderPrefixList.getSelectedItem().toString()
                 .equalsIgnoreCase("other..."));
@@ -178,7 +178,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         invoicePrefixField.setEnabled(invoicePrefixList.getSelectedItem()
                 .toString().equalsIgnoreCase("other..."));
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1007,18 +1007,21 @@ public class SettingsDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
-        if ( evt.getSource() instanceof javax.swing.JTextField )
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
+        if (evt.getSource() instanceof javax.swing.JTextField) {
+            ((javax.swing.JTextField) evt.getSource()).selectAll();
+        }
     }//GEN-LAST:event_doSelection
 
     private void doDeselection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doDeselection
-        if ( evt.getSource() instanceof javax.swing.JTextField )
-            ((javax.swing.JTextField)evt.getSource()).select(0, 0);
+        if (evt.getSource() instanceof javax.swing.JTextField) {
+            ((javax.swing.JTextField) evt.getSource()).select(0, 0);
+        }
     }//GEN-LAST:event_doDeselection
 
     private void checkEnterKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterKey
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             doClose();
+        }
     }//GEN-LAST:event_checkEnterKey
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -1028,11 +1031,12 @@ public class SettingsDialog extends javax.swing.JDialog {
     private void chkAuthorityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chkAuthorityStateChanged
         // If the authority checkbox is checked, we want to show the numbering
         //+ options frame, otherwise, we want it hidden.
-        if ( chkAuthority.isSelected() ) {
+        if (chkAuthority.isSelected()) {
             settingsTabbedPane.add(numberingTab, 2);
             settingsTabbedPane.setTitleAt(2, "Numbering");
-        } else
+        } else {
             settingsTabbedPane.remove(numberingTab);
+        }
     }//GEN-LAST:event_chkAuthorityStateChanged
 
     private void orderPrefixListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderPrefixListItemStateChanged

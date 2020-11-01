@@ -38,7 +38,6 @@
  *                                    were provided.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.model;
 
 import com.pekinsoft.loadmaster.err.InvalidTimeException;
@@ -49,15 +48,14 @@ import java.util.Date;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class StopModel {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private String tripNumber;
     private int stopNumber;
@@ -75,30 +73,26 @@ public class StopModel {
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public StopModel () {
-        
+    public StopModel() {
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
-    
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     public int getStopNumber() {
         return stopNumber;
@@ -132,14 +126,14 @@ public class StopModel {
             ParseException {
 //        if ( earlyTime.isBlank() || earlyTime.isEmpty() ) 
 //            throw new InvalidTimeException("Time must be provided.");
-        
+
         try {
-            if ( earlyTime.length() > 1 ) {
+            if (earlyTime.length() > 1) {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 Date time = sdf.parse(earlyTime);
             }
-        } catch ( ParseException ex ) {
-            throw new InvalidTimeException("The provided time, " + depTime 
+        } catch (ParseException ex) {
+            throw new InvalidTimeException("The provided time, " + depTime
                     + ", is invalid.");
         }
 
@@ -162,84 +156,84 @@ public class StopModel {
             ParseException {
 //        if ( lateTime.isBlank() || lateTime.isEmpty() ) 
 //            throw new InvalidTimeException("Time must be provided.");
-        
+
         try {
-            if ( lateTime.length() > 1 ) {
+            if (lateTime.length() > 1) {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 Date time = sdf.parse(lateTime);
             }
-        } catch ( ParseException ex ) {
-            throw new InvalidTimeException("The provided time, " + depTime 
+        } catch (ParseException ex) {
+            throw new InvalidTimeException("The provided time, " + depTime
                     + ", is invalid.");
         }
-        
+
         this.lateTime = lateTime;
     }
-    
+
     public Date getArrDate() {
         return arrDate;
     }
-    
+
     public void setArrDate(Date arrDate) {
         this.arrDate = arrDate;
     }
-    
+
     public String getArrTime() {
         return arrTime;
     }
-    
-    public void setArrTime(String arrTime) throws InvalidTimeException, 
+
+    public void setArrTime(String arrTime) throws InvalidTimeException,
             ParseException {
 //        if ( arrTime.isBlank() || arrTime.isEmpty() ) 
 //            throw new InvalidTimeException("Time must be provided.");
-        
+
         try {
-            if ( arrTime.length() > 1 ) {
+            if (arrTime.length() > 1) {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 Date time = sdf.parse(arrTime);
             }
-        } catch ( ParseException ex ) {
-            throw new InvalidTimeException("The provided time, " + depTime 
+        } catch (ParseException ex) {
+            throw new InvalidTimeException("The provided time, " + depTime
                     + ", is invalid.");
         }
-        
+
         this.arrTime = arrTime;
     }
-    
+
     public Date getDepDate() {
         return this.depDate;
     }
-    
+
     public void setDepDate(Date depDate) {
         this.depDate = depDate;
     }
-    
+
     public String getDepTime() {
         return depTime;
     }
-    
+
     public void setDepTime(String depTime) throws InvalidTimeException,
             ParseException {
 //        if ( depTime.isBlank() || depTime.isEmpty() ) 
 //            throw new InvalidTimeException("Time must be provided.");
-        
+
         try {
-            if ( depTime.length() > 1 ) {
+            if (depTime.length() > 1) {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 Date time = sdf.parse(depTime);
             }
-        } catch ( ParseException ex ) {
-            throw new InvalidTimeException("The provided time, " + depTime 
+        } catch (ParseException ex) {
+            throw new InvalidTimeException("The provided time, " + depTime
                     + ", is invalid.");
         }
-            
+
         this.depTime = depTime;
     }
 
     public String getSignedBy() {
         return signedBy;
     }
-    
+
     public void setSignedBy(String signedBy) {
         this.signedBy = signedBy;
     }

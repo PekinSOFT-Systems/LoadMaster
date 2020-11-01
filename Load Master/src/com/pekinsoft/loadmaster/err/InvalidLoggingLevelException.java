@@ -31,27 +31,28 @@
  *  Mar 8, 2020  Sean Carrick        Initial creation.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.err;
 
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class InvalidLoggingLevelException extends Exception {
 
     /**
-     * Creates a new instance of <code>InvalidLoggingLevelException</code> without detail message.
+     * Creates a new instance of <code>InvalidLoggingLevelException</code>
+     * without detail message.
      */
     public InvalidLoggingLevelException() {
     }
 
-
     /**
-     * Constructs an instance of <code>InvalidLoggingLevelException</code> with the specified detail message.
+     * Constructs an instance of <code>InvalidLoggingLevelException</code> with
+     * the specified detail message.
+     *
      * @param msg the detail message.
      */
     public InvalidLoggingLevelException(String msg) {

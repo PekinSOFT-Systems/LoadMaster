@@ -80,7 +80,6 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private Map settings;
     private WizardController controller;
@@ -106,9 +105,9 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
     public LoadBookerWizardPanelProvider() {
-        this(new String[]{"load", "broker", "stops", "summary"}, 
+        this(new String[]{"load", "broker", "stops", "summary"},
                 new String[]{"Load Information", "Broker Information",
-            "StopsPage", "Summary"});
+                    "StopsPage", "Summary"});
     }
 
     public LoadBookerWizardPanelProvider(String[] steps, String[] descriptions) {
@@ -150,7 +149,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
     }
 
     public LoadBookerWizardPanelProvider(String title, String singleStep,
-            String singleDescription) {        
+            String singleDescription) {
         super(title, singleStep, singleDescription);
 
         entry = new LogRecord(Level.ALL, "Configuring Book Load Wizard...");
@@ -186,7 +185,6 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods">
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Public Instance Methods">
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -220,7 +218,6 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
     //<editor-fold defaultstate="collapsed" desc="Private Instance Methods">
     //</editor-fold>
-    
     @Override
     protected JComponent createPanel(WizardController wc, String string, Map map) {
         this.settings = map;
@@ -252,7 +249,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
             // Can finish from this page.
             controller.setForwardNavigationMode(
                     WizardController.MODE_CAN_FINISH);
-            
+
             // We are on the summary page, which is the final page of the wizard,
             //+ there is nowhere else to go from here.
             return new SummaryPage(map);
@@ -290,26 +287,26 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
         load.setTwic(Boolean.parseBoolean(settings.get("twic").toString()));
         load.setTopCust(Boolean.parseBoolean(settings.get(
                 "top.customer").toString()));
-        
+
         load.setDispatch(new Date());
-        
+
         String broker = settings.get("brokerList").toString();
         broker = broker.substring(broker.indexOf("(") + 1);
         broker = broker.substring(0, broker.length() - 1);
         load.setBroker(Long.valueOf(broker));
-        
+
         int stopCount = Starter.props.getPropertyAsInt("stop.count", "0");
         int x = 0;
         do {
             stop = new StopModel();
-            stop = (StopModel)settings.get("stop" + ++x);
+            stop = (StopModel) settings.get("stop" + ++x);
             stops.addNew(stop);
             load.addStop(stop);
-        } while ( x < stopCount );
-        
+        } while (x < stopCount);
+
         try {
             stops.close();
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             entry.setMessage("An error occurred accessing the stops database.");
             entry.setThrown(ex);
             Starter.logger.error(entry);
@@ -319,30 +316,30 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
 
         // The last thing to do is to check to see if the driver is on an active
         //+ trip.
-        if ( Starter.props.getProperty("load.current", "No Active Load")
-                .equalsIgnoreCase("No Active Load") ) {
+        if (Starter.props.getProperty("load.current", "No Active Load")
+                .equalsIgnoreCase("No Active Load")) {
             // If not, see if the driver wants to start this trip.
             int response = MessageBox.askQuestion("Would you like to start this "
                     + "trip?", "Start Trip", false);
 
-            if ( response == MessageBox.YES_OPTION ) {
+            if (response == MessageBox.YES_OPTION) {
                 StartTripDialog dlg = new StartTripDialog(null, true);
                 dlg.pack();
                 dlg.setOrderNumber(load.getOrder());
                 dlg.setTripNumber(load.getTrip());
                 dlg.setVisible(true);
 
-                if ( !dlg.isCancelled() ) {
+                if (!dlg.isCancelled()) {
                     load.setStartOdo(dlg.getOdometer());
 
                     Starter.props.setProperty("load.current", load.getTrip());
-                    Starter.props.setPropertyAsInt("stop.count", 
+                    Starter.props.setPropertyAsInt("stop.count",
                             load.getStopCount() * 2);
                     Starter.props.setPropertyAsInt("load.stop", 0);
                     Starter.props.flush();
-                    
+
                     ReceivablesCtl ctl;
-                    
+
                     try {
                         ctl = new ReceivablesCtl();
 //                        ReceivablesModel ar = ;
@@ -352,7 +349,7 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
                                 load.getOrder(),
                                 load.getRate()));
                         ctl.close();
-                    } catch ( DataStoreException ex ) {
+                    } catch (DataStoreException ex) {
                         entry.setMessage("An error occurred accessing the stops "
                                 + "database.");
                         entry.setThrown(ex);
@@ -365,19 +362,18 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
         }
 
         loads.addNew(load);
-        
+
         try {
             loads.close();
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             entry.setMessage("An error occurred accessing the loads database.");
             entry.setThrown(ex);
             Starter.logger.error(entry);
 
             MessageBox.showError(ex, "Stops Database Error");
         }
-        
-        // Now, we need to see if the user is currently on
 
+        // Now, we need to see if the user is currently on
         // We are not returning anything from this method, so just return a null
         //+ object, as everything that needed to be done was done here.
         return null;
@@ -392,12 +388,13 @@ public class LoadBookerWizardPanelProvider extends WizardPanelProvider
         //+ want to query the user as to whether or not they truly wish to 
         //+ cancel booking the load.
 
-        if ( MessageBox.askQuestion(
-                "Are you sure you want to cancel the Wizard?", 
-                "Confirm Cancellation", false) == MessageBox.YES_OPTION )
+        if (MessageBox.askQuestion(
+                "Are you sure you want to cancel the Wizard?",
+                "Confirm Cancellation", false) == MessageBox.YES_OPTION) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
 }

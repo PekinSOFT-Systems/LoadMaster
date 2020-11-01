@@ -38,7 +38,7 @@ public class DataStoreException extends Exception {
     public DataStoreException(String msg) {
         super(msg);
     }
-    
+
     public DataStoreException(String msg, Throwable thrown) {
         super(msg, thrown);
     }

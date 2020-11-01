@@ -39,7 +39,6 @@
  *                                    redundant <table> element.
  * *****************************************************************************
  */
-
 package com.pekinsoft.loadmaster.view.wiz.book;
 
 import com.pekinsoft.loadmaster.Starter;
@@ -56,15 +55,14 @@ import org.netbeans.spi.wizard.WizardPage;
 /**
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
- * 
+ *
  * @version 0.1.0
  * @since 0.1.0
  */
 public class SummaryPage extends WizardPage {
     //<editor-fold defaultstate="collapsed" desc="Public Static Constants">
-    
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Private Member Fields">
     private Map map;
     private CustomerModel cust;
@@ -74,29 +72,29 @@ public class SummaryPage extends WizardPage {
 
     //<editor-fold defaultstate="collapsed" desc="Static Initializer">
     static {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Intstance Initializer">
     {
-        
+
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Constructor(s)">
-    public SummaryPage (Map map) {
+    public SummaryPage(Map map) {
         super();
         initComponents();
         entry = new LogRecord(Level.ALL, "Logging intitated for SummaryPage.");
         entry.setSourceClassName(this.getClass().getName());
         entry.setSourceMethodName("SummaryPage() - Default Constructor");
         entry.setParameters(null);
-                
+
         // We will use the `wizardData` Map to get the settings that the user
         //+ selected during this wizard and show them a summary, in HTML.
         StringBuilder summary = new StringBuilder();
-        
+
         summary.append("<html><body><h1 style=\"text-align: center\">");
         summary.append("Book Load Summary</h1>");
         summary.append("<h2>Load Information</h2");
@@ -114,60 +112,67 @@ public class SummaryPage extends WizardPage {
         summary.append(map.get("commodity").toString());
         summary.append("</td></tr></tbody>");
         summary.append("<p>Other Load Information:<br><br>");
-        
+
         // For the checkboxes on the LoadPage, we will use if statements to 
         //+ print "human-readable" information, such as HazMat Load
-        if ( Boolean.valueOf(map.get("hazmat").toString()) == true ) 
+        if (Boolean.valueOf(map.get("hazmat").toString()) == true) {
             summary.append("HazMat Load<br>");
-        if ( Boolean.valueOf(map.get("tarped").toString()) )
+        }
+        if (Boolean.valueOf(map.get("tarped").toString())) {
             summary.append("Load Must be Tarped<br>");
-        if ( Boolean.valueOf(map.get("team").toString())) 
+        }
+        if (Boolean.valueOf(map.get("team").toString())) {
             summary.append("Team Drivers Required<br>");
-        if ( Boolean.valueOf(map.get("ltl").toString())) {
+        }
+        if (Boolean.valueOf(map.get("ltl").toString())) {
             summary.append("Less Than Truckload<br>");
             summary.append("<div style=\"float: right; background-color:");
             summary.append(" CornflowerBlue;>To add additional stops, simply ");
             summary.append("run the Add Stop Wizard for each additional stop.");
             summary.append("</div><br>");
         }
-        if ( Boolean.valueOf(map.get("top.customer").toString()) )
+        if (Boolean.valueOf(map.get("top.customer").toString())) {
             summary.append("This is a Top Customer: Do Great Work<br>");
-        if ( Boolean.valueOf(map.get("twic").toString()) )
+        }
+        if (Boolean.valueOf(map.get("twic").toString())) {
             summary.append("TWIC Card is <strong>Required</strong><br>");
-        if ( Boolean.valueOf(map.get("cbd").toString()) )
+        }
+        if (Boolean.valueOf(map.get("cbd").toString())) {
             summary.append("Count By Driver (Signature & Tally)<br>");
-        if ( Boolean.valueOf(map.get("ramps").toString()) )
+        }
+        if (Boolean.valueOf(map.get("ramps").toString())) {
             summary.append("Ramps are <strong>Required</strong><br>");
+        }
         summary.append("</p>");
-        
+
         summary.append("<h2>Broker/Agent Information</h2><p>");
         summary.append("Broker: ");
         summary.append(map.get("brokerList"));
         summary.append("<br>");
-        
+
         // Again, only report if the data is present, similar to the checkboxes.
-        if ( !map.get("Phone").toString().equals("(   )    -    ") ) {
+        if (!map.get("Phone").toString().equals("(   )    -    ")) {
             summary.append("Phone #: ");
             summary.append(map.get("Phone").toString());
             summary.append("<br>");
         }
-        if ( !map.get("Fax").toString().equals("(   )    -    ") ) {
+        if (!map.get("Fax").toString().equals("(   )    -    ")) {
             summary.append("Fax #: ");
             summary.append(map.get("Fax").toString());
             summary.append("<br>");
         }
-        if ( !map.get("Email").toString().equals(" ") ) {
+        if (!map.get("Email").toString().equals(" ")) {
             summary.append("Email: ");
             summary.append(map.get("Email").toString());
             summary.append("<br>");
         }
         summary.append("</p>");
-        
+
         summary.append("<h2>Stop Information</h2>");
         summary.append("<table border=1><thead><tr><th>Stop #</th><th>Company</th>");
         summary.append("<th>Early Date</th><th>Early Time</th><th>Late Date</th>");
         summary.append("<th>Late Time</th></tr></thead><tbody>");
-        
+
         // To list out the stops, we want to list only the stop number, the
         //+ company, street, suite, city, state, Zip Code, and phone number. In
         //+ order to accomplish this, we will need to loop through all keys in
@@ -178,41 +183,41 @@ public class SummaryPage extends WizardPage {
         //+ long value of the String of the customer ID stored in the data map.
         //+ We will use a CustomerModel object to hold the record that matches
         //+ the customer we are seeking.
-        
         try {
             table = new CustomerCtl();
-            
+
             // If we are successful in opening the data table, we can then 
             //+ search for the customer we need. However, we need to loop through
             //+ all of the stops the user entered to get the customer ID numbers.
-            for ( int x = 0; x < Starter.props.getPropertyAsInt("stop.count", 
+            for (int x = 0; x < Starter.props.getPropertyAsInt("stop.count",
                     "0"); x++) {
                 int stopNum = x + 1;
                 Object row = map.get("stop" + stopNum);
-                StopModel stop = (StopModel)row;
+                StopModel stop = (StopModel) row;
                 long desiredID = stop.getCustomer();
-                
+
                 // Now that we have the customer ID we need to match, we need to
                 //+ loop through all of the records in the customer table until
                 //+ we find that customer record.
                 do {
-                    if ( table.get().getId() == desiredID ) {
+                    if (table.get().getId() == desiredID) {
                         cust = table.get();
-                        
+
                         // Exit the loop.
                         break;
-                    } else
+                    } else {
                         table.next();
-                }  while ( table.hasNext() );
-                
+                    }
+                } while (table.hasNext());
+
                 // Now that we have gotten the appropriate customer information
                 //+ for the stop, we can add the info to the summary page.
                 summary.append("<tr><td>");
                 summary.append(stop.getStopNumber()).append("</td><td>");
                 summary.append(cust.getCompany()).append("</td><td>");
-                
+
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-                
+
                 summary.append(sdf.format(stop.getEarlyDate())).append("</td><td>");
                 summary.append(stop.getEarlyTime()).append("</td><td>");
                 summary.append(sdf.format(stop.getLateDate())).append("</td><td>");
@@ -220,15 +225,15 @@ public class SummaryPage extends WizardPage {
 //                summary.append(cust.getZip()).append("</td><td>");
 //                summary.append(cust.getPhone()).append("</td></tr>");
             }
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             entry.setThrown(ex);
             Starter.logger.error(entry);
         }
-        
+
         // Once we have added the information on each of the stops, we need to
         //+ close out our table and our document.
         summary.append("</tbody></table></body></html>");
-        
+
         // Then, we need to put our document in our summary editor.
         summaryEditor.setContentType("text/html");
         summaryEditor.setEditable(false);
@@ -249,18 +254,17 @@ public class SummaryPage extends WizardPage {
         jScrollPane1 = new javax.swing.JScrollPane();
         summaryEditor = new javax.swing.JEditorPane();
 
-
         jScrollPane1.setViewportView(summaryEditor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
         );
     }// </editor-fold>                        
 
