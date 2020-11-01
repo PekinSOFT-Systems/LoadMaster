@@ -1,0 +1,309 @@
+\hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{}\doxysection{com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer Class Reference}
+\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+
+
+Collaboration diagram for com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d58/classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a592a5cd172f0ff2bf855453de14bee2c}{Record\+Writer}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}{key}})
+\begin{DoxyCompactList}\small\item\em Default construction for the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}}} class. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a30f9c909819554a8f9c6530698250cb8}{get\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Gets the key for this. \end{DoxyCompactList}\item 
+Output\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a982dc4d761d00bb499fc3412246d09b7}{get\+Output\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Gets an. \end{DoxyCompactList}\item 
+Object\+Output\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_acceaec8468fb7d20628621ce8a16e671}{get\+Object\+Output\+Stream}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Gets an. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aa13f08b404ce50bec55a946d51b7ba31}{write\+Object}} (Object o)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em This utility method serializes an. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a70ed7dbc1f78e61bd7ea93e2060f1ccc}{get\+Data\+Length}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the number of bytes in the data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_abd507925ee7de86d0af070121a58a6a1}{write\+To}} (Data\+Output str)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the data out to the stream without re-\/allocating the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}{key}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1DbByteArrayOutputStream}{Db\+Byte\+Array\+Output\+Stream}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}{out}}
+\item 
+Object\+Output\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a84cef7068ad8f731c0084dff4b97acd0}{obj\+Out}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 28 of file Record\+Writer.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a592a5cd172f0ff2bf855453de14bee2c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a592a5cd172f0ff2bf855453de14bee2c}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!RecordWriter@{RecordWriter}}
+\index{RecordWriter@{RecordWriter}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{RecordWriter()}{RecordWriter()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+Record\+Writer (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption})}
+
+
+
+Default construction for the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key for the record to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                     \{}
+\DoxyCodeLine{39         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}{key}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}{key}};}
+\DoxyCodeLine{40         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}{out}} = \textcolor{keyword}{new} DbByteArrayOutputStream();}
+\DoxyCodeLine{41     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a70ed7dbc1f78e61bd7ea93e2060f1ccc}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a70ed7dbc1f78e61bd7ea93e2060f1ccc}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!getDataLength@{getDataLength}}
+\index{getDataLength@{getDataLength}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{getDataLength()}{getDataLength()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+get\+Data\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the number of bytes in the data. 
+
+\begin{DoxyReturn}{Returns}
+int Number of data bytes. 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                \{}
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}{out}}.size();}
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a30f9c909819554a8f9c6530698250cb8}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a30f9c909819554a8f9c6530698250cb8}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!getKey@{getKey}}
+\index{getKey@{getKey}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the key for this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a592a5cd172f0ff2bf855453de14bee2c}{RecordWriter}} }
+\end{DoxyCode}
+ object.
+
+\begin{DoxyReturn}{Returns}
+String The record writer\textquotesingle{}s key. 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                            \{}
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}{key}};}
+\DoxyCodeLine{50     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_acceaec8468fb7d20628621ce8a16e671}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_acceaec8468fb7d20628621ce8a16e671}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!getObjectOutputStream@{getObjectOutputStream}}
+\index{getObjectOutputStream@{getObjectOutputStream}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{getObjectOutputStream()}{getObjectOutputStream()}}
+{\footnotesize\ttfamily Object\+Output\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+get\+Object\+Output\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Gets an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ObjectOutputStream }
+\end{DoxyCode}
+ that can be used to store serialized objects in the record.
+
+\begin{DoxyReturn}{Returns}
+Object\+Output\+Stream The stream to use to store the data. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 68 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68                                                                          \{}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a84cef7068ad8f731c0084dff4b97acd0}{objOut}} == \textcolor{keyword}{null})}
+\DoxyCodeLine{70             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a84cef7068ad8f731c0084dff4b97acd0}{objOut}} = \textcolor{keyword}{new} ObjectOutputStream(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}{out}});}
+\DoxyCodeLine{71         }
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a84cef7068ad8f731c0084dff4b97acd0}{objOut}};}
+\DoxyCodeLine{73     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a982dc4d761d00bb499fc3412246d09b7}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a982dc4d761d00bb499fc3412246d09b7}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!getOutputStream@{getOutputStream}}
+\index{getOutputStream@{getOutputStream}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{getOutputStream()}{getOutputStream()}}
+{\footnotesize\ttfamily Output\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+get\+Output\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{OutputStream }
+\end{DoxyCode}
+ object for storing the record to file.
+
+\begin{DoxyReturn}{Returns}
+Output\+Stream Object to use for storage. 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                                           \{}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}{out}};}
+\DoxyCodeLine{59     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aa13f08b404ce50bec55a946d51b7ba31}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aa13f08b404ce50bec55a946d51b7ba31}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!writeObject@{writeObject}}
+\index{writeObject@{writeObject}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{writeObject()}{writeObject()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+write\+Object (\begin{DoxyParamCaption}\item[{Object}]{o }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+This utility method serializes an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Object }
+\end{DoxyCode}
+ to the record.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                                                          \{}
+\DoxyCodeLine{82         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_acceaec8468fb7d20628621ce8a16e671}{getObjectOutputStream}}().writeObject(o);}
+\DoxyCodeLine{83         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_acceaec8468fb7d20628621ce8a16e671}{getObjectOutputStream}}().flush();}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_abd507925ee7de86d0af070121a58a6a1}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_abd507925ee7de86d0af070121a58a6a1}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!writeTo@{writeTo}}
+\index{writeTo@{writeTo}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{writeTo()}{writeTo()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+write\+To (\begin{DoxyParamCaption}\item[{Data\+Output}]{str }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Writes the data out to the stream without re-\/allocating the buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The
+\begin{DoxyCode}{1}
+\DoxyCodeLine{DataOutput }
+\end{DoxyCode}
+ object to which to write. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 101 of file Record\+Writer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101                                                            \{}
+\DoxyCodeLine{102         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}{out}}.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1DbByteArrayOutputStream_a4734fd9c936a3c6ad8422e88795dc3e3}{writeTo}}(str);}
+\DoxyCodeLine{103     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_aad364553ad254b4f0847cd99d659377f}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!key@{key}}
+\index{key@{key}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+key\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 29 of file Record\+Writer.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a84cef7068ad8f731c0084dff4b97acd0}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a84cef7068ad8f731c0084dff4b97acd0}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!objOut@{objOut}}
+\index{objOut@{objOut}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{objOut}{objOut}}
+{\footnotesize\ttfamily Object\+Output\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+obj\+Out\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 31 of file Record\+Writer.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter_a5ac5020121b46bc2bc0c4c63a431e0fd}} 
+\index{com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}!out@{out}}
+\index{out@{out}!com.pekinsoft.rafdb.db.RecordWriter@{com.pekinsoft.rafdb.db.RecordWriter}}
+\doxysubsubsection{\texorpdfstring{out}{out}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1DbByteArrayOutputStream}{Db\+Byte\+Array\+Output\+Stream}} com.\+pekinsoft.\+rafdb.\+db.\+Record\+Writer.\+out\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 30 of file Record\+Writer.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raf-\/db/\+R\+A\+F Database System/src/com/pekinsoft/rafdb/db/\mbox{\hyperlink{RecordWriter_8java}{Record\+Writer.\+java}}\end{DoxyCompactItemize}

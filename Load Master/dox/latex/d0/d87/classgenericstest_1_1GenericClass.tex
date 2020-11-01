@@ -1,0 +1,149 @@
+\hypertarget{classgenericstest_1_1GenericClass}{}\doxysection{genericstest.\+Generic\+Class$<$ T $>$ Class Template Reference}
+\label{classgenericstest_1_1GenericClass}\index{genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}}
+
+
+Collaboration diagram for genericstest.\+Generic\+Class$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{de/d1a/classgenericstest_1_1GenericClass__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgenericstest_1_1GenericClass_a5c6762fba9cde07c08faed7dd15bf8d1}{Generic\+Class}} (T \mbox{\hyperlink{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}{model}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ Method $>$ \mbox{\hyperlink{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}{getters}}
+\item 
+Array\+List$<$ Method $>$ \mbox{\hyperlink{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}{setters}}
+\item 
+T \mbox{\hyperlink{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}{model}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgenericstest_1_1GenericClass_a2ae7e111bacfdc55cecf3b797b00cccb}{\mbox{[}static initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 21 of file Generic\+Class.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgenericstest_1_1GenericClass_a5c6762fba9cde07c08faed7dd15bf8d1}\label{classgenericstest_1_1GenericClass_a5c6762fba9cde07c08faed7dd15bf8d1}} 
+\index{genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}!GenericClass@{GenericClass}}
+\index{GenericClass@{GenericClass}!genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GenericClass()}{GenericClass()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgenericstest_1_1GenericClass}{genericstest.\+Generic\+Class}}$<$ T $>$.\mbox{\hyperlink{classgenericstest_1_1GenericClass}{Generic\+Class}} (\begin{DoxyParamCaption}\item[{T}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file Generic\+Class.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                   \{}
+\DoxyCodeLine{41         this.\mbox{\hyperlink{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}{model}} = \mbox{\hyperlink{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}{model}};}
+\DoxyCodeLine{42         }
+\DoxyCodeLine{43         \mbox{\hyperlink{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}{getters}} = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{44         \mbox{\hyperlink{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}{setters}} = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{45         }
+\DoxyCodeLine{46         Class<?> c = \mbox{\hyperlink{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}{model}}.getClass();}
+\DoxyCodeLine{47         Method[] methods = c.getMethods();}
+\DoxyCodeLine{48         }
+\DoxyCodeLine{49         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < methods.length; x++ ) \{}
+\DoxyCodeLine{50             \textcolor{keywordflow}{if} ( methods[x].getName().toLowerCase().contains(\textcolor{stringliteral}{"get"}) }
+\DoxyCodeLine{51                     || methods[x].getName().toLowerCase().contains(\textcolor{stringliteral}{"is"}) ) }
+\DoxyCodeLine{52                 \mbox{\hyperlink{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}{getters}}.add(methods[x]);}
+\DoxyCodeLine{53             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( methods[x].getName().toLowerCase().contains(\textcolor{stringliteral}{"set"}) )}
+\DoxyCodeLine{54                 \mbox{\hyperlink{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}{setters}}.add(methods[x]);}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56                 }
+\DoxyCodeLine{57         Collections.sort(\mbox{\hyperlink{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}{getters}}, \textcolor{keyword}{new} SortByName());}
+\DoxyCodeLine{58         System.out.println(\textcolor{stringliteral}{"Getter Methods:"});}
+\DoxyCodeLine{59         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}{getters}}.size(); x++ ) }
+\DoxyCodeLine{60             System.out.println(\textcolor{stringliteral}{"\(\backslash\)t"} + \mbox{\hyperlink{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}{getters}}.get(x).getName());}
+\DoxyCodeLine{61         }
+\DoxyCodeLine{62         Collections.sort(\mbox{\hyperlink{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}{setters}}, \textcolor{keyword}{new} SortByName());}
+\DoxyCodeLine{63         System.out.println(\textcolor{stringliteral}{"Setter Methods:"});}
+\DoxyCodeLine{64         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}{setters}}.size(); x++ )}
+\DoxyCodeLine{65             System.out.println(\textcolor{stringliteral}{"\(\backslash\)t"} + \mbox{\hyperlink{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}{setters}}.get(x).getName());}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         Field fields[] = c.getFields();}
+\DoxyCodeLine{68         System.out.println(\textcolor{stringliteral}{"Fields:"});}
+\DoxyCodeLine{69         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < fields.length; x++ ) \{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{71                 System.out.println(\textcolor{stringliteral}{"\(\backslash\)t"} + fields[x].getName() + \textcolor{stringliteral}{" = "} }
+\DoxyCodeLine{72                         + fields[x].\textcolor{keyword}{get}(\textcolor{keyword}{null}));}
+\DoxyCodeLine{73             \} \textcolor{keywordflow}{catch} ( IllegalAccessException ex ) \{}
+\DoxyCodeLine{74                 System.out.println(ex);}
+\DoxyCodeLine{75             \}}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgenericstest_1_1GenericClass_a2ae7e111bacfdc55cecf3b797b00cccb}\label{classgenericstest_1_1GenericClass_a2ae7e111bacfdc55cecf3b797b00cccb}} 
+\index{genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgenericstest_1_1GenericClass}{genericstest.\+Generic\+Class}}$<$ T $>$.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}\label{classgenericstest_1_1GenericClass_afc4cb229e6d8eccb85727a8900166eb6}} 
+\index{genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}!getters@{getters}}
+\index{getters@{getters}!genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getters}{getters}}
+{\footnotesize\ttfamily Array\+List$<$Method$>$ \mbox{\hyperlink{classgenericstest_1_1GenericClass}{genericstest.\+Generic\+Class}}$<$ T $>$.getters\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 27 of file Generic\+Class.\+java.
+
+\mbox{\Hypertarget{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}\label{classgenericstest_1_1GenericClass_a4819fc0cbb52e247afb79dfb1fb6801a}} 
+\index{genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}!model@{model}}
+\index{model@{model}!genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{classgenericstest_1_1GenericClass}{genericstest.\+Generic\+Class}}$<$ T $>$.model\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 30 of file Generic\+Class.\+java.
+
+\mbox{\Hypertarget{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}\label{classgenericstest_1_1GenericClass_a07bf480d80e4bd153322834c421ca398}} 
+\index{genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}!setters@{setters}}
+\index{setters@{setters}!genericstest.GenericClass$<$ T $>$@{genericstest.GenericClass$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setters}{setters}}
+{\footnotesize\ttfamily Array\+List$<$Method$>$ \mbox{\hyperlink{classgenericstest_1_1GenericClass}{genericstest.\+Generic\+Class}}$<$ T $>$.setters\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 28 of file Generic\+Class.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Generics\+Test/src/genericstest/\mbox{\hyperlink{GenericClass_8java}{Generic\+Class.\+java}}\end{DoxyCompactItemize}

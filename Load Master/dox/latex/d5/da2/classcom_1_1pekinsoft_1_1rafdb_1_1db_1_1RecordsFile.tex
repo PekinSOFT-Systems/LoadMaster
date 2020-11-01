@@ -1,0 +1,580 @@
+\hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile}{}\doxysection{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File Class Reference}
+\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile}\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+rafdb.\+db.\+Records\+File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{df/df7/classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+rafdb.\+db.\+Records\+File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/da2/classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a12539ebf56e395aa861e64eb7e778166}{Records\+File}} (String db\+Path, int initial\+Size)  throws I\+O\+Exception,                                                           Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Creates a new database file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a260ee72b731c247a1b8d1ded723b74bf}{Records\+File}} (String db\+Path, String access\+Flags)  throws I\+O\+Exception,                                                           Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Opens an existing database file and initializes the in-\/memory index. \end{DoxyCompactList}\item 
+Enumeration \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_acb3293f925977e526a469a11aa103364}{enumerate\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Returns an. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ac2af8ea19ab1c146577708f1e0af8b07}{get\+Num\+Records}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current number of records in the database. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ad6a9f00f0a1155cc75964df951a86d3b}{record\+Exists}} (String key)
+\begin{DoxyCompactList}\small\item\em Checks if there is a record belonging to the given key. \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a4689069a28a576c6838097f704d2c0ae}{close}} ()  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Closes the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_aa414d1722933fb5cfaa6fc44c23c5694}{key\+To\+Record\+Header}} (String key)  throws Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Maps a key to a record header by looking it up in the in-\/memory index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a291190bd89064962b88610a7757e870a}{allocate\+Record}} (String key, int data\+Length)  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Searches the file for free space and then returns a. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a395b75320d570cd4a0b2539d5d217d8d}{get\+Record\+At}} (long target\+Fp)  throws Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Returns the record to which the target file pointer belongs -\/ meaning the specified location in the file is part of the record data of the. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a52448e42465cc1e200fe9c509c0dee1c}{add\+Entry\+To\+Index}} (String key, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} new\+Record, int current\+Num\+Records)  throws I\+O\+Exception,                                                         Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Adds the new record to the in-\/memory index and calls the super class to add the index entry to the file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ace8c4853a451de0f03d02b73356ddd7e}{delete\+Entry\+From\+Index}} (String key, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} header, int current\+Num\+Records)  throws I\+O\+Exception,                                                         Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Removes the record from the index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Concurrent\+Hash\+Map \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{mem\+Index}}
+\begin{DoxyCompactList}\small\item\em Hashtable which holds the in-\/memory index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 28 of file Records\+File.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a12539ebf56e395aa861e64eb7e778166}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a12539ebf56e395aa861e64eb7e778166}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!RecordsFile@{RecordsFile}}
+\index{RecordsFile@{RecordsFile}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{RecordsFile()}{RecordsFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+Records\+File (\begin{DoxyParamCaption}\item[{String}]{db\+Path,  }\item[{int}]{initial\+Size }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                           \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Creates a new database file. 
+
+The index can grow dynamically, but an initial size needs to be provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Path} & The path to the database file to be created. \\
+\hline
+{\em initial\+Size} & The initial size that should be set for the file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 46 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                                                                \{}
+\DoxyCodeLine{48         super(dbPath, initialSize);}
+\DoxyCodeLine{49         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}} = \textcolor{keyword}{new} ConcurrentHashMap(initialSize);}
+\DoxyCodeLine{50     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a260ee72b731c247a1b8d1ded723b74bf}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a260ee72b731c247a1b8d1ded723b74bf}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!RecordsFile@{RecordsFile}}
+\index{RecordsFile@{RecordsFile}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{RecordsFile()}{RecordsFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+Records\+File (\begin{DoxyParamCaption}\item[{String}]{db\+Path,  }\item[{String}]{access\+Flags }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                           \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Opens an existing database file and initializes the in-\/memory index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Path} & The path to the database file to open. \\
+\hline
+{\em access\+Flags} & The accessibility flags for the file. \char`\"{}r\char`\"{} for read-\/ only or \char`\"{}rw\char`\"{} for read/write. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 61 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                                                                \{}
+\DoxyCodeLine{63         super(dbPath, accessFlags);}
+\DoxyCodeLine{64         }
+\DoxyCodeLine{65         \textcolor{keywordtype}{int} numRecords = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aa27df5a9d2f87983a86dc3a354c17c84}{readNumRecordsHeader}}();}
+\DoxyCodeLine{66         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}} = \textcolor{keyword}{new} ConcurrentHashMap(numRecords);}
+\DoxyCodeLine{67         }
+\DoxyCodeLine{68         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < numRecords; i++ ) \{}
+\DoxyCodeLine{69             String key = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_acceb1273d504bab30e58c0a88c596f07}{readKeyFromIndex}}(i);}
+\DoxyCodeLine{70             RecordHeader header = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aec816da41751fe784202a4f342fa9a59}{readRecordHeaderFromIndex}}(i);}
+\DoxyCodeLine{71             header.setIndexPosition(i);}
+\DoxyCodeLine{72             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.put(key, header);}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a52448e42465cc1e200fe9c509c0dee1c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a52448e42465cc1e200fe9c509c0dee1c}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!addEntryToIndex@{addEntryToIndex}}
+\index{addEntryToIndex@{addEntryToIndex}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{addEntryToIndex()}{addEntryToIndex()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+add\+Entry\+To\+Index (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{new\+Record,  }\item[{int}]{current\+Num\+Records }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Adds the new record to the in-\/memory index and calls the super class to add the index entry to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key of the record to add. \\
+\hline
+{\em new\+Record} & The record to add. \\
+\hline
+{\em current\+Num\+Records} & The current number of records in the database. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1cbe386e2ca822cd2e772e3676b4fc41}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 211 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{213                                                                              \{}
+\DoxyCodeLine{214         super.addEntryToIndex(key, newRecord, currentNumRecords);}
+\DoxyCodeLine{215         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.put(key, newRecord);}
+\DoxyCodeLine{216     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a291190bd89064962b88610a7757e870a}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a291190bd89064962b88610a7757e870a}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!allocateRecord@{allocateRecord}}
+\index{allocateRecord@{allocateRecord}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{allocateRecord()}{allocateRecord()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+allocate\+Record (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{int}]{data\+Length }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Searches the file for free space and then returns a. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordHeader }
+\end{DoxyCode}
+ which uses the space. (0(n) memory accesses)
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to use to locate space. \\
+\hline
+{\em data\+Length} & The length of the data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The record header created to use the space. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adac1006de15770fb641d67dfbc4ae358}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 135 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135                                                                                                                \{}
+\DoxyCodeLine{136         RecordHeader newRecord = \textcolor{keyword}{null};}
+\DoxyCodeLine{137         Enumeration e = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.elements();}
+\DoxyCodeLine{138         }
+\DoxyCodeLine{139         \textcolor{keywordflow}{while} ( e.hasMoreElements() ) \{}
+\DoxyCodeLine{140             RecordHeader next = (RecordHeader) e.nextElement();}
+\DoxyCodeLine{141             \textcolor{keywordtype}{int} free = next.getFreeSpace();}
+\DoxyCodeLine{142             }
+\DoxyCodeLine{143             \textcolor{keywordflow}{if} ( dataLength <= free ) \{}
+\DoxyCodeLine{144                 newRecord = next.split();}
+\DoxyCodeLine{145                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}{writeRecordHeaderToIndex}}(next);}
+\DoxyCodeLine{146                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148         \}}
+\DoxyCodeLine{149         }
+\DoxyCodeLine{150         \textcolor{keywordflow}{if} ( newRecord == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{151             \textcolor{comment}{// Append record to end of file -\/ grows file to allocate space.}}
+\DoxyCodeLine{152             \textcolor{keywordtype}{long} fp = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}{getFileLength}}();}
+\DoxyCodeLine{153             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}{setFileLength}}(fp + dataLength);}
+\DoxyCodeLine{154             newRecord = \textcolor{keyword}{new} RecordHeader(fp, dataLength);}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156         }
+\DoxyCodeLine{157         \textcolor{keywordflow}{return} newRecord;}
+\DoxyCodeLine{158     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a4689069a28a576c6838097f704d2c0ae}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a4689069a28a576c6838097f704d2c0ae}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!close@{close}}
+\index{close@{close}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily synchronized void com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Closes the database. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_af63968f0f8f0611e2fc3a9f3e2d003ca}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 191 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{191                                                                               \{}
+\DoxyCodeLine{192         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{193             super.close();}
+\DoxyCodeLine{194         \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{195             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.clear();}
+\DoxyCodeLine{196             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{197         \}}
+\DoxyCodeLine{198     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ace8c4853a451de0f03d02b73356ddd7e}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ace8c4853a451de0f03d02b73356ddd7e}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!deleteEntryFromIndex@{deleteEntryFromIndex}}
+\index{deleteEntryFromIndex@{deleteEntryFromIndex}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{deleteEntryFromIndex()}{deleteEntryFromIndex()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+delete\+Entry\+From\+Index (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{header,  }\item[{int}]{current\+Num\+Records }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Removes the record from the index. 
+
+Replaces the target with the entry at the end of the index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the record to delete. \\
+\hline
+{\em header} & The record header of the record to delete. \\
+\hline
+{\em current\+Num\+Records} & The current number of records. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7cbd73864dee646462d2f86996c20d11}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 229 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{231                                                                              \{}
+\DoxyCodeLine{232         super.deleteEntryFromIndex(key, header, currentNumRecords);}
+\DoxyCodeLine{233         RecordHeader deleted = (RecordHeader) \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.remove(key);}
+\DoxyCodeLine{234     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_acb3293f925977e526a469a11aa103364}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_acb3293f925977e526a469a11aa103364}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!enumerateKeys@{enumerateKeys}}
+\index{enumerateKeys@{enumerateKeys}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{enumerateKeys()}{enumerateKeys()}}
+{\footnotesize\ttfamily Enumeration com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+enumerate\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Enumeration }
+\end{DoxyCode}
+ of all the keys in the database.
+
+\begin{DoxyReturn}{Returns}
+Enumeration All of the keys. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2208ae2ab63523976b351d5c3cf91982}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 82 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82                                        \{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.keys();}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ac2af8ea19ab1c146577708f1e0af8b07}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ac2af8ea19ab1c146577708f1e0af8b07}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!getNumRecords@{getNumRecords}}
+\index{getNumRecords@{getNumRecords}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{getNumRecords()}{getNumRecords()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+get\+Num\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current number of records in the database. 
+
+\begin{DoxyReturn}{Returns}
+int The total number of records. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 92 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                \{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.size();}
+\DoxyCodeLine{94     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a395b75320d570cd4a0b2539d5d217d8d}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a395b75320d570cd4a0b2539d5d217d8d}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!getRecordAt@{getRecordAt}}
+\index{getRecordAt@{getRecordAt}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{getRecordAt()}{getRecordAt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+get\+Record\+At (\begin{DoxyParamCaption}\item[{long}]{target\+Fp }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Returns the record to which the target file pointer belongs -\/ meaning the specified location in the file is part of the record data of the. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordHeader }
+\end{DoxyCode}
+ which is returned. Returns
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{null} }
+\end{DoxyCode}
+ if the location is not part of a record. (0(n) mem accesses)
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Fp} & The file pointer of the target record. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The record header of the target record. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 171 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171                                                                                   \{}
+\DoxyCodeLine{172         Enumeration e = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.elements();}
+\DoxyCodeLine{173         }
+\DoxyCodeLine{174         \textcolor{keywordflow}{while} ( e.hasMoreElements() ) \{}
+\DoxyCodeLine{175             RecordHeader next = (RecordHeader) e.nextElement();}
+\DoxyCodeLine{176             \textcolor{keywordflow}{if} ( targetFp >= next.dataPointer \&\& targetFp < next.dataPointer +}
+\DoxyCodeLine{177                                                  (\textcolor{keywordtype}{long}) next.dataCapacity ) }
+\DoxyCodeLine{178                 \textcolor{keywordflow}{return} next;}
+\DoxyCodeLine{179         \}}
+\DoxyCodeLine{180         }
+\DoxyCodeLine{181         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{182     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_aa414d1722933fb5cfaa6fc44c23c5694}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_aa414d1722933fb5cfaa6fc44c23c5694}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!keyToRecordHeader@{keyToRecordHeader}}
+\index{keyToRecordHeader@{keyToRecordHeader}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{keyToRecordHeader()}{keyToRecordHeader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+key\+To\+Record\+Header (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maps a key to a record header by looking it up in the in-\/memory index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to map to a header. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The header that was mapped to the key. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 115 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                                                                                      \{}
+\DoxyCodeLine{116         RecordHeader h = (RecordHeader) \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.get(key);}
+\DoxyCodeLine{117         }
+\DoxyCodeLine{118         \textcolor{keywordflow}{if} ( h == \textcolor{keyword}{null} )}
+\DoxyCodeLine{119             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Key not found: "} + key);}
+\DoxyCodeLine{120         }
+\DoxyCodeLine{121         \textcolor{keywordflow}{return} h;}
+\DoxyCodeLine{122     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ad6a9f00f0a1155cc75964df951a86d3b}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ad6a9f00f0a1155cc75964df951a86d3b}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!recordExists@{recordExists}}
+\index{recordExists@{recordExists}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{recordExists()}{recordExists()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+record\+Exists (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption})}
+
+
+
+Checks if there is a record belonging to the given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{true} }
+\end{DoxyCode}
+ if the key exists;
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{false} }
+\end{DoxyCode}
+ otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab75a40a6186f13e782cfad503aff267}{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File}}.
+
+
+
+Definition at line 103 of file Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103                                             \{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}{memIndex}}.containsKey(key);}
+\DoxyCodeLine{105     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a247650eff0db7114ae2611ab2c02c6a1}} 
+\index{com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}!memIndex@{memIndex}}
+\index{memIndex@{memIndex}!com.pekinsoft.rafdb.db.RecordsFile@{com.pekinsoft.rafdb.db.RecordsFile}}
+\doxysubsubsection{\texorpdfstring{memIndex}{memIndex}}
+{\footnotesize\ttfamily Concurrent\+Hash\+Map com.\+pekinsoft.\+rafdb.\+db.\+Records\+File.\+mem\+Index\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Hashtable which holds the in-\/memory index. 
+
+For efficiency, the entire index is cached in memory. The hashtable maps a key of type
+\begin{DoxyCode}{0}
+\DoxyCodeLine{String }
+\end{DoxyCode}
+ to a
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordHeader }
+\end{DoxyCode}
+ . 
+
+Definition at line 35 of file Records\+File.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raf-\/db/\+R\+A\+F Database System/src/com/pekinsoft/rafdb/db/\mbox{\hyperlink{RecordsFile_8java}{Records\+File.\+java}}\end{DoxyCompactItemize}

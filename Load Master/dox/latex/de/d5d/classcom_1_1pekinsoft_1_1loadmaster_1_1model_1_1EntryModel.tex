@@ -1,0 +1,2605 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+
+
+The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} class defines a General Ledger entry for the accounting system in Load Master.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}{Entry\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}{Entry\+Model}} (Date date, String code, String description, int from, int to, double amount, boolean deductible, boolean balanced)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the provided format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the transaction date for the entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}{set\+Date}} (String format, String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction code or check number of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}{set\+Code}} (String code)
+\begin{DoxyCompactList}\small\item\em Sets the transaction code or check number for the transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction details or description. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}{set\+Description}} (String description)
+\begin{DoxyCompactList}\small\item\em Sets the transaction details or description. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}{get\+From\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account from which the money for the transaction was withdrawn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}{set\+From\+Account}} (int from\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account from which the money for the transaction should be withdrawn. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}{get\+To\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account to which the money for the transaction was deposited. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}{set\+To\+Account}} (int to\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account to which the money for the transaction should be deposited. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of the transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}{is\+Deductible}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}{set\+Deductible}} (boolean deductible)
+\begin{DoxyCompactList}\small\item\em Sets whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}{is\+Balanced}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}{set\+Balanced}} (boolean balanced)
+\begin{DoxyCompactList}\small\item\em Sets whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}{Entry\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}{Entry\+Model}} (Date date, String code, String description, int from, int to, double amount, boolean deductible, boolean balanced)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the provided format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the transaction date for the entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}{set\+Date}} (String format, String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction code or check number of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}{set\+Code}} (String code)
+\begin{DoxyCompactList}\small\item\em Sets the transaction code or check number for the transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction details or description. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}{set\+Description}} (String description)
+\begin{DoxyCompactList}\small\item\em Sets the transaction details or description. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}{get\+From\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account from which the money for the transaction was withdrawn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}{set\+From\+Account}} (int from\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account from which the money for the transaction should be withdrawn. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}{get\+To\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account to which the money for the transaction was deposited. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}{set\+To\+Account}} (int to\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account to which the money for the transaction should be deposited. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of the transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}{is\+Deductible}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}{set\+Deductible}} (boolean deductible)
+\begin{DoxyCompactList}\small\item\em Sets whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}{is\+Balanced}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}{set\+Balanced}} (boolean balanced)
+\begin{DoxyCompactList}\small\item\em Sets whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}{Entry\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}{Entry\+Model}} (Date date, String code, String description, int from, int to, double amount, boolean deductible, boolean balanced)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the provided format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the transaction date for the entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}{set\+Date}} (String format, String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction code or check number of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}{set\+Code}} (String code)
+\begin{DoxyCompactList}\small\item\em Sets the transaction code or check number for the transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction details or description. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}{set\+Description}} (String description)
+\begin{DoxyCompactList}\small\item\em Sets the transaction details or description. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}{get\+From\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account from which the money for the transaction was withdrawn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}{set\+From\+Account}} (int from\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account from which the money for the transaction should be withdrawn. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}{get\+To\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account to which the money for the transaction was deposited. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}{set\+To\+Account}} (int to\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account to which the money for the transaction should be deposited. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of the transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}{is\+Deductible}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}{set\+Deductible}} (boolean deductible)
+\begin{DoxyCompactList}\small\item\em Sets whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}{is\+Balanced}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}{set\+Balanced}} (boolean balanced)
+\begin{DoxyCompactList}\small\item\em Sets whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}{Entry\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}{Entry\+Model}} (Date date, String code, String description, int from, int to, double amount, boolean deductible, boolean balanced)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the provided format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the transaction date for the entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}{set\+Date}} (String format, String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction code or check number of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}{set\+Code}} (String code)
+\begin{DoxyCompactList}\small\item\em Sets the transaction code or check number for the transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction details or description. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}{set\+Description}} (String description)
+\begin{DoxyCompactList}\small\item\em Sets the transaction details or description. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}{get\+From\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account from which the money for the transaction was withdrawn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}{set\+From\+Account}} (int from\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account from which the money for the transaction should be withdrawn. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}{get\+To\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account to which the money for the transaction was deposited. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}{set\+To\+Account}} (int to\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account to which the money for the transaction should be deposited. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of the transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}{is\+Deductible}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}{set\+Deductible}} (boolean deductible)
+\begin{DoxyCompactList}\small\item\em Sets whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}{is\+Balanced}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}{set\+Balanced}} (boolean balanced)
+\begin{DoxyCompactList}\small\item\em Sets whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9b64f09d7b3649b105c400b60144bceb}{A\+C\+C\+O\+U\+N\+T\+\_\+\+N\+U\+M\+B\+ER}} = 0
+\begin{DoxyCompactList}\small\item\em The account number for the General Ledger for file access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} class defines a General Ledger entry for the accounting system in Load Master. 
+
+Each GL entry consists of specific data that is the same for every GL entry.
+
+Since the Load Master accounting system is double-\/entry, each transaction amount must be removed (debited or withdrawn) from one account and placed into (credited or deposited) into another account. The entries in the GL are not very detailed, but the details of any transaction may be viewed in the various accounts\textquotesingle{} associated journals. Whereas the GL maintains the \char`\"{}books\char`\"{} of the accounting system, so to speak, the various journals maintain the detailed histories of the GL transactions.
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+7.\+8 build 2549 
+\end{DoxySince}
+
+
+Definition at line 58 of file Entry\+Model.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. 
+
+All other fields are set to default values. 
+
+Definition at line 80 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                         \{}
+\DoxyCodeLine{81         \textcolor{keyword}{this}(\textcolor{keyword}{new} Date(), \textcolor{stringliteral}{""}, \textcolor{stringliteral}{""}, 0, 0, 0.00, \textcolor{keyword}{false}, \textcolor{keyword}{false});}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}\item[{Date}]{date,  }\item[{String}]{code,  }\item[{String}]{description,  }\item[{int}]{from,  }\item[{int}]{to,  }\item[{double}]{amount,  }\item[{boolean}]{deductible,  }\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+{\em code} & Transaction code or check number. \\
+\hline
+{\em description} & Transaction details or description. \\
+\hline
+{\em from} & Account from which the money should be withdrawn. \\
+\hline
+{\em to} & Account to which the money should be deposited. \\
+\hline
+{\em amount} & Transaction amount. \\
+\hline
+{\em deductible} & Whether transaction is tax-\/deductible. \\
+\hline
+{\em balanced} & Whether transaction has been balanced with bank statement. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                                                          \{}
+\DoxyCodeLine{100         this.date = date;}
+\DoxyCodeLine{101         this.code = code;}
+\DoxyCodeLine{102         this.description = description;}
+\DoxyCodeLine{103         this.fromAccount = from;}
+\DoxyCodeLine{104         this.toAccount = to;}
+\DoxyCodeLine{105         this.amount = amount;}
+\DoxyCodeLine{106         this.deductible = deductible;}
+\DoxyCodeLine{107         this.balanced = balanced;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. 
+
+All other fields are set to default values. 
+
+Definition at line 80 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                         \{}
+\DoxyCodeLine{81         \textcolor{keyword}{this}(\textcolor{keyword}{new} Date(), \textcolor{stringliteral}{""}, \textcolor{stringliteral}{""}, 0, 0, 0.00, \textcolor{keyword}{false}, \textcolor{keyword}{false});}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}\item[{Date}]{date,  }\item[{String}]{code,  }\item[{String}]{description,  }\item[{int}]{from,  }\item[{int}]{to,  }\item[{double}]{amount,  }\item[{boolean}]{deductible,  }\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+{\em code} & Transaction code or check number. \\
+\hline
+{\em description} & Transaction details or description. \\
+\hline
+{\em from} & Account from which the money should be withdrawn. \\
+\hline
+{\em to} & Account to which the money should be deposited. \\
+\hline
+{\em amount} & Transaction amount. \\
+\hline
+{\em deductible} & Whether transaction is tax-\/deductible. \\
+\hline
+{\em balanced} & Whether transaction has been balanced with bank statement. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                                                          \{}
+\DoxyCodeLine{100         this.date = date;}
+\DoxyCodeLine{101         this.code = code;}
+\DoxyCodeLine{102         this.description = description;}
+\DoxyCodeLine{103         this.fromAccount = from;}
+\DoxyCodeLine{104         this.toAccount = to;}
+\DoxyCodeLine{105         this.amount = amount;}
+\DoxyCodeLine{106         this.deductible = deductible;}
+\DoxyCodeLine{107         this.balanced = balanced;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. 
+
+All other fields are set to default values. 
+
+Definition at line 80 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                         \{}
+\DoxyCodeLine{81         \textcolor{keyword}{this}(\textcolor{keyword}{new} Date(), \textcolor{stringliteral}{""}, \textcolor{stringliteral}{""}, 0, 0, 0.00, \textcolor{keyword}{false}, \textcolor{keyword}{false});}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}\item[{Date}]{date,  }\item[{String}]{code,  }\item[{String}]{description,  }\item[{int}]{from,  }\item[{int}]{to,  }\item[{double}]{amount,  }\item[{boolean}]{deductible,  }\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+{\em code} & Transaction code or check number. \\
+\hline
+{\em description} & Transaction details or description. \\
+\hline
+{\em from} & Account from which the money should be withdrawn. \\
+\hline
+{\em to} & Account to which the money should be deposited. \\
+\hline
+{\em amount} & Transaction amount. \\
+\hline
+{\em deductible} & Whether transaction is tax-\/deductible. \\
+\hline
+{\em balanced} & Whether transaction has been balanced with bank statement. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                                                          \{}
+\DoxyCodeLine{100         this.date = date;}
+\DoxyCodeLine{101         this.code = code;}
+\DoxyCodeLine{102         this.description = description;}
+\DoxyCodeLine{103         this.fromAccount = from;}
+\DoxyCodeLine{104         this.toAccount = to;}
+\DoxyCodeLine{105         this.amount = amount;}
+\DoxyCodeLine{106         this.deductible = deductible;}
+\DoxyCodeLine{107         this.balanced = balanced;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a3f7426cfe1b213af6515d95194371fb5}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a default instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object, providing only the current date. 
+
+All other fields are set to default values. 
+
+Definition at line 83 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83                         \{}
+\DoxyCodeLine{84         \textcolor{keyword}{this}(\textcolor{keyword}{new} Date(), \textcolor{stringliteral}{""}, \textcolor{stringliteral}{""}, 0, 0, 0.00, \textcolor{keyword}{false}, \textcolor{keyword}{false});}
+\DoxyCodeLine{85     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a51b37492329cfcafbafb85d2d9525780}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!EntryModel@{EntryModel}}
+\index{EntryModel@{EntryModel}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{EntryModel()}{EntryModel()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+Entry\+Model (\begin{DoxyParamCaption}\item[{Date}]{date,  }\item[{String}]{code,  }\item[{String}]{description,  }\item[{int}]{from,  }\item[{int}]{to,  }\item[{double}]{amount,  }\item[{boolean}]{deductible,  }\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}} object with the supplied field values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+{\em code} & Transaction code or check number. \\
+\hline
+{\em description} & Transaction details or description. \\
+\hline
+{\em from} & Account from which the money should be withdrawn. \\
+\hline
+{\em to} & Account to which the money should be deposited. \\
+\hline
+{\em amount} & Transaction amount. \\
+\hline
+{\em deductible} & Whether transaction is tax-\/deductible. \\
+\hline
+{\em balanced} & Whether transaction has been balanced with bank statement. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 101 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102                                                                          \{}
+\DoxyCodeLine{103         this.date = date;}
+\DoxyCodeLine{104         this.code = code;}
+\DoxyCodeLine{105         this.description = description;}
+\DoxyCodeLine{106         this.fromAccount = from;}
+\DoxyCodeLine{107         this.toAccount = to;}
+\DoxyCodeLine{108         this.amount = amount;}
+\DoxyCodeLine{109         this.deductible = deductible;}
+\DoxyCodeLine{110         this.balanced = balanced;}
+\DoxyCodeLine{111     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+Transaction amount. 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{257                               \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{259     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+Transaction amount. 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{257                               \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{259     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+Transaction amount. 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{257                               \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{259     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac241f531afead77093b9ac88aea936ba}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+Transaction amount. 
+\end{DoxyReturn}
+
+
+Definition at line 260 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{260                               \{}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{262     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getCode@{getCode}}
+\index{getCode@{getCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction code or check number of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+The transaction code or check number. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181                             \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{183     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getCode@{getCode}}
+\index{getCode@{getCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction code or check number of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+The transaction code or check number. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181                             \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{183     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getCode@{getCode}}
+\index{getCode@{getCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction code or check number of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+The transaction code or check number. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181                             \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{183     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a83a748257a63e466cac045d33c421cbe}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getCode@{getCode}}
+\index{getCode@{getCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction code or check number of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+The transaction code or check number. 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{184                             \{}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{186     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                           \{}
+\DoxyCodeLine{116         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{117     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                           \{}
+\DoxyCodeLine{116         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{117     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                           \{}
+\DoxyCodeLine{116         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{117     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a396353fb7ce456fe13e5bab7c25570db}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118                           \{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{120     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                     \{}
+\DoxyCodeLine{126         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{128     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                     \{}
+\DoxyCodeLine{126         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{128     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                     \{}
+\DoxyCodeLine{126         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{128     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa5d26c33f558d310edb3db58f285fcdd}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128                                     \{}
+\DoxyCodeLine{129         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{131     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the provided format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format for the date, such as M\+MM dd, yyyy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136                                                  \{}
+\DoxyCodeLine{137         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{139     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the provided format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format for the date, such as M\+MM dd, yyyy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136                                                  \{}
+\DoxyCodeLine{137         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{139     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the provided format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format for the date, such as M\+MM dd, yyyy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136                                                  \{}
+\DoxyCodeLine{137         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{139     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ad0b5b5154429ad6f8544134c461bd99e}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the provided format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format for the date, such as M\+MM dd, yyyy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 139 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                                                  \{}
+\DoxyCodeLine{140         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{141         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{142     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction details or description. 
+
+\begin{DoxyReturn}{Returns}
+Transaction details or description. 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                    \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} description;}
+\DoxyCodeLine{201     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction details or description. 
+
+\begin{DoxyReturn}{Returns}
+Transaction details or description. 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                    \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} description;}
+\DoxyCodeLine{201     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction details or description. 
+
+\begin{DoxyReturn}{Returns}
+Transaction details or description. 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                    \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} description;}
+\DoxyCodeLine{201     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_af68e66a361763a70daeb41a2aed63b48}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction details or description. 
+
+\begin{DoxyReturn}{Returns}
+Transaction details or description. 
+\end{DoxyReturn}
+
+
+Definition at line 202 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{202                                    \{}
+\DoxyCodeLine{203         \textcolor{keywordflow}{return} description;}
+\DoxyCodeLine{204     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getFromAccount@{getFromAccount}}
+\index{getFromAccount@{getFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getFromAccount()}{getFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+From\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account from which the money for the transaction was withdrawn. 
+
+\begin{DoxyReturn}{Returns}
+Debit account. 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                                 \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} fromAccount;}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getFromAccount@{getFromAccount}}
+\index{getFromAccount@{getFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getFromAccount()}{getFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+From\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account from which the money for the transaction was withdrawn. 
+
+\begin{DoxyReturn}{Returns}
+Debit account. 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                                 \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} fromAccount;}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getFromAccount@{getFromAccount}}
+\index{getFromAccount@{getFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getFromAccount()}{getFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+From\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account from which the money for the transaction was withdrawn. 
+
+\begin{DoxyReturn}{Returns}
+Debit account. 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                                 \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} fromAccount;}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac41e56b12af45983777a1869afab78e1}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getFromAccount@{getFromAccount}}
+\index{getFromAccount@{getFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getFromAccount()}{getFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+From\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account from which the money for the transaction was withdrawn. 
+
+\begin{DoxyReturn}{Returns}
+Debit account. 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{221                                 \{}
+\DoxyCodeLine{222         \textcolor{keywordflow}{return} fromAccount;}
+\DoxyCodeLine{223     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getToAccount@{getToAccount}}
+\index{getToAccount@{getToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getToAccount()}{getToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+To\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account to which the money for the transaction was deposited. 
+
+\begin{DoxyReturn}{Returns}
+Credit account. 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                               \{}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} toAccount;}
+\DoxyCodeLine{240     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getToAccount@{getToAccount}}
+\index{getToAccount@{getToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getToAccount()}{getToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+To\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account to which the money for the transaction was deposited. 
+
+\begin{DoxyReturn}{Returns}
+Credit account. 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                               \{}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} toAccount;}
+\DoxyCodeLine{240     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getToAccount@{getToAccount}}
+\index{getToAccount@{getToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getToAccount()}{getToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+To\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account to which the money for the transaction was deposited. 
+
+\begin{DoxyReturn}{Returns}
+Credit account. 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                               \{}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} toAccount;}
+\DoxyCodeLine{240     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_aa220a25f3f8d64a0cccd41281e52d47c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!getToAccount@{getToAccount}}
+\index{getToAccount@{getToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{getToAccount()}{getToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+get\+To\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account to which the money for the transaction was deposited. 
+
+\begin{DoxyReturn}{Returns}
+Credit account. 
+\end{DoxyReturn}
+
+
+Definition at line 241 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{241                               \{}
+\DoxyCodeLine{242         \textcolor{keywordflow}{return} toAccount;}
+\DoxyCodeLine{243     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isBalanced@{isBalanced}}
+\index{isBalanced@{isBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isBalanced()}{isBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Balanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this transaction has been balanced with the bank statement. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if balanced, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294                                 \{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} balanced;}
+\DoxyCodeLine{296     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isBalanced@{isBalanced}}
+\index{isBalanced@{isBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isBalanced()}{isBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Balanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this transaction has been balanced with the bank statement. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if balanced, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294                                 \{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} balanced;}
+\DoxyCodeLine{296     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isBalanced@{isBalanced}}
+\index{isBalanced@{isBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isBalanced()}{isBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Balanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this transaction has been balanced with the bank statement. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if balanced, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294                                 \{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} balanced;}
+\DoxyCodeLine{296     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac54d2edddab72da51418d75676041c7a}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isBalanced@{isBalanced}}
+\index{isBalanced@{isBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isBalanced()}{isBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Balanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this transaction has been balanced with the bank statement. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if balanced, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 297 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297                                 \{}
+\DoxyCodeLine{298         \textcolor{keywordflow}{return} balanced;}
+\DoxyCodeLine{299     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isDeductible@{isDeductible}}
+\index{isDeductible@{isDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isDeductible()}{isDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Deductible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not the transaction amount is tax-\/deductible. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deductible, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275                                   \{}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} deductible;}
+\DoxyCodeLine{277     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isDeductible@{isDeductible}}
+\index{isDeductible@{isDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isDeductible()}{isDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Deductible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not the transaction amount is tax-\/deductible. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deductible, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275                                   \{}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} deductible;}
+\DoxyCodeLine{277     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isDeductible@{isDeductible}}
+\index{isDeductible@{isDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isDeductible()}{isDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Deductible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not the transaction amount is tax-\/deductible. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deductible, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275                                   \{}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} deductible;}
+\DoxyCodeLine{277     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae68d5316ff58ba25712136c40799ad14}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!isDeductible@{isDeductible}}
+\index{isDeductible@{isDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{isDeductible()}{isDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+is\+Deductible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not the transaction amount is tax-\/deductible. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deductible, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 278 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{278                                   \{}
+\DoxyCodeLine{279         \textcolor{keywordflow}{return} deductible;}
+\DoxyCodeLine{280     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Transaction amount. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{266                                          \{}
+\DoxyCodeLine{267         this.amount = amount;}
+\DoxyCodeLine{268     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Transaction amount. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{266                                          \{}
+\DoxyCodeLine{267         this.amount = amount;}
+\DoxyCodeLine{268     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Transaction amount. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{266                                          \{}
+\DoxyCodeLine{267         this.amount = amount;}
+\DoxyCodeLine{268     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Transaction amount. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 269 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{269                                          \{}
+\DoxyCodeLine{270         this.amount = amount;}
+\DoxyCodeLine{271     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setBalanced@{setBalanced}}
+\index{setBalanced@{setBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setBalanced()}{setBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Balanced (\begin{DoxyParamCaption}\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not this transaction has been balanced with the bank statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balanced} & {\ttfamily true} if balanced, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 304 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{304                                               \{}
+\DoxyCodeLine{305         this.balanced = balanced;}
+\DoxyCodeLine{306     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setBalanced@{setBalanced}}
+\index{setBalanced@{setBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setBalanced()}{setBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Balanced (\begin{DoxyParamCaption}\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not this transaction has been balanced with the bank statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balanced} & {\ttfamily true} if balanced, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 304 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{304                                               \{}
+\DoxyCodeLine{305         this.balanced = balanced;}
+\DoxyCodeLine{306     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setBalanced@{setBalanced}}
+\index{setBalanced@{setBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setBalanced()}{setBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Balanced (\begin{DoxyParamCaption}\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not this transaction has been balanced with the bank statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balanced} & {\ttfamily true} if balanced, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 304 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{304                                               \{}
+\DoxyCodeLine{305         this.balanced = balanced;}
+\DoxyCodeLine{306     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setBalanced@{setBalanced}}
+\index{setBalanced@{setBalanced}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setBalanced()}{setBalanced()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Balanced (\begin{DoxyParamCaption}\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not this transaction has been balanced with the bank statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balanced} & {\ttfamily true} if balanced, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 307 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{307                                               \{}
+\DoxyCodeLine{308         this.balanced = balanced;}
+\DoxyCodeLine{309     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setCode@{setCode}}
+\index{setCode@{setCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Code (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction code or check number for the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Transaction code or check number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 190 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190                                      \{}
+\DoxyCodeLine{191         this.code = code;}
+\DoxyCodeLine{192     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setCode@{setCode}}
+\index{setCode@{setCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Code (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction code or check number for the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Transaction code or check number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 190 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190                                      \{}
+\DoxyCodeLine{191         this.code = code;}
+\DoxyCodeLine{192     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setCode@{setCode}}
+\index{setCode@{setCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Code (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction code or check number for the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Transaction code or check number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 190 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190                                      \{}
+\DoxyCodeLine{191         this.code = code;}
+\DoxyCodeLine{192     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setCode@{setCode}}
+\index{setCode@{setCode}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Code (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction code or check number for the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Transaction code or check number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 193 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{193                                      \{}
+\DoxyCodeLine{194         this.code = code;}
+\DoxyCodeLine{195     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction date for the entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146                                    \{}
+\DoxyCodeLine{147         this.date = date;}
+\DoxyCodeLine{148     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction date for the entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146                                    \{}
+\DoxyCodeLine{147         this.date = date;}
+\DoxyCodeLine{148     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [3/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction date for the entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146                                    \{}
+\DoxyCodeLine{147         this.date = date;}
+\DoxyCodeLine{148     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [4/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction date for the entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 149 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{149                                    \{}
+\DoxyCodeLine{150         this.date = date;}
+\DoxyCodeLine{151     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [5/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date in M\+M/dd/yyyy formatted string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 156 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156                                                            \{}
+\DoxyCodeLine{157         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{158         }
+\DoxyCodeLine{159         this.date = sdf.parse(date);}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [6/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date in M\+M/dd/yyyy formatted string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 156 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156                                                            \{}
+\DoxyCodeLine{157         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{158         }
+\DoxyCodeLine{159         this.date = sdf.parse(date);}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [7/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date in M\+M/dd/yyyy formatted string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 156 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156                                                            \{}
+\DoxyCodeLine{157         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{158         }
+\DoxyCodeLine{159         this.date = sdf.parse(date);}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ac1d22d79f0d989b8105466b8bb39a8e7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [8/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date in M\+M/dd/yyyy formatted string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 159 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{159                                                            \{}
+\DoxyCodeLine{160         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{161         }
+\DoxyCodeLine{162         this.date = sdf.parse(date);}
+\DoxyCodeLine{163     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [9/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{format,  }\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format of the provided date, such as M\+MM dd, yyyy. \\
+\hline
+{\em date} & The transaction date. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 170 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170                                                                           \{}
+\DoxyCodeLine{171         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         this.date = sdf.parse(date);}
+\DoxyCodeLine{174     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [10/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{format,  }\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format of the provided date, such as M\+MM dd, yyyy. \\
+\hline
+{\em date} & The transaction date. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 170 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170                                                                           \{}
+\DoxyCodeLine{171         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         this.date = sdf.parse(date);}
+\DoxyCodeLine{174     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [11/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{format,  }\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format of the provided date, such as M\+MM dd, yyyy. \\
+\hline
+{\em date} & The transaction date. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 170 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170                                                                           \{}
+\DoxyCodeLine{171         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         this.date = sdf.parse(date);}
+\DoxyCodeLine{174     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a4d974d1120683db909fbfe83e0c87279}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [12/12]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{format,  }\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format of the provided date, such as M\+MM dd, yyyy. \\
+\hline
+{\em date} & The transaction date. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 173 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{173                                                                           \{}
+\DoxyCodeLine{174         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{175         }
+\DoxyCodeLine{176         this.date = sdf.parse(date);}
+\DoxyCodeLine{177     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDeductible@{setDeductible}}
+\index{setDeductible@{setDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDeductible()}{setDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Deductible (\begin{DoxyParamCaption}\item[{boolean}]{deductible }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not the transaction amount is tax-\/deductible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deductible} & {\ttfamily true} if deductible, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 284 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                                                   \{}
+\DoxyCodeLine{285         this.deductible = deductible;}
+\DoxyCodeLine{286     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDeductible@{setDeductible}}
+\index{setDeductible@{setDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDeductible()}{setDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Deductible (\begin{DoxyParamCaption}\item[{boolean}]{deductible }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not the transaction amount is tax-\/deductible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deductible} & {\ttfamily true} if deductible, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 284 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                                                   \{}
+\DoxyCodeLine{285         this.deductible = deductible;}
+\DoxyCodeLine{286     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDeductible@{setDeductible}}
+\index{setDeductible@{setDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDeductible()}{setDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Deductible (\begin{DoxyParamCaption}\item[{boolean}]{deductible }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not the transaction amount is tax-\/deductible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deductible} & {\ttfamily true} if deductible, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 284 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                                                   \{}
+\DoxyCodeLine{285         this.deductible = deductible;}
+\DoxyCodeLine{286     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDeductible@{setDeductible}}
+\index{setDeductible@{setDeductible}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDeductible()}{setDeductible()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Deductible (\begin{DoxyParamCaption}\item[{boolean}]{deductible }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not the transaction amount is tax-\/deductible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deductible} & {\ttfamily true} if deductible, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 287 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{287                                                   \{}
+\DoxyCodeLine{288         this.deductible = deductible;}
+\DoxyCodeLine{289     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction details or description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Transaction details or description. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                                    \{}
+\DoxyCodeLine{209         this.description = description;}
+\DoxyCodeLine{210     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction details or description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Transaction details or description. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                                    \{}
+\DoxyCodeLine{209         this.description = description;}
+\DoxyCodeLine{210     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction details or description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Transaction details or description. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                                    \{}
+\DoxyCodeLine{209         this.description = description;}
+\DoxyCodeLine{210     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction details or description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Transaction details or description. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 211 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{211                                                    \{}
+\DoxyCodeLine{212         this.description = description;}
+\DoxyCodeLine{213     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setFromAccount@{setFromAccount}}
+\index{setFromAccount@{setFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setFromAccount()}{setFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+From\+Account (\begin{DoxyParamCaption}\item[{int}]{from\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account from which the money for the transaction should be withdrawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Account} & Debit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                                 \{}
+\DoxyCodeLine{229         this.fromAccount = fromAccount;}
+\DoxyCodeLine{230     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setFromAccount@{setFromAccount}}
+\index{setFromAccount@{setFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setFromAccount()}{setFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+From\+Account (\begin{DoxyParamCaption}\item[{int}]{from\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account from which the money for the transaction should be withdrawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Account} & Debit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                                 \{}
+\DoxyCodeLine{229         this.fromAccount = fromAccount;}
+\DoxyCodeLine{230     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setFromAccount@{setFromAccount}}
+\index{setFromAccount@{setFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setFromAccount()}{setFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+From\+Account (\begin{DoxyParamCaption}\item[{int}]{from\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account from which the money for the transaction should be withdrawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Account} & Debit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                                 \{}
+\DoxyCodeLine{229         this.fromAccount = fromAccount;}
+\DoxyCodeLine{230     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setFromAccount@{setFromAccount}}
+\index{setFromAccount@{setFromAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setFromAccount()}{setFromAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+From\+Account (\begin{DoxyParamCaption}\item[{int}]{from\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account from which the money for the transaction should be withdrawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Account} & Debit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 231 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{231                                                 \{}
+\DoxyCodeLine{232         this.fromAccount = fromAccount;}
+\DoxyCodeLine{233     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setToAccount@{setToAccount}}
+\index{setToAccount@{setToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setToAccount()}{setToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+To\+Account (\begin{DoxyParamCaption}\item[{int}]{to\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account to which the money for the transaction should be deposited. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Account} & Credit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{248                                             \{}
+\DoxyCodeLine{249         this.toAccount = toAccount;}
+\DoxyCodeLine{250     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setToAccount@{setToAccount}}
+\index{setToAccount@{setToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setToAccount()}{setToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+To\+Account (\begin{DoxyParamCaption}\item[{int}]{to\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account to which the money for the transaction should be deposited. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Account} & Credit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{248                                             \{}
+\DoxyCodeLine{249         this.toAccount = toAccount;}
+\DoxyCodeLine{250     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setToAccount@{setToAccount}}
+\index{setToAccount@{setToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setToAccount()}{setToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+To\+Account (\begin{DoxyParamCaption}\item[{int}]{to\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account to which the money for the transaction should be deposited. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Account} & Credit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{248                                             \{}
+\DoxyCodeLine{249         this.toAccount = toAccount;}
+\DoxyCodeLine{250     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!setToAccount@{setToAccount}}
+\index{setToAccount@{setToAccount}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{setToAccount()}{setToAccount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+set\+To\+Account (\begin{DoxyParamCaption}\item[{int}]{to\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account to which the money for the transaction should be deposited. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Account} & Credit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 251 of file Entry\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{251                                             \{}
+\DoxyCodeLine{252         this.toAccount = toAccount;}
+\DoxyCodeLine{253     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9b64f09d7b3649b105c400b60144bceb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9b64f09d7b3649b105c400b60144bceb}} 
+\index{com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}!ACCOUNT\_NUMBER@{ACCOUNT\_NUMBER}}
+\index{ACCOUNT\_NUMBER@{ACCOUNT\_NUMBER}!com.pekinsoft.loadmaster.model.EntryModel@{com.pekinsoft.loadmaster.model.EntryModel}}
+\doxysubsubsection{\texorpdfstring{ACCOUNT\_NUMBER}{ACCOUNT\_NUMBER}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+model.\+Entry\+Model.\+A\+C\+C\+O\+U\+N\+T\+\_\+\+N\+U\+M\+B\+ER = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The account number for the General Ledger for file access. 
+
+
+
+Definition at line 60 of file Entry\+Model.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/model/\mbox{\hyperlink{Forked_2LoadMaster_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2model_2EntryModel_8java}{Entry\+Model.\+java}}\end{DoxyCompactItemize}

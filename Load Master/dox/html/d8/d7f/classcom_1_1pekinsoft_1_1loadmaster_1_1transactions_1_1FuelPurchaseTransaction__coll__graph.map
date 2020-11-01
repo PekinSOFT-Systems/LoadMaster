@@ -1,0 +1,6 @@
+<map id="com.pekinsoft.loadmaster.transactions.FuelPurchaseTransaction" name="com.pekinsoft.loadmaster.transactions.FuelPurchaseTransaction">
+<area shape="rect" id="node1" title="The FuelEntryModel defines the data required and stored for a fuel purchase made through Load Master." alt="" coords="5,276,284,317"/>
+<area shape="rect" id="node2" href="$d7/d89/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction.html" title=" " alt="" coords="35,185,254,227"/>
+<area shape="rect" id="node3" href="$dc/d82/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction.html" title=" " alt="" coords="35,95,254,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="118,5,171,32"/>
+</map>

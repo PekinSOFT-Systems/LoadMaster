@@ -1,0 +1,201 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+accounting.\+Processor Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor}\index{com.pekinsoft.loadmaster.accounting.Processor@{com.pekinsoft.loadmaster.accounting.Processor}}
+
+
+The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor}{Processor}}} class provides static methods for processing Journals and the General Ledger for Load Master™.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor_acf7ba17c1a9d617ec4c4a06f795cbcc1}{process\+New\+Expense}} (int account\+Number)  throws Data\+Store\+Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor}{Processor}}} class provides static methods for processing Journals and the General Ledger for Load Master™. 
+
+By concentrating all of the account processing methodology in this one class, code maintenance will be made simpler for Pekin\+S\+O\+F\+T™ Systems in the future.
+
+The following Account Journals are processed via exposed methods in this class\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Method Name }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Account Processed }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Account \#  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Method Name }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Account Processed }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Account \#  }\\\cline{1-3}
+\endhead
+{\ttfamily accounting\+Expense} &Accounting &10010  \\\cline{1-3}
+{\ttfamily communications\+Expense} &Communications &10020  \\\cline{1-3}
+\end{longtabu}
+
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 68 of file Processor.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor_acf7ba17c1a9d617ec4c4a06f795cbcc1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1accounting_1_1Processor_acf7ba17c1a9d617ec4c4a06f795cbcc1}} 
+\index{com.pekinsoft.loadmaster.accounting.Processor@{com.pekinsoft.loadmaster.accounting.Processor}!processNewExpense@{processNewExpense}}
+\index{processNewExpense@{processNewExpense}!com.pekinsoft.loadmaster.accounting.Processor@{com.pekinsoft.loadmaster.accounting.Processor}}
+\doxysubsubsection{\texorpdfstring{processNewExpense()}{processNewExpense()}}
+{\footnotesize\ttfamily static boolean com.\+pekinsoft.\+loadmaster.\+accounting.\+Processor.\+process\+New\+Expense (\begin{DoxyParamCaption}\item[{int}]{account\+Number }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 80 of file Processor.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                                                                                          \{}
+\DoxyCodeLine{81         entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{82         entry.setSourceMethodName(\textcolor{stringliteral}{"process"});}
+\DoxyCodeLine{83         entry.setParameters(\textcolor{keyword}{new} Object[]\{accountNumber\});}
+\DoxyCodeLine{84         entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{85         entry.setMessage(\textcolor{stringliteral}{"Processing a GeneralModel..."});}
+\DoxyCodeLine{86         entry.setInstant(Instant.now());}
+\DoxyCodeLine{87         Starter.logger.enter(entry);}
+\DoxyCodeLine{88         }
+\DoxyCodeLine{89         \textcolor{keywordtype}{boolean} success = \textcolor{keyword}{true};}
+\DoxyCodeLine{90         }
+\DoxyCodeLine{91         ExpenseTransaction transaction = \textcolor{keyword}{new} ExpenseTransaction(accountNumber);}
+\DoxyCodeLine{92         }
+\DoxyCodeLine{93         entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{94         entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{95         entry.setMessage(\textcolor{stringliteral}{"Getting the transaction data from the user."});}
+\DoxyCodeLine{96         entry.setLevel(Level.INFO);}
+\DoxyCodeLine{97         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{98         entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{99         entry.setInstant(Instant.now());}
+\DoxyCodeLine{100         Starter.logger.info(entry);}
+\DoxyCodeLine{101         }
+\DoxyCodeLine{102         ExpenseEntryDlg dlg = \textcolor{keyword}{new} ExpenseEntryDlg(\textcolor{keyword}{null}, }
+\DoxyCodeLine{103                 \textcolor{keyword}{true}, accountNumber);}
+\DoxyCodeLine{104         dlg.pack();}
+\DoxyCodeLine{105         dlg.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{106         }
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} ( !dlg.isCancelled() ) \{}
+\DoxyCodeLine{108             entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{109             entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{110             entry.setMessage(\textcolor{stringliteral}{"Receiving transaction data..."});}
+\DoxyCodeLine{111             entry.setLevel(Level.INFO);}
+\DoxyCodeLine{112             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{113             entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{114             entry.setInstant(Instant.now());}
+\DoxyCodeLine{115             Starter.logger.info(entry);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117             \textcolor{comment}{// We have to initialize the transaction to so that the constructor}}
+\DoxyCodeLine{118             \textcolor{comment}{//+ executes to create the account number and file path.}}
+\DoxyCodeLine{119             transaction = dlg.getTransaction();}
+\DoxyCodeLine{120             }
+\DoxyCodeLine{121             entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{122             entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{123             entry.setMessage(\textcolor{stringliteral}{"Initializing the journal for the Accounting account."});}
+\DoxyCodeLine{124             entry.setLevel(Level.INFO);}
+\DoxyCodeLine{125             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{126             entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{127             entry.setInstant(Instant.now());}
+\DoxyCodeLine{128             Starter.logger.info(entry);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130             GeneralJournalCtl<ExpenseTransaction> db = \textcolor{keyword}{new} GeneralJournalCtl<>(transaction);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132             entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{133             entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{134             entry.setMessage(\textcolor{stringliteral}{"Adding the transaction to the Accounting Journal."});}
+\DoxyCodeLine{135             entry.setLevel(Level.INFO);}
+\DoxyCodeLine{136             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{137             entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{138             entry.setInstant(Instant.now());}
+\DoxyCodeLine{139             Starter.logger.info(entry);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141             db.addNew(transaction);}
+\DoxyCodeLine{142             db.flush(); \textcolor{comment}{// Write contents to disk.}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144             entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{145             entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{146             entry.setMessage(\textcolor{stringliteral}{"Checking posting method: Real-\/Time or Batch..."});}
+\DoxyCodeLine{147             entry.setLevel(Level.INFO);}
+\DoxyCodeLine{148             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{149             entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{150             entry.setInstant(Instant.now());}
+\DoxyCodeLine{151             Starter.logger.info(entry);}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153             \textcolor{keywordflow}{if} ( !Boolean.parseBoolean(Starter.props.getProperty(\textcolor{stringliteral}{"acct.batch"}, }
+\DoxyCodeLine{154                     \textcolor{stringliteral}{"false"})) ) \{}
+\DoxyCodeLine{155                 EntryCtl gl = \textcolor{keyword}{new} EntryCtl();}
+\DoxyCodeLine{156                 }
+\DoxyCodeLine{157                 entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{158                 entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{159                 entry.setMessage(\textcolor{stringliteral}{"Posting Method is set for Real-\/Time.\(\backslash\)n\(\backslash\)t"}}
+\DoxyCodeLine{160                         + \textcolor{stringliteral}{"Posting Journal to General Ledger"});}
+\DoxyCodeLine{161                 entry.setLevel(Level.INFO);}
+\DoxyCodeLine{162                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{163                 entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{164                 entry.setInstant(Instant.now());}
+\DoxyCodeLine{165                 Starter.logger.info(entry);}
+\DoxyCodeLine{166                 }
+\DoxyCodeLine{167                 GLEntryTransaction lineItem = \textcolor{keyword}{new} GLEntryTransaction();}
+\DoxyCodeLine{168                 lineItem.setAmount(transaction.getAmount());}
+\DoxyCodeLine{169                 lineItem.setBalanced(\textcolor{keyword}{false});}
+\DoxyCodeLine{170                 lineItem.setCode(\textcolor{stringliteral}{"Acct"});}
+\DoxyCodeLine{171                 lineItem.setDate(transaction.getDate());}
+\DoxyCodeLine{172                 lineItem.setDescription(transaction.getDescription());}
+\DoxyCodeLine{173                 lineItem.setFromAccount(transaction.getFromAccount());}
+\DoxyCodeLine{174                 lineItem.setToAccount(transaction.getAccountNumber());}
+\DoxyCodeLine{175                 }
+\DoxyCodeLine{176                 gl.addNew(lineItem);}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178                 entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{179                 entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{180                 entry.setMessage(\textcolor{stringliteral}{"Transaction Posted. Closing General Ledger"});}
+\DoxyCodeLine{181                 entry.setLevel(Level.INFO);}
+\DoxyCodeLine{182                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{183                 entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{184                 entry.setInstant(Instant.now());}
+\DoxyCodeLine{185                 Starter.logger.info(entry);}
+\DoxyCodeLine{186                 }
+\DoxyCodeLine{187                 gl.close();}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189                 entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{190                 entry.setSourceMethodName(\textcolor{stringliteral}{"processAccountingExpense"});}
+\DoxyCodeLine{191                 entry.setMessage(\textcolor{stringliteral}{"General Ledger closed."});}
+\DoxyCodeLine{192                 entry.setLevel(Level.INFO);}
+\DoxyCodeLine{193                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{194                 entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{195                 entry.setInstant(Instant.now());}
+\DoxyCodeLine{196                 Starter.logger.info(entry);}
+\DoxyCodeLine{197             \}}
+\DoxyCodeLine{198         \}}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200         entry.setSourceClassName(Processor.class.getCanonicalName());}
+\DoxyCodeLine{201         entry.setSourceMethodName(\textcolor{stringliteral}{"process"});}
+\DoxyCodeLine{202         entry.setParameters(\textcolor{keyword}{new} Object[]\{accountNumber\});}
+\DoxyCodeLine{203         entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{204         entry.setMessage(\textcolor{stringliteral}{"Done processing GeneralModel."});}
+\DoxyCodeLine{205         entry.setInstant(Instant.now());}
+\DoxyCodeLine{206         Starter.logger.exit(entry, success);}
+\DoxyCodeLine{207         }
+\DoxyCodeLine{208         \textcolor{keywordflow}{return} success;}
+\DoxyCodeLine{209     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/accounting/\mbox{\hyperlink{Processor_8java}{Processor.\+java}}\end{DoxyCompactItemize}

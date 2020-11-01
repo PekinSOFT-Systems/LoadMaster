@@ -1,0 +1,313 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+About Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}\index{com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+About\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d2/d95/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+About\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d1/df2/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}{About}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}{About}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}{About}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}{About}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}{About}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 51 of file About.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}} 
+\index{com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}!About@{About}}
+\index{About@{About}!com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}}
+\doxysubsubsection{\texorpdfstring{About()}{About()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+About.\+About (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The window or dialog to which this one belongs. \\
+\hline
+{\em modal} & Whether or not this dialog should be dealt with before the user can move on. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file About.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                        \{}
+\DoxyCodeLine{60         super(parent, modal);}
+\DoxyCodeLine{61         initComponents();}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63         titleLabel.setText(\textcolor{stringliteral}{"<html><h2>"} + Starter.props.getProjectName() }
+\DoxyCodeLine{64                 + \textcolor{stringliteral}{"</h2></html>"});}
+\DoxyCodeLine{65         versionLabel.setText(\textcolor{stringliteral}{"<html><strong><em>Version</em> "} }
+\DoxyCodeLine{66                 + Starter.props.getVersion() + \textcolor{stringliteral}{"</strong></html>"});}
+\DoxyCodeLine{67         vendorLabel.setText(\textcolor{stringliteral}{"<html><h3>"} + Starter.props.getVendor() }
+\DoxyCodeLine{68                 + \textcolor{stringliteral}{"</h3></html>"});}
+\DoxyCodeLine{69         websiteLabel.setText(\textcolor{stringliteral}{"<html><p>"} + Starter.props.getProjectWebsite() }
+\DoxyCodeLine{70                 + \textcolor{stringliteral}{"</p></html>"});}
+\DoxyCodeLine{71         aboutEditor.setText(Starter.props.getProjectDescription());}
+\DoxyCodeLine{72         aboutEditor.setSelectionStart(0); aboutEditor.setSelectionEnd(0);}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{75         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         left = (left -\/ getWidth()) / 2;}
+\DoxyCodeLine{78         top = (top -\/ getHeight()) / 2;}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         setLocation(left, top);}
+\DoxyCodeLine{81         websiteLabel.setCursor(\textcolor{keyword}{new} Cursor(Cursor.HAND\_CURSOR));}
+\DoxyCodeLine{82         }
+\DoxyCodeLine{83         setTitle(\textcolor{stringliteral}{"About "} + Starter.props.getProjectName());}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}} 
+\index{com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}!About@{About}}
+\index{About@{About}!com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}}
+\doxysubsubsection{\texorpdfstring{About()}{About()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+About.\+About (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The window or dialog to which this one belongs. \\
+\hline
+{\em modal} & Whether or not this dialog should be dealt with before the user can move on. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file About.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                        \{}
+\DoxyCodeLine{60         super(parent, modal);}
+\DoxyCodeLine{61         initComponents();}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63         titleLabel.setText(\textcolor{stringliteral}{"<html><h2>"} + Starter.props.getProjectName() }
+\DoxyCodeLine{64                 + \textcolor{stringliteral}{"</h2></html>"});}
+\DoxyCodeLine{65         versionLabel.setText(\textcolor{stringliteral}{"<html><strong><em>Version</em> "} }
+\DoxyCodeLine{66                 + Starter.props.getVersion() + \textcolor{stringliteral}{"</strong></html>"});}
+\DoxyCodeLine{67         vendorLabel.setText(\textcolor{stringliteral}{"<html><h3>"} + Starter.props.getVendor() }
+\DoxyCodeLine{68                 + \textcolor{stringliteral}{"</h3></html>"});}
+\DoxyCodeLine{69         websiteLabel.setText(\textcolor{stringliteral}{"<html><p>"} + Starter.props.getProjectWebsite() }
+\DoxyCodeLine{70                 + \textcolor{stringliteral}{"</p></html>"});}
+\DoxyCodeLine{71         aboutEditor.setText(Starter.props.getProjectDescription());}
+\DoxyCodeLine{72         aboutEditor.setSelectionStart(0); aboutEditor.setSelectionEnd(0);}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{75         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         left = (left -\/ getWidth()) / 2;}
+\DoxyCodeLine{78         top = (top -\/ getHeight()) / 2;}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         setLocation(left, top);}
+\DoxyCodeLine{81         websiteLabel.setCursor(\textcolor{keyword}{new} Cursor(Cursor.HAND\_CURSOR));}
+\DoxyCodeLine{82         }
+\DoxyCodeLine{83         setTitle(\textcolor{stringliteral}{"About "} + Starter.props.getProjectName());}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}} 
+\index{com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}!About@{About}}
+\index{About@{About}!com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}}
+\doxysubsubsection{\texorpdfstring{About()}{About()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+About.\+About (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The window or dialog to which this one belongs. \\
+\hline
+{\em modal} & Whether or not this dialog should be dealt with before the user can move on. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file About.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                        \{}
+\DoxyCodeLine{60         super(parent, modal);}
+\DoxyCodeLine{61         initComponents();}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63         titleLabel.setText(\textcolor{stringliteral}{"<html><h2>"} + Starter.props.getProjectName() }
+\DoxyCodeLine{64                 + \textcolor{stringliteral}{"</h2></html>"});}
+\DoxyCodeLine{65         versionLabel.setText(\textcolor{stringliteral}{"<html><strong><em>Version</em> "} }
+\DoxyCodeLine{66                 + Starter.props.getVersion() + \textcolor{stringliteral}{"</strong></html>"});}
+\DoxyCodeLine{67         vendorLabel.setText(\textcolor{stringliteral}{"<html><h3>"} + Starter.props.getVendor() }
+\DoxyCodeLine{68                 + \textcolor{stringliteral}{"</h3></html>"});}
+\DoxyCodeLine{69         websiteLabel.setText(\textcolor{stringliteral}{"<html><p>"} + Starter.props.getProjectWebsite() }
+\DoxyCodeLine{70                 + \textcolor{stringliteral}{"</p></html>"});}
+\DoxyCodeLine{71         aboutEditor.setText(Starter.props.getProjectDescription());}
+\DoxyCodeLine{72         aboutEditor.setSelectionStart(0); aboutEditor.setSelectionEnd(0);}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{75         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         left = (left -\/ getWidth()) / 2;}
+\DoxyCodeLine{78         top = (top -\/ getHeight()) / 2;}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         setLocation(left, top);}
+\DoxyCodeLine{81         websiteLabel.setCursor(\textcolor{keyword}{new} Cursor(Cursor.HAND\_CURSOR));}
+\DoxyCodeLine{82         }
+\DoxyCodeLine{83         setTitle(\textcolor{stringliteral}{"About "} + Starter.props.getProjectName());}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}} 
+\index{com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}!About@{About}}
+\index{About@{About}!com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}}
+\doxysubsubsection{\texorpdfstring{About()}{About()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+About.\+About (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The window or dialog to which this one belongs. \\
+\hline
+{\em modal} & Whether or not this dialog should be dealt with before the user can move on. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file About.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                        \{}
+\DoxyCodeLine{60         super(parent, modal);}
+\DoxyCodeLine{61         initComponents();}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63         titleLabel.setText(\textcolor{stringliteral}{"<html><h2>"} + Starter.props.getProjectName() }
+\DoxyCodeLine{64                 + \textcolor{stringliteral}{"</h2></html>"});}
+\DoxyCodeLine{65         versionLabel.setText(\textcolor{stringliteral}{"<html><strong><em>Version</em> "} }
+\DoxyCodeLine{66                 + Starter.props.getVersion() + \textcolor{stringliteral}{"</strong></html>"});}
+\DoxyCodeLine{67         vendorLabel.setText(\textcolor{stringliteral}{"<html><h3>"} + Starter.props.getVendor() }
+\DoxyCodeLine{68                 + \textcolor{stringliteral}{"</h3></html>"});}
+\DoxyCodeLine{69         websiteLabel.setText(\textcolor{stringliteral}{"<html><p>"} + Starter.props.getProjectWebsite() }
+\DoxyCodeLine{70                 + \textcolor{stringliteral}{"</p></html>"});}
+\DoxyCodeLine{71         aboutEditor.setText(Starter.props.getProjectDescription());}
+\DoxyCodeLine{72         aboutEditor.setSelectionStart(0); aboutEditor.setSelectionEnd(0);}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{75         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         left = (left -\/ getWidth()) / 2;}
+\DoxyCodeLine{78         top = (top -\/ getHeight()) / 2;}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         setLocation(left, top);}
+\DoxyCodeLine{81         websiteLabel.setCursor(\textcolor{keyword}{new} Cursor(Cursor.HAND\_CURSOR));}
+\DoxyCodeLine{82         }
+\DoxyCodeLine{83         setTitle(\textcolor{stringliteral}{"About "} + Starter.props.getProjectName());}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About_afc362c65459a5e838add4aac36e03a03}} 
+\index{com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}!About@{About}}
+\index{About@{About}!com.pekinsoft.loadmaster.view.About@{com.pekinsoft.loadmaster.view.About}}
+\doxysubsubsection{\texorpdfstring{About()}{About()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+About.\+About (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1About}{About}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The window or dialog to which this one belongs. \\
+\hline
+{\em modal} & Whether or not this dialog should be dealt with before the user can move on. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file About.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                        \{}
+\DoxyCodeLine{60         super(parent, modal);}
+\DoxyCodeLine{61         initComponents();}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63         titleLabel.setText(\textcolor{stringliteral}{"<html><h2>"} + Starter.props.getProjectName() }
+\DoxyCodeLine{64                 + \textcolor{stringliteral}{"</h2></html>"});}
+\DoxyCodeLine{65         versionLabel.setText(\textcolor{stringliteral}{"<html><strong><em>Version</em> "} }
+\DoxyCodeLine{66                 + Starter.props.getVersion() + \textcolor{stringliteral}{"</strong></html>"});}
+\DoxyCodeLine{67         vendorLabel.setText(\textcolor{stringliteral}{"<html><h3>"} + Starter.props.getVendor() }
+\DoxyCodeLine{68                 + \textcolor{stringliteral}{"</h3></html>"});}
+\DoxyCodeLine{69         websiteLabel.setText(\textcolor{stringliteral}{"<html><p>"} + Starter.props.getProjectWebsite() }
+\DoxyCodeLine{70                 + \textcolor{stringliteral}{"</p></html>"});}
+\DoxyCodeLine{71         aboutEditor.setText(Starter.props.getProjectDescription());}
+\DoxyCodeLine{72         aboutEditor.setSelectionStart(0); aboutEditor.setSelectionEnd(0);}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} left = Toolkit.getDefaultToolkit().getScreenSize().width;}
+\DoxyCodeLine{75         \textcolor{keywordtype}{int} top = Toolkit.getDefaultToolkit().getScreenSize().height;}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         left = (left -\/ getWidth()) / 2;}
+\DoxyCodeLine{78         top = (top -\/ getHeight()) / 2;}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         setLocation(left, top);}
+\DoxyCodeLine{81         websiteLabel.setCursor(\textcolor{keyword}{new} Cursor(Cursor.HAND\_CURSOR));}
+\DoxyCodeLine{82         }
+\DoxyCodeLine{83         setTitle(\textcolor{stringliteral}{"About "} + Starter.props.getProjectName());}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{Forked_2LoadMaster_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2view_2About_8java}{About.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,123 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+System\+Initializer Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer}\index{com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+System\+Initializer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{d3/d58/classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_ac19fc4ad54dc26067a969fad4a3464d8}{System\+Initializer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a1f1b66475a1670e6cb29ea6d8c2c0bed}{render\+Splash\+Frame}} (Graphics2D g, int frame)
+\end{DoxyCompactItemize}
+\doxysubsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Splash\+Screen \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}{splash}} = Splash\+Screen.\+get\+Splash\+Screen()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 49 of file System\+Initializer.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_ac19fc4ad54dc26067a969fad4a3464d8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_ac19fc4ad54dc26067a969fad4a3464d8}} 
+\index{com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}!SystemInitializer@{SystemInitializer}}
+\index{SystemInitializer@{SystemInitializer}!com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}}
+\doxysubsubsection{\texorpdfstring{SystemInitializer()}{SystemInitializer()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+System\+Initializer.\+System\+Initializer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file System\+Initializer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                                 \{}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}{splash}} != \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{56             Graphics2D g = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}{splash}}.createGraphics();}
+\DoxyCodeLine{57             }
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} ( g != \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{59                 \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} i = 0; i < 100; i++ ) \{}
+\DoxyCodeLine{60                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a1f1b66475a1670e6cb29ea6d8c2c0bed}{renderSplashFrame}}(g, i);}
+\DoxyCodeLine{61                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}{splash}}.update();}
+\DoxyCodeLine{62                     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{63                         Thread.sleep(1000);}
+\DoxyCodeLine{64                     \} \textcolor{keywordflow}{catch} ( InterruptedException ex ) \{}
+\DoxyCodeLine{65                         \textcolor{comment}{// Do nothing.}}
+\DoxyCodeLine{66                     \}}
+\DoxyCodeLine{67                 \}}
+\DoxyCodeLine{68                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}{splash}}.close();}
+\DoxyCodeLine{69             \}}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a1f1b66475a1670e6cb29ea6d8c2c0bed}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a1f1b66475a1670e6cb29ea6d8c2c0bed}} 
+\index{com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}!renderSplashFrame@{renderSplashFrame}}
+\index{renderSplashFrame@{renderSplashFrame}!com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}}
+\doxysubsubsection{\texorpdfstring{renderSplashFrame()}{renderSplashFrame()}}
+{\footnotesize\ttfamily static void com.\+pekinsoft.\+loadmaster.\+System\+Initializer.\+render\+Splash\+Frame (\begin{DoxyParamCaption}\item[{Graphics2D}]{g,  }\item[{int}]{frame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+
+
+Definition at line 75 of file System\+Initializer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75                                                            \{}
+\DoxyCodeLine{76         \textcolor{keyword}{final} String[] comps = \{\textcolor{stringliteral}{"foo"}, \textcolor{stringliteral}{"bar"}, \textcolor{stringliteral}{"baz"}\};}
+\DoxyCodeLine{77         g.setComposite(AlphaComposite.Clear);}
+\DoxyCodeLine{78         g.fillRect(120, 140, 200, 40);}
+\DoxyCodeLine{79         g.setPaintMode();}
+\DoxyCodeLine{80         g.setColor(Color.WHITE);}
+\DoxyCodeLine{81         g.drawString(\textcolor{stringliteral}{"Loading "} + comps[(frame / 5) \% 3] + \textcolor{stringliteral}{"..."}, 120, 150);}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1SystemInitializer_a2e4fbd45a9acfe201713e0142127b63e}} 
+\index{com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}!splash@{splash}}
+\index{splash@{splash}!com.pekinsoft.loadmaster.SystemInitializer@{com.pekinsoft.loadmaster.SystemInitializer}}
+\doxysubsubsection{\texorpdfstring{splash}{splash}}
+{\footnotesize\ttfamily final Splash\+Screen com.\+pekinsoft.\+loadmaster.\+System\+Initializer.\+splash = Splash\+Screen.\+get\+Splash\+Screen()\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 51 of file System\+Initializer.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/\mbox{\hyperlink{SystemInitializer_8java}{System\+Initializer.\+java}}\end{DoxyCompactItemize}

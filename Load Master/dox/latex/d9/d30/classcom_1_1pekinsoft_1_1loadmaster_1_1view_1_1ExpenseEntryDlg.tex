@@ -1,0 +1,167 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg}\index{com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d2/d1f/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0d/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a2abc22596a938e33d91fd9f27fec6774}{Expense\+Entry\+Dlg}} (java.\+awt.\+Frame parent, boolean modal, int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_aab324ddb81fe022deed7d6edbea6f7c8}{account\+Number}})
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg}{Expense\+Entry\+Dlg}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{Expense\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a9c573e70b84defbd448954c96a920eea}{get\+Transaction}} ()
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a3ec8298e4b832cd33d2685f582c7f801}{is\+Cancelled}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_aab324ddb81fe022deed7d6edbea6f7c8}{account\+Number}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{Expense\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a462ae6d09cb0843f2d9921f0b3ea75b0}{model}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\+T$>$} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file Expense\+Entry\+Dlg.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a2abc22596a938e33d91fd9f27fec6774}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a2abc22596a938e33d91fd9f27fec6774}} 
+\index{com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}!ExpenseEntryDlg@{ExpenseEntryDlg}}
+\index{ExpenseEntryDlg@{ExpenseEntryDlg}!com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}}
+\doxysubsubsection{\texorpdfstring{ExpenseEntryDlg()}{ExpenseEntryDlg()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg.\+Expense\+Entry\+Dlg (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal,  }\item[{int}]{account\+Number }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg}{Expense\+Entry\+Dlg}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+{\em modal} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file Expense\+Entry\+Dlg.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                \{}
+\DoxyCodeLine{68         super(parent, modal);}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{70         isLoading = \textcolor{keyword}{true};}
+\DoxyCodeLine{71         }
+\DoxyCodeLine{72         initComponents();}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{74         super.setLocation(ScreenUtils.centerDialog(\textcolor{keyword}{this}));}
+\DoxyCodeLine{75         }
+\DoxyCodeLine{76         loadList();}
+\DoxyCodeLine{77         }
+\DoxyCodeLine{78         idText.setText(String.valueOf(System.currentTimeMillis()));}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_aab324ddb81fe022deed7d6edbea6f7c8}{accountNumber}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_aab324ddb81fe022deed7d6edbea6f7c8}{accountNumber}};}
+\DoxyCodeLine{81         onCtrl = 0;}
+\DoxyCodeLine{82         cancel = \textcolor{keyword}{false};}
+\DoxyCodeLine{83         isLoading = \textcolor{keyword}{false};}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a9c573e70b84defbd448954c96a920eea}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a9c573e70b84defbd448954c96a920eea}} 
+\index{com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}!getTransaction@{getTransaction}}
+\index{getTransaction@{getTransaction}!com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}}
+\doxysubsubsection{\texorpdfstring{getTransaction()}{getTransaction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{Expense\+Transaction}} com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg.\+get\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 86 of file Expense\+Entry\+Dlg.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86                                                \{}
+\DoxyCodeLine{87         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a462ae6d09cb0843f2d9921f0b3ea75b0}{model}};}
+\DoxyCodeLine{88     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a3ec8298e4b832cd33d2685f582c7f801}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a3ec8298e4b832cd33d2685f582c7f801}} 
+\index{com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}!isCancelled@{isCancelled}}
+\index{isCancelled@{isCancelled}!com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}}
+\doxysubsubsection{\texorpdfstring{isCancelled()}{isCancelled()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg.\+is\+Cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 90 of file Expense\+Entry\+Dlg.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90                                  \{}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} cancel;}
+\DoxyCodeLine{92     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_aab324ddb81fe022deed7d6edbea6f7c8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_aab324ddb81fe022deed7d6edbea6f7c8}} 
+\index{com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}!accountNumber@{accountNumber}}
+\index{accountNumber@{accountNumber}!com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}}
+\doxysubsubsection{\texorpdfstring{accountNumber}{accountNumber}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg.\+account\+Number\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 56 of file Expense\+Entry\+Dlg.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a462ae6d09cb0843f2d9921f0b3ea75b0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1ExpenseEntryDlg_a462ae6d09cb0843f2d9921f0b3ea75b0}} 
+\index{com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}!model@{model}}
+\index{model@{model}!com.pekinsoft.loadmaster.view.ExpenseEntryDlg@{com.pekinsoft.loadmaster.view.ExpenseEntryDlg}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{Expense\+Transaction}} com.\+pekinsoft.\+loadmaster.\+view.\+Expense\+Entry\+Dlg.\+model\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 55 of file Expense\+Entry\+Dlg.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{ExpenseEntryDlg_8java}{Expense\+Entry\+Dlg.\+java}}\end{DoxyCompactItemize}

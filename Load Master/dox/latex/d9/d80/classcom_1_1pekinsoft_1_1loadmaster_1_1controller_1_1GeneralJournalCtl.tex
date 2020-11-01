@@ -1,0 +1,306 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl$<$ T $>$ Class Template Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}\index{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{dd/da3/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dba/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_afa093bc6c2f75a64d8544131af717226}{General\+Journal\+Ctl}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{Expense\+Transaction}} obj)  throws Data\+Store\+Exception 
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a13e60ffa7b8b22295d41e4adb7db83ce}{post\+Transactions}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em This method performs the task of posting all unposted transactions from this journal to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a120906c048c0d47b96b670b8480bd4a0}{create\+Table\+Record}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction}{Base\+Transaction}} model)
+\begin{DoxyCompactList}\small\item\em Creates a record from the entry model data, formatted for the table data file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a768fef5021b60ddd7d1d1df53c7bf766}{load}} (String\mbox{[}$\,$\mbox{]} line)
+\begin{DoxyCompactList}\small\item\em Loads the data from the table format into the entry model object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 57 of file General\+Journal\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_afa093bc6c2f75a64d8544131af717226}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_afa093bc6c2f75a64d8544131af717226}} 
+\index{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}!GeneralJournalCtl@{GeneralJournalCtl}}
+\index{GeneralJournalCtl@{GeneralJournalCtl}!com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GeneralJournalCtl()}{GeneralJournalCtl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}{com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl}}$<$ T $>$.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}{General\+Journal\+Ctl}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{Expense\+Transaction}}}]{obj }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 60 of file General\+Journal\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                                                                 \{}
+\DoxyCodeLine{61         super(obj);}
+\DoxyCodeLine{62     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a120906c048c0d47b96b670b8480bd4a0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a120906c048c0d47b96b670b8480bd4a0}} 
+\index{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}!createTableRecord@{createTableRecord}}
+\index{createTableRecord@{createTableRecord}!com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createTableRecord()}{createTableRecord()}}
+{\footnotesize\ttfamily String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}{com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl}}$<$ T $>$.create\+Table\+Record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction}{Base\+Transaction}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a record from the entry model data, formatted for the table data file. 
+
+Each entry model is able to determine how the data fields are separated and the order the fields are written out to the data file. This allows them to best determine what works for the table whose records they represent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the {\ttfamily T} object that contains the data being written to file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a {\ttfamily java.\+lang.\+String} containing all of the data from the model, formatted into fields split by a delimiter, ready to be written out to the data file. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_aabfb7606d0f1ea79b2615ad84d69cd2e}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 85 of file General\+Journal\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85                                                               \{}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return} generate((ExpenseTransaction)model);}
+\DoxyCodeLine{87     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a768fef5021b60ddd7d1d1df53c7bf766}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a768fef5021b60ddd7d1d1df53c7bf766}} 
+\index{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}!load@{load}}
+\index{load@{load}!com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}{com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl}}$<$ T $>$.load (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Loads the data from the table format into the entry model object. 
+
+Since the entry model object is also responsible for creating the record from the entry model data in a table formatted record, the entry model can easily place the data fields into the appropriate fields. The order of the array of data is the same as the order that was written to the table data file, generated by the method {\ttfamily create\+Table\+Record}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & from the data file, split into a {\ttfamily java.\+lang.\+String\mbox{[}\mbox{]}} array on the file\textquotesingle{}s delimiter. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a595312034cb722130d3f9f994bea0333}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 90 of file General\+Journal\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90                                        \{}
+\DoxyCodeLine{91         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{92         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"load"});}
+\DoxyCodeLine{93         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setLevel(Level.INFO);}
+\DoxyCodeLine{94         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(line);}
+\DoxyCodeLine{95         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{96         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Begin loading table record."});}
+\DoxyCodeLine{97         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{98         Starter.logger.enter(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{99         }
+\DoxyCodeLine{100         ExpenseTransaction model = \textcolor{keyword}{new} ExpenseTransaction(}
+\DoxyCodeLine{101                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}{getAccountNumber}}());}
+\DoxyCodeLine{102         }
+\DoxyCodeLine{103         model.setId(Long.parseLong(line[0]));}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{106             model.setDateFromString(line[1]);}
+\DoxyCodeLine{107         \} \textcolor{keywordflow}{catch} ( ValidationException ex ) \{}
+\DoxyCodeLine{108             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{109             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"load"});}
+\DoxyCodeLine{110             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setLevel(Level.SEVERE);}
+\DoxyCodeLine{111             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(line);}
+\DoxyCodeLine{112             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{113             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getLocalizedMessage()}
+\DoxyCodeLine{114                     + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nSetting current date."});}
+\DoxyCodeLine{115             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{116             Starter.logger.enter(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{117             }
+\DoxyCodeLine{118             model.setDate(\textcolor{keyword}{new} Date());}
+\DoxyCodeLine{119         \}}
+\DoxyCodeLine{120         }
+\DoxyCodeLine{121         model.setDescription(line[2]);}
+\DoxyCodeLine{122         model.setFromAccount(Integer.parseInt(line[3]));}
+\DoxyCodeLine{123         model.setAmount(Double.parseDouble(line[4]));}
+\DoxyCodeLine{124         model.setPosted(Boolean.parseBoolean(line[5]));}
+\DoxyCodeLine{125         }
+\DoxyCodeLine{126         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}} = model;}
+\DoxyCodeLine{127         }
+\DoxyCodeLine{128         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{129         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"load"});}
+\DoxyCodeLine{130         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setLevel(Level.INFO);}
+\DoxyCodeLine{131         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(line);}
+\DoxyCodeLine{132         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{133         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Done loading table record."});}
+\DoxyCodeLine{134         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{135         Starter.logger.exit(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}, \textcolor{keyword}{null});}
+\DoxyCodeLine{136     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a13e60ffa7b8b22295d41e4adb7db83ce}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl_a13e60ffa7b8b22295d41e4adb7db83ce}} 
+\index{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}!postTransactions@{postTransactions}}
+\index{postTransactions@{postTransactions}!com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$@{com.pekinsoft.loadmaster.controller.GeneralJournalCtl$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{postTransactions()}{postTransactions()}}
+{\footnotesize\ttfamily boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1GeneralJournalCtl}{com.\+pekinsoft.\+loadmaster.\+controller.\+General\+Journal\+Ctl}}$<$ T $>$.post\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+This method performs the task of posting all unposted transactions from this journal to the General Ledger. 
+
+This method should called in accordance with the application settings Posting Method. If the selected Posting Method is Batch Posting, then the user will need to manually post the Journals to the General Ledger. Alternatively, if there are unprocessed Journal entries when the user exits the application, the application can prompt the user to allow it to process the batched transactions. If the user chooses to not allow the application to process those Journal entries then, the application should store that fact to the settings file and check the setting on the next launch. If, at the next launch, there are unprocessed Journal entries, the application should somehow show a reminder to the user that there are unprocessed batched transactions that still need to be posted to the General Ledger.
+
+If the user has chosen to batch process Journal entries to the General Ledger, then the user needs to be reminded once in a while to click on the \char`\"{}\+Post Transactions\char`\"{} task in the \char`\"{}\+Accounting Tasks\char`\"{} task pane. The broken down information regarding revenue, expense, and profit (per mile) is only calculated from the General Ledger and not from any of the Journals. Therefore, if the user wants the most accurate quick info regarding the financial health of their company, they need to post their batched transactions as soon as they are able.
+
+\begin{DoxyReturn}{Returns}
+success\+: {\ttfamily true} if transactions posted, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event there is an error accessing the database. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9cf18df369dfe5959e711ae4bd676eb0}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 139 of file General\+Journal\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                                                                 \{}
+\DoxyCodeLine{140         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{141         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"postTransactions"});}
+\DoxyCodeLine{142         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setLevel(Level.INFO);}
+\DoxyCodeLine{143         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{144         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{145         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Begin loading table record."});}
+\DoxyCodeLine{146         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{147         Starter.logger.enter(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         \textcolor{comment}{// For this, we are going to need to create an EntryCtl object, as well}}
+\DoxyCodeLine{150         \textcolor{comment}{//+ as an GLEntryTransaction object.}}
+\DoxyCodeLine{151         EntryCtl gl = \textcolor{keyword}{new} EntryCtl();}
+\DoxyCodeLine{152         GLEntryTransaction tx = \textcolor{keyword}{null};}
+\DoxyCodeLine{153         }
+\DoxyCodeLine{154         \textcolor{comment}{// We also need a return value to send back to the calling method.}}
+\DoxyCodeLine{155         \textcolor{keywordtype}{boolean} success = \textcolor{keyword}{true}; \textcolor{comment}{// Default to a successful posting procedure.}}
+\DoxyCodeLine{156         }
+\DoxyCodeLine{157         \textcolor{comment}{// We need to loop through all of our journal entries, so we can enter}}
+\DoxyCodeLine{158         \textcolor{comment}{//+ our diesel purchase into the General Ledger.}}
+\DoxyCodeLine{159         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{160             \textcolor{comment}{// Check to see if the current record has not yet been posted.}}
+\DoxyCodeLine{161             \textcolor{keywordflow}{if} ( !\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).isPosted() ) \{}
+\DoxyCodeLine{162                 ExpenseTransaction exp = (ExpenseTransaction)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x);}
+\DoxyCodeLine{163                 }
+\DoxyCodeLine{164                 \textcolor{comment}{// Since the record has not yet been posted to the GL, we need }}
+\DoxyCodeLine{165                 \textcolor{comment}{//+ to do so now.}}
+\DoxyCodeLine{166                 tx = \textcolor{keyword}{new} GLEntryTransaction();}
+\DoxyCodeLine{167                 tx.setAmount(exp.getAmount());}
+\DoxyCodeLine{168                 tx.setBalanced(\textcolor{keyword}{false});}
+\DoxyCodeLine{169                 tx.setCode(\textcolor{stringliteral}{"DieselPurch"});}
+\DoxyCodeLine{170                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{171                     tx.setDate(exp.getDateAsString());}
+\DoxyCodeLine{172                 \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{173                     \textcolor{comment}{// If we get a ParseException setting the date, we will log}}
+\DoxyCodeLine{174                     \textcolor{comment}{//+ it...}}
+\DoxyCodeLine{175                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{176                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"postTransactions"});}
+\DoxyCodeLine{177                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setLevel(Level.SEVERE);}
+\DoxyCodeLine{178                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{179                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{180                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getMessage());}
+\DoxyCodeLine{181                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{182                     Starter.logger.error(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{183                     }
+\DoxyCodeLine{184                     \textcolor{comment}{// ...but we will still set a date for the transaction, we}}
+\DoxyCodeLine{185                     \textcolor{comment}{//+ will just make it the current date.}}
+\DoxyCodeLine{186                     tx.setDate(\textcolor{keyword}{new} Date());}
+\DoxyCodeLine{187                 \}}
+\DoxyCodeLine{188                 tx.setDescription(exp.getDescription());}
+\DoxyCodeLine{189                 tx.setFromAccount(exp.getFromAccount());}
+\DoxyCodeLine{190                 tx.setToAccount(exp.getAccountNumber());}
+\DoxyCodeLine{191                 }
+\DoxyCodeLine{192                 \textcolor{comment}{// Now that we have created the GL transaction entry, we can add}}
+\DoxyCodeLine{193                 \textcolor{comment}{//+ it to the GL.}}
+\DoxyCodeLine{194                 gl.addNew(tx);}
+\DoxyCodeLine{195                 }
+\DoxyCodeLine{196                 \textcolor{comment}{// Update the posted flag for this transaction.}}
+\DoxyCodeLine{197                 exp.setPosted(\textcolor{keyword}{true});}
+\DoxyCodeLine{198                 }
+\DoxyCodeLine{199                 \textcolor{comment}{// Flush the data to save the records that have been modified.}}
+\DoxyCodeLine{200                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a47ed57c0673c37296264880c2cc88b47}{flush}}();}
+\DoxyCodeLine{201             \} \textcolor{comment}{// No `else`, because transactions only need to be posted once.}}
+\DoxyCodeLine{202         \} \textcolor{comment}{// Continue until all records have been read and posted.}}
+\DoxyCodeLine{203         }
+\DoxyCodeLine{204         \textcolor{comment}{// Finally, we can post the transactions to the General Ledger.}}
+\DoxyCodeLine{205         gl.close();}
+\DoxyCodeLine{206         }
+\DoxyCodeLine{207         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{208         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"postTransactions"});}
+\DoxyCodeLine{209         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setLevel(Level.INFO);}
+\DoxyCodeLine{210         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{211         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{212         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Done loading table record."});}
+\DoxyCodeLine{213         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{214         Starter.logger.exit(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}, success);}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216         \textcolor{comment}{// Leave as the last line of the method:}}
+\DoxyCodeLine{217         \textcolor{keywordflow}{return} success;}
+\DoxyCodeLine{218     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{GeneralJournalCtl_8java}{General\+Journal\+Ctl.\+java}}\end{DoxyCompactItemize}

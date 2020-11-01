@@ -1,0 +1,6 @@
+<map id="com.pekinsoft.loadmaster.api.BaseTransaction" name="com.pekinsoft.loadmaster.api.BaseTransaction">
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,224,80"/>
+<area shape="rect" id="node2" href="$d7/d89/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction.html" title=" " alt="" coords="302,5,521,47"/>
+<area shape="rect" id="node4" href="$d8/dcd/classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction.html" title="CheckingModel represents the user&#39;s checking account." alt="" coords="272,71,551,112"/>
+<area shape="rect" id="node3" href="$dd/d0c/classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1FuelPurchaseTransaction.html" title="The FuelEntryModel defines the data required and stored for a fuel purchase made through Load Master." alt="" coords="599,5,877,47"/>
+</map>

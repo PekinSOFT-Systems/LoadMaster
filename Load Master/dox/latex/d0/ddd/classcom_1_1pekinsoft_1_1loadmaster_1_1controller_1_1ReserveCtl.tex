@@ -1,0 +1,292 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl}\index{com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{df/d37/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d25/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_ab220ac876a17b7a99f4089396198fe11}{Reserve\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a667a8a72d59e68f0e7c7c5976ee15db0}{post\+Transactions}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em This method performs the task of posting all unposted transactions from this journal to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a54fd7de1cfbfe2f7bb142ddc6e0fe713}{build\+Record\+Line}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReserveModel}{Reserve\+Model}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a62a61e5beec58a770bb2a564731326ad}{create\+And\+Add\+Record}} (String\mbox{[}$\,$\mbox{]} line)
+\begin{DoxyCompactList}\small\item\em The {\ttfamily create\+And\+Add\+Record} method is the 1 of 3 methods that need to be overridden for an Abstract\+Journal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 65 of file Reserve\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_ab220ac876a17b7a99f4089396198fe11}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_ab220ac876a17b7a99f4089396198fe11}} 
+\index{com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}!ReserveCtl@{ReserveCtl}}
+\index{ReserveCtl@{ReserveCtl}!com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}}
+\doxysubsubsection{\texorpdfstring{ReserveCtl()}{ReserveCtl()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl.\+Reserve\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 68 of file Reserve\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68                                                    \{}
+\DoxyCodeLine{69         super(\textcolor{keyword}{new} ReserveModel(), Starter.props.getDataFolder() }
+\DoxyCodeLine{70                 + ReserveModel.ACCOUNT\_NUMBER + \textcolor{stringliteral}{".jrnl"});}
+\DoxyCodeLine{71     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a54fd7de1cfbfe2f7bb142ddc6e0fe713}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a54fd7de1cfbfe2f7bb142ddc6e0fe713}} 
+\index{com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}!buildRecordLine@{buildRecordLine}}
+\index{buildRecordLine@{buildRecordLine}!com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}}
+\doxysubsubsection{\texorpdfstring{buildRecordLine()}{buildRecordLine()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl.\+build\+Record\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ReserveModel}{Reserve\+Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 80 of file Reserve\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                                                          \{}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} model.getIdAsString() + \textcolor{stringliteral}{"\string~"} + model.getTripNumber() + \textcolor{stringliteral}{"\string~"}}
+\DoxyCodeLine{82                 + model.getDateAsString() + \textcolor{stringliteral}{"\string~"}}
+\DoxyCodeLine{83                 + model.getFromAccountAsString() + \textcolor{stringliteral}{"\string~"} }
+\DoxyCodeLine{84                 + model.getAmountAsString()+ \textcolor{stringliteral}{"\string~"} + model.isPosted();}
+\DoxyCodeLine{85     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a62a61e5beec58a770bb2a564731326ad}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a62a61e5beec58a770bb2a564731326ad}} 
+\index{com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}!createAndAddRecord@{createAndAddRecord}}
+\index{createAndAddRecord@{createAndAddRecord}!com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}}
+\doxysubsubsection{\texorpdfstring{createAndAddRecord()}{createAndAddRecord()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl.\+create\+And\+Add\+Record (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The {\ttfamily create\+And\+Add\+Record} method is the 1 of 3 methods that need to be overridden for an Abstract\+Journal. 
+
+This is due to the reason that using reflection will not work within this method because there is no guarantee in the order methods are provided via\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{A a = \textcolor{keyword}{new} A();}
+\DoxyCodeLine{Class<?> c = a.getClass();}
+\DoxyCodeLine{Method methods[] = c.getDeclaredMethods();}
+\end{DoxyCode}
+
+
+If there was a guarantee in the order the methods were returned using the above code, then we could use reflection to implement this method within {\ttfamily Abstract\+Journal}. However, until we figure out a way to ensure that the data will be placed through the appropriate getter method, we will need to keep this method abstract and require an implementing class to override it to provide for the proper storage of the data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & from the data file, split into a {\ttfamily java.\+lang.\+String\mbox{[}\mbox{]}} array on the file\textquotesingle{}s delimiter. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae81a10a17829d01ea1cf26ea8e3f344c}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 88 of file Reserve\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88                                                      \{}
+\DoxyCodeLine{89         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Entering..."});}
+\DoxyCodeLine{90         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{91         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(line);}
+\DoxyCodeLine{92         Starter.logger.enter(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{93         }
+\DoxyCodeLine{94         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{95         }
+\DoxyCodeLine{96         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}} = \textcolor{keyword}{new} ReserveModel();}
+\DoxyCodeLine{97         }
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{100             ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setDate(sdf.parse(line[1]));}
+\DoxyCodeLine{101         \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{102             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{103                     + \textcolor{stringliteral}{"Parsing error while parsing the dispatch date."});}
+\DoxyCodeLine{104             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{105             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{106             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{107             Starter.logger.error(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{108             }
+\DoxyCodeLine{109             MessageBox.showError(ex, \textcolor{stringliteral}{"Parsing Error"});}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111         }
+\DoxyCodeLine{112         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{113             ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setDate(line[1]);}
+\DoxyCodeLine{114         \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{115             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{116             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{117             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{118             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{119             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getMessage());}
+\DoxyCodeLine{120             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{121             Starter.logger.error(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{122             }
+\DoxyCodeLine{123             \textcolor{comment}{// We will just create the date on the fly.}}
+\DoxyCodeLine{124             ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setDate(\textcolor{keyword}{new} Date());}
+\DoxyCodeLine{125         \}}
+\DoxyCodeLine{126         }
+\DoxyCodeLine{127         ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setId(Long.parseLong(line[0]));}
+\DoxyCodeLine{128         ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setTripNumber(line[2]);}
+\DoxyCodeLine{129         ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setFromAccount(Integer.parseInt(line[3]));}
+\DoxyCodeLine{130         ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setAmount(Double.parseDouble(line[4]));}
+\DoxyCodeLine{131         ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setPosted(Boolean.parseBoolean(line[5]));}
+\DoxyCodeLine{132         }
+\DoxyCodeLine{133         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.add(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}});}
+\DoxyCodeLine{134         }
+\DoxyCodeLine{135         LoadMaster.fileProgress.setValue(}
+\DoxyCodeLine{136                 LoadMaster.fileProgress.getValue() + 1);}
+\DoxyCodeLine{137     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a667a8a72d59e68f0e7c7c5976ee15db0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_a667a8a72d59e68f0e7c7c5976ee15db0}} 
+\index{com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}!postTransactions@{postTransactions}}
+\index{postTransactions@{postTransactions}!com.pekinsoft.loadmaster.controller.ReserveCtl@{com.pekinsoft.loadmaster.controller.ReserveCtl}}
+\doxysubsubsection{\texorpdfstring{postTransactions()}{postTransactions()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Reserve\+Ctl.\+post\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+This method performs the task of posting all unposted transactions from this journal to the General Ledger. 
+
+This method should called in accordance with the application settings Posting Method. If the selected Posting Method is Batch Posting, then the user will need to manually post the Journals to the General Ledger. Alternatively, if there are unprocessed Journal entries when the user exits the application, the application can prompt the user to allow it to process the batched transactions. If the user chooses to not allow the application to process those Journal entries then, the application should store that fact to the settings file and check the setting on the next launch. If, at the next launch, there are unprocessed Journal entries, the application should somehow show a reminder to the user that there are unprocessed batched transactions that still need to be posted to the General Ledger.
+
+If the user has chosen to batch process Journal entries to the General Ledger, then the user needs to be reminded once in a while to click on the \char`\"{}\+Post Transactions\char`\"{} task in the \char`\"{}\+Accounting Tasks\char`\"{} task pane. The broken down information regarding revenue, expense, and profit (per mile) is only calculated from the General Ledger and not from any of the Journals. Therefore, if the user wants the most accurate quick info regarding the financial health of their company, they need to post their batched transactions as soon as they are able.
+
+\begin{DoxyReturn}{Returns}
+success\+: {\ttfamily true} if transactions posted, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event there is an error accessing the database. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9cf18df369dfe5959e711ae4bd676eb0}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 140 of file Reserve\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140                                                                 \{}
+\DoxyCodeLine{141         \textcolor{comment}{// For this, we are going to need to create an EntryCtl object, as well}}
+\DoxyCodeLine{142         \textcolor{comment}{//+ as an EntryModel object.}}
+\DoxyCodeLine{143         EntryCtl gl = \textcolor{keyword}{new} EntryCtl();}
+\DoxyCodeLine{144         EntryModel tx = \textcolor{keyword}{null};}
+\DoxyCodeLine{145         }
+\DoxyCodeLine{146         \textcolor{comment}{// We also need a return value to send back to the calling method.}}
+\DoxyCodeLine{147         \textcolor{keywordtype}{boolean} success = \textcolor{keyword}{true}; \textcolor{comment}{// Default to a successful posting procedure.}}
+\DoxyCodeLine{148         }
+\DoxyCodeLine{149         \textcolor{comment}{// We need to loop through all of our journal entries, so we can enter}}
+\DoxyCodeLine{150         \textcolor{comment}{//+ our diesel purchase into the General Ledger.}}
+\DoxyCodeLine{151         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{152             \textcolor{comment}{// Check to see if the current record has not yet been posted.}}
+\DoxyCodeLine{153             \textcolor{keywordflow}{if} ( !((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x)).isPosted() ) \{}
+\DoxyCodeLine{154                 \textcolor{comment}{// Since the record has not yet been posted to the GL, we need }}
+\DoxyCodeLine{155                 \textcolor{comment}{//+ to do so now.}}
+\DoxyCodeLine{156                 tx = \textcolor{keyword}{new} EntryModel();}
+\DoxyCodeLine{157                 tx.setAmount(((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x)).getAmount());}
+\DoxyCodeLine{158                 tx.setCode(\textcolor{stringliteral}{"RES"});}
+\DoxyCodeLine{159                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{160                     tx.setDate(((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x)).getDateAsString());}
+\DoxyCodeLine{161                 \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{162                     \textcolor{comment}{// If we get a ParseException setting the date, we will log}}
+\DoxyCodeLine{163                     \textcolor{comment}{//+ it...}}
+\DoxyCodeLine{164                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{165                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"postTransactions"});}
+\DoxyCodeLine{166                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{167                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{168                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getMessage());}
+\DoxyCodeLine{169                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{170                     Starter.logger.error(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{171                     }
+\DoxyCodeLine{172                     \textcolor{comment}{// ...but we will still set a date for the transaction, we}}
+\DoxyCodeLine{173                     \textcolor{comment}{//+ will just make it the current date.}}
+\DoxyCodeLine{174                     tx.setDate(\textcolor{keyword}{new} Date());}
+\DoxyCodeLine{175                 \}}
+\DoxyCodeLine{176                 tx.setDeductible(\textcolor{keyword}{false});}
+\DoxyCodeLine{177                 }
+\DoxyCodeLine{178                 String desc = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{179                 }
+\DoxyCodeLine{180                 \textcolor{keywordflow}{if} ( ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x)).getTripNumber()}
+\DoxyCodeLine{181                         .equalsIgnoreCase(\textcolor{stringliteral}{"No Active Load"}) ) \{}
+\DoxyCodeLine{182                     desc += \textcolor{stringliteral}{"Extra money put to reserves from another account."};}
+\DoxyCodeLine{183                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{184                     tx.setDescription(\textcolor{stringliteral}{"Percentage of Trip \# "} }
+\DoxyCodeLine{185                             + ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x)).getTripNumber());}
+\DoxyCodeLine{186                 \}}
+\DoxyCodeLine{187                 tx.setDescription(desc);}
+\DoxyCodeLine{188                 }
+\DoxyCodeLine{189                 tx.setFromAccount(ReceivablesModel.ACCOUNT\_NUMBER);}
+\DoxyCodeLine{190                 tx.setToAccount(ReserveModel.ACCOUNT\_NUMBER);}
+\DoxyCodeLine{191                 }
+\DoxyCodeLine{192                 \textcolor{comment}{// Now that we have created the GL transaction entry, we can add}}
+\DoxyCodeLine{193                 \textcolor{comment}{//+ it to the GL.}}
+\DoxyCodeLine{194                 gl.addNew(tx);}
+\DoxyCodeLine{195                 }
+\DoxyCodeLine{196                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_ab220ac876a17b7a99f4089396198fe11}{ReserveCtl}} reserves = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ReserveCtl_ab220ac876a17b7a99f4089396198fe11}{ReserveCtl}}();}
+\DoxyCodeLine{197                 ((ReserveModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setPosted(\textcolor{keyword}{true});}
+\DoxyCodeLine{198                 reserves.update(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}});}
+\DoxyCodeLine{199                 reserves.close();}
+\DoxyCodeLine{200             \} \textcolor{comment}{// No `else`, because transactions only need to be posted once.}}
+\DoxyCodeLine{201         \} \textcolor{comment}{// Continue until all records have been read and posted.}}
+\DoxyCodeLine{202         }
+\DoxyCodeLine{203         \textcolor{comment}{// Finally, we can post the transactions to the General Ledger.}}
+\DoxyCodeLine{204         gl.close();}
+\DoxyCodeLine{205         }
+\DoxyCodeLine{206         \textcolor{comment}{// Leave as the last line of the method:}}
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} success;}
+\DoxyCodeLine{208     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master\+\_\+screwed\+Up/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{ReserveCtl_8java}{Reserve\+Ctl.\+java}}\end{DoxyCompactItemize}

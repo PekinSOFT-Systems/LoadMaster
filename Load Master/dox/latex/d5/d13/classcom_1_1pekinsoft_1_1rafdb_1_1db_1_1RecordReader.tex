@@ -1,0 +1,306 @@
+\hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader}{}\doxysection{com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader Class Reference}
+\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader}\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+
+
+Collaboration diagram for com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{d3/dd3/classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a046e521ffe1908196a57db39bd8dce08}{Record\+Reader}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}{key}}, byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}{data}})
+\begin{DoxyCompactList}\small\item\em Creates a new. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a494fd5bd548d536be22e04332e9fe033}{get\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the key for this record. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a5b7f1cf32671513fe9785b52b051d9b9}{get\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the data for this record. \end{DoxyCompactList}\item 
+Input\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a97f97ac42ce02f4f3bea76dcdf3ce71b}{get\+Input\+Stream}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Gets an. \end{DoxyCompactList}\item 
+Object\+Input\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a4536d26a1ee9c50b6d765e5cd856d705}{get\+Object\+Input\+Stream}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Gets an. \end{DoxyCompactList}\item 
+Object \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac90a7f2161d8bd26028d377fce1d9263}{read\+Object}} ()  throws I\+O\+Exception,                                        Optional\+Data\+Exception,                                        Class\+Not\+Found\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the next object in the record using an. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}{key}}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}{data}}
+\item 
+Byte\+Array\+Input\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ab34b9e5c2e59109ec07552752c782c17}{in}}
+\item 
+Object\+Input\+Stream \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a633f16653af655a2d7ed190ce9b16b3c}{obj\+In}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 29 of file Record\+Reader.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a046e521ffe1908196a57db39bd8dce08}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a046e521ffe1908196a57db39bd8dce08}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!RecordReader@{RecordReader}}
+\index{RecordReader@{RecordReader}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{RecordReader()}{RecordReader()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+Record\+Reader (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption})}
+
+
+
+Creates a new. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a046e521ffe1908196a57db39bd8dce08}{RecordReader}} }
+\end{DoxyCode}
+ object to use for reading in the records from the database file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the record to read. \\
+\hline
+{\em data} & the data of the record to read. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Record\+Reader.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                                                  \{}
+\DoxyCodeLine{43         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}{key}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}{key}};}
+\DoxyCodeLine{44         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}{data}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}{data}};}
+\DoxyCodeLine{45         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ab34b9e5c2e59109ec07552752c782c17}{in}} = \textcolor{keyword}{new} ByteArrayInputStream(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}{data}});}
+\DoxyCodeLine{46     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a5b7f1cf32671513fe9785b52b051d9b9}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a5b7f1cf32671513fe9785b52b051d9b9}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!getData@{getData}}
+\index{getData@{getData}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the data for this record. 
+
+\begin{DoxyReturn}{Returns}
+byte\mbox{[}\mbox{]} Containing the data. 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Record\+Reader.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                             \{}
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}{data}};}
+\DoxyCodeLine{64     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a97f97ac42ce02f4f3bea76dcdf3ce71b}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a97f97ac42ce02f4f3bea76dcdf3ce71b}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!getInputStream@{getInputStream}}
+\index{getInputStream@{getInputStream}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{getInputStream()}{getInputStream()}}
+{\footnotesize\ttfamily Input\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+get\+Input\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Gets an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{InputStream }
+\end{DoxyCode}
+ object for reading fields from the record. The user should use {\itshape either} this method {\bfseries{or}} the 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a4536d26a1ee9c50b6d765e5cd856d705}{getObjectInputStream}} }
+\end{DoxyCode}
+ method for reading data --- mixed access will produce undefined results.
+
+\begin{DoxyReturn}{Returns}
+Input\+Stream Stream for reading data fields. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 75 of file Record\+Reader.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75                                                             \{}
+\DoxyCodeLine{76         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ab34b9e5c2e59109ec07552752c782c17}{in}};}
+\DoxyCodeLine{77     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a494fd5bd548d536be22e04332e9fe033}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a494fd5bd548d536be22e04332e9fe033}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!getKey@{getKey}}
+\index{getKey@{getKey}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the key for this record. 
+
+\begin{DoxyReturn}{Returns}
+String Containing the record\textquotesingle{}s key. 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file Record\+Reader.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                            \{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}{key}};}
+\DoxyCodeLine{55     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a4536d26a1ee9c50b6d765e5cd856d705}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a4536d26a1ee9c50b6d765e5cd856d705}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!getObjectInputStream@{getObjectInputStream}}
+\index{getObjectInputStream@{getObjectInputStream}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{getObjectInputStream()}{getObjectInputStream()}}
+{\footnotesize\ttfamily Object\+Input\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+get\+Object\+Input\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Gets an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ObjectInputStream }
+\end{DoxyCode}
+ for reading serialized objects. The user should use {\itshape either} this method {\bfseries{or}} the 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a97f97ac42ce02f4f3bea76dcdf3ce71b}{getInputStream}} }
+\end{DoxyCode}
+ method for reading data --- mixed access will produce undefined results.
+
+\begin{DoxyReturn}{Returns}
+Object\+Input\+Stream Stream for reading serialized objects. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 88 of file Record\+Reader.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88                                                                        \{}
+\DoxyCodeLine{89         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a633f16653af655a2d7ed190ce9b16b3c}{objIn}} == \textcolor{keyword}{null} )}
+\DoxyCodeLine{90             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a633f16653af655a2d7ed190ce9b16b3c}{objIn}} = \textcolor{keyword}{new} ObjectInputStream(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ab34b9e5c2e59109ec07552752c782c17}{in}});}
+\DoxyCodeLine{91         }
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a633f16653af655a2d7ed190ce9b16b3c}{objIn}};}
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac90a7f2161d8bd26028d377fce1d9263}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac90a7f2161d8bd26028d377fce1d9263}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!readObject@{readObject}}
+\index{readObject@{readObject}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{readObject()}{readObject()}}
+{\footnotesize\ttfamily Object com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+read\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception,                                        Optional\+Data\+Exception,                                        Class\+Not\+Found\+Exception}
+
+
+
+Reads the next object in the record using an. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ObjectInputStream }
+\end{DoxyCode}
+ .
+
+\begin{DoxyReturn}{Returns}
+Object The next object in the record. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Optional\+Data\+Exception} & In the event a data error occurs. \\
+\hline
+{\em Class\+Not\+Found\+Exception} & In the event the class cannot be found. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 103 of file Record\+Reader.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105                                                              \{}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a4536d26a1ee9c50b6d765e5cd856d705}{getObjectInputStream}}().readObject();}
+\DoxyCodeLine{107     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ac9851f19c19f8e118a88bbafe872b301}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!data@{data}}
+\index{data@{data}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+data\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 31 of file Record\+Reader.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ab34b9e5c2e59109ec07552752c782c17}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_ab34b9e5c2e59109ec07552752c782c17}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!in@{in}}
+\index{in@{in}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{in}{in}}
+{\footnotesize\ttfamily Byte\+Array\+Input\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+in\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 32 of file Record\+Reader.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a745f8c339d0fa8b77c00d19fa1134b0c}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!key@{key}}
+\index{key@{key}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+key\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 30 of file Record\+Reader.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a633f16653af655a2d7ed190ce9b16b3c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader_a633f16653af655a2d7ed190ce9b16b3c}} 
+\index{com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}!objIn@{objIn}}
+\index{objIn@{objIn}!com.pekinsoft.rafdb.db.RecordReader@{com.pekinsoft.rafdb.db.RecordReader}}
+\doxysubsubsection{\texorpdfstring{objIn}{objIn}}
+{\footnotesize\ttfamily Object\+Input\+Stream com.\+pekinsoft.\+rafdb.\+db.\+Record\+Reader.\+obj\+In\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Definition at line 33 of file Record\+Reader.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raf-\/db/\+R\+A\+F Database System/src/com/pekinsoft/rafdb/db/\mbox{\hyperlink{RecordReader_8java}{Record\+Reader.\+java}}\end{DoxyCompactItemize}

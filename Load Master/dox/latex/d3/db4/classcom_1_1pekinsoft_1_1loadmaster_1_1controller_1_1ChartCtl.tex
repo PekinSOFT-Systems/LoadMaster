@@ -1,0 +1,189 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl}\index{com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{d8/d90/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d48/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_ac0a36fdabb67dca6b455428d26d08478}{Chart\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a87aee8c3215d1c7a212eaef4572ddebc}{post\+Transactions}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em This method performs the task of posting all unposted transactions from this journal to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a9762c955ae692b7763f0777acf7f943e}{create\+And\+Add\+Record}} (String\mbox{[}$\,$\mbox{]} line)
+\begin{DoxyCompactList}\small\item\em The {\ttfamily create\+And\+Add\+Record} method is the 1 of 3 methods that need to be overridden for an Abstract\+Journal. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a459768b4178f0644cdbcb12f304775c9}{build\+Record\+Line}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ChartModel}{Chart\+Model}} model)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 57 of file Chart\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_ac0a36fdabb67dca6b455428d26d08478}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_ac0a36fdabb67dca6b455428d26d08478}} 
+\index{com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}!ChartCtl@{ChartCtl}}
+\index{ChartCtl@{ChartCtl}!com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}}
+\doxysubsubsection{\texorpdfstring{ChartCtl()}{ChartCtl()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl.\+Chart\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 60 of file Chart\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                                  \{}
+\DoxyCodeLine{61         super(\textcolor{keyword}{new} ChartModel(), Starter.props.getDataFolder() + \textcolor{stringliteral}{"coa.tbl"});}
+\DoxyCodeLine{62     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a459768b4178f0644cdbcb12f304775c9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a459768b4178f0644cdbcb12f304775c9}} 
+\index{com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}!buildRecordLine@{buildRecordLine}}
+\index{buildRecordLine@{buildRecordLine}!com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}}
+\doxysubsubsection{\texorpdfstring{buildRecordLine()}{buildRecordLine()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl.\+build\+Record\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1ChartModel}{Chart\+Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 89 of file Chart\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89                                                        \{}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} model.getNumber()+ \textcolor{stringliteral}{"\string~"} + model.getDescription()+ \textcolor{stringliteral}{"\string~"}}
+\DoxyCodeLine{91                 + model.getName();}
+\DoxyCodeLine{92     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a9762c955ae692b7763f0777acf7f943e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a9762c955ae692b7763f0777acf7f943e}} 
+\index{com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}!createAndAddRecord@{createAndAddRecord}}
+\index{createAndAddRecord@{createAndAddRecord}!com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}}
+\doxysubsubsection{\texorpdfstring{createAndAddRecord()}{createAndAddRecord()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl.\+create\+And\+Add\+Record (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The {\ttfamily create\+And\+Add\+Record} method is the 1 of 3 methods that need to be overridden for an Abstract\+Journal. 
+
+This is due to the reason that using reflection will not work within this method because there is no guarantee in the order methods are provided via\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{A a = \textcolor{keyword}{new} A();}
+\DoxyCodeLine{Class<?> c = a.getClass();}
+\DoxyCodeLine{Method methods[] = c.getDeclaredMethods();}
+\end{DoxyCode}
+
+
+If there was a guarantee in the order the methods were returned using the above code, then we could use reflection to implement this method within {\ttfamily Abstract\+Journal}. However, until we figure out a way to ensure that the data will be placed through the appropriate getter method, we will need to keep this method abstract and require an implementing class to override it to provide for the proper storage of the data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & from the data file, split into a {\ttfamily java.\+lang.\+String\mbox{[}\mbox{]}} array on the file\textquotesingle{}s delimiter. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae81a10a17829d01ea1cf26ea8e3f344c}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 71 of file Chart\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71                                                      \{}
+\DoxyCodeLine{72         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Entering..."});}
+\DoxyCodeLine{73         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{74         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(line);}
+\DoxyCodeLine{75         Starter.logger.enter(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{76         }
+\DoxyCodeLine{77         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}} = \textcolor{keyword}{new} ChartModel();}
+\DoxyCodeLine{78         }
+\DoxyCodeLine{79 \textcolor{comment}{//        record = new ReceivablesModel();}}
+\DoxyCodeLine{80         }
+\DoxyCodeLine{81         ((ChartModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setNumber(Long.parseLong(line[0]));}
+\DoxyCodeLine{82         ((ChartModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setName(line[1]);}
+\DoxyCodeLine{83         ((ChartModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setDescription(line[2]);}
+\DoxyCodeLine{84         }
+\DoxyCodeLine{85         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.add(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}});}
+\DoxyCodeLine{86     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a87aee8c3215d1c7a212eaef4572ddebc}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1ChartCtl_a87aee8c3215d1c7a212eaef4572ddebc}} 
+\index{com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}!postTransactions@{postTransactions}}
+\index{postTransactions@{postTransactions}!com.pekinsoft.loadmaster.controller.ChartCtl@{com.pekinsoft.loadmaster.controller.ChartCtl}}
+\doxysubsubsection{\texorpdfstring{postTransactions()}{postTransactions()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Chart\+Ctl.\+post\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+This method performs the task of posting all unposted transactions from this journal to the General Ledger. 
+
+This method should called in accordance with the application settings Posting Method. If the selected Posting Method is Batch Posting, then the user will need to manually post the Journals to the General Ledger. Alternatively, if there are unprocessed Journal entries when the user exits the application, the application can prompt the user to allow it to process the batched transactions. If the user chooses to not allow the application to process those Journal entries then, the application should store that fact to the settings file and check the setting on the next launch. If, at the next launch, there are unprocessed Journal entries, the application should somehow show a reminder to the user that there are unprocessed batched transactions that still need to be posted to the General Ledger.
+
+If the user has chosen to batch process Journal entries to the General Ledger, then the user needs to be reminded once in a while to click on the \char`\"{}\+Post Transactions\char`\"{} task in the \char`\"{}\+Accounting Tasks\char`\"{} task pane. The broken down information regarding revenue, expense, and profit (per mile) is only calculated from the General Ledger and not from any of the Journals. Therefore, if the user wants the most accurate quick info regarding the financial health of their company, they need to post their batched transactions as soon as they are able.
+
+\begin{DoxyReturn}{Returns}
+success\+: {\ttfamily true} if transactions posted, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event there is an error accessing the database. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9cf18df369dfe5959e711ae4bd676eb0}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 95 of file Chart\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95                                                                 \{}
+\DoxyCodeLine{96         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not necessary for this object."});}
+\DoxyCodeLine{97     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master\+\_\+screwed\+Up/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{ChartCtl_8java}{Chart\+Ctl.\+java}}\end{DoxyCompactItemize}

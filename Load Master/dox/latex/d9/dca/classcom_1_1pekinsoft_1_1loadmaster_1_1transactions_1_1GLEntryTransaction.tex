@@ -1,0 +1,678 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+
+
+The {\ttfamily Entry\+Model} class defines a General Ledger entry for the accounting system in Load Master.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a72871d473983c6b6772b42c593847cc9}{G\+L\+Entry\+Transaction}} ()
+\begin{DoxyCompactList}\small\item\em Creates a default instance of the {\ttfamily Entry\+Model} object, providing only the current date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a7edba6234c00dbad6dc905629264eb2a}{G\+L\+Entry\+Transaction}} (Date date, String code, String description, int from, int to, double amount, boolean deductible, boolean balanced)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily Entry\+Model} object with the supplied field values. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ac30f491b0a948fc3faabd0652836a69e}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a45d1a293ed5e1773fbc01d545c5f49e6}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a019c784a50f96c31694830df87e49265}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction date as a {\ttfamily String} value in the provided format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a78ce2c08319dc045d0133194e697b032}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the transaction date for the entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a6b0ca0d3b3263b5d88c323167c705309}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ad85bb9710fa9fab97b0d5d753bfa7725}{set\+Date}} (String format, String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ae5bd1df2ba710701eaf5c915284c2ce2}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction code or check number of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a7e080e7d8510ab45f6fcd043c470bc92}{set\+Code}} (String code)
+\begin{DoxyCompactList}\small\item\em Sets the transaction code or check number for the transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_af1cea46b4532e939cf7f696455351f0e}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction details or description. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a4e9856c88aff7d4570396d1d8df4e5d2}{set\+Description}} (String description)
+\begin{DoxyCompactList}\small\item\em Sets the transaction details or description. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a448ac131c2513a3bb427965e3903917d}{get\+From\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account from which the money for the transaction was withdrawn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a11b5132b84067f801f0edd95152a8918}{set\+From\+Account}} (int from\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account from which the money for the transaction should be withdrawn. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a10ef2e3a12b553cef001c73bcf9c9053}{get\+To\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account to which the money for the transaction was deposited. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a2924b40051d0fe2f8b96487613539b4d}{set\+To\+Account}} (int to\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the account to which the money for the transaction should be deposited. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ad08fad43cef79617e4f89f97078207b6}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of the transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a970af97719bdb8610f48dd5d3d132b0a}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of the transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_aa0c63ca63c289eab6859c061aef470e8}{is\+Deductible}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a9d40add770931a422a6cb03117a6effa}{set\+Deductible}} (boolean deductible)
+\begin{DoxyCompactList}\small\item\em Sets whether or not the transaction amount is tax-\/deductible. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ac5de89ccd7399bc9e71f7ccca9f64fb5}{is\+Balanced}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a029cfe9f59dfe9795045ccb4ab9eae99}{set\+Balanced}} (boolean balanced)
+\begin{DoxyCompactList}\small\item\em Sets whether or not this transaction has been balanced with the bank statement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The {\ttfamily Entry\+Model} class defines a General Ledger entry for the accounting system in Load Master. 
+
+Each GL entry consists of specific data that is the same for every GL entry.
+
+Since the Load Master accounting system is double-\/entry, each transaction amount must be removed (debited or withdrawn) from one account and placed into (credited or deposited) into another account. The entries in the GL are not very detailed, but the details of any transaction may be viewed in the various accounts\textquotesingle{} associated journals. Whereas the GL maintains the \char`\"{}books\char`\"{} of the accounting system, so to speak, the various journals maintain the detailed histories of the GL transactions.
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+7.\+8 build 2549 
+\end{DoxySince}
+
+
+Definition at line 58 of file G\+L\+Entry\+Transaction.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a72871d473983c6b6772b42c593847cc9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a72871d473983c6b6772b42c593847cc9}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!GLEntryTransaction@{GLEntryTransaction}}
+\index{GLEntryTransaction@{GLEntryTransaction}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{GLEntryTransaction()}{GLEntryTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+G\+L\+Entry\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a default instance of the {\ttfamily Entry\+Model} object, providing only the current date. 
+
+All other fields are set to default values. 
+
+Definition at line 80 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                                 \{}
+\DoxyCodeLine{81         \textcolor{keyword}{this}(\textcolor{keyword}{new} Date(), \textcolor{stringliteral}{""}, \textcolor{stringliteral}{""}, 0, 0, 0.00, \textcolor{keyword}{false}, \textcolor{keyword}{false});}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a7edba6234c00dbad6dc905629264eb2a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a7edba6234c00dbad6dc905629264eb2a}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!GLEntryTransaction@{GLEntryTransaction}}
+\index{GLEntryTransaction@{GLEntryTransaction}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{GLEntryTransaction()}{GLEntryTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+G\+L\+Entry\+Transaction (\begin{DoxyParamCaption}\item[{Date}]{date,  }\item[{String}]{code,  }\item[{String}]{description,  }\item[{int}]{from,  }\item[{int}]{to,  }\item[{double}]{amount,  }\item[{boolean}]{deductible,  }\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily Entry\+Model} object with the supplied field values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+{\em code} & Transaction code or check number. \\
+\hline
+{\em description} & Transaction details or description. \\
+\hline
+{\em from} & Account from which the money should be withdrawn. \\
+\hline
+{\em to} & Account to which the money should be deposited. \\
+\hline
+{\em amount} & Transaction amount. \\
+\hline
+{\em deductible} & Whether transaction is tax-\/deductible. \\
+\hline
+{\em balanced} & Whether transaction has been balanced with bank statement. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                                                          \{}
+\DoxyCodeLine{100         this.date = date;}
+\DoxyCodeLine{101         this.code = code;}
+\DoxyCodeLine{102         this.description = description;}
+\DoxyCodeLine{103         this.fromAccount = from;}
+\DoxyCodeLine{104         this.toAccount = to;}
+\DoxyCodeLine{105         this.amount = amount;}
+\DoxyCodeLine{106         this.deductible = deductible;}
+\DoxyCodeLine{107         this.balanced = balanced;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ad08fad43cef79617e4f89f97078207b6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ad08fad43cef79617e4f89f97078207b6}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+Transaction amount. 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{257                               \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{259     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ae5bd1df2ba710701eaf5c915284c2ce2}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ae5bd1df2ba710701eaf5c915284c2ce2}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getCode@{getCode}}
+\index{getCode@{getCode}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction code or check number of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+The transaction code or check number. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181                             \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{183     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ac30f491b0a948fc3faabd0652836a69e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ac30f491b0a948fc3faabd0652836a69e}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                           \{}
+\DoxyCodeLine{116         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{117     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a45d1a293ed5e1773fbc01d545c5f49e6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a45d1a293ed5e1773fbc01d545c5f49e6}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the format M\+M/dd/yyyy. 
+
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                     \{}
+\DoxyCodeLine{126         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{128     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a019c784a50f96c31694830df87e49265}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a019c784a50f96c31694830df87e49265}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction date as a {\ttfamily String} value in the provided format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format for the date, such as M\+MM dd, yyyy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transaction date as string. 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136                                                  \{}
+\DoxyCodeLine{137         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} sdf.format(this.date);}
+\DoxyCodeLine{139     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_af1cea46b4532e939cf7f696455351f0e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_af1cea46b4532e939cf7f696455351f0e}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transaction details or description. 
+
+\begin{DoxyReturn}{Returns}
+Transaction details or description. 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                    \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} description;}
+\DoxyCodeLine{201     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a448ac131c2513a3bb427965e3903917d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a448ac131c2513a3bb427965e3903917d}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getFromAccount@{getFromAccount}}
+\index{getFromAccount@{getFromAccount}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getFromAccount()}{getFromAccount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+From\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account from which the money for the transaction was withdrawn. 
+
+\begin{DoxyReturn}{Returns}
+Debit account. 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                                 \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} fromAccount;}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a10ef2e3a12b553cef001c73bcf9c9053}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a10ef2e3a12b553cef001c73bcf9c9053}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!getToAccount@{getToAccount}}
+\index{getToAccount@{getToAccount}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{getToAccount()}{getToAccount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+get\+To\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account to which the money for the transaction was deposited. 
+
+\begin{DoxyReturn}{Returns}
+Credit account. 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                               \{}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} toAccount;}
+\DoxyCodeLine{240     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ac5de89ccd7399bc9e71f7ccca9f64fb5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ac5de89ccd7399bc9e71f7ccca9f64fb5}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!isBalanced@{isBalanced}}
+\index{isBalanced@{isBalanced}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{isBalanced()}{isBalanced()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+is\+Balanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this transaction has been balanced with the bank statement. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if balanced, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294                                 \{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} balanced;}
+\DoxyCodeLine{296     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_aa0c63ca63c289eab6859c061aef470e8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_aa0c63ca63c289eab6859c061aef470e8}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!isDeductible@{isDeductible}}
+\index{isDeductible@{isDeductible}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{isDeductible()}{isDeductible()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+is\+Deductible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not the transaction amount is tax-\/deductible. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deductible, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275                                   \{}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} deductible;}
+\DoxyCodeLine{277     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a970af97719bdb8610f48dd5d3d132b0a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a970af97719bdb8610f48dd5d3d132b0a}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Transaction amount. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 266 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{266                                          \{}
+\DoxyCodeLine{267         this.amount = amount;}
+\DoxyCodeLine{268     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a029cfe9f59dfe9795045ccb4ab9eae99}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a029cfe9f59dfe9795045ccb4ab9eae99}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setBalanced@{setBalanced}}
+\index{setBalanced@{setBalanced}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setBalanced()}{setBalanced()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Balanced (\begin{DoxyParamCaption}\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not this transaction has been balanced with the bank statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balanced} & {\ttfamily true} if balanced, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 304 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{304                                               \{}
+\DoxyCodeLine{305         this.balanced = balanced;}
+\DoxyCodeLine{306     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a7e080e7d8510ab45f6fcd043c470bc92}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a7e080e7d8510ab45f6fcd043c470bc92}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setCode@{setCode}}
+\index{setCode@{setCode}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Code (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction code or check number for the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Transaction code or check number. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 190 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190                                      \{}
+\DoxyCodeLine{191         this.code = code;}
+\DoxyCodeLine{192     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a78ce2c08319dc045d0133194e697b032}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a78ce2c08319dc045d0133194e697b032}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction date for the entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146                                    \{}
+\DoxyCodeLine{147         this.date = date;}
+\DoxyCodeLine{148     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a6b0ca0d3b3263b5d88c323167c705309}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a6b0ca0d3b3263b5d88c323167c705309}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value, formatted as M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Transaction date in M\+M/dd/yyyy formatted string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 156 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156                                                            \{}
+\DoxyCodeLine{157         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{158         }
+\DoxyCodeLine{159         this.date = sdf.parse(date);}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ad85bb9710fa9fab97b0d5d753bfa7725}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_ad85bb9710fa9fab97b0d5d753bfa7725}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{format,  }\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the transaction date from a {\ttfamily String} value formatted in the same manner as the format string provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format of the provided date, such as M\+MM dd, yyyy. \\
+\hline
+{\em date} & The transaction date. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & In the event the date cannot be properly parsed. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 170 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170                                                                           \{}
+\DoxyCodeLine{171         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         this.date = sdf.parse(date);}
+\DoxyCodeLine{174     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a9d40add770931a422a6cb03117a6effa}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a9d40add770931a422a6cb03117a6effa}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setDeductible@{setDeductible}}
+\index{setDeductible@{setDeductible}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setDeductible()}{setDeductible()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Deductible (\begin{DoxyParamCaption}\item[{boolean}]{deductible }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not the transaction amount is tax-\/deductible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deductible} & {\ttfamily true} if deductible, {\ttfamily false} if not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 284 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                                                   \{}
+\DoxyCodeLine{285         this.deductible = deductible;}
+\DoxyCodeLine{286     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a4e9856c88aff7d4570396d1d8df4e5d2}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a4e9856c88aff7d4570396d1d8df4e5d2}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the transaction details or description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Transaction details or description. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                                    \{}
+\DoxyCodeLine{209         this.description = description;}
+\DoxyCodeLine{210     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a11b5132b84067f801f0edd95152a8918}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a11b5132b84067f801f0edd95152a8918}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setFromAccount@{setFromAccount}}
+\index{setFromAccount@{setFromAccount}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setFromAccount()}{setFromAccount()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+From\+Account (\begin{DoxyParamCaption}\item[{int}]{from\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account from which the money for the transaction should be withdrawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Account} & Debit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                                 \{}
+\DoxyCodeLine{229         this.fromAccount = fromAccount;}
+\DoxyCodeLine{230     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a2924b40051d0fe2f8b96487613539b4d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction_a2924b40051d0fe2f8b96487613539b4d}} 
+\index{com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}!setToAccount@{setToAccount}}
+\index{setToAccount@{setToAccount}!com.pekinsoft.loadmaster.transactions.GLEntryTransaction@{com.pekinsoft.loadmaster.transactions.GLEntryTransaction}}
+\doxysubsubsection{\texorpdfstring{setToAccount()}{setToAccount()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+G\+L\+Entry\+Transaction.\+set\+To\+Account (\begin{DoxyParamCaption}\item[{int}]{to\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the account to which the money for the transaction should be deposited. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Account} & Credit account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file G\+L\+Entry\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{248                                             \{}
+\DoxyCodeLine{249         this.toAccount = toAccount;}
+\DoxyCodeLine{250     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/transactions/\mbox{\hyperlink{GLEntryTransaction_8java}{G\+L\+Entry\+Transaction.\+java}}\end{DoxyCompactItemize}

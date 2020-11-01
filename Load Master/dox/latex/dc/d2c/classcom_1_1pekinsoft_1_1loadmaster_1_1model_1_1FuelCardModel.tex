@@ -1,0 +1,577 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a09139c774951b693341d3469a9b27c07}{Fuel\+Card\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}}} fuel card account definition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ac6dddc24f9c0b5a77db21a01c677401d}{Fuel\+Card\+Model}} (long id, int from\+Acct, String trip\+Number, double amount)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}}} with the provided data. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a30fe853f4b0fce9c78785eca4fdf15cd}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique identification number for this model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ab7f323ae0902314c6963c30adeec94bd}{set\+Id}} (long id)
+\begin{DoxyCompactList}\small\item\em Sets the unique identification number for this model. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ab5220b4cf682424154d65b6ed6893223}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date of the transaction for this model. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a559da384478dcdba9c8e928bec3e2d28}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date of the transaction for this model as a {\ttfamily java.\+lang.\+String}, in the M\+M/dd/yyyy format. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a9ec41bdad4562b385922e39aca3432ab}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the date of the transaction for this model as a {\ttfamily java.\+lang.\+String}, in the specified format, such as M\+MM dd, yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a2b5a10d340ccd7fdadbd2fef4c00f635}{set\+Date}} (Date date)
+\begin{DoxyCompactList}\small\item\em Sets the date for the transaction associated with this model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ad710e96a52100b9e78778667f4b3d15f}{set\+Date}} (String date)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the date for the transaction associated with this model from a {\ttfamily java.\+lang.\+String} in the format M\+M/dd/yyyy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_af6bb561e5d266f4f18e13bd2dde37a44}{set\+Date}} (String date, String format)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the date for the transaction associated with this model from a {\ttfamily java.\+lang.\+String} in the provided format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_aa7ca1c02419ce1f95ba98532782aa1d8}{get\+From\+Acct}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transfer account from which the money originated for this model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_afa45a7d18a4d7c1c43ac3b7bd120a99b}{set\+From\+Acct}} (int from\+Acct)
+\begin{DoxyCompactList}\small\item\em Sets the transfer account from which the money originated for this model. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a7aeaa1ff8a35e4aa976051d2d934cec6}{get\+Trip\+Number}} ()
+\begin{DoxyCompactList}\small\item\em The trip number with which this model is associated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a8b84a58e991708b4e7f3bd7bd1fce596}{set\+Trip\+Number}} (String trip\+Number)
+\begin{DoxyCompactList}\small\item\em Sets the trip number with which this model is associated. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_abc57bc54fbfea378bb38147b93a11033}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of money for this transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a0a3eec94d5ec38d8be57f1f40b86bd8c}{set\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the amount of money associated with this transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a1c9994887ced155c7d662ae3c3d7a5f4}{is\+Posted}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this transaction has been posted to the General Ledger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_abee0001b09ea83fa8fe9e4fa7d860632}{set\+Posted}} (boolean posted)
+\begin{DoxyCompactList}\small\item\em Sets the posted flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_af6bbe22bc1cb6936443ea0b4a7924866}{A\+C\+C\+O\+U\+N\+T\+\_\+\+N\+U\+M\+B\+ER}} = 50040
+\begin{DoxyCompactList}\small\item\em The account number in the Chart of Accounts for the Fuel Card Account. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 48 of file Fuel\+Card\+Model.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a09139c774951b693341d3469a9b27c07}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a09139c774951b693341d3469a9b27c07}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!FuelCardModel@{FuelCardModel}}
+\index{FuelCardModel@{FuelCardModel}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{FuelCardModel()}{FuelCardModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+Fuel\+Card\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}}} fuel card account definition. 
+
+
+
+Definition at line 71 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71                            \{}
+\DoxyCodeLine{72         \textcolor{keyword}{this}(System.currentTimeMillis(), 0, \textcolor{stringliteral}{"No Active Load"}, 0.0);}
+\DoxyCodeLine{73     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ac6dddc24f9c0b5a77db21a01c677401d}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ac6dddc24f9c0b5a77db21a01c677401d}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!FuelCardModel@{FuelCardModel}}
+\index{FuelCardModel@{FuelCardModel}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{FuelCardModel()}{FuelCardModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+Fuel\+Card\+Model (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{int}]{from\+Acct,  }\item[{String}]{trip\+Number,  }\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}}} with the provided data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & unique transaction ID number. \\
+\hline
+{\em from\+Acct} & account from which the money came. \\
+\hline
+{\em trip\+Number} & the trip number associated with this transaction. \\
+\hline
+{\em amount} & the amount of money transferred in. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84                            \{}
+\DoxyCodeLine{85         this.\textcolor{keywordtype}{id} = id;}
+\DoxyCodeLine{86         this.fromAcct = fromAcct;}
+\DoxyCodeLine{87         this.tripNumber = tripNumber;}
+\DoxyCodeLine{88         this.amount = amount;}
+\DoxyCodeLine{89         this.posted = \textcolor{keyword}{false};}
+\DoxyCodeLine{90     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_abc57bc54fbfea378bb38147b93a11033}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_abc57bc54fbfea378bb38147b93a11033}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the amount of money for this transaction. 
+
+\begin{DoxyReturn}{Returns}
+the amount of money associated with this model. 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{231                               \{}
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} amount;}
+\DoxyCodeLine{233     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ab5220b4cf682424154d65b6ed6893223}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ab5220b4cf682424154d65b6ed6893223}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of the transaction for this model. 
+
+\begin{DoxyReturn}{Returns}
+the transaction date as a {\ttfamily java.\+util.\+Date} object. 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120                           \{}
+\DoxyCodeLine{121         \textcolor{keywordflow}{return} date;}
+\DoxyCodeLine{122     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a559da384478dcdba9c8e928bec3e2d28}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a559da384478dcdba9c8e928bec3e2d28}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of the transaction for this model as a {\ttfamily java.\+lang.\+String}, in the M\+M/dd/yyyy format. 
+
+\begin{DoxyReturn}{Returns}
+the transaction date as a {\ttfamily java.\+lang.\+String} object. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{130                                     \{}
+\DoxyCodeLine{131         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{132         \textcolor{keywordflow}{return} sdf.format(date);}
+\DoxyCodeLine{133     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a9ec41bdad4562b385922e39aca3432ab}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a9ec41bdad4562b385922e39aca3432ab}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of the transaction for this model as a {\ttfamily java.\+lang.\+String}, in the specified format, such as M\+MM dd, yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & the format for the date string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date as a {\ttfamily java.\+lang.\+String} in the specified format. 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142                                                  \{}
+\DoxyCodeLine{143         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{144         \textcolor{keywordflow}{return} sdf.format(date);}
+\DoxyCodeLine{145     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_aa7ca1c02419ce1f95ba98532782aa1d8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_aa7ca1c02419ce1f95ba98532782aa1d8}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getFromAcct@{getFromAcct}}
+\index{getFromAcct@{getFromAcct}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getFromAcct()}{getFromAcct()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+From\+Acct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transfer account from which the money originated for this model. 
+
+\begin{DoxyReturn}{Returns}
+the account from which the money was transferred. 
+\end{DoxyReturn}
+
+
+Definition at line 189 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189                              \{}
+\DoxyCodeLine{190         \textcolor{keywordflow}{return} fromAcct;}
+\DoxyCodeLine{191     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a30fe853f4b0fce9c78785eca4fdf15cd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a30fe853f4b0fce9c78785eca4fdf15cd}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getId@{getId}}
+\index{getId@{getId}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique identification number for this model. 
+
+\begin{DoxyReturn}{Returns}
+the unique ID number. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102                         \{}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} id;}
+\DoxyCodeLine{104     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a7aeaa1ff8a35e4aa976051d2d934cec6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a7aeaa1ff8a35e4aa976051d2d934cec6}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!getTripNumber@{getTripNumber}}
+\index{getTripNumber@{getTripNumber}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{getTripNumber()}{getTripNumber()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+get\+Trip\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The trip number with which this model is associated. 
+
+The value returned will either be the trip that was active at the time this transaction occurred, or the phrase "No Active Load".
+
+\begin{DoxyReturn}{Returns}
+the trip number associated with this model. 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                   \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{return} tripNumber;}
+\DoxyCodeLine{211     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a1c9994887ced155c7d662ae3c3d7a5f4}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a1c9994887ced155c7d662ae3c3d7a5f4}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!isPosted@{isPosted}}
+\index{isPosted@{isPosted}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{isPosted()}{isPosted()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+is\+Posted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this transaction has been posted to the General Ledger. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if already posted to the General Ledger, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{250                               \{}
+\DoxyCodeLine{251         \textcolor{keywordflow}{return} posted;}
+\DoxyCodeLine{252     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a0a3eec94d5ec38d8be57f1f40b86bd8c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a0a3eec94d5ec38d8be57f1f40b86bd8c}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of money associated with this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & the amount of money associated with this model. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 240 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{240                                          \{}
+\DoxyCodeLine{241         this.amount = amount;}
+\DoxyCodeLine{242     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a2b5a10d340ccd7fdadbd2fef4c00f635}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a2b5a10d340ccd7fdadbd2fef4c00f635}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the date for the transaction associated with this model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & a {\ttfamily java.\+util.\+Date} object for this model. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 152 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{152                                    \{}
+\DoxyCodeLine{153         this.date = date;}
+\DoxyCodeLine{154     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ad710e96a52100b9e78778667f4b3d15f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ad710e96a52100b9e78778667f4b3d15f}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the date for the transaction associated with this model from a {\ttfamily java.\+lang.\+String} in the format M\+M/dd/yyyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & a {\ttfamily java.\+lang.\+String} formatted date. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event the date string is in an invalid format. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 164 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164                                                            \{}
+\DoxyCodeLine{165         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{166         this.date = sdf.parse(date);}
+\DoxyCodeLine{167     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_af6bb561e5d266f4f18e13bd2dde37a44}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_af6bb561e5d266f4f18e13bd2dde37a44}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date,  }\item[{String}]{format }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the date for the transaction associated with this model from a {\ttfamily java.\+lang.\+String} in the provided format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & a {\ttfamily java.\+lang.\+String} formatted date. \\
+\hline
+{\em format} & the format the date string is in. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event the date string or the format string is invalid. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 178 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{178                                                                           \{}
+\DoxyCodeLine{179         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{180         this.date = sdf.parse(date);}
+\DoxyCodeLine{181     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_afa45a7d18a4d7c1c43ac3b7bd120a99b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_afa45a7d18a4d7c1c43ac3b7bd120a99b}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setFromAcct@{setFromAcct}}
+\index{setFromAcct@{setFromAcct}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setFromAcct()}{setFromAcct()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+From\+Acct (\begin{DoxyParamCaption}\item[{int}]{from\+Acct }\end{DoxyParamCaption})}
+
+
+
+Sets the transfer account from which the money originated for this model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Acct} & the account from which the money was transferred. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 198 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{198                                           \{}
+\DoxyCodeLine{199         this.fromAcct = fromAcct;}
+\DoxyCodeLine{200     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ab7f323ae0902314c6963c30adeec94bd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_ab7f323ae0902314c6963c30adeec94bd}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setId@{setId}}
+\index{setId@{setId}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Id (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the unique identification number for this model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique ID to use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 111 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111                                \{}
+\DoxyCodeLine{112         this.\textcolor{keywordtype}{id} = id;}
+\DoxyCodeLine{113     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_abee0001b09ea83fa8fe9e4fa7d860632}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_abee0001b09ea83fa8fe9e4fa7d860632}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setPosted@{setPosted}}
+\index{setPosted@{setPosted}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setPosted()}{setPosted()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Posted (\begin{DoxyParamCaption}\item[{boolean}]{posted }\end{DoxyParamCaption})}
+
+
+
+Sets the posted flag. 
+
+This should only be set to {\ttfamily true} when the transaction this model represents has been posted to the General Ledger.
+
+
+\begin{DoxyParams}{Parameters}
+{\em posted} & {\ttfamily true} when posted to the General Ledger, {\ttfamily false} otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 260 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{260                                           \{}
+\DoxyCodeLine{261         this.posted = posted;}
+\DoxyCodeLine{262     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a8b84a58e991708b4e7f3bd7bd1fce596}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_a8b84a58e991708b4e7f3bd7bd1fce596}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!setTripNumber@{setTripNumber}}
+\index{setTripNumber@{setTripNumber}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{setTripNumber()}{setTripNumber()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+set\+Trip\+Number (\begin{DoxyParamCaption}\item[{String}]{trip\+Number }\end{DoxyParamCaption})}
+
+
+
+Sets the trip number with which this model is associated. 
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]The best thing to do to provide the data for this field is to pull the current load from the application settings file. There will either be a trip number or "No Active Load". 
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip\+Number} & the trip number associated with this model. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 222 of file Fuel\+Card\+Model.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{222                                                  \{}
+\DoxyCodeLine{223         this.tripNumber = tripNumber;}
+\DoxyCodeLine{224     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_af6bbe22bc1cb6936443ea0b4a7924866}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel_af6bbe22bc1cb6936443ea0b4a7924866}} 
+\index{com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}!ACCOUNT\_NUMBER@{ACCOUNT\_NUMBER}}
+\index{ACCOUNT\_NUMBER@{ACCOUNT\_NUMBER}!com.pekinsoft.loadmaster.model.FuelCardModel@{com.pekinsoft.loadmaster.model.FuelCardModel}}
+\doxysubsubsection{\texorpdfstring{ACCOUNT\_NUMBER}{ACCOUNT\_NUMBER}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+loadmaster.\+model.\+Fuel\+Card\+Model.\+A\+C\+C\+O\+U\+N\+T\+\_\+\+N\+U\+M\+B\+ER = 50040\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The account number in the Chart of Accounts for the Fuel Card Account. 
+
+
+
+Definition at line 54 of file Fuel\+Card\+Model.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master\+\_\+screwed\+Up/\+Load Master/src/com/pekinsoft/loadmaster/model/\mbox{\hyperlink{FuelCardModel_8java}{Fuel\+Card\+Model.\+java}}\end{DoxyCompactItemize}

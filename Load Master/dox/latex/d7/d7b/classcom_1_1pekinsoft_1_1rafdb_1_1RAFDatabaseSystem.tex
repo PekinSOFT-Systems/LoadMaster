@@ -1,0 +1,107 @@
+\hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1RAFDatabaseSystem}{}\doxysection{com.\+pekinsoft.\+rafdb.\+R\+A\+F\+Database\+System Class Reference}
+\label{classcom_1_1pekinsoft_1_1rafdb_1_1RAFDatabaseSystem}\index{com.pekinsoft.rafdb.RAFDatabaseSystem@{com.pekinsoft.rafdb.RAFDatabaseSystem}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1RAFDatabaseSystem_abc8bfe779ecced8a023781e206a0536a}{main}} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 31 of file R\+A\+F\+Database\+System.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1RAFDatabaseSystem_abc8bfe779ecced8a023781e206a0536a}\label{classcom_1_1pekinsoft_1_1rafdb_1_1RAFDatabaseSystem_abc8bfe779ecced8a023781e206a0536a}} 
+\index{com.pekinsoft.rafdb.RAFDatabaseSystem@{com.pekinsoft.rafdb.RAFDatabaseSystem}!main@{main}}
+\index{main@{main}!com.pekinsoft.rafdb.RAFDatabaseSystem@{com.pekinsoft.rafdb.RAFDatabaseSystem}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void com.\+pekinsoft.\+rafdb.\+R\+A\+F\+Database\+System.\+main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the command line arguments \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file R\+A\+F\+Database\+System.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                            \{}
+\DoxyCodeLine{37         ArrayList<Person> people = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{38         Person person = \textcolor{keyword}{new} Person();}
+\DoxyCodeLine{39         }
+\DoxyCodeLine{40         people.add(person); }
+\DoxyCodeLine{41         }
+\DoxyCodeLine{42         person = \textcolor{keyword}{new} Person();}
+\DoxyCodeLine{43         }
+\DoxyCodeLine{44         person.setCity(\textcolor{stringliteral}{"Johnstown"});}
+\DoxyCodeLine{45         person.setName(\textcolor{stringliteral}{"Mack"});}
+\DoxyCodeLine{46         person.setPhone(\textcolor{stringliteral}{"(111) 222-\/3333"});}
+\DoxyCodeLine{47         person.setState(\textcolor{stringliteral}{"RI"});}
+\DoxyCodeLine{48         people.add(person);}
+\DoxyCodeLine{49         }
+\DoxyCodeLine{50         person = \textcolor{keyword}{new} Person();}
+\DoxyCodeLine{51         }
+\DoxyCodeLine{52         person.setCity(\textcolor{stringliteral}{"Mackinaw"});}
+\DoxyCodeLine{53         person.setName(\textcolor{stringliteral}{"Skippy"});}
+\DoxyCodeLine{54         person.setPhone(\textcolor{stringliteral}{"(222) 333-\/4444"});}
+\DoxyCodeLine{55         person.setState(\textcolor{stringliteral}{"CT"});}
+\DoxyCodeLine{56         people.add(person);}
+\DoxyCodeLine{57         }
+\DoxyCodeLine{58         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{59             }
+\DoxyCodeLine{60             File f = \textcolor{keyword}{new} File(\textcolor{stringliteral}{"people.jdb"});}
+\DoxyCodeLine{61             }
+\DoxyCodeLine{62             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{63                 RecordsFile recordsFile = \textcolor{keyword}{null};}
+\DoxyCodeLine{64                 \textcolor{comment}{// Testing the API:}}
+\DoxyCodeLine{65                 }
+\DoxyCodeLine{66                 \textcolor{keywordflow}{if} ( !f.exists() ) \{}
+\DoxyCodeLine{67                     recordsFile = \textcolor{keyword}{new} RecordsFile(\textcolor{stringliteral}{"people.jdb"}, 3);}
+\DoxyCodeLine{68                 }
+\DoxyCodeLine{69                     \textcolor{keywordflow}{for} (Person p : people) \{}
+\DoxyCodeLine{70                         RecordWriter rw = \textcolor{keyword}{new} RecordWriter(\textcolor{stringliteral}{"name."} + p.getName());}
+\DoxyCodeLine{71                         rw.writeObject(p);}
+\DoxyCodeLine{72                         recordsFile.insertRecord(rw);}
+\DoxyCodeLine{73                     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75                     recordsFile.close();}
+\DoxyCodeLine{76                 \}}
+\DoxyCodeLine{77             \} \textcolor{keywordflow}{catch} (IOException | RecordsFileException ex) \{}
+\DoxyCodeLine{78                 ex.printStackTrace(System.err);}
+\DoxyCodeLine{79             \}}
+\DoxyCodeLine{80             }
+\DoxyCodeLine{81             people.clear();}
+\DoxyCodeLine{82             }
+\DoxyCodeLine{83             RecordsFile rf = \textcolor{keyword}{new} RecordsFile(\textcolor{stringliteral}{"people.jdb"}, \textcolor{stringliteral}{"rw"});}
+\DoxyCodeLine{84             }
+\DoxyCodeLine{85             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < rf.getNumRecords(); x++ ) \{}
+\DoxyCodeLine{86                 RecordReader rr = rf.readRecord(\textcolor{stringliteral}{"name."} + person.getName());}
+\DoxyCodeLine{87                 people.add((Person)rr.readObject());}
+\DoxyCodeLine{88             \}}
+\DoxyCodeLine{89             }
+\DoxyCodeLine{90             \textcolor{keywordflow}{for} (Person p : people) \{ }
+\DoxyCodeLine{91                 System.out.println(\textcolor{stringliteral}{"Person: "} + p.toString());}
+\DoxyCodeLine{92             \}}
+\DoxyCodeLine{93             }
+\DoxyCodeLine{94             rf.close();}
+\DoxyCodeLine{95             \} \textcolor{keywordflow}{catch} (IOException | RecordsFileException | ClassNotFoundException ex) \{}
+\DoxyCodeLine{96                 ex.printStackTrace(System.err);}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raf-\/db/\+R\+A\+F Database System/src/com/pekinsoft/rafdb/\mbox{\hyperlink{RAFDatabaseSystem_8java}{R\+A\+F\+Database\+System.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,240 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction}\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{d9/d0c/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{d1/d87/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a2f3742c6d44b1ebaeeef6591d40748df}{Expense\+Transaction}} (int account\+Number)
+\begin{DoxyCompactList}\small\item\em Creates a new default {\ttfamily General\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_abb36b70669181667fee1d0dd66e93590}{Expense\+Transaction}} (int account\+Number, long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}}, Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, String trip\+Number, String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}}, int from\+Account, double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}}, boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}})
+\begin{DoxyCompactList}\small\item\em Creates a new Expense Transaction from the supplied data. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a4101d78d51338d598e30e197b0823cf1}{get\+From\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the transfer account from which the money originated for this transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a4c414adbb69c6b968ac4bd6480537c90}{set\+From\+Account}} (int from\+Account)
+\begin{DoxyCompactList}\small\item\em Sets the transfer account from which the money originated for this transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_afd9d13c5b00df6c152f9859c179fb14a}{get\+Trip\+Number}} ()
+\begin{DoxyCompactList}\small\item\em The trip number with which this transaction is associated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a86a13fadbefc57ca04a5e249278c65b9}{set\+Trip\+Number}} (String trip\+Number)
+\begin{DoxyCompactList}\small\item\em Sets the trip number with which this transaction is associated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 59 of file Expense\+Transaction.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a2f3742c6d44b1ebaeeef6591d40748df}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a2f3742c6d44b1ebaeeef6591d40748df}} 
+\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}!ExpenseTransaction@{ExpenseTransaction}}
+\index{ExpenseTransaction@{ExpenseTransaction}!com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+\doxysubsubsection{\texorpdfstring{ExpenseTransaction()}{ExpenseTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction.\+Expense\+Transaction (\begin{DoxyParamCaption}\item[{int}]{account\+Number }\end{DoxyParamCaption})}
+
+
+
+Creates a new default {\ttfamily General\+Model} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file Expense\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                                                   \{}
+\DoxyCodeLine{73         \textcolor{keyword}{this}(accountNumber, System.currentTimeMillis(), \textcolor{keyword}{new} Date(), }
+\DoxyCodeLine{74                 \textcolor{stringliteral}{"No Active Load"}, \textcolor{stringliteral}{""}, 0, 0.0, \textcolor{keyword}{false});}
+\DoxyCodeLine{75     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_abb36b70669181667fee1d0dd66e93590}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_abb36b70669181667fee1d0dd66e93590}} 
+\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}!ExpenseTransaction@{ExpenseTransaction}}
+\index{ExpenseTransaction@{ExpenseTransaction}!com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+\doxysubsubsection{\texorpdfstring{ExpenseTransaction()}{ExpenseTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction.\+Expense\+Transaction (\begin{DoxyParamCaption}\item[{int}]{account\+Number,  }\item[{long}]{id,  }\item[{Date}]{date,  }\item[{String}]{trip\+Number,  }\item[{String}]{description,  }\item[{int}]{from\+Account,  }\item[{double}]{amount,  }\item[{boolean}]{posted }\end{DoxyParamCaption})}
+
+
+
+Creates a new Expense Transaction from the supplied data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & Journal\textquotesingle{}s account number \\
+\hline
+{\em id} & unique identification number for this transaction \\
+\hline
+{\em date} & transaction date \\
+\hline
+{\em trip\+Number} & trip number or \char`\"{}\+No Active Load\char`\"{} \\
+\hline
+{\em description} & transaction description \\
+\hline
+{\em from\+Account} & account from which money was transferred \\
+\hline
+{\em amount} & total financial amount of the transaction \\
+\hline
+{\em posted} & whether or not this transaction has been posted to the General Ledger. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file Expense\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                                                                 \{}
+\DoxyCodeLine{92         super(accountNumber, \textcolor{keywordtype}{id}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}});}
+\DoxyCodeLine{93         this.tripNumber = tripNumber;}
+\DoxyCodeLine{94     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a4101d78d51338d598e30e197b0823cf1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a4101d78d51338d598e30e197b0823cf1}} 
+\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}!getFromAccount@{getFromAccount}}
+\index{getFromAccount@{getFromAccount}!com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+\doxysubsubsection{\texorpdfstring{getFromAccount()}{getFromAccount()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction.\+get\+From\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the transfer account from which the money originated for this transaction. 
+
+\begin{DoxyReturn}{Returns}
+the account from which the money was transferred. 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file Expense\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104                                 \{}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} fromAccount;}
+\DoxyCodeLine{106     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_afd9d13c5b00df6c152f9859c179fb14a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_afd9d13c5b00df6c152f9859c179fb14a}} 
+\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}!getTripNumber@{getTripNumber}}
+\index{getTripNumber@{getTripNumber}!com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+\doxysubsubsection{\texorpdfstring{getTripNumber()}{getTripNumber()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction.\+get\+Trip\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The trip number with which this transaction is associated. 
+
+The value returned will either be the trip that was active at the time this transaction occurred, or the phrase "No Active Load".
+
+\begin{DoxyReturn}{Returns}
+the trip number associated with this transaction. 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Expense\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                   \{}
+\DoxyCodeLine{126         \textcolor{keywordflow}{return} tripNumber;}
+\DoxyCodeLine{127     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a4c414adbb69c6b968ac4bd6480537c90}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a4c414adbb69c6b968ac4bd6480537c90}} 
+\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}!setFromAccount@{setFromAccount}}
+\index{setFromAccount@{setFromAccount}!com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+\doxysubsubsection{\texorpdfstring{setFromAccount()}{setFromAccount()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction.\+set\+From\+Account (\begin{DoxyParamCaption}\item[{int}]{from\+Account }\end{DoxyParamCaption})}
+
+
+
+Sets the transfer account from which the money originated for this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Account} & account from which the money was transferred \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 114 of file Expense\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{114                                                 \{}
+\DoxyCodeLine{115         this.fromAccount = fromAccount;}
+\DoxyCodeLine{116     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a86a13fadbefc57ca04a5e249278c65b9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1ExpenseTransaction_a86a13fadbefc57ca04a5e249278c65b9}} 
+\index{com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}!setTripNumber@{setTripNumber}}
+\index{setTripNumber@{setTripNumber}!com.pekinsoft.loadmaster.api.ExpenseTransaction@{com.pekinsoft.loadmaster.api.ExpenseTransaction}}
+\doxysubsubsection{\texorpdfstring{setTripNumber()}{setTripNumber()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Expense\+Transaction.\+set\+Trip\+Number (\begin{DoxyParamCaption}\item[{String}]{trip\+Number }\end{DoxyParamCaption})}
+
+
+
+Sets the trip number with which this transaction is associated. 
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]The best thing to do to provide the data for this field is to pull the current load from the application settings file. There will either be a trip number or "No Active Load". 
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip\+Number} & the trip number associated with this transaction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 138 of file Expense\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{138                                                  \{}
+\DoxyCodeLine{139         this.tripNumber = tripNumber;}
+\DoxyCodeLine{140     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/api/\mbox{\hyperlink{ExpenseTransaction_8java}{Expense\+Transaction.\+java}}\end{DoxyCompactItemize}

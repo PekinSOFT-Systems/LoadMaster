@@ -1,0 +1,495 @@
+\hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{}\doxysection{com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header Class Reference}
+\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{Record\+Header}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a4551c8f726dcc9a7c276443dde2041b6}{Record\+Header}} (long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{data\+Pointer}}, int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{data\+Capacity}})
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a955965d273c126659bee80b96e637add}{get\+Index\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the index position of this. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ad48c9c257dac86c68e372caee835262c}{set\+Index\+Position}} (int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}{index\+Position}})
+\begin{DoxyCompactList}\small\item\em Sets the index position of this. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a2f603f17188192cd0ca4673d4d00c0d1}{get\+Data\+Capacity}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the data capacity of this. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a72f23421e5fbe86592fd01da9f5d0948}{get\+Data\+Pointer}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the data pointer to the location in the file that this header\textquotesingle{}s data begins. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_af9ae570fd6ad71438f16156106ba31b2}{get\+Free\+Space}} ()
+\begin{DoxyCompactList}\small\item\em Discovers how much free space is available for data to be added. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab49dcd8cd02af733ee1d5e6eaf21eb75}{read}} (Data\+Input in)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the parameters of this. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a267a0790ffa5530c1b809b31beee2019}{write}} (Data\+Output out)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the parameters of this. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ad337e7dcb264bea46c2cd7ae214944cc}{split}} ()  throws Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Returns a new. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a7d4050bb3133954fdc964548e045b623}{read\+Header}} (Data\+Input in)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Creates a new. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{data\+Pointer}}
+\begin{DoxyCompactList}\small\item\em File pointer to the first byte of record data (8 bytes) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{data\+Count}}
+\begin{DoxyCompactList}\small\item\em Actual number of bytes of data held in this record (4 bytes) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{data\+Capacity}}
+\begin{DoxyCompactList}\small\item\em Number of bytes of data that this record can hold (4 bytes) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}{index\+Position}}
+\begin{DoxyCompactList}\small\item\em Indicates this header\textquotesingle{}s position in the file index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 28 of file Record\+Header.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!RecordHeader@{RecordHeader}}
+\index{RecordHeader@{RecordHeader}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{RecordHeader()}{RecordHeader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+Record\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Default constructor. 
+
+
+
+Definition at line 49 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49                              \{}
+\DoxyCodeLine{50         }
+\DoxyCodeLine{51     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a4551c8f726dcc9a7c276443dde2041b6}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a4551c8f726dcc9a7c276443dde2041b6}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!RecordHeader@{RecordHeader}}
+\index{RecordHeader@{RecordHeader}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{RecordHeader()}{RecordHeader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+Record\+Header (\begin{DoxyParamCaption}\item[{long}]{data\+Pointer,  }\item[{int}]{data\+Capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Pointer} & \\
+\hline
+{\em data\+Capacity} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                                                \{}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}} < 1 ) }
+\DoxyCodeLine{60             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IllegalArgumentException(\textcolor{stringliteral}{"Bad record size: "} + }
+\DoxyCodeLine{61                                                                   \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}});}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{dataPointer}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{dataPointer}};}
+\DoxyCodeLine{64         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}};}
+\DoxyCodeLine{65         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{dataCount}} = 0;}
+\DoxyCodeLine{66     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a2f603f17188192cd0ca4673d4d00c0d1}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a2f603f17188192cd0ca4673d4d00c0d1}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!getDataCapacity@{getDataCapacity}}
+\index{getDataCapacity@{getDataCapacity}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{getDataCapacity()}{getDataCapacity()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+get\+Data\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Retrieves the data capacity of this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object.
+
+\begin{DoxyReturn}{Returns}
+int The data capacity. 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                     \{}
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}};}
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a72f23421e5fbe86592fd01da9f5d0948}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a72f23421e5fbe86592fd01da9f5d0948}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!getDataPointer@{getDataPointer}}
+\index{getDataPointer@{getDataPointer}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{getDataPointer()}{getDataPointer()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+get\+Data\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Retrieves the data pointer to the location in the file that this header\textquotesingle{}s data begins. 
+
+\begin{DoxyReturn}{Returns}
+long The start of this record\textquotesingle{}s data in the file. 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101                                     \{}
+\DoxyCodeLine{102         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{dataPointer}};}
+\DoxyCodeLine{103     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_af9ae570fd6ad71438f16156106ba31b2}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_af9ae570fd6ad71438f16156106ba31b2}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!getFreeSpace@{getFreeSpace}}
+\index{getFreeSpace@{getFreeSpace}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{getFreeSpace()}{getFreeSpace()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+get\+Free\+Space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Discovers how much free space is available for data to be added. 
+
+\begin{DoxyReturn}{Returns}
+int The available free space for data. 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                                  \{}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}} -\/ \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{dataCount}};}
+\DoxyCodeLine{112     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a955965d273c126659bee80b96e637add}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a955965d273c126659bee80b96e637add}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!getIndexPosition@{getIndexPosition}}
+\index{getIndexPosition@{getIndexPosition}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{getIndexPosition()}{getIndexPosition()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+get\+Index\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Retrieves the index position of this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object.
+
+\begin{DoxyReturn}{Returns}
+int The index position. 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73                                      \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}{indexPosition}};}
+\DoxyCodeLine{75     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab49dcd8cd02af733ee1d5e6eaf21eb75}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab49dcd8cd02af733ee1d5e6eaf21eb75}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!read@{read}}
+\index{read@{read}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+read (\begin{DoxyParamCaption}\item[{Data\+Input}]{in }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reads the parameters of this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object to learn the\+: 
+\begin{DoxyItemize}
+\item Location of the data pointer 
+\item Data capacity for this header 
+\item Size for data in this header 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The
+\begin{DoxyCode}{1}
+\DoxyCodeLine{DataInput }
+\end{DoxyCode}
+ object to use to read the values. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 126 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{126                                                          \{}
+\DoxyCodeLine{127         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{dataPointer}} = in.readLong();}
+\DoxyCodeLine{128         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}} = in.readInt();}
+\DoxyCodeLine{129         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{dataCount}} = in.readInt();}
+\DoxyCodeLine{130     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a7d4050bb3133954fdc964548e045b623}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a7d4050bb3133954fdc964548e045b623}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!readHeader@{readHeader}}
+\index{readHeader@{readHeader}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{readHeader()}{readHeader()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+read\+Header (\begin{DoxyParamCaption}\item[{Data\+Input}]{in }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Creates a new. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object from an existing 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ on disk.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The
+\begin{DoxyCode}{1}
+\DoxyCodeLine{DataInput }
+\end{DoxyCode}
+ object to use to read in the 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ from file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The record header retrieved from file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 154 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154                                                                               \{}
+\DoxyCodeLine{155         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} r = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}}();}
+\DoxyCodeLine{156         r.read(in);}
+\DoxyCodeLine{157         \textcolor{keywordflow}{return} r;}
+\DoxyCodeLine{158     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ad48c9c257dac86c68e372caee835262c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ad48c9c257dac86c68e372caee835262c}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!setIndexPosition@{setIndexPosition}}
+\index{setIndexPosition@{setIndexPosition}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{setIndexPosition()}{setIndexPosition()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+set\+Index\+Position (\begin{DoxyParamCaption}\item[{int}]{index\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sets the index position of this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Position} & The new index position. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82                                                        \{}
+\DoxyCodeLine{83         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}{indexPosition}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}{indexPosition}};}
+\DoxyCodeLine{84     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ad337e7dcb264bea46c2cd7ae214944cc}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ad337e7dcb264bea46c2cd7ae214944cc}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!split@{split}}
+\index{split@{split}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+split (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Returns a new. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object, which occupies the free space of this record. It also shrinks this record\textquotesingle{}s size by the size of its free space.
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The new record header from the free space. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 168 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{168                                                                \{}
+\DoxyCodeLine{169         \textcolor{keywordtype}{long} newFp = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{dataPointer}} + (long)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{dataCount}};}
+\DoxyCodeLine{170         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} newRecord = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}}(newFp, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_af9ae570fd6ad71438f16156106ba31b2}{getFreeSpace}}());}
+\DoxyCodeLine{171         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{dataCount}};}
+\DoxyCodeLine{172         \textcolor{keywordflow}{return} newRecord;}
+\DoxyCodeLine{173     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a267a0790ffa5530c1b809b31beee2019}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a267a0790ffa5530c1b809b31beee2019}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!write@{write}}
+\index{write@{write}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+write (\begin{DoxyParamCaption}\item[{Data\+Output}]{out }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Writes the parameters of this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a1720969e8751db985adc71ec8170790b}{RecordHeader}} }
+\end{DoxyCode}
+ object to the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The
+\begin{DoxyCode}{1}
+\DoxyCodeLine{DataOutput }
+\end{DoxyCode}
+ object to use to write the values. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 139 of file Record\+Header.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                                                             \{}
+\DoxyCodeLine{140         out.writeLong(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}{dataPointer}});}
+\DoxyCodeLine{141         out.writeInt(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}{dataCapacity}});}
+\DoxyCodeLine{142         out.writeInt(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}{dataCount}});}
+\DoxyCodeLine{143     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a15499ec968bee6518cab28d8772b60fb}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!dataCapacity@{dataCapacity}}
+\index{dataCapacity@{dataCapacity}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{dataCapacity}{dataCapacity}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+data\+Capacity\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of bytes of data that this record can hold (4 bytes) 
+
+
+
+Definition at line 40 of file Record\+Header.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_ab1212fe0e439188aa35aeb966265f769}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!dataCount@{dataCount}}
+\index{dataCount@{dataCount}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{dataCount}{dataCount}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+data\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Actual number of bytes of data held in this record (4 bytes) 
+
+
+
+Definition at line 36 of file Record\+Header.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a21ec3c8861b6373b2c756176b01b39f2}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!dataPointer@{dataPointer}}
+\index{dataPointer@{dataPointer}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{dataPointer}{dataPointer}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+data\+Pointer\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+File pointer to the first byte of record data (8 bytes) 
+
+
+
+Definition at line 32 of file Record\+Header.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader_a18171bc46d9832d10f24c7ca15e53eba}} 
+\index{com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}!indexPosition@{indexPosition}}
+\index{indexPosition@{indexPosition}!com.pekinsoft.rafdb.db.RecordHeader@{com.pekinsoft.rafdb.db.RecordHeader}}
+\doxysubsubsection{\texorpdfstring{indexPosition}{indexPosition}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Record\+Header.\+index\+Position\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates this header\textquotesingle{}s position in the file index. 
+
+
+
+Definition at line 44 of file Record\+Header.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raf-\/db/\+R\+A\+F Database System/src/com/pekinsoft/rafdb/db/\mbox{\hyperlink{RecordHeader_8java}{Record\+Header.\+java}}\end{DoxyCompactItemize}

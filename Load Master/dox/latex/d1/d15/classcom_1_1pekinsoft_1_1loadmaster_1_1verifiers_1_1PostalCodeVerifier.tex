@@ -1,0 +1,464 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier}\index{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{d1/de8/classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{d0/da0/classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}{verify}} (J\+Component input)
+\begin{DoxyCompactList}\small\item\em This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}{verify}} (J\+Component input)
+\begin{DoxyCompactList}\small\item\em This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}{verify}} (J\+Component input)
+\begin{DoxyCompactList}\small\item\em This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}{verify}} (J\+Component input)
+\begin{DoxyCompactList}\small\item\em This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}{verify}} (J\+Component input)
+\begin{DoxyCompactList}\small\item\em This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$Integrity\+Trucking at outlook dot com$>$ 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 34 of file Postal\+Code\+Verifier.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}} 
+\index{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}!verify@{verify}}
+\index{verify@{verify}!com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier.\+verify (\begin{DoxyParamCaption}\item[{J\+Component}]{input }\end{DoxyParamCaption})}
+
+
+
+This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. 
+
+Zip Code or a Canadian Postal Code. 
+
+The validation routine uses regular expressions to disqualify characters that are not included in valid Zip and Postal Codes. U.\+S. Zip Codes may be entered either with or without the Plus-\/4 part of the Zip Code and pass validation. Canadian Postal Codes must be of the format A0\+A0\+A0, or A0A 0A0. {\bfseries{All}} Canadian Postal Codes are of the letter-\/number-\/letter number-\/letter-\/number format. The first letter, in the first section, designates the Province in which that Postal Code is located, i.\+e., \textquotesingle{}Y\textquotesingle{} for Yukon or \textquotesingle{}M\textquotesingle{} for Manitoba, etc.
+
+The current version of the
+\begin{DoxyCode}{0}
+\DoxyCodeLine{isValidPostalCode }
+\end{DoxyCode}
+ method does not validate the Postal Code to the Province, nor the Zip Code to the State. However, this method could be updated in the future to provide such validation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The object that contains the postal code to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the code is valid or not. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Postal\+Code\+Verifier.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                             \{}
+\DoxyCodeLine{65         String zipCode = \textcolor{keyword}{new} String();}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         \textcolor{comment}{// Make sure that the JComponent parameter is a JTextField.}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} ( input instanceof JTextField ) \{}
+\DoxyCodeLine{69             \textcolor{comment}{// Since it is, get the text from the object.}}
+\DoxyCodeLine{70             zipCode = ((JTextField) input).getText();}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{73         \textcolor{comment}{// Create our return variable and default it to invalid.}}
+\DoxyCodeLine{74         \textcolor{keywordtype}{boolean} isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} ( zipCode != \textcolor{keyword}{null} \&\& !zipCode.isEmpty() \&\& !zipCode.isBlank() }
+\DoxyCodeLine{77                 \&\& !zipCode.equalsIgnoreCase(\textcolor{stringliteral}{"unavailable"}) ) \{}
+\DoxyCodeLine{78             \textcolor{comment}{// Create our regex strings.}}
+\DoxyCodeLine{79             String regEx = \textcolor{stringliteral}{"\string^(\(\backslash\)\(\backslash\)d\{5\}(-\/\(\backslash\)\(\backslash\)d\{4\})?|[A-\/CEGHJ-\/NPRSTVXY]\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]"};}
+\DoxyCodeLine{80             regEx += \textcolor{stringliteral}{" ?\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]\(\backslash\)\(\backslash\)d)\$"};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82             \textcolor{comment}{// Next, we need a Pattern object to place this regex in.}}
+\DoxyCodeLine{83             Pattern pattern = Pattern.compile(regEx);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{comment}{// We will also need a matcher object to see if the string is valid.}}
+\DoxyCodeLine{86             Matcher matcher = pattern.matcher(zipCode);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             \textcolor{comment}{// Check the validity of the supplied Zip/Postal Code.}}
+\DoxyCodeLine{89             isValid = matcher.matches();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} ( isValid ) \{}
+\DoxyCodeLine{92                 ((JTextField) input).setBackground(back);}
+\DoxyCodeLine{93                 ((JTextField) input).setForeground(fore);}
+\DoxyCodeLine{94                 Customers.helpPanel.setBackground(ctl);}
+\DoxyCodeLine{95                 Customers.helpLabel.setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{96             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{97                 ((JTextField) input).setBackground(errBack);}
+\DoxyCodeLine{98                 ((JTextField) input).setForeground(errFore);}
+\DoxyCodeLine{99                 Customers.helpPanel.setBackground(Color.RED);}
+\DoxyCodeLine{100                 Customers.helpLabel.setText(\textcolor{stringliteral}{"Zip Code is required and must be a "}}
+\DoxyCodeLine{101                         + \textcolor{stringliteral}{"valid US Zip Code or Canadian Postal Code."});}
+\DoxyCodeLine{102             \}}
+\DoxyCodeLine{103         \} \textcolor{keywordflow}{else} }
+\DoxyCodeLine{104             isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{105         }
+\DoxyCodeLine{106         \textcolor{comment}{// Return our findings.}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} isValid;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}} 
+\index{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}!verify@{verify}}
+\index{verify@{verify}!com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier.\+verify (\begin{DoxyParamCaption}\item[{J\+Component}]{input }\end{DoxyParamCaption})}
+
+
+
+This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. 
+
+Zip Code or a Canadian Postal Code. 
+
+The validation routine uses regular expressions to disqualify characters that are not included in valid Zip and Postal Codes. U.\+S. Zip Codes may be entered either with or without the Plus-\/4 part of the Zip Code and pass validation. Canadian Postal Codes must be of the format A0\+A0\+A0, or A0A 0A0. {\bfseries{All}} Canadian Postal Codes are of the letter-\/number-\/letter number-\/letter-\/number format. The first letter, in the first section, designates the Province in which that Postal Code is located, i.\+e., \textquotesingle{}Y\textquotesingle{} for Yukon or \textquotesingle{}M\textquotesingle{} for Manitoba, etc.
+
+The current version of the
+\begin{DoxyCode}{0}
+\DoxyCodeLine{isValidPostalCode }
+\end{DoxyCode}
+ method does not validate the Postal Code to the Province, nor the Zip Code to the State. However, this method could be updated in the future to provide such validation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The object that contains the postal code to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the code is valid or not. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Postal\+Code\+Verifier.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                             \{}
+\DoxyCodeLine{65         String zipCode = \textcolor{keyword}{new} String();}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         \textcolor{comment}{// Make sure that the JComponent parameter is a JTextField.}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} ( input instanceof JTextField ) \{}
+\DoxyCodeLine{69             \textcolor{comment}{// Since it is, get the text from the object.}}
+\DoxyCodeLine{70             zipCode = ((JTextField) input).getText();}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{73         \textcolor{comment}{// Create our return variable and default it to invalid.}}
+\DoxyCodeLine{74         \textcolor{keywordtype}{boolean} isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} ( zipCode != \textcolor{keyword}{null} \&\& !zipCode.isEmpty() \&\& !zipCode.isBlank() }
+\DoxyCodeLine{77                 \&\& !zipCode.equalsIgnoreCase(\textcolor{stringliteral}{"unavailable"}) ) \{}
+\DoxyCodeLine{78             \textcolor{comment}{// Create our regex strings.}}
+\DoxyCodeLine{79             String regEx = \textcolor{stringliteral}{"\string^(\(\backslash\)\(\backslash\)d\{5\}(-\/\(\backslash\)\(\backslash\)d\{4\})?|[A-\/CEGHJ-\/NPRSTVXY]\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]"};}
+\DoxyCodeLine{80             regEx += \textcolor{stringliteral}{" ?\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]\(\backslash\)\(\backslash\)d)\$"};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82             \textcolor{comment}{// Next, we need a Pattern object to place this regex in.}}
+\DoxyCodeLine{83             Pattern pattern = Pattern.compile(regEx);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{comment}{// We will also need a matcher object to see if the string is valid.}}
+\DoxyCodeLine{86             Matcher matcher = pattern.matcher(zipCode);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             \textcolor{comment}{// Check the validity of the supplied Zip/Postal Code.}}
+\DoxyCodeLine{89             isValid = matcher.matches();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} ( isValid ) \{}
+\DoxyCodeLine{92                 ((JTextField) input).setBackground(back);}
+\DoxyCodeLine{93                 ((JTextField) input).setForeground(fore);}
+\DoxyCodeLine{94                 CustomerEntry.helpPanel.setBackground(ctl);}
+\DoxyCodeLine{95                 CustomerEntry.helpLabel.setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{96             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{97                 ((JTextField) input).setBackground(errBack);}
+\DoxyCodeLine{98                 ((JTextField) input).setForeground(errFore);}
+\DoxyCodeLine{99                 CustomerEntry.helpPanel.setBackground(Color.RED);}
+\DoxyCodeLine{100                 CustomerEntry.helpLabel.setText(\textcolor{stringliteral}{"Zip Code is required and must be a "}}
+\DoxyCodeLine{101                         + \textcolor{stringliteral}{"valid US Zip Code or Canadian Postal Code."});}
+\DoxyCodeLine{102             \}}
+\DoxyCodeLine{103         \} \textcolor{keywordflow}{else} }
+\DoxyCodeLine{104             isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{105         }
+\DoxyCodeLine{106         \textcolor{comment}{// Return our findings.}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} isValid;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}} 
+\index{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}!verify@{verify}}
+\index{verify@{verify}!com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier.\+verify (\begin{DoxyParamCaption}\item[{J\+Component}]{input }\end{DoxyParamCaption})}
+
+
+
+This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. 
+
+Zip Code or a Canadian Postal Code. 
+
+The validation routine uses regular expressions to disqualify characters that are not included in valid Zip and Postal Codes. U.\+S. Zip Codes may be entered either with or without the Plus-\/4 part of the Zip Code and pass validation. Canadian Postal Codes must be of the format A0\+A0\+A0, or A0A 0A0. {\bfseries{All}} Canadian Postal Codes are of the letter-\/number-\/letter number-\/letter-\/number format. The first letter, in the first section, designates the Province in which that Postal Code is located, i.\+e., \textquotesingle{}Y\textquotesingle{} for Yukon or \textquotesingle{}M\textquotesingle{} for Manitoba, etc.
+
+The current version of the
+\begin{DoxyCode}{0}
+\DoxyCodeLine{isValidPostalCode }
+\end{DoxyCode}
+ method does not validate the Postal Code to the Province, nor the Zip Code to the State. However, this method could be updated in the future to provide such validation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The object that contains the postal code to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the code is valid or not. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Postal\+Code\+Verifier.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                             \{}
+\DoxyCodeLine{65         String zipCode = \textcolor{keyword}{new} String();}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         \textcolor{comment}{// Make sure that the JComponent parameter is a JTextField.}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} ( input instanceof JTextField ) \{}
+\DoxyCodeLine{69             \textcolor{comment}{// Since it is, get the text from the object.}}
+\DoxyCodeLine{70             zipCode = ((JTextField) input).getText();}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{73         \textcolor{comment}{// Create our return variable and default it to invalid.}}
+\DoxyCodeLine{74         \textcolor{keywordtype}{boolean} isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} ( zipCode != \textcolor{keyword}{null} \&\& !zipCode.isEmpty() \&\& !zipCode.isBlank() }
+\DoxyCodeLine{77                 \&\& !zipCode.equalsIgnoreCase(\textcolor{stringliteral}{"unavailable"}) ) \{}
+\DoxyCodeLine{78             \textcolor{comment}{// Create our regex strings.}}
+\DoxyCodeLine{79             String regEx = \textcolor{stringliteral}{"\string^(\(\backslash\)\(\backslash\)d\{5\}(-\/\(\backslash\)\(\backslash\)d\{4\})?|[A-\/CEGHJ-\/NPRSTVXY]\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]"};}
+\DoxyCodeLine{80             regEx += \textcolor{stringliteral}{" ?\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]\(\backslash\)\(\backslash\)d)\$"};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82             \textcolor{comment}{// Next, we need a Pattern object to place this regex in.}}
+\DoxyCodeLine{83             Pattern pattern = Pattern.compile(regEx);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{comment}{// We will also need a matcher object to see if the string is valid.}}
+\DoxyCodeLine{86             Matcher matcher = pattern.matcher(zipCode);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             \textcolor{comment}{// Check the validity of the supplied Zip/Postal Code.}}
+\DoxyCodeLine{89             isValid = matcher.matches();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} ( isValid ) \{}
+\DoxyCodeLine{92                 ((JTextField) input).setBackground(back);}
+\DoxyCodeLine{93                 ((JTextField) input).setForeground(fore);}
+\DoxyCodeLine{94                 Customers.helpPanel.setBackground(ctl);}
+\DoxyCodeLine{95                 Customers.helpLabel.setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{96             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{97                 ((JTextField) input).setBackground(errBack);}
+\DoxyCodeLine{98                 ((JTextField) input).setForeground(errFore);}
+\DoxyCodeLine{99                 Customers.helpPanel.setBackground(Color.RED);}
+\DoxyCodeLine{100                 Customers.helpLabel.setText(\textcolor{stringliteral}{"Zip Code is required and must be a "}}
+\DoxyCodeLine{101                         + \textcolor{stringliteral}{"valid US Zip Code or Canadian Postal Code."});}
+\DoxyCodeLine{102             \}}
+\DoxyCodeLine{103         \} \textcolor{keywordflow}{else} }
+\DoxyCodeLine{104             isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{105         }
+\DoxyCodeLine{106         \textcolor{comment}{// Return our findings.}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} isValid;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}} 
+\index{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}!verify@{verify}}
+\index{verify@{verify}!com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier.\+verify (\begin{DoxyParamCaption}\item[{J\+Component}]{input }\end{DoxyParamCaption})}
+
+
+
+This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. 
+
+Zip Code or a Canadian Postal Code. 
+
+The validation routine uses regular expressions to disqualify characters that are not included in valid Zip and Postal Codes. U.\+S. Zip Codes may be entered either with or without the Plus-\/4 part of the Zip Code and pass validation. Canadian Postal Codes must be of the format A0\+A0\+A0, or A0A 0A0. {\bfseries{All}} Canadian Postal Codes are of the letter-\/number-\/letter number-\/letter-\/number format. The first letter, in the first section, designates the Province in which that Postal Code is located, i.\+e., \textquotesingle{}Y\textquotesingle{} for Yukon or \textquotesingle{}M\textquotesingle{} for Manitoba, etc.
+
+The current version of the
+\begin{DoxyCode}{0}
+\DoxyCodeLine{isValidPostalCode }
+\end{DoxyCode}
+ method does not validate the Postal Code to the Province, nor the Zip Code to the State. However, this method could be updated in the future to provide such validation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The object that contains the postal code to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the code is valid or not. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Postal\+Code\+Verifier.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                             \{}
+\DoxyCodeLine{65         String zipCode = \textcolor{keyword}{new} String();}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         \textcolor{comment}{// Make sure that the JComponent parameter is a JTextField.}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} ( input instanceof JTextField ) \{}
+\DoxyCodeLine{69             \textcolor{comment}{// Since it is, get the text from the object.}}
+\DoxyCodeLine{70             zipCode = ((JTextField) input).getText();}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{73         \textcolor{comment}{// Create our return variable and default it to invalid.}}
+\DoxyCodeLine{74         \textcolor{keywordtype}{boolean} isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} ( zipCode != \textcolor{keyword}{null} \&\& !zipCode.isEmpty() \&\& !zipCode.isBlank() }
+\DoxyCodeLine{77                 \&\& !zipCode.equalsIgnoreCase(\textcolor{stringliteral}{"unavailable"}) ) \{}
+\DoxyCodeLine{78             \textcolor{comment}{// Create our regex strings.}}
+\DoxyCodeLine{79             String regEx = \textcolor{stringliteral}{"\string^(\(\backslash\)\(\backslash\)d\{5\}(-\/\(\backslash\)\(\backslash\)d\{4\})?|[A-\/CEGHJ-\/NPRSTVXY]\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]"};}
+\DoxyCodeLine{80             regEx += \textcolor{stringliteral}{" ?\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]\(\backslash\)\(\backslash\)d)\$"};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82             \textcolor{comment}{// Next, we need a Pattern object to place this regex in.}}
+\DoxyCodeLine{83             Pattern pattern = Pattern.compile(regEx);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{comment}{// We will also need a matcher object to see if the string is valid.}}
+\DoxyCodeLine{86             Matcher matcher = pattern.matcher(zipCode);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             \textcolor{comment}{// Check the validity of the supplied Zip/Postal Code.}}
+\DoxyCodeLine{89             isValid = matcher.matches();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} ( isValid ) \{}
+\DoxyCodeLine{92                 ((JTextField) input).setBackground(back);}
+\DoxyCodeLine{93                 ((JTextField) input).setForeground(fore);}
+\DoxyCodeLine{94                 Customers.helpPanel.setBackground(ctl);}
+\DoxyCodeLine{95                 Customers.helpLabel.setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{96             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{97                 ((JTextField) input).setBackground(errBack);}
+\DoxyCodeLine{98                 ((JTextField) input).setForeground(errFore);}
+\DoxyCodeLine{99                 Customers.helpPanel.setBackground(Color.RED);}
+\DoxyCodeLine{100                 Customers.helpLabel.setText(\textcolor{stringliteral}{"Zip Code is required and must be a "}}
+\DoxyCodeLine{101                         + \textcolor{stringliteral}{"valid US Zip Code or Canadian Postal Code."});}
+\DoxyCodeLine{102             \}}
+\DoxyCodeLine{103         \} \textcolor{keywordflow}{else} }
+\DoxyCodeLine{104             isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{105         }
+\DoxyCodeLine{106         \textcolor{comment}{// Return our findings.}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} isValid;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1verifiers_1_1PostalCodeVerifier_aa30b0e398cc15bacdfafc66fc89248d7}} 
+\index{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}!verify@{verify}}
+\index{verify@{verify}!com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier@{com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+verifiers.\+Postal\+Code\+Verifier.\+verify (\begin{DoxyParamCaption}\item[{J\+Component}]{input }\end{DoxyParamCaption})}
+
+
+
+This method checks the provided Zip Code (or Postal Code) and validates that the provided data is either a U.\+S. 
+
+Zip Code or a Canadian Postal Code. 
+
+The validation routine uses regular expressions to disqualify characters that are not included in valid Zip and Postal Codes. U.\+S. Zip Codes may be entered either with or without the Plus-\/4 part of the Zip Code and pass validation. Canadian Postal Codes must be of the format A0\+A0\+A0, or A0A 0A0. {\bfseries{All}} Canadian Postal Codes are of the letter-\/number-\/letter number-\/letter-\/number format. The first letter, in the first section, designates the Province in which that Postal Code is located, i.\+e., \textquotesingle{}Y\textquotesingle{} for Yukon or \textquotesingle{}M\textquotesingle{} for Manitoba, etc.
+
+The current version of the
+\begin{DoxyCode}{0}
+\DoxyCodeLine{isValidPostalCode }
+\end{DoxyCode}
+ method does not validate the Postal Code to the Province, nor the Zip Code to the State. However, this method could be updated in the future to provide such validation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The object that contains the postal code to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the code is valid or not. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Postal\+Code\+Verifier.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                             \{}
+\DoxyCodeLine{65         String zipCode = \textcolor{keyword}{new} String();}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         \textcolor{comment}{// Make sure that the JComponent parameter is a JTextField.}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} ( input instanceof JTextField ) \{}
+\DoxyCodeLine{69             \textcolor{comment}{// Since it is, get the text from the object.}}
+\DoxyCodeLine{70             zipCode = ((JTextField) input).getText();}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{73         \textcolor{comment}{// Create our return variable and default it to invalid.}}
+\DoxyCodeLine{74         \textcolor{keywordtype}{boolean} isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} ( zipCode != \textcolor{keyword}{null} \&\& !zipCode.isEmpty() \&\& !zipCode.isBlank() }
+\DoxyCodeLine{77                 \&\& !zipCode.equalsIgnoreCase(\textcolor{stringliteral}{"unavailable"}) ) \{}
+\DoxyCodeLine{78             \textcolor{comment}{// Create our regex strings.}}
+\DoxyCodeLine{79             String regEx = \textcolor{stringliteral}{"\string^(\(\backslash\)\(\backslash\)d\{5\}(-\/\(\backslash\)\(\backslash\)d\{4\})?|[A-\/CEGHJ-\/NPRSTVXY]\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]"};}
+\DoxyCodeLine{80             regEx += \textcolor{stringliteral}{" ?\(\backslash\)\(\backslash\)d[A-\/CEGHJ-\/NPRSTV-\/Z]\(\backslash\)\(\backslash\)d)\$"};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82             \textcolor{comment}{// Next, we need a Pattern object to place this regex in.}}
+\DoxyCodeLine{83             Pattern pattern = Pattern.compile(regEx);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{comment}{// We will also need a matcher object to see if the string is valid.}}
+\DoxyCodeLine{86             Matcher matcher = pattern.matcher(zipCode);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             \textcolor{comment}{// Check the validity of the supplied Zip/Postal Code.}}
+\DoxyCodeLine{89             isValid = matcher.matches();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} ( isValid ) \{}
+\DoxyCodeLine{92                 ((JTextField) input).setBackground(back);}
+\DoxyCodeLine{93                 ((JTextField) input).setForeground(fore);}
+\DoxyCodeLine{94                 Customers.helpPanel.setBackground(ctl);}
+\DoxyCodeLine{95                 Customers.helpLabel.setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{96             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{97                 ((JTextField) input).setBackground(errBack);}
+\DoxyCodeLine{98                 ((JTextField) input).setForeground(errFore);}
+\DoxyCodeLine{99                 Customers.helpPanel.setBackground(Color.RED);}
+\DoxyCodeLine{100                 Customers.helpLabel.setText(\textcolor{stringliteral}{"Zip Code is required and must be a "}}
+\DoxyCodeLine{101                         + \textcolor{stringliteral}{"valid US Zip Code or Canadian Postal Code."});}
+\DoxyCodeLine{102             \}}
+\DoxyCodeLine{103         \} \textcolor{keywordflow}{else} }
+\DoxyCodeLine{104             isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{105         }
+\DoxyCodeLine{106         \textcolor{comment}{// Return our findings.}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} isValid;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/verifiers/\mbox{\hyperlink{Forked_2LoadMaster_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2verifiers_2PostalCodeVerifier_8java}{Postal\+Code\+Verifier.\+java}}\end{DoxyCompactItemize}

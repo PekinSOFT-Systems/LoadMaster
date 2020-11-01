@@ -1,0 +1,1940 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl}\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+
+
+The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl}{Entry\+Ctl}}} class provides the system interoperability for the General Ledger of the Load Master accounting system.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}{Entry\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}{add\+New}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}{close}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last transaction in this ledger. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not there are more transactions in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current entry as an {\ttfamily Entry\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the entry at the specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this ledger. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}{update}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}{Entry\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aceae2be860fd5a64c25394ce308270f1}{add\+New}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}{close}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a41d73219cc836054aa11c661f3ddf8f1}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7b7e2200a016d78cb22595f0bfd13dcb}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_accf76da6c748385221041e025d70e4dc}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6e1733480d4a0eb5324e7daed2e2701b}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last transaction in this ledger. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not there are more transactions in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a23dbd3b66ae679d53148188e8428d635}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current entry as an {\ttfamily G\+L\+Entry\+Transaction} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a72c4e7bdbaf2b9532beef504d0e42194}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the entry at the specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this ledger. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa86d65802cb8eb87718a2f35f8ef7bf6}{update}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} model)
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}{Entry\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}{add\+New}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}{close}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last transaction in this ledger. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not there are more transactions in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current entry as an {\ttfamily Entry\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the entry at the specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this ledger. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}{update}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}{Entry\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}{add\+New}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}{close}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}{first}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the first transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}{previous}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the previous transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}{next}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the next transaction in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}{last}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Moves the record pointer to the last transaction in this ledger. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not there are more transactions in this ledger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current entry as an {\ttfamily Entry\+Model} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the entry at the specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this ledger. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}{update}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}{Entry\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a65b54a0c1c27fc09f2aaa62ffd201aca}{post\+Transactions}} ()  throws Data\+Store\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_affb9b01b1b8e55b2f8ea4de473f876e6}{build\+Record\+Line}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a977133c150e1af1ec07627cf873cad09}{create\+And\+Add\+Record}} (String\mbox{[}$\,$\mbox{]} line)
+\end{DoxyCompactItemize}
+\doxysubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}{\mbox{[}instance initializer\mbox{]}}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}{\mbox{[}instance initializer\mbox{]}}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}{\mbox{[}instance initializer\mbox{]}}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}{\mbox{[}instance initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}{\mbox{[}static initializer\mbox{]}}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}{\mbox{[}static initializer\mbox{]}}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}{\mbox{[}static initializer\mbox{]}}}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}{\mbox{[}static initializer\mbox{]}}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl}{Entry\+Ctl}}} class provides the system interoperability for the General Ledger of the Load Master accounting system. 
+
+This class allows for storing and retrieving all transactions of the GL.
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+7.\+8 build 2549 
+\end{DoxySince}
+
+
+Definition at line 62 of file Entry\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!EntryCtl@{EntryCtl}}
+\index{EntryCtl@{EntryCtl}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{EntryCtl()}{EntryCtl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+Entry\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 92 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                  \{}
+\DoxyCodeLine{93         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initiated for EntryCtl class."});}
+\DoxyCodeLine{94         entry.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{95         entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl (Constructor)"});}
+\DoxyCodeLine{96         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{97         Starter.logger.enter(entry);}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         fileJustCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{100         }
+\DoxyCodeLine{101         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{102         record = \textcolor{keyword}{new} EntryModel();}
+\DoxyCodeLine{103         row = 0;}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         TABLE = \textcolor{keyword}{new} File(Starter.props.getDataFolder() + \textcolor{stringliteral}{"0.ldgr"});}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{109             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{110                 TABLE.createNewFile();}
+\DoxyCodeLine{111                 }
+\DoxyCodeLine{112                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{113                 fileJustCreated = \textcolor{keyword}{true};}
+\DoxyCodeLine{114             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{115                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{116                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{117                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{118                 entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl"});}
+\DoxyCodeLine{119                 entry.setThrown(ex);}
+\DoxyCodeLine{120                 Starter.logger.error(entry);}
+\DoxyCodeLine{121                 }
+\DoxyCodeLine{122                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124         \}}
+\DoxyCodeLine{125         }
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{127             connect();}
+\DoxyCodeLine{128 \textcolor{comment}{//        else}}
+\DoxyCodeLine{129 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{130 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{131 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{132 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{133         }
+\DoxyCodeLine{134         entry.setMessage(\textcolor{stringliteral}{"Done creating EntryCtl object."});}
+\DoxyCodeLine{135         Starter.logger.exit(entry, \textcolor{keyword}{null});}
+\DoxyCodeLine{136     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!EntryCtl@{EntryCtl}}
+\index{EntryCtl@{EntryCtl}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{EntryCtl()}{EntryCtl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+Entry\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 92 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                  \{}
+\DoxyCodeLine{93         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initiated for EntryCtl class."});}
+\DoxyCodeLine{94         entry.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{95         entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl (Constructor)"});}
+\DoxyCodeLine{96         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{97         Starter.logger.enter(entry);}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         fileJustCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{100         }
+\DoxyCodeLine{101         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{102         record = \textcolor{keyword}{new} GLEntryTransaction();}
+\DoxyCodeLine{103         row = 0;}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         TABLE = \textcolor{keyword}{new} File(Starter.props.getDataFolder() + \textcolor{stringliteral}{"0.ldgr"});}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{109             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{110                 TABLE.createNewFile();}
+\DoxyCodeLine{111                 }
+\DoxyCodeLine{112                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{113                 fileJustCreated = \textcolor{keyword}{true};}
+\DoxyCodeLine{114             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{115                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{116                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{117                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{118                 entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl"});}
+\DoxyCodeLine{119                 entry.setThrown(ex);}
+\DoxyCodeLine{120                 Starter.logger.error(entry);}
+\DoxyCodeLine{121                 }
+\DoxyCodeLine{122                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124         \}}
+\DoxyCodeLine{125         }
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{127             connect();}
+\DoxyCodeLine{128 \textcolor{comment}{//        else}}
+\DoxyCodeLine{129 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{130 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{131 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{132 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{133         }
+\DoxyCodeLine{134         entry.setMessage(\textcolor{stringliteral}{"Done creating EntryCtl object."});}
+\DoxyCodeLine{135         Starter.logger.exit(entry, \textcolor{keyword}{null});}
+\DoxyCodeLine{136     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!EntryCtl@{EntryCtl}}
+\index{EntryCtl@{EntryCtl}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{EntryCtl()}{EntryCtl()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+Entry\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 92 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                  \{}
+\DoxyCodeLine{93         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initiated for EntryCtl class."});}
+\DoxyCodeLine{94         entry.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{95         entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl (Constructor)"});}
+\DoxyCodeLine{96         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{97         Starter.logger.enter(entry);}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         fileJustCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{100         }
+\DoxyCodeLine{101         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{102         record = \textcolor{keyword}{new} EntryModel();}
+\DoxyCodeLine{103         row = 0;}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         TABLE = \textcolor{keyword}{new} File(Starter.props.getDataFolder() + \textcolor{stringliteral}{"0.ldgr"});}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{109             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{110                 TABLE.createNewFile();}
+\DoxyCodeLine{111                 }
+\DoxyCodeLine{112                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{113                 fileJustCreated = \textcolor{keyword}{true};}
+\DoxyCodeLine{114             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{115                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{116                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{117                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{118                 entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl"});}
+\DoxyCodeLine{119                 entry.setThrown(ex);}
+\DoxyCodeLine{120                 Starter.logger.error(entry);}
+\DoxyCodeLine{121                 }
+\DoxyCodeLine{122                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124         \}}
+\DoxyCodeLine{125         }
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{127             connect();}
+\DoxyCodeLine{128 \textcolor{comment}{//        else}}
+\DoxyCodeLine{129 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{130 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{131 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{132 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{133         }
+\DoxyCodeLine{134         entry.setMessage(\textcolor{stringliteral}{"Done creating EntryCtl object."});}
+\DoxyCodeLine{135         Starter.logger.exit(entry, \textcolor{keyword}{null});}
+\DoxyCodeLine{136     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!EntryCtl@{EntryCtl}}
+\index{EntryCtl@{EntryCtl}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{EntryCtl()}{EntryCtl()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+Entry\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 92 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                  \{}
+\DoxyCodeLine{93         entry = \textcolor{keyword}{new} LogRecord(Level.ALL, \textcolor{stringliteral}{"Logging initiated for EntryCtl class."});}
+\DoxyCodeLine{94         entry.setSourceClassName(this.getClass().getName());}
+\DoxyCodeLine{95         entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl (Constructor)"});}
+\DoxyCodeLine{96         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{97         Starter.logger.enter(entry);}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         fileJustCreated = \textcolor{keyword}{false};}
+\DoxyCodeLine{100         }
+\DoxyCodeLine{101         records = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{102         record = \textcolor{keyword}{new} EntryModel();}
+\DoxyCodeLine{103         row = 0;}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         TABLE = \textcolor{keyword}{new} File(Starter.props.getDataFolder() + \textcolor{stringliteral}{"0.ldgr"});}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} ( !TABLE.exists() ) \{}
+\DoxyCodeLine{109             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{110                 TABLE.createNewFile();}
+\DoxyCodeLine{111                 }
+\DoxyCodeLine{112                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{113                 fileJustCreated = \textcolor{keyword}{true};}
+\DoxyCodeLine{114             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{115                 entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{116                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{117                 entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{118                 entry.setSourceMethodName(\textcolor{stringliteral}{"EntryCtl"});}
+\DoxyCodeLine{119                 entry.setThrown(ex);}
+\DoxyCodeLine{120                 Starter.logger.error(entry);}
+\DoxyCodeLine{121                 }
+\DoxyCodeLine{122                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124         \}}
+\DoxyCodeLine{125         }
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} ( !fileJustCreated )}
+\DoxyCodeLine{127             connect();}
+\DoxyCodeLine{128 \textcolor{comment}{//        else}}
+\DoxyCodeLine{129 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{130 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{131 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{132 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{133         }
+\DoxyCodeLine{134         entry.setMessage(\textcolor{stringliteral}{"Done creating EntryCtl object."});}
+\DoxyCodeLine{135         Starter.logger.exit(entry, \textcolor{keyword}{null});}
+\DoxyCodeLine{136     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac5457a2a994885e8cb31c53fa2fd218a}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!EntryCtl@{EntryCtl}}
+\index{EntryCtl@{EntryCtl}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{EntryCtl()}{EntryCtl()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+Entry\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 66 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                                  \{}
+\DoxyCodeLine{67         super(\textcolor{keyword}{new} EntryModel(), Starter.props.getDataFolder() }
+\DoxyCodeLine{68                 + EntryModel.ACCOUNT\_NUMBER + \textcolor{stringliteral}{".ldgr"});}
+\DoxyCodeLine{69     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aada87496efe8bc68d19b0d431a919bdd}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}instance initializer\mbox{]}@{[instance initializer]}}
+\index{\mbox{[}instance initializer\mbox{]}@{[instance initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[instance initializer]()}{[instance initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}instance initializer\mbox{]}\hspace{0.3cm}{\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ac14ada7e821292dbe10b105b4624cf93}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
+\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 144 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                                          \{}
+\DoxyCodeLine{145         records.add(model);}
+\DoxyCodeLine{146         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{147         }
+\DoxyCodeLine{148         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"journal.gl.records"}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}());}
+\DoxyCodeLine{149     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 144 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                                          \{}
+\DoxyCodeLine{145         records.add(model);}
+\DoxyCodeLine{146         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{147         }
+\DoxyCodeLine{148         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"journal.gl.records"}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}());}
+\DoxyCodeLine{149     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a9db2dc91838f0ddba0ad37b081aeab78}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 144 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                                          \{}
+\DoxyCodeLine{145         records.add(model);}
+\DoxyCodeLine{146         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{147         }
+\DoxyCodeLine{148         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"journal.gl.records"}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}());}
+\DoxyCodeLine{149     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aceae2be860fd5a64c25394ce308270f1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aceae2be860fd5a64c25394ce308270f1}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!addNew@{addNew}}
+\index{addNew@{addNew}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{addNew()}{addNew()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+add\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 144 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                                                  \{}
+\DoxyCodeLine{145         records.add(model);}
+\DoxyCodeLine{146         row = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}() -\/ 1;}
+\DoxyCodeLine{147         }
+\DoxyCodeLine{148         Starter.props.setPropertyAsInt(\textcolor{stringliteral}{"journal.gl.records"}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{getRecordCount}}());}
+\DoxyCodeLine{149     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_affb9b01b1b8e55b2f8ea4de473f876e6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_affb9b01b1b8e55b2f8ea4de473f876e6}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!buildRecordLine@{buildRecordLine}}
+\index{buildRecordLine@{buildRecordLine}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{buildRecordLine()}{buildRecordLine()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+build\+Record\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 78 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                                                        \{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} model.getDateAsString() + \textcolor{stringliteral}{"\string~"} + model.getCode() + \textcolor{stringliteral}{"\string~"}}
+\DoxyCodeLine{80                 + model.getDescription() + \textcolor{stringliteral}{"\string~"} + model.getFromAccount()}
+\DoxyCodeLine{81                 + \textcolor{stringliteral}{"\string~"} + model.getToAccount() + \textcolor{stringliteral}{"\string~"} + model.getAmount()}
+\DoxyCodeLine{82                 + \textcolor{stringliteral}{"\string~"} + model.isDeductible() + \textcolor{stringliteral}{"\string~"} + model.isBalanced();}
+\DoxyCodeLine{83     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 151 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151                                                   \{}
+\DoxyCodeLine{152         save();}
+\DoxyCodeLine{153     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 151 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151                                                   \{}
+\DoxyCodeLine{152         save();}
+\DoxyCodeLine{153     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 151 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151                                                   \{}
+\DoxyCodeLine{152         save();}
+\DoxyCodeLine{153     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acf66a2296e040257d544c10839e14775}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!close@{close}}
+\index{close@{close}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 151 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151                                                   \{}
+\DoxyCodeLine{152         save();}
+\DoxyCodeLine{153     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a977133c150e1af1ec07627cf873cad09}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a977133c150e1af1ec07627cf873cad09}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!createAndAddRecord@{createAndAddRecord}}
+\index{createAndAddRecord@{createAndAddRecord}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{createAndAddRecord()}{createAndAddRecord()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+create\+And\+Add\+Record (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 86 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86                                                      \{}
+\DoxyCodeLine{87         entry.setMessage(\textcolor{stringliteral}{"Entering..."});}
+\DoxyCodeLine{88         entry.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{89         entry.setParameters(line);}
+\DoxyCodeLine{90         Starter.logger.enter(entry);}
+\DoxyCodeLine{91         }
+\DoxyCodeLine{92         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{93         }
+\DoxyCodeLine{94         record = \textcolor{keyword}{new} EntryModel();}
+\DoxyCodeLine{95         }
+\DoxyCodeLine{96         }
+\DoxyCodeLine{97         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{98             record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a652411f9dda1a08e02deabe0b83ee6e9}{setDate}}(sdf.parse(line[0]));}
+\DoxyCodeLine{99         \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{100             entry.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{101                     + \textcolor{stringliteral}{"Parsing error while parsing the dispatch date."});}
+\DoxyCodeLine{102             entry.setThrown(ex);}
+\DoxyCodeLine{103             entry.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{104             entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{105             Starter.logger.error(entry);}
+\DoxyCodeLine{106             }
+\DoxyCodeLine{107             MessageBox.showError(ex, \textcolor{stringliteral}{"Parsing Error"});}
+\DoxyCodeLine{108         \}}
+\DoxyCodeLine{109         }
+\DoxyCodeLine{110         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_ae2124353892dcbd6bdbc8557d9711ba0}{setCode}}(line[1]);}
+\DoxyCodeLine{111         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a65845770c60513bce8485d6d9c934f6f}{setDescription}}(line[2]);}
+\DoxyCodeLine{112         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a24109d4d7e166df807339e096ae4609c}{setFromAccount}}(Integer.parseInt(line[3]));}
+\DoxyCodeLine{113         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a1d62927dbc83b9d133bb080f83edeef7}{setToAccount}}(Integer.parseInt(line[4]));}
+\DoxyCodeLine{114         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a9e67972fc5306b3ab64df016fef4f854}{setAmount}}(Double.parseDouble(line[5]));}
+\DoxyCodeLine{115         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a54158e23df776fc195a7495afceabd2b}{setDeductible}}(Boolean.parseBoolean(line[6]));}
+\DoxyCodeLine{116         record.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel_a738ea0c8cc31d2909dd693b39d0bc5ef}{setBalanced}}(Boolean.parseBoolean(line[7]));}
+\DoxyCodeLine{117         }
+\DoxyCodeLine{118         records.add(record);}
+\DoxyCodeLine{119         }
+\DoxyCodeLine{120         LoadMaster.fileProgress.setValue(}
+\DoxyCodeLine{121                 LoadMaster.fileProgress.getValue() + 1);}
+\DoxyCodeLine{122     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 163 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                                         \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{165             row = 0;}
+\DoxyCodeLine{166             }
+\DoxyCodeLine{167             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{168                 record = records.get(row);}
+\DoxyCodeLine{169             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{170                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173         \}}
+\DoxyCodeLine{174         }
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a41d73219cc836054aa11c661f3ddf8f1}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a41d73219cc836054aa11c661f3ddf8f1}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 163 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                                                 \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{165             row = 0;}
+\DoxyCodeLine{166             }
+\DoxyCodeLine{167             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{168                 record = records.get(row);}
+\DoxyCodeLine{169             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{170                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173         \}}
+\DoxyCodeLine{174         }
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 163 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                                         \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{165             row = 0;}
+\DoxyCodeLine{166             }
+\DoxyCodeLine{167             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{168                 record = records.get(row);}
+\DoxyCodeLine{169             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{170                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173         \}}
+\DoxyCodeLine{174         }
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_acc9c0f43468cc021eb1b954fd63380f8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!first@{first}}
+\index{first@{first}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the first transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 163 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                                         \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} ( row >= 0 ) \{}
+\DoxyCodeLine{165             row = 0;}
+\DoxyCodeLine{166             }
+\DoxyCodeLine{167             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{168                 record = records.get(row);}
+\DoxyCodeLine{169             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{170                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173         \}}
+\DoxyCodeLine{174         }
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current entry as an {\ttfamily Entry\+Model} object. 
+
+\begin{DoxyReturn}{Returns}
+The current entry. 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{261                             \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{263     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current entry as an {\ttfamily Entry\+Model} object. 
+
+\begin{DoxyReturn}{Returns}
+The current entry. 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{261                             \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{263     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a23dbd3b66ae679d53148188e8428d635}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a23dbd3b66ae679d53148188e8428d635}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current entry as an {\ttfamily G\+L\+Entry\+Transaction} object. 
+
+\begin{DoxyReturn}{Returns}
+The current entry. 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{261                                     \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{263     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7657cd2682bbf5201fc273a3b7cf34b3}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current entry as an {\ttfamily Entry\+Model} object. 
+
+\begin{DoxyReturn}{Returns}
+The current entry. 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{261                             \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} records.get(row);}
+\DoxyCodeLine{263     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the entry at the specified index. 
+
+If the specified index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The specified index from which to retrieve the entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count()}}}), null is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{274                                    \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{276     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the entry at the specified index. 
+
+If the specified index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The specified index from which to retrieve the entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count()}}}), null is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{274                                    \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{276     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a72c4e7bdbaf2b9532beef504d0e42194}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a72c4e7bdbaf2b9532beef504d0e42194}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the entry at the specified index. 
+
+If the specified index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The specified index from which to retrieve the entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count()}}}), null is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{274                                            \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{276     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a970b6650b3d92469f1cc71bde72a9d5f}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!get@{get}}
+\index{get@{get}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the entry at the specified index. 
+
+If the specified index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The specified index from which to retrieve the entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}{get\+Record\+Count()}}}), null is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{274                                    \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} records.get(idx);}
+\DoxyCodeLine{276     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 283 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283                                         \{}
+\DoxyCodeLine{284         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{285     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 283 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283                                         \{}
+\DoxyCodeLine{284         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{285     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 283 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283                                         \{}
+\DoxyCodeLine{284         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{285     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_ad337f0e3c819d08a7ac6370138bcf8d9}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 283 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283                                         \{}
+\DoxyCodeLine{284         \textcolor{keywordflow}{return} row + 1;}
+\DoxyCodeLine{285     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{292                                 \{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{294     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{292                                 \{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{294     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{292                                 \{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{294     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a0b4b39689fd63174b25d5f356b2af932}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{292                                 \{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{return} records.size();}
+\DoxyCodeLine{294     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not there are more transactions in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if more transactions, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{252                              \{}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{254     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not there are more transactions in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if more transactions, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{252                              \{}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{254     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not there are more transactions in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if more transactions, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{252                              \{}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{254     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a11174e0aa090d6dd5ac77fe4b3789ff8}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not there are more transactions in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if more transactions, {\ttfamily false} if not. 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{252                              \{}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} row < records.size();}
+\DoxyCodeLine{254     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the last transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 232 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                                        \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{234             row = records.size() -\/ 1;}
+\DoxyCodeLine{235             }
+\DoxyCodeLine{236             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{237                 record = records.get(row);}
+\DoxyCodeLine{238             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{239                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{241             \}}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         }
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{245     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6e1733480d4a0eb5324e7daed2e2701b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6e1733480d4a0eb5324e7daed2e2701b}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the last transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 232 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                                                \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{234             row = records.size() -\/ 1;}
+\DoxyCodeLine{235             }
+\DoxyCodeLine{236             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{237                 record = records.get(row);}
+\DoxyCodeLine{238             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{239                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{241             \}}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         }
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{245     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the last transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 232 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                                        \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{234             row = records.size() -\/ 1;}
+\DoxyCodeLine{235             }
+\DoxyCodeLine{236             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{237                 record = records.get(row);}
+\DoxyCodeLine{238             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{239                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{241             \}}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         }
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{245     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a731f882d5dc010fc9ebd91fed369dadf}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!last@{last}}
+\index{last@{last}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the last transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the last transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 232 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                                        \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{234             row = records.size() -\/ 1;}
+\DoxyCodeLine{235             }
+\DoxyCodeLine{236             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{237                 record = records.get(row);}
+\DoxyCodeLine{238             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{239                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{241             \}}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         }
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{245     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                        \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{211             row++;}
+\DoxyCodeLine{212             }
+\DoxyCodeLine{213             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{214                 record = records.get(row);}
+\DoxyCodeLine{215             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{216                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                        \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{211             row++;}
+\DoxyCodeLine{212             }
+\DoxyCodeLine{213             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{214                 record = records.get(row);}
+\DoxyCodeLine{215             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{216                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_accf76da6c748385221041e025d70e4dc}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_accf76da6c748385221041e025d70e4dc}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                                \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{211             row++;}
+\DoxyCodeLine{212             }
+\DoxyCodeLine{213             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{214                 record = records.get(row);}
+\DoxyCodeLine{215             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{216                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a6c2aee2f8f70b953358fafb0f2347c60}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!next@{next}}
+\index{next@{next}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the next transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                        \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{if} ( row < records.size() ) \{}
+\DoxyCodeLine{211             row++;}
+\DoxyCodeLine{212             }
+\DoxyCodeLine{213             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{214                 record = records.get(row);}
+\DoxyCodeLine{215             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{216                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a65b54a0c1c27fc09f2aaa62ffd201aca}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a65b54a0c1c27fc09f2aaa62ffd201aca}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!postTransactions@{postTransactions}}
+\index{postTransactions@{postTransactions}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{postTransactions()}{postTransactions()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+post\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 125 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                                                 \{}
+\DoxyCodeLine{126         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not necessary for this object."});}
+\DoxyCodeLine{127     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7b7e2200a016d78cb22595f0bfd13dcb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_a7b7e2200a016d78cb22595f0bfd13dcb}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 186 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                                                                    \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{188             row-\/-\/;}
+\DoxyCodeLine{189             }
+\DoxyCodeLine{190             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{191                 record = records.get(row);}
+\DoxyCodeLine{192             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{193                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{194                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{195             \}}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197         }
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 186 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                                                            \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{188             row-\/-\/;}
+\DoxyCodeLine{189             }
+\DoxyCodeLine{190             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{191                 record = records.get(row);}
+\DoxyCodeLine{192             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{193                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{194                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{195             \}}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197         }
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 186 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                                                            \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{188             row-\/-\/;}
+\DoxyCodeLine{189             }
+\DoxyCodeLine{190             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{191                 record = records.get(row);}
+\DoxyCodeLine{192             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{193                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{194                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{195             \}}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197         }
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_abb1879ec2b3ee2febc0cc53b5f982786}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!previous@{previous}}
+\index{previous@{previous}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{previous()}{previous()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}} com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Moves the record pointer to the previous transaction in this ledger. 
+
+\begin{DoxyReturn}{Returns}
+Load\+Model The previous transaction record, if not at the first transaction in the ledger. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event an error occurs while accessing the ledger \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 186 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                                                            \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{if} ( row > 0 ) \{}
+\DoxyCodeLine{188             row-\/-\/;}
+\DoxyCodeLine{189             }
+\DoxyCodeLine{190             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{191                 record = records.get(row);}
+\DoxyCodeLine{192             \} \textcolor{keywordflow}{catch} (IndexOutOfBoundsException ex) \{}
+\DoxyCodeLine{193                 record = \textcolor{keyword}{null};}
+\DoxyCodeLine{194                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{195             \}}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197         }
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} record;}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 296 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{296                                          \{}
+\DoxyCodeLine{297         record = model;}
+\DoxyCodeLine{298         }
+\DoxyCodeLine{299         records.set(row, model);}
+\DoxyCodeLine{300     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 296 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{296                                          \{}
+\DoxyCodeLine{297         record = model;}
+\DoxyCodeLine{298         }
+\DoxyCodeLine{299         records.set(row, model);}
+\DoxyCodeLine{300     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa5cc2b3ecfbb8c061f7f8ff0b08f0e62}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1EntryModel}{Entry\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 296 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{296                                          \{}
+\DoxyCodeLine{297         record = model;}
+\DoxyCodeLine{298         }
+\DoxyCodeLine{299         records.set(row, model);}
+\DoxyCodeLine{300     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa86d65802cb8eb87718a2f35f8ef7bf6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl_aa86d65802cb8eb87718a2f35f8ef7bf6}} 
+\index{com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}!update@{update}}
+\index{update@{update}!com.pekinsoft.loadmaster.controller.EntryCtl@{com.pekinsoft.loadmaster.controller.EntryCtl}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Entry\+Ctl.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1GLEntryTransaction}{G\+L\+Entry\+Transaction}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Definition at line 296 of file Entry\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{296                                                  \{}
+\DoxyCodeLine{297         record = model;}
+\DoxyCodeLine{298         }
+\DoxyCodeLine{299         records.set(row, model);}
+\DoxyCodeLine{300     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{Forked_2LoadMaster_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2controller_2EntryCtl_8java}{Entry\+Ctl.\+java}}\end{DoxyCompactItemize}

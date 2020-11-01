@@ -15,26 +15,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * *****************************************************************************
- * *****************************************************************************
- *  Project    :   Northwind-Basic
- *  Class      :   Utils.java
- *  Author     :   Sean Carrick
- *  Created    :   Mar 8, 2020 @ 12:32:47 PM
- *  Modified   :   Mar 8, 2020
+ * Project    :   Northwind-Basic
+ * Class      :   Utils.java
+ * Author     :   Sean Carrick
+ * Created    :   Mar 8, 2020 @ 12:32:47 PM
+ * Modified   :   Mar 8, 2020
+ * 
+ * Purpose:
  *  
- *  Purpose:
- *  
- *  Revision History:
- *  
- *  WHEN          BY                  REASON
- *  ------------  ------------------- ------------------------------------------
- *  Mar 08, 2020  Sean Carrick        Initial creation.
- *  Mar 21, 2020  Jiri Kovalsky       Added the getCenterPoint function.
- *  Mar 21, 2020  Sean Carrick        Moved getCenterPoint function into code 
- *                                    fold for `public static methods and 
- *                                    functions`.
- *  Oct 25, 2020  Sean Carrick        Added the `determineApplicationFolder`
+ * Revision History:
+ * 
+ * WHEN          BY                  REASON
+ * ------------  ------------------- ------------------------------------------
+ * Mar 08, 2020  Sean Carrick        Initial creation.
+ * Mar 21, 2020  Jiri Kovalsky       Added the getCenterPoint function.
+ * Mar 21, 2020  Sean Carrick        Moved getCenterPoint function into code 
+ *                                   fold for `public static methods and 
+ *                                   functions`.
+ * Oct 25, 2020  Sean Carrick        Added the `determineApplicationFolder`
+ *                                   function.
+ * Oct 25, 2020  Sean Carrick        Added the following methods:
  *                                    function.
+ *                                     - getApplicationFolderByOS
+ *                                     - getApplicationDataFolderByOS
+ *                                     - getApplicationSettingsLocationByOS
+ *                                     - getSystemLogLocationByOS
  * *****************************************************************************
  */
 

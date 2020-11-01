@@ -1,0 +1,294 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl}\index{com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{de/d59/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dba/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_af930cd9cabe2947a801ba091a71b09fb}{Fuel\+Card\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+Array\+List$<$ \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}} $>$ \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_aa1a4958e15544fa4c47e4599fc057356}{get\+By\+Trip\+Number}} (String trip\+Number)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_abc4fe7420c2f6e4d4e732bb700a6acd6}{post\+Transactions}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em This method performs the task of posting all unposted transactions from this journal to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_ab99cb7fcdd0aefaaa796441fbe8e2730}{build\+Record\+Line}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}} model)
+\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_a6235015508c0d65051ac8a470b9564ae}{create\+And\+Add\+Record}} (String\mbox{[}$\,$\mbox{]} line)
+\begin{DoxyCompactList}\small\item\em The {\ttfamily create\+And\+Add\+Record} method is the 1 of 3 methods that need to be overridden for an Abstract\+Journal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+2.\+67 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+7.\+8 build 2549 
+\end{DoxySince}
+
+
+Definition at line 67 of file Fuel\+Card\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_af930cd9cabe2947a801ba091a71b09fb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_af930cd9cabe2947a801ba091a71b09fb}} 
+\index{com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}!FuelCardCtl@{FuelCardCtl}}
+\index{FuelCardCtl@{FuelCardCtl}!com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}}
+\doxysubsubsection{\texorpdfstring{FuelCardCtl()}{FuelCardCtl()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl.\+Fuel\+Card\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 70 of file Fuel\+Card\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70                                                     \{}
+\DoxyCodeLine{71         super(\textcolor{keyword}{new} FuelCardModel(), Starter.props.getDataFolder() }
+\DoxyCodeLine{72                 + FuelCardModel.ACCOUNT\_NUMBER + \textcolor{stringliteral}{".jrnl"});}
+\DoxyCodeLine{73     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_ab99cb7fcdd0aefaaa796441fbe8e2730}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_ab99cb7fcdd0aefaaa796441fbe8e2730}} 
+\index{com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}!buildRecordLine@{buildRecordLine}}
+\index{buildRecordLine@{buildRecordLine}!com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}}
+\doxysubsubsection{\texorpdfstring{buildRecordLine()}{buildRecordLine()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl.\+build\+Record\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 154 of file Fuel\+Card\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154                                                           \{}
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} model.getId() + \textcolor{stringliteral}{"\string~"} + model.getDateAsString() + \textcolor{stringliteral}{"\string~"}}
+\DoxyCodeLine{156                 + model.getFromAcct()+ \textcolor{stringliteral}{"\string~"} + model.getTripNumber()+ \textcolor{stringliteral}{"\string~"}}
+\DoxyCodeLine{157                 + model.getAmount()+ \textcolor{stringliteral}{"\string~"} + model.isPosted();}
+\DoxyCodeLine{158     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_a6235015508c0d65051ac8a470b9564ae}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_a6235015508c0d65051ac8a470b9564ae}} 
+\index{com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}!createAndAddRecord@{createAndAddRecord}}
+\index{createAndAddRecord@{createAndAddRecord}!com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}}
+\doxysubsubsection{\texorpdfstring{createAndAddRecord()}{createAndAddRecord()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl.\+create\+And\+Add\+Record (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The {\ttfamily create\+And\+Add\+Record} method is the 1 of 3 methods that need to be overridden for an Abstract\+Journal. 
+
+This is due to the reason that using reflection will not work within this method because there is no guarantee in the order methods are provided via\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{A a = \textcolor{keyword}{new} A();}
+\DoxyCodeLine{Class<?> c = a.getClass();}
+\DoxyCodeLine{Method methods[] = c.getDeclaredMethods();}
+\end{DoxyCode}
+
+
+If there was a guarantee in the order the methods were returned using the above code, then we could use reflection to implement this method within {\ttfamily Abstract\+Journal}. However, until we figure out a way to ensure that the data will be placed through the appropriate getter method, we will need to keep this method abstract and require an implementing class to override it to provide for the proper storage of the data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & from the data file, split into a {\ttfamily java.\+lang.\+String\mbox{[}\mbox{]}} array on the file\textquotesingle{}s delimiter. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_ae81a10a17829d01ea1cf26ea8e3f344c}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 161 of file Fuel\+Card\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{161                                                      \{}
+\DoxyCodeLine{162         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(\textcolor{stringliteral}{"Entering..."});}
+\DoxyCodeLine{163         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{164         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(line);}
+\DoxyCodeLine{165         Starter.logger.enter(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{166         }
+\DoxyCodeLine{167         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{168         }
+\DoxyCodeLine{169         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}} = \textcolor{keyword}{new} FuelCardModel();}
+\DoxyCodeLine{170         }
+\DoxyCodeLine{171         }
+\DoxyCodeLine{172         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{173             ((FuelCardModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setDate(sdf.parse(line[1]));}
+\DoxyCodeLine{174         \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{175             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{176                     + \textcolor{stringliteral}{"Parsing error while parsing the dispatch date."});}
+\DoxyCodeLine{177             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{178             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"createAndAddRecord"});}
+\DoxyCodeLine{179             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{180             Starter.logger.error(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{181             }
+\DoxyCodeLine{182             MessageBox.showError(ex, \textcolor{stringliteral}{"Parsing Error"});}
+\DoxyCodeLine{183         \}}
+\DoxyCodeLine{184         }
+\DoxyCodeLine{185         ((FuelCardModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setId(Long.parseLong(line[0]));}
+\DoxyCodeLine{186         ((FuelCardModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setFromAcct(Integer.parseInt(line[2]));}
+\DoxyCodeLine{187         ((FuelCardModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setTripNumber(line[3]);}
+\DoxyCodeLine{188         ((FuelCardModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setAmount(Double.parseDouble(line[4]));}
+\DoxyCodeLine{189         ((FuelCardModel)\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}}).setPosted(Boolean.parseBoolean(line[5]));}
+\DoxyCodeLine{190         }
+\DoxyCodeLine{191         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.add(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a33e021433025aade7a8f66e6557f2752}{record}});}
+\DoxyCodeLine{192         }
+\DoxyCodeLine{193         LoadMaster.fileProgress.setValue(}
+\DoxyCodeLine{194                 LoadMaster.fileProgress.getValue() + 1);}
+\DoxyCodeLine{195     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_aa1a4958e15544fa4c47e4599fc057356}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_aa1a4958e15544fa4c47e4599fc057356}} 
+\index{com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}!getByTripNumber@{getByTripNumber}}
+\index{getByTripNumber@{getByTripNumber}!com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}}
+\doxysubsubsection{\texorpdfstring{getByTripNumber()}{getByTripNumber()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1model_1_1FuelCardModel}{Fuel\+Card\+Model}}$>$ com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl.\+get\+By\+Trip\+Number (\begin{DoxyParamCaption}\item[{String}]{trip\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file Fuel\+Card\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77                                                                        \{}
+\DoxyCodeLine{78         ArrayList<FuelCardModel> list = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{81                 \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).getTripNumber()}
+\DoxyCodeLine{82                         .contains(tripNumber) ) \{}
+\DoxyCodeLine{83                     list.add(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x));}
+\DoxyCodeLine{84                 \}}
+\DoxyCodeLine{85             \}}
+\DoxyCodeLine{86         }
+\DoxyCodeLine{87         \textcolor{keywordflow}{return} list;}
+\DoxyCodeLine{88     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_abc4fe7420c2f6e4d4e732bb700a6acd6}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1FuelCardCtl_abc4fe7420c2f6e4d4e732bb700a6acd6}} 
+\index{com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}!postTransactions@{postTransactions}}
+\index{postTransactions@{postTransactions}!com.pekinsoft.loadmaster.controller.FuelCardCtl@{com.pekinsoft.loadmaster.controller.FuelCardCtl}}
+\doxysubsubsection{\texorpdfstring{postTransactions()}{postTransactions()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+controller.\+Fuel\+Card\+Ctl.\+post\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+This method performs the task of posting all unposted transactions from this journal to the General Ledger. 
+
+This method should called in accordance with the application settings Posting Method. If the selected Posting Method is Batch Posting, then the user will need to manually post the Journals to the General Ledger. Alternatively, if there are unprocessed Journal entries when the user exits the application, the application can prompt the user to allow it to process the batched transactions. If the user chooses to not allow the application to process those Journal entries then, the application should store that fact to the settings file and check the setting on the next launch. If, at the next launch, there are unprocessed Journal entries, the application should somehow show a reminder to the user that there are unprocessed batched transactions that still need to be posted to the General Ledger.
+
+If the user has chosen to batch process Journal entries to the General Ledger, then the user needs to be reminded once in a while to click on the \char`\"{}\+Post Transactions\char`\"{} task in the \char`\"{}\+Accounting Tasks\char`\"{} task pane. The broken down information regarding revenue, expense, and profit (per mile) is only calculated from the General Ledger and not from any of the Journals. Therefore, if the user wants the most accurate quick info regarding the financial health of their company, they need to post their batched transactions as soon as they are able.
+
+\begin{DoxyReturn}{Returns}
+success\+: {\ttfamily true} if transactions posted, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Data\+Store\+Exception} & in the event there is an error accessing the database. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a9cf18df369dfe5959e711ae4bd676eb0}{com.\+pekinsoft.\+loadmaster.\+api.\+Abstract\+Journal$<$ T $>$}}.
+
+
+
+Definition at line 93 of file Fuel\+Card\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93                                                                 \{}
+\DoxyCodeLine{94         \textcolor{comment}{// For this, we are going to need to create an EntryCtl object, as well}}
+\DoxyCodeLine{95         \textcolor{comment}{//+ as an EntryModel object.}}
+\DoxyCodeLine{96         EntryCtl gl = \textcolor{keyword}{new} EntryCtl();}
+\DoxyCodeLine{97         EntryModel tx = \textcolor{keyword}{null};}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{99         \textcolor{comment}{// We also need a return value to send back to the calling method.}}
+\DoxyCodeLine{100         \textcolor{keywordtype}{boolean} success = \textcolor{keyword}{true}; \textcolor{comment}{// Default to a successful posting procedure.}}
+\DoxyCodeLine{101         }
+\DoxyCodeLine{102         \textcolor{comment}{// We need to loop through all of our journal entries.}}
+\DoxyCodeLine{103         \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{104             \textcolor{comment}{// Check to see if the current record has not yet been posted.}}
+\DoxyCodeLine{105             \textcolor{keywordflow}{if} ( !\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).isPosted() ) \{}
+\DoxyCodeLine{106                 \textcolor{comment}{// Since the record has not yet been posted to the GL, we need }}
+\DoxyCodeLine{107                 \textcolor{comment}{//+ to do so now.}}
+\DoxyCodeLine{108                 tx = \textcolor{keyword}{new} EntryModel();}
+\DoxyCodeLine{109                 tx.setAmount(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).getAmount());}
+\DoxyCodeLine{110                 tx.setBalanced(\textcolor{keyword}{false});}
+\DoxyCodeLine{111                 tx.setCode(\textcolor{stringliteral}{"Xfer"});}
+\DoxyCodeLine{112                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{113                     tx.setDate(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).getDateAsString());}
+\DoxyCodeLine{114                 \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{115                     \textcolor{comment}{// If we get a ParseException setting the date, we will log}}
+\DoxyCodeLine{116                     \textcolor{comment}{//+ it...}}
+\DoxyCodeLine{117                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{118                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"postTransactions"});}
+\DoxyCodeLine{119                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{120                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setThrown(ex);}
+\DoxyCodeLine{121                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setMessage(ex.getMessage());}
+\DoxyCodeLine{122                     \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}}.setInstant(Instant.now());}
+\DoxyCodeLine{123                     Starter.logger.error(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_a03848c2f666822dd34003f04dc3fe407}{entry}});}
+\DoxyCodeLine{124                     }
+\DoxyCodeLine{125                     \textcolor{comment}{// ...but we will still set a date for the transaction, we}}
+\DoxyCodeLine{126                     \textcolor{comment}{//+ will just make it the current date.}}
+\DoxyCodeLine{127                     tx.setDate(\textcolor{keyword}{new} Date());}
+\DoxyCodeLine{128                 \}}
+\DoxyCodeLine{129                 tx.setDeductible(\textcolor{keyword}{false});}
+\DoxyCodeLine{130                 \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).getTripNumber().equalsIgnoreCase(}
+\DoxyCodeLine{131                         \textcolor{stringliteral}{"No Active Load"}) ) \{}
+\DoxyCodeLine{132                     tx.setDescription(\textcolor{stringliteral}{"Transferred while not under a load."});}
+\DoxyCodeLine{133                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{134                     tx.setDescription(\textcolor{stringliteral}{"Transferred under Trip \# "} }
+\DoxyCodeLine{135                             + \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).getTripNumber());}
+\DoxyCodeLine{136                 \}}
+\DoxyCodeLine{137                 tx.setFromAccount(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1AbstractJournal_afe31d9d35a5f59006397f19e67e0b264}{records}}.get(x).getFromAcct());}
+\DoxyCodeLine{138                 tx.setToAccount(FuelCardModel.ACCOUNT\_NUMBER);}
+\DoxyCodeLine{139                 }
+\DoxyCodeLine{140                 \textcolor{comment}{// Now that we have created the GL transaction entry, we can add}}
+\DoxyCodeLine{141                 \textcolor{comment}{//+ it to the GL.}}
+\DoxyCodeLine{142                 gl.addNew(tx);}
+\DoxyCodeLine{143             \} \textcolor{comment}{// No `else`, because transactions only need to be posted once.}}
+\DoxyCodeLine{144         \} \textcolor{comment}{// Continue until all records have been read and posted.}}
+\DoxyCodeLine{145         }
+\DoxyCodeLine{146         \textcolor{comment}{// Finally, we can post the transactions to the General Ledger.}}
+\DoxyCodeLine{147         gl.close();}
+\DoxyCodeLine{148         }
+\DoxyCodeLine{149         \textcolor{comment}{// Leave as the last line of the method:}}
+\DoxyCodeLine{150         \textcolor{keywordflow}{return} success;}
+\DoxyCodeLine{151     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master\+\_\+screwed\+Up/\+Load Master/src/com/pekinsoft/loadmaster/controller/\mbox{\hyperlink{FuelCardCtl_8java}{Fuel\+Card\+Ctl.\+java}}\end{DoxyCompactItemize}

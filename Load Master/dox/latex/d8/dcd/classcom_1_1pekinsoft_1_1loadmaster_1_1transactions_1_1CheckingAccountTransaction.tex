@@ -1,0 +1,273 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction}\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+
+
+{\ttfamily Checking\+Model} represents the user\textquotesingle{}s checking account.  
+
+
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{d6/d74/classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{d5/df0/classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a87ca3f4d85548342055562cc209ebaff}{Checking\+Account\+Transaction}} ()
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a18a96b752a8daa9b6087ea59338e14d9}{Checking\+Account\+Transaction}} (long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}}, Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, String code, String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}}, double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}}, boolean deposit, boolean balanced)
+\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_ad5f6adca4674a50ccb0453642a26a9d2}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the check number or code for this transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a005134df28ddd9b39d5fb749c07369bc}{set\+Code}} (String code)
+\begin{DoxyCompactList}\small\item\em Sets the check number or code for this transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_ae0d891f279192ad55b70365056765d16}{is\+Deposit}} ()
+\begin{DoxyCompactList}\small\item\em Determines if this transaction was a deposit or amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a8be33ce77b4be885631d9ba86394017e}{set\+Deposit}} (boolean deposit)
+\begin{DoxyCompactList}\small\item\em Sets whether or not this transaction is a deposit. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a6a495244d585f561b31fff405e0844b7}{is\+Balanced}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether this transaction has been balanced with the monthly statements from the financial institution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a4a5a7251909cc68c6f7ffc2600e19c91}{set\+Balanced}} (boolean balanced)
+\begin{DoxyCompactList}\small\item\em Sets whether this transaction has been balanced with the monthly statements from the financial institution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+{\ttfamily Checking\+Model} represents the user\textquotesingle{}s checking account. 
+
+This Journal, if properly maintained, will not only allow the user to always know how much s/he has in their checking account, s/he will also have a history of where their money came from and where it went.
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]This class has gone through many modifications in a very short time. However, the most import thing to note is that the methods {\ttfamily is\+Balanced} and {\ttfamily set\+Balanced} are now simply overrides to the {\ttfamily super.\+is\+Posted} and {\ttfamily super.\+set\+Posted}, respectively. We determined that, even though checking account transactions do not get posted to the General ledger, there was no sense in having a completely separate class to maintain for the checking account. We simply decided to redirect, so to speak, the balanced field for the checking account to the posted field of a general accounting transaction. All other fields\textquotesingle{} getters and setters are contained within the super class, {\ttfamily Base\+Transaction}.
+\end{DoxyDescription}
+
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+15 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 79 of file Checking\+Account\+Transaction.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a87ca3f4d85548342055562cc209ebaff}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a87ca3f4d85548342055562cc209ebaff}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!CheckingAccountTransaction@{CheckingAccountTransaction}}
+\index{CheckingAccountTransaction@{CheckingAccountTransaction}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{CheckingAccountTransaction()}{CheckingAccountTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+Checking\+Account\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87                                          \{}
+\DoxyCodeLine{88         \textcolor{keyword}{this}(System.currentTimeMillis(),\textcolor{keyword}{new} Date(), \textcolor{stringliteral}{""}, \textcolor{stringliteral}{""}, 0.0, \textcolor{keyword}{false}, \textcolor{keyword}{false});}
+\DoxyCodeLine{89     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a18a96b752a8daa9b6087ea59338e14d9}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a18a96b752a8daa9b6087ea59338e14d9}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!CheckingAccountTransaction@{CheckingAccountTransaction}}
+\index{CheckingAccountTransaction@{CheckingAccountTransaction}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{CheckingAccountTransaction()}{CheckingAccountTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+Checking\+Account\+Transaction (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{Date}]{date,  }\item[{String}]{code,  }\item[{String}]{description,  }\item[{double}]{amount,  }\item[{boolean}]{deposit,  }\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                               \{}
+\DoxyCodeLine{93         super(50010, \textcolor{keywordtype}{id}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}}, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}}, balanced);}
+\DoxyCodeLine{94         }
+\DoxyCodeLine{95         this.code = code;}
+\DoxyCodeLine{96         this.deposit = deposit;}
+\DoxyCodeLine{97     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_ad5f6adca4674a50ccb0453642a26a9d2}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_ad5f6adca4674a50ccb0453642a26a9d2}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!getCode@{getCode}}
+\index{getCode@{getCode}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the check number or code for this transaction. 
+
+\begin{DoxyReturn}{Returns}
+the transaction code 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106                             \{}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a6a495244d585f561b31fff405e0844b7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a6a495244d585f561b31fff405e0844b7}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!isBalanced@{isBalanced}}
+\index{isBalanced@{isBalanced}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{isBalanced()}{isBalanced()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+is\+Balanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether this transaction has been balanced with the monthly statements from the financial institution. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if balanced with the bank statement, {\ttfamily false} if not 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142                                 \{}
+\DoxyCodeLine{143         \textcolor{keywordflow}{return} super.isPosted();}
+\DoxyCodeLine{144     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_ae0d891f279192ad55b70365056765d16}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_ae0d891f279192ad55b70365056765d16}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!isDeposit@{isDeposit}}
+\index{isDeposit@{isDeposit}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{isDeposit()}{isDeposit()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+is\+Deposit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines if this transaction was a deposit or amount. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deposited, {\ttfamily false} if withdrawn 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123                                \{}
+\DoxyCodeLine{124         \textcolor{keywordflow}{return} deposit;}
+\DoxyCodeLine{125     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a4a5a7251909cc68c6f7ffc2600e19c91}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a4a5a7251909cc68c6f7ffc2600e19c91}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!setBalanced@{setBalanced}}
+\index{setBalanced@{setBalanced}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{setBalanced()}{setBalanced()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+set\+Balanced (\begin{DoxyParamCaption}\item[{boolean}]{balanced }\end{DoxyParamCaption})}
+
+
+
+Sets whether this transaction has been balanced with the monthly statements from the financial institution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balanced} & {\ttfamily true} once balanced \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 153 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153                                               \{}
+\DoxyCodeLine{154         super.setPosted(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}});}
+\DoxyCodeLine{155     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a005134df28ddd9b39d5fb749c07369bc}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a005134df28ddd9b39d5fb749c07369bc}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!setCode@{setCode}}
+\index{setCode@{setCode}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+set\+Code (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the check number or code for this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & the transaction code \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                                      \{}
+\DoxyCodeLine{116         this.code = code;}
+\DoxyCodeLine{117     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a8be33ce77b4be885631d9ba86394017e}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1transactions_1_1CheckingAccountTransaction_a8be33ce77b4be885631d9ba86394017e}} 
+\index{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}!setDeposit@{setDeposit}}
+\index{setDeposit@{setDeposit}!com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction@{com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction}}
+\doxysubsubsection{\texorpdfstring{setDeposit()}{setDeposit()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+transactions.\+Checking\+Account\+Transaction.\+set\+Deposit (\begin{DoxyParamCaption}\item[{boolean}]{deposit }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not this transaction is a deposit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deposit} & {\ttfamily true} if a deposit, {\ttfamily false} if a amount \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file Checking\+Account\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132                                             \{}
+\DoxyCodeLine{133         this.deposit = deposit;}
+\DoxyCodeLine{134     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/transactions/\mbox{\hyperlink{CheckingAccountTransaction_8java}{Checking\+Account\+Transaction.\+java}}\end{DoxyCompactItemize}

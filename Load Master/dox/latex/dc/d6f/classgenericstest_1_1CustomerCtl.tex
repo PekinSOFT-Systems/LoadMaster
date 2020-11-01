@@ -1,0 +1,765 @@
+\hypertarget{classgenericstest_1_1CustomerCtl}{}\doxysection{genericstest.\+Customer\+Ctl Class Reference}
+\label{classgenericstest_1_1CustomerCtl}\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+
+
+Inheritance diagram for genericstest.\+Customer\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{df/de9/classgenericstest_1_1CustomerCtl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for genericstest.\+Customer\+Ctl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{d4/d76/classgenericstest_1_1CustomerCtl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a4fe7c172c9a650a0d6c32d089f012b70}{Customer\+Ctl}} ()  throws Data\+Store\+Exception 
+\item 
+\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af92e0bd536a95841e6680eda7e64107e}{get}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record as a {\ttfamily \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a8651b5172431dbd101e85d44833918f9}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Retrieves the record at the specified index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af079ceae29932d178958a8fad2611988}{get\+By\+Company}} (String company, javax.\+swing.\+J\+Progress\+Bar bar)  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Provides a method of retrieving the record for the specified company. \end{DoxyCompactList}\item 
+Array\+List$<$ \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} $>$ \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_ab393c6df48a005144090c77f588572a7}{get\+Companies\+By\+State}} (String state, javax.\+swing.\+J\+Progress\+Bar bar)  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em This method returns an {\ttfamily java.\+util.\+Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$} of all matching record records.\+This method is useful for allowing the user to filter a long list ofrecords down to narrow his/her search for a record, such as in the Book Load Wizard. \end{DoxyCompactList}\item 
+Array\+List$<$ \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} $>$ \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a07dab755c6f769f9e12d8b17f28c933c}{get\+Companies\+By\+City}} (String city, javax.\+swing.\+J\+Progress\+Bar bar)  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em This method returns an {\ttfamily java.\+util.\+Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$} of all matching record records. \end{DoxyCompactList}\item 
+Array\+List$<$ \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} $>$ \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a6a304b2babe69d7f18947c7319f73bfa}{get\+Customers\+By\+Company}} (String company, javax.\+swing.\+J\+Progress\+Bar bar)  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Provides a method of retrieving the record for the specified company. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{get\+Record\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of records (or rows) in this table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_ada56a9c24275423b5f7569ff027bce9e}{get\+Current\+Record\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current record number of the record in this table. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_acabb113603fbdb518395f663d008726b}{has\+Next}} ()
+\item 
+void \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_acf469d657913c9c1ee4941a73086534a}{close}} ()  throws Data\+Store\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the data out to the table data file. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a34828d79d4c7822c2ff06318fbe1bd02}{post\+Transactions}} ()  throws Data\+Store\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final File \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{T\+A\+B\+LE}} = new File(\char`\"{}customers.\+tbl\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a09cfe365e3373c88817708f23ae77aa7}{connect}} ()  throws Data\+Store\+Exception 
+\item 
+boolean \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a91ed1c49db85e5a47445792fc4240c6d}{create\+File\+If\+Necessary}} ()
+\item 
+void \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_aac1694b25f0c3cd438ac1dade9e1f892}{save}} ()  throws Data\+Store\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 53 of file Customer\+Ctl.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a4fe7c172c9a650a0d6c32d089f012b70}\label{classgenericstest_1_1CustomerCtl_a4fe7c172c9a650a0d6c32d089f012b70}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!CustomerCtl@{CustomerCtl}}
+\index{CustomerCtl@{CustomerCtl}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{CustomerCtl()}{CustomerCtl()}}
+{\footnotesize\ttfamily genericstest.\+Customer\+Ctl.\+Customer\+Ctl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 63 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                                     \{}
+\DoxyCodeLine{64         super(\textcolor{keyword}{new} CustomerModel());}
+\DoxyCodeLine{65         }
+\DoxyCodeLine{66         \textcolor{comment}{// Check to see if the table file exists:}}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if} ( !\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}.exists() ) \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{69                 \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}.createNewFile();}
+\DoxyCodeLine{70                 }
+\DoxyCodeLine{71                 \textcolor{comment}{// Set our flag:}}
+\DoxyCodeLine{72                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a213669c3686c997fa1a3643a7578cc2c}{fileJustCreated}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{73             \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{74                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{75                         + \textcolor{stringliteral}{"\(\backslash\)nThrowing DataStoreException..."});}
+\DoxyCodeLine{76                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{77                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"Customer"});}
+\DoxyCodeLine{78                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setThrown(ex);}
+\DoxyCodeLine{79 \textcolor{comment}{//                Starter.logger.error(entry);}}
+\DoxyCodeLine{80                 }
+\DoxyCodeLine{81                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{82             \}}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84         }
+\DoxyCodeLine{85         \textcolor{keywordflow}{if} ( !\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a213669c3686c997fa1a3643a7578cc2c}{fileJustCreated}} )}
+\DoxyCodeLine{86             \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a09cfe365e3373c88817708f23ae77aa7}{connect}}();}
+\DoxyCodeLine{87 \textcolor{comment}{//        else}}
+\DoxyCodeLine{88 \textcolor{comment}{//            MessageBox.showInfo("Data file was just now created.\(\backslash\)n"}}
+\DoxyCodeLine{89 \textcolor{comment}{//                    + "Add records to it, then save, in order\(\backslash\)n"}}
+\DoxyCodeLine{90 \textcolor{comment}{//                    + "to not see this message in the future.", }}
+\DoxyCodeLine{91 \textcolor{comment}{//                    "New Data File Created");}}
+\DoxyCodeLine{92     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_acf469d657913c9c1ee4941a73086534a}\label{classgenericstest_1_1CustomerCtl_acf469d657913c9c1ee4941a73086534a}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!close@{close}}
+\index{close@{close}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void genericstest.\+Customer\+Ctl.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Writes the data out to the table data file. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}} & In the event there is an error writing the data. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 536 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{536                                                   \{}
+\DoxyCodeLine{537         BufferedWriter out;}
+\DoxyCodeLine{538         }
+\DoxyCodeLine{539 \textcolor{comment}{//        LoadMaster.loadProgress.setMaximum(}}
+\DoxyCodeLine{540 \textcolor{comment}{//                Starter.props.getPropertyAsInt("table.records.records", "0"));}}
+\DoxyCodeLine{541 \textcolor{comment}{//        LoadMaster.loadProgress.setValue(}}
+\DoxyCodeLine{542 \textcolor{comment}{//                Starter.props.getPropertyAsInt("table.records.records", "0"));}}
+\DoxyCodeLine{543         }
+\DoxyCodeLine{544         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}.exists() ) \{}
+\DoxyCodeLine{545             \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}.delete();}
+\DoxyCodeLine{546             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{547                 \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}.createNewFile();}
+\DoxyCodeLine{548             \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{549                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setMessage(\textcolor{stringliteral}{"Something went wrong deleting and recreating the data table."});}
+\DoxyCodeLine{550                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setThrown(ex);}
+\DoxyCodeLine{551                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"storeData"});}
+\DoxyCodeLine{552                 \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{553 \textcolor{comment}{//                Starter.logger.error(entry);}}
+\DoxyCodeLine{554                 }
+\DoxyCodeLine{555                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{556             \}}
+\DoxyCodeLine{557         \}}
+\DoxyCodeLine{558         }
+\DoxyCodeLine{559         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{560             out = \textcolor{keyword}{new} BufferedWriter(\textcolor{keyword}{new} FileWriter(\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}));}
+\DoxyCodeLine{561             }
+\DoxyCodeLine{562             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{563                 out.write(buildRecordLine(\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x)) + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{564                 }
+\DoxyCodeLine{565 \textcolor{comment}{//                LoadMaster.fileProgress.setValue(}}
+\DoxyCodeLine{566 \textcolor{comment}{//                        LoadMaster.fileProgress.getValue() -\/ 1);}}
+\DoxyCodeLine{567             \}}
+\DoxyCodeLine{568             }
+\DoxyCodeLine{569             out.close();}
+\DoxyCodeLine{570         \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{571             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{572                     + \textcolor{stringliteral}{"Throwing DataStoreException to calling method..."});}
+\DoxyCodeLine{573             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setThrown(ex);}
+\DoxyCodeLine{574             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"storeData"});}
+\DoxyCodeLine{575             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{576 \textcolor{comment}{//            Starter.logger.error(entry);}}
+\DoxyCodeLine{577             }
+\DoxyCodeLine{578             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{579         \}}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{581     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a09cfe365e3373c88817708f23ae77aa7}\label{classgenericstest_1_1CustomerCtl_a09cfe365e3373c88817708f23ae77aa7}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!connect@{connect}}
+\index{connect@{connect}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void genericstest.\+Customer\+Ctl.\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 585 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{585                                                        \{}
+\DoxyCodeLine{586         BufferedReader in;}
+\DoxyCodeLine{587 \textcolor{comment}{//        if ( LoadMaster.fileProgress != null ) \{}}
+\DoxyCodeLine{588 \textcolor{comment}{//            LoadMaster.fileProgress.setMinimum(0);}}
+\DoxyCodeLine{589 \textcolor{comment}{//            LoadMaster.fileProgress.setMaximum(}}
+\DoxyCodeLine{590 \textcolor{comment}{//                    Starter.props.getPropertyAsInt("table.records.records", "0"));}}
+\DoxyCodeLine{591 \textcolor{comment}{//            LoadMaster.fileProgress.setVisible(true);}}
+\DoxyCodeLine{592 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{593         }
+\DoxyCodeLine{594         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{595             in = \textcolor{keyword}{new} BufferedReader(\textcolor{keyword}{new} FileReader(\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}{TABLE}}));}
+\DoxyCodeLine{596             }
+\DoxyCodeLine{597             String line = in.readLine();}
+\DoxyCodeLine{598             }
+\DoxyCodeLine{599             \textcolor{keywordflow}{while} ( line != \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{600                 String[] \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0adbd91f5477e511d3e7f80b6d6adbfa}{record}} = line.split(\textcolor{stringliteral}{"\string~"});}
+\DoxyCodeLine{601                 }
+\DoxyCodeLine{602                 createAndAddRecord(\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0adbd91f5477e511d3e7f80b6d6adbfa}{record}});}
+\DoxyCodeLine{603                 }
+\DoxyCodeLine{604                 line = in.readLine();}
+\DoxyCodeLine{605 }
+\DoxyCodeLine{606 \textcolor{comment}{//                if ( LoadMaster.fileProgress != null ) \{}}
+\DoxyCodeLine{607 \textcolor{comment}{//                    LoadMaster.fileProgress.setValue(}}
+\DoxyCodeLine{608 \textcolor{comment}{//                            LoadMaster.fileProgress.getValue() + 1);}}
+\DoxyCodeLine{609 \textcolor{comment}{//                \}}}
+\DoxyCodeLine{610             \}}
+\DoxyCodeLine{611             }
+\DoxyCodeLine{612             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_aedc400b7a275b8be4f9249c725f28a89}{row}} = 0;    \textcolor{comment}{// Set our current row to the first record.}}
+\DoxyCodeLine{613             }
+\DoxyCodeLine{614             in.close();}
+\DoxyCodeLine{615         \} \textcolor{keywordflow}{catch} ( IOException ex ) \{}
+\DoxyCodeLine{616             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setMessage(ex.getMessage() + \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"} + \textcolor{stringliteral}{"-\/"}.repeat(80)}
+\DoxyCodeLine{617                     + \textcolor{stringliteral}{"Throwing DataStoreException to calling method..."});}
+\DoxyCodeLine{618             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setThrown(ex);}
+\DoxyCodeLine{619             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setSourceMethodName(\textcolor{stringliteral}{"connect"});}
+\DoxyCodeLine{620             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0df0fc585d3d63e7ae641f1e1c484e13}{entry}}.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{621 \textcolor{comment}{//            Starter.logger.error(entry);}}
+\DoxyCodeLine{622             }
+\DoxyCodeLine{623             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} DataStoreException(ex.getMessage(), ex);}
+\DoxyCodeLine{624         \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{625 \textcolor{comment}{//            if ( LoadMaster.fileProgress != null ) \{}}
+\DoxyCodeLine{626 \textcolor{comment}{//                LoadMaster.fileProgress.setValue(0);}}
+\DoxyCodeLine{627 \textcolor{comment}{//                LoadMaster.fileProgress.setVisible(false);}}
+\DoxyCodeLine{628 \textcolor{comment}{//            \}}}
+\DoxyCodeLine{629         \}}
+\DoxyCodeLine{630     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a91ed1c49db85e5a47445792fc4240c6d}\label{classgenericstest_1_1CustomerCtl_a91ed1c49db85e5a47445792fc4240c6d}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!createFileIfNecessary@{createFileIfNecessary}}
+\index{createFileIfNecessary@{createFileIfNecessary}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{createFileIfNecessary()}{createFileIfNecessary()}}
+{\footnotesize\ttfamily boolean genericstest.\+Customer\+Ctl.\+create\+File\+If\+Necessary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 658 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{658                                               \{}
+\DoxyCodeLine{659         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not supported yet."}); \textcolor{comment}{//To change body of generated methods, choose Tools | Templates.}}
+\DoxyCodeLine{660     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_af92e0bd536a95841e6680eda7e64107e}\label{classgenericstest_1_1CustomerCtl_af92e0bd536a95841e6680eda7e64107e}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!get@{get}}
+\index{get@{get}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} genericstest.\+Customer\+Ctl.\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record as a {\ttfamily \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}} object. 
+
+\begin{DoxyReturn}{Returns}
+The current record. 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105                                \{}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_aedc400b7a275b8be4f9249c725f28a89}{row}});}
+\DoxyCodeLine{107     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a8651b5172431dbd101e85d44833918f9}\label{classgenericstest_1_1CustomerCtl_a8651b5172431dbd101e85d44833918f9}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!get@{get}}
+\index{get@{get}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} genericstest.\+Customer\+Ctl.\+get (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Retrieves the record at the specified index. 
+
+If the provided index is invalid, returns {\ttfamily null}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & The index of the record to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The record at the specified index. If the specified index is invalid (i.\+e., less than zero or greater than {\ttfamily \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{get\+Record\+Count()}}}), then {\ttfamily null} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118                                       \{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} ( idx < 0 || idx >= \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}() )}
+\DoxyCodeLine{120             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{121         }
+\DoxyCodeLine{122         \textcolor{keywordflow}{return} \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(idx);}
+\DoxyCodeLine{123     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_af079ceae29932d178958a8fad2611988}\label{classgenericstest_1_1CustomerCtl_af079ceae29932d178958a8fad2611988}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!getByCompany@{getByCompany}}
+\index{getByCompany@{getByCompany}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getByCompany()}{getByCompany()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}} genericstest.\+Customer\+Ctl.\+get\+By\+Company (\begin{DoxyParamCaption}\item[{String}]{company,  }\item[{javax.\+swing.\+J\+Progress\+Bar}]{bar }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Provides a method of retrieving the record for the specified company. 
+
+This method may be used to find that specific company for multiple purposes, including to make sure the user is not attempting to enter the same company record multiple times. 
+\begin{DoxyDescription}
+\item[Note]It is a best practice to call this method prior to calling the {\ttfamily add\+New(\+Broker\+Model)} method as a means of ensuring each broker is only entered into the database a single time.
+\end{DoxyDescription}
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]If a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} is provided to this method, the developer will need to reset the progress bar once this method has returned from their own code, as we only set it up for use and use it on each record while the search proceeds. This method does not zero the progress bar out once completed, nor do we change its visibility within this method. Therefore, prior to providing the progress bar, the developer needs to make sure that it is visible to the user and, once this method returns, the developer needs to handle the progress bar how they desire.
+
+Furthermore, this method changes the tooltip text of the progress bar to \char`\"{}\+Broker Search Progress\char`\"{}, so the developer will also need to reset the tooltip on the progress bar once this method returns.
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em company} & The company whose record is to be located. \\
+\hline
+{\em bar} & a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} object to visually display the search progress to the user. May be null. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily Broker\+Model} object containing the company record, if it exists. {\ttfamily null} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}} & in the event a database access error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 154 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155                                                                     \{}
+\DoxyCodeLine{156         \textcolor{comment}{// Check to see if we were given a JProgressBar to work with.}}
+\DoxyCodeLine{157         \textcolor{keywordflow}{if} ( bar == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{158             \textcolor{comment}{// If not, create one, even though it will not be displayed, just so}}
+\DoxyCodeLine{159             \textcolor{comment}{//+ we do not have to constantly repeat this check.}}
+\DoxyCodeLine{160             bar = \textcolor{keyword}{new} javax.swing.JProgressBar();}
+\DoxyCodeLine{161         \}}
+\DoxyCodeLine{162         }
+\DoxyCodeLine{163         bar.setMaximum(\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}());}
+\DoxyCodeLine{164         bar.setMinimum(0);}
+\DoxyCodeLine{165         bar.setToolTipText(\textcolor{stringliteral}{"Broker Search Progress"});}
+\DoxyCodeLine{166         bar.setValue(0);}
+\DoxyCodeLine{167         }
+\DoxyCodeLine{168         \textcolor{comment}{// Store the current record number.}}
+\DoxyCodeLine{169         \textcolor{keywordtype}{int} lastRecord = \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_ada56a9c24275423b5f7569ff027bce9e}{getCurrentRecordNumber}}();}
+\DoxyCodeLine{170         }
+\DoxyCodeLine{171         \textcolor{comment}{// Prepare a record object.}}
+\DoxyCodeLine{172         CustomerModel tmp = \textcolor{keyword}{null};}
+\DoxyCodeLine{173         }
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}() > 0 ) \{}
+\DoxyCodeLine{175             \textcolor{comment}{// Move to the first record.}}
+\DoxyCodeLine{176             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a92b64757521ebb4eba90bf35ae092162}{first}}();}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178             \textcolor{comment}{// Now, loop through all of the records in the table.}}
+\DoxyCodeLine{179             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{180                 bar.setValue(x + 1);}
+\DoxyCodeLine{181                 \textcolor{comment}{// Check to see if the current record's company matches the company}}
+\DoxyCodeLine{182                 \textcolor{comment}{//+ being sought by the user.}}
+\DoxyCodeLine{183                 \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x).getCompany().equalsIgnoreCase(company) ) \{}
+\DoxyCodeLine{184                     \textcolor{comment}{// Grab the record.}}
+\DoxyCodeLine{185                     tmp = \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x);}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187                     \textcolor{comment}{// Break out of the loop because we do not need to continue.}}
+\DoxyCodeLine{188                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{189                 \}}
+\DoxyCodeLine{190             \}}
+\DoxyCodeLine{191         \}}
+\DoxyCodeLine{192         }
+\DoxyCodeLine{193         \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_aedc400b7a275b8be4f9249c725f28a89}{row}} = lastRecord;}
+\DoxyCodeLine{194         }
+\DoxyCodeLine{195         \textcolor{comment}{// Return the record we found, or null if there was no match.}}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{197     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a07dab755c6f769f9e12d8b17f28c933c}\label{classgenericstest_1_1CustomerCtl_a07dab755c6f769f9e12d8b17f28c933c}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!getCompaniesByCity@{getCompaniesByCity}}
+\index{getCompaniesByCity@{getCompaniesByCity}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getCompaniesByCity()}{getCompaniesByCity()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$ genericstest.\+Customer\+Ctl.\+get\+Companies\+By\+City (\begin{DoxyParamCaption}\item[{String}]{city,  }\item[{javax.\+swing.\+J\+Progress\+Bar}]{bar }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+This method returns an {\ttfamily java.\+util.\+Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$} of all matching record records. 
+
+This method is useful for allowing the user to filter a long list of records down to narrow his/her search for a record, such as in the Book Load Wizard. 
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]If a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} is provided to this method, the developer will need to reset the progress bar once this method has returned from their own code, as we only set it up for use and use it on each record while the search proceeds. This method does not zero the progress bar out once completed, nor do we change its visibility within this method. Therefore, prior to providing the progress bar, the developer needs to make sure that it is visible to the user and, once this method returns, the developer needs to handle the progress bar how they desire.
+
+Furthermore, this method changes the tooltip text of the progress bar to \char`\"{}\+Broker Search Progress\char`\"{}, so the developer will also need to reset the tooltip on the progress bar once this method returns.
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & The city in which the record(s) must be located. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an {\ttfamily Array\+List} of all matching records, or {\ttfamily null} if none found. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}} & in the event a database access error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 283 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                                                                     \{}
+\DoxyCodeLine{285         \textcolor{comment}{// Check to see if we were given a JProgressBar to work with.}}
+\DoxyCodeLine{286         \textcolor{keywordflow}{if} ( bar == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{287             \textcolor{comment}{// If not, create one, even though it will not be displayed, just so}}
+\DoxyCodeLine{288             \textcolor{comment}{//+ we do not have to constantly repeat this check.}}
+\DoxyCodeLine{289             bar = \textcolor{keyword}{new} javax.swing.JProgressBar();}
+\DoxyCodeLine{290         \}}
+\DoxyCodeLine{291         }
+\DoxyCodeLine{292         bar.setMaximum(\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}());}
+\DoxyCodeLine{293         bar.setMinimum(0);}
+\DoxyCodeLine{294         bar.setToolTipText(\textcolor{stringliteral}{"Broker Search Progress"});}
+\DoxyCodeLine{295         bar.setValue(0);}
+\DoxyCodeLine{296         }
+\DoxyCodeLine{297         \textcolor{comment}{// Initialize our ArrayList for returning to the requesting method.}}
+\DoxyCodeLine{298         ArrayList<CustomerModel> tmp = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{299         }
+\DoxyCodeLine{300         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}() > 0 ) \{}
+\DoxyCodeLine{301             \textcolor{comment}{// Loop through all of our records.}}
+\DoxyCodeLine{302             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{303                 bar.setValue(x + 1);}
+\DoxyCodeLine{304                 \textcolor{comment}{// Check to see if the current record contains a broker from the }}
+\DoxyCodeLine{305                 \textcolor{comment}{//+ requested state.}}
+\DoxyCodeLine{306                 \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x).getCity().equalsIgnoreCase(city) ) \{}
+\DoxyCodeLine{307                     \textcolor{comment}{// Add the record to our returnable ArrayList.}}
+\DoxyCodeLine{308                     tmp.add(\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x));}
+\DoxyCodeLine{309                 \}}
+\DoxyCodeLine{310             \}}
+\DoxyCodeLine{311         \}}
+\DoxyCodeLine{312         }
+\DoxyCodeLine{313         \textcolor{comment}{// Return either the list of located brokers or null.}}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} tmp.size() > 0 ? tmp : \textcolor{keyword}{null};}
+\DoxyCodeLine{315     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_ab393c6df48a005144090c77f588572a7}\label{classgenericstest_1_1CustomerCtl_ab393c6df48a005144090c77f588572a7}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!getCompaniesByState@{getCompaniesByState}}
+\index{getCompaniesByState@{getCompaniesByState}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getCompaniesByState()}{getCompaniesByState()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$ genericstest.\+Customer\+Ctl.\+get\+Companies\+By\+State (\begin{DoxyParamCaption}\item[{String}]{state,  }\item[{javax.\+swing.\+J\+Progress\+Bar}]{bar }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+This method returns an {\ttfamily java.\+util.\+Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$} of all matching record records.\+This method is useful for allowing the user to filter a long list ofrecords down to narrow his/her search for a record, such as in the Book Load Wizard. 
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]If a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} is provided to this method, the developer will need to reset the progress bar once this method has returned from their own code, as we only set it up for use and use it on each record while the search proceeds. This method does not zero the progress bar out once completed, nor do we change its visibility within this method. Therefore, prior to providing the progress bar, the developer needs to make sure that it is visible to the user and, once this method returns, the developer needs to handle the progress bar how they desire.
+
+Furthermore, this method changes the tooltip text of the progress bar to \char`\"{}\+Broker Search Progress\char`\"{}, so the developer will also need to reset the tooltip on the progress bar once this method returns.
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The state in which the record(s) must be located. \\
+\hline
+{\em bar} & a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} object to visually display the search progress to the user. May be null. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an {\ttfamily Array\+List} of all matching records, or {\ttfamily null} if none found. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}} & in the event a database access error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 224 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{225                                                                     \{}
+\DoxyCodeLine{226         \textcolor{comment}{// Check to see if we were given a JProgressBar to work with.}}
+\DoxyCodeLine{227         \textcolor{keywordflow}{if} ( bar == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{228             \textcolor{comment}{// If not, create one, even though it will not be displayed, just so}}
+\DoxyCodeLine{229             \textcolor{comment}{//+ we do not have to constantly repeat this check.}}
+\DoxyCodeLine{230             bar = \textcolor{keyword}{new} javax.swing.JProgressBar();}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232         }
+\DoxyCodeLine{233         bar.setMaximum(\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}());}
+\DoxyCodeLine{234         bar.setMinimum(0);}
+\DoxyCodeLine{235         bar.setToolTipText(\textcolor{stringliteral}{"Broker Search Progress"});}
+\DoxyCodeLine{236         bar.setValue(0);}
+\DoxyCodeLine{237         }
+\DoxyCodeLine{238         \textcolor{comment}{// Initialize our ArrayList for returning to the requesting method.}}
+\DoxyCodeLine{239         ArrayList<CustomerModel> tmp = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{240         }
+\DoxyCodeLine{241         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}() > 0 ) \{}
+\DoxyCodeLine{242             \textcolor{comment}{// Loop through all of our records.}}
+\DoxyCodeLine{243             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{244                 bar.setValue(x + 1);}
+\DoxyCodeLine{245                 \textcolor{comment}{// Check to see if the current record contains a broker from the }}
+\DoxyCodeLine{246                 \textcolor{comment}{//+ requested state.}}
+\DoxyCodeLine{247                 \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x).getState().equalsIgnoreCase(state) ) \{}
+\DoxyCodeLine{248                     \textcolor{comment}{// Add the record to our returnable ArrayList.}}
+\DoxyCodeLine{249                     tmp.add(\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x));}
+\DoxyCodeLine{250                 \}}
+\DoxyCodeLine{251             \}}
+\DoxyCodeLine{252         \}}
+\DoxyCodeLine{253         }
+\DoxyCodeLine{254         \textcolor{comment}{// Return either the list of located brokers or null.}}
+\DoxyCodeLine{255         \textcolor{keywordflow}{return} tmp.size() > 0 ? tmp : \textcolor{keyword}{null};}
+\DoxyCodeLine{256     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_ada56a9c24275423b5f7569ff027bce9e}\label{classgenericstest_1_1CustomerCtl_ada56a9c24275423b5f7569ff027bce9e}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!getCurrentRecordNumber@{getCurrentRecordNumber}}
+\index{getCurrentRecordNumber@{getCurrentRecordNumber}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getCurrentRecordNumber()}{getCurrentRecordNumber()}}
+{\footnotesize\ttfamily int genericstest.\+Customer\+Ctl.\+get\+Current\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current record number of the record in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The current record number 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{405                                         \{}
+\DoxyCodeLine{406         \textcolor{keywordflow}{return} \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_aedc400b7a275b8be4f9249c725f28a89}{row}} + 1;}
+\DoxyCodeLine{407     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a6a304b2babe69d7f18947c7319f73bfa}\label{classgenericstest_1_1CustomerCtl_a6a304b2babe69d7f18947c7319f73bfa}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!getCustomersByCompany@{getCustomersByCompany}}
+\index{getCustomersByCompany@{getCustomersByCompany}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getCustomersByCompany()}{getCustomersByCompany()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classgenericstest_1_1CustomerModel}{Customer\+Model}}$>$ genericstest.\+Customer\+Ctl.\+get\+Customers\+By\+Company (\begin{DoxyParamCaption}\item[{String}]{company,  }\item[{javax.\+swing.\+J\+Progress\+Bar}]{bar }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Provides a method of retrieving the record for the specified company. 
+
+This method may be used to find that specific company for multiple purposes, including to make sure the user is not attempting to enter the same company record multiple times. 
+\begin{DoxyDescription}
+\item[Note]It is a best practice to call this method prior to calling the {\ttfamily add\+New(\+Broker\+Model)} method as a means of ensuring each broker is only entered into the database a single time.
+\end{DoxyDescription}
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]If a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} is provided to this method, the developer will need to reset the progress bar once this method has returned from their own code, as we only set it up for use and use it on each record while the search proceeds. This method does not zero the progress bar out once completed, nor do we change its visibility within this method. Therefore, prior to providing the progress bar, the developer needs to make sure that it is visible to the user and, once this method returns, the developer needs to handle the progress bar how they desire.
+
+Furthermore, this method changes the tooltip text of the progress bar to \char`\"{}\+Broker Search Progress\char`\"{}, so the developer will also need to reset the tooltip on the progress bar once this method returns.
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em company} & The company whose record is to be located. \\
+\hline
+{\em bar} & a {\ttfamily javax.\+swing.\+J\+Progress\+Bar} object to visually display the search progress to the user. May be null. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily Array\+List$<$Broker\+Model$>$} object containing the company records, if any exist. {\ttfamily null} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}} & in the event a database access error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 346 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{347                                                                     \{}
+\DoxyCodeLine{348         \textcolor{comment}{// Check to see if we were given a JProgressBar to work with.}}
+\DoxyCodeLine{349         \textcolor{keywordflow}{if} ( bar == \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{350             \textcolor{comment}{// If not, create one, even though it will not be displayed, just so}}
+\DoxyCodeLine{351             \textcolor{comment}{//+ we do not have to constantly repeat this check.}}
+\DoxyCodeLine{352             bar = \textcolor{keyword}{new} javax.swing.JProgressBar();}
+\DoxyCodeLine{353         \}}
+\DoxyCodeLine{354         }
+\DoxyCodeLine{355         bar.setMaximum(\mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}());}
+\DoxyCodeLine{356         bar.setMinimum(0);}
+\DoxyCodeLine{357         bar.setToolTipText(\textcolor{stringliteral}{"Broker Search Progress"});}
+\DoxyCodeLine{358         bar.setValue(0);}
+\DoxyCodeLine{359         }
+\DoxyCodeLine{360         \textcolor{comment}{// Store the current record number.}}
+\DoxyCodeLine{361         \textcolor{keywordtype}{int} lastRecord = \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_ada56a9c24275423b5f7569ff027bce9e}{getCurrentRecordNumber}}();}
+\DoxyCodeLine{362         }
+\DoxyCodeLine{363         \textcolor{comment}{// Prepare a record object.}}
+\DoxyCodeLine{364         ArrayList<CustomerModel> tmp = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{365         }
+\DoxyCodeLine{366         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}{getRecordCount}}() > 0 ) \{}
+\DoxyCodeLine{367             \textcolor{comment}{// Move to the first record.}}
+\DoxyCodeLine{368             \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a92b64757521ebb4eba90bf35ae092162}{first}}();}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370             \textcolor{comment}{// Now, loop through all of the records in the table.}}
+\DoxyCodeLine{371             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size(); x++ ) \{}
+\DoxyCodeLine{372                 bar.setValue(x + 1);}
+\DoxyCodeLine{373                 \textcolor{comment}{// Check to see if the current record's company matches the company}}
+\DoxyCodeLine{374                 \textcolor{comment}{//+ being sought by the user.}}
+\DoxyCodeLine{375                 \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x).getCompany().equalsIgnoreCase(company) ) \{}
+\DoxyCodeLine{376                     \textcolor{comment}{// Grab the record.}}
+\DoxyCodeLine{377                     tmp.add(\mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.get(x));}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379                     \textcolor{comment}{// Break out of the loop because we do not need to continue.}}
+\DoxyCodeLine{380                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{381                 \}}
+\DoxyCodeLine{382             \}}
+\DoxyCodeLine{383         \}}
+\DoxyCodeLine{384         }
+\DoxyCodeLine{385         \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_aedc400b7a275b8be4f9249c725f28a89}{row}} = lastRecord;}
+\DoxyCodeLine{386         }
+\DoxyCodeLine{387         \textcolor{comment}{// Return the record we found, or null if there was no match.}}
+\DoxyCodeLine{388         \textcolor{keywordflow}{return} tmp.size() > 0 ? tmp : \textcolor{keyword}{null};}
+\DoxyCodeLine{389     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}\label{classgenericstest_1_1CustomerCtl_a60c7d193752abe737865d3e5c683a1ab}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!getRecordCount@{getRecordCount}}
+\index{getRecordCount@{getRecordCount}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{getRecordCount()}{getRecordCount()}}
+{\footnotesize\ttfamily int genericstest.\+Customer\+Ctl.\+get\+Record\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of records (or rows) in this table. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records 
+\end{DoxyReturn}
+
+
+Definition at line 396 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{396                                 \{}
+\DoxyCodeLine{397         \textcolor{keywordflow}{return} \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size();}
+\DoxyCodeLine{398     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_acabb113603fbdb518395f663d008726b}\label{classgenericstest_1_1CustomerCtl_acabb113603fbdb518395f663d008726b}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily boolean genericstest.\+Customer\+Ctl.\+has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 410 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{410                              \{}
+\DoxyCodeLine{411         \textcolor{keywordflow}{return} \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_aedc400b7a275b8be4f9249c725f28a89}{row}} < \mbox{\hyperlink{classgenericstest_1_1AbstractJournal_a0a35d7d51f9f4df8bd9b41ed7e8eaf7b}{records}}.size();}
+\DoxyCodeLine{412     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_a34828d79d4c7822c2ff06318fbe1bd02}\label{classgenericstest_1_1CustomerCtl_a34828d79d4c7822c2ff06318fbe1bd02}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!postTransactions@{postTransactions}}
+\index{postTransactions@{postTransactions}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{postTransactions()}{postTransactions()}}
+{\footnotesize\ttfamily boolean genericstest.\+Customer\+Ctl.\+post\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}}
+
+
+
+Definition at line 668 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{668                                                                 \{}
+\DoxyCodeLine{669         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not supported yet."}); \textcolor{comment}{//To change body of generated methods, choose Tools | Templates.}}
+\DoxyCodeLine{670     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_aac1694b25f0c3cd438ac1dade9e1f892}\label{classgenericstest_1_1CustomerCtl_aac1694b25f0c3cd438ac1dade9e1f892}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!save@{save}}
+\index{save@{save}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void genericstest.\+Customer\+Ctl.\+save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classgenericstest_1_1DataStoreException}{Data\+Store\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 663 of file Customer\+Ctl.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{663                                                     \{}
+\DoxyCodeLine{664         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not supported yet."}); \textcolor{comment}{//To change body of generated methods, choose Tools | Templates.}}
+\DoxyCodeLine{665     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}\label{classgenericstest_1_1CustomerCtl_af7a8359acaeabcfa7443987ebb134411}} 
+\index{genericstest.CustomerCtl@{genericstest.CustomerCtl}!TABLE@{TABLE}}
+\index{TABLE@{TABLE}!genericstest.CustomerCtl@{genericstest.CustomerCtl}}
+\doxysubsubsection{\texorpdfstring{TABLE}{TABLE}}
+{\footnotesize\ttfamily final File genericstest.\+Customer\+Ctl.\+T\+A\+B\+LE = new File(\char`\"{}customers.\+tbl\char`\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 57 of file Customer\+Ctl.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Generics\+Test/src/genericstest/\mbox{\hyperlink{GenericsTest_2src_2genericstest_2CustomerCtl_8java}{Customer\+Ctl.\+java}}\end{DoxyCompactItemize}

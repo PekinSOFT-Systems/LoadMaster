@@ -1,0 +1,98 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Check\+Entry\+Window Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow}\index{com.pekinsoft.loadmaster.view.CheckEntryWindow@{com.pekinsoft.loadmaster.view.CheckEntryWindow}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Check\+Entry\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{da/dbe/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Check\+Entry\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dc/d8b/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow_a18fa525cdfa5f08a239ba944262be913}{Check\+Entry\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow}{Check\+Entry\+Window}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 50 of file Check\+Entry\+Window.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow_a18fa525cdfa5f08a239ba944262be913}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow_a18fa525cdfa5f08a239ba944262be913}} 
+\index{com.pekinsoft.loadmaster.view.CheckEntryWindow@{com.pekinsoft.loadmaster.view.CheckEntryWindow}!CheckEntryWindow@{CheckEntryWindow}}
+\index{CheckEntryWindow@{CheckEntryWindow}!com.pekinsoft.loadmaster.view.CheckEntryWindow@{com.pekinsoft.loadmaster.view.CheckEntryWindow}}
+\doxysubsubsection{\texorpdfstring{CheckEntryWindow()}{CheckEntryWindow()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Check\+Entry\+Window.\+Check\+Entry\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1CheckEntryWindow}{Check\+Entry\+Window}}. 
+
+
+
+Definition at line 58 of file Check\+Entry\+Window.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                               \{}
+\DoxyCodeLine{59         entry = \textcolor{keyword}{new} java.util.logging.LogRecord(Level.INFO, }
+\DoxyCodeLine{60                 \textcolor{stringliteral}{"Configuring `CheckEntryWindow`"});}
+\DoxyCodeLine{61         entry.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{62         entry.setSourceMethodName(getClass().getName());}
+\DoxyCodeLine{63         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{64         entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{65         entry.setInstant(Instant.now());}
+\DoxyCodeLine{66         Starter.logger.enter(entry);}
+\DoxyCodeLine{67         }
+\DoxyCodeLine{68         initComponents();}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{70         idLabel.setText(String.valueOf(System.currentTimeMillis()));}
+\DoxyCodeLine{71         codeField.setText(idLabel.getText());}
+\DoxyCodeLine{72         addressLabel.setText(\textcolor{stringliteral}{"<html><h4>"} }
+\DoxyCodeLine{73                 + Starter.props.getProperty(\textcolor{stringliteral}{"company.name"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{74                 + \textcolor{stringliteral}{"</h4><h5>"} + Starter.props.getProperty(\textcolor{stringliteral}{"company.contact"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{75                 + \textcolor{stringliteral}{"</h5><p>"} + Starter.props.getProperty(\textcolor{stringliteral}{"company.street"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{76                 + \textcolor{stringliteral}{", Ste."} + Starter.props.getProperty(\textcolor{stringliteral}{"company.suite"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{77                 + \textcolor{stringliteral}{"<br>"} + Starter.props.getProperty(\textcolor{stringliteral}{"company.city"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{78                 + \textcolor{stringliteral}{", "} + Starter.props.getProperty(\textcolor{stringliteral}{"company.state"}, \textcolor{stringliteral}{""}) + \textcolor{stringliteral}{" "}}
+\DoxyCodeLine{79                 + Starter.props.getProperty(\textcolor{stringliteral}{"company.zip"}, \textcolor{stringliteral}{""}) + \textcolor{stringliteral}{"<br>Ph. "}}
+\DoxyCodeLine{80                 + Starter.props.getProperty(\textcolor{stringliteral}{"company.phone"}, \textcolor{stringliteral}{""}) + \textcolor{stringliteral}{"<br>Em. "}}
+\DoxyCodeLine{81                 + Starter.props.getProperty(\textcolor{stringliteral}{"company.email"}, \textcolor{stringliteral}{""}) + \textcolor{stringliteral}{"</p><html>"});}
+\DoxyCodeLine{82         signedField.setText(Starter.props.getProperty(\textcolor{stringliteral}{"company.contact"}, }
+\DoxyCodeLine{83                 \textcolor{stringliteral}{"No Signature on file"}));}
+\DoxyCodeLine{84         }
+\DoxyCodeLine{85         entry.setSourceClassName(getClass().getCanonicalName());}
+\DoxyCodeLine{86         entry.setSourceMethodName(getClass().getName());}
+\DoxyCodeLine{87         entry.setMessage(\textcolor{stringliteral}{"Done configuring `CheckEntryWindow`"});}
+\DoxyCodeLine{88         entry.setParameters(\textcolor{keyword}{null});}
+\DoxyCodeLine{89         entry.setThrown(\textcolor{keyword}{null});}
+\DoxyCodeLine{90         entry.setInstant(Instant.now());}
+\DoxyCodeLine{91         Starter.logger.exit(entry, \textcolor{keyword}{null});}
+\DoxyCodeLine{92     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{CheckEntryWindow_8java}{Check\+Entry\+Window.\+java}}\end{DoxyCompactItemize}

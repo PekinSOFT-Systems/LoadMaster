@@ -1,0 +1,104 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+General\+Ledger\+Viewer Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer}\index{com.pekinsoft.loadmaster.view.GeneralLedgerViewer@{com.pekinsoft.loadmaster.view.GeneralLedgerViewer}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+General\+Ledger\+Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{da/d0f/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+General\+Ledger\+Viewer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dd/de2/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer_aca066288943b9444573fb74abb646eba}{General\+Ledger\+Viewer}} ()
+\begin{DoxyCompactList}\small\item\em Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer}{General\+Ledger\+Viewer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 47 of file General\+Ledger\+Viewer.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer_aca066288943b9444573fb74abb646eba}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer_aca066288943b9444573fb74abb646eba}} 
+\index{com.pekinsoft.loadmaster.view.GeneralLedgerViewer@{com.pekinsoft.loadmaster.view.GeneralLedgerViewer}!GeneralLedgerViewer@{GeneralLedgerViewer}}
+\index{GeneralLedgerViewer@{GeneralLedgerViewer}!com.pekinsoft.loadmaster.view.GeneralLedgerViewer@{com.pekinsoft.loadmaster.view.GeneralLedgerViewer}}
+\doxysubsubsection{\texorpdfstring{GeneralLedgerViewer()}{GeneralLedgerViewer()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+General\+Ledger\+Viewer.\+General\+Ledger\+Viewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates new form \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1GeneralLedgerViewer}{General\+Ledger\+Viewer}}. 
+
+
+
+Definition at line 52 of file General\+Ledger\+Viewer.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                  \{}
+\DoxyCodeLine{53         initComponents();}
+\DoxyCodeLine{54         }
+\DoxyCodeLine{55         \textcolor{comment}{// We are going to load the table right here in the constructor.}}
+\DoxyCodeLine{56         DefaultTableModel model = (DefaultTableModel)glTable.getModel();}
+\DoxyCodeLine{57         }
+\DoxyCodeLine{58         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{59             EntryCtl ctl = \textcolor{keyword}{new} EntryCtl();}
+\DoxyCodeLine{60             }
+\DoxyCodeLine{61             \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} x = 0; x < ctl.getRecordCount(); x++ ) \{}
+\DoxyCodeLine{62                 EntryModel data = ctl.get(x);}
+\DoxyCodeLine{63                 }
+\DoxyCodeLine{64                 ChartCtl coa = \textcolor{keyword}{new} ChartCtl();}
+\DoxyCodeLine{65                 String fromAcct = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{66                 String toAcct = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{67                 }
+\DoxyCodeLine{68                 \textcolor{comment}{// Get the name of the account for the from and the to accounts.}}
+\DoxyCodeLine{69                 \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} y = 0; y < coa.getRecordCount(); y++ ) \{}
+\DoxyCodeLine{70                     \textcolor{keywordflow}{if} ( coa.get(y).getNumber() == ctl.get(x).getFromAccount() )}
+\DoxyCodeLine{71                         fromAcct = coa.get(y).getName();}
+\DoxyCodeLine{72                     \textcolor{keywordflow}{if} ( coa.get(y).getNumber() == ctl.get(x).getToAccount() )}
+\DoxyCodeLine{73                         toAcct = coa.get(y).getName();}
+\DoxyCodeLine{74                 \}}
+\DoxyCodeLine{75                 }
+\DoxyCodeLine{76                 Object[] row = \{data.getDateAsString(), \textcolor{comment}{// Tx date}}
+\DoxyCodeLine{77                                 data.getCode(),         \textcolor{comment}{// Tx code}}
+\DoxyCodeLine{78                                 data.getDescription(),  \textcolor{comment}{// Description of Tx}}
+\DoxyCodeLine{79                                 fromAcct,               \textcolor{comment}{// From account}}
+\DoxyCodeLine{80                                 toAcct,                 \textcolor{comment}{// To account}}
+\DoxyCodeLine{81                                 data.getAmount(),       \textcolor{comment}{// Tx amount}}
+\DoxyCodeLine{82                                 data.isDeductible(),    \textcolor{comment}{// Tax deductible}}
+\DoxyCodeLine{83                                 data.isBalanced()       \textcolor{comment}{// Balanced with bank.}}
+\DoxyCodeLine{84                                \};}
+\DoxyCodeLine{85                 model.addRow(row);}
+\DoxyCodeLine{86             \}}
+\DoxyCodeLine{87         \} \textcolor{keywordflow}{catch} ( DataStoreException ex ) \{}
+\DoxyCodeLine{88             MessageBox.showWarning(\textcolor{stringliteral}{"Something happened while reading in the General Ledger"}, \textcolor{stringliteral}{"Error"});}
+\DoxyCodeLine{89         \}}
+\DoxyCodeLine{90         }
+\DoxyCodeLine{91         glTable.setModel(model);}
+\DoxyCodeLine{92     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Master\+\_\+screwed\+Up/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{GeneralLedgerViewer_8java}{General\+Ledger\+Viewer.\+java}}\end{DoxyCompactItemize}

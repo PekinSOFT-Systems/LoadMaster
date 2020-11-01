@@ -1,0 +1,188 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+utils.\+Screen\+Utils Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils}\index{com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Point \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}{center\+Dialog}} (Object dlg)
+\item 
+static Point \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}{center\+Dialog}} (Object dlg)
+\item 
+static Point \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}{center\+Dialog}} (Object dlg)
+\item 
+static Point \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}{center\+Dialog}} (Object dlg)
+\item 
+static Point \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}{center\+Dialog}} (Object dlg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 15 of file Screen\+Utils.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}} 
+\index{com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}!centerDialog@{centerDialog}}
+\index{centerDialog@{centerDialog}!com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}}
+\doxysubsubsection{\texorpdfstring{centerDialog()}{centerDialog()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily static Point com.\+pekinsoft.\+loadmaster.\+utils.\+Screen\+Utils.\+center\+Dialog (\begin{DoxyParamCaption}\item[{Object}]{dlg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Screen\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                  \{}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} x = Toolkit.getDefaultToolkit().getScreenSize().width / 2;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} y = Toolkit.getDefaultToolkit().getScreenSize().height / 2;}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} ( dlg instanceof javax.swing.JFrame ) \{}
+\DoxyCodeLine{22             x = x -\/ (((javax.swing.JFrame)dlg).getWidth() / 2);}
+\DoxyCodeLine{23             y = y -\/ (((javax.swing.JFrame)dlg).getHeight() / 2);}
+\DoxyCodeLine{24         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dlg instanceof javax.swing.JDialog ) \{}
+\DoxyCodeLine{25             x = x -\/ (((javax.swing.JDialog)dlg).getWidth() / 2);}
+\DoxyCodeLine{26             y = y -\/ (((javax.swing.JDialog)dlg).getHeight() / 2);}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{29         x = x < 0 ? 0 : x;}
+\DoxyCodeLine{30         y = y < 0 ? 0 : y;}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Point(x, y);}
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}} 
+\index{com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}!centerDialog@{centerDialog}}
+\index{centerDialog@{centerDialog}!com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}}
+\doxysubsubsection{\texorpdfstring{centerDialog()}{centerDialog()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily static Point com.\+pekinsoft.\+loadmaster.\+utils.\+Screen\+Utils.\+center\+Dialog (\begin{DoxyParamCaption}\item[{Object}]{dlg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Screen\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                  \{}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} x = Toolkit.getDefaultToolkit().getScreenSize().width / 2;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} y = Toolkit.getDefaultToolkit().getScreenSize().height / 2;}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} ( dlg instanceof javax.swing.JFrame ) \{}
+\DoxyCodeLine{22             x = x -\/ (((javax.swing.JFrame)dlg).getWidth() / 2);}
+\DoxyCodeLine{23             y = y -\/ (((javax.swing.JFrame)dlg).getHeight() / 2);}
+\DoxyCodeLine{24         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dlg instanceof javax.swing.JDialog ) \{}
+\DoxyCodeLine{25             x = x -\/ (((javax.swing.JDialog)dlg).getWidth() / 2);}
+\DoxyCodeLine{26             y = y -\/ (((javax.swing.JDialog)dlg).getHeight() / 2);}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{29         x = x < 0 ? 0 : x;}
+\DoxyCodeLine{30         y = y < 0 ? 0 : y;}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Point(x, y);}
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}} 
+\index{com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}!centerDialog@{centerDialog}}
+\index{centerDialog@{centerDialog}!com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}}
+\doxysubsubsection{\texorpdfstring{centerDialog()}{centerDialog()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily static Point com.\+pekinsoft.\+loadmaster.\+utils.\+Screen\+Utils.\+center\+Dialog (\begin{DoxyParamCaption}\item[{Object}]{dlg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Screen\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                  \{}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} x = Toolkit.getDefaultToolkit().getScreenSize().width / 2;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} y = Toolkit.getDefaultToolkit().getScreenSize().height / 2;}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} ( dlg instanceof javax.swing.JFrame ) \{}
+\DoxyCodeLine{22             x = x -\/ (((javax.swing.JFrame)dlg).getWidth() / 2);}
+\DoxyCodeLine{23             y = y -\/ (((javax.swing.JFrame)dlg).getHeight() / 2);}
+\DoxyCodeLine{24         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dlg instanceof javax.swing.JDialog ) \{}
+\DoxyCodeLine{25             x = x -\/ (((javax.swing.JDialog)dlg).getWidth() / 2);}
+\DoxyCodeLine{26             y = y -\/ (((javax.swing.JDialog)dlg).getHeight() / 2);}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{29         x = x < 0 ? 0 : x;}
+\DoxyCodeLine{30         y = y < 0 ? 0 : y;}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Point(x, y);}
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}} 
+\index{com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}!centerDialog@{centerDialog}}
+\index{centerDialog@{centerDialog}!com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}}
+\doxysubsubsection{\texorpdfstring{centerDialog()}{centerDialog()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily static Point com.\+pekinsoft.\+loadmaster.\+utils.\+Screen\+Utils.\+center\+Dialog (\begin{DoxyParamCaption}\item[{Object}]{dlg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Screen\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                  \{}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} x = Toolkit.getDefaultToolkit().getScreenSize().width / 2;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} y = Toolkit.getDefaultToolkit().getScreenSize().height / 2;}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} ( dlg instanceof javax.swing.JFrame ) \{}
+\DoxyCodeLine{22             x = x -\/ (((javax.swing.JFrame)dlg).getWidth() / 2);}
+\DoxyCodeLine{23             y = y -\/ (((javax.swing.JFrame)dlg).getHeight() / 2);}
+\DoxyCodeLine{24         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dlg instanceof javax.swing.JDialog ) \{}
+\DoxyCodeLine{25             x = x -\/ (((javax.swing.JDialog)dlg).getWidth() / 2);}
+\DoxyCodeLine{26             y = y -\/ (((javax.swing.JDialog)dlg).getHeight() / 2);}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{29         x = x < 0 ? 0 : x;}
+\DoxyCodeLine{30         y = y < 0 ? 0 : y;}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Point(x, y);}
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1utils_1_1ScreenUtils_a754ee876c4341eed90a158622a95eb06}} 
+\index{com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}!centerDialog@{centerDialog}}
+\index{centerDialog@{centerDialog}!com.pekinsoft.loadmaster.utils.ScreenUtils@{com.pekinsoft.loadmaster.utils.ScreenUtils}}
+\doxysubsubsection{\texorpdfstring{centerDialog()}{centerDialog()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily static Point com.\+pekinsoft.\+loadmaster.\+utils.\+Screen\+Utils.\+center\+Dialog (\begin{DoxyParamCaption}\item[{Object}]{dlg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Screen\+Utils.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                  \{}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} x = Toolkit.getDefaultToolkit().getScreenSize().width / 2;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} y = Toolkit.getDefaultToolkit().getScreenSize().height / 2;}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} ( dlg instanceof javax.swing.JFrame ) \{}
+\DoxyCodeLine{22             x = x -\/ (((javax.swing.JFrame)dlg).getWidth() / 2);}
+\DoxyCodeLine{23             y = y -\/ (((javax.swing.JFrame)dlg).getHeight() / 2);}
+\DoxyCodeLine{24         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dlg instanceof javax.swing.JDialog ) \{}
+\DoxyCodeLine{25             x = x -\/ (((javax.swing.JDialog)dlg).getWidth() / 2);}
+\DoxyCodeLine{26             y = y -\/ (((javax.swing.JDialog)dlg).getHeight() / 2);}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{29         x = x < 0 ? 0 : x;}
+\DoxyCodeLine{30         y = y < 0 ? 0 : y;}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Point(x, y);}
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master/\+Load Master/src/com/pekinsoft/loadmaster/utils/\mbox{\hyperlink{Forked_2LoadMaster_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2utils_2ScreenUtils_8java}{Screen\+Utils.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,1375 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction}\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9a/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{de/db6/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a77ef62e4ebeb01aecde7a189fbad72d2}{Base\+Transaction}} (int account\+Number)
+\begin{DoxyCompactList}\small\item\em Constructs a new, default transaction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a0818cbfbdc96f7f292d406ed25b48515}{Base\+Transaction}} (int account\+Number, long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}}, Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}}, double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}}, boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}})
+\begin{DoxyCompactList}\small\item\em Constructs a new transaction from the provided data. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a02b152f5995e2c410049e1309a40fa60}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the description of this transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a674cd542ea3473ddc7507d9090112dde}{set\+Description}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}})
+\begin{DoxyCompactList}\small\item\em Sets the description for this transaction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}{get\+Account\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the account number for this Journal model. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}{get\+Journal}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the Journal file path and name for this expense account. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a43eaefd1645308d1d7ed008478970917}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique identification number for this journal model. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14f76af49ea89e35526c91ec0691e801}{get\+Id\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Convenience method for getting the unique ID as a {\ttfamily java.\+lang.\+String} for display in a text context. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a1678a769521a4fb9599a4f022a740c5f}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Sets the transfer account from which the money originated for this model. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14c21c38b46762e1bd1ff3f84659fb81}{get\+Amount\+As\+Formatted\+String}} ()  throws Validation\+Exception 
+\begin{DoxyCompactList}\small\item\em Convenience method to retrieve the value of the amount as currency in the locale-\/specific format, using the system default locale on which the application is running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a62f8dc59bb1aee4d86a2f325f20a5e35}{set\+Amount}} (double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}})
+\begin{DoxyCompactList}\small\item\em Set the amount amount of this transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aca0b9d8f950a8909859e61c6f8fd6cd0}{is\+Posted}} ()
+\begin{DoxyCompactList}\small\item\em Determines if this record has been posted to the General Ledger or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ad1d6069c2b3d7519eab7c2da961166be}{set\+Posted}} (boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}})
+\begin{DoxyCompactList}\small\item\em Sets the flag that this record has been posted to the General Ledger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a78e479e5ea3ff64cf6842713aea67359}{set\+Id}} (long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}})
+\begin{DoxyCompactList}\small\item\em Sets the unique identification number for this journal model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a920f2d627ddfbe2db1ba9336bb5cd4ff}{set\+Id\+From\+String}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}})  throws Number\+Format\+Exception 
+\begin{DoxyCompactList}\small\item\em Convenience method to allow setting the unique ID from a {\ttfamily java.\+lang.\+String} object so that the ID can be set from a textual context. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a583feb5e89a7c5cfd0535fc0704e0cc5}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date of this journal model as a {\ttfamily java.\+util.\+Date} object. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ae3328c1a8d01edf62300daaf1823ad3f}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date of this transaction as a formatted {\ttfamily java.\+lang.\+String} representation of the underlying {\ttfamily java.\+util.\+Date} object. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a2bf80a2c4d177762fb277e1c8eb9d69c}{get\+Date\+As\+String}} (String format)
+\begin{DoxyCompactList}\small\item\em Retrieves the date of this transaction as a formatted {\ttfamily java.\+lang.\+String} representation of the underlying {\ttfamily java.\+util.\+Date} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a211c864aaf44743b3cb06701968a4050}{set\+Date}} (Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}})
+\begin{DoxyCompactList}\small\item\em Sets the date of this transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}{set\+Date\+From\+String}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}})  throws Validation\+Exception 
+\begin{DoxyCompactList}\small\item\em Convenience method to allow you to set the date for this transaction from a {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}{set\+Date\+From\+String}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, String format)  throws Validation\+Exception 
+\begin{DoxyCompactList}\small\item\em Convenience method to allow you to set the date for this transaction from a {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a0c1db1780014f603b6ae75013f8f3e44}{Base\+Transaction}} ()
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}{get\+Account\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves this Journal\textquotesingle{}s account number. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}{get\+Journal}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves this Journal\textquotesingle{}s file path and name as a {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+File \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a680123dd20b38bc3b8b9d75ba530f1bb}{get\+Journal\+File}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the Journal file from this instance. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a43eaefd1645308d1d7ed008478970917}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique ID for this Journal entry. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14f76af49ea89e35526c91ec0691e801}{get\+Id\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique ID for this Journal entry as a {\ttfamily java.\+lang.\+String} value to use within a textual context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a78e479e5ea3ff64cf6842713aea67359}{set\+Id}} (long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}})
+\begin{DoxyCompactList}\small\item\em Sets the unique entry ID for this Journal entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a920f2d627ddfbe2db1ba9336bb5cd4ff}{set\+Id\+From\+String}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}})
+\begin{DoxyCompactList}\small\item\em Sets the unique entry ID for this Journal entry from a {\ttfamily java.\+lang.\+String} as a convenience when the ID is received from a textual context. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a583feb5e89a7c5cfd0535fc0704e0cc5}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date of this Journal entry as a {\ttfamily java.\+util.\+Date} value. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ae3328c1a8d01edf62300daaf1823ad3f}{get\+Date\+As\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the date of this Journal entry as a {\ttfamily java.\+lang.\+String} in a convenient way for textual contexts. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a2bf80a2c4d177762fb277e1c8eb9d69c}{get\+Date\+As\+String}} (String format)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Retrieves the date of this Journal entry as a {\ttfamily java.\+lang.\+String} in a convenient way for textual contexts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a211c864aaf44743b3cb06701968a4050}{set\+Date}} (Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}})
+\begin{DoxyCompactList}\small\item\em Sets the date for this Journal entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}{set\+Date\+From\+String}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}})  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the date for this Journal entry from a {\ttfamily java.\+lang.\+String} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}{set\+Date\+From\+String}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, String format)  throws Parse\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the date for this Journal entry from a custom-\/formatted {\ttfamily java.\+lang.\+String} date value using the custom format provided. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a1678a769521a4fb9599a4f022a740c5f}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the financial amount of this transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14c21c38b46762e1bd1ff3f84659fb81}{get\+Amount\+As\+Formatted\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the financial amount of this transaction in the locale-\/specific currency format for displaying in a textual context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a62f8dc59bb1aee4d86a2f325f20a5e35}{set\+Amount}} (double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}})
+\begin{DoxyCompactList}\small\item\em Sets the financial amount of this transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a02b152f5995e2c410049e1309a40fa60}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the description of this transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a674cd542ea3473ddc7507d9090112dde}{set\+Description}} (String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}})
+\begin{DoxyCompactList}\small\item\em Sets the description for this transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aca0b9d8f950a8909859e61c6f8fd6cd0}{is\+Posted}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether or not this Journal entry has been posted to the General Ledger of the accounting system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ad1d6069c2b3d7519eab7c2da961166be}{set\+Posted}} (boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}})
+\begin{DoxyCompactList}\small\item\em Sets the flag for whether or not this Journal entry has been posted to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}}
+\begin{DoxyCompactList}\small\item\em Unique identification number for the transaction. \end{DoxyCompactList}\item 
+Date \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}
+\begin{DoxyCompactList}\small\item\em Date of the transaction. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}}
+\begin{DoxyCompactList}\small\item\em A description of the transaction. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}}
+\begin{DoxyCompactList}\small\item\em The financial amount of the transaction. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}}
+\begin{DoxyCompactList}\small\item\em Flag to determine whether or not the transaction has been posted to the General Ledger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line 59 of file Base\+Transaction.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a77ef62e4ebeb01aecde7a189fbad72d2}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a77ef62e4ebeb01aecde7a189fbad72d2}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!BaseTransaction@{BaseTransaction}}
+\index{BaseTransaction@{BaseTransaction}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{BaseTransaction()}{BaseTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+Base\+Transaction (\begin{DoxyParamCaption}\item[{int}]{account\+Number }\end{DoxyParamCaption})}
+
+
+
+Constructs a new, default transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & the account number of the Journal Account. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90                                                \{}
+\DoxyCodeLine{91         \textcolor{keyword}{this}(accountNumber, System.currentTimeMillis(), \textcolor{keyword}{new} Date(),}
+\DoxyCodeLine{92                 \textcolor{stringliteral}{""}, 0.0, \textcolor{keyword}{false});}
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a0818cbfbdc96f7f292d406ed25b48515}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a0818cbfbdc96f7f292d406ed25b48515}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!BaseTransaction@{BaseTransaction}}
+\index{BaseTransaction@{BaseTransaction}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{BaseTransaction()}{BaseTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+Base\+Transaction (\begin{DoxyParamCaption}\item[{int}]{account\+Number,  }\item[{long}]{id,  }\item[{Date}]{date,  }\item[{String}]{description,  }\item[{double}]{amount,  }\item[{boolean}]{posted }\end{DoxyParamCaption})}
+
+
+
+Constructs a new transaction from the provided data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & the account number of the Journal Account \\
+\hline
+{\em id} & the unique identification number for this transaction \\
+\hline
+{\em date} & the date of the transaction. \\
+\hline
+{\em description} & description of the transaction \\
+\hline
+{\em amount} & financial amount of the transaction \\
+\hline
+{\em posted} & {\ttfamily true} if posted to the General Ledger, {\ttfamily false} if not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106                                                                \{}
+\DoxyCodeLine{107         this.accountNumber = accountNumber;}
+\DoxyCodeLine{108         this.\textcolor{keywordtype}{id} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}};}
+\DoxyCodeLine{109         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}};}
+\DoxyCodeLine{110         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}};}
+\DoxyCodeLine{111         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}};}
+\DoxyCodeLine{112         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}};}
+\DoxyCodeLine{113     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a0c1db1780014f603b6ae75013f8f3e44}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a0c1db1780014f603b6ae75013f8f3e44}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!BaseTransaction@{BaseTransaction}}
+\index{BaseTransaction@{BaseTransaction}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{BaseTransaction()}{BaseTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+Base\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68                               \{}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{70     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getAccountNumber@{getAccountNumber}}
+\index{getAccountNumber@{getAccountNumber}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getAccountNumber()}{getAccountNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Account\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves this Journal\textquotesingle{}s account number. 
+
+\begin{DoxyReturn}{Returns}
+account number 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83                                   \{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{return} this.accountNumber;}
+\DoxyCodeLine{85     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a8c441c6311c1642e1c8286c2633f9f03}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getAccountNumber@{getAccountNumber}}
+\index{getAccountNumber@{getAccountNumber}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getAccountNumber()}{getAccountNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Account\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the account number for this Journal model. 
+
+\begin{DoxyReturn}{Returns}
+the journal model\textquotesingle{}s account number 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140                                   \{}
+\DoxyCodeLine{141         \textcolor{keywordflow}{return} accountNumber;}
+\DoxyCodeLine{142     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a1678a769521a4fb9599a4f022a740c5f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a1678a769521a4fb9599a4f022a740c5f}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the transfer account from which the money originated for this model. 
+
+\begin{DoxyReturn}{Returns}
+how much was withdrawn 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{178                               \{}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}};}
+\DoxyCodeLine{180     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a1678a769521a4fb9599a4f022a740c5f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a1678a769521a4fb9599a4f022a740c5f}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the financial amount of this transaction. 
+
+\begin{DoxyReturn}{Returns}
+the amount of the transaction 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{220                               \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}};}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14c21c38b46762e1bd1ff3f84659fb81}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14c21c38b46762e1bd1ff3f84659fb81}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getAmountAsFormattedString@{getAmountAsFormattedString}}
+\index{getAmountAsFormattedString@{getAmountAsFormattedString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getAmountAsFormattedString()}{getAmountAsFormattedString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Amount\+As\+Formatted\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1ValidationException}{Validation\+Exception}}}
+
+
+
+Convenience method to retrieve the value of the amount as currency in the locale-\/specific format, using the system default locale on which the application is running. 
+
+\begin{DoxyReturn}{Returns}
+the withdrawn amount as a system default locale fomatted currency {\ttfamily java.\+lang.\+String} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1ValidationException}{com.\+pekinsoft.\+loadmaster.\+err.\+Validation\+Exception}}} & in the event this method is invoked on a transaction that contains a deposit. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 192 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{192                                                                           \{}
+\DoxyCodeLine{193         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}} == 0.0 )}
+\DoxyCodeLine{194             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ValidationException(\textcolor{stringliteral}{"Withdrawal value is 0.0"});}
+\DoxyCodeLine{195         }
+\DoxyCodeLine{196         NumberFormat number = NumberFormat.getCurrencyInstance();}
+\DoxyCodeLine{197         \textcolor{keywordflow}{return} ((DecimalFormat)number).format(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}});}
+\DoxyCodeLine{198     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14c21c38b46762e1bd1ff3f84659fb81}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14c21c38b46762e1bd1ff3f84659fb81}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getAmountAsFormattedString@{getAmountAsFormattedString}}
+\index{getAmountAsFormattedString@{getAmountAsFormattedString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getAmountAsFormattedString()}{getAmountAsFormattedString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Amount\+As\+Formatted\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the financial amount of this transaction in the locale-\/specific currency format for displaying in a textual context. 
+
+\begin{DoxyReturn}{Returns}
+locale-\/specific currency formatted amount 
+\end{DoxyReturn}
+
+
+Definition at line 230 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{230                                                \{}
+\DoxyCodeLine{231         Locale locale = Locale.getDefault();}
+\DoxyCodeLine{232         Currency currency = Currency.getInstance(locale);}
+\DoxyCodeLine{233         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);}
+\DoxyCodeLine{234         \textcolor{keywordflow}{return} fmt.format(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}});}
+\DoxyCodeLine{235     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a583feb5e89a7c5cfd0535fc0704e0cc5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a583feb5e89a7c5cfd0535fc0704e0cc5}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of this Journal entry as a {\ttfamily java.\+util.\+Date} value. 
+
+\begin{DoxyReturn}{Returns}
+the entry date 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{148                           \{}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}};}
+\DoxyCodeLine{150     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a583feb5e89a7c5cfd0535fc0704e0cc5}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a583feb5e89a7c5cfd0535fc0704e0cc5}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDate@{getDate}}
+\index{getDate@{getDate}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of this journal model as a {\ttfamily java.\+util.\+Date} object. 
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]The date is automatically set at class initialization.
+\end{DoxyDescription}
+
+\begin{DoxyReturn}{Returns}
+the date of this journal model 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{272                           \{}
+\DoxyCodeLine{273         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}};}
+\DoxyCodeLine{274     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ae3328c1a8d01edf62300daaf1823ad3f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ae3328c1a8d01edf62300daaf1823ad3f}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of this Journal entry as a {\ttfamily java.\+lang.\+String} in a convenient way for textual contexts. 
+
+\begin{DoxyReturn}{Returns}
+the entry date 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{158                                     \{}
+\DoxyCodeLine{159         sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{160         \textcolor{keywordflow}{return} sdf.format(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{161     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ae3328c1a8d01edf62300daaf1823ad3f}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ae3328c1a8d01edf62300daaf1823ad3f}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Date\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of this transaction as a formatted {\ttfamily java.\+lang.\+String} representation of the underlying {\ttfamily java.\+util.\+Date} object. 
+
+This convenience method allows you to implicitly get the date as a string for display in a text field or other textual scenario. The format of the date returned by this method is \char`\"{}\+M\+M/dd/yyyy\char`\"{}.
+
+\begin{DoxyReturn}{Returns}
+the date formatted as M\+M/dd/yyyy" 
+\end{DoxyReturn}
+
+
+Definition at line 285 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{285                                     \{}
+\DoxyCodeLine{286         sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{287         \textcolor{keywordflow}{return} sdf.format(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{288     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a2bf80a2c4d177762fb277e1c8eb9d69c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a2bf80a2c4d177762fb277e1c8eb9d69c}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Retrieves the date of this Journal entry as a {\ttfamily java.\+lang.\+String} in a convenient way for textual contexts. 
+
+Further, this method allows you to set the format of the returned date string to your specialized need.
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & the format to use, such as \char`\"{}\+M\+M\+M dd, yyyy\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date formatted by the provided format string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event the format string or date are invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 172 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{172                                                                        \{}
+\DoxyCodeLine{173         sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{174         \textcolor{keywordflow}{return} sdf.format(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{175     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a2bf80a2c4d177762fb277e1c8eb9d69c}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a2bf80a2c4d177762fb277e1c8eb9d69c}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDateAsString@{getDateAsString}}
+\index{getDateAsString@{getDateAsString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDateAsString()}{getDateAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Date\+As\+String (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+
+
+Retrieves the date of this transaction as a formatted {\ttfamily java.\+lang.\+String} representation of the underlying {\ttfamily java.\+util.\+Date} object. 
+
+This convenience method allows you to implicitly get the date as a string for display and have the custom format that you provide applied to the value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & the format to use, i.\+e., \char`\"{}\+M\+M\+M dd, yyyy\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date formatted by the provided format string. 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{299                                                  \{}
+\DoxyCodeLine{300         sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{301         \textcolor{keywordflow}{return} sdf.format(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{302     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a02b152f5995e2c410049e1309a40fa60}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a02b152f5995e2c410049e1309a40fa60}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the description of this transaction. 
+
+\begin{DoxyReturn}{Returns}
+the transaction description 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{122                                    \{}
+\DoxyCodeLine{123         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}};}
+\DoxyCodeLine{124     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a02b152f5995e2c410049e1309a40fa60}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a02b152f5995e2c410049e1309a40fa60}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the description of this transaction. 
+
+\begin{DoxyReturn}{Returns}
+transaction description 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{251                                    \{}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}};}
+\DoxyCodeLine{253     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a43eaefd1645308d1d7ed008478970917}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a43eaefd1645308d1d7ed008478970917}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getId@{getId}}
+\index{getId@{getId}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique ID for this Journal entry. 
+
+\begin{DoxyReturn}{Returns}
+unique entry ID 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                         \{}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}};}
+\DoxyCodeLine{112     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a43eaefd1645308d1d7ed008478970917}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a43eaefd1645308d1d7ed008478970917}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getId@{getId}}
+\index{getId@{getId}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique identification number for this journal model. 
+
+\begin{DoxyReturn}{Returns}
+the unique ID 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{158                         \{}
+\DoxyCodeLine{159         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}};}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14f76af49ea89e35526c91ec0691e801}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14f76af49ea89e35526c91ec0691e801}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getIdAsString@{getIdAsString}}
+\index{getIdAsString@{getIdAsString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getIdAsString()}{getIdAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Id\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique ID for this Journal entry as a {\ttfamily java.\+lang.\+String} value to use within a textual context. 
+
+\begin{DoxyReturn}{Returns}
+the unique entry ID for textual contexts 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120                                   \{}
+\DoxyCodeLine{121         \textcolor{keywordflow}{return} String.valueOf(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{122     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14f76af49ea89e35526c91ec0691e801}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a14f76af49ea89e35526c91ec0691e801}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getIdAsString@{getIdAsString}}
+\index{getIdAsString@{getIdAsString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getIdAsString()}{getIdAsString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Id\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Convenience method for getting the unique ID as a {\ttfamily java.\+lang.\+String} for display in a text context. 
+
+\begin{DoxyReturn}{Returns}
+the unique ID converted to a {\ttfamily java.\+lang.\+String} object 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{168                                   \{}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} String.valueOf(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{170     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getJournal@{getJournal}}
+\index{getJournal@{getJournal}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getJournal()}{getJournal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Journal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves this Journal\textquotesingle{}s file path and name as a {\ttfamily java.\+lang.\+String} value. 
+
+\begin{DoxyReturn}{Returns}
+journal\textquotesingle{}s path and file name 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                \{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} Starter.props.getDataFolder() + this.accountNumber + \textcolor{stringliteral}{".jrnl"};}
+\DoxyCodeLine{94     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getJournal@{getJournal}}
+\index{getJournal@{getJournal}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getJournal()}{getJournal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Journal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the Journal file path and name for this expense account. 
+
+\begin{DoxyReturn}{Returns}
+the journal file path and name 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{149                                \{}
+\DoxyCodeLine{150         \textcolor{keywordflow}{return} Starter.props.getDataFolder() + accountNumber + \textcolor{stringliteral}{".jrnl"};}
+\DoxyCodeLine{151     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a680123dd20b38bc3b8b9d75ba530f1bb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a680123dd20b38bc3b8b9d75ba530f1bb}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!getJournalFile@{getJournalFile}}
+\index{getJournalFile@{getJournalFile}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{getJournalFile()}{getJournalFile()}}
+{\footnotesize\ttfamily File com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+get\+Journal\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the Journal file from this instance. 
+
+\begin{DoxyReturn}{Returns}
+the Journal file 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101                                  \{}
+\DoxyCodeLine{102         \textcolor{keywordflow}{return} \textcolor{keyword}{new} File(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a7c612ac40c045c5f9dc3716ebc1bfc2b}{getJournal}}());}
+\DoxyCodeLine{103     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aca0b9d8f950a8909859e61c6f8fd6cd0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aca0b9d8f950a8909859e61c6f8fd6cd0}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!isPosted@{isPosted}}
+\index{isPosted@{isPosted}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{isPosted()}{isPosted()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+is\+Posted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines if this record has been posted to the General Ledger or not. 
+
+All summary financial information, as well as financial reports, are only pulled from the General Ledger, so it behooves the user to post all Journal transactions to the General Ledger as soon as possible after the entry has been made in the Account Journal.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if transaction posted to the GL, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                               \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}};}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aca0b9d8f950a8909859e61c6f8fd6cd0}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aca0b9d8f950a8909859e61c6f8fd6cd0}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!isPosted@{isPosted}}
+\index{isPosted@{isPosted}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{isPosted()}{isPosted()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+is\+Posted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines whether or not this Journal entry has been posted to the General Ledger of the accounting system. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if already posted to the General Ledger, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{272                               \{}
+\DoxyCodeLine{273         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}};}
+\DoxyCodeLine{274     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a62f8dc59bb1aee4d86a2f325f20a5e35}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a62f8dc59bb1aee4d86a2f325f20a5e35}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Set the amount amount of this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & the amount withdrawn \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 205 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205                                          \{}
+\DoxyCodeLine{206         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}};}
+\DoxyCodeLine{207     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a62f8dc59bb1aee4d86a2f325f20a5e35}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a62f8dc59bb1aee4d86a2f325f20a5e35}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Amount (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the financial amount of this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & the amount of the transaction \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 242 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{242                                          \{}
+\DoxyCodeLine{243         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}{amount}};}
+\DoxyCodeLine{244     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a211c864aaf44743b3cb06701968a4050}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a211c864aaf44743b3cb06701968a4050}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the date for this Journal entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the entry date \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{182                                    \{}
+\DoxyCodeLine{183         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}};}
+\DoxyCodeLine{184     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a211c864aaf44743b3cb06701968a4050}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a211c864aaf44743b3cb06701968a4050}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDate@{setDate}}
+\index{setDate@{setDate}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Date (\begin{DoxyParamCaption}\item[{Date}]{date }\end{DoxyParamCaption})}
+
+
+
+Sets the date of this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the transaction date. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 309 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{309                                    \{}
+\DoxyCodeLine{310         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}};}
+\DoxyCodeLine{311     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDateFromString@{setDateFromString}}
+\index{setDateFromString@{setDateFromString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDateFromString()}{setDateFromString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Date\+From\+String (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the date for this Journal entry from a {\ttfamily java.\+lang.\+String} value. 
+
+This method allows for easier setting of the date from a textual context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the entry date \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event the provided date string is invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 193 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{193                                                                      \{}
+\DoxyCodeLine{194         sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{195         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}} = sdf.parse(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{196     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDateFromString@{setDateFromString}}
+\index{setDateFromString@{setDateFromString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDateFromString()}{setDateFromString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Date\+From\+String (\begin{DoxyParamCaption}\item[{String}]{date }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1ValidationException}{Validation\+Exception}}}
+
+
+
+Convenience method to allow you to set the date for this transaction from a {\ttfamily java.\+lang.\+String} value. 
+
+This default version of {\ttfamily set\+Date\+From\+String} uses the format \char`\"{}\+M\+M/dd/yyyy\char`\"{} as the format of the date. If you have a custom date format you need to use, call the overridden method {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}{set\+Date\+From\+String(\+String date, String format)}}} and provide your custom date format string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the date of this transaction as a {\ttfamily java.\+lang.\+String} object \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Validation\+Exception} & in the event the date is not valid and parsable \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 325 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{325                                                                           \{}
+\DoxyCodeLine{326         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a681a5fe9703cef105826d1fa6015d690}{setDateFromString}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}, \textcolor{stringliteral}{"MM/dd/yyyy"});}
+\DoxyCodeLine{327     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDateFromString@{setDateFromString}}
+\index{setDateFromString@{setDateFromString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDateFromString()}{setDateFromString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Date\+From\+String (\begin{DoxyParamCaption}\item[{String}]{date,  }\item[{String}]{format }\end{DoxyParamCaption}) throws Parse\+Exception}
+
+
+
+Sets the date for this Journal entry from a custom-\/formatted {\ttfamily java.\+lang.\+String} date value using the custom format provided. 
+
+This method allows for easier setting of a custom formatted date from a textual context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the entry date \\
+\hline
+{\em format} & the custom format used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Parse\+Exception} & in the event either the custom format or date value are invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 209 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{210                                   \{}
+\DoxyCodeLine{211         sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{212         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}} = sdf.parse(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{213     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a73e63717a77bdc08696e8603d48893da}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDateFromString@{setDateFromString}}
+\index{setDateFromString@{setDateFromString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDateFromString()}{setDateFromString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Date\+From\+String (\begin{DoxyParamCaption}\item[{String}]{date,  }\item[{String}]{format }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1err_1_1ValidationException}{Validation\+Exception}}}
+
+
+
+Convenience method to allow you to set the date for this transaction from a {\ttfamily java.\+lang.\+String} value. 
+
+This overridden method of {\ttfamily set\+Date\+From\+String} requires a custom format string to be provided. If you only need the date string formatted as \char`\"{}\+M\+M/dd/yyyy\char`\"{}, call the default method that does not require a formatting string to be provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the date of this transaction as a {\ttfamily java.\+lang.\+String} object \\
+\hline
+{\em format} & the custom format string to use, i.\+e., "M\+MM dd, yyyy\`{} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Validation\+Exception} & in the event the date or format string are not valid, causing the date to not parse. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 341 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{342                                 \{}
+\DoxyCodeLine{343         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{344             SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(format);}
+\DoxyCodeLine{345             this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}} = sdf.parse(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}});}
+\DoxyCodeLine{346         \} \textcolor{keywordflow}{catch} ( ParseException ex ) \{}
+\DoxyCodeLine{347             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ValidationException(\textcolor{stringliteral}{"Provided date ("} + \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}{date}}}
+\DoxyCodeLine{348                     + \textcolor{stringliteral}{") is not valid with the provided format ("} }
+\DoxyCodeLine{349                     + format + \textcolor{stringliteral}{"). Checking Account transaction date not set."},}
+\DoxyCodeLine{350                     ex);}
+\DoxyCodeLine{351         \}}
+\DoxyCodeLine{352     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a674cd542ea3473ddc7507d9090112dde}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a674cd542ea3473ddc7507d9090112dde}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the description for this transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & the transaction description \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131                                                    \{}
+\DoxyCodeLine{132         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}};}
+\DoxyCodeLine{133     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a674cd542ea3473ddc7507d9090112dde}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a674cd542ea3473ddc7507d9090112dde}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the description for this transaction. 
+
+Since Journals are the history of an account, the more detailed this information is, the better for the history of the Journal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & transaction description \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 262 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{262                                                    \{}
+\DoxyCodeLine{263         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}{description}};}
+\DoxyCodeLine{264     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a78e479e5ea3ff64cf6842713aea67359}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a78e479e5ea3ff64cf6842713aea67359}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setId@{setId}}
+\index{setId@{setId}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Id (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the unique entry ID for this Journal entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique entry ID \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{129                                \{}
+\DoxyCodeLine{130         this.\textcolor{keywordtype}{id} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}};}
+\DoxyCodeLine{131     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a78e479e5ea3ff64cf6842713aea67359}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a78e479e5ea3ff64cf6842713aea67359}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setId@{setId}}
+\index{setId@{setId}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Id (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the unique identification number for this journal model. 
+
+
+\begin{DoxyDescription}
+\item[Developer\textquotesingle{}s Note]The {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction}{Base\+Transaction}}} class generates a unique identification number for each new instance. Therefore, this setter is only here to allows programs to read in existing {\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction}{Base\+Transaction}}} data from a data file on disk. Having said that, of course the default unique ID may be overriden, but caution needs to be taken in doing so, as the built-\/in unique ID generator guarantees there will never be a repeated ID number.
+\end{DoxyDescription}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique ID to use \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 247 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{247                                \{}
+\DoxyCodeLine{248         this.\textcolor{keywordtype}{id} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}{id}};}
+\DoxyCodeLine{249     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a920f2d627ddfbe2db1ba9336bb5cd4ff}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a920f2d627ddfbe2db1ba9336bb5cd4ff}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setIdFromString@{setIdFromString}}
+\index{setIdFromString@{setIdFromString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setIdFromString()}{setIdFromString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Id\+From\+String (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the unique entry ID for this Journal entry from a {\ttfamily java.\+lang.\+String} as a convenience when the ID is received from a textual context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique entry ID \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                                            \{}
+\DoxyCodeLine{140         this.\textcolor{keywordtype}{id} = Long.valueOf(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{141     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a920f2d627ddfbe2db1ba9336bb5cd4ff}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a920f2d627ddfbe2db1ba9336bb5cd4ff}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setIdFromString@{setIdFromString}}
+\index{setIdFromString@{setIdFromString}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setIdFromString()}{setIdFromString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Id\+From\+String (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption}) throws Number\+Format\+Exception}
+
+
+
+Convenience method to allow setting the unique ID from a {\ttfamily java.\+lang.\+String} object so that the ID can be set from a textual context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique ID as a {\ttfamily java.\+lang.\+String} object \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Number\+Format\+Exception} & if the string does not contain a parsable long. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 260 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{260                                                                         \{}
+\DoxyCodeLine{261         this.\textcolor{keywordtype}{id} = Long.parseLong(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{262     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ad1d6069c2b3d7519eab7c2da961166be}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ad1d6069c2b3d7519eab7c2da961166be}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setPosted@{setPosted}}
+\index{setPosted@{setPosted}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setPosted()}{setPosted()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Posted (\begin{DoxyParamCaption}\item[{boolean}]{posted }\end{DoxyParamCaption})}
+
+
+
+Sets the flag that this record has been posted to the General Ledger. 
+
+This flag should only be set once the data has actually been posted from the Account Journal to the General Ledger.
+
+
+\begin{DoxyParams}{Parameters}
+{\em posted} & {\ttfamily true} once posted to the GL, {\ttfamily false} when the record is created and until it is posted to the GL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 230 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{230                                           \{}
+\DoxyCodeLine{231         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}};}
+\DoxyCodeLine{232     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ad1d6069c2b3d7519eab7c2da961166be}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_ad1d6069c2b3d7519eab7c2da961166be}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!setPosted@{setPosted}}
+\index{setPosted@{setPosted}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{setPosted()}{setPosted()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+set\+Posted (\begin{DoxyParamCaption}\item[{boolean}]{posted }\end{DoxyParamCaption})}
+
+
+
+Sets the flag for whether or not this Journal entry has been posted to the General Ledger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posted} & {\ttfamily true} when posted to the General Ledger \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 282 of file Base\+Transaction.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{282                                           \{}
+\DoxyCodeLine{283         this.\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}{posted}};}
+\DoxyCodeLine{284     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a6415cbbbbdef0c698c0638791b3a4351}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!amount@{amount}}
+\index{amount@{amount}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{amount}{amount}}
+{\footnotesize\ttfamily double com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+amount\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The financial amount of the transaction. 
+
+
+
+Definition at line 78 of file Base\+Transaction.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa47dbe77499cb8c812be28d8ce766bbb}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!date@{date}}
+\index{date@{date}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{date}{date}}
+{\footnotesize\ttfamily Date com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+date\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Date of the transaction. 
+
+
+
+Definition at line 74 of file Base\+Transaction.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a766d91b9ea05fe9d167e5fe8d254274b}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!description@{description}}
+\index{description@{description}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+description\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+A description of the transaction. 
+
+
+
+Definition at line 76 of file Base\+Transaction.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_a12080574db6582e347583600e15f48de}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!id@{id}}
+\index{id@{id}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Unique identification number for the transaction. 
+
+
+
+Definition at line 72 of file Base\+Transaction.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction_aa7f57bd74aefde7e9c7519ff3e1bdfde}} 
+\index{com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}!posted@{posted}}
+\index{posted@{posted}!com.pekinsoft.loadmaster.api.BaseTransaction@{com.pekinsoft.loadmaster.api.BaseTransaction}}
+\doxysubsubsection{\texorpdfstring{posted}{posted}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+api.\+Base\+Transaction.\+posted\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Flag to determine whether or not the transaction has been posted to the General Ledger. 
+
+
+
+Definition at line 81 of file Base\+Transaction.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/api/\mbox{\hyperlink{Forked_2LoadMaster__broken_2Load_01Master_2src_2com_2pekinsoft_2loadmaster_2api_2BaseTransaction_8java}{Base\+Transaction.\+java}}\end{DoxyCompactItemize}

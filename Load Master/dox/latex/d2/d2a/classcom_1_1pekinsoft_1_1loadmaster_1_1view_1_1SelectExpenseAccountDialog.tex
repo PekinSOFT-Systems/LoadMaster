@@ -1,0 +1,187 @@
+\hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog}{}\doxysection{com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog Class Reference}
+\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog}\index{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d7/d6e/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d1/df7/classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{Select\+Expense\+Account\+Dialog}} (java.\+awt.\+Frame parent, boolean modal)
+\begin{DoxyCompactList}\small\item\em Creates new form Select\+Expense\+Type\+Dialog. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a8c6e9228f1709f1f4ad60569af074bae}{is\+Cancelled}} ()
+\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a32219fef84475b5a971df81a7fc066b4}{get\+Account\+Number}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_ac75a292e7c364a47e78573e76b1d6e61}{main}} (String args\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick $<$sean at pekinsoft dot com$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 45 of file Select\+Expense\+Account\+Dialog.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}} 
+\index{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}!SelectExpenseAccountDialog@{SelectExpenseAccountDialog}}
+\index{SelectExpenseAccountDialog@{SelectExpenseAccountDialog}!com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}}
+\doxysubsubsection{\texorpdfstring{SelectExpenseAccountDialog()}{SelectExpenseAccountDialog()}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog.\+Select\+Expense\+Account\+Dialog (\begin{DoxyParamCaption}\item[{java.\+awt.\+Frame}]{parent,  }\item[{boolean}]{modal }\end{DoxyParamCaption})}
+
+
+
+Creates new form Select\+Expense\+Type\+Dialog. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+{\em modal} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Select\+Expense\+Account\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                                                             \{}
+\DoxyCodeLine{59         super(parent, modal);}
+\DoxyCodeLine{60         }
+\DoxyCodeLine{61         loading = \textcolor{keyword}{true};}
+\DoxyCodeLine{62         initComponents();}
+\DoxyCodeLine{63         }
+\DoxyCodeLine{64         super.getRootPane().setDefaultButton(selectButton);}
+\DoxyCodeLine{65         }
+\DoxyCodeLine{66         super.setLocation(ScreenUtils.centerDialog(\textcolor{keyword}{this}));}
+\DoxyCodeLine{67         }
+\DoxyCodeLine{68         loadAccounts();}
+\DoxyCodeLine{69         loading = \textcolor{keyword}{false};}
+\DoxyCodeLine{70     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a32219fef84475b5a971df81a7fc066b4}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a32219fef84475b5a971df81a7fc066b4}} 
+\index{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}!getAccountNumber@{getAccountNumber}}
+\index{getAccountNumber@{getAccountNumber}!com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}}
+\doxysubsubsection{\texorpdfstring{getAccountNumber()}{getAccountNumber()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog.\+get\+Account\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file Select\+Expense\+Account\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                                   \{}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} accountNumber;}
+\DoxyCodeLine{78     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a8c6e9228f1709f1f4ad60569af074bae}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a8c6e9228f1709f1f4ad60569af074bae}} 
+\index{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}!isCancelled@{isCancelled}}
+\index{isCancelled@{isCancelled}!com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}}
+\doxysubsubsection{\texorpdfstring{isCancelled()}{isCancelled()}}
+{\footnotesize\ttfamily boolean com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog.\+is\+Cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file Select\+Expense\+Account\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                                  \{}
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} cancelled;}
+\DoxyCodeLine{74     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_ac75a292e7c364a47e78573e76b1d6e61}\label{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_ac75a292e7c364a47e78573e76b1d6e61}} 
+\index{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}!main@{main}}
+\index{main@{main}!com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog@{com.pekinsoft.loadmaster.view.SelectExpenseAccountDialog}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void com.\+pekinsoft.\+loadmaster.\+view.\+Select\+Expense\+Account\+Dialog.\+main (\begin{DoxyParamCaption}\item[{String}]{args\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the command line arguments \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 235 of file Select\+Expense\+Account\+Dialog.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{235                                            \{}
+\DoxyCodeLine{236         \textcolor{comment}{/* Set the Nimbus look and feel */}}
+\DoxyCodeLine{237         \textcolor{comment}{//<editor-\/fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">}}
+\DoxyCodeLine{238         \textcolor{comment}{/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.}}
+\DoxyCodeLine{239 \textcolor{comment}{         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html }}
+\DoxyCodeLine{240 \textcolor{comment}{         */}}
+\DoxyCodeLine{241         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{242             \textcolor{keywordflow}{for} (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) \{}
+\DoxyCodeLine{243                 \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"Nimbus"}.equals(info.getName())) \{}
+\DoxyCodeLine{244                     javax.swing.UIManager.setLookAndFeel(info.getClassName());}
+\DoxyCodeLine{245                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{246                 \}}
+\DoxyCodeLine{247             \}}
+\DoxyCodeLine{248         \} \textcolor{keywordflow}{catch} (ClassNotFoundException ex) \{}
+\DoxyCodeLine{249             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{SelectExpenseAccountDialog}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{250         \} \textcolor{keywordflow}{catch} (InstantiationException ex) \{}
+\DoxyCodeLine{251             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{SelectExpenseAccountDialog}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{252         \} \textcolor{keywordflow}{catch} (IllegalAccessException ex) \{}
+\DoxyCodeLine{253             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{SelectExpenseAccountDialog}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{254         \} \textcolor{keywordflow}{catch} (javax.swing.UnsupportedLookAndFeelException ex) \{}
+\DoxyCodeLine{255             java.util.logging.Logger.getLogger(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{SelectExpenseAccountDialog}}.class.getName()).log(java.util.logging.Level.SEVERE, \textcolor{keyword}{null}, ex);}
+\DoxyCodeLine{256         \}}
+\DoxyCodeLine{257         \textcolor{comment}{//</editor-\/fold>}}
+\DoxyCodeLine{258         \textcolor{comment}{//</editor-\/fold>}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260         \textcolor{comment}{/* Create and display the dialog */}}
+\DoxyCodeLine{261         java.awt.EventQueue.invokeLater(\textcolor{keyword}{new} Runnable() \{}
+\DoxyCodeLine{262             \textcolor{keyword}{public} \textcolor{keywordtype}{void} run() \{}
+\DoxyCodeLine{263                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{SelectExpenseAccountDialog}} dialog = \textcolor{keyword}{new} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1loadmaster_1_1view_1_1SelectExpenseAccountDialog_a507869fc63f0973128f1043511b69ef7}{SelectExpenseAccountDialog}}(\textcolor{keyword}{new} javax.swing.JFrame(), \textcolor{keyword}{true});}
+\DoxyCodeLine{264                 dialog.addWindowListener(\textcolor{keyword}{new} java.awt.event.WindowAdapter() \{}
+\DoxyCodeLine{265                     @Override}
+\DoxyCodeLine{266                     public void windowClosing(java.awt.event.WindowEvent e) \{}
+\DoxyCodeLine{267                         System.exit(0);}
+\DoxyCodeLine{268                     \}}
+\DoxyCodeLine{269                 \});}
+\DoxyCodeLine{270                 dialog.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{271             \}}
+\DoxyCodeLine{272         \});}
+\DoxyCodeLine{273     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Forked/\+Load\+Master\+\_\+broken/\+Load Master/src/com/pekinsoft/loadmaster/view/\mbox{\hyperlink{SelectExpenseAccountDialog_8java}{Select\+Expense\+Account\+Dialog.\+java}}\end{DoxyCompactItemize}

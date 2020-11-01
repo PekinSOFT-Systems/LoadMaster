@@ -1,0 +1,4 @@
+<map id="com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction" name="com.pekinsoft.loadmaster.transactions.CheckingAccountTransaction">
+<area shape="rect" id="node1" title="CheckingModel represents the user&#39;s checking account." alt="" coords="5,95,284,136"/>
+<area shape="rect" id="node2" href="$dc/d82/classcom_1_1pekinsoft_1_1loadmaster_1_1api_1_1BaseTransaction.html" title=" " alt="" coords="35,5,254,47"/>
+</map>

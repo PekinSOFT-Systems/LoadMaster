@@ -1,0 +1,5 @@
+<map id="com.pekinsoft.loadmaster.view.LoadMaster" name="com.pekinsoft.loadmaster.view.LoadMaster">
+<area shape="rect" id="node1" title=" " alt="" coords="17,109,247,151"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,72,39"/>
+<area shape="rect" id="node3" href="$dc/d02/classcom_1_1pekinsoft_1_1loadmaster_1_1controller_1_1EntryCtl.html" title="The EntryCtl class provides the system interoperability for the General Ledger of the Load Master acc..." alt="" coords="97,5,357,47"/>
+</map>

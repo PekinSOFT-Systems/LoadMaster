@@ -1,0 +1,1401 @@
+\hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile}{}\doxysection{com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File Class Reference}
+\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile}\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+
+
+Inheritance diagram for com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{db/dde/classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract Enumeration \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2208ae2ab63523976b351d5c3cf91982}{enumerate\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Returns an Enumeration of the keys of all records in the database. \end{DoxyCompactList}\item 
+abstract int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{get\+Num\+Records}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of records in the database. \end{DoxyCompactList}\item 
+abstract boolean \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab75a40a6186f13e782cfad503aff267}{record\+Exists}} (String key)
+\begin{DoxyCompactList}\small\item\em Check there is a record with the given key. \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aad7bb652bd7cc44627fc69641842a3ea}{insert\+Record}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}} rw)  throws I\+O\+Exception,                                                           Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Adds a new record to the database. \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a987056cc95a8ceb57bcf70669c4fa5c8}{quick\+Insert}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}} rw)  throws I\+O\+Exception,                                                          Records\+File\+Exception 
+\item 
+synchronized void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1aa6a7b0bc9102670003083500d131ba}{update\+Record}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}} rw)  throws I\+O\+Exception,                                                           Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Updates an existing record. \end{DoxyCompactList}\item 
+synchronized \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader}{Record\+Reader}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7d552f4de0e579e897f3ba9d1ea7a7e7}{read\+Record}} (String key)  throws I\+O\+Exception,                                                           Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the requested record from the database. \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a4973b2852a17a8a9258110801f20a4d4}{delete\+Record}} (String key)  throws I\+O\+Exception,                                                           Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Deletes a record from the database. \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_af63968f0f8f0611e2fc3a9f3e2d003ca}{close}} ()  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Closes the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a13c42b65cf0e0225d9421893b3f5ed8e}{Base\+Records\+File}} (String db\+Path, int initial\+Size)  throws I\+O\+Exception,                                 Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Creates a new database file, initializing the appropriate headers.\+Enough space is allocated in the index for the specified file size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aef00b4532ce70945396f6744a9c05eb4}{Base\+Records\+File}} (String db\+Path, String access\+Flags)  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Opens an existing database file and initializes the data\+Start\+Ptr. \end{DoxyCompactList}\item 
+abstract \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}{key\+To\+Record\+Header}} (String key)  throws Records\+File\+Exception
+\begin{DoxyCompactList}\small\item\em Maps a key to a record header. \end{DoxyCompactList}\item 
+abstract \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adac1006de15770fb641d67dfbc4ae358}{allocate\+Record}} (String key, int data\+Length)  throws I\+O\+Exception, Records\+File\+Exception
+\begin{DoxyCompactList}\small\item\em Locates space for a new record of. \end{DoxyCompactList}\item 
+abstract \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}{get\+Record\+At}} (long target\+Fp)  throws Records\+File\+Exception
+\begin{DoxyCompactList}\small\item\em Returns the record to which the target file pointer belongs --- meaning the specified location in the file is part of the record data of the. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}{get\+File\+Length}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Gets the length of the file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}{set\+File\+Length}} (long len)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Sets the file to the length provided. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aa27df5a9d2f87983a86dc3a354c17c84}{read\+Num\+Records\+Header}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Retrieves the number of records in the database file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a8dc38e08b2501a7e025c119213d1ceaf}{write\+Num\+Records\+Header}} (int num\+Records)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Stores the number of records to the database file. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a12345911edbe59cc1d7fafef6d06618c}{read\+Data\+Start\+Header}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the data start pointer header from the file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2d6e5e3597793b2c624e80c3330190e0}{write\+Data\+Start\+Ptr\+Header}} (long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{data\+Start\+Ptr}})  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the data start pointer header to the file. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}{index\+Position\+To\+Key\+Fp}} (int pos)
+\begin{DoxyCompactList}\small\item\em Returns a file pointer in the index pointing to the first byte in the key located at the given index position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}{write\+Record\+Header\+To\+Index}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} header)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Writes the ith record header to the index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1cbe386e2ca822cd2e772e3676b4fc41}{add\+Entry\+To\+Index}} (String key, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} new\+Record, int current\+Num\+Records)  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Appends an entry to the end of the index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7cbd73864dee646462d2f86996c20d11}{delete\+Entry\+From\+Index}} (String key, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} header, int current\+Num\+Records)  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Removes the record from the index. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}{read\+Record\+Data}} (String key)  throws I\+O\+Exception,                                                        Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the data for the requested record from the database. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab7412b3d054453c8062650e6830818b8}{read\+Record\+Data}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} header)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the data for the requested record from the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}{write\+Record\+Data}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} header, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}} rw)  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Updates the contents of the given record.\+A. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a30930aebabcfa8e8e86d708ce7c205c9}{write\+Record\+Data}} (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} header, byte\mbox{[}$\,$\mbox{]} data)  throws I\+O\+Exception, Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Updates the contents of the given record. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1894e5675a82f4596becbd1f20daf4ef}{insure\+Index\+Space}} (int required\+Num\+Records)  throws I\+O\+Exception,                                                         Records\+File\+Exception 
+\begin{DoxyCompactList}\small\item\em Checks to see if there is space for an additional index entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{data\+Start\+Ptr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a751effbde1eb57ccedb72128015d3800}{F\+I\+L\+E\+\_\+\+H\+E\+A\+D\+E\+R\+S\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+L\+E\+N\+G\+TH}} = 16
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a62d468e68d48a20b19d6d5d485e1a11c}{R\+E\+C\+O\+R\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH}} = 16
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}{M\+A\+X\+\_\+\+K\+E\+Y\+\_\+\+L\+E\+N\+G\+TH}} = 64
+\item 
+static final int \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ade7fe1c3bb4e0fdce32fd27166f8dd1e}{I\+N\+D\+E\+X\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+E\+N\+G\+TH}}
+\item 
+static final long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab6466e9986a4e1576346f849f63286c7}{N\+U\+M\+\_\+\+R\+E\+C\+O\+R\+D\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+O\+C\+A\+T\+I\+ON}} = 0
+\item 
+static final long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab620cb523a614b3e50052d35d53ef49}{D\+A\+T\+A\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+O\+C\+A\+T\+I\+ON}} = 4
+\end{DoxyCompactItemize}
+\doxysubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}{index\+Position\+To\+Record\+Header\+Fp}} (int pos)
+\begin{DoxyCompactList}\small\item\em Returns a file pointer in the index pointing to the first byte in the record pointer located at the given index position. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_acceb1273d504bab30e58c0a88c596f07}{read\+Key\+From\+Index}} (int position)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the ith key from the index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aec816da41751fe784202a4f342fa9a59}{read\+Record\+Header\+From\+Index}} (int position)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Reads the ith record header from the index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sean Carrick 
+\end{DoxyAuthor}
+
+
+Definition at line 31 of file Base\+Records\+File.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a13c42b65cf0e0225d9421893b3f5ed8e}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a13c42b65cf0e0225d9421893b3f5ed8e}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!BaseRecordsFile@{BaseRecordsFile}}
+\index{BaseRecordsFile@{BaseRecordsFile}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{BaseRecordsFile()}{BaseRecordsFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+Base\+Records\+File (\begin{DoxyParamCaption}\item[{String}]{db\+Path,  }\item[{int}]{initial\+Size }\end{DoxyParamCaption}) throws I\+O\+Exception,                                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a new database file, initializing the appropriate headers.\+Enough space is allocated in the index for the specified file size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Path} & The path to the database file you wish to create. \\
+\hline
+{\em initial\+Size} & The initial size of the database file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em java.\+io.\+I\+O\+Exception} & In the event of an Input/\+Output error. \\
+\hline
+{\em \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{com.\+pekinsoft.\+rafdb.\+exceptions.\+Records\+File\+Exception}}} & In the event of an error with the database file itself. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 69 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74                                                      \{}
+\DoxyCodeLine{75         \textcolor{comment}{// Create the file that we are going to use.}}
+\DoxyCodeLine{76         File f = \textcolor{keyword}{new} File(dbPath);}
+\DoxyCodeLine{77         }
+\DoxyCodeLine{78         \textcolor{comment}{// Test whether the file already exists.}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{if} ( f.exists() )}
+\DoxyCodeLine{80             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Database already exists: "} + dbPath);}
+\DoxyCodeLine{81         }
+\DoxyCodeLine{82         file = \textcolor{keyword}{new} RandomAccessFile(f, \textcolor{stringliteral}{"rw"});}
+\DoxyCodeLine{83         }
+\DoxyCodeLine{84         \textcolor{comment}{// Record Data Region starts where the (i=1)th index entry would start.}}
+\DoxyCodeLine{85         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}{indexPositionToKeyFp}}(initialSize);}
+\DoxyCodeLine{86         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}{setFileLength}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}});}
+\DoxyCodeLine{87         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a8dc38e08b2501a7e025c119213d1ceaf}{writeNumRecordsHeader}}(0);}
+\DoxyCodeLine{88         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2d6e5e3597793b2c624e80c3330190e0}{writeDataStartPtrHeader}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}});}
+\DoxyCodeLine{89     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aef00b4532ce70945396f6744a9c05eb4}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aef00b4532ce70945396f6744a9c05eb4}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!BaseRecordsFile@{BaseRecordsFile}}
+\index{BaseRecordsFile@{BaseRecordsFile}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{BaseRecordsFile()}{BaseRecordsFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+Base\+Records\+File (\begin{DoxyParamCaption}\item[{String}]{db\+Path,  }\item[{String}]{access\+Flags }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Opens an existing database file and initializes the data\+Start\+Ptr. 
+
+The 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{accessFlags }
+\end{DoxyCode}
+ parameter can be \char`\"{}r\char`\"{} or \char`\"{}rw\char`\"{} --- as defined in 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RandomAccessFile }
+\end{DoxyCode}
+ .
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Path} & The path to the database file you wish to open. \\
+\hline
+{\em access\+Flags} & Determines whether database file is opened in read-\/only or read/write mode. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event of an Input/\+Output error. \\
+\hline
+{\em Records\+File\+Exception} & In the event of an error with the database file itself. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 103 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104                                                                   \{}
+\DoxyCodeLine{105         \textcolor{comment}{// Create the file that we are going to use.}}
+\DoxyCodeLine{106         File f = \textcolor{keyword}{new} File(dbPath);}
+\DoxyCodeLine{107         }
+\DoxyCodeLine{108         \textcolor{comment}{// Test whether the file already exists.}}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} ( !f.exists() )}
+\DoxyCodeLine{110             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Database not found: "} + dbPath);}
+\DoxyCodeLine{111         }
+\DoxyCodeLine{112         file = \textcolor{keyword}{new} RandomAccessFile(f, accessFlags);}
+\DoxyCodeLine{113         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}} = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a12345911edbe59cc1d7fafef6d06618c}{readDataStartHeader}}();}
+\DoxyCodeLine{114     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1cbe386e2ca822cd2e772e3676b4fc41}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1cbe386e2ca822cd2e772e3676b4fc41}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!addEntryToIndex@{addEntryToIndex}}
+\index{addEntryToIndex@{addEntryToIndex}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{addEntryToIndex()}{addEntryToIndex()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+add\+Entry\+To\+Index (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{new\+Record,  }\item[{int}]{current\+Num\+Records }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Appends an entry to the end of the index. 
+
+Assumes that 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1894e5675a82f4596becbd1f20daf4ef}{insureIndexSpace}}() }
+\end{DoxyCode}
+ has already been called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the index to append. \\
+\hline
+{\em new\+Record} & The new record header to append to the index. \\
+\hline
+{\em current\+Num\+Records} & The current number of records in the database. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a52448e42465cc1e200fe9c509c0dee1c}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+
+
+Definition at line 309 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{311                                                                      \{}
+\DoxyCodeLine{312         DbByteArrayOutputStream temp = \textcolor{keyword}{new} DbByteArrayOutputStream(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}{MAX\_KEY\_LENGTH}});}
+\DoxyCodeLine{313         (\textcolor{keyword}{new} DataOutputStream(temp)).writeUTF(key);}
+\DoxyCodeLine{314         }
+\DoxyCodeLine{315         \textcolor{keywordflow}{if} ( temp.size() > \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}{MAX\_KEY\_LENGTH}} )}
+\DoxyCodeLine{316             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Key is larger than permitted "} + }
+\DoxyCodeLine{317                                         \textcolor{stringliteral}{"size of "} + \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}{MAX\_KEY\_LENGTH}} + \textcolor{stringliteral}{" bytes"});}
+\DoxyCodeLine{318         }
+\DoxyCodeLine{319         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}{indexPositionToKeyFp}}(currentNumRecords));}
+\DoxyCodeLine{320         temp.writeTo(file);}
+\DoxyCodeLine{321         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}{indexPositionToRecordHeaderFp}}(currentNumRecords));}
+\DoxyCodeLine{322         newRecord.write(file);}
+\DoxyCodeLine{323         newRecord.setIndexPosition(currentNumRecords);}
+\DoxyCodeLine{324         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a8dc38e08b2501a7e025c119213d1ceaf}{writeNumRecordsHeader}}(currentNumRecords + 1);}
+\DoxyCodeLine{325     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adac1006de15770fb641d67dfbc4ae358}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adac1006de15770fb641d67dfbc4ae358}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!allocateRecord@{allocateRecord}}
+\index{allocateRecord@{allocateRecord}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{allocateRecord()}{allocateRecord()}}
+{\footnotesize\ttfamily abstract \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+allocate\+Record (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{int}]{data\+Length }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+
+
+Locates space for a new record of. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{dataLength }
+\end{DoxyCode}
+ size and initializes a
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordHeader }
+\end{DoxyCode}
+ .
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the record. \\
+\hline
+{\em data\+Length} & The length of the data record. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event of a database error. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a291190bd89064962b88610a7757e870a}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_af63968f0f8f0611e2fc3a9f3e2d003ca}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_af63968f0f8f0611e2fc3a9f3e2d003ca}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!close@{close}}
+\index{close@{close}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily synchronized void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Closes the file. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a4689069a28a576c6838097f704d2c0ae}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+
+
+Definition at line 585 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{585                                                                               \{}
+\DoxyCodeLine{586         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{587             file.close();}
+\DoxyCodeLine{588         \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{589             file = \textcolor{keyword}{null};}
+\DoxyCodeLine{590         \}}
+\DoxyCodeLine{591     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7cbd73864dee646462d2f86996c20d11}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7cbd73864dee646462d2f86996c20d11}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!deleteEntryFromIndex@{deleteEntryFromIndex}}
+\index{deleteEntryFromIndex@{deleteEntryFromIndex}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{deleteEntryFromIndex()}{deleteEntryFromIndex()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+delete\+Entry\+From\+Index (\begin{DoxyParamCaption}\item[{String}]{key,  }\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{header,  }\item[{int}]{current\+Num\+Records }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Removes the record from the index. 
+
+Replaces the target with the entry at the end of the index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the index to remove. \\
+\hline
+{\em header} & The record header to remove. \\
+\hline
+{\em current\+Num\+Records} & The current number of records in the database. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event of a database error. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ace8c4853a451de0f03d02b73356ddd7e}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+
+
+Definition at line 337 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{339                                                                           \{}
+\DoxyCodeLine{340         \textcolor{keywordflow}{if} ( header.indexPosition != currentNumRecords -\/ 1 ) \{}
+\DoxyCodeLine{341             String lastKey = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_acceb1273d504bab30e58c0a88c596f07}{readKeyFromIndex}}(currentNumRecords -\/ 1);}
+\DoxyCodeLine{342             RecordHeader last = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}{keyToRecordHeader}}(lastKey);}
+\DoxyCodeLine{343             last.setIndexPosition(header.indexPosition);}
+\DoxyCodeLine{344             file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}{indexPositionToKeyFp}}(last.indexPosition));}
+\DoxyCodeLine{345             file.writeUTF(lastKey);}
+\DoxyCodeLine{346             file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}{indexPositionToRecordHeaderFp}}(last.indexPosition));}
+\DoxyCodeLine{347             last.write(file);}
+\DoxyCodeLine{348         \}}
+\DoxyCodeLine{349         }
+\DoxyCodeLine{350         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a8dc38e08b2501a7e025c119213d1ceaf}{writeNumRecordsHeader}}(currentNumRecords -\/ 1);}
+\DoxyCodeLine{351     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a4973b2852a17a8a9258110801f20a4d4}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a4973b2852a17a8a9258110801f20a4d4}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!deleteRecord@{deleteRecord}}
+\index{deleteRecord@{deleteRecord}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{deleteRecord()}{deleteRecord()}}
+{\footnotesize\ttfamily synchronized void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+delete\+Record (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                           \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Deletes a record from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the record to delete.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 505 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{506                                                                                \{}
+\DoxyCodeLine{507         RecordHeader delRec = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}{keyToRecordHeader}}(key);}
+\DoxyCodeLine{508         \textcolor{keywordtype}{int} currentNumRecords = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{getNumRecords}}();}
+\DoxyCodeLine{509         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}{getFileLength}}() == delRec.dataPointer + delRec.dataCapacity )}
+\DoxyCodeLine{510             \textcolor{comment}{// Shrink the file since this is the last record in it.}}
+\DoxyCodeLine{511             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}{setFileLength}}(delRec.dataPointer);}
+\DoxyCodeLine{512         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{513             RecordHeader previous = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}{getRecordAt}}(delRec.dataPointer -\/ 1);}
+\DoxyCodeLine{514             }
+\DoxyCodeLine{515             \textcolor{keywordflow}{if} ( previous != \textcolor{keyword}{null} ) \{}
+\DoxyCodeLine{516                 \textcolor{comment}{// Append space of deleted record onto previous record.}}
+\DoxyCodeLine{517                 previous.dataCapacity += delRec.dataCapacity;}
+\DoxyCodeLine{518                 }
+\DoxyCodeLine{519                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}{writeRecordHeaderToIndex}}(previous);}
+\DoxyCodeLine{520             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{521                 \textcolor{comment}{// Target record is first in the file and is deleted by adding}}
+\DoxyCodeLine{522                 \textcolor{comment}{//+ its space to the second record.}}
+\DoxyCodeLine{523                 RecordHeader secondRecord = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}{getRecordAt}}(delRec.dataPointer + }
+\DoxyCodeLine{524                                                     (\textcolor{keywordtype}{long}) delRec.dataCapacity);}
+\DoxyCodeLine{525                 }
+\DoxyCodeLine{526                 \textcolor{keywordtype}{byte}[] data = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}{readRecordData}}(secondRecord);}
+\DoxyCodeLine{527                 }
+\DoxyCodeLine{528                 secondRecord.dataPointer = delRec.dataPointer;}
+\DoxyCodeLine{529                 secondRecord.dataCapacity += delRec.dataCapacity;}
+\DoxyCodeLine{530                 }
+\DoxyCodeLine{531                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}{writeRecordData}}(secondRecord, data);}
+\DoxyCodeLine{532                 \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}{writeRecordHeaderToIndex}}(secondRecord);}
+\DoxyCodeLine{533             \}}
+\DoxyCodeLine{534         \}}
+\DoxyCodeLine{535         }
+\DoxyCodeLine{536         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7cbd73864dee646462d2f86996c20d11}{deleteEntryFromIndex}}(key, delRec, currentNumRecords);}
+\DoxyCodeLine{537     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2208ae2ab63523976b351d5c3cf91982}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2208ae2ab63523976b351d5c3cf91982}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!enumerateKeys@{enumerateKeys}}
+\index{enumerateKeys@{enumerateKeys}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{enumerateKeys()}{enumerateKeys()}}
+{\footnotesize\ttfamily abstract Enumeration com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+enumerate\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Returns an Enumeration of the keys of all records in the database. 
+
+\begin{DoxyReturn}{Returns}
+Enumeration All keys in the database. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_acb3293f925977e526a469a11aa103364}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!getFileLength@{getFileLength}}
+\index{getFileLength@{getFileLength}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{getFileLength()}{getFileLength()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+get\+File\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Gets the length of the file. 
+
+Used to determine whether the file is big enough for the data or if it needs to be shrunk to save disk space.
+
+\begin{DoxyReturn}{Returns}
+int The current length of the file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the even of an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 179 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{179                                                       \{}
+\DoxyCodeLine{180         \textcolor{keywordflow}{return} file.length();}
+\DoxyCodeLine{181     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!getNumRecords@{getNumRecords}}
+\index{getNumRecords@{getNumRecords}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{getNumRecords()}{getNumRecords()}}
+{\footnotesize\ttfamily abstract int com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+get\+Num\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Returns the number of records in the database. 
+
+\begin{DoxyReturn}{Returns}
+int Number of records. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ac2af8ea19ab1c146577708f1e0af8b07}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!getRecordAt@{getRecordAt}}
+\index{getRecordAt@{getRecordAt}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{getRecordAt()}{getRecordAt()}}
+{\footnotesize\ttfamily abstract \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+get\+Record\+At (\begin{DoxyParamCaption}\item[{long}]{target\+Fp }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+
+
+Returns the record to which the target file pointer belongs --- meaning the specified location in the file is part of the record data of the. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordHeader }
+\end{DoxyCode}
+ which is returned. (O(n) mem accesses)
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Fp} & The target file pointer for the record to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The header for the record represented by the file pointer provided. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_a395b75320d570cd4a0b2539d5d217d8d}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!indexPositionToKeyFp@{indexPositionToKeyFp}}
+\index{indexPositionToKeyFp@{indexPositionToKeyFp}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{indexPositionToKeyFp()}{indexPositionToKeyFp()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+index\+Position\+To\+Key\+Fp (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Returns a file pointer in the index pointing to the first byte in the key located at the given index position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The file pointer to the index of the key. 
+\end{DoxyReturn}
+
+
+Definition at line 247 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{247                                                  \{}
+\DoxyCodeLine{248         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a751effbde1eb57ccedb72128015d3800}{FILE\_HEADERS\_REGION\_LENGTH}} + (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ade7fe1c3bb4e0fdce32fd27166f8dd1e}{INDEX\_ENTRY\_LENGTH}} * pos);}
+\DoxyCodeLine{249     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!indexPositionToRecordHeaderFp@{indexPositionToRecordHeaderFp}}
+\index{indexPositionToRecordHeaderFp@{indexPositionToRecordHeaderFp}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{indexPositionToRecordHeaderFp()}{indexPositionToRecordHeaderFp()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+index\+Position\+To\+Record\+Header\+Fp (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Returns a file pointer in the index pointing to the first byte in the record pointer located at the given index position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The index position from which to retrieve the file pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long The file pointer of the index position requested. 
+\end{DoxyReturn}
+
+
+Definition at line 259 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{259                                                 \{}
+\DoxyCodeLine{260         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a751effbde1eb57ccedb72128015d3800}{FILE\_HEADERS\_REGION\_LENGTH}} + (\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ade7fe1c3bb4e0fdce32fd27166f8dd1e}{INDEX\_ENTRY\_LENGTH}} * pos);}
+\DoxyCodeLine{261     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aad7bb652bd7cc44627fc69641842a3ea}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aad7bb652bd7cc44627fc69641842a3ea}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!insertRecord@{insertRecord}}
+\index{insertRecord@{insertRecord}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{insertRecord()}{insertRecord()}}
+{\footnotesize\ttfamily synchronized void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+insert\+Record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}}}]{rw }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                           \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Adds a new record to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rw} & The new record to write to the database. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 360 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{361                                                                                \{}
+\DoxyCodeLine{362         String key = rw.getKey();}
+\DoxyCodeLine{363         }
+\DoxyCodeLine{364         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab75a40a6186f13e782cfad503aff267}{recordExists}}(key) ) }
+\DoxyCodeLine{365             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Key exists: "} + key);}
+\DoxyCodeLine{366         }
+\DoxyCodeLine{367         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1894e5675a82f4596becbd1f20daf4ef}{insureIndexSpace}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{getNumRecords}}() + 1);}
+\DoxyCodeLine{368         }
+\DoxyCodeLine{369         RecordHeader newRecord = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adac1006de15770fb641d67dfbc4ae358}{allocateRecord}}(key, rw.getDataLength());}
+\DoxyCodeLine{370         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}{writeRecordData}}(newRecord, rw);}
+\DoxyCodeLine{371         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1cbe386e2ca822cd2e772e3676b4fc41}{addEntryToIndex}}(key, newRecord, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{getNumRecords}}());}
+\DoxyCodeLine{372     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1894e5675a82f4596becbd1f20daf4ef}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1894e5675a82f4596becbd1f20daf4ef}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!insureIndexSpace@{insureIndexSpace}}
+\index{insureIndexSpace@{insureIndexSpace}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{insureIndexSpace()}{insureIndexSpace()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+insure\+Index\+Space (\begin{DoxyParamCaption}\item[{int}]{required\+Num\+Records }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Checks to see if there is space for an additional index entry. 
+
+If not, space is created by moving records to the end of the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em required\+Num\+Records} & The required number of records.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 548 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{549                                                                              \{}
+\DoxyCodeLine{550         \textcolor{keywordtype}{int} currentNumRecords = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{getNumRecords}}();}
+\DoxyCodeLine{551         \textcolor{keywordtype}{long} endIndexPtr = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}{indexPositionToKeyFp}}(requiredNumRecords);}
+\DoxyCodeLine{552         }
+\DoxyCodeLine{553         \textcolor{keywordflow}{if} ( endIndexPtr > \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}{getFileLength}}() \&\& currentNumRecords == 0 ) \{}
+\DoxyCodeLine{554             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}{setFileLength}}(endIndexPtr);}
+\DoxyCodeLine{555             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}} = endIndexPtr;}
+\DoxyCodeLine{556             }
+\DoxyCodeLine{557             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2d6e5e3597793b2c624e80c3330190e0}{writeDataStartPtrHeader}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}});}
+\DoxyCodeLine{558             }
+\DoxyCodeLine{559             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{560         \}}
+\DoxyCodeLine{561         }
+\DoxyCodeLine{562         \textcolor{keywordflow}{while} ( endIndexPtr > \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}} ) \{}
+\DoxyCodeLine{563             RecordHeader first = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a5fffbd6a27ca770681d655195791c894}{getRecordAt}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}});}
+\DoxyCodeLine{564             \textcolor{keywordtype}{byte}[] data = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}{readRecordData}}(first);}
+\DoxyCodeLine{565             }
+\DoxyCodeLine{566             first.dataPointer = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2b97a4749d2519f903e14d8b7e4a0333}{getFileLength}}();}
+\DoxyCodeLine{567             first.dataCapacity = data.length;}
+\DoxyCodeLine{568             }
+\DoxyCodeLine{569             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}{setFileLength}}(first.dataPointer + data.length);}
+\DoxyCodeLine{570             }
+\DoxyCodeLine{571             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}{writeRecordData}}(first, data);}
+\DoxyCodeLine{572             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}{writeRecordHeaderToIndex}}(first);}
+\DoxyCodeLine{573             }
+\DoxyCodeLine{574             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}} += first.dataCapacity;}
+\DoxyCodeLine{575             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2d6e5e3597793b2c624e80c3330190e0}{writeDataStartPtrHeader}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}});}
+\DoxyCodeLine{576         \}}
+\DoxyCodeLine{577     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!keyToRecordHeader@{keyToRecordHeader}}
+\index{keyToRecordHeader@{keyToRecordHeader}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{keyToRecordHeader()}{keyToRecordHeader()}}
+{\footnotesize\ttfamily abstract \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+key\+To\+Record\+Header (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+
+
+Maps a key to a record header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to map. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} containing the map to the record for the given key. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_aa414d1722933fb5cfaa6fc44c23c5694}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a987056cc95a8ceb57bcf70669c4fa5c8}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a987056cc95a8ceb57bcf70669c4fa5c8}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!quickInsert@{quickInsert}}
+\index{quickInsert@{quickInsert}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{quickInsert()}{quickInsert()}}
+{\footnotesize\ttfamily synchronized void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+quick\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}}}]{rw }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                          \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Definition at line 375 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{376                                                                               \{}
+\DoxyCodeLine{377         String key = rw.getKey();}
+\DoxyCodeLine{378         }
+\DoxyCodeLine{379         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1894e5675a82f4596becbd1f20daf4ef}{insureIndexSpace}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{getNumRecords}}() + 1);}
+\DoxyCodeLine{380         }
+\DoxyCodeLine{381         RecordHeader rh = \textcolor{keyword}{new} RecordHeader(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}}, rw.getDataLength());}
+\DoxyCodeLine{382         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}{writeRecordData}}(rh, rw);}
+\DoxyCodeLine{383         \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1cbe386e2ca822cd2e772e3676b4fc41}{addEntryToIndex}}(key, rh, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_adb9a408a501129c1b5beba25c7de5dc3}{getNumRecords}}());}
+\DoxyCodeLine{384     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a12345911edbe59cc1d7fafef6d06618c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a12345911edbe59cc1d7fafef6d06618c}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readDataStartHeader@{readDataStartHeader}}
+\index{readDataStartHeader@{readDataStartHeader}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readDataStartHeader()}{readDataStartHeader()}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Data\+Start\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reads the data start pointer header from the file. 
+
+\begin{DoxyReturn}{Returns}
+long The stored value of the data start location in the database file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event of an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 223 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{223                                                             \{}
+\DoxyCodeLine{224         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab620cb523a614b3e50052d35d53ef49}{DATA\_START\_HEADER\_LOCATION}});}
+\DoxyCodeLine{225         \textcolor{keywordflow}{return} file.readLong();}
+\DoxyCodeLine{226     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_acceb1273d504bab30e58c0a88c596f07}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_acceb1273d504bab30e58c0a88c596f07}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readKeyFromIndex@{readKeyFromIndex}}
+\index{readKeyFromIndex@{readKeyFromIndex}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readKeyFromIndex()}{readKeyFromIndex()}}
+{\footnotesize\ttfamily String com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Key\+From\+Index (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Reads the ith key from the index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position in the index for the key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String The requested key from the index. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 270 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270                                                              \{}
+\DoxyCodeLine{271         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a500ddf5294b29a9006093e128c2f100b}{indexPositionToKeyFp}}(position));}
+\DoxyCodeLine{272         \textcolor{keywordflow}{return} file.readUTF();}
+\DoxyCodeLine{273     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aa27df5a9d2f87983a86dc3a354c17c84}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aa27df5a9d2f87983a86dc3a354c17c84}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readNumRecordsHeader@{readNumRecordsHeader}}
+\index{readNumRecordsHeader@{readNumRecordsHeader}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readNumRecordsHeader()}{readNumRecordsHeader()}}
+{\footnotesize\ttfamily int com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Num\+Records\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Retrieves the number of records in the database file. 
+
+\begin{DoxyReturn}{Returns}
+int The number of records currently in the database file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event of an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 200 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{200                                                             \{}
+\DoxyCodeLine{201         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab6466e9986a4e1576346f849f63286c7}{NUM\_RECORDS\_HEADER\_LOCATION}});}
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} file.readInt();}
+\DoxyCodeLine{203     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7d552f4de0e579e897f3ba9d1ea7a7e7}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7d552f4de0e579e897f3ba9d1ea7a7e7}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readRecord@{readRecord}}
+\index{readRecord@{readRecord}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readRecord()}{readRecord()}}
+{\footnotesize\ttfamily synchronized \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader}{Record\+Reader}} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Record (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                           \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Reads the requested record from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The record to retrieve from the database.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordReader}{Record\+Reader}} The reader of the record object.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the even a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 418 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{419                                                                                \{}
+\DoxyCodeLine{420         \textcolor{keywordtype}{byte}[] data = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}{readRecordData}}(key);}
+\DoxyCodeLine{421         \textcolor{keywordflow}{return} \textcolor{keyword}{new} RecordReader(key, data);}
+\DoxyCodeLine{422     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab7412b3d054453c8062650e6830818b8}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab7412b3d054453c8062650e6830818b8}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readRecordData@{readRecordData}}
+\index{readRecordData@{readRecordData}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readRecordData()}{readRecordData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Record\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{header }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reads the data for the requested record from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em header} & The record header for the data to read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte\mbox{[}\mbox{]} The data from the requested record.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 448 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{448                                                                             \{}
+\DoxyCodeLine{449         \textcolor{keywordtype}{byte}[] buf = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[header.dataCount];}
+\DoxyCodeLine{450         file.seek(header.dataPointer);}
+\DoxyCodeLine{451         file.readFully(buf);}
+\DoxyCodeLine{452         \textcolor{keywordflow}{return} buf;}
+\DoxyCodeLine{453     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readRecordData@{readRecordData}}
+\index{readRecordData@{readRecordData}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readRecordData()}{readRecordData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Record\+Data (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                        \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reads the data for the requested record from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the record whose data is to be read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte\mbox{[}\mbox{]} The data from the requested record.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 434 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{435                                                                             \{}
+\DoxyCodeLine{436         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a50272ef7b769010c25c452aa92caa35a}{readRecordData}}(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}{keyToRecordHeader}}(key));}
+\DoxyCodeLine{437     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aec816da41751fe784202a4f342fa9a59}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aec816da41751fe784202a4f342fa9a59}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!readRecordHeaderFromIndex@{readRecordHeaderFromIndex}}
+\index{readRecordHeaderFromIndex@{readRecordHeaderFromIndex}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{readRecordHeaderFromIndex()}{readRecordHeaderFromIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+read\+Record\+Header\+From\+Index (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Reads the ith record header from the index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position in the index for the header. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} The requested record header from the index. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 282 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{282                                                                             \{}
+\DoxyCodeLine{283         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}{indexPositionToRecordHeaderFp}}(position));}
+\DoxyCodeLine{284         \textcolor{keywordflow}{return} RecordHeader.readHeader(file);}
+\DoxyCodeLine{285     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab75a40a6186f13e782cfad503aff267}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab75a40a6186f13e782cfad503aff267}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!recordExists@{recordExists}}
+\index{recordExists@{recordExists}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{recordExists()}{recordExists()}}
+{\footnotesize\ttfamily abstract boolean com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+record\+Exists (\begin{DoxyParamCaption}\item[{String}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Check there is a record with the given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{true} }
+\end{DoxyCode}
+ if the key exists,
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{false} }
+\end{DoxyCode}
+ otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordsFile_ad6a9f00f0a1155cc75964df951a86d3b}{com.\+pekinsoft.\+rafdb.\+db.\+Records\+File}}.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a49aea9e3ec0278f2223e46d56a9c61f9}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!setFileLength@{setFileLength}}
+\index{setFileLength@{setFileLength}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{setFileLength()}{setFileLength()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+set\+File\+Length (\begin{DoxyParamCaption}\item[{long}]{len }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sets the file to the length provided. 
+
+Used to grow the file as necessary and to initialize a new file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em len} & Requested length of the file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event of an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 190 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190                                                               \{}
+\DoxyCodeLine{191         file.setLength(len);}
+\DoxyCodeLine{192     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1aa6a7b0bc9102670003083500d131ba}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a1aa6a7b0bc9102670003083500d131ba}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!updateRecord@{updateRecord}}
+\index{updateRecord@{updateRecord}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{updateRecord()}{updateRecord()}}
+{\footnotesize\ttfamily synchronized void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+update\+Record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}}}]{rw }\end{DoxyParamCaption}) throws I\+O\+Exception,                                                           \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}}
+
+
+
+Updates an existing record. 
+
+If the new contents do not fit in the orginal record, the the update is handled by deleting the old record and adding the new.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rw} & The record to update. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 395 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{396                                                                                \{}
+\DoxyCodeLine{397         RecordHeader header = \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab3bf493e4b209f1d61ac2473b379c469}{keyToRecordHeader}}(rw.getKey());}
+\DoxyCodeLine{398         }
+\DoxyCodeLine{399         \textcolor{keywordflow}{if} ( rw.getDataLength() > header.dataCapacity ) \{}
+\DoxyCodeLine{400             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a4973b2852a17a8a9258110801f20a4d4}{deleteRecord}}(rw.getKey());}
+\DoxyCodeLine{401             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aad7bb652bd7cc44627fc69641842a3ea}{insertRecord}}(rw);}
+\DoxyCodeLine{402         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{403             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}{writeRecordData}}(header, rw);}
+\DoxyCodeLine{404             \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}{writeRecordHeaderToIndex}}(header);}
+\DoxyCodeLine{405         \}}
+\DoxyCodeLine{406     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2d6e5e3597793b2c624e80c3330190e0}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a2d6e5e3597793b2c624e80c3330190e0}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!writeDataStartPtrHeader@{writeDataStartPtrHeader}}
+\index{writeDataStartPtrHeader@{writeDataStartPtrHeader}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{writeDataStartPtrHeader()}{writeDataStartPtrHeader()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+write\+Data\+Start\+Ptr\+Header (\begin{DoxyParamCaption}\item[{long}]{data\+Start\+Ptr }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Writes the data start pointer header to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Start\+Ptr} & The new data start pointer to store. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event of an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Start\+Ptr} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 235 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{235                                                                                  \{}
+\DoxyCodeLine{236         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab620cb523a614b3e50052d35d53ef49}{DATA\_START\_HEADER\_LOCATION}});}
+\DoxyCodeLine{237         file.writeLong(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}{dataStartPtr}});}
+\DoxyCodeLine{238     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a8dc38e08b2501a7e025c119213d1ceaf}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a8dc38e08b2501a7e025c119213d1ceaf}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!writeNumRecordsHeader@{writeNumRecordsHeader}}
+\index{writeNumRecordsHeader@{writeNumRecordsHeader}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{writeNumRecordsHeader()}{writeNumRecordsHeader()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+write\+Num\+Records\+Header (\begin{DoxyParamCaption}\item[{int}]{num\+Records }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Stores the number of records to the database file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Records} & The number of records in the database file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 211 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{211                                                                             \{}
+\DoxyCodeLine{212         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab6466e9986a4e1576346f849f63286c7}{NUM\_RECORDS\_HEADER\_LOCATION}});}
+\DoxyCodeLine{213         file.writeInt(numRecords);}
+\DoxyCodeLine{214     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a30930aebabcfa8e8e86d708ce7c205c9}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a30930aebabcfa8e8e86d708ce7c205c9}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!writeRecordData@{writeRecordData}}
+\index{writeRecordData@{writeRecordData}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{writeRecordData()}{writeRecordData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+write\+Record\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{header,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Updates the contents of the given record. 
+
+A
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordsFileException }
+\end{DoxyCode}
+ is thrown if the data does not fit in the space allocated to the record. The header\textquotesingle{}s data count is updated, but not written to the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em header} & The header of the record to update. \\
+\hline
+{\em data} & The data to update into the record.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 487 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{488                                                                               \{}
+\DoxyCodeLine{489         \textcolor{keywordflow}{if} ( data.length > header.dataCapacity )}
+\DoxyCodeLine{490             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Record data does not fit."});}
+\DoxyCodeLine{491         }
+\DoxyCodeLine{492         header.dataCount = data.length;}
+\DoxyCodeLine{493         file.seek(header.dataPointer);}
+\DoxyCodeLine{494         file.write(data, 0, data.length);}
+\DoxyCodeLine{495     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a7a8b0444e162b50827d654cf8ac33163}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!writeRecordData@{writeRecordData}}
+\index{writeRecordData@{writeRecordData}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{writeRecordData()}{writeRecordData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+write\+Record\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{header,  }\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordWriter}{Record\+Writer}}}]{rw }\end{DoxyParamCaption}) throws I\+O\+Exception, \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1exceptions_1_1RecordsFileException}{Records\+File\+Exception}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Updates the contents of the given record.\+A. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RecordsFileException }
+\end{DoxyCode}
+ is thrown if the new data does not fit in the space allocated to the record.\+The header\textquotesingle{}s data count is updated, but not written to the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em header} & The header of the record to write to the file. \\
+\hline
+{\em rw} & The
+\begin{DoxyCode}{1}
+\DoxyCodeLine{RecordWriter }
+\end{DoxyCode}
+ object to use to write the data to the file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+{\em Records\+File\+Exception} & In the event a database error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 466 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{467                                                                               \{}
+\DoxyCodeLine{468         \textcolor{keywordflow}{if} ( rw.getDataLength() > header.dataCapacity )}
+\DoxyCodeLine{469             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RecordsFileException(\textcolor{stringliteral}{"Record data does not fit."});}
+\DoxyCodeLine{470         }
+\DoxyCodeLine{471         header.dataCount = rw.getDataLength();}
+\DoxyCodeLine{472         file.seek(header.dataPointer);}
+\DoxyCodeLine{473         rw.writeTo((DataOutput)file);}
+\DoxyCodeLine{474     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a3940dba7d35375be7aa6ae62430e6096}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!writeRecordHeaderToIndex@{writeRecordHeaderToIndex}}
+\index{writeRecordHeaderToIndex@{writeRecordHeaderToIndex}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{writeRecordHeaderToIndex()}{writeRecordHeaderToIndex()}}
+{\footnotesize\ttfamily void com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+write\+Record\+Header\+To\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}}}]{header }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Writes the ith record header to the index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em header} & The \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1RecordHeader}{Record\+Header}} object to write. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & In the event an Input/\+Output error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 293 of file Base\+Records\+File.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294                                             \{}
+\DoxyCodeLine{295         file.seek(\mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a0fd3246c8976366a9f49674bd7fb8847}{indexPositionToRecordHeaderFp}}(header.indexPosition));}
+\DoxyCodeLine{296         header.write(file);}
+\DoxyCodeLine{297     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab620cb523a614b3e50052d35d53ef49}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_aab620cb523a614b3e50052d35d53ef49}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!DATA\_START\_HEADER\_LOCATION@{DATA\_START\_HEADER\_LOCATION}}
+\index{DATA\_START\_HEADER\_LOCATION@{DATA\_START\_HEADER\_LOCATION}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{DATA\_START\_HEADER\_LOCATION}{DATA\_START\_HEADER\_LOCATION}}
+{\footnotesize\ttfamily final long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+D\+A\+T\+A\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+O\+C\+A\+T\+I\+ON = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 56 of file Base\+Records\+File.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a077baa0453927675811ddfa32ab067cc}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!dataStartPtr@{dataStartPtr}}
+\index{dataStartPtr@{dataStartPtr}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{dataStartPtr}{dataStartPtr}}
+{\footnotesize\ttfamily long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+data\+Start\+Ptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 39 of file Base\+Records\+File.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a751effbde1eb57ccedb72128015d3800}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a751effbde1eb57ccedb72128015d3800}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!FILE\_HEADERS\_REGION\_LENGTH@{FILE\_HEADERS\_REGION\_LENGTH}}
+\index{FILE\_HEADERS\_REGION\_LENGTH@{FILE\_HEADERS\_REGION\_LENGTH}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{FILE\_HEADERS\_REGION\_LENGTH}{FILE\_HEADERS\_REGION\_LENGTH}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+F\+I\+L\+E\+\_\+\+H\+E\+A\+D\+E\+R\+S\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+L\+E\+N\+G\+TH = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 44 of file Base\+Records\+File.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ade7fe1c3bb4e0fdce32fd27166f8dd1e}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ade7fe1c3bb4e0fdce32fd27166f8dd1e}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!INDEX\_ENTRY\_LENGTH@{INDEX\_ENTRY\_LENGTH}}
+\index{INDEX\_ENTRY\_LENGTH@{INDEX\_ENTRY\_LENGTH}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{INDEX\_ENTRY\_LENGTH}{INDEX\_ENTRY\_LENGTH}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+I\+N\+D\+E\+X\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+E\+N\+G\+TH\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}{MAX\_KEY\_LENGTH}} + }
+\DoxyCodeLine{                                                    \mbox{\hyperlink{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a62d468e68d48a20b19d6d5d485e1a11c}{RECORD\_HEADER\_LENGTH}}}
+
+\end{DoxyCode}
+
+
+Definition at line 51 of file Base\+Records\+File.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ac9b165fb2c8e3f2cca1896c37ac0540c}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!MAX\_KEY\_LENGTH@{MAX\_KEY\_LENGTH}}
+\index{MAX\_KEY\_LENGTH@{MAX\_KEY\_LENGTH}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{MAX\_KEY\_LENGTH}{MAX\_KEY\_LENGTH}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+M\+A\+X\+\_\+\+K\+E\+Y\+\_\+\+L\+E\+N\+G\+TH = 64\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 48 of file Base\+Records\+File.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab6466e9986a4e1576346f849f63286c7}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_ab6466e9986a4e1576346f849f63286c7}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!NUM\_RECORDS\_HEADER\_LOCATION@{NUM\_RECORDS\_HEADER\_LOCATION}}
+\index{NUM\_RECORDS\_HEADER\_LOCATION@{NUM\_RECORDS\_HEADER\_LOCATION}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{NUM\_RECORDS\_HEADER\_LOCATION}{NUM\_RECORDS\_HEADER\_LOCATION}}
+{\footnotesize\ttfamily final long com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+N\+U\+M\+\_\+\+R\+E\+C\+O\+R\+D\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+O\+C\+A\+T\+I\+ON = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 54 of file Base\+Records\+File.\+java.
+
+\mbox{\Hypertarget{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a62d468e68d48a20b19d6d5d485e1a11c}\label{classcom_1_1pekinsoft_1_1rafdb_1_1db_1_1BaseRecordsFile_a62d468e68d48a20b19d6d5d485e1a11c}} 
+\index{com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}!RECORD\_HEADER\_LENGTH@{RECORD\_HEADER\_LENGTH}}
+\index{RECORD\_HEADER\_LENGTH@{RECORD\_HEADER\_LENGTH}!com.pekinsoft.rafdb.db.BaseRecordsFile@{com.pekinsoft.rafdb.db.BaseRecordsFile}}
+\doxysubsubsection{\texorpdfstring{RECORD\_HEADER\_LENGTH}{RECORD\_HEADER\_LENGTH}}
+{\footnotesize\ttfamily final int com.\+pekinsoft.\+rafdb.\+db.\+Base\+Records\+File.\+R\+E\+C\+O\+R\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 46 of file Base\+Records\+File.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raf-\/db/\+R\+A\+F Database System/src/com/pekinsoft/rafdb/db/\mbox{\hyperlink{BaseRecordsFile_8java}{Base\+Records\+File.\+java}}\end{DoxyCompactItemize}
