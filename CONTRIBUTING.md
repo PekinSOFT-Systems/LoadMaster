@@ -20,32 +20,31 @@ When setting up your environment to contribute to PekinSOFT™ Systems projects,
 
 ## Testing
 
-Since we at PekinSOFT™ Systems consider quality as one of the most important features of the software we built, we protect our main codebase from regressions already during pull request reviews. Automatic checks consist of WhiteSource Bolt security tests of the source code and Selenium based tests of the application behavior. No pull requests heading to master branch with failed checks will be accepted unless the such pull request gets exceptional approval from the project team. Any contribution adding brand new UI components like menus, dialogs, settings etc. must be accompanied by corresponding functional test.
+Since we at PekinSOFT™ Systems consider quality as one of the most important features of the software we built, we protect our main codebase from regressions already during pull request reviews.
 
 ### Adding tests
 
-General information about the test suite and how to format and structure tests.
+Any contribution adding brand new UI components like menus, dialogs, settings etc. must be accompanied by corresponding functional test. All automated tests are located in `test/com/pekinsoft/loadmaster` directory under the project root. Every major UI component has its own operator class which exposes operations which real users can perform with the UI component. Such operators typically extend standard [Jemmy](https://github.com/openjdk/jemmy-v2) operators and implement their specific functionality which are then used by concrete [JUnit](https://junit.org/junit5/) functional tests. Test classes can contain multiple tests methods which must be annotated with `@Test` annotation. While Jemmy operators are stored in `operators` package, the functional tests belong to `tests` package.
 
-All automated tests are located in `test/com/pekinsoft/loadmaster` directory under the project root. Every major UI component has its own operator class which exposes operations which real users can perform with the UI component. Such operators typically extend standard [Jemmy](https://github.com/openjdk/jemmy-v2) operators and implement their specific functionality which are then used by concrete [JUnit](https://junit.org/junit5/) functional tests. Test classes can contain multiple tests methods which must be annotated with @Test annotation. While Jemmy operators are stored in `operators` package, the functional tests belong to `tests` package. 
+If automated testing of some functionality is extremely difficult, it is necessary to write at least a manual test script in [LoadMaster project's Wiki](https://github.com/PekinSOFT-Systems/LoadMaster/wiki). Pull request creators then need to declare that they were able to perform these manual tests on their private branches in order to get their pull requests reviewed.
 
 ### Running tests
 
-Any additional information needed to run the test suite. Include `bash`-formatted commands like:
+Running functional automated tests is very easy. In the NetBeans IDE it's enough to just invoke `Test` action from popup menu after right clicking the Load Master project node. In order to run tests from command prompt the necessary prerequisites are correctly configured JDK 12 or newer and Ant build system version 1.10.5 or newer. The execution then looks like this:
 
 ```bash
-composer test
-bundle exec rake test
+export JAVA_HOME=/home/jsmith/Software/Java/jdk-12/
+cd /home/jsmith/Sources/LoadMaster
+ant -f "Load Master" -Dnb.internal.action.name=test -Dignore.failing.tests=true test
 ```
-
-Also include any information about essential manual tests.
 
 ## Code quality tools
 
-Information about scripts to run before committing.
+Before opening any pull requests we strongly recommend potential code contributors to address all identified hints pointed out in `Action Items` window which can be opened from NetBeans main `Window` menu item. In addition to that we also ask everyone to invoke `Format` action from NetBeans editor context menu to apply NetBeans default formatting rules to the new source code.
 
 ## CI Information
 
-What CI checks for and how to pass.
+Automatic checks run by Travis continuous integration server consist of WhiteSource Bolt security tests of the source code, compilation test and Jemmy based tests of the application behavior. No pull requests heading to master branch with failed checks will be accepted unless such pull request gets exceptional approval from the project team.
 
 ## Repo-specific PR guidelines
 
