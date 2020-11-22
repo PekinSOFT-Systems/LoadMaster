@@ -40,6 +40,14 @@
  *                                     - getApplicationDataFolderByOS
  *                                     - getApplicationSettingsLocationByOS
  *                                     - getSystemLogLocationByOS
+ * Nov 01, 2020  Sean Carrick        Made modifications to System location 
+ *                                    methods per comments and suggestions from
+ *                                    Jiri Kovalsky on PR. Methods no longer
+ *                                    require the OS name to be provided, 
+ *                                    instead, OS name is determined from the
+ *                                    JVM System properties. Folders are 
+ *                                    returned with a trailing `File.separator`
+ *                                    and files have no such ending.
  * *****************************************************************************
  */
 package com.pekinsoft.loadmaster.utils;
