@@ -23,6 +23,7 @@
  *  Modified   :   Mar 8, 2020
  *  
  *  Purpose:
+ *      Provides useful string-related methods.
  *  
  *  Revision History:
  *  
@@ -33,8 +34,11 @@
  *  Mar 21, 2020  Sean Carrick        Moved getCenterPoint function into code 
  *                                    fold for `public static methods and 
  *                                    functions`.
- *  Oct 25, 2020  Sean Carrick        Added the `determineApplicationFolder`
- *                                    function.
+ *  Nov 24, 2020  Sean Carrick        Added the following methods:
+ *                                      - getApplicationFolderByOS
+ *                                      - getApplicationDataFolderByOS
+ *                                      - getApplicationSettingsLocationByOS
+ *                                      - getSystemLogLocationByOS
  * *****************************************************************************
  */
 
@@ -51,7 +55,7 @@ import java.util.Set;
  *
  * @author Sean Carrick &lt;sean at pekinsoft dot com&gt;
  * 
- * @version 0.1.0
+ * @version 0.2.15
  * @since 0.1.0
  */
 public class Utils {
@@ -92,6 +96,141 @@ public class Utils {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Public Static Methods and Functions">
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application data files. Each OS has a different location where these
+     * files should be stored, and this application will follow those standards.
+     * 
+     * The typical location for data files on each OS are:
+     * 
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\ |
+     * | Apple Mac OS-X™ | {user.home}/Library/Application Data/LoadMaster/ |
+     * | Linux and Solaris™ | {user.home}/.loadmaster/* |
+     * 
+     * <dl><dt>Developer's Note</dt><dd>Notice the difference between the Linux
+     * and Solaris location of the application settings file and the information
+     * regarding the location of the application folder in Linux and Solaris. 
+     * this one has the same name, but this one **does not** end with a slash (/) 
+     * character. That is the only difference between the configuration file and  
+     * the application data folder.</dd></dl>
+     * 
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationFolderByOS() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        String userHome = System.getProperty("user.home");
+        String location = "";
+        
+        if ( osName.contains("win") ) {
+            location = "AppData\\LoadMaster";
+        } else if ( osName.contains("mac") ) {
+            location = "Library/Preferences/LoadMaster";
+        } else {
+            location = ".loadmaster";
+        }
+        
+        return userHome + File.separator + location + File.separator;
+    } 
+    
+        /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application data files. Each OS has a different location where these 
+     * files get stored, and this application will follow those standards.
+     * 
+     * The typical location for data files on each OS are:
+     * 
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\data\\ |
+     * | Apple Mac OS-X™ | {user.home}/Library/Application Data/LoadMaster/data/ |
+     * | Linux and Solaris™ | {user.home}/.loadmaster/data/ |
+     * 
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationDataFolderByOS() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        String appFolder = getApplicationDataFolderByOS();
+        
+        if ( osName.contains("mac") ) {
+            appFolder = System.getProperty("user.home") + "/Library/Application"
+                    + " Data/LoadMaster";
+        }
+        
+        return appFolder + "data" + File.separator;
+    }
+    
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application settings files. Each OS has a different location where these
+     * file get stored, and this method allows applications to follow those
+     * well-established standards.
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\LoadMaster.cnf |
+     * | Apple Mac OS-X™ | {user.home}/Library/Preferences/LoadMaster/LoadMaster.pref |
+     * | Linux and Solaris™ | {user.home}/.loadmaster* |
+     * 
+     * <dl><dt>Developer's Note</dt><dd>Notice the difference between the Linux
+     * and Solaris location of the application settings file and the information
+     * regarding the location of the application folder in Linux and Solaris. 
+     * this one has the same name, but this one **does not** end with a slash (/) 
+     * character. That is the only difference between the configuration file and  
+     * the application data folder.</dd></dl>
+     * 
+     * @return the OS-specific storage location.
+     */
+    public static String getApplicationSettingsLocationByOS() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        String settingsLocationFolder = getApplicationFolderByOS();
+        
+        if ( osName.contains("win") ) {
+            settingsLocationFolder = settingsLocationFolder + "LoadMaster.cnf";
+        } else if ( osName.contains("mac") ) {
+            settingsLocationFolder = settingsLocationFolder + "LoadMaster.pref";
+        } else {
+            settingsLocationFolder = settingsLocationFolder + "loadmaster.conf";
+        }
+        
+        return settingsLocationFolder;
+    }
+    
+    /**
+     * Gets the operating system (OS) specific location of where to store any
+     * application log files. Each OS has a different location where these
+     * file get stored, and this method allows applications to follow those
+     * well-established standards.
+     * | Operating System | Application Data Location |
+     * | ---------------- | ------------------------- |
+     * | Microsoft Windows™ | %SystemRoot%\System32\Config\LoadMaster\loadmaster.evt |
+     * | Apple Mac OS-X™ | /Library/Logs/LoadMaster/application.log |
+     * | Linux and Solaris™ | /var/log/loadmaster/application.log |
+     * 
+     * <dl><dt>Developer's Note</dt><dd>On Linux and Solaris, we may run into an
+     * issue with storing our logs in the `/var/log/` folder due to user security
+     * permissions. We will need to look into this as we develop the LoadMaster
+     * Project, as we may need to create a dummy user that is a member of the
+     * appropriate system group to have write access to the `/var/log/` folder.
+     * </dd></dl>
+     * 
+     * @return the OS-specific storage location.
+     */
+    public static String getSystemLogLocationByOS() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        String logLocation = "";
+        
+        if ( osName.contains("win") ) {
+            logLocation = "%SystemRoot%\\System32\\Config\\LoadMaster\\loadmaster.evt";
+        } else if ( osName.contains("mac") ) {
+            logLocation = "/Library/Logs/LoadMaster/application.log";
+        } else {
+            logLocation = "/var/log/loadmaster/application.log";
+        }
+        
+        return logLocation;
+    }
+    
     /**
      * Retrieves the currently executing program's program directory. This 
      * should be the directory in which the program was executed, which could
@@ -461,5 +600,7 @@ public class Utils {
         // Return the state abbreviation.
         return st;
     }
+    
+    
     //</editor-fold>
 }
