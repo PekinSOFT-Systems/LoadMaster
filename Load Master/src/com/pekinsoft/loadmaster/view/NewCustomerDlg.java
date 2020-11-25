@@ -40,6 +40,9 @@ import com.pekinsoft.loadmaster.controller.CustomerCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
 import com.pekinsoft.loadmaster.utils.MessageBox;
+import com.pekinsoft.loadmaster.verifiers.DataPresentVerifier;
+import com.pekinsoft.loadmaster.verifiers.PostalCodeVerifier;
+import com.pekinsoft.loadmaster.verifiers.StateAbbrVerifier;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
@@ -53,14 +56,15 @@ import javax.swing.JTextField;
  * @author Sean Carrick
  */
 public class NewCustomerDlg extends javax.swing.JDialog {
-    private final Color errFore = Color.YELLOW;
-    private final Color errBack = Color.RED;
+
+    private final Color errFore = new Color(1.0f, 0.66f, 0.0f);
+    private final Color errBack = new Color(1.0f, 0.752f, 0.752f);
     private final Color fore = SystemColor.textText;
     private final Color back = SystemColor.text;
     private final Color ctl = SystemColor.control;
-    private final Color tip = SystemColor.info;
+    private final Color tip = new Color(1.0f, 0.996f, 0.631f);
     private final Color tipText = SystemColor.infoText;
-        
+
     private CustomerCtl records;
     private CustomerModel customer;
     private boolean cancelled;
@@ -76,44 +80,51 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         lr.setSourceMethodName("NewBrokerDlg (constructor)");
         lr.setParameters(new Object[]{parent, modal});
         Starter.logger.enter(lr);
-        
+
         initComponents();
-        
+
         setTitle("New Customer Entry");
-        
+
         int left = Toolkit.getDefaultToolkit().getScreenSize().width;
         int top = Toolkit.getDefaultToolkit().getScreenSize().height;
-        
+
         left = (left - getWidth()) / 2;
         top = (top - getHeight()) / 2;
         setLocation(left, top);
-        
+
+        // Set up the input verifiers for the state and zip fields.
+        stateField.setInputVerifier(new StateAbbrVerifier());
+        zipField.setInputVerifier(new PostalCodeVerifier());
+        companyField.setInputVerifier(new DataPresentVerifier());
+        cityField.setInputVerifier(new DataPresentVerifier());
+        streetField.setInputVerifier(new DataPresentVerifier());
+
         try {
             records = new CustomerCtl();
-        } catch ( DataStoreException ex ) {
+        } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the customers table.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
-            
+
             MessageBox.showError(ex, "Data Store Error");
         }
-        
+
         cancelled = false;
     }
-    
+
     public boolean isCancelled() {
         return cancelled;
     }
-    
+
     public CustomerModel getCustomer() {
         return customer;
     }
-    
+
     private void doSave() {
         lr.setSourceMethodName("doSave");
         lr.setMessage("Saving the new customer record.");
         Starter.logger.enter(lr);
-        
+
         companyField.requestFocus();
 
         customer = new CustomerModel();
@@ -139,7 +150,7 @@ public class NewCustomerDlg extends javax.swing.JDialog {
             records.storeData();
             lr.setMessage("Save to file was successful!");
             Starter.logger.info(lr);
-            
+
             setTitle("Customer Entry (" + records.getRecordCount() + " Records)");
         } catch (DataStoreException ex) {
             lr.setMessage("Something went wrong accessing the customers database.");
@@ -171,19 +182,19 @@ public class NewCustomerDlg extends javax.swing.JDialog {
             doClear();
         }
     }
-    
+
     private void doCancel() {
         lr.setSourceMethodName("doCancel");
         lr.setMessage("Entering the form closing function.");
         Starter.logger.enter(lr);
-        
+
         LoadMaster.fileProgress.setValue(0);
-        
+
         lr.setMessage("Closing the window.");
         Starter.logger.exit(lr, null);
         dispose();
     }
-    
+
     private void doClear() {
         customer = new CustomerModel();
         idField.setText(String.valueOf(customer.getId()));
@@ -243,30 +254,30 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         contactField.setName("contactField"); // NOI18N
         contactField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                contactFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                contactFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         contactField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                contactFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
         streetField.setName("streetField"); // NOI18N
         streetField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                streetFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                streetFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         streetField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                streetFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -282,30 +293,30 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         phoneField.setName("phoneField"); // NOI18N
         phoneField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                phoneFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                phoneFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                phoneFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
         suiteField.setName("suiteField"); // NOI18N
         suiteField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                suiteFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                suiteFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         suiteField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                suiteFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -318,15 +329,15 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         notesField.setName("notesField"); // NOI18N
         notesField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                notesFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                notesFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         notesField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                notesFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
         jScrollPane1.setViewportView(notesField);
@@ -355,29 +366,29 @@ public class NewCustomerDlg extends javax.swing.JDialog {
             helpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(helpPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(helpLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(helpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         helpPanelLayout.setVerticalGroup(
             helpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(helpPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(helpLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(helpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         cityField.setName("cityField"); // NOI18N
         cityField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                cityFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                cityFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         cityField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                cityFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -386,11 +397,6 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pekinsoft/loadmaster/res/cancel16.png"))); // NOI18N
         cancelButton.setMnemonic('C');
         cancelButton.setText("Cancel");
-        cancelButton.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                cancelButtondoSelection(evt);
-            }
-        });
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -398,7 +404,7 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         });
         cancelButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                cancelButtoncheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -406,14 +412,14 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         saveButton.setMnemonic('S');
         saveButton.setText("Save");
         saveButton.setEnabled(false);
-        saveButton.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                saveButtondoSelection(evt);
-            }
-        });
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
+            }
+        });
+        saveButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkEnterEscape(evt);
             }
         });
 
@@ -443,15 +449,15 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         stateField.setName("stateField"); // NOI18N
         stateField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                stateFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                stateFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         stateField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                stateFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -460,7 +466,7 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         idField.setName("idField"); // NOI18N
         idField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                idFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -471,30 +477,30 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         zipField.setName("zipField"); // NOI18N
         zipField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                zipFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                zipFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         zipField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                zipFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
         companyField.setName("companyField"); // NOI18N
         companyField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                companyFielddoSelection(evt);
+                doSelection(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                companyFieldvalidateData(evt);
+                validateData(evt);
             }
         });
         companyField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                companyFieldcheckEnterEscape(evt);
+                checkEnterEscape(evt);
             }
         });
 
@@ -592,933 +598,81 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void contactFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contactFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_contactFielddoSelection
-
-    private void contactFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contactFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_contactFieldvalidateData
-
-    private void contactFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_contactFieldcheckEnterEscape
-
-    private void streetFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_streetFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_streetFielddoSelection
-
-    private void streetFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_streetFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_streetFieldvalidateData
-
-    private void streetFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_streetFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_streetFieldcheckEnterEscape
-
-    private void phoneFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_phoneFielddoSelection
-
-    private void phoneFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_phoneFieldvalidateData
-
-    private void phoneFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_phoneFieldcheckEnterEscape
-
-    private void suiteFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_suiteFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_suiteFielddoSelection
-
-    private void suiteFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_suiteFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_suiteFieldvalidateData
-
-    private void suiteFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suiteFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_suiteFieldcheckEnterEscape
-
-    private void notesFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_notesFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_notesFielddoSelection
-
-    private void notesFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_notesFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_notesFieldvalidateData
-
-    private void notesFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_notesFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_notesFieldcheckEnterEscape
-
-    private void cityFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cityFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_cityFielddoSelection
-
-    private void cityFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cityFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_cityFieldvalidateData
-
-    private void cityFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_cityFieldcheckEnterEscape
-
-    private void cancelButtondoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cancelButtondoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_cancelButtondoSelection
-
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         doCancel();
     }//GEN-LAST:event_cancelButtonActionPerformed
-
-    private void cancelButtoncheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelButtoncheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_cancelButtoncheckEnterEscape
-
-    private void saveButtondoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_saveButtondoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_saveButtondoSelection
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         doSave();
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void stateFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateFielddoSelection
+    private void checkEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkEnterEscape
+        // Check to see if the enter or escape key was pressed.
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER)
+            doSave();
+        else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE)
+            doCancel();
+    }//GEN-LAST:event_checkEnterEscape
+
+    private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
         String name = "";
 
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
+        if (evt.getSource() instanceof javax.swing.JTextField) {
+            name = ((javax.swing.JTextField) evt.getSource()).getName();
+            ((javax.swing.JTextField) evt.getSource()).selectAll();
+        } else if (evt.getSource() instanceof javax.swing.JTextArea) {
+            name = ((javax.swing.JTextArea) evt.getSource()).getName();
+            ((javax.swing.JTextArea) evt.getSource()).select(
+                    ((javax.swing.JTextArea) evt.getSource()).getText().length(),
+                    ((javax.swing.JTextArea) evt.getSource()).getText().length());
         }
 
         String msg = "";
 
-        switch ( name ) {
+        switch (name) {
             case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
+                msg = "<html>City in which the customer is located. "
+                        + "This is a <strong>required</strong> field.";
+                break;
             case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
+                msg = "<html>Company name for this customer. This "
+                        + "is a <strong>required</strong> field.";
+                break;
             case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
+                msg = "<html>Street address for this customer. This"
+                        + " is a <strong>required</strong> field.";
+                break;
             case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
+                msg = "<html>Suite number for this customer, if any"
+                        + ". This field is <em>optional</em>.";
+                break;
             case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
+                msg = "<html>Postal abbreviation for the state or "
+                        + "province in which this customer is located. This is "
+                        + "a <strong>required</strong> field.";
+                break;
             case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
+                msg = "<html>Postal (Zip) Code for this customer. This is a "
+                        + "<strong>required</strong> field.";
+                break;
             case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
+                msg = "<html>Name of contact at this customer. This field is "
+                        + "<em>optional</em>.";
+                break;
             case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
+                msg = "<html>Phone number for this customer. This field is "
+                        + "<em>optional</em>.";
+                break;
             case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
+                msg = "<html>Any notes or comments about this customer. This "
+                        + "field is <em>optional</em>.";
+                break;
             default:
-            msg = "";
-            break;
+                msg = "";
+                break;
         }
 
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
+        if (msg != null && !msg.isBlank() && !msg.isEmpty()) {
             helpPanel.setBackground(tip);
             helpLabel.setForeground(tipText);
             helpLabel.setText(msg);
@@ -1527,303 +681,50 @@ public class NewCustomerDlg extends javax.swing.JDialog {
             helpLabel.setForeground(fore);
             helpLabel.setText("");
         }
-    }//GEN-LAST:event_stateFielddoSelection
+    }//GEN-LAST:event_doSelection
 
-    private void stateFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
+    private void validateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_validateData
+        if (evt.getSource() instanceof JTextField) {
+            if (((JTextField) evt.getSource()).getAccessibleContext()
+                    .getAccessibleDescription() != null) {
 
-                switch ( ((JTextField)evt.getSource()).getName() ) {
+                switch (((JTextField) evt.getSource()).getName()) {
                     case "companyField":
                     case "streetField":
                     case "cityField":
                     case "stateField":
                     case "zipField":
 
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
+                        if (((JTextField) evt.getSource()).getText().isBlank()
+                                || ((JTextField) evt.getSource()).getText()
+                                        .isEmpty()) {
+                            ((JTextField) evt.getSource()).setForeground(errFore);
+                            ((JTextField) evt.getSource()).setBackground(errBack);
+                        } else {
+                            ((JTextField) evt.getSource()).setForeground(fore);
+                            ((JTextField) evt.getSource()).setBackground(back);
+                        }
 
-                    break;
+                        break;
                     default:
-                    break;
+                        break;
                 }
             } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
+                ((JTextField) evt.getSource()).setForeground(fore);
+                ((JTextField) evt.getSource()).setBackground(back);
             }
 
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_stateFieldvalidateData
-
-    private void stateFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stateFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_stateFieldcheckEnterEscape
-
-    private void idFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_idFieldcheckEnterEscape
-
-    private void zipFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zipFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_zipFielddoSelection
-
-    private void zipFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zipFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
+            if (companyField.getText().isBlank() || companyField.getText().isEmpty()
+                    && streetField.getText().isBlank() || streetField.getText().isEmpty()
+                    && cityField.getText().isBlank() || cityField.getText().isEmpty()
+                    && stateField.getText().isBlank() || stateField.getText().isEmpty()
+                    && zipField.getText().isBlank() || zipField.getText().isEmpty()) {
+                saveButton.setEnabled(false);
             } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
+                saveButton.setEnabled(true);
             }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
         }
-    }//GEN-LAST:event_zipFieldvalidateData
-
-    private void zipFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_zipFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_zipFieldcheckEnterEscape
-
-    private void companyFielddoSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_companyFielddoSelection
-        String name = "";
-
-        if ( evt.getSource() instanceof javax.swing.JTextField ) {
-            name = ((javax.swing.JTextField)evt.getSource()).getName();
-            ((javax.swing.JTextField)evt.getSource()).selectAll();
-        } else if ( evt.getSource() instanceof javax.swing.JTextArea ) {
-            name = ((javax.swing.JTextArea)evt.getSource()).getName();
-            ((javax.swing.JTextArea)evt.getSource()).select(
-                ((javax.swing.JTextArea)evt.getSource()).getText().length(),
-                ((javax.swing.JTextArea)evt.getSource()).getText().length());
-        }
-
-        String msg = "";
-
-        switch ( name ) {
-            case "cityField":
-            msg = "<html>City in which the customer is located. "
-            + "This is a <strong>required</strong> field.";
-            break;
-            case "companyField":
-            msg = "<html>Company name for this customer. This "
-            + "is a <strong>required</strong> field.";
-            break;
-            case "streetField":
-            msg = "<html>Street address for this customer. This"
-            + " is a <strong>required</strong> field.";
-            break;
-            case "suiteField":
-            msg = "<html>Suite number for this customer, if any"
-            + ". This field is <em>optional</em>.";
-            break;
-            case "stateField":
-            msg = "<html>Postal abbreviation for the state or "
-            + "province in which this customer is located. This is "
-            + "a <strong>required</strong> field.";
-            break;
-            case "zipField":
-            msg = "<html>Postal (Zip) Code for this customer. This is a "
-            + "<strong>required</strong> field.";
-            break;
-            case "contactField":
-            msg = "<html>Name of contact at this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "phoneField":
-            msg = "<html>Phone number for this customer. This field is "
-            + "<em>optional</em>.";
-            break;
-            case "notesField":
-            msg = "<html>Any notes or comments about this customer. This "
-            + "field is <em>optional</em>.";
-            break;
-            default:
-            msg = "";
-            break;
-        }
-
-        if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
-            helpPanel.setBackground(ctl);
-            helpLabel.setForeground(fore);
-            helpLabel.setText("");
-        }
-    }//GEN-LAST:event_companyFielddoSelection
-
-    private void companyFieldvalidateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_companyFieldvalidateData
-        if ( evt.getSource() instanceof JTextField ) {
-            if ( ((JTextField)evt.getSource()).getAccessibleContext()
-                .getAccessibleDescription() != null ) {
-
-                switch ( ((JTextField)evt.getSource()).getName() ) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                    if ( ((JTextField)evt.getSource()).getText().isBlank()
-                        || ((JTextField)evt.getSource()).getText()
-                        .isEmpty() ) {
-                        ((JTextField)evt.getSource()).setForeground(errFore);
-                        ((JTextField)evt.getSource()).setBackground(errBack);
-                    } else {
-                        ((JTextField)evt.getSource()).setForeground(fore);
-                        ((JTextField)evt.getSource()).setBackground(back);
-                    }
-
-                    break;
-                    default:
-                    break;
-                }
-            } else {
-                ((JTextField)evt.getSource()).setForeground(fore);
-                ((JTextField)evt.getSource()).setBackground(back);
-            }
-
-            if ( companyField.getText().isBlank() || companyField.getText().isEmpty()
-                && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                && zipField.getText().isBlank() || zipField.getText().isEmpty() )
-            saveButton.setEnabled(false);
-            else
-            saveButton.setEnabled(true);
-        }
-    }//GEN-LAST:event_companyFieldvalidateData
-
-    private void companyFieldcheckEnterEscape(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_companyFieldcheckEnterEscape
-        // Check to see if the enter or escape key was pressed.
-        if ( evt.getKeyCode() == KeyEvent.VK_ENTER )
-        doSave();
-        else if ( evt.getKeyCode() == KeyEvent.VK_ESCAPE )
-        doCancel();
-    }//GEN-LAST:event_companyFieldcheckEnterEscape
+    }//GEN-LAST:event_validateData
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;

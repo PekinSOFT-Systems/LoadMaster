@@ -23,7 +23,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
-import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -32,12 +32,13 @@ import javax.swing.JTextField;
  * @since 0.1.0
  */
 public class PostalCodeVerifier extends InputVerifier {
-    private final Color errFore = Color.YELLOW;
-    private final Color errBack = Color.RED;
+
+    private final Color errFore = new Color(0.26f, 0.012f, 0.012f);
+    private final Color errBack = new Color(1.0f, 0.752f, 0.752f);
     private final Color fore = SystemColor.textText;
     private final Color back = SystemColor.text;
     private final Color ctl = SystemColor.control;
-    
+
     /**
      * This method checks the provided Zip Code (or Postal Code) and validates
      * that the provided data is either a U.S. Zip Code or a Canadian Postal
@@ -45,36 +46,32 @@ public class PostalCodeVerifier extends InputVerifier {
      * <p>
      * The validation routine uses regular expressions to disqualify characters
      * that are not included in valid Zip and Postal Codes. U.S. Zip Codes may
-     * be entered either with or without the Plus-4 part of the Zip Code and pass
-     * validation. Canadian Postal Codes must be of the format A0A0A0, or A0A 
-     * 0A0. <strong>All</strong> Canadian Postal Codes are of the letter-number-letter
-     * number-letter-number format. The first letter, in the first section,
-     * designates the Province in which that Postal Code is located, i.e.,
-     * 'Y' for Yukon or 'M' for Manitoba, etc.</p>
+     * be entered either with or without the Plus-4 part of the Zip Code and
+     * pass validation. Canadian Postal Codes must be of the format A0A0A0, or
+     * A0A 0A0. <strong>All</strong> Canadian Postal Codes are of the
+     * letter-number-letter number-letter-number format. The first letter, in
+     * the first section, designates the Province in which that Postal Code is
+     * located, i.e., 'Y' for Yukon or 'M' for Manitoba, etc.</p>
      * <p>
      * The current version of the {@code isValidPostalCode} method does not
      * validate the Postal Code to the Province, nor the Zip Code to the State.
      * However, this method could be updated in the future to provide such
      * validation.
-     * 
+     *
      * @param input The object that contains the postal code to validate.
      * @return Whether the code is valid or not.
      */
     @Override
     public boolean verify(JComponent input) {
         String zipCode = new String();
-        
-        // Make sure that the JComponent parameter is a JTextField.
-        if ( input instanceof JTextField ) {
-            // Since it is, get the text from the object.
-            zipCode = ((JTextField) input).getText();
-        }
-        
+
+        zipCode = ((JTextComponent) input).getText();
+
         // Create our return variable and default it to invalid.
         boolean isValid = false;
 
-        if ( zipCode != null && !zipCode.isEmpty() && !zipCode.isBlank() 
-                && !zipCode.equalsIgnoreCase("unavailable") ) {
+        if (zipCode != null && !zipCode.isEmpty() && !zipCode.isBlank()
+                && !zipCode.equalsIgnoreCase("unavailable")) {
             // Create our regex strings.
             String regEx = "^(\\d{5}(-\\d{4})?|[A-CEGHJ-NPRSTVXY]\\d[A-CEGHJ-NPRSTV-Z]";
             regEx += " ?\\d[A-CEGHJ-NPRSTV-Z]\\d)$";
@@ -88,23 +85,32 @@ public class PostalCodeVerifier extends InputVerifier {
             // Check the validity of the supplied Zip/Postal Code.
             isValid = matcher.matches();
 
-            if ( isValid ) {
-                ((JTextField) input).setBackground(back);
-                ((JTextField) input).setForeground(fore);
+            if (isValid) {
+                ((JTextComponent) input).setBackground(back);
+                ((JTextComponent) input).setForeground(fore);
                 Customers.helpPanel.setBackground(ctl);
                 Customers.helpLabel.setText("");
             } else {
-                ((JTextField) input).setBackground(errBack);
-                ((JTextField) input).setForeground(errFore);
-                Customers.helpPanel.setBackground(Color.RED);
-                Customers.helpLabel.setText("Zip Code is required and must be a "
-                        + "valid US Zip Code or Canadian Postal Code.");
+                ((JTextComponent) input).setBackground(errBack);
+                ((JTextComponent) input).setForeground(errFore);
+                Customers.helpPanel.setBackground(errBack);
+                Customers.helpLabel.setText("<html>Zip Code is a  <strong><em>required"
+                        + "</em></strong> field and must be a valid US Zip Code or "
+                        + "Canadian Postal Code, which \""
+                        + ((JTextComponent) input).getText() + "\" is not.");
             }
-        } else 
+        } else {
             isValid = true;
-        
+        }
+
         // Return our findings.
         return isValid;
     }
-    
+
+    @Override
+    public boolean shouldYieldFocus(JComponent source, JComponent target) {
+        return super.shouldYieldFocus(source, target);
+    }
+
 }
+
