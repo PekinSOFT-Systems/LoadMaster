@@ -39,6 +39,7 @@
  *                                      - getApplicationDataFolderByOS
  *                                      - getApplicationSettingsLocationByOS
  *                                      - getSystemLogLocationByOS
+ *  Nov 27, 2020  Sean Carrick        Fixed JavaDoc copy/paste mistake.
  * *****************************************************************************
  */
 
@@ -103,7 +104,7 @@ public class Utils {
      * 
      * The typical location for data files on each OS are:
      * 
-     * | Operating System | Application Data Location |
+     * | Operating System | Application Root Location |
      * | ---------------- | ------------------------- |
      * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\ |
      * | Apple Mac OS-X™ | {user.home}/Library/Application Data/LoadMaster/ |
@@ -166,7 +167,7 @@ public class Utils {
      * application settings files. Each OS has a different location where these
      * file get stored, and this method allows applications to follow those
      * well-established standards.
-     * | Operating System | Application Data Location |
+     * | Operating System | Application Settings Location |
      * | ---------------- | ------------------------- |
      * | Microsoft Windows™ | {user.home}\\AppData\\LoadMaster\\LoadMaster.cnf |
      * | Apple Mac OS-X™ | {user.home}/Library/Preferences/LoadMaster/LoadMaster.pref |
@@ -201,7 +202,7 @@ public class Utils {
      * application log files. Each OS has a different location where these
      * file get stored, and this method allows applications to follow those
      * well-established standards.
-     * | Operating System | Application Data Location |
+     * | Operating System | Application Logs Location |
      * | ---------------- | ------------------------- |
      * | Microsoft Windows™ | %SystemRoot%\System32\Config\LoadMaster\loadmaster.evt |
      * | Apple Mac OS-X™ | /Library/Logs/LoadMaster/application.log |
