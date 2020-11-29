@@ -33,11 +33,12 @@
  */
 package com.pekinsoft.loadmaster.verifiers;
 
-import com.pekinsoft.loadmaster.view.Customers;
 import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.text.JTextComponent;
 
 /**
@@ -63,6 +64,14 @@ public class DataPresentVerifier extends InputVerifier {
     private final Color fore = SystemColor.textText;
     private final Color back = SystemColor.text;
     private final Color ctl = SystemColor.control;
+    private JPanel helpPanel;
+    private JLabel helpLabel;
+
+    public DataPresentVerifier(JPanel helpPanel, JLabel helpLabel) {
+        super();
+        this.helpPanel = helpPanel;
+        this.helpLabel = helpLabel;
+    }
 
     /**
      * This verifies that some sort of data is present. The data may not be able
@@ -74,30 +83,20 @@ public class DataPresentVerifier extends InputVerifier {
      */
     @Override
     public boolean verify(JComponent input) {
-        boolean isValid;
+        JTextComponent textInput = (JTextComponent) input;
 
-        if (((JTextComponent) input).getText() == null
-                || ((JTextComponent) input).getText().isBlank()
-                || ((JTextComponent) input).getText().isEmpty()) {
-            isValid = false;
-        } else {
-            isValid = true;
+        if (textInput.getText().isBlank() || textInput.getText().isEmpty()) {
+            textInput.setBackground(errBack);
+            textInput.setForeground(errFore);
+            helpPanel.setBackground(errBack);
+            helpLabel.setText("<html>This is a <strong><em>required </em></strong> field, so something needs to be entered.");
+            return false;
         }
-
-        if (isValid) {
-            ((JTextComponent) input).setBackground(back);
-            ((JTextComponent) input).setForeground(fore);
-            Customers.helpPanel.setBackground(ctl);
-            Customers.helpLabel.setText("");
-        } else {
-            ((JTextComponent) input).setBackground(errBack);
-            ((JTextComponent) input).setForeground(errFore);
-            Customers.helpPanel.setBackground(errBack);
-            Customers.helpLabel.setText("<html>This is a <strong><em>required"
-                    + "</em></strong> field, so something needs to be entered.");
-        }
-
-        return isValid;
+        textInput.setBackground(back);
+        textInput.setForeground(fore);
+        helpPanel.setBackground(ctl);
+        helpLabel.setText("");
+        return true;
     }
 
 }

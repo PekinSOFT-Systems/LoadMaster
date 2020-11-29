@@ -49,7 +49,6 @@ import java.awt.SystemColor;
 import java.awt.event.KeyEvent;
 import java.util.logging.LogRecord;
 import java.util.logging.Level;
-import javax.swing.JTextField;
 
 /**
  *
@@ -96,11 +95,11 @@ public class Customers extends javax.swing.JInternalFrame {
         initComponents();
 
         // Set up the input verifiers for the state and zip fields.
-        stateField.setInputVerifier(new StateAbbrVerifier());
-        zipField.setInputVerifier(new PostalCodeVerifier());
-        companyField.setInputVerifier(new DataPresentVerifier());
-        cityField.setInputVerifier(new DataPresentVerifier());
-        streetField.setInputVerifier(new DataPresentVerifier());
+        stateField.setInputVerifier(new StateAbbrVerifier(helpPanel, helpLabel));
+        zipField.setInputVerifier(new PostalCodeVerifier(helpPanel, helpLabel));
+        companyField.setInputVerifier(new DataPresentVerifier(helpPanel, helpLabel));
+        cityField.setInputVerifier(new DataPresentVerifier(helpPanel, helpLabel));
+        streetField.setInputVerifier(new DataPresentVerifier(helpPanel, helpLabel));
 
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
 
@@ -622,115 +621,42 @@ public class Customers extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
-        String name = "";
-
-        if (evt.getSource() instanceof javax.swing.JTextField) {
-            name = ((javax.swing.JTextField) evt.getSource()).getName();
-            ((javax.swing.JTextField) evt.getSource()).selectAll();
-        } else if (evt.getSource() instanceof javax.swing.JTextArea) {
-            name = ((javax.swing.JTextArea) evt.getSource()).getName();
-            ((javax.swing.JTextArea) evt.getSource()).select(
-                    ((javax.swing.JTextArea) evt.getSource()).getText().length(),
-                    ((javax.swing.JTextArea) evt.getSource()).getText().length());
-        }
-
         String msg = "";
+        if (cityField.hasFocus()) msg = "<html>City in which the customer is located. This is a <strong>required</strong> field.";
+        if (companyField.hasFocus()) msg = "<html>Company name for this customer. This is a <strong>required</strong> field.";
+        if (streetField.hasFocus()) msg = "<html>Street address for this customer. This is a <strong>required</strong> field.";
+        if (suiteField.hasFocus()) msg = "<html>Suite number for this customer, if any. This field is <em>optional</em>.";
+        if (stateField.hasFocus()) msg = "<html>Postal abbreviation for the state or province in which this customer is located. This is a <strong>required</strong> field.";
+        if (zipField.hasFocus()) msg = "<html>Postal (Zip) Code for this customer. This is a <strong>required</strong> field.";
+        if (contactField.hasFocus()) msg = "<html>Name of contact at this customer. This field is <em>optional</em>.";
+        if (phoneField.hasFocus()) msg = "<html>Phone number for this customer. This field is <em>optional</em>.";
+        if (notesField.hasFocus()) msg = "<html>Any notes or comments about this customer. This field is <em>optional</em>.";
 
-        switch (name) {
-            case "cityField":
-                msg = "<html>City in which the customer is located. "
-                        + "This is a <strong>required</strong> field.";
-                break;
-            case "companyField":
-                msg = "<html>Company name for this customer. This "
-                        + "is a <strong>required</strong> field.";
-                break;
-            case "streetField":
-                msg = "<html>Street address for this customer. This"
-                        + " is a <strong>required</strong> field.";
-                break;
-            case "suiteField":
-                msg = "<html>Suite number for this customer, if any"
-                        + ". This field is <em>optional</em>.";
-                break;
-            case "stateField":
-                msg = "<html>Postal abbreviation for the state or "
-                        + "province in which this customer is located. This is "
-                        + "a <strong>required</strong> field.";
-                break;
-            case "zipField":
-                msg = "<html>Postal (Zip) Code for this customer. This is a "
-                        + "<strong>required</strong> field.";
-                break;
-            case "contactField":
-                msg = "<html>Name of contact at this customer. This field is "
-                        + "<em>optional</em>.";
-                break;
-            case "phoneField":
-                msg = "<html>Phone number for this customer. This field is "
-                        + "<em>optional</em>.";
-                break;
-            case "notesField":
-                msg = "<html>Any notes or comments about this customer. This "
-                        + "field is <em>optional</em>.";
-                break;
-            default:
-                msg = "";
-                break;
-        }
-
-        if (msg != null && !msg.isBlank() && !msg.isEmpty()) {
-            helpPanel.setBackground(tip);
-            helpLabel.setForeground(tipText);
-            helpLabel.setText(msg);
-        } else {
+        if (msg.isEmpty()) {
             helpPanel.setBackground(ctl);
             helpLabel.setForeground(fore);
             helpLabel.setText("");
+        } else {
+            helpPanel.setBackground(tip);
+            helpLabel.setForeground(tipText);
+            helpLabel.setText(msg);
         }
     }//GEN-LAST:event_doSelection
 
     private void validateData(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_validateData
-        if (evt.getSource() instanceof JTextField) {
-            if (((JTextField) evt.getSource()).getAccessibleContext()
-                    .getAccessibleDescription() != null) {
+        boolean formValid = true;
+        if (companyField.getText().isBlank()) formValid = false;
+        if (companyField.getText().isEmpty()) formValid = false;
+        if (streetField.getText().isBlank()) formValid = false;
+        if (streetField.getText().isEmpty()) formValid = false;
+        if (cityField.getText().isBlank()) formValid = false;
+        if (cityField.getText().isEmpty()) formValid = false;
+        if (stateField.getText().isBlank()) formValid = false;
+        if (stateField.getText().isEmpty()) formValid = false;
+        if (zipField.getText().isBlank()) formValid = false;
+        if (zipField.getText().isEmpty()) formValid = false;
 
-                switch (((JTextField) evt.getSource()).getName()) {
-                    case "companyField":
-                    case "streetField":
-                    case "cityField":
-                    case "stateField":
-                    case "zipField":
-
-                        if (((JTextField) evt.getSource()).getText().isBlank()
-                                || ((JTextField) evt.getSource()).getText()
-                                        .isEmpty()) {
-                            ((JTextField) evt.getSource()).setForeground(errFore);
-                            ((JTextField) evt.getSource()).setBackground(errBack);
-                        } else {
-                            ((JTextField) evt.getSource()).setForeground(fore);
-                            ((JTextField) evt.getSource()).setBackground(back);
-                        }
-
-                        break;
-                    default:
-                        break;
-                }
-            } else {
-                ((JTextField) evt.getSource()).setForeground(fore);
-                ((JTextField) evt.getSource()).setBackground(back);
-            }
-
-            if (companyField.getText().isBlank() || companyField.getText().isEmpty()
-                    && streetField.getText().isBlank() || streetField.getText().isEmpty()
-                    && cityField.getText().isBlank() || cityField.getText().isEmpty()
-                    && stateField.getText().isBlank() || stateField.getText().isEmpty()
-                    && zipField.getText().isBlank() || zipField.getText().isEmpty()) {
-                saveButton.setEnabled(false);
-            } else {
-                saveButton.setEnabled(true);
-            }
-        }
+        saveButton.setEnabled(formValid);
     }//GEN-LAST:event_validateData
 
 
@@ -739,8 +665,8 @@ public class Customers extends javax.swing.JInternalFrame {
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField companyField;
     private javax.swing.JTextField contactField;
-    public static javax.swing.JLabel helpLabel;
-    public static javax.swing.JPanel helpPanel;
+    javax.swing.JLabel helpLabel;
+    javax.swing.JPanel helpPanel;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -762,4 +688,5 @@ public class Customers extends javax.swing.JInternalFrame {
     private javax.swing.JTextField suiteField;
     private javax.swing.JTextField zipField;
     // End of variables declaration//GEN-END:variables
+
 }

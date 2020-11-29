@@ -260,7 +260,7 @@
     </Component>
     <Container class="javax.swing.JPanel" name="helpPanel">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
       </AuxValues>
 
       <Layout>
@@ -286,7 +286,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="helpLabel">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
           </AuxValues>
         </Component>
       </SubComponents>

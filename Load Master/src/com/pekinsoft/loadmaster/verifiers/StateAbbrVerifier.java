@@ -17,11 +17,12 @@
 package com.pekinsoft.loadmaster.verifiers;
 
 import com.pekinsoft.loadmaster.utils.Utils;
-import com.pekinsoft.loadmaster.view.Customers;
 import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.text.JTextComponent;
 
 /**
@@ -35,37 +36,34 @@ public class StateAbbrVerifier extends InputVerifier {
     private final Color errFore = new Color(0.26f, 0.012f, 0.012f);
     private final Color errBack = new Color(1.0f, 0.752f, 0.752f);
     private final Color fore = SystemColor.textText;
+    private JPanel helpPanel;
+    private JLabel helpLabel;
+
+    public StateAbbrVerifier(JPanel helpPanel, JLabel helpLabel) {
+        super();
+        this.helpPanel = helpPanel;
+        this.helpLabel = helpLabel;
+    }
+    
     private final Color back = SystemColor.text;
     private final Color ctl = SystemColor.control;
 
     @Override
     public boolean verify(JComponent input) {
-        boolean isValid;
+        JTextComponent textInput = (JTextComponent) input;
 
-        isValid = ((JTextComponent) input) != null
-                && ((JTextComponent) input).getText().length() > 0;
-
-        if (isValid) {
-            isValid = Utils.createStateAbbreviations().contains(
-                    ((JTextComponent) input).getText());
+        if (!Utils.createStateAbbreviations().contains(textInput.getText())) {
+            textInput.setBackground(errBack);
+            textInput.setForeground(errFore);
+            helpPanel.setBackground(errBack);
+            helpLabel.setText("<html>Zip Code is a  <strong><em>required </em></strong> field and must be a valid US Zip Code or Canadian Postal Code, which \"" + textInput.getText() + "\" is not.");
+            return false;
         }
-
-        if (!isValid) {
-            ((JTextComponent) input).setBackground(errBack);
-            ((JTextComponent) input).setForeground(errFore);
-            Customers.helpPanel.setBackground(ctl);
-            Customers.helpLabel.setText("");
-        } else {
-            ((JTextComponent) input).setBackground(errBack);
-            ((JTextComponent) input).setForeground(errFore);
-            Customers.helpPanel.setBackground(errBack);
-            Customers.helpLabel.setText("<html>Zip Code is a  <strong><em>required"
-                    + "</em></strong> field and must be a valid US Zip Code or "
-                    + "Canadian Postal Code, which \""
-                    + ((JTextComponent) input).getText() + "\" is not.");
-        }
-
-        return isValid;
+        textInput.setBackground(back);
+        textInput.setForeground(fore);
+        helpPanel.setBackground(ctl);
+        helpLabel.setText("");
+        return true;
     }
 
 }
