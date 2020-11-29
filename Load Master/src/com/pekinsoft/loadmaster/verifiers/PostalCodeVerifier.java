@@ -16,13 +16,14 @@
  */
 package com.pekinsoft.loadmaster.verifiers;
 
-import com.pekinsoft.loadmaster.view.Customers;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.text.JTextComponent;
 
 /**
@@ -38,6 +39,14 @@ public class PostalCodeVerifier extends InputVerifier {
     private final Color fore = SystemColor.textText;
     private final Color back = SystemColor.text;
     private final Color ctl = SystemColor.control;
+    private JPanel helpPanel;
+    private JLabel helpLabel;
+
+    public PostalCodeVerifier(JPanel helpPanel, JLabel helpLabel) {
+        super();
+        this.helpPanel = helpPanel;
+        this.helpLabel = helpLabel;
+    }
 
     /**
      * This method checks the provided Zip Code (or Postal Code) and validates
@@ -63,15 +72,10 @@ public class PostalCodeVerifier extends InputVerifier {
      */
     @Override
     public boolean verify(JComponent input) {
-        String zipCode = new String();
+        JTextComponent zipCodeComponent = (JTextComponent) input;
+        String zipCode = zipCodeComponent.getText();
 
-        zipCode = ((JTextComponent) input).getText();
-
-        // Create our return variable and default it to invalid.
-        boolean isValid = false;
-
-        if (zipCode != null && !zipCode.isEmpty() && !zipCode.isBlank()
-                && !zipCode.equalsIgnoreCase("unavailable")) {
+        if (!zipCode.isEmpty() && !zipCode.isBlank() && !zipCode.equalsIgnoreCase("unavailable")) {
             // Create our regex strings.
             String regEx = "^(\\d{5}(-\\d{4})?|[A-CEGHJ-NPRSTVXY]\\d[A-CEGHJ-NPRSTV-Z]";
             regEx += " ?\\d[A-CEGHJ-NPRSTV-Z]\\d)$";
@@ -83,28 +87,19 @@ public class PostalCodeVerifier extends InputVerifier {
             Matcher matcher = pattern.matcher(zipCode);
 
             // Check the validity of the supplied Zip/Postal Code.
-            isValid = matcher.matches();
-
-            if (isValid) {
-                ((JTextComponent) input).setBackground(back);
-                ((JTextComponent) input).setForeground(fore);
-                Customers.helpPanel.setBackground(ctl);
-                Customers.helpLabel.setText("");
-            } else {
-                ((JTextComponent) input).setBackground(errBack);
-                ((JTextComponent) input).setForeground(errFore);
-                Customers.helpPanel.setBackground(errBack);
-                Customers.helpLabel.setText("<html>Zip Code is a  <strong><em>required"
-                        + "</em></strong> field and must be a valid US Zip Code or "
-                        + "Canadian Postal Code, which \""
-                        + ((JTextComponent) input).getText() + "\" is not.");
+            if (matcher.matches()) {
+                zipCodeComponent.setBackground(back);
+                zipCodeComponent.setForeground(fore);
+                helpPanel.setBackground(ctl);
+                helpLabel.setText("");
+                return true;
             }
-        } else {
-            isValid = true;
         }
-
-        // Return our findings.
-        return isValid;
+        zipCodeComponent.setBackground(errBack);
+        zipCodeComponent.setForeground(errFore);
+        helpPanel.setBackground(errBack);
+        helpLabel.setText("<html>Zip Code is a  <strong><em>required </em></strong> field and must be a valid US Zip Code or Canadian Postal Code, which \"" + zipCodeComponent.getText() + "\" is not.");
+        return false;
     }
 
     @Override
@@ -113,4 +108,3 @@ public class PostalCodeVerifier extends InputVerifier {
     }
 
 }
-

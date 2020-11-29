@@ -35,7 +35,6 @@
 package com.pekinsoft.loadmaster.view;
 
 import com.pekinsoft.loadmaster.Starter;
-import com.pekinsoft.loadmaster.controller.BrokerCtl;
 import com.pekinsoft.loadmaster.controller.CustomerCtl;
 import com.pekinsoft.loadmaster.err.DataStoreException;
 import com.pekinsoft.loadmaster.model.CustomerModel;
@@ -93,11 +92,11 @@ public class NewCustomerDlg extends javax.swing.JDialog {
         setLocation(left, top);
 
         // Set up the input verifiers for the state and zip fields.
-        stateField.setInputVerifier(new StateAbbrVerifier());
-        zipField.setInputVerifier(new PostalCodeVerifier());
-        companyField.setInputVerifier(new DataPresentVerifier());
-        cityField.setInputVerifier(new DataPresentVerifier());
-        streetField.setInputVerifier(new DataPresentVerifier());
+        stateField.setInputVerifier(new StateAbbrVerifier(helpPanel, helpLabel));
+        zipField.setInputVerifier(new PostalCodeVerifier(helpPanel, helpLabel));
+        companyField.setInputVerifier(new DataPresentVerifier(helpPanel, helpLabel));
+        cityField.setInputVerifier(new DataPresentVerifier(helpPanel, helpLabel));
+        streetField.setInputVerifier(new DataPresentVerifier(helpPanel, helpLabel));
 
         try {
             records = new CustomerCtl();
@@ -731,8 +730,8 @@ public class NewCustomerDlg extends javax.swing.JDialog {
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField companyField;
     private javax.swing.JTextField contactField;
-    public static javax.swing.JLabel helpLabel;
-    public static javax.swing.JPanel helpPanel;
+    javax.swing.JLabel helpLabel;
+    javax.swing.JPanel helpPanel;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

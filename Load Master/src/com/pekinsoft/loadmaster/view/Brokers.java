@@ -62,11 +62,11 @@ public class Brokers extends javax.swing.JInternalFrame {
     private final Color ctl = SystemColor.control;
     private final Color tip = SystemColor.info;
     private final Color tipText = SystemColor.infoText;
-        
+
     private BrokerCtl records;
     private BrokerModel broker;
     private final LogRecord lr;
-    
+
     /**
      * Creates new form Brokers
      */
@@ -75,7 +75,7 @@ public class Brokers extends javax.swing.JInternalFrame {
         lr.setSourceClassName(Brokers.class.getName());
         lr.setSourceMethodName("Brokers");
         Starter.logger.enter(lr);
-        
+
         lr.setMessage("Attempting to access the brokers database...");
         Starter.logger.debug(lr);
         try {
@@ -85,28 +85,28 @@ public class Brokers extends javax.swing.JInternalFrame {
             lr.setMessage("Something went wrong accessing the brokers database.");
             lr.setThrown(ex);
             Starter.logger.error(lr);
-            
+
             MessageBox.showError(ex, "Database Access");
-            
+
             records = null;
         }
-        
+
         initComponents();
-        
+
         // Set up the input verifiers for the state and zip fields.
-        stateField.setInputVerifier(new StateAbbrVerifier());
-        zipField.setInputVerifier(new PostalCodeVerifier());
-        
+        stateField.setInputVerifier(new StateAbbrVerifier(helpPanel, helpLabel));
+        zipField.setInputVerifier(new PostalCodeVerifier(helpPanel, helpLabel));
+
         setTitle(getTitle() + " (" + records.getRecordCount() + " Records)");
-        
+
         doClear();
     }
-    
+
     private void doSave() {
         lr.setSourceMethodName("doSave");
         lr.setMessage("Saving the new broker record.");
         Starter.logger.enter(lr);
-        
+
         nameField.requestFocus();
 
         broker = new BrokerModel();
@@ -124,14 +124,14 @@ public class Brokers extends javax.swing.JInternalFrame {
         broker.setStreet(streetField.getText());
         broker.setSuite(suiteField.getText());
         broker.setZip(zipField.getText());
-        
+
         if ( records.getRecordCount() > 0 ) {
             BrokerModel tester = null;
 
             try {
                 LoadMaster.fileProgress.setVisible(true);
 
-                tester = records.getByCompany(broker.getCompany(), 
+                tester = records.getByCompany(broker.getCompany(),
                         LoadMaster.fileProgress);
 
                 LoadMaster.fileProgress.setVisible(false);
@@ -143,14 +143,14 @@ public class Brokers extends javax.swing.JInternalFrame {
 
                 MessageBox.showError(ex, "Database Access");
             }
-        
+
             // Check to see if the record exists
             if ( tester != null ) {
                 if ( tester.getCompany().equalsIgnoreCase(broker.getCompany())
                         && tester.getCity().equalsIgnoreCase(broker.getCity())
                         && tester.getState().equalsIgnoreCase(broker.getState()) ) 
-                    MessageBox.showInfo("Broker: " + broker.getCompany() + " in " 
-                            + broker.getCity() + ", " + broker.getState() 
+                    MessageBox.showInfo("Broker: " + broker.getCompany() + " in "
+                            + broker.getCity() + ", " + broker.getState()
                             + " already exists.", "Broker Exists");
                 else 
                     records.addNew(broker);
@@ -198,19 +198,19 @@ public class Brokers extends javax.swing.JInternalFrame {
             doClear();
         }
     }
-    
+
     private void doCancel() {
         lr.setSourceMethodName("doCancel");
         lr.setMessage("Entering the form closing function.");
         Starter.logger.enter(lr);
-        
+
         LoadMaster.fileProgress.setValue(0);
-        
+
         lr.setMessage("Closing the window.");
         Starter.logger.exit(lr, null);
         dispose();
     }
-    
+
     private void doClear() {
         broker = new BrokerModel();
         idField.setText(String.valueOf(broker.getId()));
@@ -225,14 +225,14 @@ public class Brokers extends javax.swing.JInternalFrame {
         faxField.setText("");
         emailField.setText("");
     }
-    
+
     private boolean isOneNamePresent() {
         return ( nameField.getText() != null && !nameField.getText().isBlank() 
                 && !nameField.getText().isEmpty() ) ||
                 ( companyField.getText() != null && !companyField.getText().isBlank()
                 && !companyField.getText().isEmpty() );
     }
-    
+
     private boolean isOneContactMethodPresent() {
         return ( phoneField.getValue() != null && !phoneField.getValue().equals("") ) 
                 || ( faxField.getValue() != null && !faxField.getText().equals("") ) ||
@@ -243,10 +243,10 @@ public class Brokers extends javax.swing.JInternalFrame {
                 ( stateField.getText() != null && !stateField.getText().isBlank()
                     && !stateField.getText().isEmpty() ) &&
                 ( zipField.getText() != null && !zipField.getText().isBlank()
-                    && !zipField.getText().isEmpty() 
+                && !zipField.getText().isEmpty()
                     && !zipField.getText().equalsIgnoreCase("unavailable") ))
                 || ( emailField.getText() != null 
-                    && !emailField.getText().isBlank()
+                && !emailField.getText().isBlank()
                     && !emailField.getText().isEmpty() );
     }
 
@@ -667,7 +667,7 @@ public class Brokers extends javax.swing.JInternalFrame {
 
     private void doSelection(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_doSelection
         String name = "";
-        
+
         if ( evt.getSource() instanceof javax.swing.JTextField ) {
             name = ((javax.swing.JTextField)evt.getSource()).getName();
             ((javax.swing.JTextField)evt.getSource()).selectAll();
@@ -677,9 +677,9 @@ public class Brokers extends javax.swing.JInternalFrame {
                     ((javax.swing.JTextArea)evt.getSource()).getText().length(), 
                     ((javax.swing.JTextArea)evt.getSource()).getText().length());
         }
-        
+
         String msg = "";
-        
+
         switch ( name ) {
             case "cityField":
                 msg = "<html>City in which the broker is located. "
@@ -729,7 +729,7 @@ public class Brokers extends javax.swing.JInternalFrame {
                 msg = "";
                 break;
         }
-        
+
         if ( msg != null && !msg.isBlank() && !msg.isEmpty() ) {
             helpPanel.setBackground(tip);
             helpLabel.setForeground(tipText);
@@ -745,7 +745,7 @@ public class Brokers extends javax.swing.JInternalFrame {
         // Deselect the text in the field.
         if ( evt.getSource() instanceof JTextField )
             ((JTextField)evt.getSource()).select(0, 0);
-        
+
         saveButton.setEnabled(isOneContactMethodPresent() && isOneNamePresent());
     }//GEN-LAST:event_validateData
 
@@ -757,8 +757,8 @@ public class Brokers extends javax.swing.JInternalFrame {
     private javax.swing.JPanel controlPanel;
     private javax.swing.JTextField emailField;
     private javax.swing.JFormattedTextField faxField;
-    public static javax.swing.JLabel helpLabel;
-    public static javax.swing.JPanel helpPanel;
+    javax.swing.JLabel helpLabel;
+    javax.swing.JPanel helpPanel;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
